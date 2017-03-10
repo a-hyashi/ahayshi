@@ -1,0 +1,193 @@
+/*
+---
+name: 015_枠(流れ 左 → 右)×２
+tag:
+  - main
+category:
+  - 全部品
+  - 11.枠
+  - 11.枠/015_枠(流れ 左 → 右)×２
+---
+# 枠(流れ 左 → 右)×２
+
+### 基本形
+
+#### バリエーション1
+
+```issues
+* 基本形のhdの下には15pxの余白をあける。
+```
+
+```html
+<div class="b-bPlacer-12s">
+  <div class="t0-b-flow2LeftToRight">
+    <div class="t0-b-flow2LeftToRight__hd">
+
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+
+    </div>
+    <div class="t0-b-flow2LeftToRight__bd">
+    <div class="t0-b-flow2LeftToRight__box"><div><span><span><span></span></span></span>
+
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+
+    </div></div>
+
+    <div class="t0-b-flow2LeftToRight__arrow"><div class="t0-b-flow2LeftToRight__arrow-inner"></div></div>
+
+    <div class="t0-b-flow2LeftToRight__box"><div><span><span><span></span></span></span>
+
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+
+    </div></div>
+    </div>
+  </div>
+<!-- /b-bPlacer-12s --></div>
+```
+
+#### バリエーション2
+
+```html
+<div class="b-bPlacer-12s">
+  <div class="t0-b-flow2LeftToRight2">
+    <div class="t0-b-flow2LeftToRight2__hd">
+
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+
+    </div>
+    <div class="t0-b-flow2LeftToRight2__bd">
+    <div class="t0-b-flow2LeftToRight2__box"><div><span><span><span></span></span></span>
+
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+
+    </div></div>
+
+    <div class="t0-b-flow2LeftToRight2__arrow"><div class="t0-b-flow2LeftToRight2__arrow-inner"></div></div>
+
+    <div class="t0-b-flow2LeftToRight2__box"><div><span><span><span></span></span></span>
+
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+
+    </div></div>
+    </div>
+  </div>
+<!-- /b-bPlacer-12s --></div>
+```
+
+
+
+*/
+@if $device == PC {
+  .t0-b-flow2LeftToRight,
+  .t0-b-flow3LeftToRight,
+  .t0-b-flow4LeftToRight,
+  .t0-b-flow5LeftToRight,
+  .t0-b-flow6LeftToRight,
+  .t0-b-flow7LeftToRight {
+    width: 100%;
+
+    &__hd {
+      padding-bottom: 15px;
+    }
+
+    &__bd {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 2%;
+    }
+  }
+
+  .t0-b-flow2LeftToRight2,
+  .t0-b-flow3LeftToRight2,
+  .t0-b-flow4LeftToRight2,
+  .t0-b-flow5LeftToRight2,
+  .t0-b-flow6LeftToRight2,
+  .t0-b-flow7LeftToRight2 {
+    width: 100%;
+
+    &__hd {
+      padding-bottom: 15px;
+    }
+
+    &__bd {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      height: 100%;
+    }
+
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+      height: 100%;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 60px;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    &__arrow-inner {
+      display: inline-block;
+      height: 50px;
+      background: #{image-url('t0-b-arrow/2.png')} no-repeat 50% 40%;
+      width: 100%;
+      margin-top: -5px;
+    }
+  }
+
+  //2列部品の右列の幅変更記述
+  .t0-b-flow2LeftToRight,
+  .t0-b-flow2LeftToRight2 {
+    $_block: &;
+
+    &--colW-l &__box {
+      width: 22.3%;
+    }
+
+    &--colW-l &__box ~ &__box {
+      width: 72.7%;
+    }
+
+    &--colW-m &__box {
+      width: 30.7%;
+    }
+
+    &--colW-m &__box ~ &__box {
+      width: 64.2%;
+    }
+  }
+
+  .t0-b-flow5LeftToRight,
+  .t0-b-flow6LeftToRight,
+  .t0-b-flow7LeftToRight {
+    &__arrow {
+      width: 1%;
+    }
+  }
+
+  .t0-b-flow5LeftToRight2,
+  .t0-b-flow6LeftToRight2,
+  .t0-b-flow7LeftToRight2 {
+    &__arrow {
+      width: 40px;
+    }
+  }
+
+}
+
+@if $device == SP {
+
+}

@@ -1,0 +1,462 @@
+/*
+---
+name: 036_番号アイコン付き見出し
+tag:
+  - main
+category:
+  - 全部品
+  - 01.見出し
+  - 01.見出し/036_番号アイコン付き見出し
+---
+
+### 基本形
+
+#### バリエーション1
+
+```html
+<div class="b-bPlacer-3s">
+  <div class="t0-b-lv4H-numIcon" style="overflow: hidden;"><div>
+    <div class="t0-b-lv4H-numIcon__iconPlacer"><span class="t0-b-lv4H-numIcon__icon t0-b-lv4H-numIcon__icon--anshin-1"></span></div>
+    <div class="t0-b-lv4H-numIcon__bd">
+      <div class="t0-b-lv4H-numIcon__caption-upper">キャプション上</div>
+        <a href="#"><h4 class="t0-b-lv4H-numIcon__h">リンク設定あり</h4></a>
+      <div class="t0-b-lv4H-numIcon__caption-lower">キャプション下</div>
+    <!-- /t0-b-lv4H-numIcon__bd --></div>
+  <!-- /t0-b-lv4H-numIcon --></div></div>
+<!-- /b-bPlacer-3s --></div>
+<div class="b-bPlacer-3s">
+  <div class="t0-b-lv4H-numIcon" style="overflow: hidden;"><div>
+    <div class="t0-b-lv4H-numIcon__iconPlacer"><span class="t0-b-lv4H-numIcon__icon t0-b-lv4H-numIcon__icon--anshin-1"></span></div>
+    <div class="t0-b-lv4H-numIcon__bd">
+        <h4 class="t0-b-lv4H-numIcon__h">補足なし<span style="color:#FF0000">(文字大きくなる)</span></h4>
+    <!-- /t0-b-lv4H-numIcon__bd --></div>
+  <!-- /t0-b-lv4H-numIcon --></div></div>
+<!-- /b-bPlacer-3s --></div>
+```
+
+#### バリエーション2
+
+```html
+<div class="b-bPlacer-3s">
+  <div class="t0-b-lv4H-numIcon2" style="overflow: hidden;"><div>
+    <div class="t0-b-lv4H-numIcon2__iconPlacer"><span class="t0-b-lv4H-numIcon2__icon t0-b-lv4H-numIcon2__icon--anshin-1"></span></div>
+    <div class="t0-b-lv4H-numIcon2__bd">
+      <div class="t0-b-lv4H-numIcon2__caption-upper">キャプション上</div>
+        <a href="#"><h4 class="t0-b-lv4H-numIcon2__h">リンク設定あり</h4></a>
+      <div class="t0-b-lv4H-numIcon2__caption-lower">キャプション下</div>
+    <!-- /t0-b-lv4H-numIcon2__bd --></div>
+  <!-- /t0-b-lv4H-numIcon2 --></div></div>
+<!-- /b-bPlacer-3s --></div>
+<div class="b-bPlacer-3s">
+  <div class="t0-b-lv4H-numIcon2" style="overflow: hidden;"><div>
+    <div class="t0-b-lv4H-numIcon2__iconPlacer"><span class="t0-b-lv4H-numIcon2__icon t0-b-lv4H-numIcon2__icon--anshin-1"></span></div>
+    <div class="t0-b-lv4H-numIcon2__bd">
+        <h4 class="t0-b-lv4H-numIcon2__h">補足なし<span style="color:#FF0000">(文字大きくなる)</span></h4>
+    <!-- /t0-b-lv4H-numIcon2__bd --></div>
+  <!-- /t0-b-lv4H-numIcon2 --></div></div>
+<!-- /b-bPlacer-3s --></div>
+```
+
+
+
+*/
+@if $device == PC {
+  .t0-b-lv4H-numIcon#{$variation2-1} {
+    $_block: &;
+    line-height: 0;
+    > div {
+      display: inline-block;
+    }
+    > div > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
+    }
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding: 0 0 3px;
+    }
+    &__h {
+      @include g-font(22, 1);
+    }
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding: 3px 0 0;
+    }
+    &__caption-upper + &__h {
+      @include g-font(20, 1);
+    }
+    &__caption-upper + a > &__h {
+      @include g-font(20, 1);
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 60px 60px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &:before {
+            content: #{$_i};
+            display: block;
+            color: #fff;
+            text-indent: 22px;
+            padding-top: 40px;
+            @include g-font-spacingKilled(26, 0);
+            font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            text-align: left;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &:before {
+          content: "10";
+          display: block;
+          color: #fff;
+          text-indent: 16px;
+          padding-top: 40px;
+          @include g-font-spacingKilled(26, 0);
+          font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+          text-align: left;
+        }
+      }
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+    a {
+      text-decoration: none;
+      color: $textcolor;
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+  }
+
+  .t0-b-lv4H-numIcon#{$variation2-2} {
+    $_block: &;
+    line-height: 0;
+    > div {
+      display: inline-block;
+    }
+    > div > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
+    }
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding: 0 0 3px;
+    }
+    &__h {
+      @include g-font(22, 1);
+    }
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding: 3px 0 0;
+    }
+    &__caption-upper + &__h {
+      @include g-font(20, 1);
+    }
+    &__caption-upper + a > &__h {
+      @include g-font(20, 1);
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-lv4H-numIcon2__icon/#{$type}/bg.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 94px 49px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 94px;
+      height: 49px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &:before {
+            content: #{$_i};
+            display: block;
+            color: #fff;
+            text-indent: 63px;
+            padding-top: 24px;
+            @include g-font-spacingKilled(34, 0);
+            font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+            text-align: left;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &:before {
+          content: "10";
+          display: block;
+          color: #fff;
+          text-indent: 52px;
+          text-indent: 51px\0;
+          padding-top: 24px;
+          @include g-font-spacingKilled(34, 0);
+          font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+          text-align: left;
+        }
+      }
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+    a {
+      text-decoration: none;
+      color: $textcolor;
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+  }
+
+}
+
+@if $device == SP {
+  .t0-b-lv4H-numIcon#{$variation2-1} {
+    $_block: &;
+    line-height: 0;
+    > div {
+      display: inline-block;
+    }
+    > div > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
+    }
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding: 0 0 3px;
+    }
+    &__h {
+      @include g-font(18, 1);
+    }
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding: 3px 0 0;
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 50px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &:before {
+            content: #{$_i};
+            display: block;
+            color: #fff;
+            text-indent: 19px;
+            padding-top: 33px;
+            @include g-font-spacingKilled(20, 0);
+            font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            text-align: initial;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &:before {
+          content: "10";
+          display: block;
+          color: #fff;
+          text-indent: 14px;
+          padding-top: 33px;
+          @include g-font-spacingKilled(20, 0);
+          font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+          text-align: initial;
+        }
+      }
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+    a {
+      text-decoration: none;
+      color: $textcolor;
+    }
+  }
+
+  .t0-b-lv4H-numIcon#{$variation2-2} {
+    $_block: &;
+    line-height: 0;
+    > div {
+      display: inline-block;
+    }
+    > div > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
+    }
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding: 0 0 3px;
+    }
+    &__h {
+      @include g-font(18, 1);
+    }
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding: 3px 0 0;
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-lv4H-numIcon2__icon/sp/#{$type}/bg.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 47px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 47px;
+      height: 50px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &:before {
+            content: #{$_i};
+            display: block;
+            color: #fff;
+            text-indent: 18px;
+            padding-top: 33px;
+            @include g-font-spacingKilled(20, 0);
+            font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+            text-align: initial;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &:before {
+          content: "10";
+          display: block;
+          color: #fff;
+          text-indent: 12px;
+          padding-top: 33px;
+          @include g-font-spacingKilled(20, 0);
+          font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+          text-align: initial;
+        }
+      }
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+    a {
+      text-decoration: none;
+      color: $textcolor;
+    }
+  }
+
+}

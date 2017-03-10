@@ -1,0 +1,480 @@
+/*
+---
+name: 文章＋画像の枠
+tag:
+  - main
+category:
+  - 全部品
+  - 11.枠
+  - 11.枠/文章＋画像の枠
+---
+
+
+```hbs
+<div class="t0-b-twoColsMedia">
+  <div class="t0-b-twoColsMedia__div t0-b-twoColsMedia--spacing-4s">
+    <div class="t0-b-twoColsMedia__row1col1 outerHtml">
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div></div>
+      <div class="t0-b-twoColsMedia__row1col2">
+        <div class="outerHtml"><div style="border: 1px dashed red;padding: 5px;">要素が入る</div></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="t0-b-twoColsMedia__div t0-b-twoColsMedia--spacing-4s">
+      <div class="t0-b-twoColsMedia__row2col1 outerHtml"><div style="border: 1px dashed red;padding: 5px;">要素が入る</div></div>
+      <div class="t0-b-twoColsMedia__row2col2">
+        <div class="outerHtml"><div style="border: 1px dashed red;padding: 5px;">要素が入る</div></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="t0-b-twoColsMedia__div t0-b-twoColsMedia--spacing-4s">
+      <div class="t0-b-twoColsMedia__row3col1 outerHtml"><div style="border: 1px dashed red;padding: 5px;">要素が入る</div></div>
+      <div class="t0-b-twoColsMedia__row3col2">
+        <div class="outerHtml"><div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+```
+
+- colWidth
+- imageDirection
+- imageFloat
+- spLayout
+- userEditColWidth
+
+についてあとで書く。
+
+*/
+
+@if $device == PC {
+  .t0-b-twoColsMedia {
+    $_block: &;
+    &__div {
+      table-layout: fixed;
+      display: table;
+      width: 100%;
+      > div {
+        display: table-cell;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    .clearfix {
+      display: none;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      padding-right: #{$g-spacingBaseLength}px;
+      box-sizing: border-box;
+      .t0-b-layoutSplitter--count-3 {
+        margin-left: -10px;
+        .t0-b-layoutSplitter__div {
+          > div {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+    // direction
+    &--imgR {
+      > div {
+        direction: rtl;
+        > div {
+          direction: ltr;
+        }
+      }
+      [class^=t0-b-twoColsMedia__row][class*=col1] {
+        padding-left: #{$g-spacingBaseLength}px;
+        padding-right: 0;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .ex-imageFloat.t0-b-twoColsMedia--imgR {
+    > div {
+      direction: ltr;
+      > div {
+        direction: ltr;
+      }
+    }
+    .t0-b-twoColsMedia__div {
+      display: block;
+      width: 100%;
+      clear: both;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
+    }
+    .clearfix {
+      clear: right;
+      display: block;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      float: right;
+      padding: 0;
+      padding-left: #{$g-spacingBaseLength}px;
+      padding-top: 3px;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      @for $_i from 1 through 12 {
+        .b-bPlacer-#{$_i}s {
+          > div {
+            overflow: hidden;
+          }
+          > .t0-b-wysiwyg {
+            overflow: visible;
+            ul, ol {
+              overflow: hidden;
+            }
+          }
+          > .t0-b-layoutSplitter {
+            overflow: visible;
+            > div > div > div > div {
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h {
+      overflow: hidden;
+    }
+  }
+
+  .ex-imageFloat.t0-b-twoColsMedia--imgL {
+    .t0-b-twoColsMedia__div {
+      display: block;
+      width: 100%;
+      clear: both;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
+    }
+    .clearfix {
+      clear: left;
+      display: block;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      float: left;
+      padding: 0;
+      padding-right: #{$g-spacingBaseLength}px;
+      padding-top: 3px;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class^=b-bPlacer-] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h {
+      overflow: hidden;
+    }
+  }
+
+  .t0-b-twoColsMedia--colW-l {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 50%;
+    }
+  }
+
+  .t0-b-twoColsMedia--colW-m {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
+    }
+  }
+
+  .t0-b-twoColsMedia--colW-s {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 30%;
+    }
+  }
+
+  .ex-imageFloat.t0-b-twoColsMedia--imgR.t0-b-twoColsMedia--colW-l,
+  .ex-imageFloat.t0-b-twoColsMedia--imgL.t0-b-twoColsMedia--colW-l {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 50%;
+    }
+  }
+
+  .ex-imageFloat.t0-b-twoColsMedia--imgR.t0-b-twoColsMedia--colW-m,
+  .ex-imageFloat.t0-b-twoColsMedia--imgL.t0-b-twoColsMedia--colW-m {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
+    }
+  }
+
+  .ex-imageFloat.t0-b-twoColsMedia--imgR.t0-b-twoColsMedia--colW-s,
+  .ex-imageFloat.t0-b-twoColsMedia--imgL.t0-b-twoColsMedia--colW-s {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 30%;
+    }
+  }
+
+  .t0-b-twoColsMedia--colW-l {
+    .ex-imageFloat.t0-b-twoColsMedia--imgR,
+    .ex-imageFloat.t0-b-twoColsMedia--imgL {
+      [class^=t0-b-twoColsMedia__row][class*=col1] {
+        width: 50%;
+      }
+    }
+  }
+
+  .t0-b-twoColsMedia--colW-m {
+    .ex-imageFloat.t0-b-twoColsMedia--imgR,
+    .ex-imageFloat.t0-b-twoColsMedia--imgL {
+      [class^=t0-b-twoColsMedia__row][class*=col1] {
+        width: 40%;
+      }
+    }
+  }
+
+  .t0-b-twoColsMedia--colW-s {
+    .ex-imageFloat.t0-b-twoColsMedia--imgR,
+    .ex-imageFloat.t0-b-twoColsMedia--imgL {
+      [class^=t0-b-twoColsMedia__row][class*=col1] {
+        width: 30%;
+      }
+    }
+  }
+
+  .t0-b-article3Image {
+    .t0-b-twoColsMedia {
+      .t0-b-twoColsMedia__div {
+        [class^=t0-b-twoColsMedia__row][class*=col1] {
+          padding-right: 10px;
+          padding-left: 0;
+        }
+      }
+    }
+    .t0-b-twoColsMedia--imgR {
+      .t0-b-twoColsMedia__div {
+        [class^=t0-b-twoColsMedia__row][class*=col1] {
+          padding-left: 10px;
+          padding-right: 0;
+        }
+      }
+    }
+    .ex-imageFloat.t0-b-twoColsMedia--imgR {
+      .t0-b-twoColsMedia__div {
+        [class^=t0-b-twoColsMedia__row][class*=col1] {
+          padding-left: 10px;
+          padding-right: 0;
+          padding-top: 3px;
+        }
+      }
+    }
+    .ex-imageFloat.t0-b-twoColsMedia--imgL {
+      .t0-b-twoColsMedia__div {
+        [class^=t0-b-twoColsMedia__row][class*=col1] {
+          padding-right: 10px;
+          padding-left: 0;
+          padding-top: 3px;
+        }
+      }
+    }
+  }
+
+}
+
+@if $device == SP {
+  .t0-b-twoColsMedia {
+    > div {
+      direction: ltr;
+      > div {
+        direction: ltr;
+      }
+    }
+    .t0-b-twoColsMedia__div {
+      display: block;
+      width: 100%;
+      clear: both;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
+    }
+    .clearfix {
+      clear: right;
+      display: block;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      float: right;
+      padding: 0;
+      padding-left: 10px;
+      padding-top: 3px;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class^=b-bPlacer-] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h {
+      overflow: hidden;
+    }
+    &.ex-spLayout__vertical {
+      [class^=t0-b-twoColsMedia__row][class*=col1] {
+        width: 100% !important;
+        // ※ importantを使う例外対応
+        // CMS機能の「列の大きさ」調整機能で、「自分で選択」から数値を指定していた場合、SPのHTML内にstyle属性としてwidthの値(userEditWidth)が出力されてしまう。
+        // 縦並びが選択されている場合は、更新画面の設定値を無視し、width: 100%で上書きする。
+        // CMSの改修を行い、SPサイトにuserEditWidthの値が出力されなくなったら、本記述のimportantは削除する
+
+      }
+      .clearfix {
+        clear: both;
+        display: block;
+      }
+      [class^=t0-b-twoColsMedia__row][class*=col1] {
+        float: none;
+        padding: 0;
+        padding-bottom: 10px;
+      }
+      [class^=t0-b-twoColsMedia__row][class*=col2] {
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+        [class^=b-bPlacer-] {
+          > div {
+            overflow: hidden;
+          }
+          > .t0-b-wysiwyg {
+            overflow: visible;
+            ul, ol {
+              overflow: hidden;
+            }
+          }
+          > .t0-b-layoutSplitter {
+            overflow: visible;
+            > div > div > div > div {
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-twoColsMedia--imgL {
+    .t0-b-twoColsMedia__div {
+      display: block;
+      width: 100%;
+      clear: both;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
+    }
+    .clearfix {
+      clear: left;
+      display: block;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      float: left;
+      padding: 0;
+      padding-right: 10px;
+      padding-top: 3px;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class^=b-bPlacer-] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h {
+      overflow: hidden;
+    }
+  }
+
+}

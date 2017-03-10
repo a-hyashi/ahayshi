@@ -1,0 +1,434 @@
+/*
+---
+name: 168_ヘッダーメニュー
+tag:
+  - header
+category:
+  - 全部品
+  - 08.メニュー
+  - 08.メニュー/168_ヘッダーメニュー
+---
+
+ヘッダーメニュー。
+
+### 構造
+
+* [繰り返し] ナビアイテム
+  * [必須] テキスト（内容は右パネルで編集）
+  * [必須] リンク先URL
+  * [必須] リンク先_target
+
+### 備考
+
+* ユーザーは、アイテムの横幅を「均等」か「自動」から選ぶことが出来る
+* 「均等」が選ばれた場合、CMSは各アイテムの幅を均等にする
+* 「自動」が選ばれた場合、CMSは各アイテムの幅を、テキスト量に応じて自動で決定されるようにする
+* ユーザーは、アイテムそれぞれにつき、強調することができる
+* CMSは、強調されたアイテムにつき、強調表示を行う
+* ユーザーは、アイテムの個数を右パネルで選ぶこと出来る
+* CMSは、アイテムの増減に応じ、入力エリアを増減させる
+* ユーザーは、各アイテムの順序を入れ替えることが出来る
+* CMSは、アイテム順序入れ替えを行うためのUIを提供し、ユーザーの操作に応じてアイテム順序入れ替えを行う
+* CMSは、各アイテムにつき、そのアイテムに指定されたリンクが自ページである場合、そのアイテムの現在地表示を行う
+
+### 基本形
+
+#### バリエーション1
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu__panel" class="on-off">
+    <label for="t0-b-headerMenu__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+  <!-- /t0-b-headerMenu --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu__panel" class="on-off">
+    <label for="t0-b-headerMenu__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+  <!-- /t0-b-headerMenu --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+#### バリエーション2
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu2"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu2__panel" class="on-off">
+    <label for="t0-b-headerMenu2__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+  <!-- /t0-b-headerMenu2 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu2"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu2__panel" class="on-off">
+    <label for="t0-b-headerMenu2__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+  <!-- /t0-b-headerMenu2 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+#### バリエーション3
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+#### バリエーション4
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+
+#### バリエーション5
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu4"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu4__panel" class="on-off">
+    <label for="t0-b-headerMenu4__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+  <!-- /t0-b-headerMenu4 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu4"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu4__panel" class="on-off">
+    <label for="t0-b-headerMenu4__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>リンク設定あり</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><div>リンク設定なし</div></li>
+  <!-- /t0-b-headerMenu4 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+### 複数行
+
+```issues
+* 複数行にしてもヘッダーメニューの高さは変わらないようにコーディングする
+```
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu__panel" class="on-off">
+    <label for="t0-b-headerMenu__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+  <!-- /t0-b-headerMenu --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu2"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu2__panel" class="on-off">
+    <label for="t0-b-headerMenu2__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+  <!-- /t0-b-headerMenu2 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>大量テキストが入った場合大量テキストが入った場合大量テキストが入った場合</div></a></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+### 強調表示
+
+* エレメントのモディファイアを利用し、強調表示を実現する
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu__panel" class="on-off">
+    <label for="t0-b-headerMenu__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu2"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu2__panel" class="on-off">
+    <label for="t0-b-headerMenu2__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu2 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item state-em"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+### 現在地表示
+
+* エレメントのモディファイアを利用し、現在地表示を実現する。
+
+```issues
+* １項目に強調表示と現在地表示が重複した場合は現在地表示のデザインが当たるようにする。
+```
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu__panel" class="on-off">
+    <label for="t0-b-headerMenu__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item state-current state-em"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu2"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu2__panel" class="on-off">
+    <label for="t0-b-headerMenu2__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item state-current state-em"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu2 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item state-current state-em"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item state-current"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+### 幅均等／自動
+
+* 幅を均等にするために、CSSにて`display:table`を利用し、特に何も指定しなければ、自動で幅が決定されるようにする
+* 幅を固定には、ブロックのモディファイアを利用しこれを実現する
+
+以下は均等幅のサンプル。
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu t0-b-headerMenu--widthEqualized"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu__panel4" class="on-off">
+    <label for="t0-b-headerMenu__panel4">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu2 t0-b-headerMenu2--widthEqualized"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu2__panel" class="on-off">
+    <label for="t0-b-headerMenu2__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu2 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3 t0-b-headerMenu3--widthEqualized"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+```html
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu t0-b-headerMenu--widthEqualized"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu__panel5" class="on-off">
+    <label for="t0-b-headerMenu__panel5">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+  <!-- /t0-b-headerMenu --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu2 t0-b-headerMenu2--widthEqualized"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu2__panel" class="on-off">
+    <label for="t0-b-headerMenu2__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+  <!-- /t0-b-headerMenu2 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+<div style="height:20px"></div>
+<div class="b-bPlacer-0s">
+  <div class="t0-b-headerMenu3 t0-b-headerMenu3--widthEqualized"><span><span><span></span></span></span>
+    <input type="checkbox" id="t0-b-headerMenu3__panel" class="on-off">
+    <label for="t0-b-headerMenu3__panel">MENU</label>
+    <div><span><span><span></span></span></span><ul>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>トップページ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>お問合せ</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>商品情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>会社情報</div></a></li>
+      <li class="t0-b-headerMenu__item"><span><span><span><span></span></span></span></span><a href="#"><div>採用</div></a></li>
+  <!-- /t0-b-headerMenu3 --></ul></div></div>
+<!-- /b-bPlacer-0s --></div>
+```
+
+
+*/
+@if $device == PC {
+
+}
+
+@if $device == SP {
+
+}
