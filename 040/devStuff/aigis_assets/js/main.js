@@ -6,6 +6,7 @@ window.onload = function () {
   var viewToggle = document.getElementById('view-toggle');
   var previewWidth = document.getElementById("previewWidth");
   var preview = document.getElementsByClassName("aigis-preview");
+  var showWidthArea = document.getElementById("showWidthArea");
 
   sidemenuToggle.onclick = function() {
     toggle.classList.toggle('sidemenu-is-closed');
@@ -25,7 +26,7 @@ window.onload = function () {
   }
 
   function changeWidth() {
-    document.getElementById("showWidthArea").textContent = previewWidth.value;
+    showWidthArea.textContent = previewWidth.value;
     for (var i=0;i<preview.length;i++) {
       preview[i].style.width = previewWidth.value + 'px';
     }
