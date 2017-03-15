@@ -31,7 +31,7 @@ window.onload = function () {
       preview[i].style.width = previewWidth.value + 'px';
     }
   }
-  previewWidth.addEventListener("change", changeWidth, false);
+  // previewWidth.addEventListener("change", changeWidth, false);
 }
 
 
