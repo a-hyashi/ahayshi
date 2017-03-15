@@ -1,0 +1,64 @@
+@if $device == PC {
+  .t0-b-layoutSplitter {
+    $_block: &;
+    > div {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+    }
+    &__div {
+      display: table-cell;
+      vertical-align: top;
+    }
+    // --count-*
+    &--count-1 &__div {
+      width: 100%;
+    }
+    &--count-2 &__div {
+      width: 50%;
+    }
+    &--count-3 &__div {
+      width: 33.3333%;
+    }
+    &--count-4 &__div {
+      width: 25%;
+    }
+    &--count-5 &__div {
+      width: 20%;
+    }
+    // --spacing-*s
+    @for $_i from 1 through 10 {
+      &--spacing-#{$_i}s {
+        margin-left: #{-1 * $_i * $g-spacingBaseLength}px;
+        #{$_block}__div > div {
+          padding-left: #{$_i * $g-spacingBaseLength}px;
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-layoutSplitter {
+    $_block: &;
+    > div {
+      width: 100%;
+      > div:first-child {
+        > div {
+          padding-top: 0;
+        }
+      }
+    }
+    // --spacing-*s
+    @for $_i from 1 through 10 {
+      &--spacing-#{$_i}s {
+        margin-top: 0;
+        #{$_block}__div {
+          > div {
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
