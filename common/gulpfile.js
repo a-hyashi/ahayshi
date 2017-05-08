@@ -134,7 +134,7 @@ function create_deploy_hush(aVlues) {
 }
 
 function output_imgs(aTheme) {
-  gulp.src('devStuff/src/images/**/*.+(jpg|jpeg|png|gif|svg)')
+  gulp.src('devStuff/src/imgs/**/*.+(jpg|jpeg|png|gif|svg)')
     .pipe(size())
     .pipe(imagemin())
     .pipe(size())
