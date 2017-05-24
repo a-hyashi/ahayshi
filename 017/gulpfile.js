@@ -73,7 +73,8 @@ gulp.task('sasslint', function() {
       'class-name-format': 0,
       'mixin-name-format': 0,
       'empty-line-between-blocks': 0, //本来はチェックしたいが、017でこれを全て修正するのは難しい
-      'quotes': 0 //本来はチェックしたいが、017でこれを全て修正するのは難しい
+      'quotes': 0, //本来はチェックしたいが、017でこれを全て修正するのは難しい
+      'nesting-depth': 0 //本来はチェックしたいが、017でこれを全て修正するのは難しい
     }
   }))
   .pipe(sassLint.format())
