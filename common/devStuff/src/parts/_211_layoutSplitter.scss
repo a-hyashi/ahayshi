@@ -1,14 +1,128 @@
 /*
 
 ---
-name: 211_layoutSplitter
+name: 211_レイアウト分割
 tag:
   - other
 category:
   - 全部品
   - 12.その他
-  - 12.その他/211_layoutSplitter
+  - 12.その他/211_レイアウト分割
 ---
+
+他の要素やブロックを内包できるブロック。
+当初、ユーザの操作によって更新画面上で要素を追加する枠を増やしていく構想があり、その機能の実装のために用意した。
+しかしこの機能は開発されなかったため、単にレイアウトを分割するHTMLとして現在は使われている。
+
+### 備考
+
+レイアウト分割数の分だけ`.t0-b-layoutSplitter__div`が繰り返される
+
+### 基本形
+
+```html
+<div class="b-bPlacer-6s">
+  <div class="
+    t0-b-layoutSplitter
+    t0-b-layoutSplitter--count-2
+    t0-b-layoutSplitter--spacing-4s
+  "><div>
+    <div class="t0-b-layoutSplitter__div"><div>
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+    <!-- /t0-b-layoutSplitter__div --></div></div>
+    <div class="t0-b-layoutSplitter__div"><div>
+      <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+    <!-- /t0-b-layoutSplitter__div --></div></div>
+  <!-- /t0-b-layoutSplitter --></div></div>
+<!-- /b-bPlacer-6s --></div>
+```
+
+### レイアウト分割数
+
+レイアウト分割数は、`.t0-b-layoutSplitter`の要素のモディファイア`t0-b-layoutSplitter--count-[N]`にて指定する。
+
+このモディファイアの指定は必須。
+
+　
+
+`[N]`には、`2`〜`5`の値を取ることが出来、数値が示すカラムを再現する。
+
+指定したカラムの数分、以下の要素を中で繰り返す。
+
+```html
+<div class="t0-b-layoutSplitter__div"><div>
+  <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+<!-- /t0-b-layoutSplitter__div --></div></div>
+```
+
+　
+
+以下がレイアウト分割数を指定したサンプル。
+
+```html
+<div class="
+  t0-b-layoutSplitter
+  t0-b-layoutSplitter--count-3
+  t0-b-layoutSplitter--spacing-4s
+"><div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+<!-- /t0-b-layoutSplitter --></div></div>
+```
+
+```html
+<div class="
+  t0-b-layoutSplitter
+  t0-b-layoutSplitter--count-4
+  t0-b-layoutSplitter--spacing-4s
+"><div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+<!-- /t0-b-layoutSplitter --></div></div>
+```
+
+```html
+<div class="
+  t0-b-layoutSplitter
+  t0-b-layoutSplitter--count-5
+  t0-b-layoutSplitter--spacing-4s
+"><div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+  <div class="t0-b-layoutSplitter__div"><div>
+    <div style="border: 1px dashed red;padding: 5px;">要素が入る</div>
+  <!-- /t0-b-layoutSplitter__div --></div></div>
+<!-- /t0-b-layoutSplitter --></div></div>
+```
+
+
 */
 @if $device == PC {
 
