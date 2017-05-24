@@ -1,0 +1,104 @@
+@if $device == PC {
+  .t0-b-navItem2Captioned {
+    $_block: &;
+    > div {
+      display: table;
+      margin: 0 auto;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+    &__icon {
+      &:before {
+        display: block;
+        content: "";
+        background: url("../imgs/t0-b-navItem2Captioned/icons/1.png") 0 0 no-repeat;
+        $_src: "../imgs/t0-b-navItem2Captioned/icons/1.png";
+        width: image-width($_src);
+        height: image-height($_src);
+        padding-right: 10px;
+      }
+    }
+    // &__text : no style
+    &__caption-upper {
+      @include g-font-spacingKilled(16, 1);
+      padding: 0 0 8px;
+    }
+    &__main {
+      @include g-font-spacingKilled(26, 1);
+      padding: 0 0 6px;
+      border-bottom: 1px solid #555;
+    }
+    &__caption-lower {
+      @include g-font-spacingKilled(16, 1);
+      padding: 5px 0 0;
+      &:before,
+      &:after {
+        margin-top: 0;
+      }
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      color: #555;
+      &:hover {
+        color: #16998f;
+        #{$_block}__main {
+          border-bottom: 1px solid #16998f;
+        }
+      }
+    }
+    &-bPlacer {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-navItem2Captioned {
+    width: 95%;
+    margin: 0 auto;
+    background-image: url("../imgs/t0-b-navList/bg4.png"), linear-gradient(#fff, #fff, #fff);
+    background-repeat: no-repeat;
+    background-size: 17px 17px, 100%;
+    background-position: 95% 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #555;
+    > div {
+      margin: 0 auto;
+    }
+    &__text {
+      text-align: center;
+      margin-right: 10%;
+      padding: 12px 10px;
+      > a {
+        text-decoration: none;
+        color: #555;
+      }
+    }
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+    }
+    &__main {
+      @include g-font(16, 1);
+      font-weight: bold;
+    }
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding: 5px 0 0;
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      color: #555;
+    }
+    &-bPlacer {
+      padding-bottom: 20px;
+    }
+  }
+
+}

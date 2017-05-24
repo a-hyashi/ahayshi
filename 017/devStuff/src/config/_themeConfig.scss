@@ -1,0 +1,108 @@
+$baseFontSize: 14px;
+$imagePath: '../imgs';
+
+body.mod-body,
+div.mod-body {
+  font-weight: 500;
+  font-size: $baseFontSize;
+  font-family: $gothic;
+  color: #555;
+}
+
+a {
+  color: #555;
+  text-decoration: underline;
+}
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: #16998f;
+    }
+  }
+}
+
+@if $device == SP {
+  span {
+    font-size: inherit !important;
+  }
+}
+
+
+
+.cms-admin-anchorFlag{
+  z-index: 10!important;
+  position: relative;
+}
+// これはadmin.cssに移行するべき
+
+
+$textcolor: #393939;
+$hovercolor: #45b1c7;
+$hovercolor2: #0b6577;
+$hovercolor3: #45b1c7;
+
+// tel
+$_tel_wd: 40px;
+$_tel_hg: 40px;
+// fax
+$_fax_wd: 48px;
+$_fax_hg: 28px;
+// free
+$_free_wd: 52px;
+$_free_hg: 29px;
+// cell
+$_cell_wd: 23px;
+$_cell_hg: 40px;
+
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 6;
+
+
+
+// 上の余白調整
+@for $_i from 1 through 10 {
+  .ex-topSpacingTweak-up-#{$_i}s {
+    margin-top: #{-1 * $_i * $g-spacingBaseLength}px;
+  }
+  .ex-topSpacingTweak-down-#{$_i}s {
+    margin-top: #{$_i * $g-spacingBaseLength}px;
+  }
+}
+
+// 左の余白調整
+@for $_i from 1 through 10 {
+  .ex-leftSpacingTweak-narrow-#{$_i}s {
+    margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
+  }
+  .ex-leftSpacingTweak-spread-#{$_i}s {
+    margin-left: #{$_i * $g-leftSpacingBaseLength}px;
+  }
+}
+
+
+@mixin g-rteReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+    > ul:first-child {
+      margin-top: 0;
+    }
+    > ol:first-child {
+      margin-top: 0;
+    }
+    > p:first-child {
+      margin-top: 0;
+    }
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+$fullWidthBgColor: #D7F9F3;
+$fullWidthBgColor2: #FFF;
+$fullWidthBgColor3: #FDFAF0;
+$fullWidthBgColor4: #444;
+$fullWidthBgColor5: #EDFAF9;
