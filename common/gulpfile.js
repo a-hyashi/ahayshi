@@ -70,7 +70,8 @@ gulp.task('sasslint', function() {
       'no-color-literals': 0,
       'variable-name-format': 0,
       'no-empty-rulesets': 0,
-      'class-name-format': 0
+      'class-name-format': 0,
+      'mixin-name-format': 0
     }
   }))
   .pipe(sassLint.format())
