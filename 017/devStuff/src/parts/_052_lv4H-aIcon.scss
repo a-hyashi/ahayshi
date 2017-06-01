@@ -4,111 +4,112 @@
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     line-height: 0;
     > div {
-      display: inline-block;
+      display: table;
       width: 100%;
     }
-    > div > * {
+    &__icon {
+      display: block;
+      width: 46px;
+      height: 46px;
+      background-image: url("../imgs/t0-b-lv4H-aIcon/1.png");
+      background-repeat: no-repeat;
+      background-size: 46px;
+    }
+    &__iconPlacer {
+      padding-right: 10px;
       display: table-cell;
       vertical-align: middle;
     }
-    &__iconPlacer {
-      padding: 0 10px 0 0;
-      > * {
-        display: block;
-      }
-    }
-    &__icon {
-      width: 58px;
-      height: 58px;
-      background-position: 0 0;
-      display: inline-block;
-      overflow: hidden;
-      text-indent: -100px;
-      color: transparent;
-      background-image: url("../imgs/t0-b-lv4H-aIcon/1.png");
-      background-repeat: no-repeat;
-    }
     &__bd {
       width: 100%;
+      display: table-cell;
+      vertical-align: middle;
     }
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
-      padding: 0 0 #{$_elementSpacing};
+      @include g-font(14, 1);
+      padding-bottom: 5px;
       @if $layout == "N00" {
-        @include g-font-spacingKilled(18, 1);
+        @include g-font(18, 1);
       }
     }
     &__h {
-      @include g-font-spacingKilled(20, 1);
+      @include g-font(20, 1);
       padding-bottom: 5px;
       border-bottom: 1px solid #555;
       @if $layout == "N00" {
-        @include g-font-spacingKilled(24, 1);
+        @include g-font(24, 1);
       }
     }
     &__caption-lower {
-      @include g-font-spacingKilled(14, 1);
-      padding: #{$_elementSpacing} 0 0;
+      @include g-font(14, 1);
+      padding-top: 5px;
       @if $layout == "N00" {
-        @include g-font-spacingKilled(18, 1);
+        @include g-font(18, 1);
       }
     }
     &__caption-upper + &__h {
-      @include g-font-spacingKilled(18, 1);
+      @include g-font(18, 1);
       @if $layout == "N00" {
-        @include g-font-spacingKilled(22, 1);
+        @include g-font(22, 1);
       }
     }
     &__caption-upper + a > &__h {
-      @include g-font-spacingKilled(18, 1);
+      @include g-font(18, 1);
       @if $layout == "N00" {
-        @include g-font-spacingKilled(22, 1);
+        @include g-font(22, 1);
       }
     }
     $_block: &;
     &--size-1 {
       #{$_block}__icon {
-        background-size: 46.4px 46.4px;
-        width: 46.4px;
-        height: 46.4px;
+        background-size: (46px*.8);
+        width: (46px*.8);
+        height: (46px*.8);
       }
       #{$_block}__caption-upper {
-        @include g-font-spacingKilled(10, 1);
+        @include g-font(10, 1);
       }
       #{$_block}__caption-lower {
-        @include g-font-spacingKilled(10, 1);
+        @include g-font(10, 1);
       }
       #{$_block}__h {
-        @include g-font-spacingKilled(16, 1);
+        @include g-font(16, 1);
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-spacingKilled(14, 1);
+        @include g-font(14, 1);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-spacingKilled(14, 1);
+        @include g-font(14, 1);
       }
     }
     &--size-2 {}
     &--size-3 {
       #{$_block}__icon {
-        background-size: 69.6px 69.6px;
-        width: 69.6px;
-        height: 69.6px;
+        background-size: (46px*1.2);
+        width: (46px*1.2);
+        height: (46px*1.2);
       }
       #{$_block}__caption-upper {
-        @include g-font-spacingKilled(18, 1);
+        @include g-font(18, 1);
       }
       #{$_block}__caption-lower {
-        @include g-font-spacingKilled(18, 1);
+        @include g-font(18, 1);
       }
       #{$_block}__h {
-        @include g-font-spacingKilled(24, 1);
+        @include g-font(24, 1);
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-spacingKilled(22, 1);
+        @include g-font(22, 1);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-spacingKilled(22, 1);
+        @include g-font(22, 1);
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #555;
+      &:hover {
+        color: #16998f;
       }
     }
     &--align-l {
@@ -120,121 +121,94 @@
     &--align-r {
       text-align: right;
     }
-    a {
-      text-decoration: none;
-      color: #555;
-      &:hover {
-        color: #16998f;
-      }
-    }
     &-bPlacer {
       padding-bottom: 15px;
     }
   }
 
   .t0-b-lv4H-aIcon#{$variation2of2} {
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    line-height: 0;
-    > div {
-      display: inline-block;
-      width: 100%;
-    }
-    > div > * {}
     &__icon {
-      background-position: 0 0;
-      overflow: hidden;
-      text-indent: -100px;
-      color: transparent;
-    }
-    &__iconPlacer {
-      > * {
-        display: block;
-      }
-    }
-    &__bd {
-      width: 100%;
+      display: block;
+      background-repeat: no-repeat;
     }
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
-      padding: 0 0 0 56px;
+      @include g-font(14, 1);
+      padding-left: 56px;
       @if $layout == "N00" {
-        @include g-font-spacingKilled(18, 1);
+        @include g-font(18, 1);
       }
     }
     &__h {
-      @include g-font-spacingKilled(20, 1);
-      padding: 16px 0 14px 56px;
-      margin-bottom: 1px;
+      @include g-font(20, 1);
       background-image: url("../imgs/t0-b-lv4H-aIcon/2.png"), url("../imgs/t0-b-lv4H-aIcon/3.png");
       background-repeat: no-repeat, repeat-x;
       background-position: left bottom, left bottom;
+      padding: 9px 0 9px 56px;
       @if $layout == "N00" {
-        @include g-font-spacingKilled(24, 1);
+        @include g-font(24, 1);
       }
     }
     &__caption-lower {
-      @include g-font-spacingKilled(14, 1);
-      padding: #{$_elementSpacing} 0 0 56px;
+      @include g-font(14, 1);
+      padding: 5px 0 0 56px;
       @if $layout == "N00" {
-        @include g-font-spacingKilled(18, 1);
+        @include g-font(18, 1);
       }
     }
     &__caption-upper + &__h {
-      @include g-font-spacingKilled(18, 1);
+      @include g-font(18, 1);
       @if $layout == "N00" {
-        @include g-font-spacingKilled(22, 1);
+        @include g-font(22, 1);
       }
     }
     &__caption-upper + a > &__h {
-      @include g-font-spacingKilled(18, 1);
+      @include g-font(18, 1);
       @if $layout == "N00" {
-        @include g-font-spacingKilled(22, 1);
+        @include g-font(22, 1);
       }
     }
     $_block: &;
     &--size-1 {
       #{$_block}__h {
-        @include g-font-spacingKilled(16, 1);
+        @include g-font(16, 1);
         background-size: 568px 36.8px, auto;
-        padding: 16px 0 14px 48px;
+        padding: 7px 0 7px 48px;
       }
       #{$_block}__caption-upper {
-        @include g-font-spacingKilled(10, 1);
+        @include g-font(10, 1);
         padding: 0 0 0 48px;
       }
       #{$_block}__caption-lower {
-        @include g-font-spacingKilled(10, 1);
-        padding: 4px 0 0 48px;
+        @include g-font(10, 1);
+        padding: 5px 0 0 48px;
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-spacingKilled(14, 1);
+        @include g-font(14, 1);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-spacingKilled(14, 1);
+        @include g-font(14, 1);
       }
     }
     &--size-2 {}
     &--size-3 {
       #{$_block}__h {
-        @include g-font-spacingKilled(24, 1);
+        @include g-font(24, 1);
         background-size: 852px 55.2px, auto;
-        padding: 16px 0 14px 64px;
+        padding: 10px 0 10px 64px;
       }
       #{$_block}__caption-upper {
-        @include g-font-spacingKilled(18, 1);
+        @include g-font(18, 1);
         padding: 0 0 0 64px;
       }
       #{$_block}__caption-lower {
-        @include g-font-spacingKilled(18, 1);
-        padding: 4px 0 0 64px;
+        @include g-font(18, 1);
+        padding: 5px 0 0 64px;
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-spacingKilled(22, 1);
-        padding: 18px 0 16px 64px;
+        @include g-font(22, 1);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-spacingKilled(22, 1);
-        padding: 18px 0 16px 64px;
+        @include g-font(22, 1);
       }
     }
     &--align-l {
@@ -264,31 +238,20 @@
 
 @if $device == SP {
   .t0-b-lv4H-aIcon#{$variation1of2} {
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    line-height: 0;
     > div {
-      display: inline-block;
-    }
-    > div > * {
-      display: table-cell;
-      vertical-align: middle;
+      display: table;
     }
     &__iconPlacer {
-      padding: 0 10px 0 0;
-      > * {
-        display: block;
-      }
+      display: table-cell;
+      vertical-align: middle;
+      padding-right: 10px;
     }
     &__icon {
-      background-position: 0 0;
+      display: block;
       background-repeat: no-repeat;
-      display: inline-block;
-      background-size: 50px 50px;
-      width: 50px;
-      height: 50px;
-      overflow: hidden;
-      text-indent: -100px;
-      color: transparent;
+      background-size: 40px;
+      width: 40px;
+      height: 40px;
       background-image: url("../imgs/t0-b-lv4H-aIcon/1.png");
     }
     &__iconPlacer {
@@ -298,20 +261,22 @@
       }
     }
     &__bd {
+      display: table-cell;
+      vertical-align: middle;
       width: 100%;
     }
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
-      padding: 0 0 #{$_elementSpacing};
+      @include g-font(14, 1);
+      padding-bottom: 5px;
     }
     &__h {
-      @include g-font-spacingKilled(18, 1);
+      @include g-font(18, 1);
       padding-bottom: 5px;
       border-bottom: 1px solid #555;
     }
     &__caption-lower {
-      @include g-font-spacingKilled(14, 1);
-      padding: #{$_elementSpacing} 0 0;
+      @include g-font(14, 1);
+      padding-top: 5px;
     }
     &--align-l {
       text-align: left;
@@ -335,42 +300,29 @@
   }
 
   .t0-b-lv4H-aIcon#{$variation2of2} {
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    line-height: 0;
-    > div {
-      display: inline-block;
-      width: 100%;
-    }
-    > div > * {}
     &__icon {
-      background-position: 0 0;
-      overflow: hidden;
-      text-indent: -100px;
-      color: transparent;
-    }
-    &__iconPlacer {
-      > * {
-        display: block;
-      }
+      background-repeat: no-repeat;
+      display: block;
     }
     &__bd {
       width: 100%;
     }
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
-      padding: 0 0 0 56px;
+      @include g-font(14, 1);
+      padding-left: 50px;
     }
     &__h {
-      @include g-font-spacingKilled(18, 1);
-      padding: 20px 0 18px 56px;
+      @include g-font(18, 1);
       margin-bottom: 1px;
       background-image: url("../imgs/t0-b-lv4H-aIcon/2.png");
+      background-size: 150%;
       background-repeat: no-repeat;
       background-position: left bottom;
+      padding: 5px 0 5px 50px;
     }
     &__caption-lower {
-      @include g-font-spacingKilled(14, 1);
-      padding: #{$_elementSpacing} 0 0 56px;
+      @include g-font(14, 1);
+      padding: 5px 0 0 50px;
     }
     &--align-l {
       text-align: left;
