@@ -7,84 +7,74 @@
     background-image: url("../imgs/t0-b-sideNavItemWithImg/bg.png");
     background-repeat: repeat-y;
     background-position: left top;
-    > a {
+
+    a {
       display: block;
-      padding: 7px 10px 7px 18px;
       text-decoration: none;
-      color: #555;
       &:hover {
         opacity: .8;
       }
-      > div {
-        display: table;
-        width: 100%;
-        > span {
-          pointer-events: none;
-        }
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-          text-align: left;
-        }
-      }
     }
-    > div {
+
+    &__inner {
       padding: 7px 10px 7px 18px;
-      text-decoration: none;
       box-sizing: border-box;
       color: #555;
       display: table;
       width: 100%;
+
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
+
+      #{$_block}--imgR & {
+        direction: rtl;
+      }
+
       > span {
         pointer-events: none;
       }
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left;
-      }
     }
+
     &__img {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      direction: ltr;
+
       img {
         display: block;
         width: 70px;
         height: 70px;
       }
+
+      #{$_block}--imgL & {
+        padding-right: 10px;
+      }
+
+      #{$_block}--imgR & {
+        padding-left: 10px;
+      }
     }
+
     &__text {
       @include g-font(20, 1);
       width: 100%;
       font-weight: bold;
-    }
-    &--imgL > a > div,
-    &--imgL > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
       direction: ltr;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
+      background-image: url("../imgs/t0-b-sideNavItemWithImg/bg2.png");
+      background-repeat: no-repeat;
+
+      #{$_block}--imgL & {
         padding-right: 10px;
-      }
-      #{$_block}__text {
-        padding-right: 10px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg2.png");
-        background-repeat: no-repeat;
         background-position: right center;
       }
-    }
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
-        padding-left: 10px;
-      }
-      #{$_block}__text {
+
+      #{$_block}--imgR & {
         padding-left: 15px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg2.png");
-        background-repeat: no-repeat;
         background-position: left center;
       }
     }
@@ -96,92 +86,84 @@
     border-radius: 5px;
     padding: 2px;
     box-shadow: 2px 2px 2px #ced5d4;
-    > a {
+
+    a {
       display: block;
       background-color: #fff;
       text-decoration: none;
       &:hover {
         opacity: .8;
       }
-      > div {
-        display: table;
-        border-radius: 3px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg4.png");
-        background-repeat: repeat-x;
-        background-position: left top;
-        background-color: #e1f1f0;
-        padding: 6px 10px 6px 7px;
-        > span {
-          pointer-events: none;
-        }
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-          text-align: left;
-        }
-      }
     }
-    > div {
+
+    &__inner {
       display: table;
-      box-sizing: border-box;
       border-radius: 3px;
       background-image: url("../imgs/t0-b-sideNavItemWithImg/bg4.png");
       background-repeat: repeat-x;
       background-position: left top;
       background-color: #e1f1f0;
       padding: 6px 10px 6px 7px;
+      box-sizing: border-box;
+
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
+
+      #{$_block}--imgR & {
+        direction: rtl;
+      }
+
       > span {
         pointer-events: none;
       }
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left;
-      }
     }
+
     &__img {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      direction: ltr;
+
+      #{$_block}--imgL & {
+      }
+
+      #{$_block}--imgR & {
+        padding-left: 10px;
+      }
+
       img {
         display: block;
         width: 70px;
         height: 70px;
         padding-right: 10px;
+
+        #{$_block}--imgR & {
+          padding: 0;
+          margin-right: -3px;
+        }
       }
     }
+
     &__text {
       @include g-font(20, 1);
       text-shadow: (-1px) -1px 4px #fff, 1px -1px 4px #fff, -1px 1px 4px #fff, 1px 1px 4px #fff;
       font-weight: bold;
       width: 100%;
       color: #555;
-    }
-    &--imgL > a > div,
-    &--imgL > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
       direction: ltr;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {}
-      #{$_block}__text {
+
+      #{$_block}--imgL & {
         padding-right: 23px;
         background-image: url("../imgs/t0-b-sideNavItemWithImg/bg5.png");
         background-repeat: no-repeat;
         background-position: right center;
       }
-    }
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
-        padding-left: 10px;
-        img {
-          padding: 0;
-          margin-right: -3px;
-        }
-      }
-      #{$_block}__text {
+
+      #{$_block}--imgR & {
         padding-left: 26px;
         background-image: url("../imgs/t0-b-sideNavItemWithImg/bg5.png");
         background-repeat: no-repeat;
@@ -197,32 +179,17 @@
     border-radius: 5px;
     padding: 3px;
     background-color: #fff;
-    > a {
+
+    a {
       display: block;
       background-color: #fff;
       text-decoration: none;
       &:hover {
         opacity: .8;
       }
-      > div {
-        padding: 6px 10px 6px 7px;
-        display: table;
-        border-radius: 3px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg9.png");
-        background-repeat: repeat-x;
-        background-position: left top;
-        background-color: #41a39b;
-        > span {
-          pointer-events: none;
-        }
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-          text-align: left;
-        }
-      }
     }
-    > div {
+
+    &__inner {
       padding: 6px 10px 6px 7px;
       display: table;
       border-radius: 3px;
@@ -230,57 +197,63 @@
       background-repeat: repeat-x;
       background-position: left top;
       background-color: #41a39b;
+
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
+
+      #{$_block}--imgR & {
+        direction: rtl;
+      }
+
       > span {
         pointer-events: none;
       }
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left;
-      }
     }
+
     &__img {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      direction: ltr;
+
+      #{$_block}--imgR & {
+        padding-left: 10px;
+      }
+
       img {
         display: block;
         width: 70px;
         height: 70px;
         padding-right: 10px;
+
+        #{$_block}--imgR & {
+          img {
+            padding: 0;
+            margin-right: -3px;
+          }
+        }
       }
     }
+
     &__text {
       @include g-font(20, 1);
       font-weight: bold;
       width: 100%;
       color: #fff;
-    }
-    &--imgL > a > div,
-    &--imgL > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
       direction: ltr;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {}
-      #{$_block}__text {
+
+      #{$_block}--imgL & {
         padding-right: 23px;
         background-image: url("../imgs/t0-b-sideNavItemWithImg/bg3.png");
         background-repeat: no-repeat;
         background-position: right center;
       }
-    }
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
-        padding-left: 10px;
-        img {
-          padding: 0;
-          margin-right: -3px;
-        }
-      }
-      #{$_block}__text {
+
+      #{$_block}--imgR & {
         padding-left: 26px;
         background-image: url("../imgs/t0-b-sideNavItemWithImg/bg3.png");
         background-repeat: no-repeat;
@@ -288,11 +261,9 @@
       }
     }
   }
-
 }
 
 @if $device == SP {
-
   .t0-b-sideNavItemWithImg#{$variation1of3} {
     $_block: &;
     width: 95%;
@@ -302,78 +273,80 @@
     background-image: url("../imgs/t0-b-sideNavItemWithImg/bg.png");
     background-repeat: repeat-y;
     background-position: left top;
-    > a {
+
+    a {
       display: block;
-      padding: 7px 10px 7px 18px;
       text-decoration: none;
-      color: #555;
+
       &:hover {
         opacity: .8;
       }
-      > div {
-        display: table;
-        width: 100%;
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-          text-align: left;
-        }
-      }
     }
-    > div {
+
+    &__inner {
       padding: 7px 10px 7px 18px;
       text-decoration: none;
       box-sizing: border-box;
       color: #555;
       display: table;
       width: 100%;
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left;
+
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
+
+      #{$_block}--imgR & {
+        direction: rtl;
+      }
+
+      > span {
       }
     }
+
     &__img {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      direction: ltr;
+
+      #{$_block}--imgR & {
+        img {
+        }
+      }
+
       img {
         display: block;
         width: 70px;
         height: 70px;
       }
+
+      #{$_block}--imgL & {
+        padding-right: 10px;
+      }
+
+      #{$_block}--imgR & {
+        padding-left: 10px;
+      }
     }
+
     &__text {
       @include g-font(16, 1);
       font-weight: bold;
       width: 100%;
-    }
-    &--imgL > a > div,
-    &--imgL > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
       direction: ltr;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
+      background-image: url("../imgs/t0-b-sideNavItemWithImg/bg2.png");
+      background-repeat: no-repeat;
+
+      #{$_block}--imgL & {
         padding-right: 10px;
-      }
-      #{$_block}__text {
-        padding-right: 10px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg2.png");
-        background-repeat: no-repeat;
         background-position: right center;
       }
-    }
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
-        padding-left: 10px;
-      }
-      #{$_block}__text {
+
+      #{$_block}--imgR & {
         padding-left: 20px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg2.png");
-        background-repeat: no-repeat;
         background-position: left center;
       }
     }
@@ -387,29 +360,17 @@
     border-radius: 5px;
     padding: 2px;
     box-shadow: 2px 2px 2px #ced5d4;
-    > a {
+
+    a {
       display: block;
       background-color: #fff;
       text-decoration: none;
       &:hover {
         opacity: .8;
       }
-      > div {
-        display: table;
-        border-radius: 3px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg4.png");
-        background-repeat: repeat-x;
-        background-position: left top;
-        background-color: #e1f1f0;
-        padding: 6px 10px 6px 7px;
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-          text-align: left;
-        }
-      }
     }
-    > div {
+
+    &__inner {
       display: table;
       box-sizing: border-box;
       border-radius: 3px;
@@ -418,58 +379,62 @@
       background-position: left top;
       background-color: #e1f1f0;
       padding: 6px 10px 6px 7px;
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left;
+
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
+
+      #{$_block}--imgR & {
+        direction: rtl;
+      }
+
+      > span {
       }
     }
+
     &__img {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      direction: ltr;
+
+      #{$_block}--imgR & {
+        padding-left: 10px;
+      }
+
       img {
         display: block;
         width: 70px;
         height: 70px;
         padding-right: 10px;
+
+        #{$_block}--imgR & {
+          padding: 0;
+          margin-right: -3px;
+        }
       }
     }
+
     &__text {
       @include g-font(16, 1);
       text-shadow: (-1px) -1px 4px #fff, 1px -1px 4px #fff, -1px 1px 4px #fff, 1px 1px 4px #fff;
       font-weight: bold;
       width: 100%;
       color: #555;
-    }
-    &--imgL > a > div,
-    &--imgL > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
       direction: ltr;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {}
-      #{$_block}__text {
+      background-image: url("../imgs/t0-b-sideNavItemWithImg/bg5.png");
+      background-repeat: no-repeat;
+
+      #{$_block}--imgL & {
         padding-right: 23px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg5.png");
-        background-repeat: no-repeat;
         background-position: right center;
       }
-    }
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
-        padding-left: 10px;
-        img {
-          padding: 0;
-          margin-right: -3px;
-        }
-      }
-      #{$_block}__text {
+
+      #{$_block}--imgR & {
         padding-left: 26px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg5.png");
-        background-repeat: no-repeat;
         background-position: left center;
       }
     }
@@ -484,29 +449,18 @@
     border-radius: 5px;
     padding: 3px;
     background-color: #fff;
-    > a {
+
+    a {
       display: block;
       background-color: #fff;
       text-decoration: none;
+
       &:hover {
         opacity: .8;
       }
-      > div {
-        padding: 6px 10px 6px 7px;
-        display: table;
-        border-radius: 3px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg9.png");
-        background-repeat: repeat-x;
-        background-position: left top;
-        background-color: #41a39b;
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-          text-align: left;
-        }
-      }
     }
-    > div {
+
+    &__inner {
       padding: 6px 10px 6px 7px;
       display: table;
       border-radius: 3px;
@@ -514,57 +468,61 @@
       background-repeat: repeat-x;
       background-position: left top;
       background-color: #41a39b;
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left;
+
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
+
+      #{$_block}--imgR & {
+        direction: rtl;
+      }
+
+      > span {
       }
     }
+
     &__img {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      direction: ltr;
+
+      #{$_block}--imgR & {
+        padding-left: 10px;
+      }
+
       img {
         display: block;
         width: 70px;
         height: 70px;
         padding-right: 10px;
+
+        #{$_block}--imgR & {
+          padding: 0;
+          margin-right: -3px;
+        }
       }
     }
+
     &__text {
       @include g-font(16, 1);
       font-weight: bold;
       width: 100%;
       color: #fff;
-    }
-    &--imgL > a > div,
-    &--imgL > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
       direction: ltr;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {}
-      #{$_block}__text {
+      background-image: url("../imgs/t0-b-sideNavItemWithImg/bg3.png");
+      background-repeat: no-repeat;
+
+      #{$_block}--imgL & {
         padding-right: 23px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg3.png");
-        background-repeat: no-repeat;
         background-position: right center;
       }
-    }
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      > div {
-        direction: ltr;
-      }
-      #{$_block}__img {
-        padding-left: 10px;
-        img {
-          padding: 0;
-          margin-right: -3px;
-        }
-      }
-      #{$_block}__text {
+
+      #{$_block}--imgR & {
         padding-left: 26px;
-        background-image: url("../imgs/t0-b-sideNavItemWithImg/bg3.png");
-        background-repeat: no-repeat;
         background-position: left center;
       }
     }
