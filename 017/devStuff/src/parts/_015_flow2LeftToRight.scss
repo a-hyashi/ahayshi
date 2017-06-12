@@ -1,15 +1,8 @@
 @if $device == PC {
 
-  .t0-b-flow2LeftToRight,
-  .t0-b-flow3LeftToRight,
-  .t0-b-flow4LeftToRight,
-  .t0-b-flow5LeftToRight,
-  .t0-b-flow6LeftToRight,
-  .t0-b-flow7LeftToRight {
+  .t0-b-flow2LeftToRight{
+    $_block: &;
     width: 100%;
-    &__hd {
-      // padding-bottom: 15px;
-    }
     &__row {
       display: table;
       width: 100%;
@@ -22,6 +15,16 @@
     &__box {
       display: table-cell;
       vertical-align: top;
+      width: (100%-4*(2-1))/2;
+      #{$_block}--colSpacing-l & {
+        width: (100%-7*(2-1))/2;
+      }
+      #{$_block}--colSpacing-m & {
+        width: (100%-4*(2-1))/2;
+      }
+      #{$_block}--colSpacing-s & {
+        width: (100%-1*(2-1))/2;
+      }
     }
     &__arrow {
       display: table-cell;
@@ -29,55 +32,19 @@
       font-size: 2em;
       color: #333;
       vertical-align: middle;
-    }
-  }
-
-  .t0-b-flow2LeftToRight2,
-  .t0-b-flow3LeftToRight2,
-  .t0-b-flow4LeftToRight2,
-  .t0-b-flow5LeftToRight2,
-  .t0-b-flow6LeftToRight2,
-  .t0-b-flow7LeftToRight2 {
-    width: 100%;
-    &__hd {
-      padding-bottom: 15px;
-    }
-    &__row {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-      height: 100%;
-      padding-bottom: 30px;
-      &:last-child {
-        padding-bottom: 15px;
+      width: 4%;
+      #{$_block}--colSpacing-l & {
+        width: 7%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 4%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 1%;
       }
     }
-    &__box {
-      display: table-cell;
-      vertical-align: top;
-      height: 100%;
-    }
-    &__arrow {
-      display: table-cell;
-      width: 35px;
-      height: 100%;
-      vertical-align: middle;
-    }
-    &__arrow-inner {
-      display: inline-block;
-      height: 31px;
-      background-repeat: no-repeat;
-      background-position: center 40%;
-      background-image: url("../imgs/t0-b-flowLeftToRight/bg.png");
-      width: 100%;
-      margin-top: -5px;
-    }
-  }
 
-  //2列部品の右列の幅変更記述
-  .t0-b-flow2LeftToRight,
-  .t0-b-flow2LeftToRight2 {
-    $_block: &;
+    //2列部品の右列の幅変更記述
     &--colW-l &__box {
       width: 22.3%;
     }
@@ -92,16 +59,9 @@
     }
   }
 
-  .t0-b-flow2LeftToRightWithMidFrame,
-  .t0-b-flow3LeftToRightWithMidFrame,
-  .t0-b-flow4LeftToRightWithMidFrame,
-  .t0-b-flow5LeftToRightWithMidFrame,
-  .t0-b-flow6LeftToRightWithMidFrame,
-  .t0-b-flow7LeftToRightWithMidFrame {
+  .t0-b-flow2LeftToRightWithMidFrame {
+    $_block: &;
     width: 100%;
-    &__hd {
-      padding-bottom: 15px;
-    }
     &__bd {
       display: table;
       width: 100%;
@@ -112,11 +72,31 @@
       display: table-cell;
       vertical-align: top;
       height: 100%;
+      width: (100%-4*(2-1))/2;
+      #{$_block}--colSpacing-l & {
+        width: (100%-7*(2-1))/2;
+      }
+      #{$_block}--colSpacing-m & {
+        width: (100%-4*(2-1))/2;
+      }
+      #{$_block}--colSpacing-s & {
+        width: (100%-1*(2-1))/2;
+      }
     }
     &__arrow {
       display: table-cell;
       width: 35px;
       height: 100%;
+      width: 4%;
+      #{$_block}--colSpacing-l & {
+        width: 7%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 4%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 1%;
+      }
       //矢印要素(t0-b-arrowInFlow)分の高さを持たせる。
       //上余白調整をしても部品の高さからはみ出さないようにするため。
       padding-bottom: 31px;
@@ -138,37 +118,7 @@
     }
   }
 
-  .t0-b-flow2LeftToRight,
-  .t0-b-flow2LeftToRightWithMidFrame {
-    &__arrow {
-      width: 4%;
-    }
-  }
 
-  .t0-b-flow3LeftToRight,
-  .t0-b-flow3LeftToRightWithMidFrame {
-    &__arrow {
-      width: 3.5%;
-    }
-  }
-
-  .t0-b-flow4LeftToRight,
-  .t0-b-flow4LeftToRightWithMidFrame {
-    &__arrow {
-      width: 3%;
-    }
-  }
-
-  .t0-b-flow5LeftToRight,
-  .t0-b-flow6LeftToRight,
-  .t0-b-flow7LeftToRight,
-  .t0-b-flow5LeftToRightWithMidFrame,
-  .t0-b-flow6LeftToRightWithMidFrame,
-  .t0-b-flow7LeftToRightWithMidFrame {
-    &__arrow {
-      width: 2%;
-    }
-  }
 
   .t0-b-arrowInFlow {
     height: 31px;
@@ -204,28 +154,15 @@
 
 @if $device == SP {
 
-  .t0-b-flow2LeftToRight,
-  .t0-b-flow3LeftToRight,
-  .t0-b-flow4LeftToRight,
-  .t0-b-flow5LeftToRight,
-  .t0-b-flow6LeftToRight,
-  .t0-b-flow7LeftToRight {
+  .t0-b-flow2LeftToRight {
     $_block: &;
     width: 100%;
-    &__hd {
-      padding-bottom: 25px;
-    }
     &__box {
-      padding-bottom: 50px;
+      padding-bottom: 10px;
     }
     &__row {
       &:last-child {
-        .t0-b-flow2LeftToRight__box,
-        .t0-b-flow3LeftToRight__box,
-        .t0-b-flow4LeftToRight__box,
-        .t0-b-flow5LeftToRight__box,
-        .t0-b-flow6LeftToRight__box,
-        .t0-b-flow7LeftToRight__box {
+        .t0-b-flow2LeftToRight__box {
           &:last-child {
             padding-bottom: 25px;
           }
@@ -234,41 +171,7 @@
     }
   }
 
-  .t0-b-flow2LeftToRight2,
-  .t0-b-flow3LeftToRight2,
-  .t0-b-flow4LeftToRight2,
-  .t0-b-flow5LeftToRight2,
-  .t0-b-flow6LeftToRight2,
-  .t0-b-flow7LeftToRight2 {
-    width: 100%;
-    &__hd {
-      padding-bottom: 25px;
-    }
-    &__box {
-      padding-bottom: 50px;
-    }
-    &__row {
-      &:last-child {
-        .t0-b-flow2LeftToRight2__box,
-        .t0-b-flow3LeftToRight2__box,
-        .t0-b-flow4LeftToRight2__box,
-        .t0-b-flow5LeftToRight2__box,
-        .t0-b-flow6LeftToRight2__box,
-        .t0-b-flow7LeftToRight2__box {
-          &:last-child {
-            padding-bottom: 25px;
-          }
-        }
-      }
-    }
-  }
-
-  .t0-b-flow2LeftToRightWithMidFrame,
-  .t0-b-flow3LeftToRightWithMidFrame,
-  .t0-b-flow4LeftToRightWithMidFrame,
-  .t0-b-flow5LeftToRightWithMidFrame,
-  .t0-b-flow6LeftToRightWithMidFrame,
-  .t0-b-flow7LeftToRightWithMidFrame {
+  .t0-b-flow2LeftToRightWithMidFrame {
     width: 100%;
     &__row {
       //矢印画像の高さと、下余白の合計値をつける
