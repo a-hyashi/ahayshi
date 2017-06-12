@@ -1,5 +1,4 @@
 $baseFontSize: 14px;
-$imagePath: '../imgs';
 
 body.mod-body,
 div.mod-body {
@@ -42,41 +41,40 @@ $hovercolor: #45b1c7;
 $hovercolor2: #0b6577;
 $hovercolor3: #45b1c7;
 
-// tel
-$_tel_wd: 40px;
-$_tel_hg: 40px;
-// fax
-$_fax_wd: 48px;
-$_fax_hg: 28px;
-// free
-$_free_wd: 52px;
-$_free_hg: 29px;
-// cell
-$_cell_wd: 23px;
-$_cell_hg: 40px;
 
 $g-spacingBaseLength: 5;
 $g-leftSpacingBaseLength: 6;
 
-
-
-// 上の余白調整
-@for $_i from 1 through 10 {
-  .ex-topSpacingTweak-up-#{$_i}s {
-    margin-top: #{-1 * $_i * $g-spacingBaseLength}px;
+@if $device == PC {
+  // 上の余白調整
+  @for $_i from 1 through 10 {
+    .ex-topSpacingTweak-up-#{$_i}s {
+      margin-top: #{-1% * $_i};
+    }
+    .ex-topSpacingTweak-down-#{$_i}s {
+      margin-top: #{1% * $_i};
+    }
   }
-  .ex-topSpacingTweak-down-#{$_i}s {
-    margin-top: #{$_i * $g-spacingBaseLength}px;
+
+  // 左の余白調整
+  @for $_i from 1 through 10 {
+    .ex-leftSpacingTweak-narrow-#{$_i}s {
+      margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
+    }
+    .ex-leftSpacingTweak-spread-#{$_i}s {
+      margin-left: #{$_i * $g-leftSpacingBaseLength}px;
+    }
   }
 }
 
-// 左の余白調整
-@for $_i from 1 through 10 {
-  .ex-leftSpacingTweak-narrow-#{$_i}s {
-    margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
+@mixin cf {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
   }
-  .ex-leftSpacingTweak-spread-#{$_i}s {
-    margin-left: #{$_i * $g-leftSpacingBaseLength}px;
+  &:after {
+    clear: both;
   }
 }
 
@@ -106,3 +104,12 @@ $fullWidthBgColor2: #FFF;
 $fullWidthBgColor3: #FDFAF0;
 $fullWidthBgColor4: #444;
 $fullWidthBgColor5: #EDFAF9;
+
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;

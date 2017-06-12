@@ -1,7 +1,146 @@
 @if $device == PC {
 
+  .t0-b-flow6LeftToRigh {
+    $_block: &;
+    width: 100%;
+    &__row {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      padding-bottom: 5%;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+      width: (100%-2*(6-1))/6;
+      #{$_block}--colSpacing-l & {
+        width: (100%-3.5*(6-1))/6;
+      }
+      #{$_block}--colSpacing-m & {
+        width: (100%-2*(6-1))/6;
+      }
+      #{$_block}--colSpacing-s & {
+        width: (100%-0.5*(6-1))/6;
+      }
+    }
+    &__arrow {
+      display: table-cell;
+      text-align: center;
+      font-size: 2em;
+      color: #333;
+      vertical-align: middle;
+      width: 2%;
+      #{$_block}--colSpacing-l & {
+        width: 3.5%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 2%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 0.5%;
+      }
+    }
+  }
+
+  .t0-b-flow6LeftToRightWithMidFrame {
+    $_block: &;
+    width: 100%;
+    &__bd {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      height: 100%;
+    }
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+      height: 100%;
+      width: (100%-2*(6-1))/6;
+      #{$_block}--colSpacing-l & {
+        width: (100%-3.5*(6-1))/6;
+      }
+      #{$_block}--colSpacing-m & {
+        width: (100%-2*(6-1))/6;
+      }
+      #{$_block}--colSpacing-s & {
+        width: (100%-0.5*(6-1))/6;
+      }
+    }
+    &__arrow {
+      display: table-cell;
+      width: 35px;
+      height: 100%;
+      width: 2%;
+      #{$_block}--colSpacing-l & {
+        width: 3.5%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 2%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 0.5%;
+      }
+      //矢印要素(t0-b-arrowInFlow)分の高さを持たせる。
+      //上余白調整をしても部品の高さからはみ出さないようにするため。
+      padding-bottom: 31px;
+      &-inner {
+        height: 100%;
+        position: relative;
+        //#cms-body [data-cms-part]についたposition:relativeの影響で、
+        //管理画面上のみで矢印要素の上余白が変更されない問題を解消するために以下を指定する
+        > div {
+          position: absolute !important;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          //管理画面上でホバーできるようにする
+          z-index: 1;
+        }
+      }
+    }
+  }
 }
 
 @if $device == SP {
 
+  .t0-b-flow6LeftToRight {
+    $_block: &;
+    width: 100%;
+    &__box {
+      padding-bottom: 10px;
+    }
+    &__row {
+      &:last-child {
+        .t0-b-flow6LeftToRight__box {
+          &:last-child {
+            padding-bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .t0-b-flow6LeftToRightWithMidFrame {
+    width: 100%;
+    &__row {
+      //矢印画像の高さと、下余白の合計値をつける
+      padding-bottom: 32px;
+      background-repeat: no-repeat;
+      background-position: center bottom 15px;
+      background-image: url("../imgs/t0-b-flowLeftToRight/bg2.png");
+      &:last-child {
+        padding: 0;
+        background: none;
+      }
+    }
+    &__arrow {
+      //上下の画像要素との余白が等間隔になるようにつける
+      padding-bottom: 15px;
+    }
+  }
 }
