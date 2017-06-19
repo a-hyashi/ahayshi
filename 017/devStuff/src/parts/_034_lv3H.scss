@@ -30,12 +30,12 @@
     }
 
     h3 {
-      @include g-font(22, 1);
-      padding-left: 10px;
-
       @if $layout == "N00" {
         @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
       }
+      padding-left: 10px;
     }
 
     $_block: &;
@@ -95,7 +95,11 @@
     padding-bottom: 8px;
 
     h3 {
-      @include g-font(22, 1);
+      @if $layout == "N00" {
+        @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
+      }
       padding: 0 0 0 19px;
       background-image: url('../imgs/t0-b-lv3H/bg8.png');
       background-repeat: no-repeat;
@@ -103,10 +107,6 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-
-      @if $layout == "N00" {
-        @include g-font(26, 1);
-      }
     }
     &--size-1 {
 
@@ -163,10 +163,10 @@
     box-shadow: 1px 1px 1px #bec7c7, -1px -1px 1px #bec7c7;
 
     > * {
-      @include g-font(22, 1);
-
       @if $layout == "N00" {
         @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
       }
     }
 
