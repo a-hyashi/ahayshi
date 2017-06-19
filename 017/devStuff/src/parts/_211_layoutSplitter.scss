@@ -1,51 +1,47 @@
 @if $device == PC {
 
   .t0-b-layoutSplitter {
-    $_block: &;
-    display: flex;
     > div {
-      display: table;
-      table-layout: fixed;
+      display: flex;
       width: 100%;
     }
-    &__div {
-      display: table-cell;
-      vertical-align: top;
-    }
-    // --count-*
     &--count-1 &__div {
-      width: 100%;
+      flex-basis: 100%;
     }
     &--count-2 &__div {
-      width: 50%;
+      flex-basis: (100%/2);
+      padding-left: 4%;
+      &:first-child {
+        padding-left: 0;
+      }
     }
     &--count-3 &__div {
-      width: 33.3333%;
+      flex-basis: (100%/3);
+      padding-left: 3.5%;
+      &:first-child {
+        padding-left: 0;
+      }
     }
     &--count-4 &__div {
-      width: 25%;
+      flex-basis: (100%/4);
+      padding-left: 3%;
+      &:first-child {
+        padding-left: 0;
+      }
     }
     &--count-5 &__div {
-      width: 20%;
-    }
-    // --spacing-*s
-    @for $_i from 1 through 10 {
-      &--spacing-#{$_i}s {
-        margin-left: #{-1 * $_i * $g-spacingBaseLength}px;
-        #{$_block}__div > div {
-          padding-left: #{$_i * $g-spacingBaseLength}px;
-        }
+      flex-basis: (100%/5);
+      padding-left: 2%;
+      &:first-child {
+        padding-left: 0;
       }
     }
   }
-
 }
 
 @if $device == SP {
 
-
   .t0-b-layoutSplitter {
-    $_block: &;
     > div {
       width: 100%;
       > div {
