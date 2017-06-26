@@ -10,7 +10,11 @@
       text-align: right;
     }
     &__bd {
-      @include g-font(26, 1);
+      @if $layout == 'L30' or $layout == 'R30' {
+        @include g-font(30, 1); // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+      } @else {
+        @include g-font(26, 1); // L25かR25で番号が折り返さない最大サイズ
+      }
       text-align: center;
       font-weight: bold;
       line-height: 1;
