@@ -50,9 +50,10 @@
       //親階層
       > ul > .b-sideMenu__item {
         > .b-sideMenu__item2 {
-          background-image: url("../imgs/b-sideMenu/1/bg5.png"), url("../imgs/b-sideMenu/1/bg4.png"), linear-gradient(#fcfdfd, #f7f7f7, #f0f0f0);
-          background-repeat: no-repeat, repeat-x, repeat-x;
-          background-position: 12px center, left bottom, left top;
+          background-image: url("../imgs/b-sideMenu/1/bg5.png"), linear-gradient(#fcfdfd, #f7f7f7, #f0f0f0);
+          background-repeat: no-repeat, repeat-x;
+          background-position: 12px center,  left top;
+          border-bottom: 1px solid #d3dfde;
           padding: 0 10px 0 27px;
           @include g-font(16, 1);
           margin-bottom: 3px;
@@ -114,16 +115,19 @@
       //子階層
       > ul > .b-sideMenu__item {
         > .b-sideMenu__list {
-          background-image: url("../imgs/b-sideMenu/1/bg4.png");
-          background-repeat: repeat-x;
-          background-position: left bottom;
-          padding: 0 0 2px;
+          > ul {
+            border-bottom: 1px solid #d3dfde;
+            &:empty {
+              border-bottom: none;
+            }
+          }
           > ul > .b-sideMenu__item {
             padding-bottom: 1px;
             &:last-child {
               background: none;
             }
             > .b-sideMenu__item2 {
+              border-bottom: none;
               margin-top: 1px;
               padding: 0 10px 0 30px;
               background-image: url("../imgs/b-sideMenu/1/bg7.png");
@@ -206,6 +210,7 @@
         > ul > .b-sideMenu__item > .b-sideMenu__list {
           background-image: none;
           > ul {
+            border-bottom: none;
             > .b-sideMenu__item {
               background: none;
               &:last-child {
