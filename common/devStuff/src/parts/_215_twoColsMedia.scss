@@ -336,12 +336,11 @@ category:
     .clearfix {
       display: none;
     }
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 40%;
-    }
 
     [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
       padding-right: 4%;
+      padding-top: 3px; // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
       box-sizing: border-box;
       .t0-b-layoutSplitter--count-3 {
         margin-left: -10px;
@@ -363,7 +362,6 @@ category:
       [class^=t0-b-twoColsMedia__row][class*=col1] {
         padding-left: 4%;
         padding-right: 0;
-        box-sizing: border-box;
       }
     }
   }
@@ -385,42 +383,36 @@ category:
         text-align: left;
       }
     }
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 40%;
-    }
 
     .clearfix {
       clear: right;
       display: block;
     }
-    @for $_i from 1 through 10 {
-      [class^=t0-b-twoColsMedia__row][class*=col1] {
-        float: right;
-        padding: 0;
-        padding-left: 4%;
-        padding-top: 3px;
-        position: relative;
-        z-index: 10;
-      }
-      [class^=t0-b-twoColsMedia__row][class*=col2] {
-        overflow: visible;
-        position: relative;
-        z-index: 1;
-        [class*=-bPlacer] {
-          > div {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      float: right;
+      padding-right: 0;
+      padding-left: 4%;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class*=-bPlacer] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
             overflow: hidden;
           }
-          > .t0-b-wysiwyg {
-            overflow: visible;
-            ul, ol {
-              overflow: hidden;
-            }
-          }
-          > .t0-b-layoutSplitter {
-            overflow: visible;
-            > div > div > div > div {
-              overflow: hidden;
-            }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
           }
         }
       }
@@ -443,18 +435,14 @@ category:
         text-align: left;
       }
     }
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 40%;
-    }
     .clearfix {
       clear: left;
       display: block;
     }
     [class^=t0-b-twoColsMedia__row][class*=col1] {
       float: left;
-      padding: 0;
+      padding-left: 0;
       padding-right: 4%;
-      padding-top: 3px;
       position: relative;
       z-index: 10;
     }
@@ -504,96 +492,14 @@ category:
       width: 30%;
     }
   }
-
-  .ex-imageFloat.t0-b-twoColsMedia--imgR.t0-b-twoColsMedia--colW-l,
-  .ex-imageFloat.t0-b-twoColsMedia--imgL.t0-b-twoColsMedia--colW-l {
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 50%;
-    }
-  }
-
-  .ex-imageFloat.t0-b-twoColsMedia--imgR.t0-b-twoColsMedia--colW-m,
-  .ex-imageFloat.t0-b-twoColsMedia--imgL.t0-b-twoColsMedia--colW-m {
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 40%;
-    }
-  }
-
-  .ex-imageFloat.t0-b-twoColsMedia--imgR.t0-b-twoColsMedia--colW-s,
-  .ex-imageFloat.t0-b-twoColsMedia--imgL.t0-b-twoColsMedia--colW-s {
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 30%;
-    }
-  }
-
-  .t0-b-twoColsMedia--colW-l {
-    .ex-imageFloat.t0-b-twoColsMedia--imgR,
-    .ex-imageFloat.t0-b-twoColsMedia--imgL {
-      [class^=t0-b-twoColsMedia__row][class*=col1] {
-        width: 50%;
-      }
-    }
-  }
-
-  .t0-b-twoColsMedia--colW-m {
-    .ex-imageFloat.t0-b-twoColsMedia--imgR,
-    .ex-imageFloat.t0-b-twoColsMedia--imgL {
-      [class^=t0-b-twoColsMedia__row][class*=col1] {
-        width: 40%;
-      }
-    }
-  }
-
-  .t0-b-twoColsMedia--colW-s {
-    .ex-imageFloat.t0-b-twoColsMedia--imgR,
-    .ex-imageFloat.t0-b-twoColsMedia--imgL {
-      [class^=t0-b-twoColsMedia__row][class*=col1] {
-        width: 30%;
-      }
-    }
-  }
-
-  .t0-b-article3Image {
-    .t0-b-twoColsMedia {
-      .t0-b-twoColsMedia__div {
-        [class^=t0-b-twoColsMedia__row][class*=col1] {
-          padding-right: 10px;
-          padding-left: 0;
-        }
-      }
-    }
-    .t0-b-twoColsMedia--imgR {
-      .t0-b-twoColsMedia__div {
-        [class^=t0-b-twoColsMedia__row][class*=col1] {
-          padding-left: 10px;
-          padding-right: 0;
-        }
-      }
-    }
-    .ex-imageFloat.t0-b-twoColsMedia--imgR {
-      .t0-b-twoColsMedia__div {
-        [class^=t0-b-twoColsMedia__row][class*=col1] {
-          padding-left: 10px;
-          padding-right: 0;
-          padding-top: 3px;
-        }
-      }
-    }
-    .ex-imageFloat.t0-b-twoColsMedia--imgL {
-      .t0-b-twoColsMedia__div {
-        [class^=t0-b-twoColsMedia__row][class*=col1] {
-          padding-right: 10px;
-          padding-left: 0;
-          padding-top: 3px;
-        }
-      }
-    }
-  }
 }
 
 @if $device == SP {
   .t0-b-twoColsMedia {
     padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+    }
     > div {
       direction: ltr;
       > div {
@@ -610,18 +516,16 @@ category:
         text-align: left;
       }
     }
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 40%;
-    }
     .clearfix {
       clear: right;
       display: block;
     }
     [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
       float: right;
-      padding: 0;
+      padding-right: 0;
       padding-left: 10px;
-      padding-top: 3px;
+      padding-top: 3px; // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
       position: relative;
       z-index: 10;
     }
@@ -705,18 +609,15 @@ category:
         text-align: left;
       }
     }
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
-      width: 40%;
-    }
     .clearfix {
       clear: left;
       display: block;
     }
     [class^=t0-b-twoColsMedia__row][class*=col1] {
+      width: 40%;
       float: left;
-      padding: 0;
+      padding-left: 0;
       padding-right: 10px;
-      padding-top: 3px;
       position: relative;
       z-index: 10;
     }

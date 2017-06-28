@@ -2,8 +2,6 @@
   .t0-b-navItem {
     $_block: &;
     display: table;
-    width: 100%;
-    margin: 0 auto;
 
     &--width-l {
       width: 100%;
@@ -13,6 +11,16 @@
     }
     &--width-s {
       width: 50%;
+    }
+
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+    &--align-c {
+      margin: 0 auto;
+    }
+    &--align-r {
+      margin: 0 0 0 auto;
     }
 
     > a {
@@ -31,17 +39,6 @@
     &__inner {
       display: table;
       color: #555;
-      margin: 0 auto;
-
-      #{$_block}--align-l & {
-        margin: 0 auto 0 0;
-      }
-      #{$_block}--align-c & {
-        margin: 0 auto;
-      }
-      #{$_block}--align-r & {
-        margin: 0 0 0 auto;
-      }
 
       > span {
         display: table-cell;
@@ -129,67 +126,38 @@
 
   .t0-b-navItem {
     $_block: &;
+    display: table;
+    margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
+    font-weight: bold;
 
-    &--size-1,
-    &--size-2 {
-      display: table;
-      margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
-      font-weight: bold;
-
-      > a {
-        display: block;
-        box-sizing: border-box;
-        color: #555;
-      }
-
-      #{$_block}__inner {
-        display: table;
-        width: 100%;
-        color: #555;
-
-        > span {
-          display: table-cell;
-          padding-right: 8px;
-          width: 18px;
-          height: 18px;
-          background-repeat: no-repeat;
-          background-position: left center;
-          background-image: url("../imgs/t0-b-navItem/1/bg.png");
-          vertical-align: middle;
-        }
-        > div {
-          @include g-font(16, 0);
-          display: table-cell;
-          display: inline-block;
-          border-bottom: 1px solid #555;
-          margin-bottom: 1px;
-
-        }
-      }
+    > a {
+      display: block;
+      box-sizing: border-box;
+      color: #555;
     }
 
-    &--size-3,
-    &--size-4,
-    &--size-5 {
-      @include g-font(16, 1);
-      width: 95%;
-      margin: 0 auto;
-      background-image: url("../imgs/t0-b-navList/bg5.png");
-      background-color: #265d9b;
-      background-repeat: no-repeat;
-      background-size: 20px;
-      background-position: 95% 50%;
-      border: 1px solid #265d9b;
-      border-radius: 5px;
-      color: #fff;
-      font-weight: bold;
-      > a {
-        color: #fff;
-        text-decoration: none;
+    #{$_block}__inner {
+      display: table;
+      width: 100%;
+      color: #555;
+
+      > span {
+        display: table-cell;
+        padding-right: 8px;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-image: url("../imgs/t0-b-navItem/1/bg6.png");
+        background-size: 20px;
+        vertical-align: middle;
       }
-      #{$_block}__inner {
-        padding: 12px 10px;
-        margin-right: 10%;
+      > div {
+        @include g-font(16, 0);
+        display: table-cell;
+        display: inline-block;
+        border-bottom: 1px solid #555;
+        margin-bottom: 1px;
       }
     }
   }

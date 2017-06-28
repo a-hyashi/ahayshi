@@ -147,28 +147,43 @@
 @if $device == SP {
 
   .t0-b-navItemCaptioned {
-    width: 95%;
-    margin: 0 auto;
-    background-image: url("../imgs/t0-b-navList/bg5.png"), linear-gradient(#bae9e5, #bae9e5, #9cdfda);
-    background-repeat: no-repeat;
-    background-size: 20px, 100%;
-    background-position: 95% 50%;
-    border: 1px solid #fff;
-    border-radius: 5px;
+    margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
     color: #555;
     > a {
-      color: #555;
+      display: block;
       text-decoration: none;
+      box-sizing: border-box;
+      color: #555;
     }
-    &__inner > div {
-      padding: 12px 10px;
-      margin-right: 10%;
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+
+      span {
+        vertical-align: middle;
+        padding-right: 8px;
+        width: 22px;
+        height: 22px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-image: url("../imgs/t0-b-navItem/1/bg6.png");
+        background-size: 22px;
+      }
     }
+
     &__main {
-      @include g-font(16, 1);
+      @include g-font(18, 1);
+      padding-bottom: 5px;
       font-weight: bold;
+      display: inline-block;
+      border-bottom: 1px solid #555;
     }
+
     &__caption {
+      padding-top: 5px;
       @include g-font(14, 1);
     }
   }
