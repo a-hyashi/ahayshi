@@ -68,6 +68,7 @@
     $_block: &;
     &--size-1 {
       #{$_block}__caption-upper {
+        padding-left: 18px;
         @if $layout == "N00" {
           @include g-font(14, 1);
         } @else {
@@ -80,7 +81,7 @@
         } @else {
           @include g-font(10, 1);
         }
-        padding: 5px 0 3px 22px;
+        padding-left: 18px;
       }
       #{$_block}__icon {
         background-size: 10px*.8;
@@ -100,14 +101,12 @@
     &--size-2 {}
     &--size-3 {
       #{$_block}__caption-upper {
+        padding-left: 22px;
         @if $layout == "N00" {
           @include g-font(20, 1);
         } @else {
           @include g-font(16, 1);
         }
-      }
-      h5 {
-        padding-right: 10px;
       }
       #{$_block}__caption-lower {
         @if $layout == "N00" {
@@ -115,7 +114,7 @@
         } @else {
           @include g-font(16, 1);
         }
-        padding: 5px 0 3px 22px;
+        padding-left: 22px;
       }
 
       #{$_block}__icon {
@@ -142,18 +141,25 @@
       text-align: center;
 
       #{$_block}__caption-upper {
-        padding: 0 22px 5px 22px;
+        padding-left: 0;
       }
       h5 {
         padding-right: 22px;
       }
       #{$_block}__caption-lower {
-        padding: 5px 22px 0 22px;
+        padding-left: 0;
       }
     }
 
     &--align-r {
       text-align: right;
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     a {
@@ -233,14 +239,16 @@
         } @else {
           @include g-font(10, 1);
         }
+        padding-left: 14px;
       }
       #{$_block}__caption-lower {
+        padding-left: 14px;
         @if $layout == "N00" {
           @include g-font(14, 1);
         } @else {
           @include g-font(10, 1);
         }
-        padding: 5px 0 3px 20px;
+        padding-left: 14px;
       }
       #{$_block}__icon {
         background-size: 6px*.8 16px*.8;
@@ -265,6 +273,7 @@
         } @else {
           @include g-font(16, 1);
         }
+        padding-left: 17px;
       }
       #{$_block}__caption-lower {
         @if $layout == "N00" {
@@ -272,7 +281,7 @@
         } @else {
           @include g-font(16, 1);
         }
-        padding: 5px 0 3px 20px;
+        padding-left: 17px;
       }
       #{$_block}__icon {
         background-size: 6px*1.2 16px*1.2;
@@ -285,7 +294,6 @@
         } @else {
           @include g-font(22, 1);
         }
-        padding-top: 3px;
       }
     }
 
@@ -298,12 +306,26 @@
       #{$_block}__bd {
         justify-content: center;
       }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     &--align-r {
       text-align: right;
       #{$_block}__bd {
         justify-content: flex-end;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
       }
     }
 
@@ -374,6 +396,7 @@
 
     &--size-1 {
       #{$_block}__caption-upper {
+        padding-left: 19px;
         @if $layout == "N00" {
           @include g-font(14, 1);
         } @else {
@@ -386,7 +409,7 @@
         } @else {
           @include g-font(10, 1);
         }
-        padding: 5px 0 3px 22px;
+        padding-left: 19px;
       }
       #{$_block}__bd {
         > * {
@@ -413,6 +436,7 @@
         } @else {
           @include g-font(16, 1);
         }
+        padding-left: 22px;
       }
       #{$_block}__caption-lower {
         @if $layout == "N00" {
@@ -420,7 +444,7 @@
         } @else {
           @include g-font(16, 1);
         }
-        padding: 5px 0 3px 22px;
+        padding-left: 22px;
       }
       #{$_block}__bd {
         > * {
@@ -429,7 +453,6 @@
           } @else {
             @include g-font(22, 1);
           }
-          padding-top: 3px;
         }
       }
       #{$_block}__icon {
@@ -448,12 +471,26 @@
       #{$_block}__bd {
         justify-content: center;
       }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     &--align-r {
       text-align: right;
       #{$_block}__bd {
         justify-content: flex-end;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
       }
     }
 
@@ -478,6 +515,8 @@
 @if $device == SP {
 
   .t0-b-lv5H#{$variation1of3} {
+    $_block: &;
+
     &__caption-upper {
       @include g-font(12, 1);
       padding: 0 0 5px 15px;
@@ -496,6 +535,7 @@
       @include g-font(16, 1);
       padding-left: 6px;
       width: 100%;
+      box-sizing: border-box;
     }
     &__icon {
       background-repeat: no-repeat;
@@ -519,9 +559,26 @@
     }
     &--align-c {
       text-align: center;
+      h5 {
+        padding-right: 16px;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
     &--align-r {
       text-align: right;
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
     a {
       text-decoration: none;
@@ -547,6 +604,7 @@
     h5 {
       @include g-font(16, 1);
       padding-left: 6px;
+      box-sizing: border-box;
     }
     &__icon {
       background-repeat: no-repeat;
@@ -573,11 +631,25 @@
       #{$_block}__bd {
         justify-content: center;
       }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
     &--align-r {
       text-align: right;
       #{$_block}__bd {
         justify-content: flex-end;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
       }
     }
     a {
@@ -630,11 +702,25 @@
       #{$_block}__bd {
         justify-content: center;
       }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
     &--align-r {
       text-align: right;
       #{$_block}__bd {
         justify-content: flex-end;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+      #{$_block}__caption-lower {
+        padding-left: 0;
       }
     }
     a {
@@ -647,8 +733,7 @@
       }
     }
     h5 {
-      display: table-cell;
-      vertical-align: middle;
+      box-sizing: border-box;
     }
   }
 }
