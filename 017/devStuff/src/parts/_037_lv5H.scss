@@ -20,11 +20,8 @@
 
     &__bd {
       padding: 3px 0 7px; // 上下の補足文との距離が同じくらいに見えるよう、上にも3pxの余白を追加
-    }
-
-    &__bd > * {
-      display: table-cell;
-      vertical-align: middle;
+      display: flex;
+      align-items: center;
     }
 
     h5 {
@@ -183,12 +180,8 @@
     }
 
     &__bd {
-      display: inline-block;
-    }
-
-    &__bd > * {
-      display: table-cell;
-      vertical-align: middle;
+      display: flex;
+      align-items: center;
     }
 
     h5 {
@@ -302,10 +295,16 @@
 
     &--align-c {
       text-align: center;
+      #{$_block}__bd {
+        justify-content: center;
+      }
     }
 
     &--align-r {
       text-align: right;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
 
     a {
@@ -346,7 +345,8 @@
     &__bd {
       color: #555;
       padding-left: 5px;
-      display: inline-block;
+      display: flex;
+      align-items: center;
       > * {
         @if $layout == "N00" {
           @include g-font(22, 1);
@@ -445,10 +445,16 @@
 
     &--align-c {
       text-align: center;
+      #{$_block}__bd {
+        justify-content: center;
+      }
     }
 
     &--align-r {
       text-align: right;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
 
     a {
@@ -482,12 +488,9 @@
       background-position: left bottom;
     }
     &__bd {
-      display: inline-block;
-      padding-bottom: 3px;
-    }
-    &__bd > * {
-      display: table-cell;
-      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      padding-bottom: 5px;
     }
     h5 {
       @include g-font(16, 1);
@@ -531,16 +534,15 @@
   }
 
   .t0-b-lv5H#{$variation2of3} {
+    $_block: &;
+
     &__caption-upper {
       @include g-font(12, 1);
       padding: 0 0 5px 12px;
     }
     &__bd {
-      display: inline-block;
-    }
-    &__bd > * {
-      display: table-cell;
-      vertical-align: middle;
+      display: flex;
+      align-items: center;
     }
     h5 {
       @include g-font(16, 1);
@@ -568,9 +570,15 @@
     }
     &--align-c {
       text-align: center;
+      #{$_block}__bd {
+        justify-content: center;
+      }
     }
     &--align-r {
       text-align: right;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
     a {
       text-decoration: none;
@@ -582,6 +590,8 @@
   }
 
   .t0-b-lv5H#{$variation3of3} {
+    $_block: &;
+
     &__caption-upper {
       @include g-font(12, 1);
       padding: 0 0 5px 15px;
@@ -602,7 +612,8 @@
     &__bd {
       color: #555;
       padding-left: 5px;
-      display: inline-block;
+      display: flex;
+      align-items: center;
       > * {
         @include g-font(16, 1);
       }
@@ -616,9 +627,15 @@
     }
     &--align-c {
       text-align: center;
+      #{$_block}__bd {
+        justify-content: center;
+      }
     }
     &--align-r {
       text-align: right;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
     a {
       text-decoration: none;
