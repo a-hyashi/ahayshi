@@ -1,0 +1,42 @@
+@if $device == PC {
+
+  .t0-b-freeHtml {
+    
+    &--width-s {}
+    &--width-m {}
+    &--width-l {}
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-freeHtml {
+    // Youtubeのレスポンシブ対応
+    max-height: 240px;
+    text-align: center;
+    overflow: auto;
+    > div {
+      overflow: auto;
+      iframe,
+      object,
+      embed {
+        max-height: 240px;
+        max-width: 100%;
+      }
+      > * {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+      }
+    }
+    .admin & > div {
+      background: #666;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 0 auto;
+    }
+  }
+
+}// SP
