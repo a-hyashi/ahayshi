@@ -2,74 +2,69 @@
 
   .t0-b-lv4H-num2Icon#{$variation1of2} {
     $_block: &;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
     line-height: 0;
+
     > div {
       display: inline-block;
     }
+
     > div > * {
       display: table-cell;
       vertical-align: middle;
     }
+
     &__iconPlacer {
       padding: 0 10px 0 0;
+
       > * {
         display: block;
       }
     }
+
     &__caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
-      padding: 0 0 #{$_elementSpacing};
+      @include g-font(14, 1);
+
+      padding: 0 0 3px;
     }
+
     &__h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font(22, 1);
     }
+
     &__caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
-      padding: #{$_elementSpacing} 0 3px;
+      @include g-font(14, 1);
+
+      padding: 3px 0 0;
     }
+
     &__caption-upper + &__h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font(20, 1);
     }
+
     &__caption-upper + a > &__h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font(20, 1);
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
-        $_src: "t0-b-lv4H-num2Icon__icon/#{$type}/#{$index}.png";
-        background-image: url("../imgs/#{$_src}");
+        $_src: "../imgs/t0-b-lv4H-num2Icon__icon/#{$type}/#{$index}.png";
+
+        background-image: url($_src);
       }
+
       $_types: number;
+
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
-      background-size: 54px;
-      width: 54px;
-      height: 54px;
+      width: 40px;
+      height: 42px;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
       vertical-align: middle;
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -78,180 +73,94 @@
         }
       }
     }
-    $_block: &;
-    &--size-1 {
-      #{$_block}__icon {
-        background-size: 54px*.8;
-        width: 54px*.8;
-        height: 54px*.8;
-      }
-      #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(16, 1);
-        } @else {
-          @include g-font(12, 1);
-        }
-      }
-      #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(16, 1);
-        } @else {
-          @include g-font(12, 1);
-        }
-      }
-      #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(26, 1);
-        } @else {
-          @include g-font(22, 1);
-        }
-      }
-      #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-      #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-    }
-    &--size-2 {}
-    &--size-3 {
-      #{$_block}__icon {
-        background-size: 54px*1.2;
-        width: 54px*1.2;
-        height: 54px*1.2;
-      }
-      #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-      #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-      #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(34, 1);
-        } @else {
-          @include g-font(30, 1);
-        }
-      }
-      #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(32, 1);
-        } @else {
-          @include g-font(28, 1);
-        }
-      }
-      #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(32, 1);
-        } @else {
-          @include g-font(28, 1);
-        }
-      }
-    }
+
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
-      color: #555;
+      color: $textcolor;
+
       &:hover {
-        color: #16998f;
+        color: $hovercolor;
       }
     }
   }
 
   .t0-b-lv4H-num2Icon#{$variation2of2} {
     $_block: &;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
     line-height: 0;
+
     > div {
       display: inline-block;
     }
+
     > div > * {
       display: table-cell;
       vertical-align: middle;
     }
+
     &__iconPlacer {
       padding: 0 10px 0 0;
+
       > * {
         display: block;
       }
     }
+
     &__caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
-      padding: 0 0 #{$_elementSpacing};
+      @include g-font(14, 1);
+
+      padding: 0 0 3px;
     }
+
     &__h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font(22, 1);
     }
+
     &__caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
-      padding: #{$_elementSpacing} 0 3px;
+      @include g-font(14, 1);
+
+      padding: 3px 0 0;
     }
+
     &__caption-upper + &__h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font(20, 1);
     }
+
     &__caption-upper + a > &__h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font(20, 1);
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
-        $_src: "t0-b-lv4H-num2Icon2__icon/#{$type}/#{$index}.png";
-        background-image: url("../imgs/#{$_src}");
+        $_src: "../imgs/t0-b-lv4H-num2Icon2__icon/#{$type}/#{$index}.png";
+
+        background-image: url($_src);
       }
+
       $_types: number;
+
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
-      width: 52px;
-      height: 52px;
-      background-size: 52px;
+      width: 40px;
+      height: 40px;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
       vertical-align: middle;
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -260,160 +169,89 @@
         }
       }
     }
-    $_block: &;
-    &--size-1 {
-      #{$_block}__icon {
-        background-size: 52px*.8;
-        width: 52px*.8;
-        height: 52px*.8;
-      }
-      #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(16, 1);
-        } @else {
-          @include g-font(12, 1);
-        }
-      }
-      #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(16, 1);
-        } @else {
-          @include g-font(12, 1);
-        }
-      }
-      #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(26, 1);
-        } @else {
-          @include g-font(22, 1);
-        }
-      }
-      #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-      #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-    }
-    &--size-2 {}
-    &--size-3 {
-      #{$_block}__icon {
-        background-size: 52px*1.2;
-        width: 52px*1.2;
-        height: 52px*1.2;
-      }
-      #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-      #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
-      }
-      #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(34, 1);
-        } @else {
-          @include g-font(30, 1);
-        }
-      }
-      #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(32, 1);
-        } @else {
-          @include g-font(28, 1);
-        }
-      }
-      #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(32, 1);
-        } @else {
-          @include g-font(28, 1);
-        }
-      }
-    }
+
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
-      color: #555;
+      color: $textcolor;
+
       &:hover {
-        color: #16998f;
+        color: $hovercolor;
       }
     }
   }
-
-
-
 }
 
 @if $device == SP {
 
   .t0-b-lv4H-num2Icon#{$variation1of2} {
     $_block: &;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
     line-height: 0;
+
     > div {
       display: inline-block;
     }
+
     > div > * {
       display: table-cell;
       vertical-align: middle;
     }
+
     &__iconPlacer {
       padding: 0 10px 0 0;
+
       > * {
         display: block;
       }
     }
+
     &__caption-upper {
       @include g-font(14, 1);
-      padding: 0 0 #{$_elementSpacing};
+
+      padding: 0 0 3px;
     }
+
     &__h {
       @include g-font(18, 1);
     }
+
     &__caption-lower {
       @include g-font(14, 1);
-      padding: #{$_elementSpacing} 0 0;
+
+      padding: 3px 0 0;
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
-        $_src: "t0-b-lv4H-num2Icon__icon/#{$type}/#{$index}.png";
-        background-image: url("../imgs/#{$_src}");
+        $_src: "../imgs/t0-b-lv4H-num2Icon__icon/#{$type}/#{$index}.png";
+
+        background-image: url($_src);
       }
+
       $_types: number;
-      background-size: 50px 50px;
+
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 42px;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
       vertical-align: middle;
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -422,68 +260,82 @@
         }
       }
     }
+
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
-      color: #555;
-      &:hover {
-        color: #16998f;
-      }
+      color: $textcolor;
     }
   }
 
   .t0-b-lv4H-num2Icon#{$variation2of2} {
     $_block: &;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
     line-height: 0;
+
     > div {
       display: inline-block;
     }
+
     > div > * {
       display: table-cell;
       vertical-align: middle;
     }
+
     &__iconPlacer {
       padding: 0 10px 0 0;
+
       > * {
         display: block;
       }
     }
+
     &__caption-upper {
       @include g-font(14, 1);
-      padding: 0 0 #{$_elementSpacing};
+
+      padding: 0 0 3px;
     }
+
     &__h {
       @include g-font(18, 1);
     }
+
     &__caption-lower {
       @include g-font(14, 1);
-      padding: #{$_elementSpacing} 0 0;
+
+      padding: 3px 0 0;
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
-        $_src: "t0-b-lv4H-num2Icon2__icon/#{$type}/#{$index}.png";
-        background-image: url("../imgs/#{$_src}");
+        $_src: "../imgs/t0-b-lv4H-num2Icon2__icon/#{$type}/#{$index}.png";
+
+        background-image: url($_src);
       }
+
       $_types: number;
-      background-size: 50px 50px;
+
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
       vertical-align: middle;
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -492,22 +344,22 @@
         }
       }
     }
+
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
-      color: #555;
-      &:hover {
-        color: #16998f;
-      }
+      color: $textcolor;
     }
   }
-
 }
