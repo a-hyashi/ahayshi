@@ -190,5 +190,5 @@ gulp.task('developing', function() {
 });
 
 gulp.task('watch', ['sass','aigis','server'], function() {
-  gulp.watch(['devStuff/src/**/*'],['developing',browserSync.reload]);
+  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing',browserSync.reload]);
 });
