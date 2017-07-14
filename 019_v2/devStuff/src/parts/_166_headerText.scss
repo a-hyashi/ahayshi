@@ -1,31 +1,48 @@
 @if $device == PC {
   .t0-b-headerText {
     $_block: &;
-    $_width_content: 1060px;
+    $_width_content: 1100px;
     $_elementSpacing: #{$g-spacingBaseLength * 4}px;
-    padding-top: 20px;
+
+    padding: 15px 0;
+
     > div {
       width: $_width_content;
       margin: 0 auto;
+
       > div {
         margin: 0 0 0 -20px;
+
         > div {
           display: table;
           width: 100%;
         }
       }
     }
+
     &__col {
       display: table-cell;
       padding: 0 0 0 20px;
+
       p {
-        @include g-font(14, 2);
+        @include g-font-spacingKilled(16, 2);
+
         padding-top: $_elementSpacing;
+
         &:first-child {
           padding-top: 0;
         }
       }
     }
+
+    a {
+      color: $textcolor;
+
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+
     @for $_i from 1 through 2 {
       &--col#{$_i} {
         #{$_block}__col {
@@ -39,18 +56,42 @@
 @if $device == SP {
 
   .t0-b-headerText {
-    padding-top: 20px;
     $_block: &;
     $_elementSpacing: #{$g-spacingBaseLength * 4}px;
-    &__col {
+
+    padding-top: 20px;
+
+    > div {
       width: 100%;
+      margin: 0 auto;
+
+      > div {
+        margin: 0 0 0 -20px;
+
+        > div {
+          display: table;
+          width: 100%;
+        }
+      }
+    }
+
+    &__col {
+      display: table-cell;
+      padding: 0 0 0 20px;
+
       p {
-        @include g-font(16, 2);
+        @include g-font-spacingKilled(16, 2);
+
         padding-top: $_elementSpacing;
+
         &:first-child {
           padding-top: 0;
         }
       }
+    }
+
+    a {
+      color: $textcolor;
     }
   }
 }
