@@ -3,51 +3,68 @@
   .t0-b-siteName,
   .t0-b-siteTitle {
     white-space: nowrap;
+
+    $_block: &;
+
     &--has-width {
       white-space: normal;
     }
+    
+
     &__bd {
       display: table;
+
       > div {
         display: table-cell;
         vertical-align: middle;
         text-align: left;
       }
     }
+
     &__bd-logo {
-      padding-right: 10px;
+      padding: 0 10px 0 0;
+
       img {
         display: block;
-        height: 45px;
-        width: auto;
+        height: 50px;
         max-width: 160px;
       }
     }
+
     a {
-      color: #555;
       text-decoration: none;
+      color: $textcolor;
+
       &:hover {
-        color: #16998f;
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $hovercolor;
+        }
+
         img {
-          opacity: .8;
+          opacity: 0.8;
         }
       }
     }
+
     &__bd-note {
       @include g-font(14, 1);
-      padding-bottom: 5px;
+
+      padding: 0 0 5px;
     }
+
     &__bd-siteName {
       @include g-font(28, 1);
-      font-weight: bold;
     }
+
     &__bd-note + &__bd-siteName {
       @include g-font(24, 1);
-      font-weight: bold;
     }
+
     &__ft {
       @include g-font(14, 1);
-      padding-top: 5px;
+
+      padding: 10px 0 0;
     }
   }
 }
@@ -58,41 +75,54 @@
     &--has-width {
       white-space: normal;
     }
+
     &__bd {
       display: table;
+
       > div {
         display: table-cell;
         vertical-align: middle;
         text-align: left;
       }
     }
+
     &__bd-logo {
-      padding-right: 10px;
+      padding: 0 10px 0 0;
+
       img {
         display: block;
-        height: 45px;
+        height: 40px;
         max-width: 160px;
       }
     }
+
+    a {
+      text-decoration: none;
+      color: $textcolor;
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+    }
+
     &__bd-note {
       @include g-font(14, 1);
-      padding-bottom: 5px;
+
+      padding: 0 0 5px;
     }
+
     &__bd-siteName {
-      @include g-font(28, 1);
-      font-weight: bold;
+      @include g-font(18, 1);
     }
+
     &__bd-note + &__bd-siteName {
-      @include g-font(24, 1);
-      font-weight: bold;
+      @include g-font(18, 1);
     }
+
     &__ft {
       @include g-font(14, 1);
-      padding-top: 5px 0 0;
-    }
-    a {
-      color: #555;
-      text-decoration: none;
+
+      padding: 10px 0 0;
     }
   }
 }
