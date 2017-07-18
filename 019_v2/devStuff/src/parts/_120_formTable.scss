@@ -1,1241 +1,913 @@
 @if $device == PC {
-  .t0-b-formTable#{$variation1of3} {
+  .t0-b-formTable#{$variation1of2} {
     $_block: &;
-    $_color_th_typo: #555;
-    $_color_th_bg: #d7f8f1;
+    $_color_th_bg: #d4e9ed;
     $_color_td_bg: #fff;
-    $_color_table_border: #555;
-    $_color_error_typo: #f80103;
+    $_color_table_border: #333;
+    $_color_error_typo: #da0000;
+
     table {
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
       width: 100%;
     }
-    th,
-    td {
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
+
+    table, x:-moz-any-link {
+      border-collapse: initial;
+    }
+
+    th, td {
+      border-bottom: 1px dotted #{$_color_table_border};
       vertical-align: middle;
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
-      @include g-font(14, 1);
-      color: $_color_th_typo;
       background: $_color_th_bg;
+
+      @include g-font(14, 1);
+
+      border-right: 1px dotted #{$_color_table_border};
+
       > div {
         display: table;
         width: 100%;
+
         > * {
           display: table-cell;
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
+    tr {
+      &:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
+    }
+
     .mod-formError {
-      @include g-font(18, 1);
       display: block;
       color: $_color_error_typo;
-      font-weight: bold;
+
+      @include g-font(18, 1);
+
       padding: 10px 0 0;
     }
+
     &__td-caption {
-      @include g-font(12, 1);
+      @include g-font(14, 1);
+
       padding: 10px 0 0;
     }
+
     &__confirmer {
       @include g-font(14, 2);
     }
+
     &__placer-singleInput {
-      input,
-      select,
-      textarea {
+      input, select, textarea {
         display: block;
-        width: 100%;
-        background-color: #fff;
+      }
+
+      select {
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
       }
     }
+
     &__placer-list {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
-        @include g-font(14, 1);
         padding: 5px 4px 0 0;
         text-indent: -18px;
+
+        @include g-font(14, 1);
+
         display: inline;
+
         > span {
           width: 18px;
           height: 1px;
           display: inline-block;
           vertical-align: middle;
+
           input {
             display: block;
             position: relative;
-            top: -.6em;
+            top: -0.6em;
+          }
+
+          textarea {
+            border: 1px solid #cbcbcb;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
     }
+
+    //&__placer-list--align-vertical: no style
+
     .ex-vertical {
-      padding: 0;
       li {
         display: list-item;
         padding: 5px 10px 0 18px;
       }
     }
+
     &__required {
       $_color_typo: #fff;
-      $_color_bg: #eb8382;
-      width: 47px;
+      $_color_bg: #333;
+
+      width: 40px;
       vertical-align: middle;
+
       > span {
-        @include g-font(12, 1);
         display: block;
         color: $_color_typo;
         background: $_color_bg;
-        border-radius: 2px;
-        padding: 5px;
+
+        @include g-font(12, 1);
+
+        padding: 3px 5px;
         text-align: center;
         margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
+        font-weight: normal;
       }
     }
+
     &__button {
-      @include g-font(18, 1);
-      $_color_border: #16998f;
+      &:hover {
+        opacity: 0.8;
+      }
+
       $_color_typo: #fff;
-      $_color_bg: #16998f;
+
       max-width: 266px;
       min-width: 90px;
       color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
       display: inline-block;
-      padding: 13px 23px;
+      padding: 10px 18px;
+      background: #45b1c7;
       border-radius: 5px;
+      box-shadow: 0 3px #777;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-      &:hover {
-        opacity: .8;
-      }
+
+      @include g-font(16, 1);
     }
+
     &__button2 {
-      @include g-font(18, 1);
-      $_color_border: #ccc;
-      $_color_typo: #555;
-      $_color_bg: #ccc;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 5px;
-      appearance: none;
       &:hover {
-        opacity: .8;
+        opacity: 0.8;
       }
-    }
-    &__button3 {
-      @include g-font(18, 1);
-      $_color_border: #16998f;
+
       $_color_typo: #fff;
-      $_color_bg: #16998f;
+
+      margin-right: 20px;
       max-width: 266px;
       min-width: 90px;
       color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
       display: inline-block;
-      padding: 13px 23px;
+      padding: 10px 18px;
+      background: #a09e9e;
       border-radius: 5px;
+      box-shadow: 0 3px #777;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
+      @include g-font(16, 1);
+    }
+
+    &__button3 {
       &:hover {
-        opacity: .8;
+        opacity: 0.8;
       }
+
+      $_color_typo: #fff;
+
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      display: inline-block;
+      padding: 10px 18px;
+      background: #45b1c7;
+      border-radius: 5px;
+      box-shadow: 0 3px #777;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      @include g-font(16, 1);
     }
   }
 
-  .t0-b-formTable#{$variation2of3} {
+  .t0-b-formTable#{$variation2of2} {
     $_block: &;
-    $_color_th_typo: #555;
-    $_color_th_bg: #d7f8f1;
+    $_color_th_bg: #e3f0f5;
     $_color_td_bg: #fff;
-    $_color_table_border: #555;
-    $_color_error_typo: #f80103;
-    table {
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
-      width: 100%;
-    }
-    th,
-    td {
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
-      vertical-align: middle;
-      text-align: left;
-      padding: 10px 15px;
-    }
-    th {
-      @include g-font(14, 1);
-      color: $_color_th_typo;
-      background: $_color_th_bg;
-      > div {
-        display: table;
-        width: 100%;
-        > * {
-          display: table-cell;
-        }
-      }
-    }
-    td {
-      background: $_color_td_bg;
-    }
-    .mod-formError {
-      @include g-font(18, 1);
-      display: block;
-      color: $_color_error_typo;
-      font-weight: bold;
-      padding: 10px 0 0;
-    }
-    &__td-caption {
-      @include g-font(12, 1);
-      padding: 10px 0 0;
-    }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
-      input,
-      select,
-      textarea {
-        display: block;
-        width: 100%;
-        background-color: #fff;
-      }
-    }
-    &__placer-list {
-      ul {
-        margin: (-5px) -10px 0 0;
-        padding-top: 5px;
-      }
-      li {
-        @include g-font(14, 1);
-        padding: 5px 4px 0 0;
-        text-indent: -18px;
-        display: inline;
-        > span {
-          width: 18px;
-          height: 1px;
-          display: inline-block;
-          vertical-align: middle;
-          input {
-            display: block;
-            position: relative;
-            top: -.6em;
-          }
-        }
-        > label {
-          display: inline;
-        }
-      }
-      li#{$_block}__listBreak {
-        display: block;
-        height: 0;
-        padding: 0;
-      }
-    }
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
-      }
-    }
-    &__required {
-      $_color_typo: #fff;
-      $_color_bg: #eb8382;
-      width: 47px;
-      vertical-align: middle;
-      > span {
-        @include g-font(12, 1);
-        display: block;
-        color: $_color_typo;
-        background: $_color_bg;
-        border-radius: 2px;
-        padding: 5px;
-        text-align: center;
-        margin-top: -10px;
-        margin-bottom: -10px;
-        margin-left: 3px;
-      }
-    }
-    .t0-b-formTable__required > span {
-      background: #eb8382;
-    }
-    &__button {
-      @include g-font(16, 1);
-      $_color_border: #06776e;
-      $_color_typo: #fff;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      background-repeat: repeat;
-      background-position: left top;
-      background-image: url("../imgs/t0-b-formTable/bg.png");
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 5px;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-    &__button2 {
-      @include g-font(16, 1);
-      $_color_border: #888;
-      $_color_typo: #fff;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      background-repeat: repeat;
-      background-position: left top;
-      background-image: url("../imgs/t0-b-formTable/bg2.png");
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 9px;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-    &__button3 {
-      @include g-font(16, 1);
-      $_color_border: #06776e;
-      $_color_typo: #fff;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      background-repeat: repeat;
-      background-position: left top;
-      background-image: url("../imgs/t0-b-formTable/bg.png");
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 9px;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-  }
+    $_color_table_border: #ccc;
+    $_color_error_typo: #da0000;
 
-  .t0-b-formTable#{$variation3of3} {
-    $_block: &;
-    $_color_th_typo: #555;
-    $_color_th_bg: #f7f7f7;
-    $_color_td_bg: #fff;
-    $_color_table_border: #555;
-    $_color_error_typo: #e00203;
     table {
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
       width: 100%;
     }
-    th,
-    td {
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
+
+    table, x:-moz-any-link {
+      border-collapse: initial;
+    }
+
+    th, td {
+      border-bottom: 1px dotted #{$_color_table_border};
       vertical-align: middle;
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
-      @include g-font(14, 1);
-      color: $_color_th_typo;
       background: $_color_th_bg;
+
+      @include g-font(14, 1);
+
+      border-right: 1px dotted #{$_color_table_border};
+
       > div {
         display: table;
         width: 100%;
+
         > * {
           display: table-cell;
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
+    tr {
+      &:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
+    }
+
     .mod-formError {
-      @include g-font(18, 1);
       display: block;
       color: $_color_error_typo;
-      font-weight: bold;
+
+      @include g-font(18, 1);
+
       padding: 10px 0 0;
     }
+
     &__td-caption {
-      @include g-font(12, 1);
+      @include g-font(14, 1);
+
       padding: 10px 0 0;
     }
+
     &__confirmer {
       @include g-font(14, 2);
     }
+
     &__placer-singleInput {
-      input,
-      select,
-      textarea {
+      input, select, textarea {
         display: block;
-        width: 100%;
-        background-color: #fff;
+      }
+
+      select {
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
       }
     }
+
     &__placer-list {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
-        @include g-font(14, 1);
         padding: 5px 4px 0 0;
         text-indent: -18px;
+
+        @include g-font(14, 1);
+
         display: inline;
+
         > span {
           width: 18px;
           height: 1px;
           display: inline-block;
           vertical-align: middle;
+
           input {
             display: block;
             position: relative;
-            top: -.6em;
+            top: -0.6em;
+          }
+
+          textarea {
+            border: 1px solid #cbcbcb;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
     }
+
+    //&__placer-list--align-vertical: no style
+
     .ex-vertical {
-      padding: 0;
       li {
         display: list-item;
         padding: 5px 10px 0 18px;
       }
     }
+
     &__required {
       $_color_typo: #fff;
-      $_color_bg: #d44443;
-      width: 47px;
+      $_color_bg: #c62d2d;
+
+      width: 40px;
       vertical-align: middle;
+
       > span {
-        @include g-font(12, 1);
         display: block;
         color: $_color_typo;
         background: $_color_bg;
-        padding: 5px;
+
+        @include g-font(12, 1);
+
+        padding: 3px 5px;
         text-align: center;
         margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
+        font-weight: normal;
       }
     }
-    .t0-b-formTable__required > span {
-      background: #d44443;
-    }
+
     &__button {
-      @include g-font(14, 1);
-      $_color_border: #19a094;
+      &:hover {
+        opacity: 0.8;
+      }
+
       $_color_typo: #fff;
+
       max-width: 266px;
       min-width: 90px;
       color: $_color_typo;
-      text-shadow: (-1px) -1px #2ea498, 1px -1px #2ea498, -1px 1px #2ea498, 1px 1px #2ea498;
-      background: linear-gradient(#74e2d8, #39c0b2);
-      border: 1px solid #{$_color_border};
       display: inline-block;
-      padding: 13px 23px;
+      padding: 10px 18px;
+      background: #1c8aa1;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-      &:hover {
-        opacity: .8;
-      }
+
+      @include g-font(16, 1);
     }
+
     &__button2 {
-      @include g-font(14, 1);
-      $_color_border: #666;
+      &:hover {
+        opacity: 0.8;
+      }
+
       $_color_typo: #fff;
+
+      margin-right: 20px;
       max-width: 266px;
       min-width: 90px;
-      margin-right: 60px;
       color: $_color_typo;
-      text-shadow: (-1px) -1px #7c7c7c, 1px -1px #7c7c7c, -1px 1px #7c7c7c, 1px 1px #7c7c7c;
-      background: linear-gradient(#d5d5d5, #9e9e9e);
-      border: 1px solid #{$_color_border};
       display: inline-block;
-      padding: 13px 23px;
+      padding: 10px 18px;
+      background: #a09e9e;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-      &:hover {
-        opacity: .8;
-      }
+
+      @include g-font(16, 1);
     }
+
     &__button3 {
-      @include g-font(14, 1);
-      $_color_border: #19a094;
+      &:hover {
+        opacity: 0.8;
+      }
+
       $_color_typo: #fff;
+
       max-width: 266px;
       min-width: 90px;
       color: $_color_typo;
-      text-shadow: (-1px) -1px #2ea498, 1px -1px #2ea498, -1px 1px #2ea498, 1px 1px #2ea498;
-      background: linear-gradient(#74e2d8, #39c0b2);
-      border: 1px solid #{$_color_border};
       display: inline-block;
-      padding: 13px 23px;
+      padding: 10px 18px;
+      background: #1c8aa1;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-      &:hover {
-        opacity: .8;
-      }
+
+      @include g-font(16, 1);
     }
   }
 
 
   .t0-b-buttonPlacer {
     text-align: center;
+
     > div {
       display: inline-block;
       vertical-align: top;
+
       > * {
         display: block;
         white-space: normal;
       }
     }
+
     p {
       @include g-font(12, 1);
+
       text-align: center;
       padding: 15px 0 0;
-      &::before,
-      &::after {
+
+      &:before,
+      &:after {
         margin-top: 0;
       }
     }
   }
   .t0-b-inputText {
-    @include g-font(12, 1);
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    padding: .3em 6px;
-    width: 100%;
-    background-color: #fff;
+    
   }
 
   .t0-b-textarea {
-    @include g-font(12, 2);
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    padding: .3em 6px;
-    display: block;
-    width: 100%;
-    height: 100px;
-    resize: vertical;
-    background-color: #fff;
-  }
-
-  .t0-b-required {
-    $_color_typo: #fff;
-    $_color_bg: #cf3e3e;
-    display: inline-block;
-    height: 1px;
-    vertical-align: middle;
-    > span {
-      @include g-font(10, 1);
-      display: block;
-      color: $_color_typo;
-      background: $_color_bg;
-      border-radius: 2px;
-      padding: 4px 5px;
-      text-align: center;
-      margin-top: -10px;
-      margin-bottom: -10px;
-      margin-right: 3px;
-    }
+    
   }
 }
 
 @if $device == SP {
 
-  .t0-b-formTable#{$variation1of3} {
+  .t0-b-formTable#{$variation1of2} {
     $_block: &;
-    $_color_th_typo: #555;
-    $_color_th_bg: #d7f8f1;
+    $_color_th_bg: #d4e9ed;
     $_color_td_bg: #fff;
-    $_color_table_border: #555;
-    $_color_error_typo: #f80103;
+    $_color_table_border: #333;
+    $_color_error_typo: #da0000;
 
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
-    .t0-b-frameWithHCaption#{$variation3of3} & {
-      margin: 0 -5px;
-    }
-
-    label {
-      direction: ltr;
-    }
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-      margin-top: 5px;
-    }
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
-    }
-    tbody,
-    tr {
+    table, tbody, tr, th, td {
       display: block;
     }
+
     table {
-      display: block;
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       margin: 0;
     }
-    td {
+
+    th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
       vertical-align: middle;
       text-align: left;
-      padding: 10px 15px;
-      display: block;
-      background: $_color_td_bg;
-    }
-    th {
-      @include g-font(14, 1);
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
-      vertical-align: middle;
-      text-align: left;
-      display: block;
-      color: $_color_th_typo;
-      background: $_color_th_bg;
       padding: 10px;
+    }
+
+    th {
+      background: $_color_th_bg;
+
+      @include g-font(14, 1);
+
       > div {
         display: table;
         width: 100%;
         direction: rtl;
+
         > * {
           display: table-cell;
         }
       }
     }
+
+    td {
+      background: $_color_td_bg;
+    }
+
     .mod-formError {
-      @include g-font(14, 1);
       display: block;
       color: $_color_error_typo;
-      font-weight: bold;
+
+      @include g-font(14, 1);
+
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(14, 1);
+
       padding: 10px 0 0;
     }
+
     &__confirmer {
       @include g-font(14, 2);
     }
+
     &__placer-singleInput {
-      input,
-      select,
-      textarea {
+      input, select, textarea {
         display: block;
         width: 100%;
-        background-color: #fff;
+      }
+
+      select {
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
       }
     }
+
     &__placer-list {
       ul {
         margin: (-5px) -10px 0 0;
-        padding-top: 5px;
       }
+
       li {
-        @include g-font(14, 1);
-        padding: 5px 4px 0 0;
+        padding: 5px 10px 0 18px;
         text-indent: -18px;
-        display: initial;
+
+        @include g-font(14, 1);
+
         > span {
           width: 18px;
           height: 1px;
           display: inline-block;
           vertical-align: middle;
+
           input {
             display: block;
             position: relative;
-            top: -.6em;
+            top: -0.6em;
           }
         }
+
         > label {
-          position: relative;
-          top: 3px;
+          display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
     }
+
+    //&__placer-list--align-vertical: no style
+
     .ex-vertical {
-      padding: 0;
       li {
         display: list-item;
-        padding: 5px 10px 0 29px;
-        text-indent: -29px;
-        line-height: 25px;
+        padding: 5px 10px 0 18px;
       }
     }
+
     &__required {
       $_color_typo: #fff;
-      $_color_bg: #eb8382;
-      width: 33px;
+      $_color_bg: #333;
+
+      width: 40px;
       padding: 0 10px 0 0;
+      vertical-align: middle;
+
       > span {
-        @include g-font(10, 1);
         display: block;
         color: $_color_typo;
         background: $_color_bg;
-        border-radius: 2px;
-        padding: 4px 0;
+
+        @include g-font(10, 1);
+
+        padding: 3px 5px 1px;
         text-align: center;
-        margin-top: -10px;
+        margin-top: -8px;
         margin-bottom: -10px;
         margin-left: 3px;
+        font-weight: normal;
       }
     }
+
     &__button {
-      @include g-font(16, 1);
-      $_color_border: #16998f;
-      $_color_typo: #fff;
-      $_color_bg: #16998f;
+      color: #fff;
+      max-width: 229px;
       word-break: break-word;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
       padding: 8px 12px;
-      border-radius: 4px;
+      background: #45b1c7;
+      border-radius: 5px;
+      box-shadow: 0 3px #777;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-    }
-    &__button2 {
+
       @include g-font(16, 1);
-      $_color_border: #ccc;
-      $_color_typo: #555;
-      $_color_bg: #ccc;
+    }
+
+    &__button2 {
+      color: #fff;
       max-width: 113px;
+      margin-bottom: 5px;
       word-break: break-word;
       margin-right: 10px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
       padding: 8px 12px;
-      border-radius: 4px;
+      background: #a09e9e;
+      border-radius: 5px;
+      box-shadow: 0 3px #777;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-    }
-    &__button3 {
+
       @include g-font(16, 1);
-      $_color_border: #16998f;
-      $_color_typo: #fff;
-      $_color_bg: #16998f;
-      width: 229px;
+    }
+
+    &__button3 {
+      color: #fff;
+      max-width: 229px;
+      margin-bottom: 5px;
       word-break: break-word;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
       padding: 8px 12px;
-      border-radius: 4px;
+      background: #45b1c7;
+      border-radius: 5px;
+      box-shadow: 0 3px #777;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
+      @include g-font(16, 1);
     }
   }
 
-  .t0-b-formTable#{$variation2of3} {
+  .t0-b-formTable#{$variation2of2} {
     $_block: &;
-    $_color_th_typo: #555;
-    $_color_th_bg: #d7f8f1;
+    $_color_th_bg: #e3f0f5;
     $_color_td_bg: #fff;
-    $_color_table_border: #555;
-    $_color_error_typo: #f80103;
+    $_color_table_border: #ccc;
+    $_color_error_typo: #da0000;
 
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
-    .t0-b-frameWithHCaption#{$variation3of3} & {
-      margin: 0 -5px;
-    }
-
-    label {
-      direction: ltr;
-    }
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-      margin-top: 5px;
-    }
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
-    }
-    tbody,
-    tr {
+    table, tbody, tr, th, td {
       display: block;
     }
+
     table {
-      display: block;
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       margin: 0;
     }
-    td {
-      display: block;
+
+    th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
       vertical-align: middle;
       text-align: left;
-      padding: 10px 15px;
-      background: $_color_td_bg;
-    }
-    th {
-      @include g-font(14, 1);
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
-      vertical-align: middle;
-      text-align: left;
-      display: block;
-      color: $_color_th_typo;
-      background: $_color_th_bg;
       padding: 10px;
+    }
+
+    th {
+      background: $_color_th_bg;
+
+      @include g-font(14, 1);
+
       > div {
         display: table;
         width: 100%;
         direction: rtl;
+
         > * {
           display: table-cell;
         }
       }
     }
+
+    td {
+      background: $_color_td_bg;
+    }
+
     .mod-formError {
-      @include g-font(14, 1);
       display: block;
       color: $_color_error_typo;
-      font-weight: bold;
+
+      @include g-font(14, 1);
+
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(14, 1);
+
       padding: 10px 0 0;
     }
+
     &__confirmer {
       @include g-font(14, 2);
     }
+
     &__placer-singleInput {
-      input,
-      select,
-      textarea {
+      input, select, textarea {
         display: block;
         width: 100%;
-        background-color: #fff;
+      }
+
+      select {
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
       }
     }
+
     &__placer-list {
       ul {
         margin: (-5px) -10px 0 0;
-        padding-top: 5px;
       }
+
       li {
-        @include g-font(14, 1);
-        padding: 5px 4px 0 0;
+        padding: 5px 10px 0 18px;
         text-indent: -18px;
-        display: initial;
+
+        @include g-font(14, 1);
+
         > span {
           width: 18px;
           height: 1px;
           display: inline-block;
           vertical-align: middle;
+
           input {
             display: block;
             position: relative;
-            top: -.6em;
+            top: -0.6em;
           }
         }
+
         > label {
-          position: relative;
-          top: 3px;
+          display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
     }
+
+    //&__placer-list--align-vertical: no style
+
     .ex-vertical {
-      padding: 0;
       li {
         display: list-item;
-        padding: 5px 10px 0 29px;
-        text-indent: -29px;
-        line-height: 25px;
+        padding: 5px 10px 0 18px;
       }
     }
+
     &__required {
       $_color_typo: #fff;
-      $_color_bg: #eb8382;
-      width: 33px;
+      $_color_bg: #c62d2d;
+
+      width: 40px;
       padding: 0 10px 0 0;
+      vertical-align: middle;
+
       > span {
-        @include g-font(10, 1);
         display: block;
         color: $_color_typo;
         background: $_color_bg;
-        border-radius: 2px;
-        padding: 4px 0;
-        text-align: center;
-        margin-top: -10px;
-        margin-bottom: -10px;
-        margin-left: 3px;
-      }
-    }
-    .t0-b-formTable__required > span {
-      background: #eb8382;
-    }
-    &__button {
-      @include g-font(16, 1);
-      $_color_border: #06776e;
-      $_color_typo: #fff;
-      word-break: break-word;
-      color: $_color_typo;
-      background-repeat: repeat;
-      background-position: left top;
-      background-image: url("../imgs/t0-b-formTable/bg.png");
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      appearance: none;
-    }
-    &__button2 {
-      @include g-font(16, 1);
-      $_color_border: #888;
-      $_color_typo: #fff;
-      max-width: 113px;
-      word-break: break-word;
-      margin-right: 10px;
-      color: $_color_typo;
-      background-repeat: repeat;
-      background-position: left top;
-      background-image: url("../imgs/t0-b-formTable/bg2.png");
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      appearance: none;
-    }
-    &__button3 {
-      @include g-font(16, 1);
-      $_color_border: #06776e;
-      $_color_typo: #fff;
-      width: 229px;
-      word-break: break-word;
-      color: $_color_typo;
-      background-repeat: repeat;
-      background-position: left top;
-      background-image: url("../imgs/t0-b-formTable/bg.png");
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      appearance: none;
-    }
-  }
 
-  .t0-b-formTable#{$variation3of3} {
-    $_block: &;
-    $_color_th_typo: #555;
-    $_color_th_bg: #f7f7f7;
-    $_color_td_bg: #fff;
-    $_color_table_border: #555;
-    $_color_error_typo: #e00203;
-
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
-    .t0-b-frameWithHCaption#{$variation3of3} & {
-      margin: 0 -5px;
-    }
-
-    label {
-      direction: ltr;
-    }
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-      margin-top: 5px;
-    }
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
-    }
-    tbody,
-    tr {
-      display: block;
-    }
-    table {
-      display: block;
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
-      margin: 0;
-    }
-    td {
-      display: block;
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
-      vertical-align: middle;
-      text-align: left;
-      padding: 10px 15px;
-      background: $_color_td_bg;
-    }
-    th {
-      @include g-font(14, 1);
-      display: block;
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
-      vertical-align: middle;
-      text-align: left;
-      color: $_color_th_typo;
-      background: $_color_th_bg;
-      padding: 10px;
-      > div {
-        display: table;
-        width: 100%;
-        direction: rtl;
-        > * {
-          display: table-cell;
-        }
-      }
-    }
-    .mod-formError {
-      @include g-font(14, 1);
-      display: block;
-      color: $_color_error_typo;
-      font-weight: bold;
-      padding: 10px 0 0;
-    }
-    &__td-caption {
-      @include g-font(14, 1);
-      padding: 10px 0 0;
-    }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
-      input,
-      select,
-      textarea {
-        display: block;
-        width: 100%;
-        background-color: #fff;
-      }
-    }
-    &__placer-list {
-      ul {
-        margin: (-5px) -10px 0 0;
-        padding-top: 5px;
-      }
-      li {
-        @include g-font(14, 1);
-        padding: 5px 4px 0 0;
-        text-indent: -18px;
-        display: initial;
-        > span {
-          width: 18px;
-          height: 1px;
-          display: inline-block;
-          vertical-align: middle;
-          input {
-            display: block;
-            position: relative;
-            top: -.6em;
-          }
-        }
-        > label {
-          position: relative;
-          top: 3px;
-        }
-      }
-      li#{$_block}__listBreak {
-        display: block;
-        height: 0;
-        padding: 0;
-      }
-    }
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 29px;
-        text-indent: -29px;
-        line-height: 25px;
-      }
-    }
-    &__required {
-      $_color_typo: #fff;
-      $_color_bg: #d44443;
-      width: 33px;
-      padding: 0 10px 0 0;
-      > span {
         @include g-font(10, 1);
-        display: block;
-        color: $_color_typo;
-        background: $_color_bg;
-        padding: 4px 0;
+
+        padding: 3px 5px 1px;
         text-align: center;
-        margin-top: -10px;
+        margin-top: -8px;
         margin-bottom: -10px;
         margin-left: 3px;
+        font-weight: normal;
       }
     }
-    .t0-b-formTable__required > span {
-      background: #d44443;
-    }
+
     &__button {
-      @include g-font(16, 1);
-      $_color_border: #19a094;
-      $_color_typo: #fff;
+      color: #fff;
+      max-width: 229px;
       word-break: break-word;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #2ea498, 1px -1px #2ea498, -1px 1px #2ea498, 1px 1px #2ea498;
-      background: linear-gradient(#74e2d8, #39c0b2);
-      border: 1px solid #{$_color_border};
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
       padding: 8px 12px;
+      background: #1c8aa1;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-    }
-    &__button2 {
+
       @include g-font(16, 1);
-      $_color_border: #666;
-      $_color_typo: #fff;
+    }
+
+    &__button2 {
+      color: #fff;
       max-width: 113px;
+      margin-bottom: 5px;
       word-break: break-word;
       margin-right: 10px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #7c7c7c, 1px -1px #7c7c7c, -1px 1px #7c7c7c, 1px 1px #7c7c7c;
-      background: linear-gradient(#d5d5d5, #9e9e9e);
-      border: 1px solid #{$_color_border};
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
       padding: 8px 12px;
+      background: #a09e9e;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-    }
-    &__button3 {
+
       @include g-font(16, 1);
-      $_color_border: #19a094;
-      $_color_typo: #fff;
-      width: 229px;
+    }
+
+    &__button3 {
+      color: #fff;
+      max-width: 229px;
+      margin-bottom: 5px;
       word-break: break-word;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #2ea498, 1px -1px #2ea498, -1px 1px #2ea498, 1px 1px #2ea498;
-      background: linear-gradient(#74e2d8, #39c0b2);
-      border: 1px solid #{$_color_border};
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
       padding: 8px 12px;
+      background: #1c8aa1;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
+      @include g-font(16, 1);
     }
   }
 
   .t0-b-buttonPlacer {
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-      > * {
-        display: block;
-      }
-    }
-    p {
-      @include g-font(12, 1);
-      text-align: center;
-      padding: 15px 0 0;
-      &::before,
-      &::after {
-        margin-top: 0;
-      }
-    }
-    input {
-      white-space: inherit;
-    }
+    
   }
 
   .t0-b-inputText {
-    @include g-font(12, 1);
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    padding: .3em 6px;
-    width: 100%;
-    background-color: #fff;
+    
   }
 
   .t0-b-textarea {
-    @include g-font(12, 2);
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    padding: .3em 6px;
-    display: block;
-    width: 100%;
-    height: 100px;
-    resize: vertical;
-    background-color: #fff;
-  }
-
-  .t0-b-required {
-    $_color_typo: #fff;
-    $_color_bg: #cf3e3e;
-    display: inline-block;
-    height: 1px;
-    vertical-align: middle;
-    > span {
-      @include g-font(10, 1);
-      display: block;
-      color: $_color_typo;
-      background: $_color_bg;
-      border-radius: 2px;
-      padding: 4px 5px;
-      text-align: center;
-      margin-top: -10px;
-      margin-bottom: -10px;
-      margin-right: 3px;
-    }
+    
   }
 }
