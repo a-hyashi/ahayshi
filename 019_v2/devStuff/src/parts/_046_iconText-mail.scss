@@ -1,36 +1,36 @@
 @if $device == PC {
 
   .t0-b-iconText-mail {
-    color: #172188;
-
-    a {
-      text-decoration: none;
-      color: #172188;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+    $_block: &;
 
     > div {
       display: inline-block;
+      vertical-align: top;
     }
 
     &__bd {
-      @include g-font(16, 1);
-      text-align: left;
+      color: $textcolor;
       font-weight: bold;
     }
 
+    a {
+      display: table-cell;
+      text-align: left;
+      color: #0b6678;
+      padding-bottom: 2px;
+
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+
     &__icon {
-      display: inline-block;
-      width: 19px;
-      height: 12px;
-      margin-right: 3px;
-      background-image: url("../imgs/t0-b-iconText-mail/1.png");
-      background-position: left top;
+      display: table-cell;
+      vertical-align: middle;
       background-repeat: no-repeat;
     }
+
+    // aligns
 
     &--align-l {
       text-align: left;
@@ -43,36 +43,54 @@
     &--align-r {
       text-align: right;
     }
-  }
 
+    // icon sizes
+
+    &--size-1 {
+      #{$_block}__bd {
+        @include g-font(16, 1);
+      }
+
+      #{$_block}__icon {
+        width: 34px;
+        height: 16px;
+        background: url("../imgs/t0-b-iconText-mail/1.png") no-repeat 0 center;
+      }
+    }
+  }
 }
 
 @if $device == SP {
 
   .t0-b-iconText-mail {
-    word-break: break-all;
+    text-align: center;
 
-    a {
-      text-decoration: none;
-      color: #172188;
+    > div {
+      display: inline-block;
+      vertical-align: top;
     }
 
     &__bd {
-      @include g-font(16, 1);
-      text-align: left;
-      color: #f00;
+      color: $textcolor;
+      font-weight: bold;
 
-      > span {
-        background-repeat: no-repeat;
-      }
+      @include g-font(16, 1);
+    }
+
+    a {
+      display: table-cell;
+      text-align: left;
+      color: #0b6678;
+      padding-bottom: 2px;
     }
 
     &__icon {
-      display: inline-block;
-      width: 19px;
-      height: 12px;
-      background-image: url("../imgs/t0-b-iconText-mail/1.png");
-      margin-right: 3px;
+      display: table-cell;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      width: 34px;
+      height: 16px;
+      background: url("../imgs/t0-b-iconText-mail/1.png") no-repeat 0 center;
     }
   }
 }
