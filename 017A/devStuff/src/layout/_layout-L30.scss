@@ -1,8 +1,9 @@
-$areaContainerWidth: 1100px;
-$areaMainWidth: 740px;
-$areaSubWidth: 360px;
+$areaContainerWidth: 1060px;
+$areaMainWidth: 690px;
+$areaSubWidth: 370px;
 
 .area-all {
+  background-color: #edfaf9;
   margin: 0 auto;
   word-break: break-all;
   word-wrap: break-word;
@@ -15,7 +16,7 @@ $areaSubWidth: 360px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
-  // *zoom: 1;
+  *zoom: 1;
 
   &::before,
   &::after {
@@ -28,20 +29,23 @@ $areaSubWidth: 360px;
   }
 }
 
-
 .area-main {
   box-sizing: border-box;
-  padding: 0 0 50px;
+  padding-bottom: 50px;
   float: right;
-  width: 740px;
+  width: $areaMainWidth;
+  min-height: 100px;
 }
 
 .area-sub {
   box-sizing: border-box;
   min-height: 100px;
   float: left;
-  width: 360px;
+  width: $areaSubWidth;
   padding: 0 50px 50px 0;
+  position: relative;
+  //R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  z-index: 11;
 }
 
 .area-footer {
