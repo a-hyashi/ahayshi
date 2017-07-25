@@ -6,7 +6,11 @@
     font-weight: bold;
 
     h5 {
-      @include g-font(16, 1);
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
 
       display: inline;
     }
@@ -30,6 +34,29 @@
 
       &:hover {
         color: $hovercolor;
+      }
+    }
+
+    &--size-1 {
+      h5 {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
+    }
+
+    &--size-2 {}
+
+    &--size-3 {
+
+      h5 {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
       }
     }
   }
