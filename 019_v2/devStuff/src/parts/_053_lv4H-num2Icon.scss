@@ -22,30 +22,6 @@
       }
     }
 
-    &__caption-upper {
-      @include g-font(14, 1);
-
-      padding: 0 0 3px;
-    }
-
-    &__h {
-      @include g-font(22, 1);
-    }
-
-    &__caption-lower {
-      @include g-font(14, 1);
-
-      padding: 3px 0 0;
-    }
-
-    &__caption-upper + &__h {
-      @include g-font(20, 1);
-    }
-
-    &__caption-upper + a > &__h {
-      @include g-font(20, 1);
-    }
-
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-lv4H-num2Icon__icon/#{$type}/#{$index}.png";
@@ -58,6 +34,7 @@
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
+      background-size: 40px 42px;
       width: 40px;
       height: 42px;
       overflow: hidden;
@@ -70,6 +47,146 @@
           &--#{$_type}-#{$_i} {
             @include _iconStyles($_type, $_i);
           }
+        }
+      }
+    }
+
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+
+      padding: 0 0 3px;
+    }
+
+    &__h {
+      @if $layout == "N00" {
+        @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
+      }
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+
+      padding: 3px 0 0;
+    }
+
+    &__caption-upper + &__h {
+      @if $layout == "N00" {
+        @include g-font(24, 1);
+      } @else {
+        @include g-font(20, 1);
+      }
+    }
+
+    &__caption-upper + a > &__h {
+      @if $layout == "N00" {
+        @include g-font(24, 1);
+      } @else {
+        @include g-font(20, 1);
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        background-size: 40px*.8 42px*.8;
+        width: 40px*.8;
+        height: 42px*.8;
+      }
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+      }
+      
+      #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(20, 1);
+        } @else {
+          @include g-font(16, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(20, 1);
+        } @else {
+          @include g-font(16, 1);
+        }
+      }
+    }
+
+    &--size-2 {}
+
+    &--size-3 {
+      #{$_block}__icon {
+        background-size: 40px*1.2 42px*1.2;
+        width: 40px*1.2;
+        height: 42px*1.2;
+      }
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+      
+      #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(30, 1);
+        } @else {
+          @include g-font(26, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(28, 1);
+        } @else {
+          @include g-font(24, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(28, 1);
+        } @else {
+          @include g-font(24, 1);
         }
       }
     }
@@ -118,30 +235,6 @@
       }
     }
 
-    &__caption-upper {
-      @include g-font(14, 1);
-
-      padding: 0 0 3px;
-    }
-
-    &__h {
-      @include g-font(22, 1);
-    }
-
-    &__caption-lower {
-      @include g-font(14, 1);
-
-      padding: 3px 0 0;
-    }
-
-    &__caption-upper + &__h {
-      @include g-font(20, 1);
-    }
-
-    &__caption-upper + a > &__h {
-      @include g-font(20, 1);
-    }
-
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-lv4H-num2Icon2__icon/#{$type}/#{$index}.png";
@@ -154,6 +247,7 @@
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
+      background-size: 40px;
       width: 40px;
       height: 40px;
       overflow: hidden;
@@ -166,6 +260,146 @@
           &--#{$_type}-#{$_i} {
             @include _iconStyles($_type, $_i);
           }
+        }
+      }
+    }
+
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+
+      padding: 0 0 3px;
+    }
+
+    &__h {
+      @if $layout == "N00" {
+        @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
+      }
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+
+      padding: 3px 0 0;
+    }
+
+    &__caption-upper + &__h {
+      @if $layout == "N00" {
+        @include g-font(24, 1);
+      } @else {
+        @include g-font(20, 1);
+      }
+    }
+
+    &__caption-upper + a > &__h {
+      @if $layout == "N00" {
+        @include g-font(24, 1);
+      } @else {
+        @include g-font(20, 1);
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        background-size: 40px*.8;
+        width: 40px*.8;
+        height: 40px*.8;
+      }
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+      }
+      
+      #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(20, 1);
+        } @else {
+          @include g-font(16, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(20, 1);
+        } @else {
+          @include g-font(16, 1);
+        }
+      }
+    }
+
+    &--size-2 {}
+
+    &--size-3 {
+      #{$_block}__icon {
+        background-size: 40px*1.2;
+        width: 40px*1.2;
+        height: 40px*1.2;
+      }
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+      
+      #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(30, 1);
+        } @else {
+          @include g-font(26, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(28, 1);
+        } @else {
+          @include g-font(24, 1);
+        }
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @if $layout == "N00" {
+          @include g-font(28, 1);
+        } @else {
+          @include g-font(24, 1);
         }
       }
     }
