@@ -1,7 +1,20 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of2} {
     $_block: &;
-    
+    $_fontSizePx: 28;
+    $_lineHeightType: 1;
+    $_iconWidth: 8px;
+    $_iconHeight: 40px;
+
+    @include align-text;
+
+    h2 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      display: table-cell;
+      padding: 0 0 0 15px;
+      vertical-align: middle;
+    }
+
     a {
       text-decoration: none;
       display: table-cell;
@@ -21,68 +34,43 @@
     &__iconPlacer {
       display: table-cell;
       background: url("../imgs/t0-b-lv2H/1.png") no-repeat 0 50%;
-      width: 8px;
-      height: 40px;
-    }
-
-    h2 {
-      @if $layout == "N00" {
-        @include g-font(32, 1);
-      } @else {
-        @include g-font(28, 1);
-      }
-
-      display: table-cell;
-      padding: 0 0 0 15px;
-      vertical-align: middle;
+      width: $_iconWidth;
+      height: $_iconHeight;
     }
 
     &--size-1 {
-      #{$_block}__iconPlacer {
-        width: 8px*.8;
-        height: 40px*.8;
+      h2 {
+        @include g-font-layout($_fontSizePx - 4, $_lineHeightType, $layout);
       }
 
-      h2 {
-        @if $layout == "N00" {
-          @include g-font(28, 1);
-        } @else {
-          @include g-font(24, 1);
-        }
+      #{$_block}__iconPlacer {
+        width: $_iconWidth*.8;
+        height: $_iconHeight*.8;
       }
+
     }
 
     &--size-2 {}
 
     &--size-3 {
-      #{$_block}__iconPlacer {
-        width: 8px*1.2;
-        height: 40px*1.2;
-      }
-
       h2 {
-        @if $layout == "N00" {
-          @include g-font(36, 1);
-        } @else {
-          @include g-font(32, 1);
-        }
+        @include g-font-layout($_fontSizePx + 4, $_lineHeightType, $layout);
       }
+      
+      #{$_block}__iconPlacer {
+        width: $_iconWidth*1.2;
+        height: $_iconHeight*1.2;
+      }
+
     }
 
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_fontSizePx: 28;
+    $_lineHeightType: 1;
+
+    @include align-text;
 
     padding-bottom: 2px;
     border-bottom: 2px solid #ccc;
@@ -97,12 +85,7 @@
     }
 
     h2 {
-      @if $layout == "N00" {
-        @include g-font(32, 1);
-      } @else {
-        @include g-font(28, 1);
-      }
-
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       background-color: #8fd0dd;
       border-bottom: 2px solid #45b1c7;
       padding: 8px 24px;
@@ -111,11 +94,7 @@
     &--size-1 {
 
       h2 {
-        @if $layout == "N00" {
-          @include g-font(28, 1);
-        } @else {
-          @include g-font(24, 1);
-        }
+        @include g-font-layout($_fontSizePx - 4, $_lineHeightType, $layout);
       }
     }
 
@@ -124,31 +103,25 @@
     &--size-3 {
 
       h2 {
-        @if $layout == "N00" {
-          @include g-font(36, 1);
-        } @else {
-          @include g-font(32, 1);
-        }
+        @include g-font-layout($_fontSizePx + 4, $_lineHeightType, $layout);
       }
+    
     }
 
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
   }
+
 }
 
 @if $device == SP {
 
   .t0-b-lv2H#{$variation1of2} {
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_iconWidth: 8px;
+    $_iconHeight: 30px;
+
+    @include align-text;
+
     a {
       text-decoration: none;
       display: table-cell;
@@ -164,34 +137,26 @@
     &__iconPlacer {
       display: table-cell;
       background: url("../imgs/t0-b-lv2H/1.png") no-repeat 0 50%;
-      background-size: 8px 30px;
-      width: 8px;
-      height: 30px;
+      width: $_iconWidth;
+      height: $_iconHeight;
     }
 
     h2 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+
       display: table-cell;
       padding: 0 0 0 10px;
-
-      @include g-font(18, 1);
-
       vertical-align: middle;
     }
 
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    
+    @include align-text;
+
     padding-bottom: 2px;
     border-bottom: 2px solid #ccc;
 
@@ -201,23 +166,13 @@
     }
 
     h2 {
-      @include g-font(18, 1);
+      @include g-font($_fontSizePx, $_lineHeightType);
 
       background-color: #8fd0dd;
       border-bottom: 2px solid #45b1c7;
       padding: 8px 15px 6px;
     }
 
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
   }
+
 }

@@ -1,0 +1,109 @@
+/*
+---
+name: align-text
+category:
+- assets/mixin
+---
+
+テキスト要素の場合に利用する寄せ共通設定用
+
+```scss
+@mixin align-text{
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+}
+```
+
+*/
+
+@mixin align-text{
+  &--align-l {
+    text-align: left;
+  }
+  &--align-c {
+    text-align: center;
+  }
+  &--align-r {
+    text-align: right;
+  }
+}
+
+/*
+---
+name: align-block
+category:
+- assets/mixin
+---
+
+ブロック要素の場合に利用する寄せ共通設定用
+
+```scss
+@mixin align-block{
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+    &--align-c {
+      margin: 0 auto;
+    }
+    &--align-r {
+      margin: 0 0 0 auto;
+    }
+}
+```
+*/
+@mixin align-block{
+  &--align-l {
+    margin: 0 auto 0 0;
+  }
+  &--align-c {
+    margin: 0 auto;
+  }
+  &--align-r {
+    margin: 0 0 0 auto;
+  }
+}
+
+/*
+---
+name: g-font-layout
+category:
+- assets/mixin
+---
+
+layout='N00' の際にフォントサイズを4px大きくする機能を追加したg-font
+
+```scss
+@mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25'){
+  @if $layout == "N00" {
+    @include g-font($fontSizePx + 4, $lineHeightType);
+  } @else {
+    @include g-font($fontSizePx, $lineHeightType);
+  } 
+}
+```
+
+### 利用イメージ
+```scss
+.t0-b-lv2H#{$variation1of2} {
+  h2 {
+    @include g-font-layout(24, 1, $layout);      
+  }
+}
+```
+
+*/
+@mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25'){
+  @if $layout == "N00" {
+    @include g-font($fontSizePx + 4, $lineHeightType);
+  } @else {
+    @include g-font($fontSizePx, $lineHeightType);
+  } 
+}
+
