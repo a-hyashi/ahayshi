@@ -1,11 +1,119 @@
 @if $device == PC {
+  .t0-b-footerUnit-siteName,
   .t0-b-footerUnit-siteTitle {
-    
+    $_block: &;
+
+    white-space: nowrap;
+    color: #fff;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $hovercolor;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+
+      img {
+        display: block;
+        max-width: 125px;
+        height: 65px;
+      }
+    }
+
+    &__bd-note {
+      @include g-font(16, 1);
+      margin: 0 0 5px;
+      padding: 0;
+    }
+
+    &__bd-siteName {
+      @include g-font(34, 1);
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(30, 1);
+    }
+
+    &__ft {
+      @include g-font(16, 1);
+      padding: 10px 0 0;
+    }
   }
 }
 
 @if $device == SP {
+  .t0-b-footerUnit-siteName,
   .t0-b-footerUnit-siteTitle {
-    
+
+    color: #fff;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+
+      img {
+        display: block;
+        height: 40px;
+        max-width: 80px;
+      }
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+    }
+
+    &__bd-siteName {
+      @include g-font(18, 1);
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 10px 0 0;
+    }
   }
 }
