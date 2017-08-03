@@ -1,21 +1,395 @@
 @if $device == PC {
 
   .t0-b-headerSingle#{$variation1of2} {
-    
+    $_width_content: 1100px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding-top: 5px;
+    box-sizing: border-box;
+    background: #262626;
+
+    * {
+      white-space: normal;
+    }
+
+    &__hd {
+      text-align: center;
+      
+      > p {
+        width: $_width_content;
+        margin: 0 auto;
+        @include g-font(16, 1);
+        color: #fff;
+      }
+    }
+
+    &__bd {
+      padding-bottom: 15px;
+
+      > div {
+        display: block;
+        width: $_width_content;
+        margin: 0 auto;
+
+        > div {
+          display: table;
+          max-width: $_width_content;
+          text-align: center;
+          vertical-align: top;
+          padding-top: $_colSpacing;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
+    }
+
+    &__col2 {
+      padding-left: $_colSpacing;
+    }
+
+    &__col3 {
+      padding-left: $_colSpacing;
+    }
   }
 
   .t0-b-headerSingle#{$variation2of2} {
-    
+    $_width_content: 1100px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding-top: 5px;
+    box-sizing: border-box;
+    background: #fff;
+
+    * {
+      white-space: normal;
+    }
+
+    &__hd {
+      text-align: center;
+
+      > p {
+        width: $_width_content;
+        margin: 0 auto;
+        @include g-font(16, 1);
+        color: $textcolor;
+      }
+    }
+
+    &__bd {
+      padding-bottom: 15px;
+
+      > div {
+        display: block;
+        width: $_width_content;
+        margin: 0 auto;
+
+        > div {
+          max-width: $_width_content;
+          display: table;
+          text-align: center;
+          vertical-align: top;
+          margin: 0 auto;
+          padding-top: $_colSpacing;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
+    }
+
+    &__col2 {
+      padding-left: $_colSpacing;
+    }
+
+    &__col3 {
+      padding-left: $_colSpacing;
+    }
+
+    .t0-b-headerUnit-text {
+      color: $textcolor;
+
+      a {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-siteName,
+    .t0-b-headerUnit-siteTitle,
+    .t0-b-headerUnit-siteTitle2 {
+      color: $textcolor;
+
+      a {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-siteName2 {
+      &__ft {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-labeledList {
+      color: $textcolor;
+
+      th {
+        color: #fff;
+      }
+    }
+
+    .t0-b-headerUnit-miniCol {
+      background: #f1f5f4;
+    }
+
+    .t0-b-headerUnit-contact-tel {
+      $_block: &;
+
+      color: #0b6678;
+    }
+
+    .t0-b-headerUnit-contact-tel__tel {
+      background-image: url("../imgs/t0-b-iconText/tel.png") !important;
+    }
+
+    .t0-b-headerUnit-contact-tel__fax {
+      background-image: url("../imgs/t0-b-iconText/fax.png") !important;
+    }
+
+    .t0-b-headerUnit-contact-tel__cell {
+      background-image: url("../imgs/t0-b-iconText/cell.png") !important;
+    }
+
+    .t0-b-headerUnit-contact-fax {
+      > div {
+        background-image: url("../imgs/t0-b-iconText/fax4.png");
+      }
+
+      > p {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-contact-nav {
+      color: #0b6678;
+
+      a {
+        color: #0b6678;
+
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+    }
+
+    .t0-b-headerUnit-contact-navB#{$variation1of2} {
+      border: 1px solid #18849a;
+      background: #35a0b6;
+    }
+
+    .t0-b-headerUnit-contact-navB#{$variation2of2} {
+      color: #fff;
+
+      &:after {
+        border-bottom: 1px solid #414141;
+        border-right: 1px solid #414141;
+      }
+
+      a {
+        color: #fff;
+      }
+
+      p {
+        background: #414141;
+      }
+
+      div {
+        background: #414141;
+
+        &:before {
+          background: url("../imgs/t0-b-navItem/3.png") no-repeat 0 50%;
+          background-size: 6px 10px;
+        }
+      }
+    }
   }
 }
 
 @if $device == SP {
 
   .t0-b-headerSingle#{$variation1of2} {
-    
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+
+    background-repeat: repeat-x;
+    background-position: left top;
+    background: #262626;
+    margin: 0 -15px;
+    padding: 5px 15px 0;
+
+    &__hd {
+      margin-bottom: 10px;
+      text-align: center;
+
+      > p {
+        width: 100%;
+        margin: 0 auto;
+        @include g-font(14, 1);
+        color: #fff;
+      }
+    }
+
+    &__bd {
+      > div {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+
+        > div {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &__col {
+      width: 100%;
+    }
+  }
+
+  //▽サイト名中央に入ったときのみ中央寄せの見た目にする
+  .t0-b-headerUnit-siteName__bd,
+  .t0-b-headerUnit-siteTitle2__bd,
+  .t0-b-headerUnit-labeledList table,
+  .t0-b-headerUnit-labeledList2 table,
+  .t0-b-headerUnit-miniCol {
+    margin: 0 auto;
   }
 
   .t0-b-headerSingle#{$variation2of2} {
-    
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+
+    background-repeat: repeat-x;
+    background-position: left top;
+    background: #fff;
+    margin: 0 -15px;
+    padding: 5px 15px 0;
+
+    &__hd {
+      margin-bottom: 10px;
+      text-align: center;
+
+      > p {
+        width: 100%;
+        margin: 0 auto;
+        @include g-font(14, 1);
+        color: $textcolor;
+      }
+    }
+
+    &__bd {
+      > div {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+
+        > div {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
+    }
+
+    &__col2 {
+      width: 100%;
+    }
+
+    &__col3 {
+      width: 100%;
+    }
+
+    .t0-b-headerUnit-text {
+      color: $textcolor;
+
+      a {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-siteName,
+    .t0-b-headerUnit-siteTitle,
+    .t0-b-headerUnit-siteTitle2 {
+      color: $textcolor;
+
+      a {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-siteName2 {
+      &__ft {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-labeledList {
+      color: $textcolor;
+
+      th {
+        color: #fff;
+      }
+    }
+
+    .t0-b-headerUnit-miniCol {
+      background: #f1f5f4;
+    }
+
+    //▽サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle2__bd,
+    .t0-b-headerUnit-labeledList table,
+    .t0-b-headerUnit-labeledList2 table,
+    .t0-b-headerUnit-miniCol {
+      margin: 0 auto;
+    }
+
+    .t0-b-headerUnit-contact-fax {
+      > div {
+        background-image: url("../imgs/t0-b-iconText/fax4.png");
+      }
+
+      > p {
+        color: $textcolor;
+      }
+    }
+
+    .t0-b-headerUnit-contact-nav {
+      color: #0b6678;
+
+      a {
+        color: #0b6678;
+      }
+    }
+
+    .t0-b-headerUnit-contact-navB#{$variation1of2} {
+      background-color: #35a0b6;
+      border: 1px solid #18849a;
+    }
+
+    .t0-b-headerUnit-contact-navB#{$variation2of2} {
+      background-color: #414141;
+      border: 1px solid #414141;
+      color: #fff;
+
+      a {
+        color: #fff;
+      }
+    }
   }
 }
