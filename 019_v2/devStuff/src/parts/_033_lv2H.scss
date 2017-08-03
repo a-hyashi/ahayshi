@@ -2,11 +2,12 @@
   .t0-b-lv2H#{$variation1of2} {
     $_block: &;
     $_fontSizePx: 28;
+    $_fontSizePx_s: $_fontSizePx - 4;
+    $_fontSizePx_l: $_fontSizePx + 4;
+
     $_lineHeightType: 1;
     $_iconWidth: 8px;
     $_iconHeight: 40px;
-
-    @include align-text;
 
     h2 {
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
@@ -40,7 +41,7 @@
 
     &--size-1 {
       h2 {
-        @include g-font-layout($_fontSizePx - 4, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
 
       #{$_block}__iconPlacer {
@@ -54,7 +55,7 @@
 
     &--size-3 {
       h2 {
-        @include g-font-layout($_fontSizePx + 4, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
       
       #{$_block}__iconPlacer {
@@ -64,13 +65,27 @@
 
     }
 
+    &--align-l {
+      text-align: left;
+    }
+    
+    &--align-c {
+      text-align: center;
+    }
+    
+    &--align-r {
+      text-align: right;
+    }
+
   }
 
   .t0-b-lv2H#{$variation2of2} {
     $_fontSizePx: 28;
     $_lineHeightType: 1;
 
-    @include align-text;
+    $_fontSizePx_s: $_fontSizePx - 4;
+    $_fontSizePx_l: $_fontSizePx + 4;
+
 
     padding-bottom: 2px;
     border-bottom: 2px solid #ccc;
@@ -94,7 +109,7 @@
     &--size-1 {
 
       h2 {
-        @include g-font-layout($_fontSizePx - 4, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
     }
 
@@ -103,9 +118,21 @@
     &--size-3 {
 
       h2 {
-        @include g-font-layout($_fontSizePx + 4, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
     }
 
   }
@@ -119,8 +146,6 @@
     $_lineHeightType: 1;
     $_iconWidth: 8px;
     $_iconHeight: 30px;
-
-    @include align-text;
 
     a {
       text-decoration: none;
@@ -149,14 +174,24 @@
       vertical-align: middle;
     }
 
+    &--align-l {
+      text-align: left;
+    }
+    
+    &--align-c {
+      text-align: center;
+    }
+    
+    &--align-r {
+      text-align: right;
+    }
+
   }
 
   .t0-b-lv2H#{$variation2of2} {
     $_fontSizePx: 18;
     $_lineHeightType: 1;
     
-    @include align-text;
-
     padding-bottom: 2px;
     border-bottom: 2px solid #ccc;
 
@@ -171,6 +206,18 @@
       background-color: #8fd0dd;
       border-bottom: 2px solid #45b1c7;
       padding: 8px 15px 6px;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    
+    &--align-c {
+      text-align: center;
+    }
+    
+    &--align-r {
+      text-align: right;
     }
 
   }

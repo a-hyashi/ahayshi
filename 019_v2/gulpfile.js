@@ -14,8 +14,7 @@ const browserSync = require('browser-sync');
 const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs');
-
-
+const sassdoc = require('sassdoc');
 
 
 // エラー通知 & watch中にエラーが出ても処理を止めないように
@@ -95,7 +94,10 @@ gulp.task('aigis', function(){
 gulp.task('server', function() {
   browserSync({
     server: {
-      baseDir: './devStuff/styleguide'
+      baseDir: './devStuff/styleguide',
+      routes: {
+        "/sassdoc": "./devStuff/sassdoc"
+      }
     }
   });
 });
@@ -166,7 +168,27 @@ function output_rename_sp_css(value, folder) {
     .pipe(gulp.dest('production/themes/' + folder + '/sp/'));
 }
 
+// gulp tasks sassdoc
+gulp.task('sassdoc', function(){
+  var options = {
+    dest: './devStuff/sassdoc',
+    verbose: true,
+    display: {
+      access: ['public', 'private'],
+      alias: true,
+      watermark: true,
+    },
+    groups: {
+      'undefined': 'Ungrouped',
+      foo: 'Foo group',
+      bar: 'Bar group',
+    },
+    basePath: 'https://github.com/SassDoc/sassdoc',
+  };
 
+  return gulp.src('devStuff/src/**/*.scss')
+    .pipe(sassdoc(options));
+});
 
 
 
@@ -189,6 +211,6 @@ gulp.task('developing', function() {
   );
 });
 
-gulp.task('watch', ['sass','aigis','server'], function() {
+gulp.task('watch', ['sass','aigis','sassdoc','server'], function() {
   gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing',browserSync.reload]);
 });
