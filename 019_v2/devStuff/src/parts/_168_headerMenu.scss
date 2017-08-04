@@ -424,9 +424,91 @@
   }
 
   .t0-b-headerMenu5 {
-    
-  }
+    $_width_content: 1100px;
 
+    background: #fff;
+    color: #333;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    > div {
+      width: $_width_content;
+      margin: 0 auto;
+
+      > ul {
+        display: table;
+        width: 100%;
+        box-sizing: border-box;
+
+        > li {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          table-layout: fixed;
+        }
+      }
+    }
+
+    .t0-b-headerMenu__item {
+      position: relative;
+
+      > span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: all 0.3s;
+        width: 0;
+        height: 3px;
+        margin: 0 auto;
+        background-color: #45b1c7;
+      }
+
+      div {
+        @include g-font(16, 1);
+
+        padding: 0 11px 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 42px;
+        box-sizing: border-box;
+        text-align: center;
+
+        > span {
+          display: inline-table;
+        }
+      }
+
+      &:hover {
+        > span {
+          width: 100%;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .state-current,
+    .state-current a {
+      color: #1c8aa1;
+    }
+  }
 }
 
 @if $device == SP {
