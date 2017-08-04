@@ -4,53 +4,48 @@ html {
   font-size: $baseFontSize;
 }
 
+//*
+//*変更可エリア
+//*
+
+$g-textcolor: #664b3a;
+$g-hovercolor: #009fa5;
+
+$fullWidthBgColor: #D7F9F3;
+$fullWidthBgColor2: #FFF;
+$fullWidthBgColor3: #FDFAF0;
+$fullWidthBgColor4: #444;
+$fullWidthBgColor5: #EDFAF9;
+
 body.mod-body,
 div.mod-body {
   font-weight: 500;
   font-size: $baseFontSize;
   font-family: $gothic;
-  color: #555;
-}
-.mod-body {
-  button, input, optgroup, select, textarea {
-    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
-  }
+  color: $g-textcolor;
+  //この中で変更するのは下から2つのみ
 }
 
 a {
-  color: #555;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-@if $device == PC {
-  a {
-    &:hover {
-      color: #16998f;
-    }
-  }
-}
+// 何を示しているのか定かではないため最終的に何も影響がない場合消す！
+//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-@if $device == SP {
-  span {
-    font-size: inherit !important;
-  }
-}
-
-
-
-.cms-admin-anchorFlag{
-  z-index: 10!important;
-  position: relative;
-}
+// .cms-admin-anchorFlag{
+//   z-index: 10!important;
+//   position: relative;
+// }
 // これはadmin.cssに移行するべき
 
-
-$textcolor: #393939;
-$hovercolor: #45b1c7;
-$hovercolor2: #0b6577;
-$hovercolor3: #45b1c7;
+//↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 
+
+//*
+//*変更不可エリア
+//*
 $g-spacingBaseLength: 5;
 $g-leftSpacingBaseLength: 6;
 
@@ -108,13 +103,6 @@ $g-leftSpacingBaseLength: 6;
   }
 }
 
-$fullWidthBgColor: #D7F9F3;
-$fullWidthBgColor2: #FFF;
-$fullWidthBgColor3: #FDFAF0;
-$fullWidthBgColor4: #444;
-$fullWidthBgColor5: #EDFAF9;
-
-
 $frameSpacingPC-l: 50px;
 $frameSpacingPC-m: 25px;
 $frameSpacingPC-s: 10px;
@@ -123,16 +111,3 @@ $frameSpacingSP-l: 50px;
 $frameSpacingSP-m: 25px;
 $frameSpacingSP-s: 10px;
 
-
-@if $device == PC {
-  .cms-partsConfig-width-m {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .cms-partsConfig-width-s {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
