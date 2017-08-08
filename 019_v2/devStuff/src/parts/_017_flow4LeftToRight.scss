@@ -1,73 +1,68 @@
 @if $device == PC {
 
-  .t0-b-flow4LeftToRight#{$variation1of2} {
+  .t0-b-flow4LeftToRight {
+    $_block: &;
     width: 100%;
-
-    &__hd {
-      padding-bottom: 15px;
-    }
-
-    &__bd {
+    &__row {
       display: table;
       width: 100%;
       table-layout: fixed;
+      padding-bottom: 5%;
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
-
     &__box {
       display: table-cell;
       vertical-align: top;
+      width: (100%-3*(4-1))/4;
+      #{$_block}--colSpacing-l & {
+        width: (100%-5*(4-1))/4;
+      }
+      #{$_block}--colSpacing-m & {
+        width: (100%-3*(4-1))/4;
+      }
+      #{$_block}--colSpacing-s & {
+        width: (100%-1*(4-1))/4;
+      }
     }
-
     &__arrow {
       display: table-cell;
-      width: 2%;
-    }
-  }
-
-  .t0-b-flow4LeftToRight#{$variation2of2} {
-    width: 100%;
-
-    &__hd {
-      padding-bottom: 15px;
-    }
-
-    &__bd {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-      height: 100%;
-    }
-
-    &__box {
-      display: table-cell;
-      vertical-align: top;
-      height: 100%;
-    }
-
-    &__arrow {
-      display: table-cell;
-      width: 60px;
-      height: 100%;
+      text-align: center;
+      font-size: 2em;
+      color: #333;
       vertical-align: middle;
-    }
-
-    &__arrow-inner {
-      display: inline-block;
-      height: 50px;
-      background: #{image-url("t0-b-arrow/2.png")} no-repeat 50% 40%;
-      width: 100%;
-      margin-top: -5px;
+      width: 3%;
+      #{$_block}--colSpacing-l & {
+        width: 5%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 3%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 1%;
+      }
     }
   }
+
 }
 
 @if $device == SP {
 
-  .t0-b-flow4LeftToRight#{$variation1of2} {
-    
-  } 
-
-  .t0-b-flow4LeftToRight#{$variation2of2} {
-    
-  } 
+  .t0-b-flow4LeftToRight {
+    $_block: &;
+    width: 100%;
+    &__box {
+      padding-bottom: 15px;
+    }
+    &__row {
+      &:last-child {
+        .t0-b-flow4LeftToRight__box {
+          &:last-child {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
 }
