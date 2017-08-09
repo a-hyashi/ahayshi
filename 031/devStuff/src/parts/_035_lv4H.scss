@@ -1,10 +1,103 @@
 @if $device == PC {
 
   .t0-b-lv4H {
-    
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      border-bottom: 2px solid #fff;
+      box-shadow: 0 2px #e9e3d3;
+      background-image: url("../imgs/heading/heading009/heading009_bg01_v1_v1f1.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-size: 24px 24px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 10px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -18,9 +111,102 @@
 
   .t0-b-lv4H2 {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      border-bottom: 2px solid #fff;
+      box-shadow: 0 2px #f3cbdd;
+      background-image: url("../imgs/heading/heading010/heading010_bg01_v2_v1f1.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-size: 24px 24px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+    
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 10px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -34,9 +220,102 @@
 
   .t0-b-lv4H3 {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      border-bottom: 2px solid #fff;
+      box-shadow: 0 2px #c6edef;
+      background-image: url("../imgs/heading/heading011/heading011_bg01_v3_v1f1.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-size: 24px 24px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+    
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 10px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -50,9 +329,620 @@
 
   .t0-b-lv4H4 {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      background-color: #e5e2da;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+    
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 10px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H5 {
+
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      background-color: #f3cbdd;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 10px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H6 {
+
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      background-color: #c6edef;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 10px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H7 {
+
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 0;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      border-bottom: 3px solid #e5e2da;
+      box-shadow: 0 2px #fff, 0 4px #e8e2d2;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+    
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 0;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H8 {
+
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 0;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      border-bottom: 3px solid #f3cbdd;
+      box-shadow: 0 2px #fff, 0 4px #fde2ee;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+    
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 0;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H9 {
+
+    $_block: &;
+    $_fontSizePx_bd: 20;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 10px 0;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 6px 10px;
+      border-bottom: 3px solid #c6edef;
+      box-shadow: 0 2px #fff, 0 4px #bae7e9;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 10px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 0 0 5px;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
+        padding: 3px 5px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding: 12px 0 0px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 0 10px 0;
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        padding: 6px 10px;
+      }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        padding: 10px 10px 0px;
+      }
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -71,6 +961,61 @@
 
   .t0-b-lv4H {
 
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 5px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      border-bottom: 2px solid #fff;
+      box-shadow: 0 2px #e9e3d3;
+      background-image: url("../imgs/heading/heading009/heading009_bg01_v1_v1f1.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-size: 12px 12px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -84,6 +1029,61 @@
 
   .t0-b-lv4H2 {
 
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 5px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      border-bottom: 2px solid #fff;
+      box-shadow: 0 2px #f3cbdd;
+      background-image: url("../imgs/heading/heading010/heading010_bg01_v2_v1f1.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-size: 12px 12px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+    
     &--align-l {
       text-align: left;
     }
@@ -97,6 +1097,61 @@
 
   .t0-b-lv4H3 {
 
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 5px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      border-bottom: 2px solid #fff;
+      box-shadow: 0 2px #c6edef;
+      background-image: url("../imgs/heading/heading011/heading011_bg01_v3_v1f1.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-size: 12px 12px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+    
     &--align-l {
       text-align: left;
     }
@@ -110,6 +1165,56 @@
 
   .t0-b-lv4H4 {
 
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 5px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      background-color: #e5e2da;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+    
     &--align-l {
       text-align: left;
     }
@@ -121,4 +1226,322 @@
     }
   }
 
-}// SP
+  .t0-b-lv4H5 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 5px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      background-color: #f3cbdd;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H6 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 5px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1px #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      background-color: #c6edef;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H7 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 10px 0;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1p3 #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      border-bottom: 2px solid #e5e2da;
+      box-shadow: 0 1px #fff, 0 2px #e8e2d2;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H8 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 10px 0;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1p3 #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      border-bottom: 2px solid #f3cbdd;
+      box-shadow: 0 1px #fff, 0 2px #fde2ee;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv4H9 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #555;
+
+    color: $_textColor;
+    // ↑ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 10px 0;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
+      text-shadow:
+        -1px -1px #fff,
+        1px -1p3 #fff,
+        -1px 1px #fff,
+        1px 1px #fff,
+        -1px -2px #fff,
+        1px -2px #fff,
+        -1px 2px #fff,
+        1px 2px #fff,
+        -2px -1px #fff,
+        2px -1px #fff,
+        -2px 1px #fff,
+        2px 1px #fff,
+        -2px -2px 1px #fff,
+        2px -2px 1px #fff,
+        -2px 2px 1px #fff,
+        2px 2px 1px #fff;
+      padding: 3px 5px;
+      border-bottom: 2px solid #c6edef;
+      box-shadow: 0 1px #fff, 0 2px #bae7e9;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 5px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+} // SP
