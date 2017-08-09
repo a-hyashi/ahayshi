@@ -34,8 +34,11 @@ category:
 font-sizeとline-heightの組み合わせを指定する
 
 ```scss
-@mixin g-font($fontSizePx, $lineHeightType: 0) {
+@mixin g-font($fontSizePx, $lineHeightType) {
 
+  @if $lineHeightType == 0 {
+    line-height: 1;
+  }
   @if $lineHeightType == 1 {
     line-height: 1.25;
   }
@@ -84,7 +87,7 @@ font-sizeとline-heightの組み合わせを指定する
 */
 
 
-@mixin g-font($fontSizePx, $lineHeightType: 1) {
+@mixin g-font($fontSizePx, $lineHeightType) {
 
   @if $lineHeightType == 0 {line-height: 1;}
   // ↑ 2行にならないことを加味しながら使用
