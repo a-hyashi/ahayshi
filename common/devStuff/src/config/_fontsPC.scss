@@ -84,8 +84,10 @@ font-sizeとline-heightの組み合わせを指定する
 */
 
 
-@mixin g-font($fontSizePx, $lineHeightType: 0) {
+@mixin g-font($fontSizePx, $lineHeightType: 1) {
 
+  @if $lineHeightType == 0 {line-height: 1;}
+  // ↑ 2行にならないことを加味しながら使用
   @if $lineHeightType == 1 {line-height: 1.25;}
   @if $lineHeightType == 2 {line-height: 1.6;}
 
@@ -126,67 +128,3 @@ font-sizeとline-heightの組み合わせを指定する
   @if $fontSizePx == 76 {font-size: 5.429rem;}
 }
 
-
-
-
-@mixin g-font-killSpacing($position, $fontSizePx, $lineHeightType: 1) {
-  @if $position == top {
-    &::before {
-      content: "";
-      display: block;
-      height: 0;
-      @if $lineHeightType == 1 {
-        @if $fontSizePx < 14 {
-          margin-top: -0.05rem;
-        }
-        @else if $fontSizePx == 20 {
-          margin-top: -0.175rem;
-        }
-        @else if $fontSizePx == 22 {
-          margin-top: -0.175rem;
-        }
-        @else if $fontSizePx < 24 {
-          margin-top: -0.08rem;
-        }
-        @else {
-          margin-top: -0.15rem;
-        }
-      }
-      @if $lineHeightType == 2 {
-        margin-top: -0.3rem;
-      }
-    }
-  }
-  @if $position == bottom {
-    &::after {
-      content: "";
-      display: block;
-      height: 0;
-      @if $lineHeightType == 1 {
-        @if $fontSizePx == 12 {
-          margin-top: -0.25rem;
-        }
-        @else if $fontSizePx == 16 {
-          margin-top: -0.25rem;
-        }
-        @else {
-          margin-top: -0.18rem;
-        }
-      }
-      @if $lineHeightType == 2 {
-        @if $fontSizePx < 18 {
-          margin-top: -0.4rem;
-        }
-        @else {
-          margin-top: -0.35rem;
-        }
-      }
-    }
-  }
-}
-
-@mixin g-font-spacingKilled($fontSizePx, $lineHeightType: 1) {
-  @include g-font($fontSizePx, $lineHeightType);
-  @include g-font-killSpacing(top, $fontSizePx, $lineHeightType);
-  @include g-font-killSpacing(bottom, $fontSizePx, $lineHeightType);
-}
