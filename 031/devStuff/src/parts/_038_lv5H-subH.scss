@@ -2,9 +2,36 @@
 
   .t0-b-lv5H-subH {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_fontSizePx: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_textColor: #941b50;
+
+    font-weight: bold;
+    color: $_textColor;
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &--size-1 {
+      @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -22,6 +49,20 @@
 @if $device == SP {
 
   .t0-b-lv5H-subH {
+
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #941b50;
+
+    font-weight: bold;
+    color: $_textColor;
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
 
     &--align-l {
       text-align: left;
