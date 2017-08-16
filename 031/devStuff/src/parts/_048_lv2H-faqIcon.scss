@@ -1,34 +1,91 @@
 @if $device == PC {
 
-  .t0-b-lv2H-faqIcon#{$variation1of2} {
+  .t0-b-lv2H-faqIcon {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
-    &--align-l {
+    $_block: &;
+    $_fontSizePx: 26;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+
+    a {
+      display: table-cell;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    > div {
+      display: table;
+    }
+
+    &__iconPlacer {
+      display: table-cell;
+      vertical-align: middle;
       text-align: left;
     }
-    &--align-c {
-      text-align: center;
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100px;
+      height: 31px;
+      background-image: url("../imgs/heading/heading018/heading018_faq_v1f1.png");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 87px 31px;
     }
-    &--align-r {
-      text-align: right;
+
+    h2 {
+      display: table-cell;
+      vertical-align: middle;
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
     }
-  }
 
-  .t0-b-lv2H-faqIcon#{$variation2of2} {
+    &--size-1 {
+      #{$_block}__icon {
+        background-size: 87px*.8 31px*.8;
+        width: 100px*.8;
+        height: 31px*.8;
+      }
+      h2 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__icon {
+        background-size: 87px*1.2 31px*1.2;
+        width: 100px*1.2;
+        height: 31px*1.2;
+      }
+      h2 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
   }
 
@@ -37,29 +94,65 @@
 
 @if $device == SP {
 
-  .t0-b-lv2H-faqIcon#{$variation1of2} {
+  .t0-b-lv2H-faqIcon {
 
-    &--align-l {
+    $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #482e15;
+
+    color: $_textColor;
+
+    a {
+      display: table-cell;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    > div {
+      display: table;
+    }
+
+    &__iconPlacer {
+      display: table-cell;
+      vertical-align: middle;
       text-align: left;
     }
-    &--align-c {
-      text-align: center;
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100px*.8;
+      height: 31px*.8;
+      background-image: url("../imgs/heading/heading018/heading018_faq_v1f1.png");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 87px*.8 31px*.8;
     }
-    &--align-r {
-      text-align: right;
-    }
-  }
 
-  .t0-b-lv2H-faqIcon#{$variation2of2} {
+    h2 {
+      display: table-cell;
+      vertical-align: middle;
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+    }
 
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
   }
 
