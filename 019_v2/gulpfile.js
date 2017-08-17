@@ -15,6 +15,7 @@ const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs');
 const sassdoc = require('sassdoc');
+const sourcemaps = require('gulp-sourcemaps');
 
 
 // エラー通知 & watch中にエラーが出ても処理を止めないように
@@ -47,9 +48,13 @@ switch (sassOptions) {
 
 gulp.task('sass', function() {
   return gulp.src(styleSource)
+  // buildの場合はsourcemapsを実行しない
+  .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
   .pipe(plumberWithNotify())
-  .pipe(sass({outputStyle: 'compressed'}))
+  // sourcemapsの表示行数がずれるので開発時はminifyしない
+  .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
   .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
+  .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
   .pipe(gulp.dest('devStuff/css'));
 });
 
@@ -88,6 +93,12 @@ gulp.task('aigis', function(){
   .pipe(aigis());
 });
 
+// copy css file to styleguide
+
+gulp.task('copy-css', function(){
+  return gulp.src('devStuff/css/*.css')
+  .pipe(gulp.dest('devStuff/styleguide/css'));
+});
 
 // webserver
 
@@ -196,6 +207,7 @@ gulp.task('sassdoc', function(){
 // gulp tasks
 
 gulp.task('default', ['watch']);
+gulp.task('dev-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
     'clean',
@@ -211,6 +223,17 @@ gulp.task('developing', function() {
   );
 });
 
+gulp.task('developing-compact', function() {
+  return runSequence(
+    'sass',
+    'copy-css'
+  );
+});
+
 gulp.task('watch', ['sass','aigis','sassdoc','server'], function() {
   gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing',browserSync.reload]);
+});
+
+gulp.task('watch-compact', ['sass','aigis','sassdoc','server'], function() {
+  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-compact',browserSync.reload]);
 });
