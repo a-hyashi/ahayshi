@@ -1,0 +1,65 @@
+@if $device == PC {
+
+  .t0-b-lv5H-subH {
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+
+    h5 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+    }
+
+    &--size-1 {
+      h5{
+        @include g-font-layout($_fontSizePx - $_fontSizeDifference, $_lineHeightType, $layout);
+      }
+    }
+
+    &--size-2 {
+
+    }
+    
+    &--size-3 {
+      h5{
+        @include g-font-layout($_fontSizePx + $_fontSizeDifference, $_lineHeightType, $layout);
+      }
+    }
+    
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-lv5H-subH {
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+
+    h5 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+}// SP

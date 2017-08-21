@@ -1,0 +1,242 @@
+@if $device == PC {
+  
+  .t0-b-lv2H#{$variation1of2} {
+    /*
+     * ブロック固有の変数、mixinの定義エリア
+     */
+
+    // ブロック名の格納変数
+    $_block: &;
+    // 標準フォントサイズ
+    $_fontSizePx: 24;
+    // lineHeightタイプ
+    $_lineHeightType: 1;
+    // サイズ変更値
+    $_fontSizeDifference: 4;
+    // 小さいフォントサイズ（標準より4px小さい値）
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    // 大きいフォントサイズ（標準より4px大きい値）
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    
+
+    /*
+     * 1.ブロック全体に適用されるCSS記述
+     *   ・ブロック直下に記載する要素セレクタ等
+     */
+
+    // size指定が無い時に適用されるh2
+    h2 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);      
+    }
+    
+    // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+    a {
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    /*
+     * 2.エレメント内のCSS記述
+     */
+
+    &__iconPlacer {
+
+    }
+
+    &__icon {
+      
+    }
+
+    /*
+     * 3.ブロックレベルのモディファイア
+     */
+
+    // size 小さいの場合
+    &--size-1 {
+      h2 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);      
+      }
+    }
+    
+    // size 中の場合（サイズ指定なしと同じ）
+    &--size-2 {
+
+    }
+
+    // size 大きいの場合
+    &--size-3 {
+      h2 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);      
+      }
+    
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+  
+    &--align-c {
+      text-align: center;
+    }
+  
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+  .t0-b-lv2H#{$variation2of2} {
+
+    // ブロック名の格納変数
+    $_block: &;
+    // 標準フォントサイズ
+    $_fontSizePx: 24;
+    // lineHeightタイプ
+    $_lineHeightType: 1;
+    // サイズ変更値
+    $_fontSizeDifference: 4;
+    // 小さいフォントサイズ（標準より4px小さい値）
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    // 大きいフォントサイズ（標準より4px大きい値）
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    // size指定が無い時に適用されるh2
+    h2 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);      
+    }
+    
+    // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+    a {
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__iconPlacer {
+
+    }
+
+    &__icon {
+      
+    }
+
+    // size 小さいの場合
+    &--size-1 {
+      h2 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);      
+      }
+    }
+
+    // size 中の場合（サイズ指定なしと同じ）
+    &--size-2 {
+
+    }
+
+    // size 大きいの場合
+    &--size-3 {
+      h2 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+  
+    &--align-c {
+      text-align: center;
+    }
+  
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-lv2H#{$variation1of2} {
+    // ブロック名の格納
+    $_block: &;
+    // フォントサイズ
+    $_fontSizePx: 20;
+    // lineHeightType
+    $_lineHeightType: 1;
+
+    // 見出しに適用されるCSS
+    h2 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+    
+    // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+    a {
+
+    }
+
+    &__iconPlacer {
+
+    }
+
+    &__icon {
+      
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+  
+    &--align-c {
+      text-align: center;
+    }
+  
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+  .t0-b-lv2H#{$variation2of2} {
+    // ブロック名の格納
+    $_block: &;
+    // フォントサイズ
+    $_fontSizePx: 20;
+    // lineHeightType
+    $_lineHeightType: 1;
+
+    // 見出しに適用されるCSS
+    h2 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+    
+    // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+    a {
+
+    }
+
+    &__iconPlacer {
+
+    }
+
+    &__icon {
+      
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+  
+    &--align-c {
+      text-align: center;
+    }
+  
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+}// SP
