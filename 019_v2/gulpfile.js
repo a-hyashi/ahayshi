@@ -207,7 +207,7 @@ gulp.task('sassdoc', function(){
 // gulp tasks
 
 gulp.task('default', ['watch']);
-gulp.task('dev-compact', ['watch-compact']);
+gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
     'clean',
