@@ -1,7 +1,9 @@
 @if $device == PC {
   .t0-b-sideBoxIconText-tel {
     $_block: &;
-
+    $_color: #0b6678;
+    $_side_icon_ratio: 2.0;
+    color: $_color;
     font-family: "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
 
     > div {
@@ -11,22 +13,70 @@
     }
 
     &__ruby {
+      @include g-font(14, 1);      
       text-align: right;
-      color: #0b6678;
+      & + #{$_block}__bd{
+        margin-top: 0;
+      }
     }
 
     &__bd {
       text-align: center;
-      color: #0b6678;
       font-weight: bold;
+      @if $layout == 'L30' or $layout == 'R30' {
+        @include g-font(30, 1); // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+      } @else {
+        @include g-font(26, 1); // L25かR25で番号が折り返さない最大サイズ
+      }
+      margin-top: 3px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
     }
 
     &__icon {
+      margin-bottom: 0;
       display: inline-block;
       vertical-align: middle;
       background-repeat: no-repeat;
       background-position: 50% 0;
-      width: 34px;
+      width: 26px;
+      
+      & + span {
+        display: inline;
+        font-size: 90%;
+        vertical-align: top;
+        padding-left: 5px;
+      }
+    }
+
+    &__tel {
+      height: $_tel_hg / $_side_icon_ratio;
+      background-image: url("../imgs/t0-b-iconText/tel.png");
+      background-size: ($_tel_wd / $_side_icon_ratio) ($_tel_hg / $_side_icon_ratio);
+      // margin-top: -15px;
+    }
+
+    &__fax {
+      height: $_fax_hg / $_side_icon_ratio;
+      background-image: url("../imgs/t0-b-iconText/fax.png");
+      background-size: 20px 13px;
+      // margin-top: -12px;
+    }
+
+    &__free {
+      height: $_free_hg / $_side_icon_ratio;
+      background-image: url("../imgs/t0-b-iconText/free.png");
+      background-size: ($_free_wd / $_side_icon_ratio) ($_free_hg / $_side_icon_ratio);
+      // margin-top: -12px;
+      background-position: 0 0;
+    }
+
+    &__cell {
+      height: $_cell_hg / $_side_icon_ratio;
+      background-image: url("../imgs/t0-b-iconText/cell.png");
+      background-size: ($_cell_wd / $_side_icon_ratio) ($_cell_hg / $_side_icon_ratio);
+      // margin-top: -14px;
     }
 
     // aligns
@@ -41,76 +91,6 @@
 
     &--align-r {
       text-align: right;
-    }
-
-    // icon sizes
-
-    #{$_block}__bd {
-      margin-top: 7px;
-
-      span {
-        display: inline-block;
-        margin-bottom: 5px;
-      }
-
-      #{$_block}__icon {
-        margin-bottom: 0;
-      }
-
-      #{$_block}__icon + span {
-        display: inline;
-        margin-bottom: 0;
-      }
-    }
-
-    #{$_block}__ruby + #{$_block}__bd {
-      margin-top: 0;
-    }
-
-    #{$_block}__ruby {
-      @include g-font-spacingKilled(14, 1);
-
-      margin-bottom: 3px;
-    }
-
-    #{$_block}__bd {
-      @include g-font-spacingKilled(26, 1);
-
-      line-height: 1;
-
-      #{$_block}__icon + span {
-        font-size: 90%;
-        vertical-align: top;
-      }
-    }
-
-    #{$_block}__tel {
-      height: $_tel_hg / 1.81;
-      background-image: url("../imgs/t0-b-iconText/tel.png");
-      background-size: ($_tel_wd / 1.81) ($_tel_hg / 1.81);
-      margin-top: -15px;
-    }
-
-    #{$_block}__fax {
-      height: $_fax_hg / 1.81;
-      background-image: url("../imgs/t0-b-iconText/fax.png");
-      background-size: 20px 13px;
-      margin-top: -12px;
-    }
-
-    #{$_block}__free {
-      height: $_free_hg / 1.81;
-      background-image: url("../imgs/t0-b-iconText/free.png");
-      background-size: ($_free_wd / 1.81) ($_free_hg / 1.81);
-      margin-top: -12px;
-      background-position: 5px 0;
-    }
-
-    #{$_block}__cell {
-      height: $_cell_hg / 1.81;
-      background-image: url("../imgs/t0-b-iconText/cell.png");
-      background-size: ($_cell_wd / 1.6) ($_cell_hg / 1.81);
-      margin-top: -14px;
     }
   }
 }
