@@ -1,24 +1,336 @@
 @if $device == PC {
 
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
-
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_block: &;
+    color: #333;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin-bottom: 20px;
+    &__numIcon {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__iconPlacer {
+      > * {
+        display: block;
+        padding: 0 0 10px;
+      }
+    }
+    &__numIcon-bd {
+      padding-left: 15px;
+      padding-bottom: 15px;
+      width: 100%;
+    }
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(16, 1);
+      padding: 0 0 10px;
+    }
+    &__numIcon-h {
+      @include g-font-spacingKilled(26, 1);
+      font-weight: bold;
+      padding-bottom: 10px;
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg4.png");
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+      &:hover {
+        color: #ee8100;
+      }
+    }
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(16, 1);
+      padding: 5px 0 0;
+    }
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+    &__box {
+      padding-left: 78px;
+      position: relative;
+      > span {
+        top: 6px;
+        bottom: 9px;
+        left: 0;
+        width: 63px;
+        background-repeat: no-repeat, no-repeat;
+        background-position: center bottom, center top;
+        background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg2.png");
+        position: absolute;
+        > span {
+          top: 1px;
+          bottom: 17px;
+          left: 0;
+          width: 63px;
+          background-repeat: repeat-y;
+          background-position: center bottom;
+          background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg3.png");
+          position: absolute;
+        }
+      }
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-twoColsMediaWithNumIcon__icon/#{$type}/#{$index}.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 63px 62px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 63px;
+      height: 62px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
   }
 
   .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
-
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_block: &;
+    color: #333;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin-bottom: 20px;
+    &__numIcon {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__iconPlacer {
+      > * {
+        display: block;
+        padding: 0 0 10px;
+      }
+    }
+    &__numIcon-bd {
+      padding-left: 15px;
+      padding-bottom: 15px;
+      width: 100%;
+    }
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(16, 1);
+      padding: 0 0 10px;
+      padding-right: 25px;
+    }
+    &__numIcon-h {
+      @include g-font-spacingKilled(26, 1);
+      font-weight: bold;
+      padding-bottom: 10px;
+      background-repeat: no-repeat, repeat-x;
+      background-position: right bottom, left bottom;
+      background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg4.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg3.png");
+      padding-right: 25px;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+      &:hover {
+        color: #ee8100;
+      }
+    }
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(16, 1);
+      padding: 5px 0 0;
+      padding-right: 25px;
+    }
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+    &__box {
+      padding-left: 78px;
+      position: relative;
+      > span {
+        top: 6px;
+        bottom: 9px;
+        left: 0;
+        width: 60px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg.png");
+        position: absolute;
+        > span {
+          top: 0;
+          bottom: 188px;
+          left: 0;
+          width: 60px;
+          background-repeat: repeat-y;
+          background-position: center bottom;
+          background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg2.png");
+          position: absolute;
+        }
+      }
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-twoColsMediaWithNumIcon2__icon/#{$type}/#{$index}.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 60px 60px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
   }
 
   .t0-b-twoColsMediaWithNumIcon3 {
-
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_block: &;
+    color: #333;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin-bottom: 20px;
+    &__numIcon {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__iconPlacer {
+      > * {
+        display: block;
+        padding: 0 0 10px;
+      }
+    }
+    &__numIcon-bd {
+      padding-left: 15px;
+      padding-bottom: 15px;
+      width: 100%;
+    }
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(16, 1);
+      padding: 0 0 10px;
+    }
+    &__numIcon-h {
+      @include g-font-spacingKilled(26, 1);
+      font-weight: bold;
+      padding-bottom: 10px;
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon3__icon/bg3.png");
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+      &:hover {
+        color: #ee8100;
+      }
+    }
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(16, 1);
+      padding: 5px 0 0;
+    }
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+    &__box {
+      padding-left: 78px;
+      position: relative;
+      > span {
+        top: 6px;
+        bottom: 9px;
+        left: 0;
+        width: 60px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon3__icon/bg.png");
+        position: absolute;
+        > span {
+          top: 0;
+          bottom: 49px;
+          left: 0;
+          width: 60px;
+          background-repeat: repeat-y;
+          background-position: center bottom;
+          background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon3__icon/bg2.png");
+          position: absolute;
+        }
+      }
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-twoColsMediaWithNumIcon3__icon/#{$type}/#{$index}.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 60px 60px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
   }
 
 }// PC
@@ -27,15 +339,239 @@
 @if $device == SP {
 
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
-
+    color: #333;
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin-bottom: 20px;
+    > * {
+      vertical-align: middle;
+    }
+    &__numIcon {
+      padding-bottom: 14px;
+      display: table;
+      line-height: 0;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
+    }
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 0 5px;
+    }
+    &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+      font-weight: bold;
+      padding-bottom: 11px;
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg4.png");
+    }
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(14, 1);
+      padding: 5px 0 0;
+    }
+    &__numIcon-bd {
+      width: 100%;
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-twoColsMediaWithNumIcon__icon/#{$type}/#{$index}.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 50px 49px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 49px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
   }
 
   .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
-
+    color: #333;
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin-bottom: 20px;
+    > * {
+      vertical-align: middle;
+    }
+    &__numIcon {
+      display: table;
+      padding-bottom: 14px;
+      line-height: 0;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__iconPlacer {
+      > * {
+        display: block;
+      }
+    }
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 0 5px 10px;
+    }
+    &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+      font-weight: bold;
+      padding: 0 25px 8px 10px;
+      background-repeat: no-repeat, repeat-x;
+      background-position: right bottom, left bottom;
+      background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg4.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg3.png");
+    }
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(14, 1);
+      padding: 5px 0 0 10px;
+    }
+    &__numIcon-bd {
+      width: 100%;
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-twoColsMediaWithNumIcon2__icon/#{$type}/#{$index}.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 50px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
   }
 
   .t0-b-twoColsMediaWithNumIcon3 {
-
+    color: #333;
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin-bottom: 20px;
+    > * {
+      vertical-align: middle;
+    }
+    &__numIcon {
+      display: table;
+      padding-bottom: 14px;
+      line-height: 0;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__iconPlacer {
+      padding-right: 3px;
+      > * {
+        display: block;
+      }
+    }
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 0 5px 7px;
+    }
+    &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+      font-weight: bold;
+      padding: 0 0 8px 7px;
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon3__icon/bg3.png");
+    }
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(14, 1);
+      padding: 5px 0 0 7px;
+    }
+    &__numIcon-bd {
+      width: 100%;
+    }
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "t0-b-twoColsMediaWithNumIcon3__icon/#{$type}/#{$index}.png";
+        background-image: #{image-url($_src)};
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      background-size: 50px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
   }
 
 }// SP
