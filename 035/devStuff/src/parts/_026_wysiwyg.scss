@@ -130,6 +130,23 @@
     > table:first-child {
       margin-top: 0;
     }
+    th, td {
+      > table:first-child {
+        margin-top: 0;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      > hr:first-child {
+        margin-top: 0;
+      }
+    }
     //blockquote
     // //margin-top: $_blockSpacing
     // //padding: 0 20px 22px 25px
@@ -142,9 +159,9 @@
     //   //height: 1px
     //> blockquote:first-child
     // //margin-top: 0
-    }
+  }
 
-    @for $_i from 1 through 10 {
+  @for $_i from 1 through 10 {
     $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
     .t0-b-wysiwyg--spacing-#{$_i}s {
       p {
@@ -308,6 +325,23 @@
     > table:first-child {
       margin-top: 0;
     }
+    th, td {
+      > table:first-child {
+        margin-top: 0;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      > hr:first-child {
+        margin-top: 0;
+      }
+    }
     //blockquote
     // //margin-top: $_blockSpacing
     // //padding: 0 20px 22px 25px
@@ -320,9 +354,9 @@
     //   //height: 1px
     //> blockquote:first-child
     // //margin-top: 0
-    }
+  }
 
-    @for $_i from 1 through 10 {
+  @for $_i from 1 through 10 {
     $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
     .t0-b-wysiwyg--spacing-#{$_i}s {
       p {
@@ -356,6 +390,7 @@
         margin-top: 0;
       }
     }
+
   }
 
   .t0-b-wysiwyg3 {
@@ -488,6 +523,23 @@
     > table:first-child {
       margin-top: 0;
     }
+    th, td {
+      > table:first-child {
+        margin-top: 0;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      > hr:first-child {
+        margin-top: 0;
+      }
+    }
     //blockquote
     // //margin-top: $_blockSpacing
     // //padding: 0 20px 22px 25px
@@ -544,15 +596,556 @@
 @if $device == SP {
 
   .t0-b-wysiwyg {
+    color: #333;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #ac8871;
+    $_color_table_th_bg: #f6e8c6;
+    $_color_table_td_typo: #333;
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+    > hr:first-child {
+      margin-top: 0;
+    }
+    p {
+      @include g-font-spacingKilled(16, 2);
+      margin-top: 1em;
+    }
+    > p:first-child {
+      margin-top: 0;
+    }
+    //img
+    // //width: 100%
+    //a
+    // // > img
+    //    //&:hover
+    //      //opacity: 0.8
+    ol {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        @include g-font-spacingKilled(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ol:first-child {
+      margin-top: 0;
+    }
+    ul {
+      padding: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        margin-top: $_elementSpacing;
+        @include g-font-spacingKilled(16, 1);
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ul:first-child {
+      margin-top: 0;
+    }
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+      }
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+      th {
+        color: $_color_table_td_typo;
+        background-color: $_color_table_th_bg;
+      }
+      td {
+        color: $_color_table_td_typo;
+        background-color: #fff;
+      }
+      tr {
+        border-bottom: 1px solid #777;
+        &:first-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th {
+            background-repeat: repeat-x;
+            background-position: left bottom;
+            //background-image: url('../imgs/t0-b-table/bg.png')
 
+          }
+        }
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th, td {
+            background-image: none;
+          }
+        }
+      }
+    }
+    > table:first-child {
+      margin-top: 0;
+    }
+    th, td {
+      > table:first-child {
+        margin-top: 0;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      > hr:first-child {
+        margin-top: 0;
+      }
+    }
+    //blockquote
+    // //margin-top: $_blockSpacing
+    // //padding: 0 20px 22px 25px
+    // //background: #eee
+    // //border-left: 10px solid #ddd
+    //
+    // //&:before // make sure that margin-top exsists
+    //   //content: ''
+    //   //display: block
+    //   //height: 1px
+    //> blockquote:first-child
+    // //margin-top: 0
+    }
+
+    @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      ol {
+        margin-top: $_blockSpacing;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      ul {
+        margin-top: $_blockSpacing;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      table {
+        margin-top: $_blockSpacing;
+      }
+      > table:first-child {
+        margin-top: 0;
+      }
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
   }
 
   .t0-b-wysiwyg2 {
+    padding: 10px;
+    background-image: url("../imgs/t0-b-wysiwyg/bg2.png");
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    color: #333;
+    $_color_table_border: #ac8871;
+    $_color_table_th_bg: #ffe2c0;
+    $_color_table_td_typo: #333;
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+    > hr:first-child {
+      margin-top: 0;
+    }
+    p {
+      @include g-font-spacingKilled(16, 2);
+      margin-top: 1em;
+    }
+    > p:first-child {
+      margin-top: 0;
+    }
+    //img
+    // //width: 100%
+    ol {
+      margin: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        @include g-font-spacingKilled(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ol:first-child {
+      margin-top: 0;
+    }
+    ul {
+      margin: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        margin-top: $_elementSpacing;
+        @include g-font-spacingKilled(16, 1);
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ul:first-child {
+      margin-top: 0;
+    }
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+      }
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+      }
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+      th {
+        color: $_color_table_td_typo;
+        background-color: $_color_table_th_bg;
+      }
+      td {
+        color: $_color_table_td_typo;
+        background-color: #fff;
+      }
+      tr {
+        border-bottom: 1px solid #777;
+        &:first-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th {
+            background-repeat: repeat-x;
+            background-position: left bottom;
+            //background-image: url('../imgs/t0-b-table/bg2.png')
 
+          }
+        }
+      }
+    }
+    > table:first-child {
+      margin-top: 0;
+    }
+    th, td {
+      > table:first-child {
+        margin-top: 0;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      > hr:first-child {
+        margin-top: 0;
+      }
+    }
+    //blockquote
+    // //margin-top: $_blockSpacing
+    // //padding: 0 20px 22px 25px
+    // //background: #eee
+    // //border-left: 10px solid #ddd
+    //
+    // //&:before // make sure that margin-top exsists
+    //   //content: ''
+    //   //display: block
+    //   //height: 1px
+    //> blockquote:first-child
+    // //margin-top: 0
+    }
+
+    @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      ol {
+        margin-top: $_blockSpacing;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      ul {
+        margin-top: $_blockSpacing;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      table {
+        margin-top: $_blockSpacing;
+      }
+      > table:first-child {
+        margin-top: 0;
+      }
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
   }
 
   .t0-b-wysiwyg3 {
+    padding: 10px;
+    border: 1px solid #ac8871;
+    border-radius: 5px;
+    background-image: url("../imgs/t0-b-wysiwyg/bg.png");
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    color: #333;
+    $_color_table_border: #ac8871;
+    $_color_table_th_bg: #f6e8c6;
+    $_color_table_td_typo: #333;
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+    > hr:first-child {
+      margin-top: 0;
+    }
+    p {
+      @include g-font-spacingKilled(16, 2);
+      margin-top: 1em;
+    }
+    > p:first-child {
+      margin-top: 0;
+    }
+    //img
+    // //width: 100%
+    ol {
+      margin: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        @include g-font-spacingKilled(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ol:first-child {
+      margin-top: 0;
+    }
+    ul {
+      margin: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        margin-top: $_elementSpacing;
+        @include g-font-spacingKilled(16, 1);
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ul:first-child {
+      margin-top: 0;
+    }
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+      }
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+      th {
+        color: $_color_table_td_typo;
+        background-color: $_color_table_th_bg;
+      }
+      td {
+        color: $_color_table_td_typo;
+        background-color: #fff;
+      }
+      tr {
+        border-bottom: 1px solid #777;
+        &:first-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th {
+            background-repeat: repeat-x;
+            background-position: left bottom;
+            //background-image: url('../imgs/t0-b-table/bg.png')
 
+          }
+        }
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th, td {
+            background-image: none;
+          }
+        }
+      }
+    }
+    > table:first-child {
+      margin-top: 0;
+    }
+    th, td {
+      > table:first-child {
+        margin-top: 0;
+      }
+      > ul:first-child {
+        margin-top: 0;
+      }
+      > ol:first-child {
+        margin-top: 0;
+      }
+      > p:first-child {
+        margin-top: 0;
+      }
+      > hr:first-child {
+        margin-top: 0;
+      }
+    }
+    //blockquote
+    // //margin-top: $_blockSpacing
+    // //padding: 0 20px 22px 25px
+    // //background: #eee
+    // //border-left: 10px solid #ddd
+    //
+    // //&:before // make sure that margin-top exsists
+    //   //content: ''
+    //   //display: block
+    //   //height: 1px
+    //> blockquote:first-child
+    // //margin-top: 0
   }
 
 }// SP

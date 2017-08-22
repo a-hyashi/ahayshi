@@ -1,6 +1,49 @@
 @if $device == PC {
 
   .b-breadcrumbs {
+    text-align: right;
+    color: #3a1f08;
+    a {
+      text-decoration: none;
+      color: #3a1f08;
+      &:hover {
+        color: #ee8100;
+        text-decoration: underline;
+      }
+    }
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      @include g-font-spacingKilled(16, 1);
+    }
+    &__item {
+      display: inline-block;
+      margin: 5px 0 0 10px;
+      white-space: nowrap;
+      &:before {
+        content: "";
+        display: inline-block;
+        margin: (-3px) 10px 0 0;
+        vertical-align: middle;
+        line-height: 0;
+        $_src: "b-breadcrumbs/bg.png";
+        background: #{image-url($_src)} 0 0 no-repeat;
+        width: image-width($_src);
+        height: image-height($_src);
+      }
+      &:first-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+    &--inHeader > div {
+      margin-bottom: 5px;
+      width: 1062px;
+    }
+    &--inMain > div {
+      width: 100%;
+    }
 
     &--align-l {
       text-align: left;
@@ -10,6 +53,19 @@
     }
     &--align-r {
       text-align: right;
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+    &--align-c > div {
+      text-align: center;
+    }
+    &--align-r > div {
+      text-align: right;
+    }
+    em {
+      font-style: normal;
     }
   }
 
@@ -20,6 +76,47 @@
 
   .b-breadcrumbs {
 
+    text-align: right;
+    color: #3a1f08;
+    a {
+      text-decoration: none;
+      color: #3a1f08;
+    }
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        margin: (-5px) 0 0 -10px;
+      }
+    }
+    &__item {
+      display: inline-block;
+      margin: 5px 0 0 10px;
+      &:before {
+        content: "";
+        display: inline-block;
+        margin: (-3px) 10px 0 0;
+        vertical-align: middle;
+        line-height: 0;
+        $_src: "b-breadcrumbs/bg.png";
+        background: #{image-url($_src)} 0 0 no-repeat;
+        width: image-width($_src);
+        height: image-height($_src);
+      }
+      &:first-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+    &--inHeader > div {
+      width: 100%;
+    }
+    &--inMain > div {
+      width: 100%;
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -28,6 +125,19 @@
     }
     &--align-r {
       text-align: right;
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+    &--align-c > div {
+      text-align: center;
+    }
+    &--align-r > div {
+      text-align: right;
+    }
+    em {
+      font-style: normal;
     }
   }
 
