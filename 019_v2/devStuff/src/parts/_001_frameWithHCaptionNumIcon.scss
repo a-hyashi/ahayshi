@@ -112,27 +112,27 @@
     }
 
     &__numIcon-caption-upper {
-      @include g-font(16, 1);
+      @include g-font-layout(16, 1, $layout);
 
       padding: 0 0 5px;
     }
 
     &__numIcon-h {
-      @include g-font(26, 1);
+      @include g-font-layout(26, 1, $layout);
     }
 
     &__numIcon-caption-lower {
-      @include g-font(16, 1);
+      @include g-font-layout(16, 1, $layout);
 
       padding: 5px 0 0;
     }
 
     &__numIcon-caption-upper + &__numIcon-h {
-      @include g-font(24, 1);
+      @include g-font-layout(24, 1, $layout);
     }
 
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @include g-font(24, 1);
+      @include g-font-layout(24, 1, $layout);
     }
 
     &__icon {
@@ -230,6 +230,116 @@
 
     & + div { // 最下部の枠があるとき
       margin-top: 2%;
+    }
+
+    &__numIcon--size-1 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout(12, 1, $layout);
+  
+        padding: 0 0 5px;
+      }
+  
+      #{$_block}__numIcon-h {
+        @include g-font-layout(22, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout(12, 1, $layout);
+  
+        padding: 5px 0 0;
+      }
+  
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout(20, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout(20, 1, $layout);
+      }
+
+      #{$_block}__icon {
+        background-size: 48px 48px;
+        width: 48px;
+        height: 48px;
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+        @each $_type in $_types {
+          @for $_i from 1 through 10 {
+            &--#{$_type}-#{$_i} {
+              
+              &:before {
+                content: "#{$_i}";
+                display: block;
+                color: #fff;
+                @if $_i < 10 {
+                  text-indent: 17.6px;
+                } @else {
+                  text-indent: 12.8px;
+                }
+                padding-top: 32px;
+
+                @include g-font-spacingKilled(20, 0);
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    &__numIcon--size-2 {}
+
+    &__numIcon--size-3 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout(20, 1, $layout);
+  
+        padding: 0 0 5px;
+      }
+  
+      #{$_block}__numIcon-h {
+        @include g-font-layout(30, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout(20, 1, $layout);
+  
+        padding: 5px 0 0;
+      }
+  
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout(28, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout(28, 1, $layout);
+      }
+      #{$_block}__icon {
+        background-size: 72px 72px;
+        width: 72px;
+        height: 72px;
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+        @each $_type in $_types {
+          @for $_i from 1 through 10 {
+            &--#{$_type}-#{$_i} {
+              
+              &:before {
+                content: "#{$_i}";
+                display: block;
+                color: #fff;
+                @if $_i < 10 {
+                  text-indent: 26.4px;
+                } @else {
+                  text-indent: 19.2px;
+                }
+                padding-top: 48px;
+
+                @include g-font-spacingKilled(30, 0);
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -340,27 +450,27 @@
     }
 
     &__numIcon-caption-upper {
-      @include g-font(16, 1);
+      @include g-font-layout(16, 1, $layout);
 
       padding: 0 0 5px;
     }
 
     &__numIcon-h {
-      @include g-font(26, 1);
+      @include g-font-layout(26, 1, $layout);
     }
 
     &__numIcon-caption-lower {
-      @include g-font(16, 1);
+      @include g-font-layout(16, 1, $layout);
 
       padding: 5px 0 0;
     }
 
     &__numIcon-caption-upper + &__numIcon-h {
-      @include g-font(24, 1);
+      @include g-font-layout(24, 1, $layout);
     }
 
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @include g-font(24, 1);
+      @include g-font-layout(24, 1, $layout);
     }
 
     &__icon {
@@ -459,6 +569,118 @@
     & + div { // 最下部の枠があるとき
       margin-top: 2%;
     }
+
+    &__numIcon--size-1 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout(12, 1, $layout);
+  
+        padding: 0 0 5px;
+      }
+  
+      #{$_block}__numIcon-h {
+        @include g-font-layout(22, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout(12, 1, $layout);
+  
+        padding: 5px 0 0;
+      }
+  
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout(20, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout(20, 1, $layout);
+      }
+
+      #{$_block}__icon {
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+        background-size: 75.2px 39.2px;
+        width: 75.2px;
+        height: 39.2px;
+
+        @each $_type in $_types {
+          @for $_i from 1 through 10 {
+            &--#{$_type}-#{$_i} {
+            
+              &:before {
+                padding-top: 19.2px;
+                @if $_i < 10 {
+                  text-indent: 50.4px;
+                } @else {
+                  text-indent: 41.6px;
+                  text-indent: 40.8px\0;
+                }
+
+                @include g-font-spacingKilled(28, 0);
+
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    &__numIcon--size-2 {}
+
+    &__numIcon--size-3 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout(20, 1, $layout);
+  
+        padding: 0 0 5px;
+      }
+  
+      #{$_block}__numIcon-h {
+        @include g-font-layout(30, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout(20, 1, $layout);
+  
+        padding: 5px 0 0;
+      }
+  
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout(28, 1, $layout);
+      }
+  
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout(28, 1, $layout);
+      }
+      
+      #{$_block}__icon {
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+        background-size: 112.8px 58.8px;
+        width: 112.8px;
+        height: 58.8px;
+
+        @each $_type in $_types {
+          @for $_i from 1 through 10 {
+            &--#{$_type}-#{$_i} {
+            
+              &:before {
+                padding-top: 28.8px;
+                @if $_i < 10 {
+                  text-indent: 75.6px;
+                } @else {
+                  text-indent: 62.4px;
+                  text-indent: 61.2px\0;
+                }
+
+                @include g-font-spacingKilled(40, 0);
+
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }
 
