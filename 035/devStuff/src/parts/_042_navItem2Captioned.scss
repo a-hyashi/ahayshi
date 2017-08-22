@@ -1,7 +1,58 @@
 @if $device == PC {
 
   .t0-b-navItem2Captioned {
-
+    color: #333;
+    > div {
+      display: table;
+      margin: 0 auto;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+    &__icon {
+      &:before {
+        display: block;
+        content: "";
+        $_src: "t0-b-navItem2Captioned/2/bg.png";
+        background: #{image-url($_src)} 0 0 no-repeat;
+        width: image-width($_src);
+        height: image-height($_src);
+      }
+    }
+    // &__text : no style
+    &__caption-upper {
+      @include g-font(16, 1);
+      padding: 0 9px 5px 9px;
+    }
+    &__main {
+      @include g-font(24, 1);
+      font-weight: bold;
+      margin-left: 9px;
+      text-decoration: underline;
+    }
+    &__caption-lower {
+      @include g-font(16, 1);
+      padding: 5px 9px 0 9px;
+      &:before,
+      &:after {
+        margin-top: 0;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+      //background-repeat: repeat-x
+      //background-position: left bottom
+      //background-image: url('../imgs/t0-b-navItem2Captioned/2/bg2.png')
+      &:hover {
+        //background-repeat: repeat-x
+        //background-position: left bottom
+        //background-image: url('../imgs/t0-b-navItem2Captioned/2/bg3.png')
+        color: #ee8100;
+      }
+    }
   }
 
 }// PC
@@ -10,7 +61,52 @@
 @if $device == SP {
 
   .t0-b-navItem2Captioned {
+    display: table;
+    color: #333;
+    margin: 0 auto;
+    > div {
+      display: table;
+      margin: 0 auto;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+    &__icon {
+      &:before {
+        display: block;
+        content: "";
+        $_src: "t0-b-navItem2Captioned/2/bg.png";
+        background: #{image-url($_src)} 0 0 no-repeat;
+        width: image-width($_src);
+        height: image-height($_src);
+      }
+    }
+    // &__text : no style
+    &__caption-upper {
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 9px 4px 9px;
+    }
+    &__main {
+      @include g-font-spacingKilled(16, 1);
+      font-weight: bold;
+      padding: 7px 0px;
+      margin-left: 9px;
+      text-decoration: underline;
+    }
+    &__caption-lower {
+      @include g-font-spacingKilled(14, 1);
+      padding: 10px 9px 0 9px;
+    }
+    a {
+      padding: 7px 0px;
+      color: #333;
+      //background-repeat: repeat-x
+      //background-position: left bottom
+      //background-image: url('../imgs/t0-b-navItem2Captioned/2/bg2.png')
 
+    }
   }
 
 }// SP
