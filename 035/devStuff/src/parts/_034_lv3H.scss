@@ -1,31 +1,51 @@
 @if $device == PC {
 
-  .t0-b-lv3H#{$variation1of2} {
+  .t0-b-lv3H#{$variation1of3} {
     $_block: &;
     $_fontSizePx: 22;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-        
+
+    margin: 0 auto;
+    color: #333;
+    line-height: 0;
+    > div {
+      display: inline-block;
+    }
+    > div > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
    // size指定が無い時に適用されるh2
     h3 {
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
     }
-    
+
     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
     a {
+      text-decoration: none;
+      color: #333;
       &:hover {
         color: $g-hovercolor;
       }
     }
 
     &__iconPlacer {
-
+      > * {
+        display: block;
+      }
     }
 
     &__icon {
-      
+      background-repeat: no-repeat;
+      background-position: left center;
+      width: 28px;
+      height: 22px;
+      background-image: url("../imgs/t0-b-lv3H/1/bg.png");
+      position: relative;
     }
 
 
@@ -41,7 +61,7 @@
       }
 
       #{$_block}__icon {
-        
+
       }
 
     }
@@ -68,32 +88,67 @@
     &--align-l {
       text-align: left;
     }
-    
+
     &--align-c {
       text-align: center;
     }
-    
+
     &--align-r {
       text-align: right;
     }
 
   }
 
-  .t0-b-lv3H#{$variation2of2} {
+  .t0-b-lv3H#{$variation2of3} {
     $_block: &;
     $_fontSizePx: 22;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-        
+
+    margin: 0 auto;
+    background: #{image-url("t0-b-lv3H/2/bg.png")} left center no-repeat;
+    position: relative;
+    color: #333;
+    margin-top: -15px;
+    div {
+      padding: 0 140px 0 67px;
+    }
+    > span {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 7px;
+      background-image: url("../imgs/t0-b-lv3H/2/bg2.png");
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      > span {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 131px;
+        background-image: url("../imgs/t0-b-lv3H/2/bg3.png");
+        background-repeat: repeat-x;
+        background-position: left bottom;
+      }
+    }
+
    // size指定が無い時に適用されるh2
     h3 {
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      position: relative;
+      padding: 30px 0 25px 0;
     }
-    
+
     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
     a {
+      text-decoration: none;
+      color: #333;
       &:hover {
         color: $g-hovercolor;
       }
@@ -104,7 +159,7 @@
     }
 
     &__icon {
-      
+
     }
 
 
@@ -120,7 +175,7 @@
       }
 
       #{$_block}__icon {
-        
+
       }
 
     }
@@ -147,11 +202,115 @@
     &--align-l {
       text-align: left;
     }
-    
+
     &--align-c {
       text-align: center;
     }
-    
+
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+  //v3がないためv2を流用
+  .t0-b-lv3H#{$variation3of3} {
+    $_block: &;
+    $_fontSizePx: 22;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    margin: 0 auto;
+    background: #{image-url("t0-b-lv3H/3/bg.png")} left center no-repeat;
+    position: relative;
+    color: #333;
+    margin-top: -12px;
+    div {
+      padding: 0 0 0 32px;
+    }
+    > span {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 7px;
+      background-image: url("../imgs/t0-b-lv3H/3/bg2.png");
+      background-repeat: repeat-x;
+      background-position: left bottom;
+    }
+
+   // size指定が無い時に適用されるh2
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      position: relative;
+      padding: 12px 0 10px 0;
+    }
+
+    // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+    a {
+      text-decoration: none;
+      color: #333;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__iconPlacer {
+
+    }
+
+    &__icon {
+
+    }
+
+
+    // size 小さいの場合
+    &--size-1 {
+
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+
+      #{$_block}__iconPlacer {
+
+      }
+
+      #{$_block}__icon {
+
+      }
+
+    }
+    // size 中の場合（サイズ指定なしと同じ）
+    &--size-2 {
+
+    }
+
+    // size 大きいの場合
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+
+      #{$_block}__iconPlacer {
+
+      }
+
+      #{$_block}__icon {
+
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
     &--align-r {
       text-align: right;
     }
@@ -163,27 +322,45 @@
 
 @if $device == SP {
 
-  .t0-b-lv3H#{$variation1of2} {
+  .t0-b-lv3H#{$variation1of3} {
     $_block: &;
     $_fontSize: 18;
     $_lineHeightType: 1;
+
+    margin: 0 auto;
+    color: #333;
+    > div {
+      display: inline-block;
+    }
+    > div > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
 
     // 見出しに適用されるCSS
     .h3 {
       @include g-font($_fontSize, $_lineHeightType);
     }
-    
+
     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
     a {
-
+      text-decoration: none;
+      color: #333;
     }
 
     &__iconPlacer {
-
+      > * {
+        display: block;
+      }
     }
 
     &__icon {
-      
+      background-repeat: no-repeat;
+      background-position: left center;
+      width: 28px;
+      height: 22px;
+      background-image: url("../imgs/t0-b-lv3H/1/bg.png");
+      position: relative;
     }
 
     &--align-l {
@@ -200,19 +377,99 @@
 
   }
 
-  .t0-b-lv3H#{$variation2of2} {
+  .t0-b-lv3H#{$variation2of3} {
     $_block: &;
     $_fontSize: 18;
     $_lineHeightType: 1;
 
+    margin: 0 auto;
+    color: #333;
+    > div {
+      display: inline-block;
+    }
+    > div > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
     // 見出しに適用されるCSS
     .h3 {
       @include g-font($_fontSize, $_lineHeightType);
+      padding-top: 2px;
     }
-    
+
     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
     a {
+      text-decoration: none;
+      color: #333;
+    }
 
+    &__iconPlacer {
+      > * {
+        display: block;
+      }
+    }
+
+    &__icon {
+      background-repeat: no-repeat;
+      background-position: left center;
+      width: 62px;
+      height: 36px;
+      background-image: url("../imgs/t0-b-lv3H/2/bg.png");
+      position: relative;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+  //v3がないためv2を流用
+  .t0-b-lv3H#{$variation3of3} {
+    $_block: &;
+    $_fontSize: 18;
+    $_lineHeightType: 1;
+
+    margin: 0 auto;
+    background: #{image-url("t0-b-lv3H/3/bg.png")} left center no-repeat;
+    position: relative;
+    color: #333;
+    margin-top: -10px;
+    div {
+      padding: 0 0 0 28px;
+    }
+    > span {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 7px;
+      background-image: url("../imgs/t0-b-lv3H/3/bg2.png");
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+
+    // 見出しに適用されるCSS
+    .h3 {
+      @include g-font($_fontSize, $_lineHeightType);
+      position: relative;
+      padding: 10px 0 10px 0;
+    }
+
+    // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+    a {
+      text-decoration: none;
+      color: #333;
     }
 
     &__iconPlacer {
@@ -220,7 +477,7 @@
     }
 
     &__icon {
-      
+
     }
 
     &--align-l {
