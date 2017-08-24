@@ -1,10 +1,31 @@
 @if $device == PC {
 
   .t0-b-freeHtml {
-    
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    div {
+      color: $g-textcolor;
+      text-align: center;
+      > * {
+        max-width: 100%;
+        margin: 0 auto !important;
+      }
+    }
+
+    &--width-100per {
+      width: 100%;
+    }
+    &--width-90per {
+      width: 90%;
+    }
+    &--width-80per {
+      width: 80%;
+    }
+    &--width-70per {
+      width: 70%;
+    }
   }
 
 }// PC
@@ -13,10 +34,12 @@
 @if $device == SP {
 
   .t0-b-freeHtml {
+
     // Youtubeのレスポンシブ対応
+    overflow: auto;
     max-height: 240px;
     text-align: center;
-    overflow: auto;
+
     > div {
       overflow: auto;
       iframe,
@@ -30,13 +53,7 @@
         max-width: 100% !important;
       }
     }
-    .admin & > div {
-      background: #666;
-      color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      margin: 0 auto;
-    }
+
   }
 
 }// SP
