@@ -2,6 +2,94 @@
 
   .t0-b-sideBoxMediaBox {
 
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_lineHeightType_caption: 1;
+    $_block: &;
+
+    display: table;
+    text-align: left;
+    color: $g-textcolor;
+
+    a {
+      text-decoration: none;
+      color: $g-textcolor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__media {
+      display: table-cell;
+      vertical-align: top;
+      img {
+        display: block;
+        width: 90px;
+        height: auto;
+      }
+    }
+
+    &__text {
+      display: table-cell;
+      vertical-align: top;
+      width: 100%;
+      padding: 0 0 0 8px;
+      p {
+        @include g-font-layout($_fontSizePx, $_lineHeightType);
+        padding: 10px 0 0;
+        &:first-child {
+          padding-top: 0;
+        }
+      }
+    }
+
+    &--imgR {
+      direction: rtl;
+      #{$_block}__text {
+        padding: 0 8px 0 0;
+      }
+    }
+
+    &--imgR {
+      &.ex-imageFloat {
+        > div {
+          display: block;
+        }
+        .t0-b-sideBoxMediaBox__text {
+          padding: 0;
+        }
+        .t0-b-sideBoxMediaBox__media {
+          float: right;
+          padding: 0 0 8px 8px;
+        }
+        .clearfix {
+          clear: right;
+        }
+      }
+    }
+
+    &--imgL {
+      &.ex-imageFloat {
+        > div {
+          display: block;
+        }
+        .t0-b-sideBoxMediaBox__text {
+          padding: 0;
+        }
+        .t0-b-sideBoxMediaBox__media {
+          float: left;
+          padding: 0 8px 8px 0;
+        }
+        .clearfix {
+          clear: left;
+        }
+      }
+    }
   }
 
 }// PC
@@ -11,6 +99,55 @@
 
   .t0-b-sideBoxMediaBox {
 
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_lineHeightType_caption: 1;
+    $_block: &;
+
+    display: table;
+    text-align: left;
+    color: $g-textcolor;
+
+    a {
+      text-decoration: none;
+      color: $g-textcolor;
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__media {
+      display: table-cell;
+      vertical-align: top;
+      img {
+        display: block;
+        width: 90px;
+        height: auto;
+      }
+    }
+
+    &__text {
+      display: table-cell;
+      vertical-align: top;
+      width: 100%;
+      padding: 0 0 0 8px;
+      p {
+        @include g-font-layout($_fontSizePx, $_lineHeightType);
+        padding: 10px 0 0;
+        &:first-child {
+          padding-top: 0;
+        }
+      }
+    }
+
+    &--imgR {
+      direction: rtl;
+      #{$_block}__text {
+        padding: 0 8px 0 0;
+      }
+    }
   }
 
 }// SP 
