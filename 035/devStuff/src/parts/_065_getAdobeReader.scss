@@ -1,11 +1,63 @@
 @if $device == PC {
 
   .t0-b-getAdobeReader {
-
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+      @include cf;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+    a {
+      display: block;
+      float: left;
+    }
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: baseline;
+      }
+    }
+    #{$_block}__itemText {
+      @include g-font-spacingKilled(16, 1);
+      color: #3a1f08;
+      text-decoration: underline;
+      &:hover {
+        color: #ee8100;
+        text-decoration: underline;
+      }
+    }
   }
 
   .b-downloadIcon {
-
+    $_color_border: #aaa;
+    @mixin _icon($file) {
+      &--#{$file} {
+        $_src: "b-downloadIcon/#{$file}.png";
+        background: #{image-url($_src)} 0 0 no-repeat;
+        width: image-width($_src);
+        height: 29px;
+        background-size: 62%;
+        background-position: 7px 0;
+      }
+    }
+    display: inline-block;
+    vertical-align: middle;
+    //border: 1px solid #{$_color_border}
+    @include _icon("pdf");
+    @include _icon("doc");
+    @include _icon("xls");
+    @include _icon("img");
+    @include _icon("reader");
   }
 
 }// PC
@@ -14,11 +66,61 @@
 @if $device == SP {
 
   .t0-b-getAdobeReader {
-
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+      @include cf;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+    a {
+      display: block;
+      float: left;
+    }
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+    #{$_block}__itemText {
+      @include g-font-spacingKilled(16, 1);
+      color: #3a1f08;
+    }
+    .b-downloadIcon.b-downloadIcon--reader {
+      background-position: 7px 1px;
+    }
   }
 
   .b-downloadIcon {
-
+    $_color_border: #aaa;
+    @mixin _icon($file) {
+      &--#{$file} {
+        $_src: "b-downloadIcon/#{$file}.png";
+        background: #{image-url($_src)} 0 0 no-repeat;
+        width: image-width($_src);
+        height: 29px;
+        background-size: 62%;
+        background-position: 7px 0;
+      }
+    }
+    display: inline-block;
+    vertical-align: middle;
+    //border: 1px solid #{$_color_border}
+    @include _icon("pdf");
+    @include _icon("doc");
+    @include _icon("xls");
+    @include _icon("img");
+    @include _icon("reader");
   }
 
 }// SP

@@ -1,8 +1,46 @@
 @if $device == PC {
 
   .t0-b-sideBoxIconText-mail {
-
-    &--size-1 {}
+    $_block: &;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+    &__bd {
+      text-align: center;
+    }
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+      &:hover {
+        color: #ee8100;
+        text-decoration: underline;
+      }
+    }
+    &--size-1 {
+      padding: 0 0 5px;
+      #{$_block}__bd {
+        @include g-font-spacingKilled(16, 1);
+      }
+      #{$_block}__icon {
+        margin: (-4px) 0 0 0;
+      }
+      #{$_block}__mail {
+        width: 28px;
+        height: 12px;
+        margin-top: 0;
+        background-image: url("../imgs/t0-b-sideBoxIconText-mail/1.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
     &--size-2 {}
     &--size-3 {}
     &--align-l {
@@ -14,6 +52,7 @@
     &--align-r {
       text-align: right;
     }
+    line-height: 0;
   }
 
 }// PC
@@ -22,7 +61,42 @@
 @if $device == SP {
 
   .t0-b-sideBoxIconText-mail {
-
+    $_block: &;
+    text-align: center;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+    &__bd {
+      text-align: center;
+    }
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(16, 1);
+      }
+      #{$_block}__icon {
+        width: 30px;
+        height: 22px;
+        margin: (-2px) 4px 0 0;
+        background-image: url("../imgs/t0-b-sideBoxIconText-mail/1.png");
+        background-repeat: no-repeat;
+      }
+    }
     &--align-l {
       text-align: left;
     }
