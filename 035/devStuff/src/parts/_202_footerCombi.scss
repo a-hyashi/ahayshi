@@ -1,21 +1,73 @@
 @if $device == PC {
 
   .t0-b-footerCombi {
-
+    $_width_content: 1062px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
+    padding: 10px 0;
+    > div {
+      width: $_width_content;
+      padding: 28px 20px 4px;
+      margin: 0 auto;
+      display: table;
+      box-sizing: border-box;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: left top, left bottom, right bottom, right top;
+      background-image: url("../imgs/t0-b-footerCombi/bg.png"), url("../imgs/t0-b-footerCombi/bg2.png"), url("../imgs/t0-b-footerCombi/bg3.png"), url("../imgs/t0-b-footerCombi/bg4.png");
+      position: relative;
+      > span {
+        background-repeat: repeat-y, repeat-y;
+        background-position: left top, right top;
+        background-image: url("../imgs/t0-b-footerCombi/bg5.png"), url("../imgs/t0-b-footerCombi/bg7.png");
+        position: absolute;
+        top: 30px;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        > span {
+          background-repeat: repeat-x, repeat-x;
+          background-position: left bottom, left top;
+          background-image: url("../imgs/t0-b-footerCombi/bg6.png"), url("../imgs/t0-b-footerCombi/bg8.png");
+          position: absolute;
+          top: -30px;
+          bottom: -30px;
+          left: 30px;
+          right: 30px;
+          > span {
+            background-repeat: repeat;
+            background-position: left top;
+            background-image: url("../imgs/t0-b-footerCombi/bg9.png");
+            position: absolute;
+            top: 30px;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+      > div {
+        display: table-cell;
+        vertical-align: top;
+      }
+    }
     display: table;
     &__col1 {
       display: table-cell;
       vertical-align: top;
+      position: relative;
     }
 
     &__col2 {
       display: table-cell;
       vertical-align: top;
+      padding-left: $_colSpacing;
+      position: relative;
     }
 
     &__col3 {
       display: table-cell;
       vertical-align: top;
+      padding-left: $_colSpacing;
+      position: relative;
     }
   }
 
@@ -25,9 +77,16 @@
 @if $device == SP {
 
   .t0-b-footerCombi {
-
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      > div {
+        vertical-align: top;
+      }
+    }
     &__col1 {
-      vertical-align: top;
+      width: 100%;
     }
 
     &__col2 {

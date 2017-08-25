@@ -1,7 +1,69 @@
 @if $device == PC {
 
   .t0-b-footerMenuWithCp {
-
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    background-repeat: repeat-x;
+    background-position: left top;
+    background-image: url("../imgs/t0-b-footerMenuWithCp/bg.png");
+    box-sizing: border-box;
+    position: relative;
+    > span {
+      background-repeat: repeat;
+      background-position: left top;
+      background-image: url("../imgs/t0-b-footerMenuWithCp/bg3.png");
+      position: absolute;
+      top: 36px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    > div {
+      min-height: 24px;
+      margin: 0 auto;
+      display: table;
+      width: 1062px;
+      padding: 6px 0 6px;
+      position: relative;
+      box-sizing: border-box;
+    }
+    p {
+      display: table-cell;
+      @include g-font-spacingKilled(12, 1);
+      padding: 0 0 0 13px;
+      position: relative;
+    }
+    &__menu {
+      display: table-cell;
+      ul {
+        text-align: right;
+      }
+      li {
+        display: inline-block;
+        position: relative;
+        color: #fff;
+        @include g-font-spacingKilled(12, 1);
+        padding: 0 13px;
+        background: #{image-url("t0-b-footerMenuWithCp/bg2.png")} 0em no-repeat;
+        &:hover {
+          background: #{image-url("t0-b-footerMenuWithCp/bg2.png")} 0em no-repeat;
+          text-decoration: underline;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+    .state-em {
+      div {
+        color: #f9ff55;
+      }
+      a {
+        color: #f9ff55;
+      }
+    }
   }
 
 }// PC
@@ -10,7 +72,42 @@
 @if $device == SP {
 
   .t0-b-footerMenuWithCp {
-
+    @include g-font-spacingKilled(12, 1);
+    margin: 0 -15px;
+    text-align: center;
+    > div {
+      background: #5b7607;
+      display: table;
+      width: 100%;
+    }
+    ul {
+      padding: 5px 10px;
+    }
+    p {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      padding: 0 0 5px;
+      background: #5b7607;
+      color: #fff;
+    }
+    &__menu {
+      display: table-header-group;
+      a {
+        color: #fff;
+      }
+      li {
+        &:first-child {
+          margin-left: 0;
+        }
+        margin-left: 15px;
+        display: inline-block;
+        text-align: left;
+        padding: 5px 0;
+        color: #fff;
+        text-decoration: underline;
+      }
+    }
   }
 
 }// SP
