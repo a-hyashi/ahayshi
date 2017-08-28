@@ -1,12 +1,13 @@
-$areaContainerWidth: 1100px;
-$areaMainWidth: 780px;
+$areaContainerWidth: 1062px;
+$areaMainWidth: 740px;
 $areaSubWidth: 320px;
 
 .area-all {
   margin: 0 auto;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #edfaf9;
+  background-image: url("../imgs/area-all/bg.png");
+  background-repeat: repeat;
   min-width: $areaContainerWidth + 36px;
   overflow: hidden;
 }
@@ -15,8 +16,8 @@ $areaSubWidth: 320px;
   width: $areaContainerWidth;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 40px;
-  // *zoom: 1;
+  padding-top: 20px;
+  *zoom: 1;
 
   &::before,
   &::after {
@@ -34,18 +35,24 @@ $areaSubWidth: 320px;
   box-sizing: border-box;
   padding: 0 0 50px;
   float: left;
-  width: 780px;
+  width: $areaMainWidth;
 }
 
 .area-sub {
   box-sizing: border-box;
+  width: $areaSubWidth;
   min-height: 100px;
   float: right;
-  width: 320px;
-  padding: 0 0 50px 50px;
+  padding: 0 0 50px 52px;
+  position: relative;
+  //R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  z-index: 11;
 }
 
 .area-footer {
-  background: #fff;
+  background-image: url("../imgs/area-footer/bg.png"), url("../imgs/area-footer/bg2.png");
+  background-repeat: repeat-x, repeat;
+  background-position: left top, left top;
+  padding: 25px 0 0;
   padding-top: 1px; //フッター最上部のフッターメニューの背景が伸びないための指定
 }

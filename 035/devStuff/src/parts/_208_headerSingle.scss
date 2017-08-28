@@ -1,10 +1,47 @@
 @if $device == PC {
 
   .t0-b-headerSingle {
-
-    &__col1 {}
-    &__col2 {}
-    &__col3 {}
+    $_width_content: 1062px;
+    $_color_hd_typo: #333;
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+    padding-bottom: 10px;
+    * {
+      white-space: normal;
+    }
+    &__hd {
+      color: $_color_hd_typo;
+      padding: 10px 0;
+      text-align: center;
+      > p {
+        width: $_width_content;
+        margin: 0 auto;
+        @include g-font-spacingKilled(14, 1);
+      }
+    }
+    &__bd {
+      > div {
+        display: block;
+        width: $_width_content;
+        margin: 0 auto;
+        > div {
+          max-width: $_width_content;
+          margin: 0 auto;
+          display: table;
+          text-align: center;
+          vertical-align: top;
+          padding-top: $_colSpacing;
+        }
+      }
+    }
+    &__col1 {
+      width: 100%;
+    }
+    &__col2 {
+      padding-left: $_colSpacing;
+    }
+    &__col3 {
+      padding-left: $_colSpacing;
+    }
   }
 
 }// PC
@@ -13,8 +50,55 @@
 @if $device == SP {
 
   .t0-b-headerSingle {
-
-    &__col {}
+    padding-top: 5px;
+    margin: 0 -15px;
+    $_color_hd_typo: #333;
+    $_color_hd_bg: none;
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+    &__hd {
+      color: $_color_hd_typo;
+      background: $_color_hd_bg;
+      padding: 5px 5px 15px;
+      text-align: center;
+      > p {
+        width: 100%;
+        margin: 0 auto;
+        @include g-font-spacingKilled(14, 1);
+      }
+    }
+    &__bd {
+      padding: 5px 20px 0;
+      > div {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        > div {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+    &__col {
+      width: 100%;
+    }
+    &__col1 {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    &__col2 {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    &__col3 {
+      width: 100%;
+    }
+    //▽サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle2__bd,
+    .t0-b-headerUnit-labeledList table,
+    .t0-b-headerUnit-labeledList2 table {
+      margin: 0 auto;
+    }
   }
 
 }// SP
