@@ -1,32 +1,127 @@
 @if $device == PC {
 
   .t0-b-flow4LeftToRight {
-    width: 100%;
-    &__hd {
-      padding-bottom: 15px;
-    }
-    &__bd {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-    }
-    &__box {
-      display: table-cell;
-      vertical-align: top;
-    }
-    &__arrow {
-      display: table-cell;
-      width: 2%;
-      text-align: center;
-      font-size: 2em;
-      color: #333;
-      vertical-align: middle;
-    }
-  }
+    $_block: &;
+        width: 100%;
+        &__hd {
+          padding-bottom: 15px;
+        }
+        &__bd {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+        }
+        &__row {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          padding-bottom: 5%;
+          &:last-child {
+            padding-bottom: 0;
+          }
+        }
+        &__box {
+          display: table-cell;
+          vertical-align: top;
+          width: (100%-3*(4-1))/4;
+          #{$_block}--colSpacing-l & {
+            width: (100%-5*(4-1))/4;
+          }
+          #{$_block}--colSpacing-m & {
+            width: (100%-3*(4-1))/4;
+          }
+          #{$_block}--colSpacing-s & {
+            width: (100%-1*(4-1))/4;
+          }
+        }
+        &__arrow {
+          display: table-cell;
+          text-align: center;
+          font-size: 2em;
+          color: #333;
+          vertical-align: middle;
+          width: 2%;
+          #{$_block}--colSpacing-l & {
+            width: 5%;
+          }
+          #{$_block}--colSpacing-m & {
+            width: 3%;
+          }
+          #{$_block}--colSpacing-s & {
+            width: 1%;
+          }
+        }
+      }
+
 
   .t0-b-flow4LeftToRightWithMidFrame{
 
   }
+
+  .t0-b-flow4LeftToRight2 {
+    $_block: &;
+        width: 100%;
+        &__hd {
+          padding-bottom: 15px;
+        }
+        &__bd {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          height: 100%;
+        }
+        &__row {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          padding-bottom: 5%;
+          &:last-child {
+            padding-bottom: 0;
+          }
+        }
+        &__box {
+          display: table-cell;
+          vertical-align: top;
+          height: 100%;
+          width: (100%-3*(4-1))/4;
+          #{$_block}--colSpacing-l & {
+            width: (100%-5*(4-1))/4;
+          }
+          #{$_block}--colSpacing-m & {
+            width: (100%-3*(4-1))/4;
+          }
+          #{$_block}--colSpacing-s & {
+            width: (100%-1*(4-1))/4;
+          }
+        }
+        &__arrow {
+          display: table-cell;
+          text-align: center;
+          font-size: 2em;
+          color: #333;
+          vertical-align: middle;
+          width: 35px;
+          height: 100%;
+          #{$_block}--colSpacing-l & {
+            width: 5%;
+          }
+          #{$_block}--colSpacing-m & {
+            width: 3%;
+          }
+          #{$_block}--colSpacing-s & {
+            width: 1%;
+          }
+        }
+        &__arrow-inner {
+          display: inline-block;
+          background-repeat: no-repeat;
+          background-position: center 40%;
+          background-image: url("../imgs/t0-b-flowLeftToRight/bg.png");
+          height: 31px;
+          margin-top: -5px;
+          width: 100%;
+        }
+      }
 
 }// PC
 
@@ -34,11 +129,41 @@
 @if $device == SP {
 
   .t0-b-flow4LeftToRight {
-    width: 100%;
+    $_block: &;
+        width: 100%;
+        &__box {
+          padding-bottom: 15px;
+        }
+        &__row {
+          &:last-child {
+            .t0-b-flow4LeftToRight__box {
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
   }
 
   .t0-b-flow4LeftToRightWithMidFrame {
 
+  }
+
+  .t0-b-flow4LeftToRight2 {
+    $_block: &;
+        width: 100%;
+        &__box {
+          padding-bottom: 15px;
+        }
+        &__row {
+          &:last-child {
+            .t0-b-flow4LeftToRight2__box {
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
   }
 
 }// SP

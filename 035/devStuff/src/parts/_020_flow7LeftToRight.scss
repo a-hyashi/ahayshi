@@ -1,44 +1,146 @@
 @if $device == PC {
 
   .t0-b-flow7LeftToRight {
-    width: 100%;
-    &__hd {
-      padding-bottom: 15px;
-    }
-    &__bd {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-    }
-    &__box {
-      display: table-cell;
-      vertical-align: top;
-    }
-    &__arrow {
-      display: table-cell;
-      width: 2%;
-      text-align: center;
-      font-size: 2em;
-      color: #333;
-      vertical-align: middle;
-    }
-    &__arrow {
-      width: 1%;
-      font-size: 1em;
-    }
+    $_block: &;
+       width: 100%;
+       &__hd {
+         padding-bottom: 15px;
+       }
+       &__bd {
+         display: table;
+         width: 100%;
+         table-layout: fixed;
+       }
+       &__row {
+         display: table;
+         width: 100%;
+         table-layout: fixed;
+         padding-bottom: 5%;
+         &:last-child {
+           padding-bottom: 0;
+         }
+       }
+       &__box {
+         display: table-cell;
+         vertical-align: top;
+         width: (100%-2*(7-1))/7;
+         #{$_block}--colSpacing-l & {
+           width: (100%-3.5*(7-1))/7;
+         }
+         #{$_block}--colSpacing-m & {
+           width: (100%-2*(7-1))/7;
+         }
+         #{$_block}--colSpacing-s & {
+           width: (100%-0.5*(7-1))/7;
+         }
+       }
+       &__arrow {
+         display: table-cell;
+         text-align: center;
+         font-size: 1em;
+         color: #333;
+         vertical-align: middle;
+         width: 1%;
+         #{$_block}--colSpacing-l & {
+           width: 3.5%;
+         }
+         #{$_block}--colSpacing-m & {
+           width: 2%;
+         }
+         #{$_block}--colSpacing-s & {
+           width: 0.5%;
+         }
+       }
   }
 
   .t0-b-flow7LeftToRightWithMidFrame {
 
   }
 
+  .t0-b-flow7LeftToRight2 {
+    $_block: &;
+       width: 100%;
+       &__hd {
+         padding-bottom: 15px;
+       }
+       &__bd {
+         display: table;
+         width: 100%;
+         table-layout: fixed;
+         height: 100%;
+       }
+       &__row {
+         display: table;
+         width: 100%;
+         table-layout: fixed;
+         padding-bottom: 5%;
+         &:last-child {
+           padding-bottom: 0;
+         }
+       }
+       &__box {
+         display: table-cell;
+         vertical-align: top;
+         height: 100%;
+         width: (100%-2*(7-1))/7;
+         #{$_block}--colSpacing-l & {
+           width: (100%-3.5*(7-1))/7;
+         }
+         #{$_block}--colSpacing-m & {
+           width: (100%-2*(7-1))/7;
+         }
+         #{$_block}--colSpacing-s & {
+           width: (100%-0.5*(7-1))/7;
+         }
+       }
+       &__arrow {
+         display: table-cell;
+         text-align: center;
+         font-size: 1em;
+         color: #333;
+         vertical-align: middle;
+         width: 35px;
+         height: 100%;
+         #{$_block}--colSpacing-l & {
+           width: 3.5%;
+         }
+         #{$_block}--colSpacing-m & {
+           width: 2%;
+         }
+         #{$_block}--colSpacing-s & {
+           width: 0.5%;
+         }
+       }
+       &__arrow-inner {
+         display: inline-block;
+         background-repeat: no-repeat;
+         background-position: center 40%;
+         background-image: url("../imgs/t0-b-flowLeftToRight/bg.png");
+         height: 31px;
+         margin-top: -5px;
+         width: 100%;
+       }
+  }
 }// PC
 
 
 @if $device == SP {
 
   .t0-b-flow7LeftToRight {
-    width: 100%;
+    $_block: &;
+        width: 100%;
+        &__box {
+          padding-bottom: 15px;
+        }
+        &__row {
+          &:last-child {
+            .t0-b-flow7LeftToRight__box {
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
   }
 
   .t0-b-flow7LeftToRightWithMidFrame {
