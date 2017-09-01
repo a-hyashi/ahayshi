@@ -43,7 +43,12 @@ window.onload = function () {
     }
   }
   // previewWidth.addEventListener("change", changeWidth, false);
+
+  //Side系のアイテム確認時の横伸び予防
+  var sideTag = $("li.aigis-tags__item--side");
+  if ( sideTag.length && sideTag[0].innerText == "side" ){
+    $.each(preview, function(i, previewArea){
+      previewArea.style.width = '320px';
+    });
+  }
 }
-
-
-
