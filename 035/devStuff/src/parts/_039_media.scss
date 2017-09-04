@@ -8,14 +8,17 @@
     $_spacing: #{$g-spacingBaseLength * 3}px;
     color: #333;
     > * {
-      padding-top: $_spacing;
       &:first-child {
         padding-top: 0;
       }
     }
     &__h-upper {
       font-weight: bold;
-      @include g-font(16, 1);
+      @if $layout == "N00" {
+               @include g-font(20, 1);
+             } @else {
+               @include g-font(16, 1);
+             }
       text-align: center;
       color: #553010;
     }
@@ -42,7 +45,11 @@
     }
     &__h-lower {
       font-weight: bold;
-      @include g-font(16, 1);
+      @if $layout == "N00" {
+               @include g-font(20, 1);
+             } @else {
+               @include g-font(16, 1);
+             }
       text-align: center;
       color: #553010;
     }
