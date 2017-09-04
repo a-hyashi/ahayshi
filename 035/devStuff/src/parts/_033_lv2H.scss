@@ -33,7 +33,7 @@
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       margin-left: 50px;
       margin-right: 35px;
-      padding: 20px 16px;
+      padding: 0;
       @if $layout == "N00" {
                @include g-font(30, 1);
              } @else {
@@ -56,7 +56,7 @@
      */
 
     &__iconPlacer {
-
+      width: $_iconWidth + 15px;
     }
 
     &__icon {
@@ -72,6 +72,10 @@
       h2 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
+      #{$_block}__iconPlacer {
+        // width: $_iconWidth*.8;
+        height: $_iconHeight*.8;
+      }
     }
 
     // size 中の場合（サイズ指定なしと同じ）
@@ -83,6 +87,10 @@
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+      #{$_block}__iconPlacer {
+        // width: $_iconWidth*1.2;
+        height: $_iconHeight*1.2;
       }
 
     }
