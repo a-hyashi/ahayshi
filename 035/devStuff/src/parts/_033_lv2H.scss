@@ -26,6 +26,7 @@
      background-image: url("../imgs/t0-b-lv2H/1/bg.png"), url("../imgs/t0-b-lv2H/1/bg2.png"), url("../imgs/t0-b-lv2H/1/bg3.png");
      background-repeat: no-repeat, no-repeat, repeat-x;
      background-position: left center, right center, bottom;
+     background-size: 57px 36px, 57px 38px, 740px 11px;
      color: #333;
 
     // size指定が無い時に適用されるh2
@@ -56,7 +57,7 @@
      */
 
     &__iconPlacer {
-      width: $_iconWidth + 15px;
+      //width: $_iconWidth + 15px;
     }
 
     &__icon {
@@ -72,6 +73,7 @@
       h2 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
+      background-size: 57px*.8 36px*.8, 57px*.8 38px*.8, 740px*.8 11px*.8;
       #{$_block}__iconPlacer {
         // width: $_iconWidth*.8;
         height: $_iconHeight*.8;
@@ -88,6 +90,7 @@
       h2 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
+      background-size: 57px*1.2 36px*1.2, 57px*1.2 38px*1.2, 740px*1.2 11px*1.2;
       #{$_block}__iconPlacer {
         // width: $_iconWidth*1.2;
         height: $_iconHeight*1.2;
@@ -189,13 +192,15 @@
     }
 
     &__icon {
-
     }
 
     // size 小さいの場合
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+      #{$_block}__icon {
+
       }
     }
 
@@ -208,6 +213,9 @@
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+      #{$_block}__icon {
+
       }
     }
 
