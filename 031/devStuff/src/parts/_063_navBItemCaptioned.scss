@@ -2,38 +2,324 @@
 
   .t0-b-navBItemCaptioned#{$variation1of2} {
 
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
+    $_block: &;
+    $_fontSizeDifference: 2;
+    // メイン
+    $_fontSizePx_main: 18;
+    $_fontSizePx_main_ss: $_fontSizePx_main - $_fontSizeDifference - 2;
+    $_fontSizePx_main_s: $_fontSizePx_main - $_fontSizeDifference;
+    $_fontSizePx_main_m: $_fontSizePx_main;
+    $_fontSizePx_main_l: $_fontSizePx_main + $_fontSizeDifference;
+    $_fontSizePx_main_ll: $_fontSizePx_main + $_fontSizeDifference + 2;
+    // 補足
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_caption_ss: $_fontSizePx_caption - $_fontSizeDifference - 2;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_m: $_fontSizePx_caption;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_fontSizePx_caption_ll: $_fontSizePx_caption + $_fontSizeDifference + 2;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_borderColor: #71d8dc;
+    $_bgColor: #00b8bf;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    &__inner {
+      border: 2px solid $_borderColor;
+      background-color: $_bgColor;
+      > div {
+        padding: 10px 13px 10px 43px;
+        background-image: url("../imgs/common/navItem001/Banner_arrow006_size2_v1.png");
+        background-repeat: no-repeat;
+        background-position: 11px center;
+        background-size: 22px 22px;
+      }
+
+      #{$_block}--size-1 & {
+        > div {
+          padding: 10px 10px 10px 38px;
+          background-size: 20px 20px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-2 & {
+        > div {
+          padding: 10px 11px 10px 41px;
+          background-size: 22px 22px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-3 & {
+        > div {
+          padding: 10px 13px 10px 43px;
+          background-size: 24px 24px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-4 & {
+        > div {
+          padding: 10px 15px 10px 45px;
+          background-size: 26px 26px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-5 & {
+        > div {
+          padding: 10px 17px 10px 47px;
+          background-size: 28px 28px;
+          background-position: 11px center;
+        }
+      }
+    }
+
+    &__main {
+      @include g-font-layout($_fontSizePx_main_m, $_lineHeightType);
+      font-weight: bold;
+      color: $_textColor;
+      text-shadow:
+        -1px -1px #00a6ac,
+        1px -1px #00a6ac,
+        -1px 1px #00a6ac,
+        1px 1px #00a6ac,
+        -1px -2px #00a6ac,
+        1px -2px #00a6ac,
+        -1px 2px #00a6ac,
+        1px 2px #00a6ac,
+        -2px -1px #00a6ac,
+        2px -1px #00a6ac,
+        -2px 1px #00a6ac,
+        2px 1px #00a6ac,
+        -2px -2px 1px #00a6ac,
+        2px -2px 1px #00a6ac,
+        -2px 2px 1px #00a6ac,
+        2px 2px 1px #00a6ac;
+
+        #{$_block}--size-1 & {
+          @include g-font-layout($_fontSizePx_main_ss, $_lineHeightType);
+        }
+  
+        #{$_block}--size-2 & {
+          @include g-font-layout($_fontSizePx_main_s, $_lineHeightType);
+        }
+  
+        #{$_block}--size-3 & {
+          @include g-font-layout($_fontSizePx_main_m, $_lineHeightType);
+        }
+  
+        #{$_block}--size-4 & {
+          @include g-font-layout($_fontSizePx_main_l, $_lineHeightType);
+        }
+  
+        #{$_block}--size-5 & {
+          @include g-font-layout($_fontSizePx_main_ll, $_lineHeightType);
+        }
+    }
+
+    &__caption {
+      @include g-font-layout($_fontSizePx_caption_m, $_lineHeightType);
+      color: $_textColor;
+      padding: 5px 0 0 0;
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
+    }
+
     &--align-l {
-      margin: 0 auto 0 0;
+      margin-right: auto;
     }
     &--align-c {
-      margin: 0 auto;
+      margin-right: auto;
+      margin-left: auto;
     }
     &--align-r {
-      margin: 0 0 0 auto;
+      margin-left: auto;
     }
   }
 
   .t0-b-navBItemCaptioned#{$variation2of2} {
 
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
+    $_block: &;
+    $_fontSizeDifference: 2;
+    // メイン
+    $_fontSizePx_main: 18;
+    $_fontSizePx_main_ss: $_fontSizePx_main - $_fontSizeDifference - 2;
+    $_fontSizePx_main_s: $_fontSizePx_main - $_fontSizeDifference;
+    $_fontSizePx_main_m: $_fontSizePx_main;
+    $_fontSizePx_main_l: $_fontSizePx_main + $_fontSizeDifference;
+    $_fontSizePx_main_ll: $_fontSizePx_main + $_fontSizeDifference + 2;
+    // 補足
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_caption_ss: $_fontSizePx_caption - $_fontSizeDifference - 2;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_m: $_fontSizePx_caption;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_fontSizePx_caption_ll: $_fontSizePx_caption + $_fontSizeDifference + 2;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_borderColor: #fbe3ee;
+    $_bgColor: #e37da9;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    &__inner {
+      border: 2px solid $_borderColor;
+      background-color: $_bgColor;
+      > div {
+        padding: 10px 13px 10px 43px;
+        background-image: url("../imgs/common/navItem001/Banner_arrow006_size2_v1.png");
+        background-repeat: no-repeat;
+        background-position: 11px center;
+        background-size: 22px 22px;
+      }
+
+      #{$_block}--size-1 & {
+        > div {
+          padding: 10px 10px 10px 38px;
+          background-size: 20px 20px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-2 & {
+        > div {
+          padding: 10px 11px 10px 41px;
+          background-size: 22px 22px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-3 & {
+        > div {
+          padding: 10px 13px 10px 43px;
+          background-size: 24px 24px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-4 & {
+        > div {
+          padding: 10px 15px 10px 45px;
+          background-size: 26px 26px;
+          background-position: 11px center;
+        }
+      }
+
+      #{$_block}--size-5 & {
+        > div {
+          padding: 10px 17px 10px 47px;
+          background-size: 28px 28px;
+          background-position: 11px center;
+        }
+      }
+    }
+
+    &__main {
+      @include g-font-layout($_fontSizePx_main_m, $_lineHeightType);
+      font-weight: bold;
+      color: $_textColor;
+      text-shadow:
+        -1px -1px #d16393,
+        1px -1px #d16393,
+        -1px 1px #d16393,
+        1px 1px #d16393,
+        -1px -2px #d16393,
+        1px -2px #d16393,
+        -1px 2px #d16393,
+        1px 2px #d16393,
+        -2px -1px #d16393,
+        2px -1px #d16393,
+        -2px 1px #d16393,
+        2px 1px #d16393,
+        -2px -2px 1px #d16393,
+        2px -2px 1px #d16393,
+        -2px 2px 1px #d16393,
+        2px 2px 1px #d16393;
+
+        #{$_block}--size-1 & {
+          @include g-font-layout($_fontSizePx_main_ss, $_lineHeightType);
+        }
+  
+        #{$_block}--size-2 & {
+          @include g-font-layout($_fontSizePx_main_s, $_lineHeightType);
+        }
+  
+        #{$_block}--size-3 & {
+          @include g-font-layout($_fontSizePx_main_m, $_lineHeightType);
+        }
+  
+        #{$_block}--size-4 & {
+          @include g-font-layout($_fontSizePx_main_l, $_lineHeightType);
+        }
+  
+        #{$_block}--size-5 & {
+          @include g-font-layout($_fontSizePx_main_ll, $_lineHeightType);
+        }
+    }
+
+    &__caption {
+      @include g-font-layout($_fontSizePx_caption_m, $_lineHeightType);
+      color: $_textColor;
+      padding: 5px 0 0 0;
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
+    }
+
     &--align-l {
-      margin: 0 auto 0 0;
+      margin-right: auto;
     }
     &--align-c {
-      margin: 0 auto;
+      margin-right: auto;
+      margin-left: auto;
     }
     &--align-r {
-      margin: 0 0 0 auto;
+      margin-left: auto;
     }
   }
 
   .t0-b-navBItemCaptionedDouble {
 
+    display: flex;
+    &__layout {
+      padding-left: 4%;
+      flex: 1 1 (100% / 2);
+      &:first-child {
+        padding-left: 0;
+      }
+    }
   }
 
 }// PC
@@ -43,42 +329,134 @@
 
   .t0-b-navBItemCaptioned#{$variation1of2} {
 
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--align-l {
-      margin: 0 auto 0 0;
+    $_block: &;
+    // メイン
+    $_fontSizePx_main: 18;
+    // 補足
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_borderColor: #71d8dc;
+    $_bgColor: #00b8bf;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
     }
-    &--align-c {
-      margin: 0 auto;
+
+    &__inner {
+      border: 2px solid $_borderColor;
+      background-color: $_bgColor;
+      > div {
+        padding: 10px*.8 13px*.8 10px*.8 43px*.8;
+        background-image: url("../imgs/common/navItem001/Banner_arrow006_size2_v1.png");
+        background-repeat: no-repeat;
+        background-position: 11px center;
+        background-size: 24px*.8 24px*.8;
+      }
     }
-    &--align-r {
-      margin: 0 0 0 auto;
+
+    &__main {
+      @include g-font-layout($_fontSizePx_main, $_lineHeightType);
+      font-weight: bold;
+      color: $_textColor;
+      text-shadow:
+        -1px -1px #00a6ac,
+        1px -1px #00a6ac,
+        -1px 1px #00a6ac,
+        1px 1px #00a6ac,
+        -1px -2px #00a6ac,
+        1px -2px #00a6ac,
+        -1px 2px #00a6ac,
+        1px 2px #00a6ac,
+        -2px -1px #00a6ac,
+        2px -1px #00a6ac,
+        -2px 1px #00a6ac,
+        2px 1px #00a6ac,
+        -2px -2px 1px #00a6ac,
+        2px -2px 1px #00a6ac,
+        -2px 2px 1px #00a6ac,
+        2px 2px 1px #00a6ac;
     }
+
+    &__caption {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor;
+      padding: 5px 0 0 0;
+    }
+
   }
 
   .t0-b-navBItemCaptioned#{$variation2of2} {
 
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--align-l {
-      margin: 0 auto 0 0;
+    $_block: &;
+    // メイン
+    $_fontSizePx_main: 18;
+    // 補足
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_borderColor: #fbe3ee;
+    $_bgColor: #e37da9;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
     }
-    &--align-c {
-      margin: 0 auto;
+
+    &__inner {
+      border: 2px solid $_borderColor;
+      background-color: $_bgColor;
+      > div {
+        padding: 10px*.8 13px*.8 10px*.8 43px*.8;
+        background-image: url("../imgs/common/navItem001/Banner_arrow006_size2_v1.png");
+        background-repeat: no-repeat;
+        background-position: 11px center;
+        background-size: 24px*.8 24px*.8;
+      }
     }
-    &--align-r {
-      margin: 0 0 0 auto;
+
+    &__main {
+      @include g-font-layout($_fontSizePx_main, $_lineHeightType);
+      font-weight: bold;
+      color: $_textColor;
+      text-shadow:
+        -1px -1px #d16393,
+        1px -1px #d16393,
+        -1px 1px #d16393,
+        1px 1px #d16393,
+        -1px -2px #d16393,
+        1px -2px #d16393,
+        -1px 2px #d16393,
+        1px 2px #d16393,
+        -2px -1px #d16393,
+        2px -1px #d16393,
+        -2px 1px #d16393,
+        2px 1px #d16393,
+        -2px -2px 1px #d16393,
+        2px -2px 1px #d16393,
+        -2px 2px 1px #d16393,
+        2px 2px 1px #d16393;
     }
+
+    &__caption {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor;
+      padding: 5px 0 0 0;
+    }
+
   }
 
-  .t0-b-navBItemCaptionedDouble#{$variation1of2} {
+  .t0-b-navBItemCaptionedDouble{
 
-  }
-
-  .t0-b-navBItemCaptionedDouble#{$variation2of2} {
-
+    &__layout {
+      padding-bottom: 10px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
   }
 
 }// SP
