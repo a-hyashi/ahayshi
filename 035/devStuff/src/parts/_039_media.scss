@@ -1,17 +1,34 @@
 @if $device == PC {
 
   .t0-b-media {
-
-    img {
-      width: 100%;
-    }
     $_spacing: #{$g-spacingBaseLength * 3}px;
     color: #333;
+    padding-top: 15px;
     > * {
       &:first-child {
         padding-top: 0;
       }
     }
+
+    &--width-s {}
+    &--width-m {}
+    &--width-l {}
+    &--width-l &__media {
+      img {
+        width: 100%;
+      }
+    }
+    &--width-m &__media {
+      img {
+        width: 75%;
+      }
+    }
+    &--width-s &__media {
+      img {
+        width: 50%;
+      }
+    }
+
     &__h-upper {
       @if $layout == "N00" {
                @include g-font(20, 1);
@@ -20,6 +37,16 @@
              }
       text-align: center;
       color: #553010;
+      margin-bottom: 2%;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
+    }
+    img {
+      width: 100%;
     }
     &__media {
       text-align: center;
@@ -33,13 +60,17 @@
       }
       a {
         text-decoration: none;
-      }
-    }
-    a {
-      > img {
         &:hover {
-          opacity: 0.8;
+          opacity: .8;
         }
+        > img {
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+      & + div {
+        margin-top: 4%;
       }
     }
     &__h-lower {
@@ -50,14 +81,37 @@
              }
       text-align: center;
       color: #553010;
+      margin-top: 2%;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
+      & + div {
+        margin-top: 2%;
+      }
     }
     &__caption {
       p {
         @include g-font(14, 1);
         text-align: center;
       }
+      & + div {
+        margin-top: 2%;
+      }
     }
+  }
 
+  .t0-b-media2 {
+    $_spacing: #{$g-spacingBaseLength * 3}px;
+    color: #333;
+    > * {
+      padding-top: $_spacing;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
     &--width-s {}
     &--width-m {}
     &--width-l {}
@@ -76,50 +130,23 @@
         width: 50%;
       }
     }
-    &--align-l {
-      text-align: left;
-    }
-    &--align-c {
-      text-align: center;
-    }
-    &--align-r {
-      text-align: right;
-    }
 
-    &__h-upper,
-    &__h-lower {
+    &__h-upper {
+      @include g-font(16, 1);
+      text-align: center;
+      color: #553010;
       a {
         text-decoration: none;
-        color: #553010;
-        &:hover {
-          color: #ee8100;
-        }
       }
       div {
         display: inline-block;
       }
     }
-  }
-
-  .t0-b-media2 {
-
     img {
       width: 100%;
     }
-    $_spacing: #{$g-spacingBaseLength * 3}px;
-    color: #333;
-    > * {
-      padding-top: $_spacing;
-      &:first-child {
-        padding-top: 0;
-      }
-    }
-    &__h-upper {
-      @include g-font(16, 1);
-      text-align: center;
-      color: #553010;
-    }
     &__media {
+      line-height: 0;
       text-align: center;
       > *, img {
         vertical-align: top;
@@ -133,19 +160,25 @@
       }
       a {
         text-decoration: none;
-      }
-    }
-    a {
-      > img {
         &:hover {
-          opacity: 0.8;
+          opacity: .8;
         }
       }
+      & + div {
+        margin-top: 4%;
+      }
     }
+
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__caption {
       p {
@@ -153,55 +186,9 @@
         text-align: center;
       }
     }
-
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
-    }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
-    }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
-    }
-    &--align-l {
-      text-align: left;
-    }
-    &--align-c {
-      text-align: center;
-    }
-    &--align-r {
-      text-align: right;
-    }
-
-    &__h-upper,
-    &__h-lower {
-      a {
-        text-decoration: none;
-        color: #553010;
-        &:hover {
-          color: #ee8100;
-        }
-      }
-      div {
-        display: inline-block;
-      }
-    }
   }
 
   .t0-b-media3 {
-
-    img {
-      width: 100%;
-    }
     $_spacing: #{$g-spacingBaseLength * 3}px;
     color: #333;
     > * {
@@ -210,12 +197,31 @@
         padding-top: 0;
       }
     }
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
+    }
+    img {
+      width: 100%;
+    }
     &__h-upper {
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__media {
+      line-height: 0;
       text-align: center;
       > *, img {
         vertical-align: top;
@@ -229,12 +235,8 @@
       }
       a {
         text-decoration: none;
-      }
-    }
-    a {
-      > img {
         &:hover {
-          opacity: 0.8;
+          opacity: .8;
         }
       }
     }
@@ -242,52 +244,17 @@
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__caption {
       p {
         @include g-font(14, 1);
         text-align: center;
-      }
-    }
-
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
-    }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
-    }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
-    }
-    &--align-l {
-      text-align: left;
-    }
-    &--align-c {
-      text-align: center;
-    }
-    &--align-r {
-      text-align: right;
-    }
-    &__h-upper,
-    &__h-lower {
-      a {
-        text-decoration: none;
-        color: #553010;
-        &:hover {
-          color: #ee8100;
-        }
-      }
-      div {
-        display: inline-block;
       }
     }
   }
@@ -325,10 +292,7 @@
 @if $device == SP {
 
   .t0-b-media {
-
-    img {
-      width: 100%;
-    }
+    margin: 0 auto;
     $_spacing: #{$g-spacingBaseLength * 3}px;
     color: #333;
     > * {
@@ -337,10 +301,21 @@
         padding-top: 0;
       }
     }
+    img {
+      width: 100%;
+      max-width: 100% !important;
+    }
     &__h-upper {
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+        color: #553010;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__media {
       text-align: center;
@@ -366,15 +341,19 @@
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+        color: #553010;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__caption {
       p {
         @include g-font(14, 1);
         text-align: center;
       }
-    }
-    img {
-      max-width: 100% !important;
     }
 
     &--width-s {}
@@ -395,33 +374,10 @@
         width: 50%;
       }
     }
-    &--align-l {
-      text-align: left;
-    }
-    &--align-c {
-      text-align: center;
-    }
-    &--align-r {
-      text-align: right;
-    }
-
-    &__h-upper,
-    &__h-lower {
-      a {
-        text-decoration: none;
-        color: #553010;
-      }
-      div {
-        display: inline-block;
-      }
-    }
   }
 
   .t0-b-media2 {
-
-    img {
-      width: 100%;
-    }
+    margin: 0 auto;
     $_spacing: #{$g-spacingBaseLength * 3}px;
     color: #333;
     > * {
@@ -430,10 +386,20 @@
         padding-top: 0;
       }
     }
+    img {
+      width: 100%;
+    }
     &__h-upper {
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+        color: #553010;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__media {
       text-align: center;
@@ -449,15 +415,22 @@
         background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
         background-image: url("../imgs/t0-b-media/2/bg.png"), url("../imgs/t0-b-media/2/bg2.png"), url("../imgs/t0-b-media/2/bg3.png"), url("../imgs/t0-b-media/2/bg4.png"), url("../imgs/t0-b-media/2/bg5.png"), url("../imgs/t0-b-media/2/bg6.png"), url("../imgs/t0-b-media/2/bg7.png"), url("../imgs/t0-b-media/2/bg8.png");
         box-sizing: border-box;
+        a {
+          text-decoration: none;
+        }
       }
-    }
-    a {
-      text-decoration: none;
     }
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+        color: #553010;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__caption {
       p {
@@ -487,32 +460,10 @@
         width: 50%;
       }
     }
-    &--align-l {
-      text-align: left;
-    }
-    &--align-c {
-      text-align: center;
-    }
-    &--align-r {
-      text-align: right;
-    }
-    &__h-upper,
-    &__h-lower {
-      a {
-        text-decoration: none;
-        color: #553010;
-      }
-      div {
-        display: inline-block;
-      }
-    }
   }
 
   .t0-b-media3 {
-
-    img {
-      width: 100%;
-    }
+    margin: 0 auto;
     $_spacing: #{$g-spacingBaseLength * 3}px;
     color: #333;
     > * {
@@ -525,6 +476,13 @@
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+        color: #553010;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__media {
       text-align: center;
@@ -553,6 +511,13 @@
       @include g-font(16, 1);
       text-align: center;
       color: #553010;
+      a {
+        text-decoration: none;
+        color: #553010;
+      }
+      div {
+        display: inline-block;
+      }
     }
     &__caption {
       p {
@@ -576,25 +541,6 @@
     &--width-s &__media {
       img {
         width: 50%;
-      }
-    }
-    &--align-l {
-      text-align: left;
-    }
-    &--align-c {
-      text-align: center;
-    }
-    &--align-r {
-      text-align: right;
-    }
-    &__h-upper,
-    &__h-lower {
-      a {
-        text-decoration: none;
-        color: #553010;
-      }
-      div {
-        display: inline-block;
       }
     }
   }
