@@ -1,63 +1,36 @@
 @if $device == PC {
 
   .t0-b-navBItem#{$variation1of2} {
-    > a {
+    $_block: &;
+
+    &--width-s {
+      width: 50%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-l {
+      width: 100%;
+    }
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+    &--align-c {
+      margin: 0 auto;
+    }
+    &--align-r {
+      margin: 0 0 0 auto;
+    }
+
+    a {
       display: block;
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: left top, left bottom, right bottom, right top;
-      background-image: url("../imgs/t0-b-navItem/2/bg.png"), url("../imgs/t0-b-navItem/2/bg2.png"), url("../imgs/t0-b-navItem/2/bg3.png"), url("../imgs/t0-b-navItem/2/bg4.png");
-      position: relative;
       text-decoration: none;
-      box-sizing: border-box;
-      color: #fff;
       &:hover {
-        opacity: 0.8;
-      }
-      > div {
-        display: table;
-        width: 100%;
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-        > span {
-          background-repeat: repeat-y, repeat-y;
-          background-position: left top, right top;
-          background-image: url("../imgs/t0-b-navItem/2/bg5.png"), url("../imgs/t0-b-navItem/2/bg7.png");
-          position: absolute;
-          top: 12px;
-          bottom: 12px;
-          left: 0;
-          right: 0;
-          pointer-events: none;
-          > span {
-            background-repeat: repeat-x, repeat-x;
-            background-position: left bottom, left top;
-            background-image: url("../imgs/t0-b-navItem/2/bg6.png"), url("../imgs/t0-b-navItem/2/bg8.png");
-            position: absolute;
-            top: -12px;
-            bottom: -12px;
-            left: 31px;
-            right: 15px;
-            > span {
-              background-repeat: repeat;
-              background-position: left top;
-              background-image: url("../imgs/t0-b-navItem/2/bg9.png");
-              position: absolute;
-              top: 12px;
-              bottom: 12px;
-              left: 0;
-              right: 0;
-            }
-          }
-        }
-        > div {
-          @include g-font(16, 1);
-          position: relative;
-        }
+        opacity: .8;
       }
     }
-    > div {
+
+    &__inner {
       display: table;
       width: 100%;
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -65,11 +38,7 @@
       background-image: url("../imgs/t0-b-navItem/2/bg.png"), url("../imgs/t0-b-navItem/2/bg2.png"), url("../imgs/t0-b-navItem/2/bg3.png"), url("../imgs/t0-b-navItem/2/bg4.png");
       position: relative;
       box-sizing: border-box;
-      color: #fff;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
+
       > span {
         background-repeat: repeat-y, repeat-y;
         background-position: left top, right top;
@@ -102,66 +71,53 @@
         }
       }
       > div {
+        padding: 12px 10px 12px 40px;
         @include g-font(16, 1);
         position: relative;
-      }
-    }
-    // size
-    &--size-1 > a > div,
-    &--size-1 > div {
-      > div {
-        padding: 10px 10px 10px 35px;
-        @include g-font(14, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 49%;
-        background-image: url("../imgs/t0-b-navItem/2/1.png");
-        min-height: 18px;
-      }
-    }
-    &--size-2 > a > div,
-    &--size-2 > div {
-      > div {
-        padding: 11px 10px 11px 37px;
-        @include g-font(16, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 49%;
-        background-image: url("../imgs/t0-b-navItem/2/2.png");
-        min-height: 20px;
-      }
-    }
-    &--size-3 > a > div,
-    &--size-3 > div {
-      > div {
-        padding: 12px 10px 12px 40px;
-        @include g-font(18, 1);
+        color: #fff;
         background-repeat: no-repeat;
         background-position: 8px 49%;
         background-image: url("../imgs/t0-b-navItem/2/3.png");
-        min-height: 22px;
+        display: table-cell;
+        vertical-align: middle;
+
+        #{$_block}--size-1 & {
+          padding: 10px 10px 10px 35px;
+          @include g-font(14, 1);
+          background-image: url("../imgs/t0-b-navItem/2/1.png");
+          min-height: 18px;
+        }
+        #{$_block}--size-2 & {
+          padding: 11px 10px 11px 37px;
+          @include g-font(16, 1);
+          background-image: url("../imgs/t0-b-navItem/2/2.png");
+          min-height: 20px;
+        }
+        #{$_block}--size-3 & {
+          padding: 12px 10px 12px 40px;
+          @include g-font(18, 1);
+          background-image: url("../imgs/t0-b-navItem/2/3.png");
+          min-height: 22px;
+        }
+        #{$_block}--size-4 & {
+          padding: 13px 10px 13px 46px;
+          @include g-font(20, 1);
+          background-image: url("../imgs/t0-b-navItem/2/4.png");
+          min-height: 26px;
+        }
+        #{$_block}--size-5 & {
+          padding: 14px 10px 14px 48px;
+          @include g-font(22, 1);
+          background-image: url("../imgs/t0-b-navItem/2/5.png");
+          min-height: 28px;
+        }
       }
     }
-    &--size-4 > a > div,
-    &--size-4 > div {
-      > div {
-        padding: 13px 10px 13px 46px;
-        @include g-font(20, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 49%;
-        background-image: url("../imgs/t0-b-navItem/2/4.png");
-        min-height: 26px;
-      }
-    }
-    &--size-5 > a > div,
-    &--size-5 > div {
-      > div {
-        padding: 14px 10px 14px 48px;
-        @include g-font(22, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 49%;
-        background-image: url("../imgs/t0-b-navItem/2/5.png");
-        min-height: 28px;
-      }
-    }
+  }
+
+  .t0-b-navBItem#{$variation2of2} {
+    $_block: &;
+
     &--width-s {
       width: 50%;
     }
@@ -180,67 +136,15 @@
     &--align-r {
       margin: 0 0 0 auto;
     }
-  }
 
-  .t0-b-navBItem#{$variation2of2} {
-    > a {
+    a {
       display: block;
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: left top, left bottom, right bottom, right top;
-      background-image: url("../imgs/t0-b-navItem/3/bg.png"), url("../imgs/t0-b-navItem/3/bg2.png"), url("../imgs/t0-b-navItem/3/bg3.png"), url("../imgs/t0-b-navItem/3/bg4.png");
-      position: relative;
       text-decoration: none;
-      box-sizing: border-box;
-      color: #553010;
-      //font-weight: bold
       &:hover {
         opacity: 0.8;
       }
-      > div {
-        display: table;
-        width: 100%;
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-        > span {
-          background-repeat: repeat-y, repeat-y;
-          background-position: left top, right top;
-          background-image: url("../imgs/t0-b-navItem/3/bg5.png"), url("../imgs/t0-b-navItem/3/bg7.png");
-          position: absolute;
-          top: 12px;
-          bottom: 12px;
-          left: 0;
-          right: 0;
-          pointer-events: none;
-          > span {
-            background-repeat: repeat-x, repeat-x;
-            background-position: left bottom, left top;
-            background-image: url("../imgs/t0-b-navItem/3/bg6.png"), url("../imgs/t0-b-navItem/3/bg8.png");
-            position: absolute;
-            top: -12px;
-            bottom: -12px;
-            left: 31px;
-            right: 15px;
-            > span {
-              background-repeat: repeat;
-              background-position: left top;
-              background-image: url("../imgs/t0-b-navItem/3/bg9.png");
-              position: absolute;
-              top: 12px;
-              bottom: 12px;
-              left: 0;
-              right: 0;
-            }
-          }
-        }
-        > div {
-          @include g-font(16, 1);
-          position: relative;
-        }
-      }
     }
-    > div {
+    &__inner {
       display: table;
       width: 100%;
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -248,11 +152,6 @@
       background-image: url("../imgs/t0-b-navItem/3/bg.png"), url("../imgs/t0-b-navItem/3/bg2.png"), url("../imgs/t0-b-navItem/3/bg3.png"), url("../imgs/t0-b-navItem/3/bg4.png");
       position: relative;
       box-sizing: border-box;
-      color: #553010;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
       > span {
         background-repeat: repeat-y, repeat-y;
         background-position: left top, right top;
@@ -285,75 +184,61 @@
         }
       }
       > div {
+        padding: 12px 10px 12px 40px;
         @include g-font(16, 1);
         position: relative;
-      }
-    }
-    // size
-    &--size-1 > a > div,
-    &--size-1 > div {
-      > div {
-        padding: 8px 10px 8px 35px;
-        @include g-font(14, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 50%;
-        background-image: url("../imgs/t0-b-navItem/3/1.png");
-        min-height: 18px;
-      }
-    }
-    &--size-2 > a > div,
-    &--size-2 > div {
-      > div {
-        padding: 10px 10px 10px 37px;
-        @include g-font(16, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 50%;
-        background-image: url("../imgs/t0-b-navItem/3/2.png");
-        min-height: 20px;
-      }
-    }
-    &--size-3 > a > div,
-    &--size-3 > div {
-      > div {
-        padding: 12px 10px 12px 40px;
-        @include g-font(18, 1);
         background-repeat: no-repeat;
         background-position: 8px 50%;
         background-image: url("../imgs/t0-b-navItem/3/3.png");
         min-height: 22px;
+        display: table-cell;
+        vertical-align: middle;
+        color: #553010;
+
+        #{$_block}--size-1 & {
+          padding: 8px 10px 8px 35px;
+          @include g-font(14, 1);
+          background-image: url("../imgs/t0-b-navItem/3/1.png");
+          min-height: 18px;
+        }
+        #{$_block}--size-2 & {
+          padding: 10px 10px 10px 37px;
+          @include g-font(16, 1);
+          background-image: url("../imgs/t0-b-navItem/3/2.png");
+          min-height: 20px;
+        }
+        #{$_block}--size-3 & {
+          padding: 12px 10px 12px 40px;
+          @include g-font(18, 1);
+          background-image: url("../imgs/t0-b-navItem/3/3.png");
+          min-height: 22px;
+        }
+        #{$_block}--size-4 & {
+          padding: 14px 10px 14px 46px;
+          @include g-font(20, 1);
+          background-image: url("../imgs/t0-b-navItem/3/4.png");
+          min-height: 26px;
+        }
+        #{$_block}--size-5 & {
+          padding: 16px 10px 16px 48px;
+          @include g-font(22, 1);
+          background-image: url("../imgs/t0-b-navItem/3/5.png");
+          min-height: 28px;
+        }
       }
     }
-    &--size-4 > a > div,
-    &--size-4 > div {
-      > div {
-        padding: 14px 10px 14px 46px;
-        @include g-font(20, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 50%;
-        background-image: url("../imgs/t0-b-navItem/3/4.png");
-        min-height: 26px;
-      }
-    }
-    &--size-5 > a > div,
-    &--size-5 > div {
-      > div {
-        padding: 16px 10px 16px 48px;
-        @include g-font(22, 1);
-        background-repeat: no-repeat;
-        background-position: 8px 50%;
-        background-image: url("../imgs/t0-b-navItem/3/5.png");
-        min-height: 28px;
-      }
-    }
-    &--width-s {
-      width: 50%;
-    }
-    &--width-m {
-      width: 75%;
-    }
-    &--width-l {
-      width: 100%;
-    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-navBItem#{$variation1of2} {
+
+    &--width-s {}
+    &--width-m {}
+    &--width-l {}
     &--align-l {
       margin: 0 auto 0 0;
     }
@@ -363,22 +248,8 @@
     &--align-r {
       margin: 0 0 0 auto;
     }
-  }
 
-  .t0-b-navBItemDouble#{$variation1of2} {
-
-  }
-
-  .t0-b-navBItemDouble#{$variation2of2} {
-
-  }
-
-}// PC
-
-
-@if $device == SP {
-
-  .t0-b-navBItem#{$variation1of2} {
+    @include g-font(16, 1);
     width: 95%;
     margin: 0 auto;
     background-image: url("../imgs/t0-b-navList/bg5.png");
@@ -389,34 +260,20 @@
     border-radius: 5px;
     color: #fff;
     font-weight: bold;
-    @include g-font(16, 1);
     > a {
       text-decoration: none;
       color: #fff;
-      > div {
+    }
+    &__inner {
+        padding: 12px 10px;
+        margin-right: 10%;
         text-align: center;
         width: 100% !important;
       }
     }
-    > div {
-      text-align: center;
-      width: 100% !important;
-    }
-    &--size-1 > a > div,
-    &--size-2 > a > div,
-    &--size-3 > a > div,
-    &--size-4 > a > div,
-    &--size-5 > a > div,
-    &--size-1 > div,
-    &--size-2 > div,
-    &--size-3 > div,
-    &--size-4 > div,
-    &--size-5 > div {
-      > div {
-        padding: 12px 10px;
-        margin-right: 10%;
-      }
-    }
+
+  .t0-b-navBItem#{$variation2of2} {
+
     &--width-s {}
     &--width-m {}
     &--width-l {}
@@ -429,9 +286,8 @@
     &--align-r {
       margin: 0 0 0 auto;
     }
-  }
 
-  .t0-b-navBItem#{$variation2of2} {
+    @include g-font(16, 1);
     width: 95%;
     margin: 0 auto;
     background-image: url("../imgs/t0-b-navList/bg5.png");
@@ -442,55 +298,17 @@
     border-radius: 5px;
     border: 1px solid #ebaf24;
     font-weight: bold;
-    @include g-font(16, 1);
     color: #553010;
     > a {
       text-decoration: none;
       color: #553010;
-      > div {
-        text-align: center;
-        width: 100% !important;
-      }
     }
-    > div {
-      text-align: center;
-      width: 100% !important;
-    }
-    &--size-1 > a > div,
-    &--size-2 > a > div,
-    &--size-3 > a > div,
-    &--size-4 > a > div,
-    &--size-5 > a > div,
-    &--size-1 > div,
-    &--size-2 > div,
-    &--size-3 > div,
-    &--size-4 > div,
-    &--size-5 > div {
-      > div {
+    &__inner {
         padding: 12px 10px;
         margin-right: 10%;
-      }
+        text-align: center;
+        width: 100% !important;
     }
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--align-l {
-      margin: 0 auto 0 0;
-    }
-    &--align-c {
-      margin: 0 auto;
-    }
-    &--align-r {
-      margin: 0 0 0 auto;
-    }
-  }
-
-  .t0-b-navBItemDouble#{$variation1of2} {
-
-  }
-
-  .t0-b-navBItemDouble#{$variation2of2} {
-
   }
 
 }// SP
