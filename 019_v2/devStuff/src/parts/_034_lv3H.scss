@@ -2,6 +2,11 @@
 
   .t0-b-lv3H#{$variation1of2} {
     $_block: &;
+    $_fontSizePx: 24;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
     position: relative;
     line-height: 0;
@@ -21,11 +26,7 @@
     }
 
     h3 {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
 
       vertical-align: middle;
       display: table-cell;
@@ -50,11 +51,7 @@
       }
 
       h3 {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
     }
 
@@ -67,11 +64,7 @@
       }
 
       h3 {
-        @if $layout == "N00" {
-          @include g-font(32, 1);
-        } @else {
-          @include g-font(28, 1);
-        }
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
 
@@ -89,6 +82,13 @@
   }
 
   .t0-b-lv3H#{$variation2of2} {
+    $_block: &;
+    $_fontSizePx: 24;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
 
     position: relative;
 
@@ -99,11 +99,7 @@
     text-align: center;
 
     h3 {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
 
       vertical-align: middle;
       position: relative;
@@ -120,11 +116,7 @@
 
     &--size-1 {
       h3 {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
     }
 
@@ -132,11 +124,7 @@
 
     &--size-3 {
       h3 {
-        @if $layout == "N00" {
-          @include g-font(32, 1);
-        } @else {
-          @include g-font(28, 1);
-        }
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
 
@@ -157,6 +145,10 @@
 @if $device == SP {
 
   .t0-b-lv3H#{$variation1of2} {
+    $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+
     position: relative;
     line-height: 0;
 
@@ -175,7 +167,7 @@
     }
 
     h3 {
-      @include g-font(18, 1);
+      @include g-font($_fontSizePx, $_lineHeightType);
 
       vertical-align: middle;
       display: table-cell;
@@ -203,16 +195,18 @@
   }
 
   .t0-b-lv3H#{$variation2of2} {
-    position: relative;
-
     $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+
+    position: relative;
 
     background: url("../imgs/t0-b-lv2H-faqIcon/bg.png") no-repeat 0 100%, url("../imgs/t0-b-lv2H-faqIcon/bg2.png") repeat-x 0 100%;
     padding-bottom: 10px;
     text-align: center;
 
     h3 {
-      @include g-font(18, 1);
+      @include g-font($_fontSizePx, $_lineHeightType);
 
       vertical-align: middle;
       position: relative;
