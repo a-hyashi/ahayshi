@@ -4,6 +4,7 @@ window.onload = function () {
   var sidemenuToggle = document.getElementById('sidemenu-toggle');
   var codeToggle = document.getElementById('code-toggle');
   var viewToggle = document.getElementById('view-toggle');
+  var ratio_toggle = document.getElementById('ratio-toggle');
   var previewWidth = document.getElementById("previewWidth");
   var preview = document.getElementsByClassName("aigis-preview");
   var showWidthArea = document.getElementById("showWidthArea");
@@ -24,6 +25,16 @@ window.onload = function () {
     }
     toggle.classList.toggle('view-is-sp');
   }
+  ratio_toggle.onclick = function() {
+    var view;
+    if (theme.getAttribute('href').match(/pc-L25/)) {
+      view = theme.getAttribute('href').replace(/pc-L25/,'pc-N00');
+    } else {
+      view = theme.getAttribute('href').replace(/pc-N00/,'pc-L25');
+    }
+    theme.href = view;
+    toggle.classList.toggle('layout-n00');
+  }
 
   function changeWidth() {
     showWidthArea.textContent = previewWidth.value;
@@ -32,7 +43,12 @@ window.onload = function () {
     }
   }
   // previewWidth.addEventListener("change", changeWidth, false);
+
+  //Side系のアイテム確認時の横伸び予防
+  var sideTag = $("li.aigis-tags__item--side");
+  if ( sideTag.length && sideTag[0].innerText == "side" ){
+    $.each(preview, function(i, previewArea){
+      previewArea.style.width = '320px';
+    });
+  }
 }
-
-
-
