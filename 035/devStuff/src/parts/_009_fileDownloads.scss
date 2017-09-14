@@ -8,7 +8,7 @@
     &:first-child {
       padding-top: 0;
     }
-    #{$_block}__item {
+    &__item {
       padding: #{$_itemSpacing} 0 0;
       @include cf;
       &:first-child {
@@ -19,7 +19,7 @@
       display: block;
       float: left;
     }
-    #{$_block}__itemSplit {
+    &__itemSplit {
       display: table;
       > span {
         display: table-cell;
@@ -27,11 +27,23 @@
         vertical-align: middle;
       }
     }
-    #{$_block}__itemIcon {
+    &__itemIcon {
       padding-right: 10px;
     }
-    #{$_block}__itemText {
+    &__itemText {
       @include g-font(16, 1);
+      #{$_block}--size-2 & {
+        @include g-font(20, 1);
+      }
+      #{$_block}--size-3 & {
+        @include g-font(24, 1);
+      }
+      #{$_block}--size-4 & {
+        @include g-font(28, 1);
+      }
+      #{$_block}--size-5 & {
+        @include g-font(32, 1);
+      }
       color: #3a1f08;
       text-decoration: underline;
       &:hover {
@@ -43,23 +55,47 @@
 
   .b-downloadIcon {
     $_color_border: #aaa;
-    @mixin _icon($file) {
+    @mixin _icon($file,$mag) {
       &--#{$file} {
         $_src: "b-downloadIcon/#{$file}.png";
         background-image: url("../imgs/#{$_src}");
         background-repeat: no-repeat;
-        width: 30px;
-        height: 30px;
-        background-size: 30px;
+        width: 30px*$mag;
+        height: 30px*$mag;
+        background-size: 30px*$mag;
       }
     }
     display: inline-block;
     vertical-align: middle;
     //border: 1px solid #{$_color_border}
-    @include _icon("pdf");
-    @include _icon("doc");
-    @include _icon("xls");
-    @include _icon("img");
+    @include _icon("pdf",1);
+    @include _icon("doc",1);
+    @include _icon("xls",1);
+    @include _icon("img",1);
+    .t0-b-fileDownloads--size-2 & {
+      @include _icon("pdf",1.25);
+      @include _icon("doc",1.25);
+      @include _icon("xls",1.25);
+      @include _icon("img",1.25);
+    }
+    .t0-b-fileDownloads--size-3 & {
+      @include _icon("pdf",1.5);
+      @include _icon("doc",1.5);
+      @include _icon("xls",1.5);
+      @include _icon("img",1.5);
+    }
+    .t0-b-fileDownloads--size-4 & {
+      @include _icon("pdf",1.75);
+      @include _icon("doc",1.75);
+      @include _icon("xls",1.75);
+      @include _icon("img",1.75);
+    }
+    .t0-b-fileDownloads--size-5 & {
+      @include _icon("pdf",2);
+      @include _icon("doc",2);
+      @include _icon("xls",2);
+      @include _icon("img",2);
+    }
   }
 
 }// PC
