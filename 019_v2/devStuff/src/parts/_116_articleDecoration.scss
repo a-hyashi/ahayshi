@@ -2,6 +2,11 @@
 
   .t0-b-articleDecoration#{$variation1of2} {
     $_block: &;
+    $_fontSizePx: 20;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
     
     &__row {
       display: flex;
@@ -55,7 +60,7 @@
       }
 
       h4 {
-        @include g-font-layout(20, 1, $layout);
+        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       }
 
       a {
@@ -83,7 +88,7 @@
 
       &--size-1 {
         h4 {
-          @include g-font-layout(16, 1, $layout);
+          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
         }
       }
 
@@ -91,7 +96,7 @@
 
       &--size-3 {
         h4 {
-          @include g-font-layout(24, 1, $layout);
+          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
         }
       }
     } 
@@ -102,7 +107,12 @@
 
   .t0-b-articleDecoration#{$variation2of2} {
     $_block: &;
-    
+    $_fontSizePx: 20;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
     &__row {
       display: flex;
     }
@@ -142,7 +152,7 @@
       position: relative;
 
       h4 {
-        @include g-font-layout(20, 1, $layout);
+        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
 
         text-align: center;
       }
@@ -172,7 +182,7 @@
       &--size-1 {
         border-bottom: 4.8px double #9e9e9e;
         h4 {
-          @include g-font-layout(16, 1, $layout);
+          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
         }
       }
 
@@ -181,7 +191,7 @@
       &--size-3 {
         border-bottom: 7.2px double #9e9e9e;
         h4 {
-          @include g-font-layout(24, 1, $layout);
+          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
         }
       }
     }
@@ -195,6 +205,8 @@
 
   .t0-b-articleDecoration#{$variation1of2} {
     $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
 
     margin: 0 -5px;
 
@@ -241,7 +253,7 @@
       }
 
       h4 {
-        @include g-font(16, 1);
+        @include g-font($_fontSizePx, $_lineHeightType);
       }
 
       a {
@@ -268,7 +280,9 @@
 
   .t0-b-articleDecoration#{$variation2of2} {
     $_block: &;
-
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    
     margin: 0 -5px;
 
     &__col {
@@ -305,7 +319,7 @@
       position: relative;
 
       h4 {
-        @include g-font(16, 1);
+        @include g-font($_fontSizePx, $_lineHeightType);
 
         text-align: center;
       }
