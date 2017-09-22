@@ -51,4 +51,15 @@ window.onload = function () {
       previewArea.style.width = '320px';
     });
   }
+  
+  //パラメータにlayout=spが渡された時の動作
+  var inputLayoutType = 'l25';
+  var match = location.search.match(/l=(.*?)(&|$)/);
+  if(match){
+    inputLayoutType = decodeURIComponent(match[1]);
+  }
+  if(inputLayoutType==='sp'){
+    theme.href = theme.getAttribute('href').replace(/pc-L25/,'sp');
+    toggle.classList.toggle('view-is-sp');
+  }
 }
