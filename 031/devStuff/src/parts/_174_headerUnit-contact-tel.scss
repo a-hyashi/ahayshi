@@ -193,9 +193,77 @@
 @if $device == SP {
   .t0-b-headerUnit-contact-tel {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_block: &;
+    $_lineHeightType: 1;
+    $_textColor: #b67f1d;
+
+    $_fontSizePx_ruby: 12;
+    $_fontSizePx_bd: 14;
+
+    width: 95%;
+    margin: 0 auto;
+    background: linear-gradient(to bottom,  #fff 0%, #f6f6f6 50%, #eee 100%);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 10px 10px 15px;
+    box-sizing: border-box;
+    word-break: break-all;
+
+    // このfontを適用させる為にcommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+    font-family: 'Tenor Sans', sans-serif;
+    display: inline-block;
+    color: $_textColor;
+
+    &__ruby {
+      @include g-font-layout($_fontSizePx_ruby, $_lineHeightType);
+      text-align: center;
+    }
+    &__bd {
+      // このfontを適用させる為にommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+      font-family: 'Tenor Sans', sans-serif;
+      color: #f00;
+      display: table;
+      margin: 0 auto;
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType);
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__tel,
+    &__fax,
+    &__free,
+    &__cell {
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding: 0 5px 0 0;
+    }
+
+    &__tel {
+      min-width: 26px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact001/contact001_tel.png");
+      background-size: 26px*.6 26px*.6;
+    }
+    &__fax {
+      min-width: 40px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+      background-size: 40px*.6 26px*.6;
+    }
+    &__free {
+      min-width: 46px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact004/contact004_free.png");
+      background-size: 46px*.6 26px*.6;
+    }
+    &__cell {
+      min-width: 22px*.6;
+      height: 35px*.6;
+      background-image: url("../imgs/contact/contact005/contact005_cell.png");
+      background-size: 22px*.6 35px*.6;
+    }
   }
 
 }// SP
