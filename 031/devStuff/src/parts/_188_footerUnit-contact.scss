@@ -220,9 +220,91 @@
 
   .t0-b-footerUnit-contact {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    $_lineHeightType: 1;
+    $_textColor: #b67f1d;
+    $_textColor_note: #664b3a;
+    $_fontSizePx_ruby: 12;
+    $_fontSizePx_tel: 14;
+
+    width: 95%;
+    margin: 0 auto;
+
+    &__media {
+      text-align: center;
+      vertical-align: bottom;
+      display: block;
+      img {
+        width: 25%;
+      }
+    }
+    &__note {
+      // このfontを適用させる為にcommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+      font-family: 'Tenor Sans', sans-serif;
+      @include g-font-layout($_fontSizePx_tel, $_lineHeightType);
+      color: $_textColor_note;
+      text-align: center;
+      margin-top: 10px;
+    }
+    &__iconText {
+      word-break: break-all;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 10px 10px 15px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: linear-gradient(#fff 0%, #f6f6f6 50%, #eee 100%);
+    }
+    &__iconTextRuby {
+      @include g-font-layout($_fontSizePx_ruby, $_lineHeightType);
+      color: $_textColor;
+      text-align: center;
+      margin: 0 0 5px 0;
+    }
+    &__iconTextBase {
+      // このfontを適用させる為にommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+      font-family: 'Tenor Sans', sans-serif;
+      @include g-font-layout($_fontSizePx_tel, $_lineHeightType);
+      color: #f00;
+      text-align: center;
+      span {
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+
+    &__tel,
+    &__fax,
+    &__free,
+    &__cell {
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding: 0 5px 0 0;
+    }
+    &__tel {
+      min-width: 26px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact001/contact001_tel.png");
+      background-size: 26px*.6 26px*.6;
+    }
+    &__fax {
+      min-width: 40px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+      background-size: 40px*.6 26px*.6;
+    }
+    &__free {
+      min-width: 46px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact004/contact004_free.png");
+      background-size: 46px*.6 26px*.6;
+    }
+    &__cell {
+      min-width: 22px*.6;
+      height: 35px*.6;
+      background-image: url("../imgs/contact/contact005/contact005_cell.png");
+      background-size: 22px*.6 35px*.6;
+    }
   }
 
 }// SP
