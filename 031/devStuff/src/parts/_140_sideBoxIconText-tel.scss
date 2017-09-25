@@ -2,10 +2,73 @@
 
   .t0-b-sideBoxIconText-tel {
 
-  }
+    $_textColor: #b67f1d;
 
-  .t0-b-sideBoxIconText-tel2 {
+    // このfontを適用させる為にcommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+    font-family: 'Tenor Sans', sans-serif;
+    color: $_textColor;
 
+    > div {
+      display: inline-block;
+    }
+    &__ruby {
+      @include g-font(12, 1);
+      text-align: right;
+    }
+    &__bd {
+      @if $layout == 'L30' or $layout == 'R30' {
+        @include g-font(30, 1); // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+      } @else {
+        @include g-font(26, 1); // L25かR25で番号が折り返さない最大サイズ
+      }
+      font-weight: bold;
+      line-height: 1;
+      display: table;
+      margin: 0 auto;
+      text-align: center;
+        > span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+    }
+    &__icon {
+      background-repeat: no-repeat;
+      + span {
+        font-size: 90%; // ヒラギノ・11桁で折り返さないギリギリのサイズ
+      }
+    }
+    &__tel {
+      width: 21px;
+      height: 21px;
+      padding: 0 13px 0 0;
+      background-image: url("../imgs/contact/contact001/contact001_tel_side_v1f1.png");
+      background-position: 2px center;
+      background-size: 21px 21px;
+    }
+    &__fax {
+      width: 22px;
+      height: 14px;
+      padding: 0 14px 0 0;
+      background-image: url("../imgs/contact/contact002/contact002_fax_side_v1f1.png");
+      background-position: 1px center;
+      background-size: 22px 14px;
+    }
+    &__free {
+      width: 30px;
+      height: 16px;
+      padding: 0 5px 0 0;
+      background-image: url("../imgs/contact/contact004/contact004_free_side_v1f1.png");
+      background-position: left center;
+      background-size: 30px 16px;
+    }
+    &__cell {
+      width: 12px;
+      height: 19px;
+      padding: 0 19px 0 0;
+      background-image: url("../imgs/contact/contact005/contact005_cell_side_v1f1.png");
+      background-position: 6px center;
+      background-size: 12px 19px;
+    }
   }
 
 }// PC
@@ -15,10 +78,76 @@
 
   .t0-b-sideBoxIconText-tel {
 
-  }
+    $_textColor: #b67f1d;
 
-  .t0-b-sideBoxIconText-tel2 {
+    // このfontを適用させる為にcommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+    font-family: 'Tenor Sans', sans-serif;
+    color: $_textColor;
+    word-break: break-all;
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    background: linear-gradient(#fff, #f6f6f6, #eee);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 10px 10px 15px;
+    box-sizing: border-box;
 
+    a {
+      color: $_textColor;
+      text-decoration: none;
+    }
+    &__ruby {
+      @include g-font(12, 1);
+      text-align: center;
+    }
+    &__bd {
+      display: table;
+      margin: 0 auto;
+      @include g-font(22, 1);
+      color: #f00;
+      text-align: center;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__icon {
+      display: inline-block;
+      background-repeat: no-repeat;
+    }
+    &__tel {
+      width: 21px;
+      height: 21px;
+      padding: 0 13px 0 0;
+      background-image: url("../imgs/contact/contact001/contact001_tel_side_v1f1.png");
+      background-position: 2px center;
+      background-size: 21px 21px;
+    }
+    &__fax {
+      width: 22px;
+      height: 14px;
+      padding: 0 14px 0 0;
+      background-image: url("../imgs/contact/contact002/contact002_fax_side_v1f1.png");
+      background-position: 1px center;
+      background-size: 22px 14px;
+    }
+    &__free {
+      width: 30px;
+      height: 16px;
+      padding: 0 5px 0 0;
+      background-image: url("../imgs/contact/contact004/contact004_free_side_v1f1.png");
+      background-position: left center;
+      background-size: 30px 16px;
+    }
+    &__cell {
+      width: 12px;
+      height: 19px;
+      padding: 0 19px 0 0;
+      background-image: url("../imgs/contact/contact005/contact005_cell_side_v1f1.png");
+      background-position: 6px center;
+      background-size: 12px 19px;
+    }
   }
 
 }// SP
