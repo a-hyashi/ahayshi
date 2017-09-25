@@ -2,23 +2,903 @@
 
   .t0-b-footerMenu#{$variation1of2} {
 
-  }
+      $_block: &;
+      $_widthContent: 1100px;
+      $_fontSizePx: 14;
+      $_lineHeightType: 1;
+      $_textColor: #8c6f3c;
+      $_textHoverColor: #816739;
+      $_textStateCurrentColor: #b67f1d;
+      $_borderColor: #009fa5;
+      $_bgColor: #fdfbf8;
 
-  .t0-b-footerMenu#{$variation2of2} {
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
 
-  }
+      position: relative;
+      width: 100%;
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 auto;
+      background-color: $_bgColor;
+  
+      > div {
+        width: $_widthContent;
+        margin: 0 auto;
+        > ul {
+          display: table;
+          width: 100%;
+          height: 34px;
+          min-height: inherit;
+          box-sizing: border-box;
+          li {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            a {
+              position: relative;
+              display: block;
+              height: 100%;
+              padding-bottom: 2px;
+              // Start firefoxだとheight: 100%;だとうまく表示されない為
+              @-moz-document url-prefix() {
+                height: 34px;
+              }
+              // End firefoxだとheight: 100%;だとうまく表示されない為
+              &:before {
+                position: absolute;
+                bottom: 0;
+                content: "";
+                display: block;
+                width: 0;
+                height: 4px;
+                background: $_borderColor;
+              }
+              div {
+                // Start リンク有りの時天地中央にする為
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                // End リンク有りの時天地中央にする為
+              }
+            }
+            &:hover {
+              a {
+                &:before {
+                  width: 100%;
+                }
+              }
+              div {
+                color: $_textHoverColor;
+              }
+            }
+            div {
+              display: inline-block;
+              color: $_textColor;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        position: relative;
+        &:before,
+        &:after {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          display: block;
+          width: 100%;
+          height: 4px;
+          background: $_borderColor;
+        }
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      .state-current.state-em {
+        position: relative;
+        &:before,
+        &:after {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          display: block;
+          width: 100%;
+          height: 4px;
+          background: $_borderColor;
+        }
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      &--widthEqualized {
+        > div {
+          > ul {
+            // 幅均等にする為の指定
+            table-layout: fixed;
+          }
+        }
+      }
+    }
 
-}// PC
+    .t0-b-footerMenu#{$variation2of2} {
 
+      $_block: &;
+      $_widthContent: 1100px;
+      $_fontSizePx: 14;
+      $_lineHeightType: 1;
+      $_textColor: #fff;
+      $_textHoverColor: #82faff;
+      $_textStateCurrentColor: #d5fdff;
+      $_bgColor: #c8b98e;
+      $_bgHoverColor: #9a8662;
 
-@if $device == SP {
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
 
-  .t0-b-footerMenu#{$variation1of2} {
+      position: relative;
+      width: 100%;
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 auto;
+      background-color: $_bgColor;
 
-  }
+      > div {
+        width: $_widthContent;
+        margin: 0 auto;
+        > ul {
+          display: table;
+          width: 100%;
+          height: 30px;
+          box-sizing: border-box;
+          li {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            a {
+              position: relative;
+              display: block;
+              height: 100%;
+              // Start firefoxだとheight: 100%;だとうまく表示されない為
+              @-moz-document url-prefix() {
+                height: 30px;
+              }
+              // End firefoxだとheight: 100%;だとうまく表示されない為
+              &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                display: block;
+                width: 0;
+                height: 100%;
+                background-color: $_bgHoverColor;
+              }
+              div {
+                // Start リンク有りの時天地中央にする為
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                // End リンク有りの時天地中央にする為
+              }
+            }
+            &:hover {
+              a {
+                &::before {
+                  width: 100%;
+                }
+                div {
+                  color: $_textHoverColor;
+                }
+              }
+            }
+            div {
+              color: $_textColor;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        background-color: $_bgHoverColor;
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      &--widthEqualized {
+        > div {
+          > ul {
+            // 幅均等にする為の指定
+            table-layout: fixed;
+          }
+        }
+      }
+    }
 
-  .t0-b-footerMenu#{$variation2of2} {
+    .t0-b-footerMenu3 {
 
-  }
+      $_block: &;
+      $_widthContent: 1100px;
+      $_fontSizePx: 14;
+      $_lineHeightType: 1;
+      $_textColor: #fff;
+      $_textHoverColor: #ffbedb;
+      $_textStateCurrentColor: #ffddee;
+      $_bgColor: #998979;
+      $_bgHoverColor: #77614c;
 
-}// SP
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+
+      position: relative;
+      width: 100%;
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 auto;
+      background-color: $_bgColor;
+
+      > div {
+        width: $_widthContent;
+        margin: 0 auto;
+        > ul {
+          display: table;
+          width: 100%;
+          height: 30px;
+          box-sizing: border-box;
+          li {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            a {
+              position: relative;
+              display: block;
+              height: 100%;
+              // Start firefoxだとheight: 100%;だとうまく表示されない為
+              @-moz-document url-prefix() {
+                height: 30px;
+              }
+              // End firefoxだとheight: 100%;だとうまく表示されない為
+              &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                display: block;
+                width: 0;
+                height: 100%;
+                background-color: $_bgHoverColor;
+              }
+              div {
+                // Start リンク有りの時天地中央にする為
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                // End リンク有りの時天地中央にする為
+              }
+            }
+            &:hover {
+              a {
+                &::before {
+                  width: 100%;
+                }
+                div {
+                  color: $_textHoverColor;
+                }
+              }
+            }
+            div {
+              color: $_textColor;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        background-color: $_bgHoverColor;
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      &--widthEqualized {
+        > div {
+          > ul {
+            // 幅均等にする為の指定
+            table-layout: fixed;
+          }
+        }
+      }
+    }
+  
+    .t0-b-footerMenu4 {
+  
+      $_block: &;
+      $_widthContent: 1100px;
+      $_fontSizePx: 14;
+      $_lineHeightType: 1;
+      $_textColor: #513316;
+      $_textHoverColor: #ffffff;
+      $_textStateCurrentColor: #c1a242;
+      $_bgHoverColor: #c6a66b;
+      $_borderColor: #988776;
+  
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+  
+      position: relative;
+      width: 100%;
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 auto;
+      background-color: #fff;
+  
+      > div {
+        width: $_widthContent;
+        margin: 0 auto;
+        > ul {
+          display: table;
+          width: 100%;
+          height: 30px;
+          min-height: inherit;
+          box-sizing: border-box;
+          li {
+            position: relative;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            &:first-child {
+              &:before {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                content: "";
+                height: 30px;
+                width: 1px;
+                background: $_borderColor;
+              }
+            }
+
+            a {
+              position: relative;
+              display: block;
+              height: 100%;
+              // Start firefoxだとheight: 100%;だとうまく表示されない為
+              @-moz-document url-prefix() {
+                height: 30px;
+              }
+              // End firefoxだとheight: 100%;だとうまく表示されない為
+              &:before {
+                position: absolute;
+                top: 0;
+                left: 10px;
+                content: "";
+                display: block;
+                width: 0;
+                height: 100%;
+                background-color: $_bgHoverColor;
+              }
+              div {
+                // Start リンク有りの時天地中央にする為
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                // End リンク有りの時天地中央にする為
+              }
+            }
+            &:hover {
+              a {
+                &::before {
+                  top: 2px;
+                  width: calc(100% - 20px);
+                  height: calc(100% - 2px);
+                }
+                div {
+                  color: $_textHoverColor;
+                }
+              }
+            }
+            div {
+              color: $_textColor;
+              padding: 3px 10px;
+              &:after {
+                content: "";
+                height: 30px;
+                width: 1px;
+                background: $_borderColor;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        div {
+          color: $_textHoverColor;
+          padding: 3px 15px;
+          margin: 2px 20px;
+          background-color: $_bgHoverColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+          padding: 3px 15px;
+          margin: 2px 20px;
+          background-color: $_bgHoverColor;
+        }
+      }
+      &--widthEqualized {
+        > div {
+          > ul {
+            // 幅均等にする為の指定
+            table-layout: fixed;
+          }
+        }
+      }
+    }
+  
+    .t0-b-footerMenu5 {
+
+      $_block: &;
+      $_widthContent: 1100px;
+      $_fontSizePx: 14;
+      $_lineHeightType: 1;
+      $_textColor: #8c6f3c;
+      $_textHoverColor: #816739;
+      $_textStateCurrentColor: #b67f1d;
+      $_borderColor: #dd6f9f;
+      $_bgColor: #fff;
+
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+  
+      position: relative;
+      width: 100%;
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 auto;
+      background-color: $_bgColor;
+  
+      > div {
+        width: $_widthContent;
+        margin: 0 auto;
+        > ul {
+          display: table;
+          width: 100%;
+          height: 34px;
+          min-height: inherit;
+          box-sizing: border-box;
+          li {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            a {
+              position: relative;
+              display: block;
+              height: 100%;
+              padding-bottom: 2px;
+              // Start firefoxだとheight: 100%;だとうまく表示されない為
+              @-moz-document url-prefix() {
+                height: 34px;
+              }
+              // End firefoxだとheight: 100%;だとうまく表示されない為
+              &:before {
+                position: absolute;
+                bottom: 0;
+                content: "";
+                display: block;
+                width: 0;
+                height: 4px;
+                background: $_borderColor;
+              }
+              div {
+                // Start リンク有りの時天地中央にする為
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                // End リンク有りの時天地中央にする為
+              }
+            }
+            &:hover {
+              a {
+                &:before {
+                  width: 100%;
+                }
+              }
+              div {
+                color: $_textHoverColor;
+              }
+            }
+            div {
+              display: inline-block;
+              color: $_textColor;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        position: relative;
+        &:before,
+        &:after {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          display: block;
+          width: 100%;
+          height: 4px;
+          background: $_borderColor;
+        }
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      .state-current.state-em {
+        position: relative;
+        &:before,
+        &:after {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          display: block;
+          width: 100%;
+          height: 4px;
+          background: $_borderColor;
+        }
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      &--widthEqualized {
+        > div {
+          > ul {
+            // 幅均等にする為の指定
+            table-layout: fixed;
+          }
+        }
+      }
+    }
+
+  } // PC
+  
+  
+  @if $device == SP {
+
+    .t0-b-footerMenu#{$variation1of2} {
+
+      $_block: &;
+      $_fontSizePx: 12;
+      $_lineHeightType: 1;
+      $_textColor: #8c6f3c;
+      $_textHoverColor: #816739;
+      $_textStateCurrentColor: #b67f1d;
+      $_borderColor: #009fa5;
+      $_bgColor: #fff;
+  
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+  
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 -15px;
+      background-color: $_bgColor;
+  
+      div {
+        text-align: center;
+        ul {
+          width: 100%;
+          padding: 5px 0;
+          li {
+            display: inline-block;
+            margin: 0 7px;
+            div {
+              color: $_textColor;
+              text-decoration: underline;
+              padding: 5px 0;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          font-weight: bold;
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        div {
+          color: $_textHoverColor;
+          border-bottom: 2px solid $_borderColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+          border-bottom: 2px solid $_borderColor;
+        }
+      }
+    }
+  
+    .t0-b-footerMenu#{$variation2of2} {
+  
+      $_block: &;
+      $_fontSizePx: 12;
+      $_lineHeightType: 1;
+      $_textColor: #fff;
+      $_textHoverColor: #82faff;
+      $_textStateCurrentColor: #d5fdff;
+      $_bgColor: #c8b98e;
+      $_bgHoverColor: #9a8662;
+  
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+  
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 -15px;
+      background-color: $_bgColor;
+  
+      div {
+        text-align: center;
+        ul {
+          width: 100%;
+          padding: 5px 0;
+          li {
+            display: inline-block;
+            margin: 0 7px;
+            div {
+              color: $_textColor;
+              text-decoration: underline;
+              padding: 5px;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          font-weight: bold;
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        background-color: $_bgHoverColor;
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+        }
+      }
+    }
+  
+    .t0-b-footerMenu3 {
+  
+      $_block: &;
+      $_fontSizePx: 12;
+      $_lineHeightType: 1;
+      $_textColor: #fff;
+      $_textHoverColor: #ffbedb;
+      $_textStateCurrentColor: #ffddee;
+      $_bgColor: #998979;
+      $_bgHoverColor: #77614c;
+  
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+  
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 -15px;
+      background-color: $_bgColor;
+  
+      div {
+        text-align: center;
+        ul {
+          width: 100%;
+          padding: 5px 0;
+          li {
+            display: inline-block;
+            margin-left: 7px;
+            div {
+              color: $_textColor;
+              text-decoration: underline;
+              padding: 5px;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          font-weight: bold;
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        background-color: $_bgHoverColor;
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+        }
+      }
+    }
+  
+    .t0-b-footerMenu4 {
+  
+      $_block: &;
+      $_fontSizePx: 12;
+      $_lineHeightType: 1;
+      $_textColor: #513316;
+      $_textHoverColor: #ffffff;
+      $_textStateCurrentColor: #c1a242;
+      $_bgHoverColor: #c6a66b;
+      $_borderColor: #988776;
+  
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+  
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 -15px;
+      background-color: #fff;
+  
+      div {
+        text-align: center;
+        ul {
+          letter-spacing: -0.4em;
+          width: 100%;
+          padding: 5px 0;
+          li {
+            display: inline-block;
+            letter-spacing: normal;
+            margin: 0 7px;
+            div {
+              color: $_textColor;
+              text-decoration: underline;
+              padding: 5px;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          font-weight: bold;
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        div {
+          color: $_textHoverColor;
+          background-color: $_bgHoverColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+        }
+      }
+    }
+
+    .t0-b-footerMenu5 {
+  
+      $_block: &;
+      $_fontSizePx: 12;
+      $_lineHeightType: 1;
+      $_textColor: #8c6f3c;
+      $_textHoverColor: #816739;
+      $_textStateCurrentColor: #b67f1d;
+      $_borderColor: #dd6f9f;
+      $_bgColor: #fff;
+    
+      input[type="checkbox"].on-off {
+        display: none;
+      }
+      label {
+        display: none;
+      }
+  
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      margin: 0 -15px;
+      background-color: $_bgColor;
+  
+      div {
+        text-align: center;
+        ul {
+          width: 100%;
+          padding: 5px 0;
+          li {
+            display: inline-block;
+            margin-left: 0 7px;
+            div {
+              color: $_textColor;
+              text-decoration: underline;
+              padding: 5px 0;
+            }
+          }
+        }
+      }
+      .state-em {
+        div {
+          font-weight: bold;
+          color: $_textStateCurrentColor;
+        }
+      }
+      .state-current {
+        div {
+          color: $_textHoverColor;
+        }
+      }
+      .state-current.state-em {
+        div {
+          color: $_textHoverColor;
+        }
+      }
+    }
+  
+  }// SP
