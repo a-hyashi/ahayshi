@@ -2,20 +2,299 @@
 
   .t0-b-iconText-tel {
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
-    &--size-4 {}
-    &--size-5 {}
+    $_block: &;
+    $_lineHeightType: 1;
+    $_textColor: #b67f1d;
+    $_textColor_highlight: #553a20;
+
+    $_fontSizePx: 16;
+    $_fontSizeDifference: 2;
+    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_m: $_fontSizePx;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
+
+    $_fontSizePx_ruby: 16;
+    $_fontSizeDifference_ruby: 2;
+    $_fontSizePx_ruby_ss: $_fontSizePx_ruby - $_fontSizeDifference_ruby - 2;
+    $_fontSizePx_ruby_s: $_fontSizePx_ruby - $_fontSizeDifference_ruby;
+    $_fontSizePx_ruby_m: $_fontSizePx_ruby;
+    $_fontSizePx_ruby_l: $_fontSizePx_ruby + $_fontSizeDifference_ruby;
+    $_fontSizePx_ruby_ll: $_fontSizePx_ruby + $_fontSizeDifference_ruby + 2;
+
+    $_fontSizePx_bd: 36;
+    $_fontSizeDifference_bd: 6;
+    $_fontSizePx_bd_ss: $_fontSizePx_bd - $_fontSizeDifference_bd - 6;
+    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference_bd;
+    $_fontSizePx_bd_m: $_fontSizePx_bd;
+    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference_bd;
+    $_fontSizePx_bd_ll: $_fontSizePx_bd + $_fontSizeDifference_bd + 6;
+
+    color: $_textColor;
+    display: table;
+
+    &__media {
+      padding-right: 10px;
+      display: table-cell;
+      vertical-align: middle;
+      img {
+        display: block;
+        width: 60px;
+        height: auto;
+      }
+    }
+    &__wrap {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    p {
+      // このfontを適用させる為にcommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+      font-family: 'Tenor Sans', sans-serif;
+      @include g-font-layout($_fontSizePx_m, $_lineHeightType);
+      color: $_textColor_highlight;
+      font-weight: bold;
+      padding-bottom: 5px;
+    }
+    &__ruby {
+      @include g-font-layout($_fontSizePx_ruby_m, $_lineHeightType);
+      text-align: right;
+    }
+    &__bd {
+      // このfontを適用させる為にommon/devStuff/template_hbs/index.hbsに指定を１つ追加してる
+      font-family: 'Tenor Sans', sans-serif;
+      display: table;
+      @include g-font-layout($_fontSizePx_bd_m, $_lineHeightType);
+      margin: 0 auto;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__icon {
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding: 0 10px 0 0;
+    }
+
+    &--size-1 {
+      p {
+        @include g-font-layout($_fontSizePx_ss, $_lineHeightType);
+      }
+      #{$_block}__ruby {
+        @include g-font-layout($_fontSizePx_ruby_ss, $_lineHeightType);
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_ss, $_lineHeightType);
+      }
+      #{$_block}__tel {
+        min-width: 20px;
+        height: 20px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.png");
+        background-size: 20px 20px;
+      }
+      #{$_block}__fax {
+        min-width: 34px;
+        height: 20px;
+        background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+        background-size: 34px 20px;
+      }
+      #{$_block}__free {
+        min-width: 40px;
+        height: 20px;
+        background-image: url("../imgs/contact/contact004/contact004_free.png");
+        background-size: 40px 20px;
+      }
+      #{$_block}__cell {
+        min-width: 15px;
+        height: 25px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.png");
+        background-size: 15px 25px;
+      }
+    }
+    &--size-2 {
+      p {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType);
+      }
+      #{$_block}__ruby {
+        @include g-font-layout($_fontSizePx_ruby_s, $_lineHeightType);
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType);
+      }
+      #{$_block}__tel {
+        min-width: 23px;
+        height: 23px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 23px 23px;
+      }
+      #{$_block}__fax {
+        min-width: 37px;
+        height: 23px;
+        background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 37px 23px;
+      }
+      #{$_block}__free {
+        min-width: 43px;
+        height: 23px;
+        background-image: url("../imgs/contact/contact004/contact004_free.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 43px 23px;
+      }
+      #{$_block}__cell {
+        min-width: 19px;
+        height: 30px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 19px 30px;
+      }
+    }
+    &--size-3 {
+      p {
+        @include g-font-layout($_fontSizePx_m, $_lineHeightType);
+      }
+      #{$_block}__ruby {
+        @include g-font-layout($_fontSizePx_ruby_m, $_lineHeightType);
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_m, $_lineHeightType);
+      }
+      #{$_block}__tel {
+        min-width: 26px;
+        height: 26px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 26px 26px;
+      }
+      #{$_block}__fax {
+        min-width: 40px;
+        height: 26px;
+        background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 40px 26px;
+      }
+      #{$_block}__free {
+        min-width: 46px;
+        height: 26px;
+        background-image: url("../imgs/contact/contact004/contact004_free.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 46px 26px;
+      }
+      #{$_block}__cell {
+        min-width: 22px;
+        height: 35px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 35px;
+      }
+    }
+    &--size-4 {
+      p {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType);
+      }
+      #{$_block}__ruby {
+        @include g-font-layout($_fontSizePx_ruby_l, $_lineHeightType);
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType);
+      }
+      #{$_block}__tel {
+        min-width: 32px;
+        height: 32px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 32px 32px;
+      }
+      #{$_block}__fax {
+        min-width: 46px;
+        height: 32px;
+        background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 46px 32px;
+      }
+      #{$_block}__free {
+        min-width: 52px;
+        height: 32px;
+        background-image: url("../imgs/contact/contact004/contact004_free.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 52px 32px;
+      }
+      #{$_block}__cell {
+        min-width: 25px;
+        height: 40px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 25px 40px;
+      }
+    }
+    &--size-5 {
+      p {
+        @include g-font-layout($_fontSizePx_ll, $_lineHeightType);
+      }
+      #{$_block}__ruby {
+        @include g-font-layout($_fontSizePx_ruby_ll, $_lineHeightType);
+      }
+      #{$_block}__bd {
+        @include g-font-layout($_fontSizePx_bd_ll, $_lineHeightType);
+      }
+      #{$_block}__tel {
+        min-width: 34px;
+        height: 34px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 34px 34px;
+      }
+      #{$_block}__fax {
+        min-width: 52px;
+        height: 35px;
+        background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 52px 35px;
+      }
+      #{$_block}__free {
+        min-width: 61px;
+        height: 35px;
+        background-image: url("../imgs/contact/contact004/contact004_free.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 61px 35px;
+      }
+      #{$_block}__cell {
+        min-width: 29px;
+        height: 46px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 29px 46px;
+      }
+    }
 
     &--align-l {
-      text-align: left;
+      margin-right: auto;
     }
     &--align-c {
-      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
     }
     &--align-r {
-      text-align: right;
+      margin-left: auto;
     }
   }
 
@@ -26,14 +305,81 @@
 
   .t0-b-iconText-tel {
 
-    &--align-l {
-      text-align: left;
+    $_fontSizePx: 16;
+    $_fontSizePx_ruby: 12;
+    $_fontSizePx_bd: 22;
+    $_lineHeightType: 1;
+    $_textColor: #b67f1d;
+    $_textColor_highlight: #553a20;
+
+    color: $_textColor;
+    text-align: center;
+
+    a[href^='tel'] {
+      display: block;
+      vertical-align: top;
+      word-break: break-all;
+      width: 95%;
+      color: $_textColor;
+      padding: 10px 10px 10px 15px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: linear-gradient(#fff, #f6f6f6, #eee);
     }
-    &--align-c {
-      text-align: center;
+    img {
+      width: 25%;
     }
-    &--align-r {
-      text-align: right;
+    p {
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      color: $_textColor_highlight;
+      padding-bottom: 10px;
+    }
+    &__ruby {
+      @include g-font-layout($_fontSizePx_ruby, $_lineHeightType);
+    }
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType);
+      color: #f00;
+      display: table;
+      margin: 0 auto;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__icon {
+      padding: 0 10px 0 0;
+      background-repeat: no-repeat;
+    }
+    &__tel {
+      min-width: 26px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact001/contact001_tel.png");
+      background-position: left center;
+      background-size: 26px*.6 26px*.6;
+    }
+    &__fax {
+      min-width: 40px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact002/contact002_fax_v1.png");
+      background-position: left center;
+      background-size: 40px*.6 26px*.6;
+    }
+    &__free {
+      min-width: 46px*.6;
+      height: 26px*.6;
+      background-image: url("../imgs/contact/contact004/contact004_free.png");
+      background-position: left center;
+      background-size: 46px*.6 26px*.6;
+    }
+    &__cell {
+      min-width: 22px*.6;
+      height: 35px*.6;
+      background-image: url("../imgs/contact/contact005/contact005_cell.png");
+      background-position: left center;
+      background-size: 22px*.6 35px*.6;
     }
   }
 
