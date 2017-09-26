@@ -1,7 +1,62 @@
 @if $device == PC {
 
   .t0-b-footerUnit-siteTitle {
+    $_fontSizePx_bd: 38;
+    $_fontSizePx_bdNote: 14;
+    $_fontSizePx_ft: 14;
+    $_lineHeightType: 1;
+    $_textColor: #553a20;
 
+    white-space: nowrap;
+    color: $_textColor;
+
+    a {
+      color: $_textColor;
+      text-decoration: none;
+      &:hover {
+        color: $g-hovercolor;
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &--has-width {
+      white-space: normal;
+    }
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+    &__bd-logo {
+      padding-right: 10px;
+      img {
+        display: block;
+        height: 45px;
+        width: auto;
+        max-width: 160px;
+      }
+    }
+    &__bd-note {
+      @include g-font-layout($_fontSizePx_bdNote, $_lineHeightType);
+      padding-bottom: 5px;
+    }
+    &__bd-siteName {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType);
+      font-weight: bold;
+    }
+    &__bd-note + &__bd-siteName {
+      @include g-font-layout($_fontSizePx_bd - 10, $_lineHeightType);
+      font-weight: bold;
+    }
+    &__ft {
+      @include g-font-layout($_fontSizePx_ft, $_lineHeightType);
+      padding-top: 5px;
+    }
   }
 
 }// PC
@@ -11,6 +66,53 @@
 
   .t0-b-footerUnit-siteTitle {
 
-  }
+    $_fontSizePx_bd: 28;
+    $_fontSizePx_bdNote: 14;
+    $_fontSizePx_ft: 14;
+    $_lineHeightType: 1;
+    $_textColor: #553a20;
 
+    color: $_textColor;
+
+    a {
+      color: $_textColor;
+      text-decoration: none;
+    }
+    &--has-width {
+      white-space: normal;
+    }
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+    &__bd-logo {
+      padding-right: 10px;
+      img {
+        display: block;
+        height: 45px;
+        width: auto;
+        max-width: 160px;
+      }
+    }
+    &__bd-note {
+      @include g-font-layout($_fontSizePx_bdNote, $_lineHeightType);
+      padding-bottom: 5px;
+    }
+    &__bd-siteName {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType);
+      font-weight: bold;
+    }
+    &__bd-note + &__bd-siteName {
+      @include g-font-layout($_fontSizePx_bd - 4, $_lineHeightType);
+      font-weight: bold;
+    }
+    &__ft {
+      @include g-font-layout($_fontSizePx_ft, $_lineHeightType);
+      padding-top: 5px;
+    }
+  }
 }// SP
