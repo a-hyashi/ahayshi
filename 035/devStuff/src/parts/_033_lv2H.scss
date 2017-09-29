@@ -31,16 +31,16 @@
 
     // size指定が無い時に適用されるh2
     h2 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-      margin-left: 50px;
+      @include g-font-layout($_fontSizePx, $layout);
+      margin-left: 70px;
       margin-right: 35px;
-      padding: 0;
       @if $layout == "N00" {
                @include g-font(30, 1);
              } @else {
                @include g-font(26, 1);
              }
       font-weight: bold;
+      line-height: 2.5;
     }
 
     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
@@ -51,27 +51,21 @@
         color: $g-hovercolor;
       }
     }
-
     /*
      * 2.エレメント内のCSS記述
      */
-
     &__iconPlacer {
-      //width: $_iconWidth + 15px;
     }
-
     &__icon {
-
     }
-
     /*
      * 3.ブロックレベルのモディファイア
      */
-
     // size 小さいの場合
     &--size-1 {
       h2 {
-        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSizePx_s, $layout);
+        margin-left: 50px;
       }
       background-size: 57px*.8 36px*.8, 57px*.8 38px*.8, 740px*.8 11px*.8;
       #{$_block}__iconPlacer {
@@ -82,13 +76,13 @@
 
     // size 中の場合（サイズ指定なしと同じ）
     &--size-2 {
-
     }
 
     // size 大きいの場合
     &--size-3 {
       h2 {
-        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSizePx_l, $layout);
+        margin-left: 80px;
       }
       background-size: 57px*1.2 36px*1.2, 57px*1.2 38px*1.2, 740px*1.2 11px*1.2;
       #{$_block}__iconPlacer {
@@ -101,11 +95,9 @@
     &--align-l {
       text-align: left;
     }
-
     &--align-c {
       text-align: center;
     }
-
     &--align-r {
       text-align: right;
     }
