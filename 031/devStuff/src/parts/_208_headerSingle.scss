@@ -2,19 +2,89 @@
 
   .t0-b-headerSingle {
 
-    &__col1 {}
-    &__col2 {}
-    &__col3 {}
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_width_content: 1100px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
+
+    color: $g-textcolor;
+    padding-top: 5px;
+    border-top: 4px solid #bead7a;
+    background-color: #fff;
+
+    * {
+      white-space: normal;
+    }
+    &__hd {
+      text-align: center;
+      padding: 10px 0 0;
+      > p {
+        width: $_width_content;
+        @include g-font-layout($_fontSizePx, $_lineHeightType);
+        margin: 0 auto;
+      }
+    }
+    &__bd {
+      padding-bottom: 10px;
+      > div {
+        width: $_width_content;
+        text-align: center;
+        margin: 0 auto;
+        > div {
+          display: inline-block;
+          vertical-align: top;
+          max-width: $_width_content;
+          padding-top: $_colSpacing;
+        }
+      }
+    }
+    &__col1 {
+      width: 100%;
+    }
+    &__col2 {
+      padding-left: $_colSpacing;
+    }
+    &__col3 {
+      padding-left: $_colSpacing;
+    }
   }
 
 }// PC
-
 
 @if $device == SP {
 
   .t0-b-headerSingle {
 
-    &__col {}
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+
+    color: $g-textcolor;
+    padding-top: 20px;
+    margin: 0 -15px;
+
+    &__hd {
+      text-align: center;
+      padding: 5px 5px 10px;
+      > p {
+        width: 100%;
+        @include g-font-layout($_fontSizePx, $_lineHeightType);
+        margin: 0 auto;
+      }
+    }
+    &__bd {
+      padding: 5px 20px 0;
+      > div {
+        width: 100%;
+        margin: 0 auto;
+        > div {
+          text-align: center;
+        }
+      }
+    }
+    &__col {
+      width: 100%;
+    }
   }
 
 }// SP
