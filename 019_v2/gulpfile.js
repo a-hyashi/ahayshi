@@ -225,7 +225,8 @@ gulp.task('sassdoc', function(){
 
 // gulp tasks
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch-compact']);
+gulp.task('run-full', ['watch-full']);
 gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
@@ -235,7 +236,7 @@ gulp.task('build', function(){
   );
 });
 
-gulp.task('developing', function() {
+gulp.task('developing-full', function() {
   return runSequence(
     'sass',
     'aigis'
@@ -249,8 +250,8 @@ gulp.task('developing-compact', function() {
   );
 });
 
-gulp.task('watch', ['sass','aigis','sassdoc','server'], function() {
-  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing',browserSync.reload]);
+gulp.task('watch-full', ['sass','aigis','sassdoc','server'], function() {
+  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-full',browserSync.reload]);
 });
 
 gulp.task('watch-compact', ['sass','aigis','sassdoc','server'], function() {
