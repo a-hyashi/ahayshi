@@ -1,16 +1,17 @@
 @if $device == PC {
 
   .t0-b-lv5H-subH {
+    $_fontSizePx: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_lineHeightType: 1;
 
     color: #105194;
     font-weight: bold;
 
     h5 {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
 
       display: inline;
     }
@@ -39,11 +40,7 @@
 
     &--size-1 {
       h5 {
-        @if $layout == "N00" {
-          @include g-font(16, 1);
-        } @else {
-          @include g-font(12, 1);
-        }
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
     }
 
@@ -52,11 +49,7 @@
     &--size-3 {
 
       h5 {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
   }
@@ -65,11 +58,14 @@
 @if $device == SP {
 
   .t0-b-lv5H-subH {
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+
     color: #105194;
     font-weight: bold;
 
     h5 {
-      @include g-font(16, 1);
+      @include g-font($_fontSizePx, $_lineHeightType);
 
       display: inline;
     }

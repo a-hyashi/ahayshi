@@ -1,6 +1,8 @@
 @if $device == PC {
 
   .t0-b-headerUnit-contact-nav {
+    $_block: &;
+
     white-space: nowrap;
     display: table;
     line-height: 0;
@@ -39,12 +41,35 @@
       border-bottom: 2px solid #45b1c7;
       padding: 1px 0;
     }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      color: #0b6678;
+
+      a {
+        color: #0b6678;
+
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+    }
+
+    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerSingle#{$variation1of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      margin: 0 auto;
+      display: table;
+    }
   }
 }
 
 @if $device == SP {
 
   .t0-b-headerUnit-contact-nav {
+    $_block: &;
+    
     display: table;
     margin-left: 2.5%;
     line-height: 0;
@@ -77,6 +102,16 @@
       @include g-font(16, 1);
       border-bottom: 2px solid #0d4291;
       padding: 1px 0;
+    }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      color: #0b6678;
+
+      a {
+        color: #0b6678;
+      }
     }
   }
 }

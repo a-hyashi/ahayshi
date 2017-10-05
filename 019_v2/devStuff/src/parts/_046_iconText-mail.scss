@@ -2,6 +2,7 @@
 
   .t0-b-iconText-mail {
     $_block: &;
+    $_textcolor: #0b6678;
 
     > div {
       display: inline-block;
@@ -9,14 +10,15 @@
     }
 
     &__bd {
-      color: $textcolor;
+      color: $_textcolor;
+      text-align: left;
       font-weight: bold;
+      @include g-font(16, 1);
     }
 
     a {
       display: table-cell;
-      text-align: left;
-      color: #0b6678;
+      color: $_textcolor;
       padding-bottom: 2px;
 
       &:hover {
@@ -28,6 +30,9 @@
       display: table-cell;
       vertical-align: middle;
       background-repeat: no-repeat;
+      width: 34px;
+      height: 16px;
+      background: url("../imgs/t0-b-iconText-mail/1.png") no-repeat 0 center;
     }
 
     // aligns
@@ -44,26 +49,13 @@
       text-align: right;
     }
 
-    // icon sizes
-
-    &--size-1 {
-      #{$_block}__bd {
-        @include g-font(16, 1);
-      }
-
-      #{$_block}__icon {
-        width: 34px;
-        height: 16px;
-        background: url("../imgs/t0-b-iconText-mail/1.png") no-repeat 0 center;
-      }
-    }
   }
 }
 
 @if $device == SP {
 
   .t0-b-iconText-mail {
-    text-align: center;
+    text-align: left;
 
     > div {
       display: inline-block;

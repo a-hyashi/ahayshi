@@ -1,6 +1,8 @@
 @if $device == PC {
 
   .t0-b-headerUnit-contact-navB#{$variation1of2} {
+    $_block: &;
+
     white-space: nowrap;
     display: table;
     color: #fff;
@@ -41,9 +43,26 @@
         background-size: 10px 14px;
       }
     }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      border: 1px solid #18849a;
+      background: #35a0b6;
+    }
+
+    //サイト名中央に入ったときのみ文字数分の幅をもち、中央寄せの見た目にする
+    .t0-b-headerSingle#{$variation1of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
   }
 
   .t0-b-headerUnit-contact-navB#{$variation2of2} {
+    $_block: &;
+
     white-space: nowrap;
     display: table;
     width: 100%;
@@ -111,12 +130,50 @@
         background-size: 6px 10px;
       }
     }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      color: #fff;
+
+      &:after {
+        border-bottom: 1px solid #414141;
+        border-right: 1px solid #414141;
+      }
+
+      a {
+        color: #fff;
+      }
+
+      p {
+        background: #414141;
+      }
+
+      div {
+        background: #414141;
+
+        &:before {
+          background: url("../imgs/t0-b-navItem/3.png") no-repeat 0 50%;
+          background-size: 6px 10px;
+        }
+      }
+    }
+
+    //サイト名中央に入ったときのみ文字数分の幅をもち、中央寄せの見た目にする
+    .t0-b-headerSingle#{$variation1of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }  
   }
 }
 
 @if $device == SP {
 
   .t0-b-headerUnit-contact-navB#{$variation1of2} {
+    $_block: &;
+
     width: 95%;
     margin: 0 auto;
     background-image: url("../imgs/t0-b-navList/bg.png");
@@ -149,9 +206,18 @@
       padding: 12px 10px;
       @include g-font(16, 1);
     }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      background-color: #35a0b6;
+      border: 1px solid #18849a;
+    }
   }
 
   .t0-b-headerUnit-contact-navB#{$variation2of2} {
+    $_block: &;
+    
     width: 95%;
     margin: 0 auto;
     background-image: url("../imgs/t0-b-navList/bg.png");
@@ -182,6 +248,18 @@
       margin-right: 10%;
       padding: 12px 10px;
       @include g-font(16, 1);
+    }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      background-color: #414141;
+      border: 1px solid #414141;
+      color: #fff;
+
+      a {
+        color: #fff;
+      }
     }
   }
 }

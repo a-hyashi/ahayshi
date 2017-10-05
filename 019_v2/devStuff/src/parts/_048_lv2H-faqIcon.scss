@@ -1,7 +1,11 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-
+    $_fontSizePx: 28;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_lineHeightType: 1;
     position: relative;
 
     background: url("../imgs/t0-b-lv2H-faqIcon/bg.png") no-repeat 0 100%, url("../imgs/t0-b-lv2H-faqIcon/bg2.png") repeat-x 0 100%;
@@ -41,11 +45,7 @@
     &__h {
       position: relative;
 
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
 
       vertical-align: middle;
       display: table-cell;
@@ -59,11 +59,7 @@
         height: 41px*.8;
       }
       #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(24, 1);
-        } @else {
-          @include g-font(20, 1);
-        }
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
     }
     &--size-2 {}
@@ -74,11 +70,7 @@
         height: 41px*1.2;
       }
       #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(32, 1);
-        } @else {
-          @include g-font(28, 1);
-        }
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
 
@@ -99,9 +91,10 @@
 @if $device == SP {
 
   .t0-b-lv2H-faqIcon {
-    position: relative;
-
     $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    position: relative;
 
     background: url("../imgs/t0-b-lv2H-faqIcon/bg.png") no-repeat 0 100%, url("../imgs/t0-b-lv2H-faqIcon/bg2.png") repeat-x 0 100%;
     padding-bottom: 10px;
@@ -136,7 +129,7 @@
     &__h {
       position: relative;
 
-      @include g-font(18, 1);
+      @include g-font($_fontSizePx, $_lineHeightType);
 
       vertical-align: middle;
       display: table-cell;

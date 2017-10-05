@@ -1,6 +1,8 @@
 @if $device == PC {
 
   .t0-b-headerUnit-contact-fax {
+    $_block: &;
+
     display: table;
     white-space: nowrap;
 
@@ -21,12 +23,32 @@
       padding: 1px 0 0 6px;
       color: #fff;
     }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      > div {
+        background-image: url("../imgs/t0-b-iconText/fax4.png");
+      }
+
+      > p {
+        color: $textcolor;
+      }
+    }
+
+    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerSingle#{$variation1of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      margin: 0 auto;
+    }
   }
 }
 
 @if $device == SP {
 
   .t0-b-headerUnit-contact-fax {
+    $_block: &;
+    
     margin: 0 auto;
     display: table;
 
@@ -46,6 +68,18 @@
       vertical-align: middle;
       padding: 0 0 0 6px;
       color: #fff;
+    }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      > div {
+        background-image: url("../imgs/t0-b-iconText/fax4.png");
+      }
+
+      > p {
+        color: $textcolor;
+      }
     }
   }
 }

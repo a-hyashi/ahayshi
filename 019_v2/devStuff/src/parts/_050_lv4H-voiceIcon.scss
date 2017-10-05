@@ -2,6 +2,15 @@
 
   .t0-b-lv4H-voiceIcon#{$variation1of2} {
     $_block: &;
+    $_fontSizePx_h: 24;
+    $_fontSizePx_caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
+    $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_h: 1;
+    $_lineHeightType_caption: 1;
 
     line-height: 0;
 
@@ -23,47 +32,27 @@
     }
 
     &__caption-upper {
-      @if $layout == "N00" {
-        @include g-font(18, 1);
-      } @else {
-        @include g-font(14, 1);
-      }
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 0 0 3px;
     }
 
     &__h {
-      @if $layout == "N00" {
-        @include g-font(26, 1);
-      } @else {
-        @include g-font(22, 1);
-      }
+      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
     }
 
     &__caption-lower {
-      @if $layout == "N00" {
-        @include g-font(18, 1);
-      } @else {
-        @include g-font(14, 1);
-      }
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 3px 0 0;
     }
 
     &__caption-upper + &__h {
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
     &__caption-upper + a > &__h {
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
     &__icon {
@@ -86,39 +75,19 @@
         height: 50px*.8;
       }
       #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(14, 1);
-        } @else {
-          @include g-font(10, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
       }
       #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_s, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(14, 1);
-        } @else {
-          @include g-font(10, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(20, 1);
-        } @else {
-          @include g-font(16, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(20, 1);
-        } @else {
-          @include g-font(16, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
       }
     }
 
@@ -131,39 +100,19 @@
         height: 50px*1.2;
       }
       #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
       }
       #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(30, 1);
-        } @else {
-          @include g-font(26, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_l, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(28, 1);
-        } @else {
-          @include g-font(24, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(28, 1);
-        } @else {
-          @include g-font(24, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
       }
     }
 
@@ -192,6 +141,15 @@
   .t0-b-lv4H-voiceIcon#{$variation2of2} {
 
     $_block: &;
+    $_fontSizePx_h: 24;
+    $_fontSizePx_caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
+    $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType_h: 1;
+    $_lineHeightType_caption: 1;
 
     line-height: 0;
 
@@ -213,47 +171,27 @@
     }
 
     &__caption-upper {
-      @if $layout == "N00" {
-        @include g-font(18, 1);
-      } @else {
-        @include g-font(14, 1);
-      }
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 0 0 3px;
     }
 
     &__h {
-      @if $layout == "N00" {
-        @include g-font(26, 1);
-      } @else {
-        @include g-font(22, 1);
-      }
+      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
     }
 
     &__caption-lower {
-      @if $layout == "N00" {
-        @include g-font(18, 1);
-      } @else {
-        @include g-font(14, 1);
-      }
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 3px 0 0;
     }
 
     &__caption-upper + &__h {
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
     &__caption-upper + a > &__h {
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
     &__icon {
@@ -276,39 +214,19 @@
         height: 60px*.8;
       }
       #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(14, 1);
-        } @else {
-          @include g-font(10, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
       }
       #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_s, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(14, 1);
-        } @else {
-          @include g-font(10, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(20, 1);
-        } @else {
-          @include g-font(16, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(20, 1);
-        } @else {
-          @include g-font(16, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
       }
     }
 
@@ -321,39 +239,19 @@
         height: 60px*1.2;
       }
       #{$_block}__caption-upper {
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
       }
       #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(30, 1);
-        } @else {
-          @include g-font(26, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_l, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-lower {
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
       }
       #{$_block}__caption-upper + #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(28, 1);
-        } @else {
-          @include g-font(24, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
       }
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @if $layout == "N00" {
-          @include g-font(28, 1);
-        } @else {
-          @include g-font(24, 1);
-        }
+        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
       }
     }
 
@@ -384,6 +282,13 @@
 
   .t0-b-lv4H-voiceIcon#{$variation1of2} {
     $_block: &;
+    $_fontSizePx_h: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_h: 1;
+    $_lineHeightType_caption: 1;
+
+    $_backgroundSize_x: 36px;
+    $_backgroundSize_y: 30px;
 
     line-height: 0;
 
@@ -405,17 +310,17 @@
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
 
       padding: 0 0 3px;
     }
 
     &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSizePx_h, $_lineHeightType_h);
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
 
       padding: 3px 0 0;
     }
@@ -423,10 +328,10 @@
     &__icon {
       background-position: 0 0;
       background-repeat: no-repeat;
-      background-size: 50px 42px;
+      background-size: $_backgroundSize_x $_backgroundSize_y;
       display: inline-block;
-      width: 50px;
-      height: 42px;
+      width: $_backgroundSize_x;
+      height: $_backgroundSize_y;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
@@ -453,7 +358,13 @@
 
   .t0-b-lv4H-voiceIcon#{$variation2of2} {
     $_block: &;
+    $_fontSizePx_h: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_h: 1;
+    $_lineHeightType_caption: 1;
 
+    $_backgroundSize: 36px;
+    
     line-height: 0;
 
     > div {
@@ -474,17 +385,17 @@
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
 
       padding: 0 0 3px;
     }
 
     &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSizePx_h, $_lineHeightType_h);
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
 
       padding: 3px 0 0;
     }
@@ -492,10 +403,10 @@
     &__icon {
       background-position: 0 0;
       background-repeat: no-repeat;
-      background-size: 50px 50px;
+      background-size: $_backgroundSize;
       display: inline-block;
-      width: 50px;
-      height: 50px;
+      width: $_backgroundSize;
+      height: $_backgroundSize;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
