@@ -16,8 +16,8 @@ const del = require('del');
 const fs = require('fs');
 const sassdoc = require('sassdoc');
 const sourcemaps = require('gulp-sourcemaps');
-
-
+const debug = require('gulp-debug');
+const merge = require('event-stream').merge;
 
 
 // エラー通知 & watch中にエラーが出ても処理を止めないように
@@ -34,30 +34,47 @@ gulp.task('clean', function() {
 
 
 // sass compile
-const sassOptions = minimist(process.argv.slice(2));
-switch (sassOptions) {
+let sassBuildType = process.argv.slice(2)[1];
+let sassOptions = {};
+var styleSource;
+switch (sassBuildType) {
+  case '--pc':
+    styleSource = ['devStuff/src/**/pc-L25.s[ac]ss'];
+    sassOptions.build = false;
+    break;
+  case '--sp':
+    styleSource = ['devStuff/src/**/sp.s[ac]ss'];
+    sassOptions.build = false;
+    break;
+  case '--all':
+    styleSource = ['devStuff/src/**/*.s[ac]ss'];
+    sassOptions.build = false;
+    break;
+  case '--build':
+    styleSource = ['devStuff/src/**/*.s[ac]ss'];
+    sassOptions.build = true;
+    break;
   default:
-    var styleSource = ['devStuff/src/**/pc-L25.s[ac]ss','devStuff/src/**/sp.s[ac]ss'];
-  case 'pc':
-    var styleSource = 'devStuff/src/**/pc-L25.s[ac]ss';
-  case 'sp':
-    var styleSource = 'devStuff/src/**/sp.s[ac]ss';
-  case 'all':
-    var styleSource = 'devStuff/src/**/*.s[ac]ss';
-  case 'build':
-    var styleSource = 'devStuff/src/**/*.s[ac]ss';
+    styleSource = ['devStuff/src/**/pc-L25.s[ac]ss','devStuff/src/**/pc-N00.s[ac]ss','devStuff/src/**/sp.s[ac]ss'];
+    sassOptions.build = false;
+    break;
 }
 
 gulp.task('sass', function() {
-  return gulp.src(styleSource)
-  // buildの場合はsourcemapsを実行しない
-  .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
-  .pipe(plumberWithNotify())
-  // sourcemapsの表示行数がずれるので開発時はminifyしない
-  .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
-  .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
-  .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
-  .pipe(gulp.dest('devStuff/css'));
+    return merge(
+      styleSource.map(styleSource=>{
+        return gulp.src(styleSource)
+          // buildの場合はsourcemapsを実行しない
+          .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
+          .pipe(plumberWithNotify())
+          // sourcemapsの表示行数がずれるので開発時はminifyしない
+          .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
+          .pipe(debug())
+          .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
+          .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
+          .pipe(gulp.dest('devStuff/css'));
+      })
+    );
 });
 
 
@@ -78,9 +95,9 @@ gulp.task('sasslint', function() {
       'no-empty-rulesets': 0,
       'class-name-format': 0,
       'mixin-name-format': 0,
-      'empty-line-between-blocks': 0, //本来はチェックしたいが、033でこれを全て修正するのは難しい
-      'quotes': 0, //本来はチェックしたいが、033でこれを全て修正するのは難しい
-      'nesting-depth': 0 //本来はチェックしたいが、033でこれを全て修正するのは難しい
+      'empty-line-between-blocks': 0, //本来はチェックしたいが、017でこれを全て修正するのは難しい
+      'quotes': 0, //本来はチェックしたいが、017でこれを全て修正するのは難しい
+      'nesting-depth': 0 //本来はチェックしたいが、017でこれを全て修正するのは難しい
     }
   }))
   .pipe(sassLint.format())
@@ -95,6 +112,12 @@ gulp.task('aigis', function(){
   .pipe(aigis());
 });
 
+// copy css file to styleguide
+
+gulp.task('copy-css', function(){
+  return gulp.src('devStuff/css/*.css')
+  .pipe(gulp.dest('devStuff/styleguide/css'));
+});
 
 // webserver
 
@@ -175,25 +198,6 @@ function output_rename_sp_css(value, folder) {
     .pipe(gulp.dest('production/themes/' + folder + '/sp/'));
 }
 
-// gulp tasks
-
-gulp.task('default', ['watch']);
-gulp.task('build', function(){
-  return runSequence(
-    'clean',
-    'sass',
-    'create_build'
-  );
-});
-
-gulp.task('developing', function() {
-  return runSequence(
-    'sass',
-    'aigis'
-  );
-});
-
-
 // gulp tasks sassdoc
 gulp.task('sassdoc', function(){
   var options = {
@@ -216,6 +220,40 @@ gulp.task('sassdoc', function(){
     .pipe(sassdoc(options));
 });
 
-gulp.task('watch', ['sass','aigis','server'], function() {
-  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing',browserSync.reload]);
+
+
+
+// gulp tasks
+
+gulp.task('default', ['watch-compact']);
+gulp.task('run-full', ['watch-full']);
+gulp.task('run-compact', ['watch-compact']);
+gulp.task('build', function(){
+  return runSequence(
+    'clean',
+    'sass',
+    'create_build'
+  );
+});
+
+gulp.task('developing-full', function() {
+  return runSequence(
+    'sass',
+    'aigis'
+  );
+});
+
+gulp.task('developing-compact', function() {
+  return runSequence(
+    'sass',
+    'copy-css'
+  );
+});
+
+gulp.task('watch-full', ['sass','aigis','sassdoc','server'], function() {
+  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-full',browserSync.reload]);
+});
+
+gulp.task('watch-compact', ['sass','aigis','sassdoc','server'], function() {
+  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-compact',browserSync.reload]);
 });
