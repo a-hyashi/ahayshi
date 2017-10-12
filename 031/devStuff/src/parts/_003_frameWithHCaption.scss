@@ -115,10 +115,11 @@
 
     $_textColor: #513316;
 
-    padding: 0 3.5% 1%;
+    padding: 0 0 1%;
     color: $_textColor;
     text-align: center;
     border: 2px solid #c8a76d;
+    border-top: 0;
     background-color: #fefefc;
 
     a {
@@ -131,59 +132,76 @@
       }
     }
 
+    &__hd {
+      text-align: center;
+      > div {
+        background-color: #fefefc;
+      }
+    }
     &__hd-caption-upper {
       min-width: 246px;
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
       color: $_textColor;
       padding: 0 37px 5px;
+      // 大枠に敷かれている左右のborderを消す為border幅分マイナス
+      margin: 0 -2px;
     }
-    &__hd {
+    &__hd-h {
       position: relative;
-      top: -45px;
-      display: inline-block;
-      text-align: center;
+      padding: 0 3.5%;
 
+      // h3部分のデザインを実現する為の記述(borderを消す)
+      margin: 0 -2px;
+      // Start top・left・rightにbox-shadowで枠を表現
       &:before {
         position: absolute;
-        top: 37px;
+        top: 49.5%;
         left: 0;
-        z-index: 1;
-        display: inline-block;
-        width: 100%;
-        height: 14px;
         content: "";
-        background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
-        background-repeat: no-repeat;
-        background-position: left top;
-        background-size: 37px 14px;
-      }
-      &:after {
-        position: absolute;
-        top: 37px;
-        right: 0;
-        display: inline-block;
         width: 100%;
-        height: 14px;
-        content: "";
-        background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
-        background-repeat: no-repeat;
-        background-position: right top;
-        background-size: 37px 14px;
+        height: 100%;
+        box-shadow: 2px 2px #c8a76d inset, -2px 2px #c8a76d inset;
       }
-      & > span + &-h {
-        position: relative;
-        top: 22px;
-      }
-      > div {
-        background-color: #fff;
-      }
+      // End top・left・rightにbox-shadowで枠を表現
+
       h3 {
+        position: relative;
         display: inline-block;
         min-width: 246px;
-        padding: 5px 37px;
-        margin: 0 auto;
         @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
         color: $_textColor;
+        padding: 5px 37px;
+        margin: 0 auto;
+        background-color: #fefefc;
+        &:before {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          z-index: 1;
+          display: inline-block;
+          width: 100%;
+          height: 14px;
+          content: "";
+          background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
+          background-repeat: no-repeat;
+          background-position: left top;
+          background-size: 37px 14px;
+        }
+        &:after {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          display: inline-block;
+          width: 100%;
+          height: 14px;
+          content: "";
+          background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
+          background-repeat: no-repeat;
+          background-position: right top;
+          background-size: 37px 14px;
+        }
       }
     }
     &__hd-caption-lower {
@@ -192,14 +210,25 @@
       color: $_textColor;
       padding: 5px 37px 0;
     }
+    // Start hd-hがない時の指定
+    .outerHtml + & {
+      > span + #{$_block}__bd {
+        margin: 0;
+        padding: 3.5% 3.5% 0;
+        border-top: 2px solid #c8a76d;
+      }
+    }
+    // End hd-hがない時の指定
+
     &__bd {
       text-align: left;
+      padding: 0 3.5% 0;
     }
     & > span + &__bd {
       margin: 3.5% 0 0;
     }
     &__hd + &__bd {
-      padding: 30px 0 0;
+      padding: 30px 3.5% 0;
     }
     &__hd--align-l {
       text-align: left;
@@ -466,7 +495,7 @@
         background-size: 37px*.8 14px*.8;
       }
       > div {
-        background-color: #fff;
+        background-color: #fefefc;
       }
       & > span + &-h {
         position: relative;
