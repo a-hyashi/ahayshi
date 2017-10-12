@@ -2,6 +2,18 @@
   .t0-b-twoColsMediaWithNumIcon#{$variation1of3} {
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_block: &;
+
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference;
+
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+
     a {
       color: #555;
       text-decoration: none;
@@ -21,19 +33,19 @@
           width: 28px;
         }
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-twoColsMediaWithNumIcon__icon {
           background-size: 52.8px 52.8px;
@@ -47,19 +59,19 @@
           width: 41px;
         }
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(30, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-twoColsMediaWithNumIcon__icon {
           background-size: 79.2px 79.2px;
@@ -82,19 +94,11 @@
       }
     }
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 0 0 10px;
     }
     &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
       padding-bottom: 12px;
       padding-right: 15px;
       background-repeat: no-repeat, repeat-x;
@@ -102,26 +106,14 @@
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg2.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg.png");
     }
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 5px 0 0;
     }
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
     &__box {
       padding: 2% 0 2% 76px;
@@ -182,6 +174,18 @@
   .t0-b-twoColsMediaWithNumIcon#{$variation2of3} {
     $_block: &;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference;
+
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+
     a {
       color: #555;
       text-decoration: none;
@@ -201,19 +205,19 @@
           width: 33px;
         }
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-twoColsMediaWithNumIcon2__icon {
           background-size: 49.6px 49.6px;
@@ -227,19 +231,19 @@
           width: 45px;
         }
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(30, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-twoColsMediaWithNumIcon2__icon {
           background-size: 74.4px 74.4px;
@@ -262,46 +266,26 @@
       }
     }
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
 
       padding: 0 0 10px;
     }
     &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
       padding-bottom: 12px;
       background-repeat: repeat-x;
       background-position: right bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg5.png");
     }
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 5px 0 0;
     }
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
     &__box {
       padding: 2% 0 2% 76px;
@@ -365,19 +349,19 @@
         }
       }
       #{$_block}__numIcon-caption-upper {
-        @include g-font(12, 1);
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-h {
-        @include g-font(22, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-lower {
-        @include g-font(12, 1);
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-        @include g-font(20, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @include g-font(20, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
       }
     }
     &--size-2 {}
@@ -393,19 +377,19 @@
         }
       }
       #{$_block}__numIcon-caption-upper {
-        @include g-font(20, 1);
+        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-h {
-        @include g-font(30, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-lower {
-        @include g-font(20, 1);
+        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-        @include g-font(28, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @include g-font(28, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
       }
     }
 
@@ -417,6 +401,18 @@
   .t0-b-twoColsMediaWithNumIcon#{$variation3of3} {
     $_block: &;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference;
+
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+
     a {
       color: #555;
       text-decoration: none;
@@ -433,19 +429,19 @@
       $_block: &;
       &--size-1 {
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-twoColsMediaWithNumIcon3__icon {
           background-size: 49.6px 49.6px;
@@ -461,19 +457,19 @@
           height: 74.4px;
         }
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(30, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-twoColsMediaWithNumIcon3__icon {
           background-size: 74.4px 74.4px;
@@ -496,45 +492,25 @@
       }
     }
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 0 0 10px;
     }
     &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
       padding-bottom: 12px;
       background-repeat: no-repeat, repeat-x;
       background-position: right bottom, right bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg11.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg8.png");
     }
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 5px 0 0;
     }
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
     &__box {
       padding: 2% 0 2% 76px;
@@ -593,19 +569,19 @@
         height: 49.6px;
       }
       #{$_block}__numIcon-caption-upper {
-        @include g-font(12, 1);
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-h {
-        @include g-font(22, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-lower {
-        @include g-font(12, 1);
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-        @include g-font(20, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @include g-font(20, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
       }
     }
     &--size-2 {}
@@ -616,19 +592,19 @@
         height: 74.4px;
       }
       #{$_block}__numIcon-caption-upper {
-        @include g-font(20, 1);
+        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-h {
-        @include g-font(30, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-lower {
-        @include g-font(20, 1);
+       @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
       }
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-        @include g-font(28, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
       }
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @include g-font(28, 1);
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
       }
     }
 
