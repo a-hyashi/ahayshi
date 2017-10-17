@@ -1,9 +1,15 @@
 @if $device == PC {
-
   .t0-b-sideBoxNav {
+    $_block: &;
     a {
       display: block;
       text-decoration: none;
+      #{$_block}__inner:hover {
+        > div {
+          background-image: url("../imgs/t0-b-sideNavItem/1/bg3.png");
+          color: #ee8100;
+        }
+      }
     }
     &__inner {
       display: table;
@@ -19,16 +25,12 @@
         background-position: left center;
         background-image: url("../imgs/t0-b-sideNavItem/1/bg.png");
       }
-      > div {
-        display: inline-block;
+      div {
         @include g-font(16, 0);
+        display: inline;
         background-repeat: repeat-x;
         background-position: left bottom;
         background-image: url("../imgs/t0-b-sideNavItem/1/bg2.png");
-        &:hover {
-          background-image: url("../imgs/t0-b-sideNavItem/1/bg3.png");
-          color: #ee8100;
-        }
       }
     }
   }
