@@ -1,6 +1,158 @@
 @if $device == PC {
 
   .t0-b-footerUnit-textStrong {
+
+    // Start リッチテキスト用指定 ==============
+    @include g-rteTableReset;
+    // 固定(colorはテーマ・バリエーションにより違う)
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #fff;
+    $_color_table_th_bg: #eae3d4;
+    $_color_table_td_bg: #f1efe8;
+    $_color_table_th_text: #482e15;
+    $_color_table_td_text: #7c5e42;
+
+    white-space: nowrap;
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+    > hr {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    p {
+      @include g-font(14, 2);
+      margin-top: 1em;
+    }
+    > p {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    ol {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+        font-size: $g-baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+      p {
+        @include g-font(14, 1);
+      }
+      li {
+        @include g-font(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ol {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    ul {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        @include g-font(16, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+    > ul {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    table {
+      white-space: nowrap;
+      width: 100%;
+      margin-top: $_blockSpacing;
+      border-color: transparent;
+      th,
+      td {
+        @include g-font(14, 1);
+        border-top: 1px solid $_color_table_border;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+      }
+      ul,
+      ol {
+        font-size: $g-baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+      p {
+        @include g-font(14, 1);
+      }
+      th {
+        color: $_color_table_th_text;
+        background-color: $_color_table_th_bg;
+      }
+      td {
+        color: $_color_table_td_text;
+        background-color: $_color_table_td_bg;
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+      tr {
+        &:first-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th,
+          td {
+            background-image: none;
+          }
+        }
+      }
+    }
+    > table {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    // End リッチテキスト用指定==============
     $_fontSizePx: 16;
     $_lineHeightType: 2;
 
@@ -23,6 +175,134 @@
 @if $device == SP {
 
   .t0-b-footerUnit-textStrong {
+
+    // Start リッチテキスト用指定 ==============
+    @include g-rteTableReset;
+    // 固定(colorはテーマ・バリエーションにより違う)
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #fff;
+    $_color_table_th_bg: #eae3d4;
+    $_color_table_td_bg: #f1efe8;
+    $_color_table_th_text: #482e15;
+    $_color_table_td_text: #7c5e42;
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+    > hr {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    p {
+      @include g-font(16, 2);
+      margin-top: 1em;
+    }
+    > p {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    ol {
+      padding: 0 0 0 1.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        @include g-font(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    > ol {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    ul {
+      padding: 0 0 0 1.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+      li {
+        @include g-font(16, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    > ul {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      border-color: transparent;
+      th,
+      td {
+        @include g-font(14, 1);
+        border-top: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+      ul,
+      ol {
+        font-size: $g-baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+      p {
+        @include g-font(14, 1);
+      }
+      th {
+        color: $_color_table_th_text;
+        background: $_color_table_th_bg;
+      }
+      td {
+        color: $_color_table_td_text;
+        background-color: $_color_table_td_bg;
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+      tr {
+        &:first-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th,
+          td {
+            background-image: none;
+          }
+        }
+      }
+    }
+    > table {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    // End リッチテキスト用指定==============
 
     $_fontSizePx: 16;
     $_lineHeightType: 2;
