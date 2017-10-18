@@ -1,0 +1,33 @@
+/// N00のレイアウトに対応したフォントサイズを返すg-fontの拡張mixin<br />
+/// レイアウト文字列に'N00'が入ったときには、基準フォントサイズにaddPx（デフォルト4px）を加算したフォント指定を生成する。<br />
+/// 'N00'以外では基準フォントサイズのままを返す。
+/// @author NADAMOTO(@wms-nad)
+/// @example
+/// // 標準利用ケース
+/// .t0-b-hogeHoge {
+///   &__bd {
+///     @include g-font-layout(28, 1, 'N00');
+///   }
+/// }
+/// // g-font(32, 1)の結果と同じ
+///
+/// @example
+/// // 加算する数字を変えた場合
+/// .t0-b-hogeHoge {
+///   &__bd {
+///     @include g-font-layout(28, 1, 'N00', 6); // 加算する数字を4px → 6pxに変更
+///   }
+/// }
+/// // g-font(34, 1)の結果と同じ
+/// @param {Number} $fontSizePx - 基準となるフォントサイズ
+/// @param {Number} $lineHeightType [0] - lineheightタイプ
+/// @param {String} $layout ['L25'] - レイアウト文字列
+/// @param {Number} $addPx [4] - N00のときに加算するpx値
+/// @output レイアウトに対応したg-font実行結果を返す
+@mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25', $addPx: 4){
+  @if $layout == "N00" {
+    @include g-font($fontSizePx + $addPx, $lineHeightType);
+  } @else {
+    @include g-font($fontSizePx, $lineHeightType);
+  }
+}
