@@ -15,6 +15,7 @@
     $_color_table_border: #d8c8b1;
     $_color_required_text: #fff;
     $_color_required_bg: #fe769a;
+    $_color_notRequiredLabel_bg: #c5a980;
     $_color_error_text: #f80103;
     $_color_button_text :#fff;
     $_color_button_bg :#a39279;
@@ -51,6 +52,15 @@
         width: 100%;
         > * {
           display: table-cell;
+          vertical-align: middle;
+        }
+        > .t0-b-formTable__requiredLabel,
+          .t0-b-formTable__notRequiredLabel {
+          width: 50px;
+          text-align: center;
+          > span {
+            display: inline-block;
+          }
         }
       }
     }
@@ -73,15 +83,29 @@
     }
     // 必須
     &__requiredLabel {
-      width: 40px;
-      @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
-      font-weight: normal;
-      color: $_color_required_text;
-      text-align: center;
-      box-sizing: border-box;
-      padding: 0 6px;
-      border-radius: 5px;
-      background-color: $_color_required_bg;
+      > span {
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border-radius: 5px;
+        background-color: $_color_required_bg;
+      }
+    }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border-radius: 5px;
+        background-color: $_color_notRequiredLabel_bg;
+      }
     }
     // エラーメッセージ
     .mod-formError {
@@ -238,13 +262,13 @@
     $_color_table_th_bg: #e3f5f3;
     $_color_required_text: #fff;
     $_color_required_bg: #ee2663;
+    $_color_notRequiredLabel_bg: #41cebe;
     $_color_error_text: #f80103;
     $_color_button_text :#fff;
     $_color_button_bg :#00b7cd;
     $_color_buttonEdit_bg :#a49887;
 
     color: $_color_table_text;
-    padding: 25px 30px;
 
     table {
       width: 100%;
@@ -275,6 +299,15 @@
         width: 100%;
         > * {
           display: table-cell;
+          vertical-align: middle;
+        }
+        > .t0-b-formTable2__requiredLabel,
+          .t0-b-formTable2__notRequiredLabel {
+          width: 50px;
+          text-align: center;
+          > span {
+            display: inline-block;
+          }
         }
       }
     }
@@ -296,15 +329,29 @@
     }
     // 必須
     &__requiredLabel {
-      width: 40px;
-      @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
-      font-weight: normal;
-      color: $_color_required_text;
-      text-align: center;
-      box-sizing: border-box;
-      padding: 0 6px;
-      border: 1px solid #c4ab86;
-      background-color: $_color_required_bg;
+      > span {
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border: 1px solid #c4ab86;
+        background-color: $_color_required_bg;
+      }
+    }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border: 1px solid #c4ab86;
+        background-color: $_color_notRequiredLabel_bg;
+      }
     }
     // エラーメッセージ
     .mod-formError {
@@ -473,6 +520,7 @@
     $_color_table_border: #d8c8b1;
     $_color_required_text: #fff;
     $_color_required_bg: #fe769a;
+    $_color_notRequiredLabel_bg: #c5a980;
     $_color_error_text: #f80103;
     $_color_button_text :#fff;
     $_color_button_bg :#a39279;
@@ -508,9 +556,13 @@
         > label {
           order: 3;
         }
-        > .t0-b-formTable__requiredLabel {
+        > .t0-b-formTable__requiredLabel,
+          .t0-b-formTable__notRequiredLabel {
           order: 1;
-          margin-right: 10px;
+          > span {
+            display: block;
+            margin-right: 10px;
+          }
         }
       }
     }
@@ -535,16 +587,33 @@
     }
     // 必須
     &__requiredLabel {
-      width: 33px;
-      @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
-      font-weight: normal;
-      color: $_color_required_text;
-      text-align: center;
-      box-sizing: border-box;
-      padding: 6px*.8;
-      border-radius: 5px;
-      background-color: $_color_required_bg;
+      > span {
+        width: 35px;
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 6px*.8;
+        border-radius: 5px;
+        background-color: $_color_required_bg;
+      }
     }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        width: 35px;
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 6px*.8;
+        border-radius: 5px;
+        background-color: $_color_notRequiredLabel_bg;
+      }
+    }
+
     // エラーメッセージ
     .mod-formError {
       @include g-font(14, 1);
@@ -700,6 +769,7 @@
     $_color_table_th_bg: #e3f5f3;
     $_color_required_text: #fff;
     $_color_required_bg: #ee2663;
+    $_color_notRequiredLabel_bg: #41cebe;
     $_color_error_text: #f80103;
     $_color_button_text :#fff;
     $_color_button_bg :#00b7cd;
@@ -741,9 +811,13 @@
         > label {
           order: 3;
         }
-        > .t0-b-formTable2__requiredLabel {
+        > .t0-b-formTable2__requiredLabel,
+          .t0-b-formTable2__notRequiredLabel {
           order: 1;
-          margin-right: 10px;
+          > span {
+            display: block;
+            margin-right: 10px;
+          }
         }
       }
     }
@@ -767,15 +841,31 @@
     }
     // 必須
     &__requiredLabel {
-      width: 33px;
-      @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
-      font-weight: normal;
-      color: $_color_required_text;
-      text-align: center;
-      box-sizing: border-box;
-      padding: 6px*.8;
-      border: 1px solid #c4ab86;
-      background-color: $_color_required_bg;
+      > span {
+        width: 35px;
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border: 1px solid #c4ab86;
+        background-color: $_color_required_bg;
+      }
+    }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        width: 35px;
+        @include g-font-layout( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border: 1px solid #c4ab86;
+        background-color: $_color_notRequiredLabel_bg;
+      }
     }
     // エラーメッセージ
     .mod-formError {
