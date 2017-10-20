@@ -14,6 +14,7 @@ const browserSync = require('browser-sync');
 const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs');
+const sourcemaps = require('gulp-sourcemaps');
 
 
 
@@ -48,9 +49,13 @@ switch (sassOptions) {
 
 gulp.task('sass', function() {
   return gulp.src(styleSource)
+  // buildの場合はsourcemapsを実行しない
+  .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
   .pipe(plumberWithNotify())
-  .pipe(sass({outputStyle: 'compressed'}))
+  // sourcemapsの表示行数がずれるので開発時はminifyしない
+  .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
   .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
+  .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
   .pipe(gulp.dest('devStuff/css'));
 });
 
