@@ -2,6 +2,26 @@
 
   .t0-b-frameWithHCaptionNumIcon#{$variation1of3} {
     $_block: &;
+
+    $_fontSizePx_hd-h: 24;
+    $_fontSizePx_hd-caption: 16;
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
+    $_fontSizePx_hd-h_l: $_fontSizePx_hd-h + $_fontSizeDifference;
+    $_fontSizePx_hd-caption_s: $_fontSizePx_hd-caption - $_fontSizeDifference;
+    $_fontSizePx_hd-caption_l: $_fontSizePx_hd-caption + $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference;
+
+    $_lineHeightType_hd-h: 1;
+    $_lineHeightType_hd-caption: 1;
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+
     padding: 4% 4% 1%;
     border: 1px solid #6b8f70;
     border-radius: 3px;
@@ -34,13 +54,13 @@
 
       &--size-1 {
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-h_s, $_lineHeightType_hd-h, $layout);
         }
       }
 
@@ -48,13 +68,13 @@
 
       &--size-3 {
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_hd-h_l, $_lineHeightType_hd-h, $layout);
         }
       }
     }
@@ -68,32 +88,19 @@
     }
 
     &__hd-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
       padding-bottom: 5px;
       position: relative;
     }
 
     &__hd-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
       text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
       position: relative;
     }
 
     &__hd-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
-
+      @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
       padding-top: 5px;
       position: relative;
     }
@@ -119,19 +126,19 @@
 
       &--size-1 {
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-frameWithHCaptionNumIcon__icon {
           background-size: 52.8px 52.8px;
@@ -144,19 +151,19 @@
 
       &--size-3 {
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(30, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-frameWithHCaptionNumIcon__icon {
           background-size: 79.2px 79.2px;
@@ -187,45 +194,25 @@
     }
 
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 0 0 #{$_elementSpacing};
     }
 
     &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
     }
 
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: #{$_elementSpacing} 0 0;
     }
 
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
     }
 
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
     }
 
     &__icon {
@@ -288,6 +275,25 @@
 
   .t0-b-frameWithHCaptionNumIcon#{$variation2of3} {
     $_block: &;
+    $_fontSizePx_hd-h: 24;
+    $_fontSizePx_hd-caption: 16;
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
+    $_fontSizePx_hd-h_l: $_fontSizePx_hd-h + $_fontSizeDifference;
+    $_fontSizePx_hd-caption_s: $_fontSizePx_hd-caption - $_fontSizeDifference;
+    $_fontSizePx_hd-caption_l: $_fontSizePx_hd-caption + $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference;
+
+    $_lineHeightType_hd-h: 1;
+    $_lineHeightType_hd-caption: 1;
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+
     padding: 4% 4% 1%;
     $_elementSpacing: 4px;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x, repeat;
@@ -307,13 +313,13 @@
 
       &--size-1 {
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-h_s, $_lineHeightType_hd-h, $layout);
         }
       }
 
@@ -321,13 +327,13 @@
 
       &--size-3 {
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_hd-h_l, $_lineHeightType_hd-h, $layout);
         }
       }
     }
@@ -341,23 +347,13 @@
     }
 
     &__hd-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
-
+      @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
       padding-bottom: 5px;
       position: relative;
     }
 
     &__hd-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
-
+      @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
       position: relative;
 
       h3 {
@@ -370,12 +366,7 @@
     }
 
     &__hd-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
-
+      @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
       padding-top: 5px;
       position: relative;
     }
@@ -400,19 +391,19 @@
 
       &--size-1 {
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
 
         .t0-b-frameWithHCaptionNumIcon2__icon {
@@ -426,19 +417,19 @@
 
       &--size-3 {
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(30, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-frameWithHCaptionNumIcon2__icon {
           background-size: 74.4px 74.4px;
@@ -470,45 +461,25 @@
     }
 
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 0 0 #{$_elementSpacing};
     }
 
     &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
     }
 
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: #{$_elementSpacing} 0 0;
     }
 
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
     }
 
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
     }
 
     &__icon {
@@ -570,6 +541,25 @@
 
   .t0-b-frameWithHCaptionNumIcon#{$variation3of3} {
     $_block: &;
+    $_fontSizePx_hd-h: 24;
+    $_fontSizePx_hd-caption: 16;
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
+    $_fontSizePx_hd-h_l: $_fontSizePx_hd-h + $_fontSizeDifference;
+    $_fontSizePx_hd-caption_s: $_fontSizePx_hd-caption - $_fontSizeDifference;
+    $_fontSizePx_hd-caption_l: $_fontSizePx_hd-caption + $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference;
+
+    $_lineHeightType_hd-h: 1;
+    $_lineHeightType_hd-caption: 1;
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+
     padding: 4% 4% 2%;
     $_elementSpacing: 4px;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -639,13 +629,13 @@
 
       &--size-1 {
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-h_s, $_lineHeightType_hd-h, $layout);
         }
       }
 
@@ -653,13 +643,13 @@
 
       &--size-3 {
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_hd-h_l, $_lineHeightType_hd-h, $layout);
         }
       }
     }
@@ -673,30 +663,18 @@
     }
 
     &__hd-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
       padding-bottom: 5px;
       position: relative;
     }
 
     &__hd-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
       position: relative;
     }
 
     &__hd-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
       padding-top: 5px;
       position: relative;
     }
@@ -721,19 +699,19 @@
 
       &--size-1 {
         #{$_block}-caption-upper {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(12, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-frameWithHCaptionNumIcon3__icon {
           background-size: 49.6px 49.6px;
@@ -746,19 +724,19 @@
 
       &--size-3 {
         #{$_block}-caption-upper {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-h {
-          @include g-font(30, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-lower {
-          @include g-font(20, 1);
+          @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
         }
         #{$_block}-caption-upper + #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         #{$_block}-caption-upper + a > #{$_block}-h {
-          @include g-font(28, 1);
+          @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
         }
         .t0-b-frameWithHCaptionNumIcon3__icon {
           background-size: 74.4px 74.4px;
@@ -790,45 +768,25 @@
     }
 
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: 0 0 #{$_elementSpacing};
     }
 
     &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(30, 1);
-      } @else {
-        @include g-font(26, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
     }
 
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
       padding: #{$_elementSpacing} 0 0;
     }
 
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
 
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-        @include g-font(28, 1);
-      } @else {
-        @include g-font(24, 1);
-      }
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
     }
 
     &__icon {
