@@ -3,6 +3,11 @@
   .t0-b-articleDecoration#{$variation1of3} {
     width: 100%;
     $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
     &__row {
       display: flex;
@@ -45,21 +50,17 @@
       }
       h4 {
         padding: 11px 2% 10px;
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       }
       &--size-1 {
         h4 {
-          @include g-font(14, 1);
+          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
         }
       }
       &--size-2 {}
       &--size-3 {
         h4 {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
         }
       }
     }
@@ -81,6 +82,11 @@
   .t0-b-articleDecoration#{$variation2of3} {
     width: 100%;
     $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
     &__row {
       display: flex;
@@ -97,11 +103,7 @@
       width: 100%;
     }
     &__hd-h {
-      @if $layout == "N00" {
-        @include g-font(22, 1);
-      } @else {
-        @include g-font(18, 1);
-      }
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       background-image: url("../imgs/t0-b-articleDecoration/2/bg9.png"), url("../imgs/t0-b-articleDecoration/2/bg10.png");
       background-repeat: repeat-x, repeat;
       background-position: left bottom, left top;
@@ -121,11 +123,11 @@
         padding: 10px 2% 14px;
       }
       &--size-1 {
-        @include g-font(14, 1);
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
       &--size-2 {}
       &--size-3 {
-        @include g-font(22, 1);
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
     &__box {
@@ -172,6 +174,11 @@
   .t0-b-articleDecoration#{$variation3of3} {
     width: 100%;
     $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
     &__row {
       display: flex;
@@ -232,11 +239,7 @@
         }
       }
       h4 {
-        @if $layout == "N00" {
-          @include g-font(22, 1);
-        } @else {
-          @include g-font(18, 1);
-        }
+        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
         padding: 5px 0 5px 5px;
         display: table-cell;
         width: 100%;
@@ -244,13 +247,13 @@
       }
       &--size-1 {
         h4 {
-          @include g-font(14, 1);
+          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
         }
       }
       &--size-2 {}
       &--size-3 {
         h4 {
-          @include g-font(22, 1);
+          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
         }
       }
     }
