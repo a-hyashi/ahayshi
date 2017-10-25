@@ -81,6 +81,13 @@
         background-position: left top;
         background-size: 6px 2px;
       }
+      &-h {
+        h3 {
+          display: inline-block;
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+          color: $_textColor_hd;
+        }
+      }
       &--align-l {
         text-align: left;
       }
@@ -96,13 +103,6 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
       color: $_textColor_hd;
       padding: 0 0 5px 0;
-    }
-
-    &__hd-h {
-      h3 {
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-        color: $_textColor_hd;
-      }
     }
 
     &__hd-caption-lower {
@@ -384,11 +384,11 @@
         background-size: 88px 12px;
       }
       &-h {
+        display: inline-block;
         h3 {
           position: relative;
           display: inline-block;
-          min-width: 350px;
-          padding: 0 86px;
+          padding: 0 116px;
           margin: 0 auto;
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
           color: $_textColor_hd;
@@ -424,25 +424,37 @@
       }
       &--align-l {
         text-align: left;
+        #{$_block}__hd-caption-upper, {
+          padding: 0 103px 10px;
+        }
+        #{$_block}__hd-caption-lower {
+          padding: 8px 103px 0;
+        }
       }
       &--align-c {
         text-align: center;
       }
       &--align-r {
         text-align: right;
+        #{$_block}__hd-caption-upper, {
+          padding: 0 103px 10px;
+        }
+        #{$_block}__hd-caption-lower {
+          padding: 8px 103px 0;
+        }
       }
     }
 
     &__hd-caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
       color: $_textColor_hd;
-      padding: 0 0 5px 0;
+      padding: 0 103px 10px;
     }
 
     &__hd-caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
       color: $_textColor_hd;
-      padding: 5px 0 0 0;
+      padding: 8px 103px 0;
     }
 
     &--size-1 {
@@ -727,6 +739,16 @@
         background-position: left top;
         background-size: 6px 2px;
       }
+
+      &-h {
+        h3 {
+          display: inline-block;
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
+          color: $_textColor_hd;
+          text-align: center;
+        }
+      }
+
       &--align-l {
         text-align: left;
       }
@@ -742,13 +764,6 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
       color: $_textColor_hd;
       padding: 0 0 5px 0;
-    }
-
-    &__hd-h {
-      h3 {
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
-        color: $_textColor_hd;
-      }
     }
 
     &__hd-caption-lower {
@@ -922,8 +937,7 @@
         h3 {
           position: relative;
           display: inline-block;
-          min-width: 54.6%;
-          padding: 0 86px*.5;
+          padding: 0 116px*.5;
           margin: 0 auto;
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
           color: $_textColor_hd;
@@ -956,16 +970,27 @@
             background-size: 83px*.5 43px*.5;
           }
         }
-        
       }
       &--align-l {
         text-align: left;
+        #{$_block}__hd-caption-upper, {
+          padding: 0 103px*.5 10px*.5;
+        }
+        #{$_block}__hd-caption-lower {
+          padding: 8px*.5 103px*.5;
+        }
       }
       &--align-c {
         text-align: center;
       }
       &--align-r {
         text-align: right;
+        #{$_block}__hd-caption-upper, {
+          padding: 0 103px*.5 10px*.5;
+        }
+        #{$_block}__hd-caption-lower {
+          padding: 8px*.5 103px*.5 0;
+        }
       }
     }
 
