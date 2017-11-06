@@ -2,6 +2,7 @@
 
   .t0-b-sideBoxIconText-mail {
 
+    $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
     $_textColor: #a97417;
@@ -9,29 +10,30 @@
     font-family: $tenorsans;
 
     a {
-      letter-spacing: normal;
+      word-break: break-all;
+      display: table-cell;
+      vertical-align: middle;
       text-decoration: none;
       color: $_textColor;
       &:hover {
         text-decoration: underline;
       }
-    }
+    } 
 
     > div {
-      display: inline-block;
+      text-align: center;
     }
 
     &__bd {
-      letter-spacing: -0.4em;
+      display: table;
       @include g-font-layout($_fontSizePx, $_lineHeightType);
       text-align: left;
     }
 
     &__icon {
-      letter-spacing: normal; 
-      display: inline-block;
+      display: table-cell;
       vertical-align: middle;
-      width: 18px;
+      width: 31px;
       height: 12px;
       margin-right: 15px;
       background-image: url("../imgs/contact/contact006/contact006_mail_v1f1.png");
@@ -41,13 +43,21 @@
     }
 
     &--align-l {
-      text-align: left;
+      #{$_block}__bd {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      #{$_block}__bd {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
+
     &--align-r {
-      text-align: right;
+      #{$_block}__bd {
+        margin-left: auto;
+      }
     }
   }
 
@@ -66,13 +76,15 @@
     word-break: break-all;
 
     a {
-      letter-spacing: normal;
+      word-break: break-all;
+      display: table-cell;
+      vertical-align: middle;
       text-decoration: none;
       color: $_textColor;
     }
 
     &__bd {
-      letter-spacing: -0.4em;
+      display: table;
       @include g-font-layout($_fontSizePx, $_lineHeightType);
       text-align: left;
       color: #f00;
@@ -83,13 +95,13 @@
     }
 
     &__icon {
-      letter-spacing: normal;
-      display: inline-block;
-      width: 18px;
+      display: table-cell;
+      vertical-align: middle;
+      width: 31px;
       height: 12px;
       background-image: url("../imgs/contact/contact006/contact006_mail_v1f1.png");
       background-repeat: no-repeat;
-      background-position: left top;
+      background-position: left center;
       background-size: 18px 12px;
       margin-right: 10px;
     }
