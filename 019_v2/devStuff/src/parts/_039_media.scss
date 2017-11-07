@@ -1,0 +1,245 @@
+@if $device == PC {
+  .t0-b-media {
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    img {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    &__h-upper {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      };
+
+      margin: 0 0 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__media {
+      text-align: center;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    a {
+      > img {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &__h-lower {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+
+      margin: 10px 0 0;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__caption {
+      margin: 10px 0 0;
+      text-align: center;
+
+      p {
+        @include g-font(14, 2);
+
+        text-align: center;
+      }
+    }
+
+    // width variations
+
+    &--width-l &__media {
+      img {
+        width: 100%;
+      }
+    }
+
+    &--width-m &__media {
+      img {
+        width: 75%;
+      }
+    }
+
+    &--width-s &__media {
+      img {
+        width: 50%;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    &__h-upper,
+    &__h-lower {
+      a {
+        text-decoration: none;
+        color: $textcolor;
+
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      div {
+        display: inline-block;
+      }
+    }
+  }
+
+
+  .t0-b-mediaOnly {
+    line-height: 0;
+    img {
+      width: 100%;
+    }
+
+    a {
+      > img {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    .t0-b-serviceSet#{$variation2of2} & {
+      overflow: hidden;
+      direction: ltl;
+
+      img {
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+
+  .t0-b-media {
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    img {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    &__h-upper {
+      @include g-font(16, 1);
+
+      margin: 0 0 10px;
+      text-align: center;
+    }
+
+    &__media {
+      text-align: center;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    &__h-lower {
+      @include g-font(16, 1);
+
+      margin: 10px 0 0;
+      text-align: center;
+    }
+
+    &__caption {
+      margin: 10px 0 0;
+      text-align: center;
+
+      p {
+        @include g-font(14, 2);
+
+        text-align: center;
+      }
+    }
+
+    // width variations
+
+    &--width-l &__media {
+      img {
+        width: 100%;
+      }
+    }
+
+    &--width-m &__media {
+      img {
+        width: 75%;
+      }
+    }
+
+    &--width-s &__media {
+      img {
+        width: 50%;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    &__h-upper,
+    &__h-lower {
+      a {
+        text-decoration: none;
+        color: $textcolor;
+      }
+
+      div {
+        display: inline-block;
+      }
+    }
+  }
+
+  .t0-b-mediaOnly {
+    line-height: 0;
+    img {
+      width: 100%;
+    }
+    .t0-b-serviceSet#{$variation2of2} & {
+      overflow: hidden;
+      direction: ltl;
+
+      img {
+        min-width: 100%;
+      }
+    }
+  }
+}
