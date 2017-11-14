@@ -1,0 +1,99 @@
+@if $device == PC {
+
+  .t0-b-sideBoxIconText-mail {
+    $_block: &;
+    line-height: 0;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+    &__bd {
+      text-align: center;
+      > span {
+        width: 28px;
+        height: 12px;
+        background-image: url("../imgs/t0-b-sideBoxIconText-mail/bg.png");
+        background-repeat: no-repeat;
+        background-position: 4px center;
+      }
+    }
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    a {
+      color: #555;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    // aligns
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+    // icon sizes
+    &--size-1 {
+      padding: 0 0 5px;
+      #{$_block}__bd {
+        @include g-font(16, 1);
+      }
+      #{$_block}__icon {
+        margin: (-4px) 0 0;
+      }
+    }
+  }
+
+}
+
+@if $device == SP {
+
+  .t0-b-sideBoxIconText-mail {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px 0;
+    word-break: break-all;
+    a {
+      color: #555;
+      text-decoration: underline;
+    }
+    $_block: &;
+    > div {
+      vertical-align: top;
+      text-align: center;
+    }
+    &__bd {
+      text-align: center;
+    }
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+    }
+    // icon sizes
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      #{$_block}__bd {
+        @include g-font(16, 1);
+      }
+      #{$_block}__icon {
+        width: 20px;
+        height: 12px;
+        margin: (-2px) 4px 0 0;
+        background-image: url("../imgs/t0-b-iconText-mail/1.png");
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+}
