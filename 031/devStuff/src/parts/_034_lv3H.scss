@@ -54,6 +54,7 @@
 
   .t0-b-lv3H#{$variation2of2} {
 
+    $_block: &;
     $_fontSizePx: 24;
     $_lineHeightType: 1;
     $_textColor: #8e6f40;
@@ -74,18 +75,53 @@
       }
     }
 
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 47px;
+      text-align: left;
+    }
+
+    &__icon {
       display: inline-block;
       vertical-align: middle;
-      padding: 3px 0 3px 47px;
+      width: 35px;
+      height: 35px;
       background-image: url("../imgs/heading/heading006/heading006_ico01_v2.png");
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 35px 35px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      padding: 3px 0;
     }
 
     &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 47px *.8;
+      }
+      #{$_block}__icon {
+        width: 35px *.8;
+        height: 35px *.8;
+        background-size: 35px *.8 35px *.8;
+      }
       h3 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
@@ -94,25 +130,40 @@
       // size2 の場合（サイズ指定なしと同じ）
     }
     &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 47px *1.2;
+      }
+      #{$_block}__icon {
+        width: 35px *1.2;
+        height: 35px *1.2;
+        background-size: 35px *1.2 35px *1.2;
+      }
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
 
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
-
   }
 
   .t0-b-lv3H3 {
 
+    $_block: &;
     $_fontSizePx: 24;
     $_lineHeightType: 1;
     $_textColor: #8e6f40;
@@ -133,18 +184,53 @@
       }
     }
 
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 14px;
+      text-align: left;
+    }
+
+    &__icon {
       display: inline-block;
       vertical-align: middle;
-      padding: 0 0 0 14px;
+      width: 4px;
+      height: 27px;
       background-image: url("../imgs/heading/heading007/heading007_ico01_v3.png");
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 4px 27px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      padding: 0;
     }
 
     &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 14px *.8;
+      }
+      #{$_block}__icon {
+        width: 4px *.8;
+        height: 27px *.8;
+        background-size: 4px *.8 27px *.8;
+      }
       h3 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
@@ -153,25 +239,40 @@
       // size2 の場合（サイズ指定なしと同じ）
     }
     &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 14px *1.2;
+      }
+      #{$_block}__icon {
+        width: 4px *1.2;
+        height: 27px *1.2;
+        background-size: 4px *1.2 27px *1.2;
+      }
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
 
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
-
   }
 
   .t0-b-lv3H4 {
 
+    $_block: &;
     $_fontSizePx: 24;
     $_lineHeightType: 1;
     $_textColor: #8e6f40;
@@ -192,18 +293,53 @@
       }
     }
 
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 20px;
+      text-align: left;
+    }
+
+    &__icon {
       display: inline-block;
       vertical-align: middle;
-      padding: 0 0 0 20px;
+      width: 11px;
+      height: 24px;
       background-image: url("../imgs/heading/heading008/heading008_ico01_v4.png");
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 11px 24px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      padding: 0;
     }
 
     &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 20px *.8;
+      }
+      #{$_block}__icon {
+        width: 11px *.8;
+        height: 24px *.8;
+        background-size: 11px *.8 24px *.8;
+      }
       h3 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
@@ -212,21 +348,35 @@
       // size2 の場合（サイズ指定なしと同じ）
     }
     &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 20px *1.2;
+      }
+      #{$_block}__icon {
+        width: 11px *1.2;
+        height: 24px *1.2;
+        background-size: 11px *1.2 24px *1.2;
+      }
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
 
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
-
   }
 
   .t0-b-lv3H5 {
@@ -412,28 +562,63 @@
       color: $_textColor;
     }
 
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType);
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 23px;
+      text-align: left;
+    }
+
+    &__icon {
       display: inline-block;
       vertical-align: middle;
-      padding: 3px 0 3px 23px;
+      width: 18px;
+      height: 18px;
       background-image: url("../imgs/heading/heading006/heading006_ico01_v2.png");
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 18px 18px;
+
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      padding: 3px 0;
     }
 
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
-
   }
+
 
   .t0-b-lv3H3 {
 
@@ -451,27 +636,59 @@
       color: $_textColor;
     }
 
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType);
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 7px;
+      text-align: left;
+    }
+
+    &__icon {
       display: inline-block;
       vertical-align: middle;
-      padding: 0 0 0 10px;
+      width: 2px;
+      height: 13px;
       background-image: url("../imgs/heading/heading007/heading007_ico01_v3.png");
       background-repeat: no-repeat;
       background-position: left center;
-      background-size: 4px 18px;
+      background-size: 2px 13px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      padding: 0;
     }
 
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
-
   }
 
   .t0-b-lv3H4 {
@@ -490,27 +707,59 @@
       color: $_textColor;
     }
 
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType);
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 10px;
+      text-align: left;
+    }
+
+    &__icon {
       display: inline-block;
       vertical-align: middle;
-      padding: 0 0 0 10px;
+      width: 5px;
+      height: 12px;
       background-image: url("../imgs/heading/heading008/heading008_ico01_v4.png");
       background-repeat: no-repeat;
       background-position: left center;
-      background-size: 11px 18px;
+      background-size: 5px 12px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType);
+      padding: 0;
     }
 
     &--align-l {
-      text-align: left;
+      > div {
+        margin-right: auto;
+      }
     }
     &--align-c {
-      text-align: center;
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
     &--align-r {
-      text-align: right;
+      > div {
+        margin-left: auto;
+      }
     }
-
   }
 
   .t0-b-lv3H5 {
