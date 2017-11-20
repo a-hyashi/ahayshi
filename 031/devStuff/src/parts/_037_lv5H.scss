@@ -30,20 +30,17 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-      padding: 0 10px 5px;
+      padding: 0 0 5px;
     }
 
     // ここでのcolor設定NG(aタグで囲われている為)
-    &__bd {
-      padding: 0 10px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-      }
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-      padding: 5px 10px 0;
+      padding: 5px 0 0;
     }
     
     &--size-1 {
@@ -51,11 +48,8 @@
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
         padding: 0 0 5px;
       }
-      #{$_block}__bd {
-        padding: 0 5px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
-        }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
@@ -68,17 +62,14 @@
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 0 10px 5px;
+        padding: 0 0 5px;
       }
-      #{$_block}__bd {
-        padding: 0 10px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
-        }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 5px 10px 0px;
+        padding: 5px 0 0px;
       }
     }
 
@@ -112,7 +103,6 @@
     color: $_textColor;
 
     a {
-      display: block;
       text-decoration: none;
       color: $_textColor;
       &:hover {
@@ -122,45 +112,77 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_fontSizePx_caption, $layout);
-      padding: 0 10px 5px 43px;
+      padding: 0 0 5px 34px;
     }
 
-    // ここでのcolor設定NG(aタグで囲われている為)
+    &__main {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+
     &__bd {
-      padding: 0 10px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-        display: inline-block;
+      display: table;
+      > * {
+        display: table-cell;
         vertical-align: middle;
-        padding: 0 0 0 33px;
-        background-image: url("../imgs/heading/heading015/heading015_ico01_v2.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 24px 24px;
       }
+    }
+
+    &__iconPlacer {
+      width: 34px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      background-image: url("../imgs/heading/heading015/heading015_ico01_v2.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 24px 24px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-      padding: 5px 10px 0 43px;
-
+      padding: 5px 0 0 34px;
     }
     
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-        padding: 0 5px 5px 43px;
+        padding: 0 0 5px 34px *.8;
       }
-      #{$_block}__bd {
-        padding: 0 5px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
-        }
+      #{$_block}__iconPlacer {
+        width: 34px *.8;
+      }
+      #{$_block}__icon {
+        width: 24px *.8;
+        height: 24px *.8;
+        background-size: 24px *.8 24px *.8;
+      }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-        padding: 5px 5px 0 43px;
-
+        padding: 5px 0 0 34px *.8;
       }
     }
     &--size-2 {
@@ -169,17 +191,22 @@
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 0 10px 5px 43px;
+        padding: 0 0 5px 34px *1.2;
       }
-      #{$_block}__bd {
-        padding: 0 10px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
-        }
+      #{$_block}__iconPlacer {
+        width: 34px *1.2;
+      }
+      #{$_block}__icon {
+        width: 24px *1.2;
+        height: 24px *1.2;
+        background-size: 24px *1.2 24px *1.2;
+      }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 5px 10px 0px 43px;
+        padding: 5px 0 0px 34px *1.2;
       }
     }
 
@@ -213,7 +240,6 @@
     color: $_textColor;
 
     a {
-      display: block;
       text-decoration: none;
       color: $_textColor;
       &:hover {
@@ -223,43 +249,77 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_fontSizePx_caption, $layout);
-      padding: 0 5px 5px 22px;
+      padding: 0 0 5px 16px;
     }
 
-    // ここでのcolor設定NG(aタグで囲われている為)
+    &__main {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
     &__bd {
-      padding: 0 10px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-        display: inline-block;
+      display: table;
+      > * {
+        display: table-cell;
         vertical-align: middle;
-        padding: 0 0 0 12px;
-        background-image: url("../imgs/heading/heading016/heading016_ico01_v3.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 4px 18px;
       }
+    }
+
+    &__iconPlacer {
+      width: 16px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 4px;
+      height: 18px;
+      background-image: url("../imgs/heading/heading016/heading016_ico01_v3.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 4px 18px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-      padding: 5px 10px 0 22px;
+      padding: 5px 0 0 16px;
     }
     
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-        padding: 0 5px 5px 17px;
+        padding: 0 0 5px 16px *.8;
       }
-      #{$_block}__bd {
-        padding: 0 5px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
-        }
+      #{$_block}__iconPlacer {
+        width: 16px *.8;
+      }
+      #{$_block}__icon {
+        vertical-align: 0;
+        width: 4px *.8;
+        height: 18px *.8;
+        background-size: 4px *.8 18px *.8;
+      }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-        padding: 5px 5px 0px 17px;
+        padding: 5px 0 0px 16px *.8;
       }
     }
     &--size-2 {
@@ -268,17 +328,22 @@
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 0 10px 5px 22px;
+        padding: 0 0 5px 16px *1.2;
       }
-      #{$_block}__bd {
-        padding: 0 10px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
-        }
+      #{$_block}__iconPlacer {
+        width: 16px *1.2;
+      }
+      #{$_block}__icon {
+        width: 4px *1.2;
+        height: 18px *1.2;
+        background-size: 4px *1.2 18px *1.2;
+      }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 5px 10px 0px 22px;
+        padding: 5px 0 0px 16px *1.2;
       }
     }
 
@@ -312,7 +377,6 @@
     color: $_textColor;
 
     a {
-      display: block;
       text-decoration: none;
       color: $_textColor;
       &:hover {
@@ -322,43 +386,79 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_fontSizePx_caption, $layout);
-      padding: 0 10px 5px 28px;
+      padding: 0 0 5px 22px;
     }
 
-    // ここでのcolor設定NG(aタグで囲われている為)
+    &__main {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+
     &__bd {
-      padding: 0 10px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-        display: inline-block;
+      display: table;
+      > * {
+        display: table-cell;
         vertical-align: middle;
-        padding: 0 0 0 18px;
-        background-image: url("../imgs/heading/heading017/heading017_ico01_v4.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 11px 17px;
       }
+    }
+
+    &__iconPlacer {
+      width: 22px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 11px;
+      height: 17px;
+      background-image: url("../imgs/heading/heading017/heading017_ico01_v4.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 11px 17px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      display: inline-block;
+      vertical-align: middle;
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-      padding: 5px 10px 0 28px;
+      padding: 5px 0 0 22px;
     }
     
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-        padding: 0 5px 5px 23px;
+        padding: 0 0 5px 22px *.8;
       }
-      #{$_block}__bd {
-        padding: 0 5px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
-        }
+      #{$_block}__iconPlacer {
+        width: 22px *.8;
+      }
+      #{$_block}__icon {
+        width: 11px *.8;
+        height: 17px *.8;
+        background-size: 11px *.8 17px *.8;
+      }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-        padding: 5px 5px 0px 23px;
+        padding: 5px 0 0px 22px *.8;
       }
     }
     &--size-2 {
@@ -367,17 +467,22 @@
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 0 10px 5px 28px;
+        padding: 0 0 5px 22px *1.2;
       }
-      #{$_block}__bd {
-        padding: 0 10px;
-        h5 {
-          @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
-        }
+      #{$_block}__iconPlacer {
+        width: 22px *1.2;
+      }
+      #{$_block}__icon {
+        width: 11px *1.2;
+        height: 17px *1.2;
+        background-size: 11px *1.2 17px *1.2;
+      }
+      h5 {
+        @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 5px 10px 0px 28px;
+        padding: 5px 0 0px 22px *1.2;
       }
     }
 
@@ -533,12 +638,12 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-      padding: 0 10px 5px;
+      padding: 0 0 5px;
     }
 
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
-      padding: 5px 10px;
+      padding: 5px 0;
       h5 {
         @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
         // デザイナーさんの希望により入れた値
@@ -549,7 +654,7 @@
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-      padding: 5px 10px 0;
+      padding: 5px 0 0;
     }
     
     &--size-1 {
@@ -558,7 +663,6 @@
         padding: 0 0 5px;
       }
       #{$_block}__bd {
-        padding: 0 5px;
         h5 {
           @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
         }
@@ -574,7 +678,7 @@
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 0 10px 5px;
+        padding: 0 0 5px;
       }
       #{$_block}__bd {
         padding: 0 10px;
@@ -584,7 +688,7 @@
       }
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-        padding: 5px 10px 0px;
+        padding: 5px 0 0px;
       }
     }
 
@@ -625,20 +729,17 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
-      padding: 0 5px 5px;
+      padding: 0 0 5px;
     }
 
     // ここでのcolor設定NG(aタグで囲われている為)
-    &__bd {
-      padding: 0 5px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
-      }
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
-      padding: 5px 5px 0;
+      padding: 5px 0 0;
     }
 
     &--align-l {
@@ -665,35 +766,62 @@
     color: $_textColor;
 
     a {
-      display: block;
       text-decoration: none;
       color: $_textColor;
     }
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_fontSizePx_caption);
-      padding: 0 5px 5px 25px;
+      padding: 0 0 5px 17px;
     }
 
-    // ここでのcolor設定NG(aタグで囲われている為)
+     &__main {
+       display: inline-block;
+       vertical-align: middle;
+     }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+
     &__bd {
-      padding: 0 5px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
-        display: inline-block;
+      display: table;
+      > * {
+        display: table-cell;
         vertical-align: middle;
-        padding: 0 0 0 20px;
-        background-image: url("../imgs/heading/heading015/heading015_ico01_v2.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 15px 15px;
       }
+    }
+
+    &__iconPlacer {
+      width: 17px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 12px;
+      height: 12px;
+      background-image: url("../imgs/heading/heading015/heading015_ico01_v2.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 12px 12px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
-      padding: 5px 5px 0 25px;
-
+      padding: 5px 0 0 17px;
     }
 
     &--align-l {
@@ -720,35 +848,61 @@
     color: $_textColor;
 
     a {
-      display: block;
       text-decoration: none;
       color: $_textColor;
     }
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_fontSizePx_caption);
-      padding: 0 5px 5px 15px;
+      padding: 0 0 5px 8px;
     }
 
-    // ここでのcolor設定NG(aタグで囲われている為)
+    &__main {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
     &__bd {
-      padding: 0 5px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
-        display: inline-block;
+      display: table;
+      > * {
+        display: table-cell;
         vertical-align: middle;
-        padding: 0 0 0 10px;
-        background-image: url("../imgs/heading/heading016/heading016_ico01_v3.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 4px 16px;
       }
+    }
+
+    &__iconPlacer {
+      width: 8px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 2px;
+      height: 9px;
+      background-image: url("../imgs/heading/heading016/heading016_ico01_v3.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 2px 9px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
-      padding: 5px 5px 0 15px;
-
+      padding: 5px 0 0 8px;
     }
 
     &--align-l {
@@ -775,34 +929,62 @@
     color: $_textColor;
 
     a {
-      display: block;
       text-decoration: none;
       color: $_textColor;
     }
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_fontSizePx_caption);
-      padding: 0 5px 5px 20px;
+      padding: 0 0 5px 11px;
     }
 
-    // ここでのcolor設定NG(aタグで囲われている為)
+    &__main {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+
     &__bd {
-      padding: 0 5px;
-      h5 {
-        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
-        display: inline-block;
+      display: table;
+      > * {
+        display: table-cell;
         vertical-align: middle;
-        padding: 0 0 0 15px;
-        background-image: url("../imgs/heading/heading017/heading017_ico01_v4.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 9px 13px;
       }
+    }
+
+    &__iconPlacer {
+      width: 11px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 5px;
+      height: 8px;
+      background-image: url("../imgs/heading/heading017/heading017_ico01_v4.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 5px 8px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    h5 {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
-      padding: 5px 5px 0 20px;
+      padding: 5px 0 0 11px;
     }
 
     &--align-l {
@@ -903,12 +1085,12 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
-      padding: 0 5px 5px;
+      padding: 0 0 5px;
     }
 
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
-      padding: 5px 5px;
+      padding: 5px 0;
       h5 {
         @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd);
         border-bottom: 1px solid #c6c3c0;
@@ -917,7 +1099,7 @@
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
-      padding: 5px 5px 0;
+      padding: 5px 0 0;
     }
 
     &--align-l {
