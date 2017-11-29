@@ -8,7 +8,8 @@
     $_lineHeightType: 1;
     $_textColor: #8c6f3c;
     $_textHoverColor: #816739;
-    $_textStateCurrentColor: #b67f1d;
+    $_textStateEmColor: #b67f1d;
+    $_textStateCurrentColor: #816739;
     $_borderColor: #009fa5;
     $_bgColor: #fff;
 
@@ -64,7 +65,7 @@
             &:before {
               left: 50%;
             }
-            
+
             &:after {
               right: 50%;
             }
@@ -96,7 +97,7 @@
     }
     .state-em {
       div {
-        color: $_textStateCurrentColor;
+        color: $_textStateEmColor;
       }
     }
     .state-current {
@@ -112,7 +113,7 @@
         background: $_borderColor;
       }
       div {
-        color: $_textHoverColor;
+        color: $_textStateCurrentColor;
       }
     }
     .state-current.state-em {
@@ -128,7 +129,7 @@
         background: $_borderColor;
       }
       div {
-        color: $_textHoverColor;
+        color: $_textStateCurrentColor;
       }
     }
     &--widthEqualized {
@@ -149,10 +150,11 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_textHoverColor: #82faff;
-    $_textStateCurrentColor: #d5fdff;
+    $_textStateEmColor: #d5fdff;
+    $_textStateCurrentColor: #fff;
     $_bgColor: #c8b98e;
     $_bgHoverColor: #9a8662;
-    
+
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -200,7 +202,7 @@
               }
             }
           }
-          
+
         }
       }
     }
@@ -233,7 +235,7 @@
     .state-em {
       div {
         span {
-          color: $_textStateCurrentColor;
+          color: $_textStateEmColor;
         }
       }
     }
@@ -241,7 +243,7 @@
       background-color: $_bgHoverColor;
       div {
         span {
-          color: $_textHoverColor;
+          color: $_textStateCurrentColor;
         }
       }
     }
@@ -249,7 +251,7 @@
     .state-current.state-em {
       div {
         span {
-          color: $_textHoverColor;
+          color: $_textStateCurrentColor;
         }
       }
     }
@@ -271,10 +273,11 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_textHoverColor: #ffbedb;
-    $_textStateCurrentColor: #ffddee;
+    $_textStateEmColor: #ffddee;
+    $_textStateCurrentColor: #fff;
     $_bgColor: #998979;
     $_bgHoverColor: #77614c;
-    
+
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -322,7 +325,7 @@
               }
             }
           }
-          
+
         }
       }
     }
@@ -355,7 +358,7 @@
     .state-em {
       div {
         span {
-          color: $_textStateCurrentColor;
+          color: $_textStateEmColor;
         }
       }
     }
@@ -363,7 +366,7 @@
       background-color: $_bgHoverColor;
       div {
         span {
-          color: $_textHoverColor;
+          color: $_textStateCurrentColor;
         }
       }
     }
@@ -371,7 +374,7 @@
     .state-current.state-em {
       div {
         span {
-          color: $_textHoverColor;
+          color: $_textStateCurrentColor;
         }
       }
     }
@@ -393,7 +396,8 @@
     $_lineHeightType: 1;
     $_textColor: #714f2d;
     $_textHoverColor: #ffffff;
-    $_textStateCurrentColor: #c1a242;
+    $_textStateEmColor: #c1a242;
+    $_textStateCurrentColor: #ffffff;
     $_bgHoverColor: #c6a66b;
     $_borderColor: #988776;
 
@@ -457,7 +461,7 @@
             cursor: pointer;
             transition: all .5s ease;
             max-height: 90px;
-            color: rgba(255,255,255, 0) !important;
+            color: rgba($_textColor, 0);
             text-shadow: 0 0 0 #513316, 0 90px 0 #513316;
             // End アニメーション時の動作
           }
@@ -470,15 +474,29 @@
                 // End アニメーション時の動作
               }
             }
+            &.state-em {
+              div {
+                > span {
+                  text-shadow: 0 -90px 0 $_textHoverColor, 0 0 0 $_textHoverColor;
+                }
+              }
+            }
+            &.state-current.state-em {
+              div {
+                > span {
+                  text-shadow: none;
+                }
+              }
+            }
           }
-          
         }
       }
     }
     .state-em {
       div {
         > span {
-          color: $_textStateCurrentColor;
+          text-shadow: 0 0 0 $_textStateEmColor, 0 90px 0 $_textStateEmColor;
+          transition: all .5s ease;
         }
       }
     }
@@ -487,7 +505,7 @@
         text-shadow: none;
         background-color: $_bgHoverColor;
         > span {
-        color: $_textHoverColor;
+        color: $_textStateCurrentColor;
         padding: 3px 15px;
         margin: 2px 20px;
         }
@@ -498,7 +516,7 @@
         text-shadow: none;
         background-color: $_bgHoverColor;
         > span {
-        color: $_textHoverColor;
+        color: $_textStateCurrentColor;
         padding: 3px 15px;
         margin: 2px 20px;
         }
@@ -522,7 +540,8 @@
     $_lineHeightType: 1;
     $_textColor: #8c6f3c;
     $_textHoverColor: #816739;
-    $_textStateCurrentColor: #b67f1d;
+    $_textStateEmColor: #b67f1d;
+    $_textStateCurrentColor: #816739;
     $_borderColor: #dd6f9f;
     $_bgColor: #fff;
 
@@ -578,7 +597,7 @@
             &:before {
               left: 50%;
             }
-            
+
             &:after {
               right: 50%;
             }
@@ -610,7 +629,7 @@
     }
     .state-em {
       div {
-        color: $_textStateCurrentColor;
+        color: $_textStateEmColor;
       }
     }
     .state-current {
@@ -626,7 +645,7 @@
         background: $_borderColor;
       }
       div {
-        color: $_textHoverColor;
+        color: $_textStateCurrentColor;
       }
     }
     .state-current.state-em {
@@ -642,7 +661,7 @@
         background: $_borderColor;
       }
       div {
-        color: $_textHoverColor;
+        color: $_textStateCurrentColor;
       }
     }
     &--widthEqualized {
@@ -899,7 +918,7 @@
     $_textStateCurrentColor: #b67f1d;
     $_borderColor: #dd6f9f;
     $_bgColor: #fff;
-  
+
     input[type="checkbox"].on-off {
       display: none;
     }
