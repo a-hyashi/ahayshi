@@ -176,7 +176,7 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
       padding: 10px 10px 0;
     }
-    
+
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
@@ -286,7 +286,7 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
       padding: 10px 10px 0;
     }
-    
+
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
@@ -391,7 +391,7 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
       padding: 10px 10px 0;
     }
-    
+
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
@@ -700,16 +700,24 @@
         2px 2px 1px #fff;
       padding: 6px 10px 4px;
       border-bottom: 3px solid #e5dbc0;
-      box-shadow:
-        0 2px #fff,
-        0 4px #e8e2d2;
+      position: relative;
+
+      // 2重線の間の空間を白ではなく透明にするため、before擬似要素を使用して下半分の線を指定
+      &::before {
+        content: "";
+        position: absolute;
+        border-bottom: 2px solid #e8e2d2;
+        width: 100%;
+        left: 0;
+        bottom: -7px;
+      }
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
       padding: 10px 10px 0;
     }
-    
+
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
@@ -808,16 +816,24 @@
         2px 2px 1px #fff;
       padding: 6px 10px 4px;
       border-bottom: 3px solid #f3cbdd;
-      box-shadow:
-        0 2px #fff,
-        0 4px #fde2ee;
+      position: relative;
+
+      // 2重線の間の空間を白ではなく透明にするため、before擬似要素を使用して下半分の線を指定
+      &::before {
+        content: "";
+        position: absolute;
+        border-bottom: 2px solid #fde2ee;
+        width: 100%;
+        left: 0;
+        bottom: -7px;
+      }
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
       padding: 10px 10px 0;
     }
-    
+
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
@@ -916,9 +932,17 @@
         2px 2px 1px #fff;
       padding: 6px 10px 4px;
       border-bottom: 3px solid #a5d9dc;
-      box-shadow:
-        0 2px #fff,
-        0 4px #bae7e9;
+      position: relative;
+
+      // 2重線の間の空間を白ではなく透明にするため、before擬似要素を使用して下半分の線を指定
+      &::before {
+        content: "";
+        position: absolute;
+        border-bottom: 2px solid #bae7e9;
+        width: 100%;
+        left: 0;
+        bottom: -7px;
+      }
     }
 
     &__caption-lower {
@@ -1100,7 +1124,7 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
       padding: 5px 5px 0;
     }
-    
+
     &--align-l {
       text-align: left;
     }
@@ -1169,7 +1193,7 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
       padding: 5px 5px 0;
     }
-    
+
     &--align-l {
       text-align: left;
     }
@@ -1233,7 +1257,7 @@
       @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption);
       padding: 5px 5px 0;
     }
-    
+
     &--align-l {
       text-align: left;
     }
