@@ -21,8 +21,9 @@
     }
 
     &__inner {
+      box-sizing: border-box;
+      // 参考サイト：https://goo.gl/ay8KGp
       display: flex;
-      justify-content: space-between;
       align-items: center;
       width: 100%;
       padding: 0 8px 0 0;
@@ -31,10 +32,16 @@
       box-shadow: 0px 0px 0px 1px #cabb8c;
 
       > span {
-        // justify-content: space-between;を実装させるために入らないspan削除
-        display: none;
+        flex: 0 1 20px;
+        width: 20px;
+        height: 20px;
+        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 20px 20px;
       }
       #{$_block}__img {
+        flex: 0 1 74px;
         margin: 0 10px 0 0;
         img {
           vertical-align: middle;
@@ -43,28 +50,41 @@
         }
       }
       #{$_block}__text {
+        flex: 1 1;
+        font-family: $tenorsans;
         text-align: left;
-        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: 20px 20px;
-        padding: 0 30px 0 0;
       }
 
       // 画像左
       #{$_block}--imgL & {
-        // デフォルトと同じ
-      }
-      // 画像右
-      #{$_block}--imgR & {
-        flex-flow: row-reverse nowrap;
-        padding: 0 0 0 8px;
+        padding: 0 8px 0 0;
+        > span {
+          order: 3;
+        }
         #{$_block}__img {
+          order: 1;
+          margin: 0 10px 0 0;
+        }
+        #{$_block}__text {
+          order: 2;
+          width: 100%;
+          text-align: right;
+          padding: 1px 10px 0 0;
+        }
+      } // 画像右
+      #{$_block}--imgR & {
+        padding: 0 0 0 8px;
+        > span {
+          order: 1;
+        }
+        #{$_block}__img {
+          order: 3;
           margin: 0 0 0 10px;
         }
         #{$_block}__text {
+          order: 2;
           width: 100%;
-          padding: 0 0 0 30px;
+          padding: 1px 0 0 10px;
           background-position: left center;
         }
       }
@@ -112,8 +132,8 @@
     }
 
     &__inner {
+      box-sizing: border-box;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       width: 100%;
       padding: 0 8px 0 0;
@@ -122,10 +142,16 @@
       box-shadow: 0px 0px 0px 1px #cabb8c;
 
       > span {
-        // justify-content: space-between;を実装させるために入らないspan削除
-        display: none;
+        flex: 0 1 20px;
+        width: 20px;
+        height: 20px;
+        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 20px 20px;
       }
       #{$_block}__img {
+        flex: 0 1 74px;
         margin: 0 10px 0 0;
         img {
           vertical-align: middle;
@@ -134,28 +160,41 @@
         }
       }
       #{$_block}__text {
+        flex: 1 1;
+        font-family: $tenorsans;
         text-align: left;
-        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: 20px 20px;
-        padding: 0 30px 0 0;
       }
 
       // 画像左
       #{$_block}--imgL & {
-        // デフォルトと同じ
-      }
-      // 画像右
-      #{$_block}--imgR & {
-        flex-flow: row-reverse nowrap;
-        padding: 0 0 0 8px;
+        padding: 0 8px 0 0;
+        > span {
+          order: 3;
+        }
         #{$_block}__img {
+          order: 1;
+          margin: 0 10px 0 0;
+        }
+        #{$_block}__text {
+          order: 2;
+          width: 100%;
+          text-align: right;
+          padding: 1px 10px 0 0;
+        }
+      } // 画像右
+      #{$_block}--imgR & {
+        padding: 0 0 0 8px;
+        > span {
+          order: 1;
+        }
+        #{$_block}__img {
+          order: 3;
           margin: 0 0 0 10px;
         }
         #{$_block}__text {
+          order: 2;
           width: 100%;
-          padding: 0 0 0 30px;
+          padding: 1px 0 0 10px;
           background-position: left center;
         }
       }
@@ -203,8 +242,8 @@
     }
 
     &__inner {
+      box-sizing: border-box;
       display: flex;
-      flex-flow: row-reverse nowrap;
       align-items: center;
       width: 100%;
       padding: 0 0 0 8px;
@@ -215,46 +254,65 @@
       background-position: left top;
       background-size: 8px 1px;
 
+      > span {
+        flex: 0 1 20px;
+        width: 20px;
+        height: 20px;
+        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 20px 20px;
+      }
+
       #{$_block}__img {
-        margin: 0 0 0 10px;
+        flex: 0 1 74px;
+        margin: 0 10px 0 0;
         img {
           vertical-align: middle;
           width: 74px;
           height: 74px;
         }
       }
+
       #{$_block}__text {
-        width: 100%;
+        flex: 1 1;
+        font-family: $tenorsans;
         text-align: left;
-        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 20px 20px;
-        padding: 0 0 0 30px;
       }
 
       // 画像左
       #{$_block}--imgL & {
-        //リセット
-        flex-flow: inherit;
-        justify-content: space-between;
         padding: 0 8px 0 0;
         > span {
-          display: none;
+          order: 3;
         }
         #{$_block}__img {
+          order: 1;
           margin: 0 10px 0 0;
         }
         #{$_block}__text {
-          //リセット
-          width: auto;
-          padding: 0 30px 0 0;
-          background-position: right center;
+          order: 2;
+          width: 100%;
+          text-align: right;
+          padding: 1px 10px 0 0;
         }
       }
       // 画像右
       #{$_block}--imgR & {
-        // デフォルトと同じ
+        padding: 0 0 0 8px;
+        > span {
+          order: 1;
+        }
+        #{$_block}__img {
+          order: 3;
+          margin: 0 0 0 10px;
+        }
+        #{$_block}__text {
+          order: 2;
+          width: 100%;
+          padding: 1px 0 0 10px;
+          background-position: left center;
+        }
       }
     }
 
@@ -300,8 +358,8 @@
     }
 
     &__inner {
+      box-sizing: border-box;
       display: flex;
-      flex-flow: row-reverse nowrap;
       align-items: center;
       width: 100%;
       padding: 0 0 0 8px;
@@ -312,46 +370,65 @@
       background-position: left top;
       background-size: 8px 1px;
 
+      > span {
+        flex: 0 1 20px;
+        width: 20px;
+        height: 20px;
+        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 20px 20px;
+      }
+
       #{$_block}__img {
-        margin: 0 0 0 10px;
+        flex: 0 1 74px;
+        margin: 0 10px 0 0;
         img {
           vertical-align: middle;
           width: 74px;
           height: 74px;
         }
       }
+
       #{$_block}__text {
-        width: 100%;
+        flex: 1 1;
+        font-family: $tenorsans;
         text-align: left;
-        background-image: url("../imgs/common/navItem001/Banner_arrow007_size1_v1f1.png");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 20px 20px;
-        padding: 0 0 0 30px;
       }
 
       // 画像左
       #{$_block}--imgL & {
-        //リセット
-        flex-flow: inherit;
-        justify-content: space-between;
         padding: 0 8px 0 0;
         > span {
-          display: none;
+          order: 3;
         }
         #{$_block}__img {
+          order: 1;
           margin: 0 10px 0 0;
         }
         #{$_block}__text {
-          //リセット
-          width: auto;
-          padding: 0 30px 0 0;
-          background-position: right center;
+          order: 2;
+          width: 100%;
+          text-align: right;
+          padding: 1px 10px 0 0;
         }
       }
       // 画像右
       #{$_block}--imgR & {
-        // デフォルトと同じ
+        padding: 0 0 0 8px;
+        > span {
+          order: 1;
+        }
+        #{$_block}__img {
+          order: 3;
+          margin: 0 0 0 10px;
+        }
+        #{$_block}__text {
+          order: 2;
+          width: 100%;
+          padding: 1px 0 0 10px;
+          background-position: left center;
+        }
       }
     }
 
