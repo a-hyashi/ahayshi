@@ -24,17 +24,30 @@
       }
     }
 
+    //*
+    // ** 空 span 使用（iconの為に） について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので現状使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // 参照：https://goo.gl/qarW2a
+    //*
     &__inner {
-      display: inline-block;
-      padding: 0 0 0 24px;
-      background-image: url("../imgs/common/navItem002/Link_arrow001_size3_v1.png");
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 18px 18px;
-
-      > div {
-        display: inline-block;
+      display: table;
+      > * {
+        display: table-cell;
         vertical-align: middle;
+      }
+      
+      > span {
+        width: 24px;
+        height: 22px;
+        text-align: left;
+        background-image: url("../imgs/common/navItem002/Link_arrow001_size3_v1.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 18px 18px;
+      }
+      > div {
         border-bottom: 1px solid $g-hovercolor;
       }
     }
