@@ -37,22 +37,60 @@
       text-align: center;
       padding: 12px 3.5%;
       background-color: #f6f4eb;
-    }
-    &__hd-caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-      color: $_textColor;
-      padding: 0 0 5px;
-    }
-    &__hd-h {
-      h3 {
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         color: $_textColor;
+        padding: 0 0 5px;
       }
-    }
-    &__hd-caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-      color: $_textColor;
-      padding: 5px 0 0;
+      &-h {
+        h3 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+          color: $_textColor;
+        }
+      }
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        color: $_textColor;
+        padding: 5px 0 0;
+      }
+      &--size-1 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-h {
+          h3 {
+            @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          }
+        }
+      }
+      &--size-2 {}
+      &--size-3 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-h {
+          h3 {
+            @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+      &--align-c {
+        text-align: center;
+      }
+      &--align-r {
+        text-align: right;
+      }
     }
 
     & > span + &__bd {
@@ -61,42 +99,9 @@
     &__hd + &__bd {
       padding: 30px 3.5% 0;
     }
-    &__hd--align-l {
-      text-align: left;
-    }
-    &__hd--align-c {
-      text-align: center;
-    }
-    &__hd--align-r {
-      text-align: right;
-    }
     & + div {
       // 最下部の枠があるとき
       margin-top: 2%;
-    }
-
-    &--size-1 {
-      #{$_block}-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-      }
-      #{$_block}-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-      }
-      #{$_block}-h {
-        @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
-      }
-    }
-    &--size-2 {}
-    &--size-3 {
-      #{$_block}-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-      }
-      #{$_block}-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-      }
-      #{$_block}-h {
-        @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
-      }
     }
   }
 
@@ -139,80 +144,121 @@
       > div {
         background-color: #fff;
       }
-    }
-    &__hd-caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-      color: $_textColor;
-      padding: 0 99px 5px;
-      // 大枠に敷かれている左右のborderを消す為border幅分マイナス
-      margin: 0 -2px;
-    }
-    &__hd-h {
-      position: relative;
-      padding: 0 3.5%;
 
-      // h3部分のデザインを実現する為の記述(borderを消す)
-      margin: 0 -2px;
-      // Start top・left・rightにbox-shadowで枠を表現
-      &:before {
-        position: absolute;
-        top: 49.5%;
-        left: 0;
-        content: "";
-        width: 100%;
-        height: 100%;
-        box-shadow: 2px 2px #c8a76d inset, -2px 2px #c8a76d inset;
-      }
-      // End top・left・rightにbox-shadowで枠を表現
-
-      h3 {
-        z-index: 0;
-        position: relative;
-        display: inline-block;
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         color: $_textColor;
-        padding: 0 52px;
-        margin: 0 auto;
-        background-color: #fff;
+        padding: 0 99px 5px;
+        // 大枠に敷かれている左右のborderを消す為border幅分マイナス
+        margin: 0 -2px;
+      }
 
+      &-h {
+        position: relative;
+        padding: 0 3.5%;
+  
+        // h3部分のデザインを実現する為の記述(borderを消す)
+        margin: 0 -2px;
+        // Start top・left・rightにbox-shadowで枠を表現
         &:before {
           position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 49.5%;
           left: 0;
-          display: inline-block;
-          width: 100%;
-          height: 14px;
           content: "";
-          background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
-          background-repeat: no-repeat;
-          background-position: left top;
-          background-size: 37px 14px;
+          width: 100%;
+          height: 100%;
+          box-shadow: 2px 2px #c8a76d inset, -2px 2px #c8a76d inset;
         }
-        &:after {
-          z-index: -1;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 0;
+        // End top・left・rightにbox-shadowで枠を表現
+  
+        h3 {
+          z-index: 0;
+          position: relative;
           display: inline-block;
-          width: 100%;
-          height: 14px;
-          content: "";
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+          color: $_textColor;
+          padding: 0 52px;
+          margin: 0 auto;
           background-color: #fff;
-          background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
-          background-repeat: no-repeat;
-          background-position: right top;
-          background-size: 37px 14px;
+  
+          &:before {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 14px;
+            content: "";
+            background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: 37px 14px;
+          }
+          &:after {
+            z-index: -1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            display: inline-block;
+            width: 100%;
+            height: 14px;
+            content: "";
+            background-color: #fff;
+            background-image: url("../imgs/frame/frame005/frame005_frame01_v2.png");
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-size: 37px 14px;
+          }
         }
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        color: $_textColor;
+        padding: 5px 99px 0;
+      }
+
+      &--size-1 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-h {
+          h3 {
+          @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          }
+        }
+      }
+      &--size-2 {}
+      &--size-3 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-h {
+          h3 {
+          @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+      &--align-c {
+        text-align: center;
+      }
+      &--align-r {
+        text-align: right;
       }
     }
 
-    &__hd-caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-      color: $_textColor;
-      padding: 5px 99px 0;
-    }
     // Start hd-hがない時の指定
     & > span + &__bd {
       margin: 0;
@@ -228,41 +274,10 @@
     &__hd + &__bd {
       padding: 30px 3.5% 0;
     }
-    &__hd--align-l {
-      text-align: left;
-    }
-    &__hd--align-c {
-      text-align: center;
-    }
-    &__hd--align-r {
-      text-align: right;
-    }
+
     & + div {
       // 最下部の枠があるとき
       margin-top: 2%;
-    }
-    &--size-1 {
-      #{$_block}-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-      }
-      #{$_block}-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-      }
-      #{$_block}-h {
-        @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
-      }
-    }
-    &--size-2 {}
-    &--size-3 {
-      #{$_block}-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-      }
-      #{$_block}-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-      }
-      #{$_block}-h {
-        @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
-      }
     }
   }
 
@@ -301,63 +316,69 @@
     &__hd {
       font-family: $tenorsans;
       text-align: center;
-    }
-    &__hd-caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-      color: $_textColor;
-      padding: 0 0 5px;
-    }
-    &__hd-h {
-      h3 {
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         color: $_textColor;
+        padding: 0 0 5px;
       }
-    }
-    &__hd-caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-      color: $_textColor;
-      padding: 5px 0 0;
+      &-h {
+        h3 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+          color: $_textColor;
+        }
+      }
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        color: $_textColor;
+        padding: 5px 0 0;
+      }
+
+      &--size-1 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-h {
+          h3 {
+            @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          }
+        }
+      }
+      &--size-2 {}
+      &--size-3 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+        }
+        #{$_block}__hd-h {
+          h3 {
+            @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+      &--align-c {
+        text-align: center;
+      }
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__hd + &__bd {
       padding: 30px 0 0 0;
     }
-    &__hd--align-l {
-      text-align: left;
-    }
-    &__hd--align-c {
-      text-align: center;
-    }
-    &__hd--align-r {
-      text-align: right;
-    }
     & + div {
       // 最下部の枠があるとき
       margin-top: 2%;
-    }
-
-    &--size-1 {
-      #{$_block}-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-      }
-      #{$_block}-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-      }
-      #{$_block}-h {
-        @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
-      }
-    }
-    &--size-2 {}
-    &--size-3 {
-      #{$_block}-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-      }
-      #{$_block}-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-      }
-      #{$_block}-h {
-        @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
-      }
     }
   }
 
@@ -391,42 +412,44 @@
       text-align: center;
       padding: 12px 20px;
       background-color: #f6f4eb;
-    }
-    &__hd-caption-upper {
-      // Start line-heightがイレギュラーの為の指定
-      font-size: $_fontSizePx_caption;
-      line-height: 1.5;
-      // End line-heightがイレギュラーの為の指定
-      color: $_textColor;
-      padding: 0 0 5px;
-    }
-    &__hd-h {
-      h3 {
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
+
+      &-caption-upper {
+        // Start line-heightがイレギュラーの為の指定
+        font-size: $_fontSizePx_caption;
+        line-height: 1.5;
+        // End line-heightがイレギュラーの為の指定
         color: $_textColor;
+        padding: 0 0 5px;
+      }
+      &-h {
+        h3 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
+          color: $_textColor;
+        }
+      }
+      &-caption-lower {
+        // Start line-heightがイレギュラーの為の指定
+        font-size: $_fontSizePx_caption;
+        line-height: 1.5;
+        // End line-heightがイレギュラーの為の指定
+        padding: 5px 0 0;
+      }
+      &--align-l {
+        text-align: left;
+      }
+      &--align-c {
+        text-align: center;
+      }
+      &--align-r {
+        text-align: right;
       }
     }
-    &__hd-caption-lower {
-      // Start line-heightがイレギュラーの為の指定
-      font-size: $_fontSizePx_caption;
-      line-height: 1.5;
-      // End line-heightがイレギュラーの為の指定
-      padding: 5px 0 0;
-    }
+    
     & > span + &__bd {
       margin: 20px 20px 0;
     }
     &__hd + &__bd {
       padding: 20px 20px 0;
-    }
-    &__hd--align-l {
-      text-align: left;
-    }
-    &__hd--align-c {
-      text-align: center;
-    }
-    &__hd--align-r {
-      text-align: right;
     }
     & + div {
       // 最下部の枠があるとき
@@ -470,82 +493,93 @@
       > div {
         background-color: #fff;
       }
-    }
-    &__hd-caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-      color: $_textColor;
-      padding: 0 99px 5px;
-      // 大枠に敷かれている左右のborderを消す為border幅分マイナス
-      margin: 0 -1px;
-    }
-    &__hd-h {
-      position: relative;
-      padding: 0 3.5%;
 
-      // h3部分のデザインを実現する為の記述(borderを消す)
-      margin: 0 -1px;
-      // Start top・left・rightにbox-shadowで枠を表現
-      &:before {
-        position: absolute;
-        top: 49.5%;
-        left: 0;
-        content: "";
-        width: 100%;
-        height: 100%;
-        box-shadow: 1px 1px #c8a76d inset, -1px 1px #c8a76d inset;
-      }
-      // End top・left・rightにbox-shadowで枠を表現
-
-      h3 {
-        z-index: 0;
-        position: relative;
-        display: inline-block;
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         color: $_textColor;
-        padding: 0 52px;
-        margin: 0 auto;
-        background-color: #fff;
-
+        padding: 0 99px 5px;
+        // 大枠に敷かれている左右のborderを消す為border幅分マイナス
+        margin: 0 -1px;
+      }
+      &-h {
+        position: relative;
+        padding: 0 3.5%;
+  
+        // h3部分のデザインを実現する為の記述(borderを消す)
+        margin: 0 -1px;
+        // Start top・left・rightにbox-shadowで枠を表現
         &:before {
           position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 49.5%;
           left: 0;
-          display: inline-block;
-          width: 100%;
-          height: 14px *.5;
           content: "";
-          background-image: url("../imgs/frame/frame005/sp_frame005_frame01_v2_07.png");
-          background-repeat: no-repeat;
-          background-position: left top;
-          background-size: 38px *.5 14px *.5;
+          width: 100%;
+          height: 100%;
+          box-shadow: 1px 1px #c8a76d inset, -1px 1px #c8a76d inset;
         }
-        &:after {
-          z-index: -1;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 0;
+        // End top・left・rightにbox-shadowで枠を表現
+  
+        h3 {
+          z-index: 0;
+          position: relative;
           display: inline-block;
-          width: 100%;
-          height: 14px *.5;
-          content: "";
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
+          color: $_textColor;
+          padding: 0 52px;
+          margin: 0 auto;
           background-color: #fff;
-          background-image: url("../imgs/frame/frame005/sp_frame005_frame01_v2_07.png");
-          background-repeat: no-repeat;
-          background-position: right top;
-          background-size: 38px *.5 14px *.5;
+  
+          &:before {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 14px *.5;
+            content: "";
+            background-image: url("../imgs/frame/frame005/sp_frame005_frame01_v2_07.png");
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: 38px *.5 14px *.5;
+          }
+          &:after {
+            z-index: -1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            display: inline-block;
+            width: 100%;
+            height: 14px *.5;
+            content: "";
+            background-color: #fff;
+            background-image: url("../imgs/frame/frame005/sp_frame005_frame01_v2_07.png");
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-size: 38px *.5 14px *.5;
+          }
         }
       }
+      &-caption-lower {
+        // Start line-heightがイレギュラーの為の指定
+        font-size: $_fontSizePx_caption;
+        line-height: 1.5;
+        // End line-heightがイレギュラーの為の指定
+        color: $_textColor;
+        padding: 5px 30px *.5 0;
+      }
+      &--align-l {
+        text-align: left;
+      }
+      &--align-c {
+        text-align: center;
+      }
+      &--align-r {
+        text-align: right;
+      }
     }
-    &__hd-caption-lower {
-      // Start line-heightがイレギュラーの為の指定
-      font-size: $_fontSizePx_caption;
-      line-height: 1.5;
-      // End line-heightがイレギュラーの為の指定
-      color: $_textColor;
-      padding: 5px 30px *.5 0;
-    }
+    
     &__bd {
       padding: 10px 20px 0;
       text-align: left;
@@ -559,15 +593,6 @@
     // End hd-hがない時の指定
     &__hd + &__bd {
       padding: 10px 20px 0;
-    }
-    &__hd--align-l {
-      text-align: left;
-    }
-    &__hd--align-c {
-      text-align: center;
-    }
-    &__hd--align-r {
-      text-align: right;
     }
     & + div {
       // 最下部の枠があるとき
@@ -598,35 +623,36 @@
     &__hd {
       font-family: $tenorsans;
       text-align: center;
-    }
-    &__hd-caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-      color: $_textColor;
-      padding: 0 0 5px;
-    }
-    &__hd-h {
-      h3 {
-        @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         color: $_textColor;
+        padding: 0 0 5px;
       }
-    }
-    &__hd-caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-      color: $_textColor;
-      padding: 5px 0 0;
+      &-h {
+        h3 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType);
+          color: $_textColor;
+        }
+      }
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        color: $_textColor;
+        padding: 5px 0 0;
+      }
+      &--align-l {
+        text-align: left;
+      }
+      &--align-c {
+        text-align: center;
+      }
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__hd + &__bd {
       padding: 20px 0 0 0;
-    }
-    &__hd--align-l {
-      text-align: left;
-    }
-    &__hd--align-c {
-      text-align: center;
-    }
-    &__hd--align-r {
-      text-align: right;
     }
     & + div {
       // 最下部の枠があるとき
