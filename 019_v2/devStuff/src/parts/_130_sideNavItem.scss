@@ -1,109 +1,55 @@
 @if $device == PC {
   .t0-b-sideNavItem {
-    > a {
-      display: table;
+
+    a {
+      display: block;
       text-decoration: none;
+    }
+
+    &__inner {
+      display: table;
+      width: 100%;
       box-sizing: border-box;
       color: #0b6678;
 
-      > div {
-        display: table;
-
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          width: 24px;
-          height: 24px;
-          background: url("../imgs/t0-b-navItem/1.png")no-repeat 0 50%;
-          background-size: 24px 24px;
-          padding: 0 6px 0 0;
-        }
-
-        > div {
-          @include g-font(16, 1);
-
-          border-bottom: 2px solid #45b1c7;
-
-          &:hover {
-            color: $hovercolor;
-          }
-        }
-      }
-    }
-
-    > div {
-      display: table;
-      color: #0b6678;
-
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
       > span {
+        display: table-cell;
         width: 24px;
         height: 24px;
         background: url("../imgs/t0-b-navItem/1.png")no-repeat 0 50%;
         background-size: 24px 24px;
-        padding: 0 6px 0 0;
+        padding: 0 8px 0 0;
       }
 
       > div {
-        @include g-font(16, 1);
-
+        @include g-font(16, 0);
+        display: inline;
         border-bottom: 2px solid #45b1c7;
+        a:hover & {
+          color: $hovercolor;
+        }
       }
     }
   }
 }
 
 @if $device == SP {
+
   .t0-b-sideNavItem {
-    > a {
-      display: table;
-      margin-left: 2.5%;
+    margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
+
+    a {
       text-decoration: none;
-      box-sizing: border-box;
-      color: #0b6678;
-
-      > div {
-        display: table;
-
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          width: 24px;
-          height: 24px;
-          background: url("../imgs/t0-b-navItem/1.png")no-repeat 0 50%;
-          background-size: 24px 24px;
-          padding: 0 6px 0 0;
-        }
-
-        > div {
-          @include g-font(16, 1);
-          font-weight: bold;
-          text-decoration: underline;
-        }
-      }
+      display: block;
     }
 
-    > div {
-      display: table;
-      margin-left: 2.5%;
+    &__inner {
+      box-sizing: border-box;
       color: #0b6678;
-
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
+      display: table;
 
       > span {
+        display: table-cell;
         width: 24px;
         height: 24px;
         background: url("../imgs/t0-b-navItem/1.png")no-repeat 0 50%;
@@ -112,9 +58,10 @@
       }
 
       > div {
-        @include g-font(16, 1);
+        @include g-font(16, 0);
+        display: inline;
+        border-bottom: 1px solid #555;
         font-weight: bold;
-        text-decoration: underline;
       }
     }
   }

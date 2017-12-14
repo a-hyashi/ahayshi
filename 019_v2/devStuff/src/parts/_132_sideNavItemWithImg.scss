@@ -2,108 +2,64 @@
 
   .t0-b-sideNavItemWithImg#{$variation1of2} {
     $_block: &;
-
-    > a {
-      background-color: #fff;
-      padding: 1px 0;
+    a {
       display: block;
-      border: 2px solid #ccc;
-      box-sizing: border-box;
       text-decoration: none;
-      height: 100%;
-      color: $textcolor;
-
       &:hover {
-        opacity: 0.8;
-      }
-
-      > div {
-        display: table;
-        width: 100%;
-        height: 100%;
-
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          display: none;
-        }
+        opacity: .8;
       }
     }
 
-    > div {
+    &__inner {
       display: table;
-      border: 2px solid #ccc;
       box-sizing: border-box;
-      text-decoration: none;
-      width: 100%;
-      height: 100%;
       background-color: #fff;
+      border: 2px solid #ccc;
       padding: 1px 0;
+      height: 100%;
+      color: $textcolor;
 
-      > div {
-        display: table-cell;
-        vertical-align: middle;
+      #{$_block}--imgL & {
+        direction: ltr;
       }
-
-      > span {
-        display: none;
+      #{$_block}--imgR & {
+        direction: rtl;
       }
     }
 
     &__img {
+      display: table-cell;
+      vertical-align: middle;
       text-align: center;
       padding: 0 10px 0 0;
-
       img {
         width: 75px;
         height: 75px;
         display: block;
         margin: (-1px) 0;
       }
+      #{$_block}--imgL & {
+        padding-right: 10px;
+      }
+      #{$_block}--imgR & {
+        padding-right: 0;
+      }
     }
 
     &__text {
+      display: table-cell;
+      vertical-align: middle;
       @include g-font(16, 1);
-
       width: 100%;
       background: url("../imgs/t0-b-navItem/8.png") no-repeat right 4px top 50%, url("../imgs/t0-b-navItem/bg3.png") repeat-y right 1px top 0;
-    }
-
-    // directions
-
-    &--imgL > a > div,
-    &--imgL > div {
-      direction: ltr;
-
-      > div {
+      #{$_block}--imgL & {
         direction: ltr;
-        padding-right: 30px;
-      }
-
-      #{$_block}__img {
         padding-right: 10px;
       }
-    }
-
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-
-      > div {
+      #{$_block}--imgR & {
         direction: ltr;
-        padding-left: 10px;
-      }
-
-      #{$_block}__text {
         padding-left: 30px;
         background: url("../imgs/t0-b-navItem/8.png") no-repeat 6px 50%, url("../imgs/t0-b-navItem/bg3.png") repeat-y 1px 0;
-      }
-
-      #{$_block}__img {
-        padding-right: 0;
       }
     }
   }
@@ -111,55 +67,34 @@
   .t0-b-sideNavItemWithImg#{$variation2of2} {
    $_block: &;
 
-    padding: 2px 0 3px;
-    color: #fff;
-
-    > a {
-      background: linear-gradient(#46b1c7, #52b3c7, #2d9ab1);
+    &__inner {
+      display: table;
+      background: linear-gradient(#46b1c7, #56b7cb, #2d9ab1);
       border-radius: 4px;
       padding: 5px 0;
-      display: block;
       box-sizing: border-box;
-      text-decoration: none;
       height: 100%;
       color: #fff;
       box-shadow: 0 3px #777, 0 -2px #99d4e0;
-
-      &:hover {
-        opacity: 0.8;
+      #{$_block}--imgL & {
+        direction: ltr;
       }
-
-      > div {
-        background: url("../imgs/t0-b-navItem/9.png") no-repeat right 10px top 50%;
-        display: table;
-        width: 100%;
-        height: 100%;
-
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-        }
+      #{$_block}--imgR & {
+        direction: rtl;
       }
     }
 
-    > div {
-      border-radius: 4px;
-      padding: 5px 0;
-      display: table;
-      box-sizing: border-box;
+    a {
+      display: block;
       text-decoration: none;
-      width: 100%;
-      height: 100%;
-      box-shadow: 0 3px #777, 0 -2px #99d4e0;
-      background: url("../imgs/t0-b-navItem/9.png") no-repeat right 10px top 50%, linear-gradient(#46b1c7, #52b3c7, #2d9ab1);
-
-      > div {
-        display: table-cell;
-        vertical-align: middle;
+      &:hover {
+        opacity: .8;
       }
     }
 
     &__img {
+      display: table-cell;
+      vertical-align: middle;
       text-align: center;
       padding: 0 10px 0 5px;
 
@@ -169,51 +104,28 @@
         border: 1px solid #fff;
         display: block;
       }
-    }
-
-    &__text {
-      @include g-font(16, 1);
-
-      width: 100%;
-    }
-
-    // directions
-
-    &--imgL > a > div,
-    &--imgL > div {
-      direction: ltr;
-
-      > div {
-        direction: ltr;
-        padding-right: 40px;
-      }
-
-      #{$_block}__img {
+      #{$_block}--imgL & {
         padding-right: 10px;
       }
-    }
-
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      background: url("../imgs/t0-b-navItem/9.png") no-repeat 10px 50%, linear-gradient(#46b1c7, #52b3c7, #2d9ab1);
-
-      > div {
-        direction: ltr;
-        padding-left: 10px;
-      }
-
-      #{$_block}__text {
-        padding-left: 40px;
-      }
-
-      #{$_block}__img {
+      #{$_block}--imgR & {
         padding-right: 5px;
       }
     }
 
-    &--imgR > a > div {
-      background: url("../imgs/t0-b-navItem/9.png") no-repeat 10px 50%;
+    &__text {
+      display: table-cell;
+      vertical-align: middle;
+      @include g-font(16, 1);
+      background: url("../imgs/t0-b-navItem/9.png") no-repeat right 10px top 50%, linear-gradient(#46b1c7, #56b7cb, #2d9ab1);
+      width: 100%;
+      direction: ltr;
+      #{$_block}--imgL & {
+        padding-right: 5px;
+      }
+      #{$_block}--imgR & {
+        padding-left: 40px;
+        background: url("../imgs/t0-b-navItem/9.png") no-repeat 10px 50%;
+      }
     }
   }
 }
@@ -221,57 +133,40 @@
 @if $device == SP {
   .t0-b-sideNavItemWithImg#{$variation1of2} {
     $_block: &;
-
-    width: 95%;
-    margin: 0 auto;
-
-    > a {
-      background-color: #fff;
-      padding: 1px 0;
+    a {
       display: block;
-      border: 2px solid #ccc;
-      box-sizing: border-box;
       text-decoration: none;
-      height: 100%;
-      color: $textcolor;
-
-      > div {
-        display: table;
-        width: 100%;
-        height: 100%;
-
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          display: none;
-        }
+      &:hover {
+        opacity: .8;
       }
     }
 
-    > div {
+    &__inner {
       display: table;
-      border: 2px solid #ccc;
-      box-sizing: border-box;
-      text-decoration: none;
-      width: 100%;
-      height: 100%;
+      width: 95%;
+      margin: 0 auto;
       background-color: #fff;
       padding: 1px 0;
+      border: 2px solid #ccc;
+      box-sizing: border-box;
+      height: 100%;
+      color: $textcolor;
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
 
-      > div {
-        display: table-cell;
-        vertical-align: middle;
+      #{$_block}--imgR & {
+        direction: rtl;
       }
 
       > span {
-        display: none;
       }
+
     }
 
     &__img {
+      display: table-cell;
+      vertical-align: middle;
       text-align: center;
       padding: 0 10px 0 0;
 
@@ -281,47 +176,31 @@
         display: block;
         margin: (-1px) 0;
       }
+      #{$_block}--imgL & {
+        padding-right: 10px;
+      }
+      #{$_block}--imgR & {
+        padding-right: 0px;
+      }
+      > span {
+      }
+
     }
 
     &__text {
+      display: table-cell;
+      vertical-align: middle;
       @include g-font(16, 1);
-
       width: 100%;
-      background: url("../imgs/t0-b-navItem/8.png") no-repeat right 4px top 50%, url("../imgs/t0-b-navItem/bg3.png") repeat-y right 1px top 0;
-    }
-
-    // directions
-
-    &--imgL > a > div,
-    &--imgL > div {
       direction: ltr;
+      background: url("../imgs/t0-b-navItem/8.png") no-repeat right 4px top 50%, url("../imgs/t0-b-navItem/bg3.png") repeat-y right 1px top 0;
 
-      > div {
-        direction: ltr;
-        padding-right: 30px;
-      }
-
-      #{$_block}__img {
+      #{$_block}--imgL & {
         padding-right: 10px;
       }
-    }
-
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-
-      > div {
-        direction: ltr;
-        padding-left: 10px;
-      }
-
-      #{$_block}__text {
+      #{$_block}--imgR & {
         padding-left: 30px;
         background: url("../imgs/t0-b-navItem/8.png") no-repeat 6px 50%, url("../imgs/t0-b-navItem/bg3.png") repeat-y 1px 0;
-      }
-
-      #{$_block}__img {
-        padding-right: 0;
       }
     }
   }
@@ -329,32 +208,36 @@
   .t0-b-sideNavItemWithImg#{$variation2of2} {
     $_block: &;
 
-    width: 95%;
-    margin: 0 auto;
-    padding: 2px 0 3px;
-    color: #fff;
-
-    > a {
-      background: linear-gradient(#46b1c7, #52b3c7, #2d9ab1);
+    a {
+      display: block;
+      text-decoration: none;
+      &:hover {
+        opacity: .8;
+      }
+    }
+    &__inner {
+      display: table;
+      background: linear-gradient(#46b1c7, #56b7cb, #2d9ab1);
       border-radius: 4px;
       padding: 5px 0;
-      display: block;
       box-sizing: border-box;
-      text-decoration: none;
       height: 100%;
       color: #fff;
       box-shadow: 0 3px #777, 0 -2px #99d4e0;
+      width: 95%;
+      margin: 0 auto;
+      padding: 2px 0 3px;
+      color: #fff;
 
-      > div {
-        background: url("../imgs/t0-b-navItem/9.png") no-repeat right 10px top 50%;
-        display: table;
-        width: 100%;
-        height: 100%;
+      #{$_block}--imgL & {
+        direction: ltr;
+      }
 
-        > div {
-          display: table-cell;
-          vertical-align: middle;
-        }
+      #{$_block}--imgR & {
+        direction: rtl;
+      }
+
+      > span {
       }
     }
 
@@ -380,56 +263,37 @@
       padding: 0 10px 0 5px;
 
       img {
+        display: table-cell;
+        vertical-align: middle;
         width: 66px;
         height: 66px;
         border: 1px solid #fff;
         display: block;
       }
-    }
-
-    &__text {
-      @include g-font(16, 1);
-
-      width: 100%;
-    }
-
-    // directions
-
-    &--imgL > a > div,
-    &--imgL > div {
-      direction: ltr;
-
-      > div {
-        direction: ltr;
-        padding-right: 40px;
-      }
-
-      #{$_block}__img {
+      #{$_block}--imgL & {
         padding-right: 10px;
       }
-    }
-
-    &--imgR > a > div,
-    &--imgR > div {
-      direction: rtl;
-      background: url("../imgs/t0-b-navItem/9.png") no-repeat 10px 50%, linear-gradient(#46b1c7, #52b3c7, #2d9ab1);
-
-      > div {
-        direction: ltr;
-        padding-left: 10px;
-      }
-
-      #{$_block}__text {
-        padding-left: 40px;
-      }
-
-      #{$_block}__img {
+      #{$_block}--imgR & {
         padding-right: 5px;
       }
     }
 
-    &--imgR > a > div {
-      background: url("../imgs/t0-b-navItem/9.png") no-repeat 10px 50%;
+    &__text {
+      display: table-cell;
+      vertical-align: middle;
+      @include g-font(16, 1);
+      width: 100%;
+      direction: ltr;
+      background: url("../imgs/t0-b-navItem/9.png") no-repeat 10px 50%, linear-gradient(#46b1c7, #56b7cb, #2d9ab1);
+
+      #{$_block}--imgL & {
+        padding-left: 40px;
+      }
+
+      #{$_block}--imgR & {
+        background: url("../imgs/t0-b-navItem/9.png") no-repeat 10px 50%;
+        padding-left: 40px;
+      }
     }
   }
 }
