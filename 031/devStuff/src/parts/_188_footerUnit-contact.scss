@@ -7,6 +7,13 @@
     $_textColor: #b67f1d;
     $_textColor_note: #664b3a;
 
+    $_fontSizePx_note: 16;
+    $_fontSizeDifference_note: 2;
+    $_fontSizePx_note_s: $_fontSizePx_note - $_fontSizeDifference_note;
+    $_fontSizePx_note_m: $_fontSizePx_note;
+    $_fontSizePx_note_l: $_fontSizePx_note + $_fontSizeDifference_note;
+    $_fontSizePx_note_ll: $_fontSizePx_note + $_fontSizeDifference_note*2;
+
     $_fontSizePx_ruby: 16;
     $_fontSizeDifference_ruby: 2;
     $_fontSizePx_ruby_s: $_fontSizePx_ruby - $_fontSizeDifference_ruby;
@@ -47,7 +54,7 @@
     }
     &__note {
       font-family: $tenorsans;
-      @include g-font($_fontSizePx_ruby_m, $_lineHeightType);
+      @include g-font($_fontSizePx_note, $_lineHeightType);
       color: $_textColor_note;
       a {
         color: $_textColor_note;
@@ -98,6 +105,9 @@
       padding: 0 6px 0 0;
     }
     &--size-1 {
+      #{$_block}__note {
+        @include g-font($_fontSizePx_note_s, $_lineHeightType);
+      }
       #{$_block}__iconTextRuby {
         @include g-font($_fontSizePx_ruby_s, $_lineHeightType);
       }
@@ -130,6 +140,9 @@
       }
     }
     &--size-2 {
+      #{$_block}__note {
+        @include g-font($_fontSizePx_note_m, $_lineHeightType);
+      }
       #{$_block}__iconTextRuby {
         @include g-font($_fontSizePx_ruby_m, $_lineHeightType);
       }
@@ -162,6 +175,9 @@
       }
     }
     &--size-3 {
+      #{$_block}__note {
+        @include g-font($_fontSizePx_note_l, $_lineHeightType);
+      }
       #{$_block}__iconTextRuby {
         @include g-font($_fontSizePx_ruby_l, $_lineHeightType);
       }
@@ -194,6 +210,9 @@
       }
     }
     &--size-4 {
+      #{$_block}__note {
+        @include g-font($_fontSizePx_note_ll, $_lineHeightType);
+      }
       #{$_block}__iconTextRuby {
         @include g-font($_fontSizePx_ruby_ll, $_lineHeightType);
       }
