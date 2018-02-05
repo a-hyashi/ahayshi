@@ -24,6 +24,9 @@
     color: $_textColor;
     white-space: nowrap;
 
+    // 横幅が内容の量によって変化し、番号とルビの右端が揃うように。
+    display: inline-block;
+
     &__ruby {
       @include g-font($_fontSizePx_ruby_m, $_lineHeightType);
       text-align: right;
@@ -184,10 +187,13 @@
         background-size: 29px 46px;
       }
     }
-    // サイト名中央に入ったときのみ中央寄せの見た目にする
-    .t0-b-headerSingle &__bd {
-      margin: 0 auto;
+    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    .t0-b-headerSingle & {
+      &__bd {
+        margin: 0 auto;
+      }
     }
+    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
 }// PC
