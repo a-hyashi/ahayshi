@@ -389,72 +389,77 @@
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 35px;
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 50px;
+    $_lineColor: #a9895a;
+
     font-family: $tenorsans;
     color: $_textColor;
     text-align: center;
-    background-color: #fff;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
 
     a {
       display: block;
       text-decoration: none;
       color: $_textColor;
+
       &:hover {
         color: $g-hovercolor;
       }
     }
-
-    > div {
-      position: relative;
-      padding: 0 20px;
-    }
-
-    > div::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-image: url("../imgs/heading/heading031/heading031_ico01_v5.png");
-      background-repeat: repeat-x;
-      background-position: left center;
-    }
-
+    
     h2 {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-      padding: 0 35px;
-      background-color: #fff;
-    }
+      display: inline-block;
+      position: relative;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
 
-    &--size-1 {
-      h2 {
-        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
-        padding: 0 30px;
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        right: 100%;
       }
-    }
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-    &--size-3 {
-      h2 {
-        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
-        padding: 0 35px;
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        left: 100%;
       }
     }
 
     &--align-l {
       text-align: left;
+
+      h2 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
-    }
 
+      h2 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
   }
 
   .t0-b-lv2H6 {
@@ -1076,10 +1081,17 @@
     $_lineHeightType: 1;
     $_textColor: #8e6f40;
 
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 15px;
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 20px;
+    $_lineColor: #a9895a;
+
     font-family: $tenorsans;
     color: $_textColor;
     text-align: center;
-    background-color: #fff;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
 
     a {
       display: block;
@@ -1087,42 +1099,56 @@
       color: $_textColor;
     }
 
-    > div {
-      position: relative;
-      padding: 0 10px;
-    }
-
-    > div::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-image: url("../imgs/heading/heading031/heading031_ico01_v5.png");
-      background-repeat: repeat-x;
-      background-position: left center;
-    }
-
     h2 {
+      @include g-font($_fontSizePx, $_lineHeightType);
       position: relative;
       display: inline-block;
       vertical-align: middle;
-      @include g-font($_fontSizePx, $_lineHeightType);
-      padding: 0 17px;
-      background-color: #fff;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        left: 100%;
+      }
     }
 
     &--align-l {
       text-align: left;
+
+      h2 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
-    }
 
+      h2 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
   }
 
   .t0-b-lv2H6 {
