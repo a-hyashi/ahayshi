@@ -374,6 +374,9 @@
 
     $_block: &;
 
+    overflow: hidden;
+    text-align: center;
+
     h3 {
       @if $layout == "N00" {
         @include g-font(26, 1);
@@ -436,6 +439,10 @@
 
     &--align-l {
       text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
 
     &--align-c {
@@ -444,6 +451,10 @@
 
     &--align-r {
       text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
 
     a {
@@ -684,6 +695,10 @@
 
     $_textColor: #555;
 
+    text-align: center;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
+
     h3 {
       @include g-font(18, 1);
       padding: 0 0 0 12px;
@@ -715,12 +730,20 @@
     }
     &--align-l {
       text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
     &--align-c {
       text-align: center;
     }
     &--align-r {
       text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
     a {
       text-decoration: none;
