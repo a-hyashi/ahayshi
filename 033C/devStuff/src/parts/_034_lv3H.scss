@@ -285,6 +285,232 @@
       }
     }
   }
+
+  .t0-b-lv3H4 {
+
+    color: #555;
+
+    h3 {
+      @if $layout == "N00" {
+        @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
+      }
+    }
+
+    &--size-1 {
+
+      h3 {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+    }
+
+    &--size-2 {}
+
+    &--size-3 {
+
+      h3 {
+        @if $layout == "N00" {
+          @include g-font(30, 1);
+        } @else {
+          @include g-font(26, 1);
+        }
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: #555;
+
+      &:hover {
+        color: #265d9b;
+      }
+    }
+  }
+
+  .t0-b-lv3H5 {
+
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 22px;
+
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 50px;
+    $_lineColor: #163C82;
+
+    overflow: hidden;
+    text-align: center;
+
+    h3 {
+      @if $layout == "N00" {
+        @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
+      }
+
+      position: relative;
+      display: inline-block;
+      line-height: 1.25;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        left: 100%;
+      }
+    }
+
+    &--size-1 {
+
+      h3 {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+
+      }
+    }
+
+    &--size-2 {}
+
+    &--size-3 {
+
+      h3 {
+        @if $layout == "N00" {
+          @include g-font(30, 1);
+        } @else {
+          @include g-font(26, 1);
+        }
+
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #555;
+      width: 100%;
+
+      &:hover {
+        color: #265d9b;
+      }
+    }
+
+  }
+
+  .t0-b-lv3H6 {
+
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 8px;
+    color: #555;
+
+    text-align: center;
+
+    h3 {
+      width: 100%;
+      @if $layout == "N00" {
+        @include g-font(26, 1);
+      } @else {
+        @include g-font(22, 1);
+      }
+    }
+    &--size-1 {
+
+      h3 {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+      }
+    }
+
+    &--size-2 {}
+
+    &--size-3 {
+
+      h3 {
+        @if $layout == "N00" {
+          @include g-font(30, 1);
+        } @else {
+          @include g-font(26, 1);
+        }
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: #555;
+      width: 100%;
+
+      &:hover {
+        color: #265d9b;
+      }
+    }
+  }
+
 }
 
 @if $device == SP {
@@ -426,6 +652,118 @@
       &:hover {
         color: #265d9b;
       }
+    }
+  }
+
+  .t0-b-lv3H4 {
+    color: #555;
+
+    h3 {
+      @include g-font(18, 1);
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+    a {
+      text-decoration: none;
+      color: #555;
+    }
+  }
+
+  .t0-b-lv3H5 {
+
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 15px;
+
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 20px;
+    $_lineColor: #163C82;
+
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #555;
+
+    text-align: center;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      padding: 0 0 0 12px;
+      position: relative;
+      display: inline-block;
+      line-height: 1.25;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        left: 100%;
+      }
+    }
+    &--align-l {
+      text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #555;
+    }
+  }
+
+  .t0-b-lv3H6 {
+    text-align: center;
+    border-bottom: 1px solid #bbb;
+    padding: 0 0 4px;
+    h3 {
+      @include g-font(18, 1);
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+    a {
+      text-decoration: none;
+      color: #555;
     }
   }
 
