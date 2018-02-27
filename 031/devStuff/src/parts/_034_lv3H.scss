@@ -388,10 +388,17 @@
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 22px;
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 30px;
+    $_lineColor: #e4d7b7;
+
     font-family: $tenorsans;
     color: $_textColor;
     text-align: center;
-    background-color: #fff;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
 
     a {
       display: block;
@@ -402,30 +409,32 @@
       }
     }
 
-    > div {
-      position: relative;
-      padding: 0 20px;
-    }
-
-    > div::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-image: url("../imgs/heading/heading032/heading032_ico01_v5.png");
-      background-repeat: repeat-x;
-      background-position: left center;
-    }
-
     h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       position: relative;
       display: inline-block;
-      vertical-align: middle;
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-      padding: 0 22px;
-      background-color: #fff;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        left: 100%;
+      }
     }
 
     &--size-1 {
@@ -446,12 +455,22 @@
 
     &--align-l {
       text-align: left;
+
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
     &--align-c {
       text-align: center;
     }
     &--align-r {
       text-align: right;
+
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
 
   }
@@ -773,7 +792,15 @@
     font-family: $tenorsans;
     color: $_textColor;
     text-align: center;
-    background-color: #fff;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
+
+
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 10px;
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 15px;
+    $_lineColor: #e4d7b7;
 
     a {
       display: block;
@@ -781,40 +808,52 @@
       color: $_textColor;
     }
 
-    > div {
-      position: relative;
-      padding: 0 10px;
-    }
-
-    > div::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-image: url("../imgs/heading/heading032/heading032_ico01_v5.png");
-      background-repeat: repeat-x;
-      background-position: left center;
-    }
-
     h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
       position: relative;
       display: inline-block;
-      vertical-align: middle;
-      @include g-font($_fontSizePx, $_lineHeightType);
-      padding: 0 11px;
-      background-color: #fff;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        left: 100%;
+      }
     }
 
     &--align-l {
       text-align: left;
+
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
     &--align-c {
       text-align: center;
     }
     &--align-r {
       text-align: right;
+
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
     }
 
   }
