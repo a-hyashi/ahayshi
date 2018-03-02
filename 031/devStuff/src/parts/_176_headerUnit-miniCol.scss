@@ -1,0 +1,82 @@
+@if $device == PC {
+
+  .t0-b-headerUnit-miniCol {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_borderColor: #eee8dc;
+
+    white-space: nowrap;
+    display: table;
+    width: 100%;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    color: $g-textcolor;
+    text-align: center;
+    border: 1px solid $_borderColor;
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__hd {
+      padding: 5px 10px;
+      background-color: $_borderColor;
+    }
+    &__bd {
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      width: auto;
+      margin: 0 auto;
+    }
+    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-headerUnit-miniCol {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_borderColor: #eee8dc;
+
+    width: 100%;
+    display: table;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    color: $g-textcolor;
+    text-align: center;
+    border: 1px solid $_borderColor;
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+    }
+
+    &__hd {
+      padding: 5px 10px;
+      background-color: $_borderColor;
+    }
+    &__bd {
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      width: auto;
+      margin: 0 auto;
+    }
+    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+  }
+
+}// SP
