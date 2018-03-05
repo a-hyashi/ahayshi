@@ -1,0 +1,107 @@
+@if $device == PC {
+
+  .t0-b-headerCombi {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_width_content: 1100px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
+
+    color: $g-textcolor;
+    padding-top: 5px;
+    border-top: 4px solid #bead7a;
+    background-color: #fff;
+
+    &__hd {
+      padding: 10px 0 0;
+      
+      a {
+        color: $g-textcolor;
+        text-decoration: underline;
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+      
+      > p {
+        @include g-font($_fontSizePx, $_lineHeightType);
+        width: $_width_content;
+        margin: 0 auto;
+      }
+    }
+    &__bd {
+      padding-bottom: 10px;
+      > div {
+        display: table;
+        width: $_width_content;
+        margin: 0 auto;
+        > div {
+          display: table-cell;
+          vertical-align: top;
+          text-align: left;
+          padding-top: $_colSpacing;
+        }
+      }
+    }
+    &__col1 {
+      width: 100%;
+    }
+    &__col2 {
+      padding-left: 30px;
+    }
+    &__col3 {
+      padding-left: 30px;
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-headerCombi {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+
+    color: $g-textcolor;
+    margin: 0 -15px;
+    padding-top: 20px;
+
+    &__hd {
+      padding: 5px 5px 10px;
+      
+      a {
+        color: $g-textcolor;
+        text-decoration: underline;
+      }
+      
+      > p {
+        width: 100%;
+        @include g-font($_fontSizePx, $_lineHeightType);
+        margin: 0 auto;
+      }
+    }
+    &__bd {
+      padding: 5px 15px 0;
+      > div {
+        width: 100%;
+        margin: 0 auto;
+        > div {
+          text-align: left;
+          vertical-align: middle;
+        }
+      }
+    }
+    &__col1 {
+      width: 100%;
+    }
+    &__col2 {
+      width: 100%;
+    }
+    &__col3 {
+      width: 100%;
+    }
+  }
+
+}// SP
