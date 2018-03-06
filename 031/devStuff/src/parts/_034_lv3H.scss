@@ -1,0 +1,894 @@
+@if $device == PC {
+
+  .t0-b-lv3H#{$variation1of2} {
+
+    $_fontSizePx: 28;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+  .t0-b-lv3H#{$variation2of2} {
+
+    $_block: &;
+    $_fontSizePx: 24;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+
+    a {
+      display: block;
+      text-decoration: none;
+      // ここに設定しないと詳細度的にh3の文字色が反映されない
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 42px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 35px;
+      height: 35px;
+      background-image: url("../imgs/heading/heading006/heading006_ico01_v2.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 35px 35px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      padding: 3px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 42px *.8;
+      }
+      #{$_block}__icon {
+        width: 35px *.8;
+        height: 35px *.8;
+        background-size: 35px *.8 35px *.8;
+      }
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 42px *1.2;
+      }
+      #{$_block}__icon {
+        width: 35px *1.2;
+        height: 35px *1.2;
+        background-size: 35px *1.2 35px *1.2;
+      }
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      > div {
+        margin-right: auto;
+      }
+    }
+    &--align-c {
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    &--align-r {
+      > div {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .t0-b-lv3H3 {
+
+    $_block: &;
+    $_fontSizePx: 24;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+
+    a {
+      display: block;
+      text-decoration: none;
+      // ここに設定しないと詳細度的にh3の文字色が反映されない
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 10px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 4px;
+      height: 27px;
+      background-image: url("../imgs/heading/heading007/heading007_ico01_v3.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 4px 27px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      padding: 0;
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 10px *.8;
+      }
+      #{$_block}__icon {
+        width: 4px *.8;
+        height: 27px *.8;
+        background-size: 4px *.8 27px *.8;
+      }
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 10px *1.2;
+      }
+      #{$_block}__icon {
+        width: 4px *1.2;
+        height: 27px *1.2;
+        background-size: 4px *1.2 27px *1.2;
+      }
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      > div {
+        margin-right: auto;
+      }
+    }
+    &--align-c {
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    &--align-r {
+      > div {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .t0-b-lv3H4 {
+
+    $_block: &;
+    $_fontSizePx: 24;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+
+    a {
+      display: block;
+      text-decoration: none;
+      // ここに設定しないと詳細度的にh3の文字色が反映されない
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 15px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 11px;
+      height: 24px;
+      background-image: url("../imgs/heading/heading008/heading008_ico01_v4.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 11px 24px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      padding: 0;
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 15px *.8;
+      }
+      #{$_block}__icon {
+        width: 11px *.8;
+        height: 24px *.8;
+        background-size: 11px *.8 24px *.8;
+      }
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 15px *1.2;
+      }
+      #{$_block}__icon {
+        width: 11px *1.2;
+        height: 24px *1.2;
+        background-size: 11px *1.2 24px *1.2;
+      }
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      > div {
+        margin-right: auto;
+      }
+    }
+    &--align-c {
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    &--align-r {
+      > div {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .t0-b-lv3H5 {
+
+    $_fontSizePx: 28;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 22px;
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 30px;
+    $_lineColor: #e4d7b7;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      position: relative;
+      display: inline-block;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: $areaContainerWidth;
+        left: 100%;
+      }
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        padding: 0 20px;
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        padding: 0 22px;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+
+  }
+
+  .t0-b-lv3H6 {
+
+    $_fontSizePx: 28;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      padding: 8px 0;
+      border-bottom: 1px solid $_textColor;
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+    &--size-2 {
+      // size2 の場合（サイズ指定なしと同じ）
+    }
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-lv3H#{$variation1of2} {
+
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+
+  }
+
+  .t0-b-lv3H#{$variation2of2} {
+
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+
+    a {
+      display: block;
+      text-decoration: none;
+      // ここに設定しないと詳細度的にh3の文字色が反映されない
+      color: $_textColor;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 60px *.5;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      // 画像がぼやけて見えるのを防ぐため画像サイズより1px小さい値を指定
+      width: 46px *.5;
+      height: 46px *.5;
+      background-image: url("../imgs/heading/heading006/sp_heading006_ico01_v2_01.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      // 画像がぼやけて見えるのを防ぐため画像サイズより1px小さい値を指定
+      background-size: 46px *.5 46px *.5;
+
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      padding: 3px 0;
+    }
+
+    &--align-l {
+      > div {
+        margin-right: auto;
+      }
+    }
+    &--align-c {
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    &--align-r {
+      > div {
+        margin-left: auto;
+      }
+    }
+  }
+
+
+  .t0-b-lv3H3 {
+
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+
+    a {
+      display: block;
+      text-decoration: none;
+      // ここに設定しないと詳細度的にh3の文字色が反映されない
+      color: $_textColor;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 23px *.5;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 8px *.5;
+      height: 40px *.5;
+      background-image: url("../imgs/heading/heading007/sp_heading007_ico01_v3_01.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 8px *.5 40px *.5;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      padding: 0;
+    }
+
+    &--align-l {
+      > div {
+        margin-right: auto;
+      }
+    }
+    &--align-c {
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    &--align-r {
+      > div {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .t0-b-lv3H4 {
+
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+
+    a {
+      display: block;
+      text-decoration: none;
+      // ここに設定しないと詳細度的にh3の文字色が反映されない
+      color: $_textColor;
+    }
+
+    //*
+    // ** __iconPlacer,__icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ iconPlacer使用部品→ 033,034,037,036,048,049,050,051,052,053,135,136,枠(特徴<画像>)の見出し,枠(特徴<装飾>-2)のh4見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 32px *.5;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px *.5;
+      height: 43px *.5;
+      background-image: url("../imgs/heading/heading008/sp_heading008_ico01_v4_01.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 20px *.5 43px *.5;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      padding: 0;
+    }
+
+    &--align-l {
+      > div {
+        margin-right: auto;
+      }
+    }
+    &--align-c {
+      > div {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    &--align-r {
+      > div {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .t0-b-lv3H5 {
+
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    // ルート要素からはみ出た横線を隠す
+    overflow: hidden;
+
+
+    // 文字と横線との間のpaddingの値
+    $_text-linePadding: 10px;
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 15px;
+    $_lineColor: #e4d7b7;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      position: relative;
+      display: inline-block;
+      padding: 0 $_text-linePadding;
+      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid $_lineColor;
+        position: absolute;
+        top: 50%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vW;
+        left: 100%;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)} );
+      }
+    }
+
+  }
+
+  .t0-b-lv3H6 {
+
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_textColor: #8e6f40;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $_textColor;
+    }
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      padding: 4px 0;
+      border-bottom: 1px solid $_textColor;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+}// SP

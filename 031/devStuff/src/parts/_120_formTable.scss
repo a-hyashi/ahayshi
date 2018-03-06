@@ -1,0 +1,1253 @@
+@if $device == PC {
+
+  .t0-b-formTable#{$variation1of2} {
+
+    $_block: &;
+    $_fontSizePx_label: 14;
+    $_fontSizePx_caption: 12;
+    $_fontSizePx_required: 14;
+    $_fontSizePx_input: 16;
+    $_fontSizePx_p: 14;
+    $_lineHeightType: 1;
+
+    $_bgColor: #fbf8f2;
+    $_color_table_text: #513316;
+    $_color_table_caption_text: #664b3a;
+    $_color_table_border: #d8c8b1;
+    $_color_required_text: #fff;
+    $_color_required_bg: #fe769a;
+    $_color_notRequiredLabel_bg: #c5a980;
+    $_color_error_text: #f80103;
+    $_color_button_text :#fff;
+    $_color_button_bg : #855e37;
+    $_color_buttonEdit_bg : #a39279;
+
+    color: $_color_table_text;
+    padding: 30px;
+    border-radius: 7px;
+    background-color: $_bgColor;
+    table {
+      width: 100%;
+      margin-bottom: 6%;
+    }
+    tr:first-child {
+      >th,
+      td {
+        border-top: none;
+      }
+    }
+    th,
+    td {
+      @include g-font($_fontSizePx_label, $_lineHeightType);
+      vertical-align: middle;
+      text-align: left;
+      box-sizing: border-box;
+      border-top: 1px solid $_color_table_border;
+    }
+    th {
+      width: 35%;
+      padding: 25px;
+      > div {
+        display: table;
+        width: 100%;
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+        > #{$_block}__requiredLabel,
+          #{$_block}__notRequiredLabel {
+          width: 50px;
+          text-align: center;
+          > span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    td {
+      padding: 25px 10px;
+      [type="text"],
+      select,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: .3em 6px;
+        border-radius: 5px;
+        border: 1px solid $_color_table_border;
+        background-color: #fff;
+      }
+      [type="checkbox"],
+      [type="radio"] {
+        // labelと横並びにした時それぞれを上下中央にみせる為
+        vertical-align: 0;
+        margin-right: 8px;
+      }
+    }
+    // 必須
+    &__requiredLabel {
+      > span {
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border-radius: 5px;
+        background-color: $_color_required_bg;
+      }
+    }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        border-radius: 5px;
+        background-color: $_color_notRequiredLabel_bg;
+      }
+    }
+    // エラーメッセージ
+    .mod-formError {
+      @include g-font(18, 1);
+      display: block;
+      color: $_color_error_text;
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+    // 補足情報
+    &__td-caption {
+      @include g-font( $_fontSizePx_caption, $_lineHeightType);
+      color: $_color_table_caption_text;
+      padding: 3px 0 0;
+    }
+    // selectBox
+    &__singleInput {
+      // selectboxの擬似三角 プルダウン"▼"
+      position: relative;
+      &:after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0 6px;
+        border-color: #c4ab86 transparent transparent transparent;
+      }
+      select {
+        // selectbox初期化(高さを指定するための指定)
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      // End selectboxの擬似三角 プルダウン"▼"
+    }
+    &__radioList {
+      li {
+        display: inline;
+        padding: 5px 15px 0 0;
+        > label {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+      &--align-vertical {
+        li {
+          display: list-item;
+          padding: 0;
+          input {
+            width: auto;
+          }
+          + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    &__checkboxList {
+      li {
+        display: inline;
+        padding: 5px 15px 0 0;
+        > label {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+      &--align-vertical {
+        li {
+          display: list-item;
+          padding: 0;
+          input {
+            width: auto;
+          }
+          + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    &__textInput {
+      height: 30px;
+    }
+    &__textarea {
+      height: 90px;
+      resize: vertical;
+      display: block;
+    }
+
+    &__buttons {
+      letter-spacing: -0.4em;
+      text-align: center;
+      > p {
+        letter-spacing: normal;
+        @include g-font( $_fontSizePx_p, $_lineHeightType);
+        color: $_color_table_caption_text;
+        padding: 20px 0 0 0;
+        a {
+          color: $_color_table_caption_text;
+          text-decoration: underline;
+          &:hover {
+            color: $g-hovercolor;
+          }
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+      input {
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        display: inline-block;
+        max-width: 266px;
+        min-width: 90px;
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        box-sizing: border-box;
+        padding: 10px 15px 10px 32px;
+        border-radius: 5px;
+        // ボタンのデフォルト消し
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: $_color_button_bg;
+        background-image: url("../imgs/form/form001/form001_arrow01_v1_v1f2.png");
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        background-size: 8px 12px;
+        &:hover {
+          opacity: .8;
+        }
+      } 
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+      input {
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        display: inline-block;
+        max-width: 266px;
+        min-width: 90px;
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        box-sizing: border-box;
+        padding: 10px 15px 10px 32px;
+        border-radius: 5px;
+        // ボタンのデフォルト消し
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-right: 40px;
+        background-color: $_color_buttonEdit_bg;
+        background-image: url("../imgs/form/form001/form001_arrow01_v1_v1f2.png");
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        background-size: 8px 12px;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+      input {
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        display: inline-block;
+        max-width: 266px;
+        min-width: 90px;
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        box-sizing: border-box;
+        padding: 10px 15px 10px 32px;
+        border-radius: 5px;
+        // ボタンのデフォルト消し
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: $_color_button_bg;
+        background-image: url("../imgs/form/form001/form001_arrow01_v1_v1f2.png");
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        background-size: 8px 12px;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation2of2} {
+
+    $_block: &;
+    $_fontSizePx_label: 14;
+    $_fontSizePx_caption: 12;
+    $_fontSizePx_required: 14;
+    $_fontSizePx_input: 16;
+    $_fontSizePx_p: 14;
+    $_lineHeightType: 1;
+
+    $_bgColor: #fbf8f2;
+    $_color_table_text: #513316;
+    $_color_table_caption_text: #664b3a;
+    $_color_table_border: #d8c8b1;
+    $_color_table_th_bg: #e3f5f3;
+    $_color_required_text: #fff;
+    $_color_required_bg: #ee2663;
+    $_color_notRequiredLabel_bg: #41cebe;
+    $_color_error_text: #f80103;
+    $_color_button_text :#fff;
+    $_color_button_bg :#00b7cd;
+    $_color_buttonEdit_bg :#a49887;
+
+    color: $_color_table_text;
+
+    table {
+      width: 100%;
+      background-color: $_bgColor;
+      margin-bottom: 6%;
+      border: 1px solid $_color_table_border;
+    }
+    tr:first-child {
+      >th,
+      td {
+        border-top: none;
+      }
+    }
+    th,
+    td {
+      @include g-font($_fontSizePx_label, $_lineHeightType);
+      vertical-align: middle;
+      text-align: left;
+      box-sizing: border-box;
+      border-top: 1px solid $_color_table_border;
+    }
+    th {
+      width: 35%;
+      padding: 25px 30px;
+      background-color: $_color_table_th_bg;
+      > div {
+        display: table;
+        width: 100%;
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+        > #{$_block}__requiredLabel,
+          #{$_block}__notRequiredLabel {
+          width: 50px;
+          text-align: center;
+          > span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    td {
+      padding: 25px 30px;
+      [type="text"],
+      select,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: .3em 6px;
+        border: 1px solid $_color_table_border;
+        background-color: #fff;
+      }
+      [type="checkbox"],
+      [type="radio"] {
+        // labelと横並びにした時それぞれを上下中央にみせる為
+        vertical-align: 0;
+        margin-right: 8px;
+      }
+    }
+    // 必須
+    &__requiredLabel {
+      > span {
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        background-color: $_color_required_bg;
+      }
+    }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        background-color: $_color_notRequiredLabel_bg;
+      }
+    }
+    // エラーメッセージ
+    .mod-formError {
+      @include g-font(18, 1);
+      display: block;
+      color: $_color_error_text;
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+    // 補足情報
+    &__td-caption {
+      @include g-font( $_fontSizePx_caption, $_lineHeightType);
+      color: $_color_table_caption_text;
+      padding: 3px 0 0;
+    }
+    // selectBox
+    &__singleInput {
+      // selectboxの擬似三角 プルダウン"▼"
+      position: relative;
+      &:after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0 6px;
+        border-color: #c4ab86 transparent transparent transparent;
+      }
+      select {
+        // selectbox初期化(高さを指定するための指定)
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      // End selectboxの擬似三角 プルダウン"▼"
+    }
+
+    &__placer-list {
+      ul {
+      }
+      li {
+        > label {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+    }
+    &__radioList {
+      li {
+        display: inline;
+        padding: 5px 15px 0 0;
+        > label {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+      &--align-vertical {
+        li {
+          display: list-item;
+          padding: 0;
+          input {
+            width: auto;
+          }
+          + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    &__checkboxList {
+      li {
+        display: inline;
+        padding: 5px 15px 0 0;
+        > label {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+      &--align-vertical {
+        li {
+          display: list-item;
+          padding: 0;
+          input {
+            width: auto;
+          }
+          + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    &__textInput {
+      height: 30px;
+    }
+    &__textarea {
+      height: 90px;
+      resize: vertical;
+      display: block;
+    }
+
+    &__buttons {
+      letter-spacing: -0.4em;
+      text-align: center;
+      > p {
+        letter-spacing: normal;
+        @include g-font( $_fontSizePx_p, $_lineHeightType);
+        color: $_color_table_caption_text;
+        padding: 20px 0 0 0;
+        a {
+          color: $_color_table_caption_text;
+          text-decoration: underline;
+          &:hover {
+            color: $g-hovercolor;
+          }
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+
+      input {
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        display: inline-block;
+        max-width: 266px;
+        min-width: 90px;
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        box-sizing: border-box;
+        padding: 10px 15px 10px 32px;
+        // ボタンのデフォルト消し
+        border: none;
+        background-color: $_color_button_bg;
+        background-image: url("../imgs/form/form002/form002_arrow01_v2_v2f2.png");
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        background-size: 8px 14px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+
+      input {
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        display: inline-block;
+        max-width: 266px;
+        min-width: 90px;
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        box-sizing: border-box;
+        padding: 10px 15px 10px 32px;
+        // ボタンのデフォルト消し
+        border: none;
+        margin-right: 40px;
+        background-color: $_color_buttonEdit_bg;
+        background-image: url("../imgs/form/form002/form002_arrow01_v2_v2f2.png");
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        background-size: 8px 14px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+
+      input {
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        display: inline-block;
+        max-width: 266px;
+        min-width: 90px;
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        box-sizing: border-box;
+        padding: 10px 15px 10px 32px;
+        // ボタンのデフォルト消し
+        border: none;
+        background-color: $_color_button_bg;
+        background-image: url("../imgs/form/form002/form002_arrow01_v2_v2f2.png");
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        background-size: 8px 14px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-formTable#{$variation1of2} {
+
+    $_block: &;
+    $_fontSizePx_label: 14;
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_required: 10;
+    $_fontSizePx_input: 16;
+    $_fontSizePx_p: 12;
+    $_lineHeightType: 1;
+
+    $_bgColor: #fbf8f2;
+    $_color_table_text: #513316;
+    $_color_table_caption_text: #664b3a;
+    $_color_table_border: #d8c8b1;
+    $_color_required_text: #fff;
+    $_color_required_bg: #fe769a;
+    $_color_notRequiredLabel_bg: #c5a980;
+    $_color_error_text: #f80103;
+    $_color_button_text :#fff;
+    $_color_button_bg : #855e37;
+    $_color_buttonEdit_bg :#a39279;
+
+    color: $_color_table_text;
+    padding: 15px 5px;
+    border-radius: 7px;
+    background-color: $_bgColor;
+
+    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+    [class^="t0-b-frameWithHCaption"] & {
+      margin: 0 -15px;
+    }
+
+    table {
+      width: 100%;
+      margin: 0 0 30px 0;
+    }
+    th,
+    td {
+      display: block;
+      @include g-font($_fontSizePx_label, $_lineHeightType);
+      vertical-align: middle;
+      text-align: left;
+      box-sizing: border-box;
+    }
+    th {
+      padding: 10px;
+      > div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        > input {
+          order: 2;
+        }
+        > label {
+          order: 3;
+        }
+        > #{$_block}__requiredLabel,
+          #{$_block}__notRequiredLabel {
+          order: 1;
+          > span {
+            display: block;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    td {
+      padding: 0 15px 20px;
+      [type="text"],
+      select,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: .3em 6px;
+        border-radius: 5px;
+        border: 1px solid $_color_table_border;
+        background-color: #fff;
+      }
+      [type="checkbox"],
+      [type="radio"] {
+        vertical-align: middle;
+        width: 25px;
+        height: 25px;
+      }
+      [type="checkbox"]+label,
+      [type="radio"]+label {
+        vertical-align: middle;
+      }
+      li:first-child {
+        margin-top: 0;
+      }
+      li {
+        margin-top: 7px;
+      }
+    }
+    // 必須
+    &__requiredLabel {
+      > span {
+        width: 35px;
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 6px *.8;
+        border-radius: 5px;
+        background-color: $_color_required_bg;
+      }
+    }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        width: 35px;
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 6px *.8;
+        border-radius: 5px;
+        background-color: $_color_notRequiredLabel_bg;
+      }
+    }
+
+    // エラーメッセージ
+    .mod-formError {
+      @include g-font(14, 1);
+      display: block;
+      color: $_color_error_text;
+      padding: 10px 0 0;
+    }
+    // 補足情報
+    &__td-caption {
+      @include g-font( $_fontSizePx_caption, $_lineHeightType);
+      color: $_color_table_caption_text;
+      padding: 3px 0 0;
+    }
+    // selectBox
+    &__singleInput {
+      // selectboxの擬似三角 プルダウン"▼"
+      position: relative;
+      &:after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0 6px;
+        border-color: #c4ab86 transparent transparent transparent;
+      }
+      select {
+        // selectbox初期化(高さを指定するための指定)
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      // End selectboxの擬似三角 プルダウン"▼"
+    }
+
+    &__placer-list {
+      ul {
+      }
+      li {
+        > label {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+    }
+    &__radioList,
+    &__checkboxList {
+      li {
+        display: inline;
+        padding: 5px 15px 0 0;
+        + li {
+          margin-top: 5px;
+        }
+      }
+      &--align-vertical {
+        li {
+          display: list-item;
+          padding: 0;
+          input {
+            width: auto;
+          }
+          + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    &__textInput {
+      height: 30px;
+    }
+    &__textarea {
+      height: 90px;
+      resize: vertical;
+      display: block;
+    }
+
+    &__buttons {
+      letter-spacing: -0.4em;
+      text-align: center;
+
+      > p {
+        letter-spacing: normal;
+        @include g-font( $_fontSizePx_p, $_lineHeightType);
+        color: $_color_table_caption_text;
+        padding: 10px 0 0 0;
+        a {
+          color: $_color_table_caption_text;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+
+      input {
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        width: 220px;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        border-radius: 5px;
+        // ボタンのデフォルト消し
+        border: none;
+        background-color: $_color_button_bg;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+
+      input {
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        width: 110px;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        border-radius: 5px;
+        // ボタンのデフォルト消し
+        border: none;
+        margin-right: 10px;
+        background-color: $_color_buttonEdit_bg;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 120px);
+      max-width: 220px;
+
+      input {
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        color: $_color_button_text;
+        font-family: $tenorsans;
+        white-space: normal;
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        border-radius: 5px;
+        // ボタンのデフォルト消し
+        border: none;
+        background-color: $_color_button_bg;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation2of2} {
+
+    $_block: &;
+    $_fontSizePx_label: 14;
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_required: 10;
+    $_fontSizePx_input: 16;
+    $_fontSizePx_p: 12;
+    $_lineHeightType: 1;
+
+    $_bgColor: #fbf8f2;
+    $_color_table_text: #513316;
+    $_color_table_caption_text: #664b3a;
+    $_color_table_border: #d8c8b1;
+    $_color_table_th_bg: #e3f5f3;
+    $_color_required_text: #fff;
+    $_color_required_bg: #ee2663;
+    $_color_notRequiredLabel_bg: #41cebe;
+    $_color_error_text: #f80103;
+    $_color_button_text :#fff;
+    $_color_button_bg :#00b7cd;
+    $_color_buttonEdit_bg :#a49887;
+
+    color: $_color_table_text;
+
+    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+    [class^="t0-b-frameWithHCaption"] & {
+      margin: 0 -15px;
+    }
+
+    table {
+      width: 100%;
+      margin: 0 0 30px 0;
+      border: 1px solid $_color_table_border;
+      background-color: $_bgColor;
+    }
+    tr:first-child {
+      >th {
+        border-top: none;
+      }
+    }
+    th,
+    td {
+      display: block;
+      @include g-font($_fontSizePx_label, $_lineHeightType);
+      vertical-align: middle;
+      text-align: left;
+      box-sizing: border-box;
+      border-top: 1px solid $_color_table_border;
+    }
+    th {
+      padding: 10px;
+      background-color: $_color_table_th_bg;
+      > div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        > input {
+          order: 2;
+        }
+        > label {
+          order: 3;
+        }
+        > #{$_block}__requiredLabel,
+          #{$_block}__notRequiredLabel {
+          order: 1;
+          > span {
+            display: block;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    td {
+      padding: 10px 15px;
+      [type="text"],
+      select,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: .3em 6px;
+        border: 1px solid $_color_table_border;
+        background-color: #fff;
+      }
+      [type="checkbox"],
+      [type="radio"] {
+        vertical-align: middle;
+        width: 25px;
+        height: 25px;
+      }
+      [type="checkbox"]+label,
+      [type="radio"]+label {
+        vertical-align: middle;
+      }
+      li:first-child {
+        margin-top: 0;
+      }
+      li {
+        margin-top: 7px;
+      }
+    }
+    // 必須
+    &__requiredLabel {
+      > span {
+        width: 35px;
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        background-color: $_color_required_bg;
+      }
+    }
+    // 任意
+    &__notRequiredLabel {
+      > span {
+        width: 35px;
+        @include g-font( $_fontSizePx_required, $_lineHeightType);
+        font-weight: normal;
+        color: $_color_required_text;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2px 6px;
+        background-color: $_color_notRequiredLabel_bg;
+      }
+    }
+    // エラーメッセージ
+    .mod-formError {
+      @include g-font(14, 1);
+      display: block;
+      color: $_color_error_text;
+      padding: 10px 0 0;
+    }
+    // 補足情報
+    &__td-caption {
+      @include g-font( $_fontSizePx_caption, $_lineHeightType);
+      color: $_color_table_caption_text;
+      padding: 3px 0 0;
+    }
+    // selectBox
+    &__singleInput {
+      // selectboxの擬似三角 プルダウン"▼"
+      position: relative;
+      &:after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0 6px;
+        border-color: #c4ab86 transparent transparent transparent;
+      }
+      select {
+        // selectbox初期化(高さを指定するための指定)
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      // End selectboxの擬似三角 プルダウン"▼"
+    }
+
+    &__placer-list {
+      ul {
+      }
+      li {
+        > label {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+    }
+    &__radioList,
+    &__checkboxList {
+      li {
+        display: inline;
+        padding: 5px 15px 0 0;
+        + li {
+          margin-top: 5px;
+        }
+      }
+      &--align-vertical {
+        li {
+          display: list-item;
+          padding: 0;
+          input {
+            width: auto;
+          }
+          + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    &__textInput {
+      height: 30px;
+    }
+    &__textarea {
+      height: 90px;
+      resize: vertical;
+      display: block;
+    }
+
+    &__buttons {
+      letter-spacing: -0.4em;
+      text-align: center;
+
+      > p {
+        letter-spacing: normal;
+        @include g-font( $_fontSizePx_p, $_lineHeightType);
+        color: $_color_table_caption_text;
+        padding: 10px 0 0 0;
+
+        a {
+          color: $_color_table_caption_text;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+
+      input {
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        font-family: $tenorsans;
+        color: $_color_button_text;
+        white-space: normal;
+        width: 220px;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        // ボタンのデフォルト消し
+        border: none;
+        background-color: $_color_button_bg;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0;
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+
+      input {
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        color: $_color_button_text;
+        font-family: $tenorsans;
+        white-space: normal;
+        width: 110px;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        // ボタンのデフォルト消し
+        border: none;
+        margin-right: 10px;
+        background-color: $_color_buttonEdit_bg;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0;
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 120px);
+      max-width: 220px;
+
+      input {
+        @include g-font( $_fontSizePx_input, $_lineHeightType);
+        color: $_color_button_text;
+        font-family: $tenorsans;
+        white-space: normal;
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        // ボタンのデフォルト消し
+        border: none;
+        background-color: $_color_button_bg;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0;
+      }
+    }
+  }
+
+}// SP

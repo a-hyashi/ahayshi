@@ -1,0 +1,138 @@
+@if $device == PC {
+
+  .t0-b-footerMenuWithCp {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #8f8074;
+    $_bgColor: #f4efe5;
+    $_textStateCurrentColor: #a97417;
+
+    width: 100%;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    color: $_textColor;
+    margin: 0 auto;
+    background-color: $_bgColor;
+
+    a {
+      color: $_textColor;
+      text-decoration: underline;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+    > div {
+      display: table;
+      width: 1100px;
+      min-height: 34px;
+      // Start firefoxだとmin-height効かない為
+      @-moz-document url-prefix() {
+        height: 34px;
+      }
+      // End firefoxだとmin-height効かない為
+      margin: 0 auto;
+      padding: 8px 0;
+      box-sizing: border-box;
+    }
+    p {
+      display: table-cell;
+    }
+    &__menu {
+      display: table-cell;
+      ul {
+        text-align: right;
+        letter-spacing: -0.4em;
+      }
+      li {
+        display: inline-block;
+        letter-spacing: normal;
+        a {
+          &:hover {
+            color: $g-hovercolor;
+            div {
+              color: $g-hovercolor;
+            }
+          }
+        }
+        div {
+          padding: 0 15px;
+          background: url("../imgs/menu/menu005/menu005_ico01_v1f2.png");
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-size: 7px 10px;
+        }
+      }
+    }
+    .state-em {
+      div {
+        font-weight: bold;
+        color: $_textStateCurrentColor;
+      }
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-footerMenuWithCp {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #8f8074;
+    $_bgColor: #f4efe5;
+    $_textStateCurrentColor: #a97417;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    color: $_textColor;
+    margin: 0 -15px;
+    background-color: $_bgColor;
+
+    a {
+      color: $_textColor;
+      text-decoration: underline;
+    }
+
+    > div {
+      display: block;
+      min-height: 55px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      padding: 5px 0;
+    }
+    p {
+      width: 100%;
+      text-align: center;
+      margin: 0;
+    }
+    &__menu {
+      width: 100%;
+      ul {
+        letter-spacing: -0.4em;
+        text-align: center;
+        padding: 5px 10px;
+      }
+      li {
+        display: inline-block;
+        letter-spacing: normal;
+        a {
+          color: $_textColor;
+          text-decoration: underline;
+        }
+        div {
+          color: $_textColor;
+          padding: 0 7px;
+        }
+      }
+    }
+    .state-em {
+      div {
+        color: $_textStateCurrentColor;
+      }
+    }
+  }
+
+}// SP
