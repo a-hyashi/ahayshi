@@ -1,0 +1,100 @@
+/// N00のレイアウトに対応したフォントサイズを返すg-fontの拡張mixin<br />
+/// レイアウト文字列に'N00'が入ったときには、基準フォントサイズにaddPx（デフォルト4px）を加算したフォント指定を生成する。<br />
+/// 'N00'以外では基準フォントサイズのままを返す。
+/// @author NADAMOTO(@wms-nad)
+/// @example
+/// // 標準利用ケース
+/// .t0-b-hogeHoge {
+///   &__bd {
+///     @include g-font-layout(28, 1, 'N00');
+///   }
+/// }
+/// // g-font(32, 1)の結果と同じ
+///
+/// @example
+/// // 加算する数字を変えた場合
+/// .t0-b-hogeHoge {
+///   &__bd {
+///     @include g-font-layout(28, 1, 'N00', 6); // 加算する数字を4px → 6pxに変更
+///   }
+/// }
+/// // g-font(34, 1)の結果と同じ
+/// @param {Number} $fontSizePx - 基準となるフォントサイズ
+/// @param {Number} $lineHeightType [0] - lineheightタイプ
+/// @param {String} $layout ['L25'] - レイアウト文字列
+/// @param {Number} $addPx [4] - N00のときに加算するpx値
+/// @output レイアウトに対応したg-font実行結果を返す
+@mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25', $addPx: 4){
+  @if $layout == "N00" {
+    @include g-font($fontSizePx + $addPx, $lineHeightType);
+  } @else {
+    @include g-font($fontSizePx, $lineHeightType);
+  } 
+}
+
+
+
+/// photoshopでいうところの「光彩（外側）」を文字に追加するmixin。<br />
+/// 引数指定がない場合は、サイズ1,#fff,ぼかしの半径1pxの光彩になる。
+/// @param {Number} $size [1] - 光彩のサイズ。1と2から選択する
+/// @param {color} $color [#fff] - 光彩の色
+/// @param {String} $blur-radius ['1px'] - 光彩のぼかしの半径
+/// @example
+/// // 標準利用ケース
+/// .t0-b-sample {
+///   p {
+///     @include g-textOuterGlow;
+///   }
+/// }
+/// // g-font(1, #fff, 1px)の結果と同じ
+///
+/// @example
+/// // サイズ、色、ぼかしの半径を指定する場合
+/// .t0-b-sample {
+///   p {
+///     @include g-textOuterGlow(2, #000, 3px);
+///   }
+/// }
+/// @output 指定したサイズ、色、ぼかしのtext-shadowのプロパティ値を返す
+/// @author 鈴木慎太郎(@ShintarouSuzuki)
+@mixin g-textOuterGlow($size: 1, $color: #fff, $blur-radius: 1px) {
+  @if $size == 1 {
+    text-shadow:
+      -1px -1px $blur-radius $color,
+      -1px 0 $blur-radius $color,
+      -1px 1px $blur-radius $color,
+      0 -1px $blur-radius $color,
+      0 0 $blur-radius $color,
+      0 1px $blur-radius $color,
+      1px -1px $blur-radius $color,
+      1px 0 $blur-radius $color,
+      1px 1px $blur-radius $color;
+  } @else if $size == 2 {
+    text-shadow:
+      -2px -2px $blur-radius $color,
+      -2px -1px $blur-radius $color,
+      -2px 0px $blur-radius $color,
+      -2px 1px $blur-radius $color,
+      -2px 2px $blur-radius $color,
+      -1px -2px $blur-radius $color,
+      -1px -1px $blur-radius $color,
+      -1px 0 $blur-radius $color,
+      -1px 1px $blur-radius $color,
+      -1px 2px $blur-radius $color,
+      0 -2px $blur-radius $color,
+      0 -1px $blur-radius $color,
+      0 0 $blur-radius $color,
+      0 1px $blur-radius $color,
+      0 2px $blur-radius $color,
+      1px -2px $blur-radius $color,
+      1px -1px $blur-radius $color,
+      1px 0 $blur-radius $color,
+      1px 1px $blur-radius $color,
+      1px 2px $blur-radius $color,
+      2px -2px $blur-radius $color,
+      2px -1px $blur-radius $color,
+      2px 0px $blur-radius $color,
+      2px 1px $blur-radius $color,
+      2px 2px $blur-radius $color;
+  }
+}
