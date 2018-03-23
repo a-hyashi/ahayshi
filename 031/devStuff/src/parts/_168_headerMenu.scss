@@ -696,6 +696,148 @@
     }
   }
 
+  .t0-b-headerMenu6 {
+
+    $_block: &;
+    $_widthContent: 1100px;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #8c6f3c;
+    $_textHoverColor: #816739;
+    $_textStateEmColor: #b67f1d;
+    $_textStateCurrentColor: #816739;
+    $_borderColor: #009fa5;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 auto;
+
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        display: table;
+        width: 100%;
+        height: 34px;
+        min-height: inherit;
+        box-sizing: border-box;
+        li {
+          display: table-cell;
+          vertical-align: middle;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+
+          a {
+            display: block;
+            height: 100%;
+            // Start firefoxだとheight: 100%;だとうまく表示されない為
+            @-moz-document url-prefix() {
+              height: 34px;
+            }
+            // End firefoxだとheight: 100%;だとうまく表示されない為
+            
+            div {
+              // Start リンク有りの時天地中央にする為
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+              // End リンク有りの時天地中央にする為
+              &:before,
+              &:after {
+                position: absolute;
+                bottom: -6px;
+                content: "";
+                display: block;
+                width: 0;
+                height: 4px;
+                background: $_borderColor;
+                transition: 0.5s;
+              }
+              &:before {
+                left: 50%;
+              }
+              &:after {
+                right: 50%;
+              }
+            }
+            &:hover {
+              div {
+                color: $_textHoverColor;
+                &:before,
+                &:after {
+                  width: 50%;
+                }
+              }
+            }
+          }
+          div {
+            display: inline-block;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+    .state-current {
+      position: relative;
+     
+      div {
+        color: $_textStateCurrentColor;
+
+        &:before,
+        &:after {
+          position: absolute;
+          bottom: -6px;
+          content: "";
+          display: block;
+          width: 50%;
+          height: 4px;
+          background: $_borderColor;
+        }
+      }
+    }
+    .state-current.state-em {
+      position: relative;
+      
+      div {
+        color: $_textStateCurrentColor;
+
+        &:before,
+        &:after {
+          position: absolute;
+          bottom: -6px;
+          content: "";
+          display: block;
+          width: 50%;
+          height: 4px;
+          background: $_borderColor;
+        }
+      }
+    }
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
 } // PC
 
 
@@ -937,6 +1079,60 @@
     $_textStateEmColor: #b67f1d;
     $_textStateCurrentColor: #dd6f9f;
     $_borderColor: #dd6f9f;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 -15px;
+
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: inline-block;
+          margin: 0 7px;
+          div {
+            color: $_textColor;
+            text-decoration: underline;
+            padding: 5px 0;
+          }
+        }
+      }
+    }
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+    .state-current {
+      div {
+        color: $_textStateCurrentColor;
+      }
+    }
+    .state-current.state-em {
+      div {
+        color: $_textStateCurrentColor;
+      }
+    }
+  }
+
+  .t0-b-headerMenu6 {
+
+    $_block: &;
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #8c6f3c;
+    $_textStateEmColor: #b67f1d;
+    $_textStateCurrentColor: #009fa5;
+    $_borderColor: #009fa5;
 
     input[type="checkbox"].on-off {
       display: none;
