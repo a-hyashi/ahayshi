@@ -1631,11 +1631,10 @@
     $_widthContent: 1100px;
     $_fontSizePx: 14;
     $_lineHeightType: 1;
-    $_textColor: #513316;
+    $_textColor: #fff;
     $_textStateEmColor: #c1a242;
 
-    border-top: 1px solid #e5dbca;
-    border-bottom: 1px solid #d0c29e;
+    background: #eeafca;
 
     input[type="checkbox"].on-off {
       display: none;
@@ -1685,54 +1684,51 @@
 
       div {
 
-        padding: 18px;
+        padding: 12px;
         
         &:before,
         &:after {
             position: absolute;
-            width: 100%;
-            height: 0px;
-            left: 0px;
+            width: 0;
+            height: 100%;
+            top: 0px;
             content: '';
-            background: #e6dfcb;
-            opacity: 0.5;
+            background: darken(#eeb1cb,10%);
+            opacity: 0.3;
             transition: all 0.3s;
         }
 
         &:before {
-            top: 0;
+            left: 0;
         } 
 
         &:after {
-            bottom: 0;
+            right: 0;
         }
 
         &:hover{
           &:before,
           &:after {
-            height: 100%;
+            width: 100%;
           }
         }
       }
     }
     .state-em {
-      div {
-        span {
-          color: $_textStateEmColor;
-        }
-      }
     }
     .state-current {
+      background: #e89cbc;
+
       div {
         &:before,
         &:after {
-          height: 100%;
+          width: 100%;
         }
 
         &:hover{
           &:before,
           &:after {
-            height: 0;
+            width: 0;
           }
         }
       }
@@ -2510,12 +2506,10 @@
     $_block: &;
     $_fontSizePx: 12;
     $_lineHeightType: 1;
-    $_textColor: #513316;
-    $_textStateEmColor: #c1a242;
-    $_bgColor: #e6dfcb;
+    $_textColor: #fff;
+    $_bgColor: #e89cbc;
 
-    border-top: 1px solid #e5dbca;
-    border-bottom: 1px solid #d0c29e;
+    background: #eeafca;
 
     input[type="checkbox"].on-off {
       display: none;
@@ -2532,35 +2526,10 @@
       text-align: center;
       ul {
         width: 100%;
-        padding: 4px 0;
         li {
           position: relative;
           display: inline-block;
           margin: 0 7px;
-
-          &:before {
-            content: "";
-            position: absolute;
-            width: 2px;
-            border-left: 2px dotted #ece5d7;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -10px;
-            height: 50%;
-          }
-
-          &:last-child {
-            &:after {
-              content: "";
-              position: absolute;
-              width: 2px;
-              border-left: 2px dotted #ece5d7;
-              top: 50%;
-              transform: translateY(-50%);
-              right: -10px;
-              height: 50%;
-            }
-          }
 
           div {
             color: $_textColor;
@@ -2571,9 +2540,7 @@
       }
     }
     .state-em {
-      div {
-        color: $_textStateEmColor;
-      }
+
     }
     .state-current {
       background-color: $_bgColor;
