@@ -1509,9 +1509,8 @@
     $_textColor: #513316;
     $_textStateEmColor: #c1a242;
 
-    border-top: 2px solid #e5dbca;
-    border-bottom: 2px solid #e5dbca;
-    padding: 4px 0;
+    border-top: 1px solid #e5dbca;
+    border-bottom: 1px solid #d0c29e;
 
     input[type="checkbox"].on-off {
       display: none;
@@ -1535,7 +1534,6 @@
         height: 30px;
         min-height: inherit;
         box-sizing: border-box;
-        border-spacing: 10px 0;
         li {
           display: table-cell;
           vertical-align: middle;
@@ -1543,30 +1541,6 @@
           // 文字を全て消した時の対応
           min-width: 50px;
           text-align: center;
-
-          &:before {
-            content: "";
-            position: absolute;
-            width: 2px;
-            border-left: 2px dotted #ece5d7;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -6px;
-            height: 50%;
-          }
-
-          &:last-child {
-            &:after {
-              content: "";
-              position: absolute;
-              width: 2px;
-              border-left: 2px dotted #ece5d7;
-              top: 50%;
-              transform: translateY(-50%);
-              right: -6px;
-              height: 50%;
-            }
-          }
 
           div {
             > span {
@@ -1585,13 +1559,34 @@
     .t0-b-headerMenu__item {
 
       div {
-        text-decoration: none;
-        border-radius: 2px;
-        padding: 18px;
-        transition: 0.5s;
 
-        &:hover {
-          box-shadow: rgba(230, 223, 203, 1) 0 0px 5px 50px inset;
+        padding: 18px;
+        
+        &:before,
+        &:after {
+            position: absolute;
+            width: 100%;
+            height: 0px;
+            left: 0px;
+            content: '';
+            background: #e6dfcb;
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+
+        &:before {
+            top: 0;
+        } 
+
+        &:after {
+            bottom: 0;
+        }
+
+        &:hover{
+          &:before,
+          &:after {
+            height: 100%;
+          }
         }
       }
     }
@@ -1604,14 +1599,16 @@
     }
     .state-current {
       div {
-        transition: 0.5s;
-        color: rgba(81, 51, 22, 1);
-        box-shadow: rgba(230, 223, 203, 1) 0 0px 10px 50px inset;
+        &:before,
+        &:after {
+          height: 100%;
+        }
 
-        &:hover {
-            background:#f9f7f2;
-            color: rgba(157, 148, 143, 1);
-            box-shadow: rgba(230, 223, 203, 0) 0 0px 10px 0px inset;
+        &:hover{
+          &:before,
+          &:after {
+            height: 0;
+          }
         }
       }
     }
@@ -2315,8 +2312,8 @@
     $_textStateEmColor: #c1a242;
     $_bgColor: #e6dfcb;
 
-    border-top: 2px solid #e5dbca;
-    border-bottom: 2px solid #e5dbca;
+    border-top: 1px solid #e5dbca;
+    border-bottom: 1px solid #d0c29e;
 
     input[type="checkbox"].on-off {
       display: none;
