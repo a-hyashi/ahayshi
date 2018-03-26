@@ -1625,6 +1625,131 @@
     }
   }
 
+  .t0-b-headerMenu12 {
+
+    $_block: &;
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #513316;
+    $_textStateEmColor: #c1a242;
+
+    border-top: 1px solid #e5dbca;
+    border-bottom: 1px solid #d0c29e;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 auto;
+
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        display: table;
+        width: 100%;
+        height: 30px;
+        min-height: inherit;
+        box-sizing: border-box;
+        li {
+          display: table-cell;
+          vertical-align: middle;
+          position: relative;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+
+          div {
+            > span {
+              // Start アニメーションの為に文字を一番上に出す為
+              position: relative;
+              z-index: 1;
+              // End アニメーションの為に文字を一番上に出す為
+              display: inline-block;
+              color: $_textColor;
+            }
+          }
+        }
+      }
+    }
+    // Start アニメーション
+    .t0-b-headerMenu__item {
+
+      div {
+
+        padding: 18px;
+        
+        &:before,
+        &:after {
+            position: absolute;
+            width: 100%;
+            height: 0px;
+            left: 0px;
+            content: '';
+            background: #e6dfcb;
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+
+        &:before {
+            top: 0;
+        } 
+
+        &:after {
+            bottom: 0;
+        }
+
+        &:hover{
+          &:before,
+          &:after {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .state-em {
+      div {
+        span {
+          color: $_textStateEmColor;
+        }
+      }
+    }
+    .state-current {
+      div {
+        &:before,
+        &:after {
+          height: 100%;
+        }
+
+        &:hover{
+          &:before,
+          &:after {
+            height: 0;
+          }
+        }
+      }
+    }
+    // End アニメーション
+    .state-current.state-em {
+    }
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
 } // PC
 
 
@@ -2304,6 +2429,83 @@
   }
 
   .t0-b-headerMenu11 {
+    
+    $_block: &;
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #513316;
+    $_textStateEmColor: #c1a242;
+    $_bgColor: #e6dfcb;
+
+    border-top: 1px solid #e5dbca;
+    border-bottom: 1px solid #d0c29e;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 -15px;
+
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 4px 0;
+        li {
+          position: relative;
+          display: inline-block;
+          margin: 0 7px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            border-left: 2px dotted #ece5d7;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -10px;
+            height: 50%;
+          }
+
+          &:last-child {
+            &:after {
+              content: "";
+              position: absolute;
+              width: 2px;
+              border-left: 2px dotted #ece5d7;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -10px;
+              height: 50%;
+            }
+          }
+
+          div {
+            color: $_textColor;
+            text-decoration: underline;
+            padding: 5px;
+          }
+        }
+      }
+    }
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+    .state-current {
+      background-color: $_bgColor;
+    }
+    .state-current.state-em {
+    }
+  }
+
+  .t0-b-headerMenu12 {
     
     $_block: &;
     $_fontSizePx: 12;
