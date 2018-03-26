@@ -773,148 +773,87 @@
           a {
             display: block;
             height: 100%;
-            // border: 1px solid $_borderColor;
-            // margin: 0 5px;
             // Start firefoxだとheight: 100%;だとうまく表示されない為
             @-moz-document url-prefix() {
               height: 34px;
             }
             // End firefoxだとheight: 100%;だとうまく表示されない為
-            
-            div {
-              
-            }
-            &:hover {
-              // color: #fff;
-              div {
-                
-                // color: $_textHoverColor;
-                // &:before,
-                // &:after {
-                //   width: 50%;
-                // }
-              }
-            }
+
           }
           div {
             display: inline-block;
             color: $_textColor;
             transition:all .5s ease;
             width: 100%;
-            // height: 100%;
             padding: 15px;
             box-sizing: border-box;
-            vertical-align: middle;
-            // position: relative;
-            // overflow: hidden;
-            
-            // Start リンク有りの時天地中央にする為
-            // position: relative;
-            // top: 50%;
-            // transform: translateY(-50%);
-            // End リンク有りの時天地中央にする為
-            
+            vertical-align: middle;            
           }
         }
       }
     }
     .state-em {
-      // li {
-        color: $_textStateEmColor;
-        background: #f9f4f0;
-        
-
-        // &:before {
-        //   //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
-        //   top: auto;
-        //   left: auto;
-        //   right:-100%;
-        //   bottom:-100%;
-        // }
-        // &:hover {
-        //   color: #fff;
-        //   &:before {
-        //     top: auto;
-        //     left: auto;
-        //     right: 0;
-        //     bottom: 0;
-        //   }
-        // }
-      // }
+      color: $_textStateEmColor;
+      background: #f9f4f0;
     }
     .state-current {
       position: relative;
 
-      a {
-        // &:hover {
-        //   border: 1px solid #cfc0aa;
-        // }
+      div {
+        color: #fff;
       }
 
-      // li {
-        div {
-          color: #fff;
-        }
+      &:before {
+        //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
+        background:#bfab8d;
+        top: auto;
+        left: auto;
+        left: 0;
+        top: 0;
+      }
 
+      &:hover {
+
+        div {
+          color: #b29465;
+        }
+        
         &:before {
-          //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
-          background:#bfab8d;
           top: auto;
           left: auto;
-          left: 0;
-          top: 0;
+          left:-100%;
+          top:-100%;
         }
-
-        &:hover {
-
-          div {
-            color: #b29465;
-          }
-          
-          &:before {
-            top: auto;
-            left: auto;
-            left:-100%;
-            top:-100%;
-          }
-        }
-
-        
-      // }
+      }
     }
     .state-current.state-em {
       position: relative;
-      
-      // li {
-        // color: $_textStateCurrentColor;
-        color: #fff;
-        background: #bfab8d;
+      color: #fff;
+      background: #bfab8d;
 
-        &:hover {
-          div {
-            color: #b29465;
-          }
-          
+      &:hover {
+        div {
+          color: #b29465;
         }
+      }
 
+      &:before {
+        //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
+        background:#f9f4f0;
+        top: auto;
+        left: auto;
+        right:-100%;
+        bottom:-100%;
+      }
+      &:hover {
+        color: $_textStateEmColor;
         &:before {
-          //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
-          background:#f9f4f0;
           top: auto;
           left: auto;
-          right:-100%;
-          bottom:-100%;
+          right: 0;
+          bottom: 0;
         }
-        &:hover {
-          color: $_textStateEmColor;
-          &:before {
-            top: auto;
-            left: auto;
-            right: 0;
-            bottom: 0;
-          }
-        }
-      // }
+      }
     }
     &--widthEqualized {
       > div {
@@ -1249,7 +1188,6 @@
           div {
             color: $_textColor;
             border: 1px solid $_borderColor;
-            // text-decoration: underline;
             min-height: 14px;
             padding: 5px;
           }
