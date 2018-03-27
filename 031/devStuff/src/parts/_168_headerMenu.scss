@@ -746,42 +746,51 @@
           transition:all .5s ease;
           z-index: 2;
 
-          &:before {
-            content: "";
-            width:100%;
-            height:100%;
-            left:-100%;
-            top:-100%;
-            background:#bfab8d;
-            position:absolute;
-            transition:all .5s ease;
-            z-index:-1;
-          }
-
-          &:hover {
-          
-            div {
-              color: #fff;
-            }
-
-            &:before {
-              top: 0;
-              left: 0;
-            }
-          }
-
           a {
-            display: block;
+            display: table;
+            width: 100%;
+            height: 100%;
+
+            //アニメーション動作 START
+            &:before {
+              content: "";
+              width:100%;
+              height:100%;
+              left:-100%;
+              top:-100%;
+              background:#bfab8d;
+              position:absolute;
+              transition:all .5s ease;
+              z-index:-1;
+            }
+
+            &:hover {
+            
+              div {
+                color: #fff;
+              }
+
+              &:before {
+                top: 0;
+                left: 0;
+              }
+            }
+            //アニメーション動作 END
+
+            div {
+              display: table-cell;
+              vertical-align: middle;
+            }
           }
 
+          //リンクなし時の挙動用
           div {
-            display: inline-block;
+            display: flex;
             color: $_textColor;
             transition:all .5s ease;
             width: 100%;
-            padding: 15px;
             box-sizing: border-box;
-            vertical-align: middle;            
+            justify-content: center;           
           }
         }
       }
@@ -797,26 +806,28 @@
         color: #fff;
       }
 
-      &:before {
-        //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
-        background:#bfab8d;
-        top: auto;
-        left: auto;
-        left: 0;
-        top: 0;
-      }
-
-      &:hover {
-
-        div {
-          color: #b29465;
-        }
-        
+      a {
         &:before {
+          //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
+          background:#bfab8d;
           top: auto;
           left: auto;
-          left:-100%;
-          top:-100%;
+          left: 0;
+          top: 0;
+        }
+
+        &:hover {
+
+          div {
+            color: #b29465;
+          }
+          
+          &:before {
+            top: auto;
+            left: auto;
+            left:-100%;
+            top:-100%;
+          }
         }
       }
     }
@@ -825,27 +836,29 @@
       color: #fff;
       background: #bfab8d;
 
-      &:hover {
-        div {
-          color: #b29465;
+      a {
+        &:hover {
+          div {
+            color: #b29465;
+          }
         }
-      }
 
-      &:before {
-        //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
-        background:#f9f4f0;
-        top: auto;
-        left: auto;
-        right:-100%;
-        bottom:-100%;
-      }
-      &:hover {
-        color: $_textStateEmColor;
         &:before {
+          //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
+          background:#f9f4f0;
           top: auto;
           left: auto;
-          right: 0;
-          bottom: 0;
+          right:-100%;
+          bottom:-100%;
+        }
+        &:hover {
+          color: $_textStateEmColor;
+          &:before {
+            top: auto;
+            left: auto;
+            right: 0;
+            bottom: 0;
+          }
         }
       }
     }
