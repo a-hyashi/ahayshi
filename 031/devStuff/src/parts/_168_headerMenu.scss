@@ -1071,11 +1071,10 @@
     $_fontSizePx: 16;
     $_lineHeightType: 1;
     $_textColor: #b79b6f;
-    $_textHoverColor: #cfc0aa;
     $_textStateEmColor: #c39400;
-    $_textStateCurrentColor: #fff;
     $_borderColor: #cfc0aa;
-    background: #fff;
+
+    background: #fdfbf8;
 
     input[type="checkbox"].on-off {
       display: none;
@@ -1108,47 +1107,66 @@
           border: 1px solid $_borderColor;
           // 文字を全て消した時の対応
           min-width: 50px;
+          height: 60px;
           text-align: center;
           overflow: hidden;
           position: relative;
           transition:all .5s ease;
           z-index: 2;
 
-          &:before {
-            content: "";
-            width:100%;
-            height:100%;
-            left:-100%;
-            top:-100%;
-            background:#bfab8d;
-            position:absolute;
-            transition:all .5s ease;
-            z-index:-1;
-          }
-
-          &:hover {
-          
-            div {
-              color: #fff;
-            }
-
-            &:before {
-              top: 0;
-              left: 0;
-            }
-          }
-
           a {
-            display: block;
+            display: table;
+            width: 100%;
+            height: 100%;
+            
+            //アニメーション動作 START
+            &:before {
+              content: "";
+              width:100%;
+              height:100%;
+              left:-100%;
+              top:-100%;
+              background:#b6a386;
+              position:absolute;
+              transition:all .5s ease;
+              z-index:-1;
+            }
+
+            &:hover {
+            
+              div {
+                color: #fff;
+              }
+
+              &:before {
+                top: 0;
+                left: 0;
+              }
+            }
+            //アニメーション動作 END
+
+            div {
+              padding: 0;
+            }
           }
+
+          //リンクなし時の挙動用
           div {
-            display: inline-block;
+            display: flex;
             color: $_textColor;
+            padding: 8px 16px;
             transition:all .5s ease;
             width: 100%;
-            padding: 15px;
+            height: 100%;
             box-sizing: border-box;
-            vertical-align: middle;            
+            align-items: center;
+            justify-content: center;
+
+            span {
+              //IEのときに長い文章が入ったときにテキストを折り返すように
+              -ms-flex: 0 0 100%;
+            }
+
           }
         }
       }
@@ -1164,55 +1182,59 @@
         color: #fff;
       }
 
-      &:before {
-        //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
-        background:#bfab8d;
-        top: auto;
-        left: auto;
-        left: 0;
-        top: 0;
-      }
-
-      &:hover {
-
-        div {
-          color: #b29465;
-        }
-        
+      a {
         &:before {
+          //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
+          background:#b6a386;
           top: auto;
           left: auto;
-          left:-100%;
-          top:-100%;
+          left: 0;
+          top: 0;
+        }
+
+        &:hover {
+
+          div {
+            color: #b29465;
+          }
+          
+          &:before {
+            top: auto;
+            left: auto;
+            left:-100%;
+            top:-100%;
+          }
         }
       }
     }
     .state-current.state-em {
       position: relative;
       color: #fff;
-      background: #bfab8d;
+      background: #b6a386;
 
-      &:hover {
-        div {
-          color: #b29465;
+      a {
+        &:hover {
+          div {
+            color: #b29465;
+          }
         }
-      }
 
-      &:before {
-        //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
-        background:#f9f4f0;
-        top: auto;
-        left: auto;
-        right:-100%;
-        bottom:-100%;
-      }
-      &:hover {
-        color: $_textStateEmColor;
         &:before {
+          //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
+          background:#f9f4f0;
           top: auto;
           left: auto;
-          right: 0;
-          bottom: 0;
+          right:-100%;
+          bottom:-100%;
+        }
+        &:hover {
+          color: $_textStateEmColor;
+          &:before {
+            top: auto;
+            left: auto;
+            right: 0;
+            bottom: 0;
+          }
         }
       }
     }
