@@ -1447,6 +1447,9 @@
     border-top: 1px solid #d0c29e;
     border-bottom: 1px solid #d0c29e;
 
+    //safariのときにhover時、fontが細くなる処理の対策
+    -webkit-font-smoothing: antialiased;
+
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -1497,6 +1500,7 @@
         div {
 
           padding: 18px;
+          transition: 0.5s;
           
           &:before,
           &:after {
@@ -1519,13 +1523,12 @@
           }
 
           &:hover{
+            color: #513316;
+
             &:before,
             &:after {
               opacity: 1;
               height: 100%;
-            }
-            > span {
-              color: #714f2d;
             }
           }
         }
@@ -1536,6 +1539,12 @@
         span {
           color: $_textStateEmColor;
           transition: all 0.5s;
+        }
+
+        &:hover {
+          span {
+            color: #513316;
+          }
         }
       }
     }
