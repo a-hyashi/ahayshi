@@ -420,16 +420,55 @@
 
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    $_textColor: #714f2d;
 
     font-family: $tenorsans;
 
     &__media {
+      line-height: 0;
       text-align: center;
+      position: relative;
       img {
         display: inline-block;
         width: 100%;
         height: auto;
         border-radius: 5px;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
     }
 
