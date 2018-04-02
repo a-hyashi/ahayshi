@@ -1224,6 +1224,150 @@
     }
   }
 
+  .t0-b-headerMenu10 {
+
+    $_block: &;
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #513316;
+    $_textStateEmColor: #c1a242;
+
+    border-top: 2px solid #e5dbca;
+    border-bottom: 2px solid #e5dbca;
+    padding: 4px 0;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 auto;
+
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        display: table;
+        width: 100%;
+        height: 30px;
+        min-height: inherit;
+        box-sizing: border-box;
+        border-spacing: 10px 0;
+        li {
+          display: table-cell;
+          vertical-align: middle;
+          position: relative;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            border-left: 2px dotted #ece5d7;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -6px;
+            height: 50%;
+          }
+
+          &:last-child {
+            &:after {
+              content: "";
+              position: absolute;
+              width: 2px;
+              border-left: 2px dotted #ece5d7;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -6px;
+              height: 50%;
+            }
+          }
+
+          div {
+            > span {
+              // Start アニメーションの為に文字を一番上に出す為
+              position: relative;
+              z-index: 1;
+              // End アニメーションの為に文字を一番上に出す為
+              display: inline-block;
+              color: $_textColor;
+            }
+          }
+        }
+      }
+    }
+    // Start アニメーション
+    .t0-b-headerMenu__item {
+
+      a {
+        div {
+          text-decoration: none;
+          border-radius: 2px;
+          padding: 18px;
+          transition: 0.75s;
+
+          &:hover {
+            box-shadow: rgba(230, 223, 203, 1) 0 0px 5px 50px inset;
+          }
+        }
+      }
+
+    }
+    .state-em {
+      div {
+        span {
+          color: $_textStateEmColor;
+          transition: 0.75s;
+        }
+
+        &:hover {
+          span {
+            color: #513316;
+          }
+        }
+      }
+    }
+    .state-current {
+      a {
+        div {
+          transition: 0.5s;
+          color: rgba(81, 51, 22, 1);
+          box-shadow: rgba(230, 223, 203, 1) 0 0px 10px 50px inset;
+
+          &:hover {
+              color: rgba(157, 148, 143, 1);
+              box-shadow: #f9f7f2 0 0px 10px 50px inset;
+          }
+        }
+      }
+    }
+    // End アニメーション
+    .state-current.state-em {
+      div {
+        span {
+          color: $_textColor;
+        }
+      }
+    }
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
 } // PC
 
 
@@ -1784,6 +1928,83 @@
         color: #fff;
         background: #64c2c6;
       }
+    }
+  }
+
+  .t0-b-headerMenu10 {
+    
+    $_block: &;
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #513316;
+    $_textStateEmColor: #c1a242;
+    $_bgColor: #e6dfcb;
+
+    border-top: 2px solid #e5dbca;
+    border-bottom: 2px solid #e5dbca;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 -15px;
+
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 4px 0;
+        li {
+          position: relative;
+          display: inline-block;
+          margin: 0 7px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            border-left: 2px dotted #ece5d7;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -10px;
+            height: 50%;
+          }
+
+          &:last-child {
+            &:after {
+              content: "";
+              position: absolute;
+              width: 2px;
+              border-left: 2px dotted #ece5d7;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -10px;
+              height: 50%;
+            }
+          }
+
+          div {
+            color: $_textColor;
+            text-decoration: underline;
+            padding: 5px;
+          }
+        }
+      }
+    }
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+    .state-current {
+      background-color: $_bgColor;
+    }
+    .state-current.state-em {
     }
   }
 
