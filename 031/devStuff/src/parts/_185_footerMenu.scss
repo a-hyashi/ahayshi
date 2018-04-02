@@ -1293,14 +1293,10 @@
           }
 
           div {
-            > span {
-              // Start アニメーションの為に文字を一番上に出す為
-              position: relative;
-              z-index: 1;
-              // End アニメーションの為に文字を一番上に出す為
-              display: inline-block;
-              color: $_textColor;
-            }
+            // Start アニメーションの為に文字を一番上に出す為
+            z-index: 1;
+            // End アニメーションの為に文字を一番上に出す為
+            color: $_textColor;
           }
         }
       }
@@ -1309,11 +1305,21 @@
     .t0-b-footerMenu__item {
 
       a {
+        display: block;
+        height: 100%;
+      }
+
+      a {
         div {
           text-decoration: none;
           border-radius: 2px;
           padding: 18px;
+          box-sizing: border-box;
           transition: 0.75s;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &:hover {
             box-shadow: rgba(230, 223, 203, 1) 0 0px 5px 50px inset;
@@ -1324,15 +1330,11 @@
     }
     .state-em {
       div {
-        span {
-          color: $_textStateEmColor;
-          transition: 0.75s;
-        }
+        color: $_textStateEmColor;
+        transition: 0.75s;
 
         &:hover {
-          span {
-            color: #513316;
-          }
+          color: #513316;
         }
       }
     }
@@ -1353,9 +1355,7 @@
     // End アニメーション
     .state-current.state-em {
       div {
-        span {
-          color: $_textColor;
-        }
+        color: $_textColor;
       }
     }
     &--widthEqualized {
