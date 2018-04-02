@@ -1514,6 +1514,128 @@
     }
   }
 
+  .t0-b-headerMenu12 {
+
+    $_block: &;
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_textStateEmColor: #c1a242;
+
+    background: #eeafca;
+
+    //safariのときにhover時、fontが細くなる処理の対策
+    -webkit-font-smoothing: antialiased;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 auto;
+
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        display: table;
+        width: 100%;
+        height: 30px;
+        min-height: inherit;
+        box-sizing: border-box;
+        li {
+          display: table-cell;
+          vertical-align: middle;
+          position: relative;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+
+          div {
+            > span {
+              // Start アニメーションの為に文字を一番上に出す為
+              position: relative;
+              z-index: 1;
+              // End アニメーションの為に文字を一番上に出す為
+              display: inline-block;
+              color: $_textColor;
+            }
+          }
+        }
+      }
+    }
+    // Start アニメーション
+    .t0-b-headerMenu__item {
+
+      a {
+        div {
+
+          padding: 12px;
+          
+          &:before,
+          &:after {
+              position: absolute;
+              width: 0;
+              height: 100%;
+              top: 0px;
+              content: '';
+              background: darken(#eeb1cb,10%);
+              opacity: 0.3;
+              transition: all 0.5s;
+          }
+
+          &:before {
+              left: 0;
+          } 
+
+          &:after {
+              right: 0;
+          }
+
+          &:hover{
+            &:before,
+            &:after {
+              width: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    .state-em {
+    }
+    .state-current {
+      a {
+        div {
+          &:before,
+          &:after {
+            width: 100%;
+            background: darken(#eeb1cb,5%);
+            opacity: 1;
+          }
+        }
+      }
+    }
+    // End アニメーション
+    .state-current.state-em {
+    }
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
 } // PC
 
 
@@ -2198,6 +2320,54 @@
       div {
         color: $_textStateEmColor;
       }
+    }
+    .state-current {
+      background-color: $_bgColor;
+    }
+    .state-current.state-em {
+    }
+  }
+
+  .t0-b-headerMenu12 {
+    
+    $_block: &;
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #e89cbc;
+
+    background: #eeafca;
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+    label {
+      display: none;
+    }
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    margin: 0 -15px;
+
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        li {
+          position: relative;
+          display: inline-block;
+          margin: 0 7px;
+
+          div {
+            color: $_textColor;
+            text-decoration: underline;
+            padding: 5px;
+          }
+        }
+      }
+    }
+    .state-em {
+
     }
     .state-current {
       background-color: $_bgColor;
