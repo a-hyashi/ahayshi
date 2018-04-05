@@ -953,7 +953,6 @@
       display: none;
     }
 
-    position: relative;
     width: 100%;
     font-family: $tenorsans;
     @include g-font($_fontSizePx, $_lineHeightType);
@@ -978,44 +977,18 @@
           min-width: 50px;
           height: 60px;
           text-align: center;
-          overflow: hidden;
-          position: relative;
-          transition: all .5s ease;
           z-index: 2;
 
           a {
             display: block;
             width: 100%;
             height: 100%;
-            
-            //アニメーション動作 START
-            &:before {
-              content: "";
-              width: 100%;
-              height: 100%;
-              left: -100%;
-              top: -100%;
-              background: #64c2c6;
-              position: absolute;
-              transition: all .5s ease;
-              z-index: -1;
-            }
 
             &:hover {
-            
               div {
                 color: #fff;
+                background: #64c2c6;
               }
-
-              &:before {
-                top: 0;
-                left: 0;
-              }
-            }
-            //アニメーション動作 END
-
-            div {
-              padding: 0;
             }
           }
 
@@ -1023,7 +996,7 @@
           div {
             display: flex;
             color: $_textColor;
-            padding: 8px 16px;
+            padding: 14px;
             transition: all .5s ease;
             width: 100%;
             height: 100%;
@@ -1049,23 +1022,12 @@
 
       div {
         color: #fff;
-      }
+        background: lighten(#64c2c6 , 10%);
 
-      a {
-        &:before {
-          //通常時のbeforeと同じプロパティが多いので、必要最低限を記述
+        &:hover {
           background: lighten(#64c2c6 , 10%);
-          top: auto;
-          left: auto;
-          left: 0;
-          top: 0;
         }
       }
-    }
-    .state-current.state-em {
-      position: relative;
-      color: #fff;
-      background: lighten(#64c2c6 , 10%);
     }
     &--widthEqualized {
       > div {
