@@ -60,20 +60,20 @@ switch (sassBuildType) {
 }
 
 gulp.task('sass', function() {
-    return merge(
-      styleSource.map(styleSource=>{
-        return gulp.src(styleSource)
-          // buildの場合はsourcemapsを実行しない
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
-          .pipe(plumberWithNotify())
-          // sourcemapsの表示行数がずれるので開発時はminifyしない
-          .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
-          .pipe(debug())
-          .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
-          .pipe(gulp.dest('devStuff/css'));
-      })
-    );
+  return merge(
+    styleSource.map(styleSource=>{
+      return gulp.src(styleSource)
+        // buildの場合はsourcemapsを実行しない
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
+        .pipe(plumberWithNotify())
+        // sourcemapsの表示行数がずれるので開発時はminifyしない
+        .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
+        .pipe(debug())
+        .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
+        .pipe(gulp.dest('devStuff/css'));
+    })
+  );
 });
 
 
