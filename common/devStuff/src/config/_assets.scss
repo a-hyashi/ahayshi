@@ -118,7 +118,10 @@ category:
 
 ```scss
 @mixin g-textOuterGlow($size: 1, $color: #fff, $blur-radius: 1px) {
-  @if $size == 1 {
+  @if  $size == 0 {
+    text-shadow:
+      0 0 $blur-radius $color;
+  } @else if $size == 1 {
     text-shadow:
       -1px -1px $blur-radius $color,
       -1px 0 $blur-radius $color,
@@ -168,7 +171,7 @@ photoshopでいうところの「光彩（外側）」を文字に追加するmi
 
 #### $size
 
-- 概要: 光彩のサイズ。1と2から選択する
+- 概要: 光彩のサイズ。0、1、2から選択する
 - Type: Number
 - Default value: 1
 
@@ -212,7 +215,10 @@ photoshopでいうところの「光彩（外側）」を文字に追加するmi
 
 
 @mixin g-textOuterGlow($size: 1, $color: #fff, $blur-radius: 1px) {
-  @if $size == 1 {
+  @if  $size == 0 {
+    text-shadow:
+      0 0 $blur-radius $color;
+  } @else if $size == 1 {
     text-shadow:
       -1px -1px $blur-radius $color,
       -1px 0 $blur-radius $color,
