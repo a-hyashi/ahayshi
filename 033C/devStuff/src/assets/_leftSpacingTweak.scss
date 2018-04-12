@@ -1,0 +1,28 @@
+// commonと$g-leftSpacingBaseLengthの値が異なるため個別実装
+
+$g-leftSpacingBaseLength: 6;
+
+@if $device == PC {
+
+  /*
+  ---
+  name: ex-leftSpacingTweak
+  category:
+  - assets
+  ---
+
+  左余白用class
+
+  数字×$g-leftSpacingBaseLengthの下余白を部品・要素に与える
+
+  */
+
+  @for $_i from 1 through 10 {
+    .ex-leftSpacingTweak-narrow-#{$_i}s {
+      margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
+    }
+    .ex-leftSpacingTweak-spread-#{$_i}s {
+      margin-left: #{$_i * $g-leftSpacingBaseLength}px;
+    }
+  }
+}
