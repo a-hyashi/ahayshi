@@ -84,7 +84,7 @@ gulp.task('sasslint', function() {
   return gulp.src(['devStuff/src/**/*.s[ac]ss'])
   .pipe(sassLint({
     files: {
-      ignore: 'devStuff/src/config/*.s[ac]ss'
+      ignore: 'devStuff/src/assets/*.s[ac]ss'
     },
     rules: {
       'property-sort-order': 0,
