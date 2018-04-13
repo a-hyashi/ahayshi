@@ -10,6 +10,9 @@ window.onload = function () {
   var preview = document.getElementsByClassName("aigis-preview");
   var showWidthArea = document.getElementById("showWidthArea");
 
+  var MAIN_WIDTH = '780px';
+  var SUB_WIDTH = '320px';
+
   sidemenuToggle.onclick = function() {
     toggle.classList.toggle('sidemenu-is-closed');
   }
@@ -20,6 +23,7 @@ window.onload = function () {
     if (theme.getAttribute('href').match(/pc/)) {
       var view = theme.getAttribute('href').replace(/pc-L25/,'sp');
       theme.href = view;
+      changePreviewAreaWidth('');
     } else {
       var view = theme.getAttribute('href').replace(/sp/,'pc-L25');
       theme.href = view;
@@ -38,20 +42,21 @@ window.onload = function () {
   }
 
   width_menu.onchange = function() {
+    if (theme.getAttribute('href').match(/sp/)) {
+      return;
+    }
     var preview_width;
     switch (this.value) {
       case "all":
         preview_width = '';
         break;
       case "main":
-        preview_width = '780px';
+        preview_width = MAIN_WIDTH;
         break;
       case "sub":
-        preview_width = '320px';
+        preview_width = SUB_WIDTH;
     }
-    $.each(preview, function(i, previewArea){
-      previewArea.style.width = preview_width;
-    });
+    changePreviewAreaWidth(preview_width);
   }
 
   function changeWidth() {
@@ -60,12 +65,16 @@ window.onload = function () {
       preview[i].style.width = previewWidth.value + 'px';
     }
   }
+
+  function changePreviewAreaWidth(width){
+    $.each(preview, function(i, previewArea){
+      previewArea.style.width = width;
+    });
+  }
   // previewWidth.addEventListener("change", changeWidth, false);
 
   // area-allのwidthが初期であたってしまうので、mainに変更しておく
-  $.each(preview, function(i, previewArea){
-    previewArea.style.width = '780px';
-  });
+  changePreviewAreaWidth(MAIN_WIDTH);
 
   //パラメータにlayout=spが渡された時の動作
   var inputLayoutType = 'l25';
