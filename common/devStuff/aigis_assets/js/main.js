@@ -5,6 +5,7 @@ window.onload = function () {
   var codeToggle = document.getElementById('code-toggle');
   var viewToggle = document.getElementById('view-toggle');
   var ratio_toggle = document.getElementById('ratio-toggle');
+  var width_menu = document.getElementById('width-menu');
   var previewWidth = document.getElementById("previewWidth");
   var preview = document.getElementsByClassName("aigis-preview");
   var showWidthArea = document.getElementById("showWidthArea");
@@ -36,6 +37,23 @@ window.onload = function () {
     toggle.classList.toggle('layout-n00');
   }
 
+  width_menu.onchange = function() {
+    var preview_width;
+    switch (this.value) {
+      case "all":
+        preview_width = '';
+        break;
+      case "main":
+        preview_width = '780px';
+        break;
+      case "sub":
+        preview_width = '320px';
+    }
+    $.each(preview, function(i, previewArea){
+      previewArea.style.width = preview_width;
+    });
+  }
+
   function changeWidth() {
     showWidthArea.textContent = previewWidth.value;
     for (var i=0;i<preview.length;i++) {
@@ -43,6 +61,22 @@ window.onload = function () {
     }
   }
   // previewWidth.addEventListener("change", changeWidth, false);
+
+  // area-allのwidthが初期であたってしまうので、mainに変更しておく
+  $.each(preview, function(i, previewArea){
+    previewArea.style.width = '780px';
+  });
+
+  //パラメータにlayout=spが渡された時の動作
+  var inputLayoutType = 'l25';
+  var match = location.search.match(/l=(.*?)(&|$)/);
+  if(match){
+    inputLayoutType = decodeURIComponent(match[1]);
+  }
+  if(inputLayoutType==='sp'){
+    theme.href = theme.getAttribute('href').replace(/pc-L25/,'sp');
+    toggle.classList.toggle('view-is-sp');
+  }
 }
 
 
