@@ -5,22 +5,61 @@
     $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    $_textColor: #714f2d;
 
     font-family: $tenorsans;
+    margin: 0 auto;
 
     &__media {
+      line-height: 0;
       text-align: center;
+      position: relative;
+      a {
+        text-decoration: none;
+        &:hover {
+          opacity: .8;
+        }
+      }
       img {
         display: inline-block;
         width: 100%;
         height: auto;
       }
-      a {
-        img {
-          &:hover {
-            opacity: .8;
-          }
-        }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -52,53 +91,81 @@
     }
 
     &--width-l {
-      img {
-        width: 100%;
-      }
-      #{$_block}__nav {
-        width: 100%;
-      }
+      width: 100%;
     }
     &--width-m {
-      img {
-        width: 75%;
-      }
-      #{$_block}__nav {
-        width: 75%;
-      }
+      width: 75%;
     }
     &--width-s {
-      img {
-        width: 50%;
-      }
-      #{$_block}__nav {
-        width: 50%;
-      }
+      width: 50%;
     }
   }
-  
+
   .t0-b-footerUnit-media2 {
 
     $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    $_textColor: #714f2d;
 
     font-family: $tenorsans;
+    margin: 0 auto;
 
     &__media {
       text-align: center;
+      position: relative;
+      line-height: 0;
+      a {
+        text-decoration: none;
+        &:hover {
+          opacity: .8;
+        }
+      }
       img {
         display: inline-block;
         width: 100%;
         height: auto;
         border-radius: 5px;
       }
-      a {
-        img {
-          &:hover {
-            opacity: .8;
-          }
-        }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -130,53 +197,99 @@
     }
 
     &--width-l {
-      img {
-        width: 100%;
-      }
-      #{$_block}__nav {
-        width: 100%;
-      }
+      width: 100%;
     }
     &--width-m {
-      img {
-        width: 75%;
-      }
-      #{$_block}__nav {
-        width: 75%;
-      }
+      width: 75%;
     }
     &--width-s {
-      img {
-        width: 50%;
-      }
-      #{$_block}__nav {
-        width: 50%;
-      }
+      width: 50%;
     }
   }
-  
+
   .t0-b-footerUnit-media3 {
 
     $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    $_textColor: #714f2d;
 
     font-family: $tenorsans;
+    margin: 0 auto;
 
     &__media {
       text-align: center;
+      position: relative;
+      line-height: 0;
+      a {
+        text-decoration: none;
+        &:hover {
+          opacity: .8;
+        }
+      }
       img {
         display: inline-block;
         width: 100%;
         height: auto;
         border-radius: 50%;
       }
-      a {
-        img {
-          &:hover {
-            opacity: .8;
-          }
-        }
+    }
+
+    &__textOnImage-upper {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        pointer-events: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px 5px 10px;
+        background: rgba(255,255,255,0.6);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        pointer-events: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 5px 15px;
+        background: rgba(255,255,255,0.6);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -208,28 +321,13 @@
     }
 
     &--width-l {
-      img {
-        width: 100%;
-      }
-      #{$_block}__nav {
-        width: 100%;
-      }
+      width: 100%;
     }
     &--width-m {
-      img {
-        width: 75%;
-      }
-      #{$_block}__nav {
-        width: 75%;
-      }
+      width: 75%;
     }
     &--width-s {
-      img {
-        width: 50%;
-      }
-      #{$_block}__nav {
-        width: 50%;
-      }
+      width: 50%;
     }
   }
 
@@ -242,11 +340,20 @@
 
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    $_textColor: #714f2d;
 
     font-family: $tenorsans;
+    margin: 0 auto;
+
+    a {
+      text-decoration: none;
+      color: $_textColor;
+    }
 
     &__media {
+      line-height: 0;
       text-align: center;
+      position: relative;
       img {
         display: inline-block;
         width: 100%;
@@ -254,8 +361,40 @@
       }
     }
 
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+      }
+    }
+
     &__nav {
-  
+
       @include g-font($_fontSizePx, $_lineHeightType);
       text-align: center;
       padding: 18px *.5 0 0 ;
@@ -279,19 +418,13 @@
     }
 
     &--width-l {
-      img {
-        width: 100%;
-      }
+      width: 100%;
     }
     &--width-m {
-      img {
-        width: 75%;
-      }
+      width: 75%;
     }
     &--width-s {
-      img {
-        width: 50%;
-      }
+      width: 50%;
     }
   }
 
@@ -299,11 +432,15 @@
 
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    $_textColor: #714f2d;
 
     font-family: $tenorsans;
+    margin: 0 auto;
 
     &__media {
+      line-height: 0;
       text-align: center;
+      position: relative;
       img {
         display: inline-block;
         width: 100%;
@@ -312,8 +449,44 @@
       }
     }
 
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.6);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+
     &__nav {
-  
+
       @include g-font($_fontSizePx, $_lineHeightType);
       text-align: center;
       padding: 18px *.5 0 0 ;
@@ -337,19 +510,13 @@
     }
 
     &--width-l {
-      img {
-        width: 100%;
-      }
+      width: 100%;
     }
     &--width-m {
-      img {
-        width: 75%;
-      }
+      width: 75%;
     }
     &--width-s {
-      img {
-        width: 50%;
-      }
+      width: 50%;
     }
   }
 
@@ -357,11 +524,15 @@
 
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    $_textColor: #714f2d;
 
     font-family: $tenorsans;
+    margin: 0 auto;
 
     &__media {
+      line-height: 0;
       text-align: center;
+      position: relative;
       img {
         display: inline-block;
         width: 100%;
@@ -370,8 +541,60 @@
       }
     }
 
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        pointer-events: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px 5px 10px;
+        background: rgba(255,255,255,0.6);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        color: $_textColor;
+        font-family: $tenorsans;
+        pointer-events: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 5px 15px;
+        background: rgba(255,255,255,0.6);
+      }
+    }
+
     &__nav {
-  
+
       @include g-font($_fontSizePx, $_lineHeightType);
       text-align: center;
       padding: 18px *.5 0 0 ;
@@ -395,19 +618,13 @@
     }
 
     &--width-l {
-      img {
-        width: 100%;
-      }
+      width: 100%;
     }
     &--width-m {
-      img {
-        width: 75%;
-      }
+      width: 75%;
     }
     &--width-s {
-      img {
-        width: 50%;
-      }
+      width: 50%;
     }
   }
 
