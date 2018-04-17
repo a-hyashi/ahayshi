@@ -1,0 +1,133 @@
+$baseFontSize: 14px;
+
+html {
+  font-size: $baseFontSize;
+}
+
+body.mod-body,
+div.mod-body {
+  font-weight: 500;
+  font-size: $baseFontSize;
+  font-family: $gothic;
+  color: #555;
+}
+.mod-body {
+  button, input, optgroup, select, textarea {
+    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
+  }
+}
+
+a {
+  color: #555;
+  text-decoration: underline;
+}
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: #265d9b;
+    }
+  }
+}
+
+@if $device == SP {
+  span {
+    font-size: inherit !important;
+  }
+}
+
+
+
+.cms-admin-anchorFlag{
+  z-index: 10!important;
+  position: relative;
+}
+// これはadmin.cssに移行するべき
+
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 6;
+
+@if $device == PC {
+  // 上の余白調整
+  @for $_i from 1 through 10 {
+    .ex-topSpacingTweak-up-#{$_i}s {
+      margin-top: #{-1% * $_i};
+    }
+    .ex-topSpacingTweak-down-#{$_i}s {
+      margin-top: #{1% * $_i};
+    }
+  }
+
+  // 左の余白調整
+  @for $_i from 1 through 10 {
+    .ex-leftSpacingTweak-narrow-#{$_i}s {
+      margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
+    }
+    .ex-leftSpacingTweak-spread-#{$_i}s {
+      margin-left: #{$_i * $g-leftSpacingBaseLength}px;
+    }
+  }
+}
+
+@mixin cf {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+    > ul:first-child {
+      margin-top: 0;
+    }
+    > ol:first-child {
+      margin-top: 0;
+    }
+    > p:first-child {
+      margin-top: 0;
+    }
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+$fullWidthBgColor: #FFF;
+$fullWidthBgColor2: #FDFAF0;
+$fullWidthBgColor3: #FAE4E4;
+$fullWidthBgColor4: #275999;
+$fullWidthBgColor5: #ECF3F6;
+$fullWidthBgColor6: #a1c1e6;
+$fullWidthBgColor7: #f5f5f5;
+$fullWidthBgColor8: #fdf8f8;
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
+
+
+@if $device == PC {
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

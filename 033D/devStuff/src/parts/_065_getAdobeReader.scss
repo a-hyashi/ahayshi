@@ -1,0 +1,119 @@
+@if $device == PC {
+
+  .t0-b-getAdobeReader {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+    #{$_block}__item {
+      @include cf;
+      padding: #{$_itemSpacing} 0 0;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+    a {
+      color: #555;
+      display: block;
+      float: left;
+      text-decoration: none; // text-decorationの指定が2重であるとWindowsのFirefoxで下線が太くなるので一度指定をリセットする。
+      &:hover {
+        color: #c96868;
+      }
+    }
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+    #{$_block}__itemIcon {
+      padding-right: 10px;
+    }
+    #{$_block}__itemText {
+      @include g-font(16, 1);
+      text-decoration: underline;
+    }
+  }
+  .b-downloadIcon {
+    $_color_border: #aaa;
+    @mixin _icon($file) {
+      &--#{$file} {
+        $_src: "b-downloadIcon/#{$file}.png";
+        background-image: url("../imgs/#{$_src}");
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        background-size: 30px;
+      }
+    }
+    @include _icon("reader");
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@if $device == SP {
+
+  .t0-b-getAdobeReader {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+    #{$_block}__item {
+      @include cf;
+      padding: #{$_itemSpacing} 0 0;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+    a {
+      color: #555;
+      display: block;
+      float: left;
+      &:hover {
+        color: #c96868;
+      }
+    }
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+    #{$_block}__itemIcon {
+      padding-right: 10px;
+    }
+    #{$_block}__itemText {
+      @include g-font(16, 1);
+      text-decoration: underline;
+    }
+  }
+
+  .b-downloadIcon {
+    $_color_border: #aaa;
+    @mixin _icon($file) {
+      &--#{$file} {
+        $_src: "b-downloadIcon/#{$file}.png";
+        background-image: url("../imgs/#{$_src}");
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        background-size: 30px;
+      }
+    }
+    @include _icon("reader");
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
