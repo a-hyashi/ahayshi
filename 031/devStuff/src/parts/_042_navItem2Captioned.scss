@@ -1,0 +1,289 @@
+@if $device == PC {
+
+  .t0-b-navItem2Captioned {
+
+    $_block: &;
+    // main
+    $_fontSizePx_main: 28;
+    // 補足
+    $_fontSizePx_caption: 18;
+    $_lineHeightType: 1;
+    $_textColor_main: #816739;
+    $_textColor_caption: #937f62;
+    $_hoverColor: #14c5cc;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor_main;
+
+    a {
+      display: inline-block;
+      color: $_textColor_main;
+      &:hover {
+        color: $_hoverColor;
+        #{$_block}__main {
+          border-bottom: 2px solid $_hoverColor;
+        }
+      }
+    }
+
+    //*
+    // ** __icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ icon使用部品→ 042見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    >div {
+      display: table;
+      margin: 0 auto;
+      >* {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__icon {
+      width: 46px;
+      height: 36px;
+      background: url("../imgs/common/navItem002/Link_arrow010_size1_v1f1.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 36px 36px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 0 0 5px 0;
+    }
+
+    &__main {
+      @include g-font($_fontSizePx_main, $_lineHeightType);
+      border-bottom: 2px solid #0ea4aa;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 10px 0 0 0;
+    }
+  }
+
+  .t0-b-navItem2Captioned2 {
+
+    $_block: &;
+    // main
+    $_fontSizePx_main: 28;
+    // 補足
+    $_fontSizePx_caption: 18;
+    $_lineHeightType: 1;
+    $_textColor_main: #816739;
+    $_textColor_caption: #937f62;
+    $_hoverColor: #ff91c0;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor_main;
+
+    a {
+      display: inline-block;
+      color: $_textColor_main;
+      &:hover {
+        color: $_hoverColor;
+        #{$_block}__main {
+          border-bottom: 2px solid $_hoverColor;
+        }
+      }
+    }
+
+    //*
+    // ** __icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ icon使用部品→ 042見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    >div {
+      display: table;
+      margin: 0 auto;
+      >* {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__icon {
+      width: 46px;
+      height: 38px;
+      background: url("../imgs/common/navItem002/Link_arrow012_size1_v2f1.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 38px 38px;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 0 0 5px 0;
+    }
+    &__main{
+      @include g-font($_fontSizePx_main, $_lineHeightType);
+      // アイコンと文字が縦位置中央に見えるように、padding-topに4px（padding-bottomとborder-bottomの合算値）を設定
+      padding: 4px 0 2px 0;
+      border-bottom: 2px solid #e37da9;
+    }
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 10px 0 0 0;
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-navItem2Captioned {
+
+    $_block: &;
+    // main
+    $_fontSizePx_main: 16;
+    // 補足
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
+    $_textColor_main: #816739;
+    $_textColor_caption: #937f62;
+    $_hoverColor: #14c5cc;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor_main;
+
+    a {
+      display: inline-block;
+      color: $_textColor_main;
+    }
+
+    //*
+    // ** __icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ icon使用部品→ 042見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+    >div {
+      display: table;
+      margin: 0 auto;
+      >* {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__icon {
+      width: 60px *.5;
+      height: 48px *.5;
+      background: url("../imgs/common/navItem002/sp_Link_arrow010_v1_02.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 48px *.5 48px *.5;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 0 0 5px 0;
+    }
+    &__main{
+      @include g-font($_fontSizePx_main, $_lineHeightType);
+      border-bottom: 2px solid #0ea4aa;
+    }
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 5px 0 0 0;
+    }
+  }
+
+  .t0-b-navItem2Captioned2 {
+
+    $_block: &;
+    // main
+    $_fontSizePx_main: 16;
+    // 補足
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
+    $_textColor_main: #816739;
+    $_textColor_caption: #937f62;
+    $_hoverColor: #ff91c0;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor_main;
+
+    a {
+      display: inline-block;
+      color: $_textColor_main;
+    }
+
+    //*
+    // ** __icon について**
+    // 条件
+    // ① リッチ等で文字サイズが変更になってもアイコンサイズを保持しなければいけないので使用せざるおえない
+    // ② 参照：https: //goo.gl/GT6pj9 「小さい」の場合は80%、「大きい」の場合は120%にする。
+    // ③ icon使用部品→ 042見出し
+    // 参照：https://goo.gl/aYwiMQ
+    // ※ スタイルガイドの部品番号
+    //*
+
+    >div {
+      display: table;
+      margin: 0 auto;
+      >* {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__icon {
+      width: 60px *.5;
+      height: 48px *.5;
+      background: url("../imgs/common/navItem002/sp_Link_arrow012_v2_02.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 48px *.5 48px *.5;
+    } // End このタグは必ず使用する。リッチ等で文字サイズが変更になってもアイコンサイズを保持する為
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 0 0 5px 0;
+    }
+    &__main{
+      @include g-font($_fontSizePx_main, $_lineHeightType);
+      border-bottom: 2px solid #e37da9;
+    }
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      color: $_textColor_caption;
+      text-align: center;
+      padding: 5px 0 0 0;
+    }
+  }
+
+}// SP

@@ -1,0 +1,202 @@
+@if $device == PC {
+  .t0-b-navItemCaptioned {
+    $_block: &;
+    display: table;
+
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+    &--align-c {
+      margin: 0 auto;
+    }
+    &--align-r {
+      margin: 0 0 0 auto;
+    }
+
+    &__inner {
+      display: table;
+      width: 100%;
+      box-sizing: border-box;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 8px;
+        width: 26px;
+        height: 26px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-image: url("../imgs/t0-b-navItem/1/bg3.png");
+
+        #{$_block}--size-1 & {
+          padding-right: 8px;
+          width: 18px;
+          height: 18px;
+          background-image: url("../imgs/t0-b-navItem/1/bg.png");
+        }
+        #{$_block}--size-2 & {
+          padding-right: 8px;
+          width: 22px;
+          height: 22px;
+          background-image: url("../imgs/t0-b-navItem/1/bg2.png");
+        }
+        #{$_block}--size-3 & {
+          padding-right: 8px;
+          width: 26px;
+          height: 26px;
+          background-image: url("../imgs/t0-b-navItem/1/bg3.png");
+        }
+        #{$_block}--size-4 & {
+          padding-right: 8px;
+          width: 30px;
+          height: 30px;
+          background-image: url("../imgs/t0-b-navItem/1/bg4.png");
+        }
+        #{$_block}--size-5 & {
+          padding-right: 8px;
+          width: 36px;
+          height: 36px;
+          background-image: url("../imgs/t0-b-navItem/1/bg5.png");
+        }
+      }
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0;
+      }
+    }
+
+    > a {
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+      color: #555;
+    }
+
+    &__main {
+      @include g-font(20, 1);
+      font-weight: bold;
+      display: inline-block;
+      border-bottom: 1px solid #969696;
+      padding-bottom: 5px;
+
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+
+      a:hover & {
+        color: #265d9b;
+        border-bottom: 1px solid #265d9b;
+      }
+
+      #{$_block}--size-1 & {
+        @include g-font(16, 1);
+      }
+      #{$_block}--size-2 & {
+        @include g-font(18, 1);
+      }
+      #{$_block}--size-3 & {
+        @include g-font(20, 1);
+      }
+      #{$_block}--size-4 & {
+        @include g-font(22, 1);
+      }
+      #{$_block}--size-5 & {
+        @include g-font(24, 1);
+      }
+    }
+    &__caption {
+      @include g-font(16, 1);
+      padding: 5px 0 0;
+
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+
+      #{$_block}--size-1 & {
+        @include g-font(14, 1);
+      }
+      #{$_block}--size-2 & {
+        @include g-font(14, 1);
+      }
+      #{$_block}--size-3 & {
+        @include g-font(16, 1);
+      }
+      #{$_block}--size-4 & {
+        @include g-font(18, 1);
+      }
+      #{$_block}--size-5 & {
+        @include g-font(20, 1);
+      }
+    }
+  }
+
+  .t0-b-navItemCaptionedDouble {
+    display: flex;
+    &__layout {
+      padding-left: 4%;
+      flex: 1 1 (100% / 2);
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+
+  .t0-b-navItemCaptioned {
+    margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
+    color: #555;
+    > a {
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+      color: #555;
+    }
+
+    &__inner {
+      display: table;
+      width: 100%;
+      box-sizing: border-box;
+
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 8px;
+        width: 22px;
+        height: 22px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-image: url("../imgs/t0-b-navItem/1/bg6.png");
+        background-size: 22px;
+      }
+      > div {
+        display: inline-block;
+      }
+    }
+
+    &__main {
+      @include g-font(18, 1);
+      padding-bottom: 5px;
+      font-weight: bold;
+      display: inline-block;
+      border-bottom: 1px solid #969696;
+    }
+
+    &__caption {
+      padding-top: 5px;
+      @include g-font(14, 1);
+    }
+  }
+
+  .t0-b-navItemCaptionedDouble {
+    &__layout {
+      padding-bottom: 10px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
