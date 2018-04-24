@@ -1,0 +1,49 @@
+@if $device == PC {
+  .t0-b-article3Image {
+    $_block: &;
+
+    &__row {
+      padding-bottom: 5%;
+      display: flex;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    &__col {
+      flex-basis: (100%-3.5*2)/3;
+
+      #{$_block}--colSpacing-l & {
+        flex-basis: (100%-6*2)/3;
+      }
+      #{$_block}--colSpacing-m & {
+        flex-basis: (100%-3.5*2)/3;
+      }
+      #{$_block}--colSpacing-s & {
+        flex-basis: (100%-1*2)/3;
+      }
+    }
+
+    &__spacing {
+      flex-basis: 3.5%;
+
+      #{$_block}--colSpacing-l & {
+        flex-basis: 6%;
+      }
+      #{$_block}--colSpacing-m & {
+        flex-basis: 3.5%;
+      }
+      #{$_block}--colSpacing-s & {
+        flex-basis: 1%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-article3Image {
+    &__spacing {
+      height: 20px;
+    }
+  }
+}

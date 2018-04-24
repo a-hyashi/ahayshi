@@ -21,6 +21,10 @@ $mincho: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "
 $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", HGMaruGothicMPRO, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
 
 
+// デザイン仕様 d07 SPではRTEによるフォントサイズ変更を無効にするために必要。mixin g-fontの!importantと合わせて使用する。
+span {
+  font-size: inherit !important;
+}
 
 /*
 ---
@@ -34,8 +38,11 @@ category:
 font-sizeとline-heightの組み合わせを指定する
 
 ```scss
-@mixin g-font($fontSizePx, $lineHeightType: 0) {
+@mixin g-font($fontSizePx, $lineHeightType) {
 
+  @if $lineHeightType == 0 {
+    line-height: 1;
+  }
   @if $lineHeightType == 1 {
     line-height: 1.25;
   }
@@ -84,8 +91,10 @@ font-sizeとline-heightの組み合わせを指定する
 */
 
 
-@mixin g-font($fontSizePx, $lineHeightType: 0) {
+@mixin g-font($fontSizePx, $lineHeightType) {
 
+  @if $lineHeightType == 0 {line-height: 1;}
+  // ↑ 2行にならないことを加味しながら使用
   @if $lineHeightType == 1 {line-height: 1.25;}
   @if $lineHeightType == 2 {line-height: 1.6;}
 
