@@ -1,0 +1,110 @@
+@if $device == PC {
+
+  .t0-b-headerUnit-labeledList {
+    $_block: &;
+
+    white-space: nowrap;
+    color: #fff;
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    th,
+    td {
+      @include g-font(16, 1);
+      vertical-align: middle;
+      a {
+        color: inherit;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+    }
+
+    th {
+      padding-left: 0;
+      div {
+        text-align: center;
+        background: #1c8aa1;
+        padding: 1px 10px;
+        min-width: 84px;
+        box-sizing: border-box;
+      }
+    }
+
+    td {
+      text-align: left;
+      padding-left: 6px;
+    }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      color: $textcolor;
+
+      th {
+        color: #fff;
+      }
+    }
+
+    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerSingle#{$variation1of2} & table,
+    .t0-b-headerSingle#{$variation2of2} & table{
+      margin: 0 auto;
+      display: table;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-labeledList {
+    $_block: &;
+    color: #fff;
+
+    table {
+      border-collapse: separate;
+    }
+
+    th,
+    td {
+      vertical-align: middle;
+      @include g-font(16, 1);
+      a {
+        color: inherit;
+      }
+    }
+
+    th {
+      div {
+        text-align: center;
+        background: #1c8aa1;
+        padding: 1px 3px;
+        width: 72px;
+        box-sizing: border-box;
+      }
+    }
+
+    td {
+      text-align: left;
+      padding-left: 6px;
+    }
+
+    //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
+    .t0-b-headerCombi#{$variation2of2} &,
+    .t0-b-headerSingle#{$variation2of2} &{
+      color: $textcolor;
+
+      th {
+        color: #fff;
+      }
+    }
+
+    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerSingle#{$variation1of2} & table,
+    .t0-b-headerSingle#{$variation2of2} & table{
+      margin: 0 auto;
+    }
+  }
+}

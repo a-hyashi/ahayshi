@@ -1,0 +1,60 @@
+@if $device == PC {
+
+  .t0-b-sideFreeHtml {
+    $_block: &;
+
+    text-align: center;
+    overflow: hidden;
+
+    .admin & {
+      background: #666;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    > * {
+      max-width: 100%;
+      margin: 0 auto !important;
+    }
+  }
+}
+
+@if $device == SP {
+
+  .t0-b-sideFreeHtml {
+    $_block: &;
+
+    text-align: center;
+    overflow: auto;
+    padding: 0 5px;
+
+    //ここから、Youtubeが見切れないようにするコード
+    max-height: 240px;
+
+    > div {
+      iframe,
+      object,
+      embed {
+        max-height: 240px;
+        max-width: 100%;
+      }
+    }
+
+    //ここまで、Youtubeが見切れないようにするコード
+
+    > div {
+      > * {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+      }
+    }
+
+    .admin & {
+      background: #666;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+}
