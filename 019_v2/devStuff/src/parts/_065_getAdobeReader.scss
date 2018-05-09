@@ -47,7 +47,7 @@
       @include g-font(16, 1);
     }
   }
-  
+
   .b-downloadIcon {
     @mixin _icon($file) {
       &--#{$file} {
@@ -63,6 +63,10 @@
     display: inline-block;
     vertical-align: middle;
     @include _icon("reader");
+  }
+  // safariで下線が付かない不具合のハック
+  _::-webkit-full-page-media, _:future, :root .t0-b-getAdobeReader__itemText {
+    text-decoration:underline;
   }
 }
 
