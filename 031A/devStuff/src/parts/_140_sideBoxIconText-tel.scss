@@ -1,0 +1,153 @@
+@if $device == PC {
+
+  .t0-b-sideBoxIconText-tel {
+
+    $_textColor: #b67f1d;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+
+    > div {
+      display: inline-block;
+    }
+    &__ruby {
+      @include g-font(12, 1);
+      text-align: right;
+      a {
+        color: $_textColor;
+        text-decoration: none;
+      }
+    }
+    &__bd {
+      @if $layout == 'L30' or $layout == 'R30' {
+        // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+        @include g-font(30, 1);
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        @include g-font(26, 1);
+      }
+      font-weight: bold;
+      line-height: 1;
+      display: table;
+      text-align: center;
+        > span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+    }
+    &__icon {
+      background-repeat: no-repeat;
+      + span {
+        // ヒラギノ・11桁で折り返さないギリギリのサイズ
+        font-size: 90%; 
+      }
+    }
+    &__tel {
+      width: 21px;
+      height: 21px;
+      padding: 0 13px 0 0;
+      background-image: url("../imgs/contact/contact001/contact001_tel_side_v1f1.png");
+      background-position: 2px center;
+      background-size: 21px 21px;
+    }
+    &__fax {
+      width: 22px;
+      height: 14px;
+      padding: 0 14px 0 0;
+      background-image: url("../imgs/contact/contact002/contact002_fax_side_v1f1.png");
+      background-position: 1px center;
+      background-size: 22px 14px;
+    }
+    &__free {
+      width: 30px;
+      height: 16px;
+      padding: 0 5px 0 0;
+      background-image: url("../imgs/contact/contact004/contact004_free_side_v1f1.png");
+      background-position: left center;
+      background-size: 30px 16px;
+    }
+    &__cell {
+      width: 12px;
+      height: 19px;
+      padding: 0 19px 0 0;
+      background-image: url("../imgs/contact/contact005/contact005_cell_side_v1f1.png");
+      background-position: 6px center;
+      background-size: 12px 19px;
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-sideBoxIconText-tel {
+
+    $_textColor: #555;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    word-break: break-all;
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    background: linear-gradient(#fff, #f6f6f6, #eee);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    a {
+      color: $_textColor;
+      text-decoration: none;
+    }
+    &__ruby {
+      @include g-font(12, 1);
+      text-align: center;
+    }
+    &__bd {
+      display: table;
+      margin: 0 auto;
+      @include g-font(22, 1);
+      color: #f00;
+      text-align: center;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__icon {
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+    &__tel {
+      min-width: 35px *.5;
+      height: 35px *.5;
+      padding: 0 18px *.5 0 0;
+      background-image: url("../imgs/contact/contact001/sp_contact001_tel_07.png");
+      background-size: 35px *.5 35px *.5;
+    }
+    &__fax {
+      min-width: 44px *.5;
+      height: 26px *.5;
+      padding: 0 16px *.5 0 0;  
+      background-image: url("../imgs/contact/contact002/sp_contact002_fax_v1_09.png");
+      background-size: 44px *.5 26px *.5;
+    }
+    &__free {
+      min-width: 46px *.5;
+      height: 26px *.5;
+      padding: 0 10px *.5 0 0;
+      background-image: url("../imgs/contact/contact004/sp_contact004_free_09.png");
+      background-size: 46px *.5 26px *.5;
+    }
+    &__cell {
+      min-width: 28px *.5;
+      height: 46px *.5;
+      padding: 0 20px *.5 0 0;
+      background-image: url("../imgs/contact/contact005/sp_contact005_cell.png");
+      background-size: 28px *.5 46px *.5;
+    }
+  }
+
+}// SP

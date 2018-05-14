@@ -1,0 +1,136 @@
+@if $device == PC {
+
+  .t0-b-headerUnit-siteName2 {
+
+    $_block: &;
+    $_fontSizePx_ft: 14;
+    $_lineHeightType: 1;
+    $_textColor: #583a1e;
+
+    &__bd {
+      img {
+        display: block;
+        max-width: 100%;
+        min-width: 300px;
+        height: auto;
+      }
+    }
+    a {
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+    &__ft {
+      font-family: $tenorsans;
+      @include g-font($_fontSizePx_ft, $_lineHeightType);
+      color: $_textColor;
+      padding-top: 5px;
+      a {
+        color: $_textColor;
+        text-decoration: underline;
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+    &--width-l {
+      img {
+        width: 100%;
+      }
+      #{$_block}__ft {
+        width: 100%;
+      }
+    }
+    &--width-m {
+      img {
+        width: 75%;
+      }
+      #{$_block}__ft {
+        width: 75%;
+      }
+    }
+    &--width-s {
+      img {
+        width: 50%;
+      }
+      #{$_block}__ft {
+        width: 50%;
+      }
+    }
+
+    // Start サイト名中央に入ったときのみ画像分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      img {
+        margin: 0 auto;
+      }
+    }
+    // End サイト名中央に入ったときのみ画像分の幅をもち中央寄せの見た目にする
+  }
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-headerUnit-siteName2 {
+
+    $_block: &;
+    $_fontSizePx_ft: 14;
+    $_lineHeightType: 1;
+    $_textColor: #583a1e;
+
+    color: $_textColor;
+
+    &__bd {
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    &__ft {
+      font-family: $tenorsans;
+      @include g-font($_fontSizePx_ft, $_lineHeightType);
+      color: $_textColor;
+      padding-top: 5px;
+      a {
+        color: $_textColor;
+        text-decoration: underline;
+      }
+    }
+    &--width-l {
+      img {
+        width: 100%;
+        #{$_block}__ft {
+          width: 100%;
+        }
+      }
+    }
+    &--width-m {
+      img {
+        width: 75%;
+      }
+      #{$_block}__ft {
+        width: 75%;
+      }
+    }
+    &--width-s {
+      img {
+        width: 50%;
+      }
+      #{$_block}__ft {
+        width: 50%;
+      }
+    }
+
+    // Start サイト名中央に入ったときのみ画像分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      img {
+        margin: 0 auto;
+      }
+    }
+    // End サイト名中央に入ったときのみ画像分の幅をもち中央寄せの見た目にする
+  }
+
+}// SP
