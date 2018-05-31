@@ -14,12 +14,9 @@ const browserSync = require('browser-sync');
 const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs');
-const sassdoc = require('sassdoc');
 const sourcemaps = require('gulp-sourcemaps');
 const debug = require('gulp-debug');
 const merge = require('event-stream').merge;
-
-
 
 
 // エラー通知 & watch中にエラーが出ても処理を止めないように
@@ -64,19 +61,19 @@ switch (sassBuildType) {
 
 gulp.task('sass', function() {
   return merge(
-      styleSource.map(styleSource=>{
-        return gulp.src(styleSource)
-          // buildの場合はsourcemapsを実行しない
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
-          .pipe(plumberWithNotify())
-          // sourcemapsの表示行数がずれるので開発時はminifyしない
-          .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
-          .pipe(debug())
-          .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
-          .pipe(gulp.dest('devStuff/css'));
-      })
-    );
+    styleSource.map(styleSource=>{
+      return gulp.src(styleSource)
+        // buildの場合はsourcemapsを実行しない
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
+        .pipe(plumberWithNotify())
+        // sourcemapsの表示行数がずれるので開発時はminifyしない
+        .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
+        .pipe(debug())
+        .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
+        .pipe(gulp.dest('devStuff/css'));
+    })
+  );
 });
 
 
@@ -86,7 +83,7 @@ gulp.task('sasslint', function() {
   return gulp.src(['devStuff/src/**/*.s[ac]ss'])
   .pipe(sassLint({
     files: {
-      ignore: 'devStuff/src/config/*.s[ac]ss'
+      ignore: 'devStuff/src/assets/*.s[ac]ss'
     },
     rules: {
       'property-sort-order': 0,
@@ -126,10 +123,7 @@ gulp.task('copy-css', function(){
 gulp.task('server', function() {
   browserSync({
     server: {
-      baseDir: './devStuff/styleguide',
-      routes: {
-        "/sassdoc": "./devStuff/sassdoc"
-      }
+      baseDir: './devStuff/styleguide'
     }
   });
 });
@@ -200,28 +194,6 @@ function output_rename_sp_css(value, folder) {
     .pipe(gulp.dest('production/themes/' + folder + '/sp/'));
 }
 
-// gulp tasks sassdoc
-gulp.task('sassdoc', function(){
-  var options = {
-    dest: './devStuff/sassdoc',
-    verbose: true,
-    display: {
-      access: ['public', 'private'],
-      alias: true,
-      watermark: true,
-    },
-    groups: {
-      'undefined': 'Ungrouped',
-      foo: 'Foo group',
-      bar: 'Bar group',
-    },
-    basePath: 'https://github.com/SassDoc/sassdoc',
-  };
-
-  return gulp.src('devStuff/src/**/*.scss')
-    .pipe(sassdoc(options));
-});
-
 
 // gulp tasks
 
@@ -250,10 +222,10 @@ gulp.task('developing-compact', function() {
   );
 });
 
-gulp.task('watch-full', ['sass','aigis','sassdoc','server'], function() {
+gulp.task('watch-full', ['sass','aigis','server'], function() {
   gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-full',browserSync.reload]);
 });
 
-gulp.task('watch-compact', ['sass','aigis','sassdoc','server'], function() {
+gulp.task('watch-compact', ['sass','aigis','server'], function() {
   gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-compact',browserSync.reload]);
 });
