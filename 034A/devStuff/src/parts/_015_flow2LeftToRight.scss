@@ -1,0 +1,86 @@
+@if $device == PC {
+
+  .t0-b-flow2LeftToRight {
+    $_block: &;
+    width: 100%;
+    &__row {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      padding-bottom: 5%;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+      width: (100%-4*(2-1))/2;
+      #{$_block}--colSpacing-l & {
+        width: (100%-7*(2-1))/2;
+      }
+      #{$_block}--colSpacing-m & {
+        width: (100%-4*(2-1))/2;
+      }
+      #{$_block}--colSpacing-s & {
+        width: (100%-1*(2-1))/2;
+      }
+    }
+
+    &__arrow {
+      display: table-cell;
+      text-align: center;
+      font-size: 2em;
+      color: #333;
+      vertical-align: middle;
+      width: 4%;
+      #{$_block}--colSpacing-l & {
+        width: 7%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 4%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 1%;
+      }
+    }
+
+    //2列部品の右列の幅変更記述
+    &--colW-l &__box {
+      width: 22.3%;
+    }
+    &--colW-l &__box ~ &__box {
+      width: 72.7%;
+    }
+    &--colW-m &__box {
+      width: 30.7%;
+    }
+    &--colW-m &__box ~ &__box {
+      width: 64.3%;
+    }
+
+  }
+
+}
+
+@if $device == SP {
+
+  .t0-b-flow2LeftToRight {
+    $_block: &;
+    width: 100%;
+    &__box {
+      padding-bottom: 15px;
+    }
+    &__row {
+      &:last-child {
+        .t0-b-flow2LeftToRight__box {
+          &:last-child {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+}
