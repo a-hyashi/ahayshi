@@ -1,0 +1,71 @@
+@if $device == PC {
+  .t0-b-sideNavItem {
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+
+    &__inner {
+      display: table;
+      box-sizing: border-box;
+      color: #0b6678;
+      vertical-align: middle;    
+
+      > span {
+        display: table-cell;
+        width: 22px;
+        height: 22px;
+        background: url("../imgs/t0-b-navItem/1.png")no-repeat 0 50%;
+        background-size: 22px 22px;
+        padding: 0 6px 0 0;
+        vertical-align: middle;
+      }
+
+      > div {
+        @include g-font(16, 1);
+        display: table-cell;
+        empty-cells: hide; 
+        border-bottom: 2px solid #45b1c7;
+        a:hover & {
+          color: $hovercolor;
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+
+  .t0-b-sideNavItem {
+    margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
+
+    a {
+      text-decoration: none;
+      display: block;
+    }
+
+    &__inner {
+      box-sizing: border-box;
+      color: #0b6678;
+      display: table;
+
+      > span {
+        display: table-cell;
+        width: 22px;
+        height: 22px;
+        background: url("../imgs/t0-b-navItem/1.png")no-repeat 0 50%;
+        background-size: 22px 22px;
+        padding: 0 6px 0 0;
+      }
+
+      > div {
+        @include g-font(16, 1);
+        display: table-cell;
+        empty-cells: hide;   
+        border-bottom: 1px solid #45b1c7;
+        font-weight: bold;
+      }
+    }
+  }
+}
