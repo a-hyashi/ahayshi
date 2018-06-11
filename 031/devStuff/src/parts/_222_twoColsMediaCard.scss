@@ -1,0 +1,335 @@
+
+@if $device == PC {
+  .t0-b-twoColsMediaCard {
+    $_block: &;
+    &__div {
+      table-layout: fixed;
+      display: table;
+      width: 100%;
+      > div {
+        display: table-cell;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    .clearfix {
+      display: none;
+    }
+
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      width: 40%;
+      padding-right: 4%;
+      padding-top: 3px; // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      box-sizing: border-box;
+      .t0-b-layoutSplitter--count-3 {
+        margin-left: -10px;
+        .t0-b-layoutSplitter__div {
+          > div {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+
+    &--imgR {
+      > div {
+        direction: rtl;
+        > div {
+          direction: ltr;
+        }
+      }
+      [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+        padding-left: 4%;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .ex-imageFloat.t0-b-twoColsMediaCard--imgR {
+    > div {
+      direction: ltr;
+      > div {
+        direction: ltr;
+      }
+    }
+    .t0-b-twoColsMediaCard__div {
+      @include cf;
+      display: block;
+      width: 100%;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+
+    .clearfix {
+      clear: right;
+      display: block;
+    }
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      float: right;
+      padding-right: 0;
+      padding-left: 4%;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMediaCard__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class*=-bPlacer] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h,
+    .t0-b-articleDecoration4__hd-h {
+      overflow: hidden;
+    }
+  }
+
+  .ex-imageFloat.t0-b-twoColsMediaCard--imgL {
+    .t0-b-twoColsMediaCard__div {
+      @include cf;
+      display: block;
+      width: 100%;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    .clearfix {
+      clear: left;
+      display: block;
+    }
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      float: left;
+      padding-left: 0;
+      padding-right: 4%;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMediaCard__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class*=-bPlacer] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h,
+    .t0-b-articleDecoration4__hd-h {
+      overflow: hidden;
+    }
+  }
+
+  .t0-b-twoColsMediaCard--colW-l {
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      width: 50%;
+    }
+  }
+
+  .t0-b-twoColsMediaCard--colW-m {
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      width: 40%;
+    }
+  }
+
+  .t0-b-twoColsMediaCard--colW-s {
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      width: 30%;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-twoColsMediaCard {
+    padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+    > div {
+      direction: ltr;
+      > div {
+        direction: ltr;
+      }
+    }
+    .t0-b-twoColsMediaCard__div {
+      @include cf;
+      display: block;
+      width: 100%;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    .clearfix {
+      clear: right;
+      display: block;
+    }
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      width: 40%;
+      float: right;
+      padding-right: 0;
+      padding-left: 10px;
+      padding-top: 3px; // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMediaCard__row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class*=-bPlacer] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h,
+    .t0-b-articleDecoration4__hd-h {
+      overflow: hidden;
+    }
+    &.ex-spLayout__vertical {
+      [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+        width: 100% !important;
+        // ※ importantを使う例外対応
+        // CMS機能の「列の大きさ」調整機能で、「自分で選択」から数値を指定していた場合、SPのHTML内にstyle属性としてwidthの値(userEditWidth)が出力されてしまう。
+        // 縦並びが選択されている場合は、更新画面の設定値を無視し、width: 100%で上書きする。
+        // CMSの改修を行い、SPサイトにuserEditWidthの値が出力されなくなったら、本記述のimportantは削除する
+
+      }
+      .clearfix {
+        clear: both;
+        display: block;
+      }
+      [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+        float: none;
+        padding: 0;
+      }
+      [class^=t0-b-twoColsMediaCard__row][class*=col2] {
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+        [class*=-bPlacer] {
+          > div {
+            overflow: hidden;
+          }
+          > .t0-b-wysiwyg {
+            overflow: visible;
+            ul, ol {
+              overflow: hidden;
+            }
+          }
+          > .t0-b-layoutSplitter {
+            overflow: visible;
+            > div > div > div > div {
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-twoColsMediaCard--imgL {
+    .t0-b-twoColsMediaCard__div {
+      @include cf;
+      display: block;
+      width: 100%;
+      > div {
+        display: block;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+    .clearfix {
+      clear: left;
+      display: block;
+    }
+    [class^=t0-b-twoColsMediaCard__row][class*=col1] {
+      width: 40%;
+      float: left;
+      padding-left: 0;
+      padding-right: 10px;
+      position: relative;
+      z-index: 10;
+    }
+    [class^=t0-b-twoColsMediaCard_row][class*=col2] {
+      overflow: visible;
+      position: relative;
+      z-index: 1;
+      [class*=-bPlacer] {
+        > div {
+          overflow: hidden;
+        }
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+        > .t0-b-layoutSplitter {
+          overflow: visible;
+          > div > div > div > div {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .t0-b-articleDecoration__hd-h,
+    .t0-b-articleDecoration2__hd-h,
+    .t0-b-articleDecoration3__hd-h,
+    .t0-b-articleDecoration4__hd-h {
+      overflow: hidden;
+    }
+  }
+}
