@@ -204,8 +204,12 @@
       text-align: right;
     }
   }
-
+  
   .t0-b-lv3H4 {
+
+    text-align: center;
+    overflow: hidden;
+
     $_block: &;
     $_fontSizePx: 24;
     $_lineHeightType: 1;
@@ -213,33 +217,40 @@
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
-    position: relative;
-    line-height: 0;
-    text-align: center;  
-
-    > div {
-      display: inline-block;
-
-      > h3 {}
-    }
-
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-
-      vertical-align: middle;
-      display: table-cell;
-      padding-top: 1px;
-    }
-
     a {
+      display: block;      
       text-decoration: none;
       color: $textcolor;
-      display: table-cell;
-      vertical-align: middle;
 
       &:hover {
         color: $hovercolor;
       }
+    }    
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      display: inline-block;
+      position: relative;
+      padding: 0 35px;
+      max-width: calc(100% - #{(50px + 35px) * 2 } );      
+
+      &::before {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: $areaContainerWidth;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: $areaContainerWidth;
+        left: 100%;
+      }    
     }
 
     &--size-1 {
@@ -248,7 +259,7 @@
       }
     }
 
-    &--size-2{}
+    &--size-2 {}
 
     &--size-3 {
       h3 {
@@ -258,6 +269,10 @@
 
     &--align-l {
       text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{(50px + 35px)} );
+      }
     }
 
     &--align-c {
@@ -266,6 +281,10 @@
 
     &--align-r {
       text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{(50px + 35px)} );
+      }      
     }
   }  
 }
@@ -363,62 +382,8 @@
     $_fontSizePx: 20;
     $_lineHeightType: 1;
 
-    overflow: hidden;
-    text-align: center;
-
-    h3 {
-      @include g-font($_fontSizePx, $_lineHeightType);
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      padding: 0 15px;
-      max-width: calc(100% - #{(20px + 15px) * 2 } );
-
-      &::before {
-        content: "";
-        border-top: 1px solid #75A63B;
-        position: absolute;
-        top: 50%;
-        width: 100vW;
-        right: 100%;
-      }
-
-      &::after {
-        content: "";
-        border-top: 1px solid #75A63B;
-        position: absolute;
-        top: 50%;
-        width: 100vW;
-        left: 100%;
-      }
-    }
-
-    a {
-      text-decoration: none;
-      color: $textcolor;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-  }
-
-  .t0-b-lv3H4 {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-
     position: relative;
 
-    background: url("../imgs/t0-b-lv2H-faqIcon/bg.png") no-repeat 0 100%, url("../imgs/t0-b-lv2H-faqIcon/bg2.png") repeat-x 0 100%;
     padding-bottom: 10px;
     text-align: center;
 
@@ -444,6 +409,67 @@
 
     &--align-r {
       text-align: right;
+    }
+  }
+
+  .t0-b-lv3H4 {
+    $_block: &;
+    $_fontSizePx: 20;
+    $_lineHeightType: 1;
+
+    overflow: hidden;
+    text-align: center;
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 15px;
+      max-width: calc(100% - #{(20px + 15px) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: 100vW;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: 100vW;
+        left: 100%;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $textcolor;
+    }
+
+    &--align-l {
+      text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{(20px + 15px)} );
+      }      
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{(20px + 15px)} );
+      }      
     }
   }
 }
