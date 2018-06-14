@@ -1,6 +1,8 @@
 @if $device == PC {
+
   .t0-b-media {
     margin: 0 auto;
+
     &--width-l {
       width: 100%;
     }
@@ -33,8 +35,11 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
+
       a {
         text-decoration: none;
+        color: #555;
         &:hover {
           opacity: .8;
         }
@@ -43,6 +48,39 @@
         margin-top: 3%;
       }
     }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__h-lower {
       @if $layout == "N00" {
         @include g-font(20, 1);
@@ -85,6 +123,7 @@
 
   .t0-b-media2 {
     margin: 0 auto;
+
     &--width-l {
       width: 100%;
     }
@@ -112,21 +151,54 @@
       }
     }
     img {
-      border: 1px solid #a0a0a0;
-      box-sizing: border-box;
       width: 100%;
     }
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
+      border: 1px solid #a0a0a0;
       a {
         text-decoration: none;
+        color: #555;
         &:hover {
           opacity: .8;
         }
       }
       & + div {
         margin-top: 3%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -149,6 +221,7 @@
         margin-top: 5%;
       }
     }
+
     &__caption {
       & + div {
         margin-top: 5%;
@@ -202,8 +275,10 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
       a {
         text-decoration: none;
+        color: #555;
         &:hover {
           opacity: .8;
         }
@@ -216,6 +291,43 @@
         margin-top: 3%;
       }
     }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__h-lower {
       @if $layout == "N00" {
         @include g-font(20, 1);
@@ -288,8 +400,10 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
       a {
         text-decoration: none;
+        color: #555;
         &:hover {
           opacity: .8;
         }
@@ -302,6 +416,61 @@
         margin-top: 3%;
       }
     }
+
+    &__textOnImage-upper {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px 5px 10px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 5px 15px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__h-lower {
       @if $layout == "N00" {
         @include g-font(20, 1);
@@ -341,6 +510,133 @@
     }
   }
 
+  .t0-b-media5 {
+    margin: 0 auto;
+
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
+    }
+
+    &__h-upper {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3%;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
+    }
+    img {
+      width: 100%;
+      transition: 0.5s ease;
+    }
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      a {
+        text-decoration: none;
+        color: #555;
+        transition: 0.5s ease;
+        &:hover {
+          opacity: .8;
+          img {
+            transform: scale(1.2);
+          }
+        }
+      }
+      & + div {
+        margin-top: 3%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__h-lower {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      font-weight: bold;
+      text-align: center;
+      margin-top: 3%;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
+      & + div {
+        margin-top: 5%;
+      }
+    }
+    &__caption {
+      margin-top: 5%;
+      p {
+        @include g-font(14, 1);
+        text-align: center;
+      }
+      & + div {
+        margin-top: 5%;
+      }
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
 
   .t0-b-mediaOnly {
     line-height: 0;
@@ -384,6 +680,7 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
       > *,
       img {
         width: 100%;
@@ -398,12 +695,36 @@
     }
     a {
       text-decoration: none;
-      > img {
-        &:hover {
-          opacity: .8;
-        }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
       }
     }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
@@ -419,6 +740,7 @@
       }
     }
     &__caption {
+
       p {
         @include g-font(14, 1);
         text-align: center;
@@ -430,20 +752,14 @@
     img {
       max-width: 100% !important;
     }
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
+    &--width-l {
+      width: 100%;
     }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
+    &--width-m {
+      width: 75%;
     }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
+    &--width-s {
+      width: 50%;
     }
     &--align-l {
       text-align: left;
@@ -455,7 +771,6 @@
       text-align: right;
     }
   }
-
 
   .t0-b-media2 {
     margin: 0 auto;
@@ -473,6 +788,8 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
+      border: 1px solid #a0a0a0;
       > *,
       img {
         vertical-align: top;
@@ -483,18 +800,38 @@
         margin-top: 10px;
       }
     }
-    img {
-      border: 1px solid #a0a0a0;
-      box-sizing: border-box;
-    }
     a {
       text-decoration: none;
-      > img {
-        &:hover {
-          opacity: .8;
-        }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
       }
     }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
@@ -522,20 +859,14 @@
     img {
       max-width: 100% !important;
     }
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
+    &--width-l {
+      width: 100%;
     }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
+    &--width-m {
+      width: 75%;
     }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
+    &--width-s {
+      width: 50%;
     }
     &--align-l {
       text-align: left;
@@ -564,24 +895,54 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
       > *,
       img {
         vertical-align: top;
         border-radius: 3px;
         width: 100%;
       }
+
       & + div {
         margin-top: 10px;
       }
     }
     a {
       text-decoration: none;
-      > img {
-        &:hover {
-          opacity: .8;
-        }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
       }
     }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
@@ -592,6 +953,7 @@
       div {
         display: inline-block;
       }
+
       & + div {
         margin-top: 10px;
       }
@@ -608,20 +970,14 @@
     img {
       max-width: 100% !important;
     }
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
+    &--width-l {
+      width: 100%;
     }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
+    &--width-m {
+      width: 75%;
     }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
+    &--width-s {
+      width: 50%;
     }
     &--align-l {
       text-align: left;
@@ -650,24 +1006,70 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
       > *,
       img {
         vertical-align: top;
         border-radius: 50%;
         width: 100%;
       }
+
       & + div {
         margin-top: 10px;
       }
     }
     a {
       text-decoration: none;
-      > img {
-        &:hover {
-          opacity: .8;
-        }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px 5px 10px;
+        background: rgba(255,255,255,0.8);
       }
     }
+
+    &__textOnImage-lower {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 5px 15px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
@@ -678,6 +1080,7 @@
       div {
         display: inline-block;
       }
+
       & + div {
         margin-top: 10px;
       }
@@ -694,20 +1097,122 @@
     img {
       max-width: 100% !important;
     }
-    &--width-l &__media {
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
+    }
+    &--align-l {
+      text-align: left;
+    }
+    &--align-c {
+      text-align: center;
+    }
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-media5 {
+    margin: 0 auto;
+    &__h-upper {
+      @include g-font(16, 1);
+      text-align: center;
+      padding-bottom: 10px;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
+    }
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      > *,
       img {
         width: 100%;
+        vertical-align: top;
+      }
+      > span {
+        vertical-align: baseline;
+      }
+      & + div {
+        margin-top: 10px;
       }
     }
-    &--width-m &__media {
-      img {
-        width: 75%;
+    a {
+      text-decoration: none;
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
       }
     }
-    &--width-s &__media {
-      img {
-        width: 50%;
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
       }
+    }
+
+    &__h-lower {
+      @include g-font(16, 1);
+      text-align: center;
+      margin-top: 10px;
+      a {
+        text-decoration: none;
+      }
+      div {
+        display: inline-block;
+      }
+      & + div {
+        margin-top: 10px;
+      }
+    }
+    &__caption {
+
+      p {
+        @include g-font(14, 1);
+        text-align: center;
+      }
+      & + div {
+        margin-top: 10px;
+      }
+    }
+    img {
+      max-width: 100% !important;
+    }
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
     }
     &--align-l {
       text-align: left;
