@@ -1,6 +1,7 @@
 @if $device == PC {
 
   .t0-b-twoColsMediaCardLandscape {
+    display: flex;
     $_block: &;
     &__div {
       table-layout: fixed;
@@ -17,10 +18,6 @@
         text-align: left;
       }
     }
-    .clearfix {
-      display: none;
-    }
-
     [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
       width: 40%;
       padding-right: 4%;
@@ -35,7 +32,6 @@
         }
       }
     }
-
     &--imgR {
       > div {
         direction: rtl;
@@ -51,9 +47,6 @@
   }
 
   .ex-imageFloatCard.t0-b-twoColsMediaCardLandscape--imgR {
-    display: block;
-    width: 85%;
-    margin: 1% auto;
     > div {
       direction: ltr;
       > div {
@@ -64,17 +57,14 @@
       &__div {
         @include cf;
         display: block;
-        width: 100%;
+        width: 85%;
+        margin: 2% auto;
         > div {
           display: block;
           vertical-align: top;
           text-align: left;
         }
       }
-    }
-    .clearfix {
-      clear: right;
-      display: block;
     }
     [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
       float: right;
@@ -87,7 +77,7 @@
       overflow: visible;
       position: relative;
       z-index: 1;
-      padding-right: 4%;
+      padding: 0 4%;
       margin-top: 2%;
       [class*=-bPlacer] {
         > div {
@@ -121,17 +111,13 @@
         @include cf;
         display: block;
         width: 85%;
-        margin: 1% auto;
+        margin: 2% auto;
         > div {
           display: block;
           vertical-align: top;
           text-align: left;
         }
       }
-    }
-    .clearfix {
-      clear: left;
-      display: block;
     }
     [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
       float: left;
@@ -144,7 +130,7 @@
       overflow: visible;
       position: relative;
       z-index: 1;
-      padding-right: 4%;
+      padding: 0 4%;
       margin-top: 2%;
       [class*=-bPlacer] {
         > div {
@@ -194,6 +180,8 @@
 @if $device == SP {
 
   .t0-b-twoColsMediaCardLandscape {
+    display: flex;
+    flex-direction: row;
     padding-bottom: 10px;
     &:last-child {
       padding-bottom: 0;
@@ -216,10 +204,6 @@
         }
       }
     }
-    .clearfix {
-      clear: right;
-      display: block;
-    }
     [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
       width: 40%;
       float: right;
@@ -233,7 +217,7 @@
       overflow: visible;
       position: relative;
       z-index: 1;
-      padding-right: 4%;
+      padding: 0 4%;
       margin-top: 2%;
       [class*=-bPlacer] {
         > div {
@@ -261,16 +245,12 @@
     }
     &.ex-spLayout__vertical {
       [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-        padding-bottom:24px;
+        padding-bottom: 24px;
         width: 100% !important;
         // ※ importantを使う例外対応
         // CMS機能の「列の大きさ」調整機能で、「自分で選択」から数値を指定していた場合、SPのHTML内にstyle属性としてwidthの値(userEditWidth)が出力されてしまう。
         // 縦並びが選択されている場合は、更新画面の設定値を無視し、width: 100%で上書きする。
         // CMSの改修を行い、SPサイトにuserEditWidthの値が出力されなくなったら、本記述のimportantは削除する
-      }
-      .clearfix {
-        clear: both;
-        display: block;
       }
       [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
         float: none;
@@ -309,6 +289,7 @@
         @include cf;
         display: block;
         width: 100%;
+        margin: 2% auto;
         background:#fff;
         overflow: hidden;
         border-radius: 3px;
@@ -320,15 +301,9 @@
         }
       }
     }
-    .clearfix {
-      clear: left;
-      display: block;
-    }
     [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-      width: 40%;
-      float: left;
-      padding-left: 0;
-      padding-right: 10px;
+      float: none;
+      padding: 0;
       position: relative;
       z-index: 10;
     }
