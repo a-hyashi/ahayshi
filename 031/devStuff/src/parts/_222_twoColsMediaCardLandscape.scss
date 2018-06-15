@@ -1,9 +1,8 @@
 @if $device == PC {
 
   .t0-b-twoColsMediaCardLandscape {
-    display: flex;
-    $_block: &;
-    &__div {
+    &__row {
+      display: flex;
       table-layout: fixed;
       display: table;
       width: 100%;
@@ -12,45 +11,15 @@
       overflow: hidden;
       border-radius: 3px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.26);
-      > div {
-        display: table-cell;
-        vertical-align: top;
-        text-align: left;
-      }
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-      width: 100%;
-      padding: 0;
-      box-sizing: border-box;
-      .t0-b-layoutSplitter--count-3 {
-        margin-left: -10px;
-        .t0-b-layoutSplitter__div {
-          > div {
-            padding-left: 10px;
-          }
-        }
-      }
     }
     &--imgR {
-      > div {
-        direction: rtl;
-        > div {
-          direction: ltr;
-        }
-      }
-      [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-        padding: 0;
+      .t0-b-twoColsMediaCardLandscape__row {
+        flex-flow: row-reverce;
       }
     }
   }
 
-  .ex-imageFloatCardFloatCardLandscape.t0-b-twoColsMediaCardLandscape--imgR {
-    > div {
-      direction: ltr;
-      > div {
-        direction: ltr;
-      }
-    }
+  .ex-imageFloatCardLandscape.t0-b-twoColsMediaCardLandscape--imgR {
     .t0-b-twoColsMediaCardLandscape {
       &__div {
         @include cf;
@@ -66,7 +35,6 @@
     }
     [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
       float: right;
-      padding: 0;
       position: relative;
       z-index: 10;
     }
@@ -191,10 +159,15 @@
       }
     }
     .t0-b-twoColsMediaCardLandscape {
-      &__div {
+      &__row {
         @include cf;
         display: block;
         width: 100%;
+        margin: 2% auto;
+        background:#fff;
+        overflow: hidden;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.26);
         > div {
           display: block;
           vertical-align: top;
@@ -288,11 +261,6 @@
         @include cf;
         display: block;
         width: 100%;
-        margin: 2% auto;
-        background:#fff;
-        overflow: hidden;
-        border-radius: 3px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.26);
         > div {
           display: block;
           vertical-align: top;
