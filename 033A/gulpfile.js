@@ -25,13 +25,6 @@ function plumberWithNotify() {
   return plumber({errorHandler: notify.onError("<%= error.message %>")});
 }
 
-// clean
-
-gulp.task('clean', function() {
-  del(['production', 'devStuff/css/**/*.css']);
-});
-
-
 // sass compile
 let sassBuildType = process.argv.slice(2)[1];
 let sassOptions = {};
@@ -170,8 +163,9 @@ function output_imgs(aTheme) {
     .pipe(size())
     .pipe(imagemin())
     .pipe(size())
-    .pipe(gulp.dest('production/theme_materials/' + aTheme + '/imgs/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/theme_materials/' + aTheme + '/imgs/'));
 }
+
 function output_css(aTheme, aValues) {
   for(var value of aValues) {
     var folder = aTheme + '-' + value.ratio;
@@ -183,15 +177,17 @@ function output_css(aTheme, aValues) {
     output_rename_sp_css(value, folder);
   }
 }
+
 function output_rename_pc_css(value, folder) {
   gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
     .pipe(rename('theme.css'))
-    .pipe(gulp.dest('production/themes/' + folder + '/pc/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/pc/'));
 }
+
 function output_rename_sp_css(value, folder) {
   gulp.src('devStuff/css/sp' + value.variation + '.css')
     .pipe(rename('theme.css'))
-    .pipe(gulp.dest('production/themes/' + folder + '/sp/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
 }
 
 
@@ -202,7 +198,6 @@ gulp.task('run-full', ['watch-full']);
 gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
-    'clean',
     'sass',
     'create_build'
   );

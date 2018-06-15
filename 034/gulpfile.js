@@ -25,13 +25,6 @@ function plumberWithNotify() {
   return plumber({errorHandler: notify.onError("<%= error.message %>")});
 }
 
-// clean
-
-gulp.task('clean', function() {
-  del(['production', 'devStuff/css/**/*.css']);
-});
-
-
 // sass compile
 let sassBuildType = process.argv.slice(2)[1];
 let sassOptions = {};
@@ -60,20 +53,20 @@ switch (sassBuildType) {
 }
 
 gulp.task('sass', function() {
-    return merge(
-      styleSource.map(styleSource=>{
-        return gulp.src(styleSource)
-          // buildの場合はsourcemapsを実行しない
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
-          .pipe(plumberWithNotify())
-          // sourcemapsの表示行数がずれるので開発時はminifyしない
-          .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
-          .pipe(debug())
-          .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
-          .pipe(gulp.dest('devStuff/css'));
-      })
-    );
+  return merge(
+    styleSource.map(styleSource=>{
+      return gulp.src(styleSource)
+        // buildの場合はsourcemapsを実行しない
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
+        .pipe(plumberWithNotify())
+        // sourcemapsの表示行数がずれるので開発時はminifyしない
+        .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
+        .pipe(debug())
+        .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
+        .pipe(gulp.dest('devStuff/css'));
+    })
+  );
 });
 
 
@@ -83,7 +76,7 @@ gulp.task('sasslint', function() {
   return gulp.src(['devStuff/src/**/*.s[ac]ss'])
   .pipe(sassLint({
     files: {
-      ignore: 'devStuff/src/config/*.s[ac]ss'
+      ignore: 'devStuff/src/assets/*.s[ac]ss'
     },
     rules: {
       'property-sort-order': 0,
@@ -170,8 +163,9 @@ function output_imgs(aTheme) {
     .pipe(size())
     .pipe(imagemin())
     .pipe(size())
-    .pipe(gulp.dest('production/theme_materials/' + aTheme + '/imgs/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/theme_materials/' + aTheme + '/imgs/'));
 }
+
 function output_css(aTheme, aValues) {
   for(var value of aValues) {
     var folder = aTheme + '-' + value.ratio;
@@ -183,16 +177,19 @@ function output_css(aTheme, aValues) {
     output_rename_sp_css(value, folder);
   }
 }
+
 function output_rename_pc_css(value, folder) {
   gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
     .pipe(rename('theme.css'))
-    .pipe(gulp.dest('production/themes/' + folder + '/pc/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/pc/'));
 }
+
 function output_rename_sp_css(value, folder) {
   gulp.src('devStuff/css/sp' + value.variation + '.css')
     .pipe(rename('theme.css'))
-    .pipe(gulp.dest('production/themes/' + folder + '/sp/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
 }
+
 
 // gulp tasks
 
@@ -201,7 +198,6 @@ gulp.task('run-full', ['watch-full']);
 gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
-    'clean',
     'sass',
     'create_build'
   );
