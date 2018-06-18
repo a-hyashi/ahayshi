@@ -3,124 +3,36 @@
   .t0-b-twoColsMediaCardLandscape {
     &__row {
       display: flex;
-      table-layout: fixed;
-      display: table;
       width: 100%;
       background-position: center center;
       background:#fff;
       overflow: hidden;
       border-radius: 3px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+
+      width: 85%;
+      margin: 2% auto;
+      vertical-align: top;
+      text-align: left;
     }
     &--imgR {
       .t0-b-twoColsMediaCardLandscape__row {
         flex-flow: row-reverce;
+        [class*=col2] {
+          padding: 0 4%;
+          margin: 3% 0;
+        }
       }
     }
-  }
-
-  .ex-imageFloatCardLandscape.t0-b-twoColsMediaCardLandscape--imgR {
-    .t0-b-twoColsMediaCardLandscape {
-      &__row {
-        @include cf;
-        display: block;
+    &--imgL {
+      .t0-b-twoColsMediaCardLandscape__row {
         width: 85%;
         margin: 2% auto;
-        > div {
-          display: block;
-          vertical-align: top;
-          text-align: left;
+        [class*=col2] {
+          padding: 0 4%;
+          margin: 4% 0 2%;
         }
       }
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-      float: right;
-      position: relative;
-      z-index: 10;
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col2] {
-      display: flex;
-      overflow: visible;
-      position: relative;
-      z-index: 1;
-      padding: 0 4%;
-      margin: 3% 0;
-      [class*=-bPlacer] {
-        > div {
-          overflow: hidden;
-        }
-        > .t0-b-wysiwyg {
-          overflow: visible;
-          ul, ol {
-            overflow: hidden;
-          }
-        }
-        > .t0-b-layoutSplitter {
-          overflow: visible;
-          > div > div > div > div {
-            overflow: hidden;
-          }
-        }
-      }
-    }
-    .t0-b-articleDecoration__hd-h,
-    .t0-b-articleDecoration2__hd-h,
-    .t0-b-articleDecoration3__hd-h,
-    .t0-b-articleDecoration4__hd-h {
-      overflow: hidden;
-    }
-  }
-
-  .ex-imageFloatCardLandscape.t0-b-twoColsMediaCardLandscape--imgL {
-    .t0-b-twoColsMediaCardLandscape {
-      &__row {
-        @include cf;
-        display: block;
-        width: 85%;
-        margin: 2% auto;
-        > div {
-          display: block;
-          vertical-align: top;
-          text-align: left;
-        }
-      }
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-      float: left;
-      padding: 0;
-      position: relative;
-      z-index: 10;
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col2] {
-      display: flex;
-      overflow: visible;
-      position: relative;
-      z-index: 1;
-      padding: 0 4%;
-      margin: 4% 0 2%;
-      [class*=-bPlacer] {
-        > div {
-          overflow: hidden;
-        }
-        > .t0-b-wysiwyg {
-          overflow: visible;
-          ul, ol {
-            overflow: hidden;
-          }
-        }
-        > .t0-b-layoutSplitter {
-          overflow: visible;
-          > div > div > div > div {
-            overflow: hidden;
-          }
-        }
-      }
-    }
-    .t0-b-articleDecoration__hd-h,
-    .t0-b-articleDecoration2__hd-h,
-    .t0-b-articleDecoration3__hd-h,
-    .t0-b-articleDecoration4__hd-h {
-      overflow: hidden;
     }
   }
 
@@ -152,156 +64,30 @@
     &:last-child {
       padding-bottom: 0;
     }
-    > div {
-      direction: ltr;
-      > div {
-        direction: ltr;
-      }
-    }
     .t0-b-twoColsMediaCardLandscape {
       &__row {
-        @include cf;
-        display: block;
         width: 100%;
         margin: 2% auto;
         background:#fff;
-        overflow: hidden;
         border-radius: 3px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.26);
-        > div {
-          display: block;
-          vertical-align: top;
-          text-align: left;
+        [class*=col1] {
+          width: 100%;
+        }
+        [class*=col2] {
+          padding: 0 24px;
+          margin: 16px 0 8px;
         }
       }
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-      width: 100%;
-      float: right;
-      padding: 0;
-      padding-top: 0;
-      position: relative;
-      z-index: 10;
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col2] {
-      display: flex;
-      overflow: visible;
-      position: relative;
-      z-index: 1;
-      padding: 0 24px;
-      margin: 16px 0;
-      [class*=-bPlacer] {
-        > div {
-          overflow: hidden;
-        }
-        > .t0-b-wysiwyg {
-          overflow: visible;
-          ul, ol {
-            overflow: hidden;
-          }
-        }
-        > .t0-b-layoutSplitter {
-          overflow: visible;
-          > div > div > div > div {
-            overflow: hidden;
-          }
-        }
-      }
-    }
-    .t0-b-articleDecoration__hd-h,
-    .t0-b-articleDecoration2__hd-h,
-    .t0-b-articleDecoration3__hd-h,
-    .t0-b-articleDecoration4__hd-h {
-      overflow: hidden;
     }
     &.ex-spLayout__vertical {
       [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-        padding-bottom: 24px;
         width: 100% !important;
         // ※ importantを使う例外対応
         // CMS機能の「列の大きさ」調整機能で、「自分で選択」から数値を指定していた場合、SPのHTML内にstyle属性としてwidthの値(userEditWidth)が出力されてしまう。
         // 縦並びが選択されている場合は、更新画面の設定値を無視し、width: 100%で上書きする。
         // CMSの改修を行い、SPサイトにuserEditWidthの値が出力されなくなったら、本記述のimportantは削除する
       }
-      [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-        float: none;
-        padding: 0;
-      }
-      [class^=t0-b-twoColsMediaCardLandscape__row][class*=col2] {
-        display: flex;
-        overflow: visible;
-        position: relative;
-        z-index: 1;
-        padding: 0 24px;
-        margin: 16px 0 8px;
-        [class*=-bPlacer] {
-          > div {
-            overflow: hidden;
-          }
-          > .t0-b-wysiwyg {
-            overflow: visible;
-            ul, ol {
-              overflow: hidden;
-            }
-          }
-          > .t0-b-layoutSplitter {
-            overflow: visible;
-            > div > div > div > div {
-              overflow: hidden;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .t0-b-twoColsMediaCardLandscape--imgL {
-    .t0-b-twoColsMediaCardLandscape {
-      &__row {
-        @include cf;
-        display: block;
-        width: 100%;
-        > div {
-          display: block;
-          vertical-align: top;
-          text-align: left;
-        }
-      }
-    }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
-      float: none;
-      padding: 0;
-      position: relative;
-      z-index: 10;
-    }
-    [class^=t0-b-twoColsMediaCardLandscape_row][class*=col2] {
-      display: flex;
-      overflow: visible;
-      position: relative;
-      z-index: 1;
-      [class*=-bPlacer] {
-        > div {
-          overflow: hidden;
-        }
-        > .t0-b-wysiwyg {
-          overflow: visible;
-          ul, ol {
-            overflow: hidden;
-          }
-        }
-        > .t0-b-layoutSplitter {
-          overflow: visible;
-          > div > div > div > div {
-            overflow: hidden;
-          }
-        }
-      }
-    }
-    .t0-b-articleDecoration__hd-h,
-    .t0-b-articleDecoration2__hd-h,
-    .t0-b-articleDecoration3__hd-h,
-    .t0-b-articleDecoration4__hd-h {
-      overflow: hidden;
     }
   }
 }
