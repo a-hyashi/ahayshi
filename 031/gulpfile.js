@@ -218,7 +218,7 @@ gulp.task('create_b_placer_doc', function() {
     // .t0-b-で始まる文字はバリエーション
     // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{padding-bottom:99;}
     // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
-    // 正規表現がややこしくなるため、スペーズ等はあまり考慮していません
+    // 正規表現がややこしくなるため、スペース等はあまり考慮していません
     var variation_match = line.match(/(\.t0-b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{padding-bottom:(.+);}/);
     if(variation_match) {
       if(!is_sp) {
