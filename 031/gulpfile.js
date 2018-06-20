@@ -190,9 +190,9 @@ function output_rename_sp_css(value, folder) {
     .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
 }
 
-// gulp autodoc
+// gulp create_b_placer_doc
 
-gulp.task('autodoc', function() {
+gulp.task('create_b_placer_doc', function() {
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
   var b_placer_base = new BPlacerRecord();
@@ -313,7 +313,7 @@ gulp.task('run-full', ['watch-full']);
 gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
-    ['sass', 'autodoc'],
+    ['sass', 'create_b_placer_doc'],
     'create_build'
   );
 });
