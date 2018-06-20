@@ -190,6 +190,121 @@ function output_rename_sp_css(value, folder) {
     .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
 }
 
+// gulp autodoc
+
+gulp.task('autodoc', function() {
+  // 一度出てきた情報を保持しておくために使います
+  // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
+  var b_placer_base = new BPlacerRecord();
+  var b_placers = [];
+  var is_sp = false;
+  b_placer_lines().forEach(function(line) {
+    // $device =='SP' 以降はSPの余白として設定する
+    sp_match = line.match(/\$device\s*==\s*\'SP\'/);
+    if(sp_match) is_sp = true;
+
+    // //# で始まるコメントはカテゴリー
+    var category_match = line.match(/\/\#\s+(.*)/);
+    if(category_match) b_placer_base.category = category_match[1].trim();
+
+    // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
+    var area_and_name_match = line.match(/\/\##\s+(.*)/);
+    if(area_and_name_match) {
+      var area_and_name = area_and_name_match[1].trim().split('|');
+      b_placer_base.area = area_and_name[0].trim();
+      b_placer_base.name = area_and_name[1].trim();
+    }
+
+    // .t0-b-で始まる文字はバリエーション
+    // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{padding-bottom:99;}
+    // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
+    // 正規表現がややこしくなるため、スペーズ等はあまり考慮していません
+    var variation_match = line.match(/(\.t0-b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{padding-bottom:(.+);}/);
+    if(variation_match) {
+      if(!is_sp) {
+        // カテゴリー、エリア、名前は前にコメントで出てきた値を使う
+        var b_placer = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base)), b_placer_base);
+        b_placer.class_name = variation_match[1].trim();
+        if(variation_match[2]) b_placer.variation = variation_match[2].trim();
+        b_placer.pc_value = variation_match[3].trim();
+        b_placers.push(b_placer);
+      }else{
+        // PCで作成したb_placerを探し、そのレコードにSPの値を設定する
+        var b_placer = b_placers.find(function(td) {
+          variation = variation_match[2] ? variation_match[2].trim() : undefined;
+          return td.class_name === variation_match[1].trim() && td.variation === variation;
+        });
+        b_placer.sp_value = variation_match[3].trim();
+      }
+    }
+  });
+  output_b_placer_doc(b_placers);
+});
+
+function b_placer_lines() {
+  var b_placer_scss = fs.readFileSync('devStuff/src/config/_bPlacer.scss', 'utf8');
+  return b_placer_scss.toString().split('\n');
+}
+
+class BPlacerRecord {
+  constructor(
+    category,
+    area,
+    name,
+    class_name,
+    variation,
+    pc_value,
+    pc_n00_value,
+    sp_value
+  ) {
+    this.category = category;
+    this.area = area;
+    this.name = name;
+    this.class_name = class_name;
+    this.variation = variation;
+    this.pc_value = pc_value;
+    this.pc_n00_value = pc_n00_value;
+    this.sp_value = sp_value;
+  }
+
+  to_td_line() {
+    return to_td_line([
+      this.category,
+      this.area,
+      this.name,
+      this.class_name,
+      this.variation,
+      this.pc_value,
+      this.pc_n00_value,
+      this.sp_value
+    ]);
+  }
+}
+
+function to_td_line(arr) {
+  return '|' + arr.join('|') + '|';
+}
+
+function output_b_placer_doc(b_placers) {
+  var th =
+    [
+      'カテゴリ',
+      'エリア',
+      '部品名・要素名',
+      'クラス名',
+      'バリエーション',
+      'PC',
+      'PC<br>(N00)',
+      'SP'
+    ];
+
+  var table = [to_td_line(th), to_td_line('-'.repeat(th.length).split(''))];
+  b_placers.forEach(function(b_placer) {
+    table.push(b_placer.to_td_line());
+  });
+  fs.writeFileSync('devStuff/docs/bPlacer.md', (table.join('\n')));
+
+}
 
 // gulp tasks
 
@@ -198,7 +313,7 @@ gulp.task('run-full', ['watch-full']);
 gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
-    'sass',
+    ['sass', 'autodoc'],
     'create_build'
   );
 });
