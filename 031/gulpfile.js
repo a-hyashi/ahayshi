@@ -221,11 +221,12 @@ gulp.task('create_b_placer_doc', function() {
     // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
     // [0]: 全体
     // [1]: クラス名
-    // [2]: バリエーション名
-    // [3]: {}の中身（使わない）
-    // [4]: N00がある場合の余白の値
-    // [5]: N00でない余白の値
-    var variation_match = line.match(/(\.t0-b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
+    // [2]: t0-
+    // [3]: バリエーション名
+    // [4]: {}の中身（使わない）
+    // [5]: N00がある場合の余白の値
+    // [6]: N00でない余白の値
+    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
     if(variation_match) {
       if(!is_sp) {
         b_placers.push(create_b_placer(b_placer_base, variation_match));
@@ -285,19 +286,19 @@ function create_b_placer(b_placer_base, variation_match) {
   // カテゴリー、エリア、名前は前にコメントで出てきた値を使う
   var b_placer = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base)), b_placer_base);
   b_placer.class_name = variation_match[1].trim();
-  if(variation_match[2]) b_placer.variation = variation_match[2].trim();
-  if(variation_match[4]) b_placer.pc_n00_value = variation_match[4].trim();
-  b_placer.pc_value = variation_match[5].trim();
+  if(variation_match[3]) b_placer.variation = variation_match[3].trim();
+  if(variation_match[5]) b_placer.pc_n00_value = variation_match[5].trim();
+  b_placer.pc_value = variation_match[6].trim();
   return b_placer;
 }
 
 function update_sp_value(b_placers, variation_match) {
   // PCで作成したb_placerを探し、そのレコードにSPの値を設定する
   var b_placer = b_placers.find(function(b) {
-    variation = variation_match[2] ? variation_match[2].trim() : undefined;
+    variation = variation_match[3] ? variation_match[3].trim() : undefined;
     return b.class_name === variation_match[1].trim() && b.variation === variation;
   });
-  b_placer.sp_value = variation_match[5].trim();
+  b_placer.sp_value = variation_match[6].trim();
 }
 
 function output_b_placer_doc(b_placers) {

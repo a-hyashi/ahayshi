@@ -250,6 +250,12 @@
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|#{$variation2of2}|4%||15px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation1of2}|6%||30px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation2of2}|6%||30px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation1of2}|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation2of2}|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|3|8%||25px|
+|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation1of2}|8%||25px|
+|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation2of2}|8%||25px|
+|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|3|8%||25px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation1of2}|1%||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation2of2}|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|3|0||0px|
@@ -328,6 +334,7 @@
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|5|0||0px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop||4%||20px|
 |12.その他|main|044_区切り線|.t0-b-line||4%||25px|
 |12.その他|main|047_料金表|.t0-b-priceTable|#{$variation1of2}|4%||15px|
