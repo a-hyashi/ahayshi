@@ -42,23 +42,50 @@
 
     &__media {
       text-align: center;
+      position: relative;
 
       a {
         text-decoration: none;
+        color: $g-baseFontColor;
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
       }
       & + div {
         margin-top: 3%;
       }
     }
 
-    a {
-      > img {
-        &:hover {
-          opacity: 0.8;
-        }
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
-      &:hover {
-        color: $hovercolor;
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -169,23 +196,72 @@
 
     &__media {
       text-align: center;
+      position: relative;
 
       a {
         text-decoration: none;
+        color: $g-baseFontColor;
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
       }
       & + div {
         margin-top: 3%;
       }
     }
 
-    a {
-      > img {
-        &:hover {
-          opacity: 0.8;
-        }
+    &__textOnImage-upper {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px 5px 10px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
-      &:hover {
-        color: $hovercolor;
+    }
+
+    &__textOnImage-lower {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 5px 15px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -296,26 +372,56 @@
 
     &__media {
       text-align: center;
+      position: relative;
       overflow: hidden;
 
       a {
         text-decoration: none;
+        color: $g-baseFontColor;
         transition: 0.5s ease;
+        display: block;
+        &:hover {
+          opacity: 0.8;
+          img {
+            transform: scale(1.2);
+          }
+        }
       }
       & + div {
         margin-top: 3%;
       }
     }
 
-    a {
-      > img {
-        &:hover {
-          opacity: 0.8;
-          transform: scale(1.2);
-        }
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
-      &:hover {
-        color: $hovercolor;
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -445,13 +551,43 @@
 
     &__media {
       text-align: center;
+      position: relative;
 
       a {
         text-decoration: none;
+        color: $g-baseFontColor;
       }
 
       & + div {
         margin-top: 10px;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
       }
     }
 
@@ -543,13 +679,63 @@
 
     &__media {
       text-align: center;
+      position: relative;
 
       a {
         text-decoration: none;
+        color: $g-baseFontColor;
       }
 
       & + div {
         margin-top: 10px;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px 5px 10px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        pointer-events: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 5px 15px;
+        background: rgba(255,255,255,0.8);
       }
     }
 
@@ -640,13 +826,43 @@
 
     &__media {
       text-align: center;
+      position: relative;
 
       a {
         text-decoration: none;
+        color: $g-baseFontColor;
       }
 
       & + div {
         margin-top: 10px;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
       }
     }
 
