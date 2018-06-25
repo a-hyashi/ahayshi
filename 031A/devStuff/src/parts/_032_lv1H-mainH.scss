@@ -74,13 +74,26 @@
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
     text-align: center;
-    padding: 15px 20px;
-    border-top: 2px solid #cacaca;
-    border-bottom: 2px solid #cacaca;
-    box-shadow :
-      0px 2px #fff inset,
-      0px -2px #fff inset;
+    padding: 13px 20px;
+    margin: 4px auto;
     background-color: #e3e3e3;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      border-top: 2px solid #cacaca;
+      width: 100%;
+      left: 0;
+      top: -4px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      border-bottom: 2px solid #cacaca;
+      width: 100%;
+      left: 0;
+      bottom: -4px;
+    }
 
     a {
       display: block;
