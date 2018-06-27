@@ -25,13 +25,6 @@ function plumberWithNotify() {
   return plumber({errorHandler: notify.onError("<%= error.message %>")});
 }
 
-// clean
-
-gulp.task('clean', function() {
-  del(['production', 'devStuff/css/**/*.css']);
-});
-
-
 // sass compile
 let sassBuildType = process.argv.slice(2)[1];
 let sassOptions = {};
@@ -60,20 +53,20 @@ switch (sassBuildType) {
 }
 
 gulp.task('sass', function() {
-    return merge(
-      styleSource.map(styleSource=>{
-        return gulp.src(styleSource)
-          // buildの場合はsourcemapsを実行しない
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
-          .pipe(plumberWithNotify())
-          // sourcemapsの表示行数がずれるので開発時はminifyしない
-          .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
-          .pipe(debug())
-          .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
-          .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
-          .pipe(gulp.dest('devStuff/css'));
-      })
-    );
+  return merge(
+    styleSource.map(styleSource=>{
+      return gulp.src(styleSource)
+        // buildの場合はsourcemapsを実行しない
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
+        .pipe(plumberWithNotify())
+        // sourcemapsの表示行数がずれるので開発時はminifyしない
+        .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
+        .pipe(debug())
+        .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
+        .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
+        .pipe(gulp.dest('devStuff/css'));
+    })
+  );
 });
 
 
@@ -83,7 +76,7 @@ gulp.task('sasslint', function() {
   return gulp.src(['devStuff/src/**/*.s[ac]ss'])
   .pipe(sassLint({
     files: {
-      ignore: 'devStuff/src/config/*.s[ac]ss'
+      ignore: 'devStuff/src/assets/*.s[ac]ss'
     },
     rules: {
       'property-sort-order': 0,
@@ -170,8 +163,9 @@ function output_imgs(aTheme) {
     .pipe(size())
     .pipe(imagemin())
     .pipe(size())
-    .pipe(gulp.dest('production/theme_materials/' + aTheme + '/imgs/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/theme_materials/' + aTheme + '/imgs/'));
 }
+
 function output_css(aTheme, aValues) {
   for(var value of aValues) {
     var folder = aTheme + '-' + value.ratio;
@@ -183,15 +177,149 @@ function output_css(aTheme, aValues) {
     output_rename_sp_css(value, folder);
   }
 }
+
 function output_rename_pc_css(value, folder) {
   gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
     .pipe(rename('theme.css'))
-    .pipe(gulp.dest('production/themes/' + folder + '/pc/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/pc/'));
 }
+
 function output_rename_sp_css(value, folder) {
   gulp.src('devStuff/css/sp' + value.variation + '.css')
     .pipe(rename('theme.css'))
-    .pipe(gulp.dest('production/themes/' + folder + '/sp/'));
+    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
+}
+
+// gulp create_b_placer_doc
+
+gulp.task('create_b_placer_doc', function() {
+  // 一度出てきた情報を保持しておくために使います
+  // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
+  var b_placer_base = new BPlacerRecord();
+  var b_placers = [];
+  var is_sp = false;
+  b_placer_lines().forEach(function(line) {
+    // $device =='SP' 以降はSPの余白として設定する
+    sp_match = line.match(/\$device\s*==\s*\'SP\'/);
+    if(sp_match) is_sp = true;
+
+    // //# で始まるコメントはカテゴリー
+    var category_match = line.match(/\/\#\s+(.*)/);
+    if(category_match) b_placer_base.category = category_match[1].trim();
+
+    // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
+    var area_and_name_match = line.match(/\/\##\s+(.*)/);
+    if(area_and_name_match) {
+      var area_and_name = area_and_name_match[1].trim().split('|');
+      b_placer_base.area = area_and_name[0].trim();
+      b_placer_base.name = area_and_name[1].trim();
+    }
+
+    // .t0-b-で始まる文字はバリエーション
+    // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
+    // 正規表現がややこしくなるため、スペース等はあまり考慮していません
+    // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
+    // [0]: 全体
+    // [1]: クラス名
+    // [2]: t0-
+    // [3]: バリエーション名
+    // [4]: {}の中身（使わない）
+    // [5]: N00がある場合の余白の値
+    // [6]: N00でない余白の値
+    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
+    if(variation_match) {
+      if(!is_sp) {
+        b_placers.push(create_b_placer(b_placer_base, variation_match));
+      }else{
+        update_sp_value(b_placers, variation_match);
+      }
+    }
+  });
+  output_b_placer_doc(b_placers);
+});
+
+function b_placer_lines() {
+  var b_placer_scss = fs.readFileSync('devStuff/src/config/_bPlacer.scss', 'utf8');
+  return b_placer_scss.toString().split('\n');
+}
+
+class BPlacerRecord {
+  constructor(
+    category,
+    area,
+    name,
+    class_name,
+    variation,
+    pc_value,
+    pc_n00_value,
+    sp_value
+  ) {
+    this.category = category;
+    this.area = area;
+    this.name = name;
+    this.class_name = class_name;
+    this.variation = variation;
+    this.pc_value = pc_value;
+    this.pc_n00_value = pc_n00_value;
+    this.sp_value = sp_value;
+  }
+
+  to_td_line() {
+    return to_td_line([
+      this.category,
+      this.area,
+      this.name,
+      this.class_name,
+      this.variation,
+      this.pc_value,
+      this.pc_n00_value,
+      this.sp_value
+    ]);
+  }
+}
+
+function to_td_line(arr) {
+  return '|' + arr.join('|') + '|';
+}
+
+function create_b_placer(b_placer_base, variation_match) {
+  // カテゴリー、エリア、名前は前にコメントで出てきた値を使う
+  var b_placer = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base)), b_placer_base);
+  b_placer.class_name = variation_match[1].trim();
+  if(variation_match[3]) b_placer.variation = variation_match[3].trim();
+  if(variation_match[5]) b_placer.pc_n00_value = variation_match[5].trim();
+  b_placer.pc_value = variation_match[6].trim();
+  return b_placer;
+}
+
+function update_sp_value(b_placers, variation_match) {
+  // PCで作成したb_placerを探し、そのレコードにSPの値を設定する
+  var b_placer = b_placers.find(function(b) {
+    variation = variation_match[3] ? variation_match[3].trim() : undefined;
+    return b.class_name === variation_match[1].trim() && b.variation === variation;
+  });
+  b_placer.sp_value = variation_match[6].trim();
+}
+
+function output_b_placer_doc(b_placers) {
+  var th =
+    [
+      'カテゴリ',
+      'エリア',
+      '部品名・要素名',
+      'クラス名',
+      'バリエーション',
+      'PC',
+      'PC<br>(N00)',
+      'SP'
+    ];
+
+  var table = [to_td_line(th), to_td_line('-'.repeat(th.length).split(''))];
+  b_placers.forEach(function(b_placer) {
+    table.push(b_placer.to_td_line());
+  });
+  fs.writeFileSync('devStuff/docs/bPlacer.md', (table.join('\n')));
+
 }
 
 // gulp tasks
@@ -201,8 +329,7 @@ gulp.task('run-full', ['watch-full']);
 gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
-    'clean',
-    'sass',
+    ['sass', 'create_b_placer_doc'],
     'create_build'
   );
 });
