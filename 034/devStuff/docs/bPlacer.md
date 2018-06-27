@@ -91,6 +91,8 @@
 |05.メディア|footer|181_フッター自由HTML|.t0-b-footerFreeHtml||4%||15px|
 |05.メディア|footer|181_フッター自由HTML2|.t0-b-footerUnit-freeHtml||4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media||4%||15px|
+|05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|2|4%||15px|
+|05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|3|4%||15px|
 |05.メディア|footer|195_フッターメディアブロック|.t0-b-footerMedia||0||0px|
 |05.メディア|header|207_ヘッダー画像×横２|.t0-b-headerImgDouble||0||0px|
 |05.メディア|header|209_ヘッダー自由HTML|.t0-b-headerUnit-freeHtml||2%||15px|
