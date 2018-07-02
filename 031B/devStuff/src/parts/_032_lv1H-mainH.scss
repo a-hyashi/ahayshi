@@ -519,15 +519,16 @@
     }
 
     // ここでのcolor設定NG(aタグで囲われている為)
+    // Safari（SP）で不要な縦線が出るため、下線にbox-shadow使わない
     &__bd {
       @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
-      padding: 0 10px 11px;
-      box-shadow: 0px -2px #714748 inset;
+      padding: 0 10px 9px;
+      border-bottom: 2px solid #714748;
       position: relative;
       &::after {
         position: absolute;
         content: "";
-        bottom: 4px;
+        bottom: 2px;
         left: 0;
         right: 0;
         height: 4px;
