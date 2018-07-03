@@ -41,7 +41,7 @@
 |01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H||2%||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation1of2}|0||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation2of2}|0||10px|
-|01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|3|0||0|
+|01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|3|0||10px|
 |01.見出し|footer|198_フッター要素見出し|.t0-b-footerUnit-lv2H||3%||10px|
 |01.見出し|footer|199_フッター小見出し|.t0-b-footerUnit-lv1H||3%||10px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg||4%||20px|
