@@ -18,14 +18,37 @@
       margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
     }
   }
-
+  .t0-b-fullWidthFrameCard2 {
+    background-color: $fullWidthBgColor5;
+    background-repeat: no-repeat;
+    background-position: center center;
+    //上下のpaddingが0だとtwoColsMediaCardLandscapeの上下marginが消えてしまうので0.1px付けている
+    padding: .1px 0;
+    &__hd, &__ft {
+      margin: 0 auto;
+      width: $areaMainWidth;
+      div {
+        padding: 0;
+        margin: 20px 0;
+      }
+    }
+    &__bd {
+      width: $areaMainWidth;
+      margin: 0 1000px;
+    }
+    @if $layout == "L25" or $layout == "L30" or $layout == "R25" or $layout == "R30" {
+      margin: 0 -1000px;
+    } @else if $layout == "N00" {
+      margin: 0 (-1000px - $areaSubWidth / 2);
+    }
+  }
 }// PC
 
 @if $device == SP {
   .t0-b-fullWidthFrameCard {
     margin: 0 -15px;
     padding: 20px 4%;
-    background-color: $fullWidthBgColor4;
+    background-color: $fullWidthBgColor5;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
