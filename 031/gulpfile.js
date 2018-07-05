@@ -352,6 +352,11 @@ gulp.task('watch-full', ['sass','aigis','server'], function() {
   gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-full',browserSync.reload]);
 });
 
-gulp.task('watch-compact', ['sass','aigis','server'], function() {
+gulp.task('watch-compact', function() {
+  runSequence(
+    'sass',
+    'aigis',
+    'server'
+  );
   gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-compact',browserSync.reload]);
 });

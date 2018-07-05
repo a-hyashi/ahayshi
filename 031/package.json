@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "CMS-Buddy's theme",
   "main": "index.js",
+  "config": {
+    "htmlTemplateDir": "../../ACRE-theme/acre/theme_materials/031/html_templates/",
+    "projectDevDir": "./devStuff/",
+    "commonDevDir": "../common/devStuff/",
+    "datajsonDir": "./styleguide_assets/datajson/",
+    "htmlDir": "./styleguide_assets/html/",
+    "specmdDir": "./unittest/",
+    "aigisymlDir": "./devStuff/"
+  },
   "scripts": {
     "start": "gulp",
     "test": "gulp sasslint",
@@ -11,12 +20,21 @@
     "pc": "gulp --pc",
     "sp": "gulp --sp",
     "all": "gulp --all",
-    "build": "gulp build --build"
+    "build": "gulp build --build",
+    "btool-mdaf": "rm -rf ${npm_package_config_datajsonDir} && btool mda-full -o ${npm_package_config_datajsonDir} -t ${npm_package_config_htmlTemplateDir}",
+    "btool-mh": "rm -rf ${npm_package_config_htmlDir} && btool mh -d ${npm_package_config_datajsonDir} -t ${npm_package_config_htmlTemplateDir} -o ${npm_package_config_htmlDir}",
+    "btool-aigis": "rm -rf ${npm_package_config_specmdDir} && btool aigis -h ${npm_package_config_htmlDir} -s ${npm_package_config_specmdDir} -a ${npm_package_config_aigisymlDir}",
+    "btool-unittest": "npm run btool-mdaf && npm run btool-mh && npm run btool-aigis",
+    "aigis": "gulp aigis",
+    "init": "gulp init",
+    "update-css": "gulp sass && gulp copy-css",
+    "update-parts": "npm run btool-unittest && npm run aigis"
   },
   "author": "Shintaro Suzuki",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "2.18.13",
+    "buddy-theme-tools": "github:wmssystem/buddy-theme-tools",
     "del": "2.2.2",
     "event-stream": "3.3.4",
     "fs": "0.0.1-security",
@@ -40,5 +58,8 @@
     "node-sass": "4.8.1",
     "run-sequence": "1.2.2",
     "sassdoc": "2.4.0"
+  },
+  "dependencies": {
+    "jsprim": "^2.0.0"
   }
 }
