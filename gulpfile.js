@@ -140,9 +140,7 @@ gulp.task('create_build',function(){
 })
 
 function get_theme_name() {
-  var currentPath = __dirname.split('/');
-  var theme = currentPath[currentPath.length - 1];
-  return theme;
+  return __dirname.split('/').pop();
 }
 
 function get_deploy_values() {
@@ -329,17 +327,13 @@ function output_b_placer_doc(b_placers) {
 
 }
 
-function theme_name() {
-  return __dirname.split('/').pop();
-};
-
 gulp.task('delete_datajson', function() {
   return del(['./styleguide_assets/datajson/']);
 });
 
 gulp.task('make-allparts-datajson', ['delete_datajson'], function() {
   return make_allDatajson.makeAllDatajsonFull(
-    `../../ACRE-theme/acre/theme_materials/${theme_name()}/html_templates/`,
+    `../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/`,
     './styleguide_assets/datajson/'
   );
 });
@@ -352,7 +346,7 @@ gulp.task('make-html', ['delete_html'], function() {
   return make_html.makeHtml(
     './styleguide_assets/html/',
     './styleguide_assets/datajson/',
-    `../../ACRE-theme/acre/theme_materials/${theme_name()}/html_templates/`,
+    `../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/`,
     false
   );
 });
