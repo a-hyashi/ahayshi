@@ -4,19 +4,11 @@
   "description": "CMS-Buddy's theme",
   "main": "index.js",
   "config": {
-    "htmlTemplateDir": "../../ACRE-theme/acre/theme_materials/031/html_templates/",
-    "projectDevDir": "./devStuff/",
-    "commonDevDir": "../common/devStuff/",
-    "datajsonDir": "./styleguide_assets/datajson/",
-    "htmlDir": "./styleguide_assets/html/",
-    "specmdDir": "./unittest/",
-    "aigisymlDir": "./devStuff/"
-  },
-  "bin": {
-    "btool": "file:./bin/"
+    "theme": "031"
   },
   "scripts": {
     "start": "gulp",
+    "copy": "../copy.sh",
     "test": "gulp sasslint",
     "dev": "gulp run-full",
     "dev-compact": "gulp run-compact",
@@ -24,9 +16,9 @@
     "sp": "gulp --sp",
     "all": "gulp --all",
     "build": "gulp build --build",
-    "btool-mdaf": "rm -rf ${npm_package_config_datajsonDir} && gulp make-allparts-datajson",
-    "btool-mh": "rm -rf ${npm_package_config_htmlDir} && gulp make-html",
-    "btool-aigis": "rm -rf ${npm_package_config_specmdDir} && gulp make-aigis",
+    "btool-mdaf": "rm -rf ./styleguide_assets/datajson/ && gulp make-allparts-datajson",
+    "btool-mh": "rm -rf ../../ACRE-theme/acre/theme_materials/${npm_package_config_theme}/html_templates/ && gulp make-html",
+    "btool-aigis": "rm -rf ./styleguide_assets/html/ && gulp make-aigis",
     "btool-unittest": "npm run btool-mdaf && npm run btool-mh && npm run btool-aigis",
     "aigis": "gulp aigis",
     "init": "gulp init",

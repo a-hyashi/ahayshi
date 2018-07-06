@@ -326,18 +326,22 @@ function output_b_placer_doc(b_placers) {
 
 }
 
+function theme_name() {
+  return __dirname.split('/').pop();
+};
+
 gulp.task('make-html', function() {
   return make_html.makeHtml(
     "./styleguide_assets/html/",
     "./styleguide_assets/datajson/",
-    "../../ACRE-theme/acre/theme_materials/031/html_templates/",
+    `../../ACRE-theme/acre/theme_materials/${theme_name()}/html_templates/`,
     false
   );
 });
 
 gulp.task('make-allparts-datajson', function() {
   make_allDatajson.makeAllDatajsonFull(
-    "../../ACRE-theme/acre/theme_materials/031/html_templates/",
+    `../../ACRE-theme/acre/theme_materials/${theme_name()}/html_templates/`,
     "./styleguide_assets/datajson/"
   );
 });
