@@ -17,6 +17,10 @@ const fs = require('fs');
 const sourcemaps = require('gulp-sourcemaps');
 const debug = require('gulp-debug');
 const merge = require('event-stream').merge;
+const make_html = require('./lib/make_html');
+const make_datajson = require('./lib/make_datajson');
+const make_allDatajson = require('./lib/make_all-datajsons');
+const make_aigis = require('./lib/make_aigis');
 
 
 // エラー通知 & watch中にエラーが出ても処理を止めないように
@@ -321,6 +325,30 @@ function output_b_placer_doc(b_placers) {
   fs.writeFileSync('devStuff/docs/bPlacer.md', (table.join('\n')));
 
 }
+
+gulp.task('make-html', function() {
+  return make_html.makeHtml(
+    "./styleguide_assets/html/",
+    "./styleguide_assets/datajson/",
+    "../../ACRE-theme/acre/theme_materials/031/html_templates/",
+    false
+  );
+});
+
+gulp.task('make-allparts-datajson', function() {
+  make_allDatajson.makeAllDatajsonFull(
+    "../../ACRE-theme/acre/theme_materials/031/html_templates/",
+    "./styleguide_assets/datajson/"
+  );
+});
+
+gulp.task('make-aigis', function() {
+  make_aigis.makeAigis(
+    "./styleguide_assets/html/",
+    "./unittest/",
+    "./devStuff/"
+  );
+});
 
 // gulp tasks
 

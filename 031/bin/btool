@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+'use strict';
+
+// packages
+const fs = require('fs-extra');
+const hbs = require('handlebars');
+const path = require('path');
+const htmlBeautify = require('js-beautify').html_beautify;
+const program = require('commander');
+const _ = require('lodash');
+const make_html = require('../lib/make_html');
+const make_datajson = require('../lib/make_datajson');
+const make_allDatajson = require('../lib/make_all-datajsons');
+const make_aigis = require('../lib/make_aigis');
+
+// default value
+const dataDirPath = './data';
+const templateDirPath = './html_templates';
+const outputDirPath = './html';
+
+program
+  .version('1.0.0');
+
+program
+  .command('make-html')
+  .alias('mh')
+  .description('make html files using given datajson files and hbs templates.')
+  .option('-d, --data-dir-path [data-dir-path]', 'データファイルディレクトリ', dataDirPath)
+  .option('-t, --template-dir-path [template-dir-path]', 'テンプレートディレクトリ', templateDirPath)
+  .option('-o, --output-dir-path [output-dir-path]', '出力ディレクトリ', outputDirPath)
+  .option('-b, --backup')
+  .action(options=>{
+    make_html.makeHtml(
+      options.outputDirPath,
+      options.dataDirPath,
+      options.templateDirPath,
+      options.backup ? options.backup : false)
+  });
+
+program
+  .command('make-datajson')
+  .alias('md')
+  .description('make datajson file using given metajson in html_templates.')
+  .option('-n, --template-name <template-name>', 'テンプレート名')
+  .option('-t, --template-dir-path [template-dir-path]', 'テンプレートディレクトリ', templateDirPath)
+  .option('-o, --output-file-path <output-file-path>', '出力ファイル名')
+  .action(options=>{
+    make_datajson.makeDatajson(
+      options.templateName,
+      options.templateDirPath,
+      options.outputFilePath)
+  });
+
+program
+  .command('make-datajson-all')
+  .alias('mda')
+  .description('make datajson file using given metajson in html_templates.')
+  .option('-n, --template-name <template-name>', 'テンプレート名')
+  .option('-t, --template-dir-path [template-dir-path]', 'テンプレートディレクトリ', templateDirPath)
+  .option('-o, --output-file-dir <output-file-dir>', '出力ファイルディレクトリ')
+  .option('-f, --output-file-name <output-file-name>', '出力ファイル名')
+  .action(options=>{
+    make_allDatajson.makeAllDatajson(
+      options.templateName,
+      options.templateDirPath,
+      options.outputFileDir,
+      options.outputFileName)
+  });
+
+program
+  .command('make-allparts-datajson')
+  .alias('mda-full')
+  .description('make datajson file using given metajson in html_templates.')
+  .option('-t, --template-dir-path [template-dir-path]', 'テンプレートディレクトリ', templateDirPath)
+  .option('-o, --output-file-dir <output-file-dir>', '出力ファイルディレクトリ')
+  .action(options=>{
+    make_allDatajson.makeAllDatajsonFull(
+      options.templateDirPath,
+      options.outputFileDir)
+  });
+
+program
+  .command('make markdownfile for aigis styleguide')
+  .alias('aigis')
+  .description('')
+  .option('-h, --html-dir <html-dir>', 'HTMLファイル・ディレクトリ')
+  .option('-s, --styleguide-dir <styleguide-dir>', 'スタイルガイドディレクトリ')
+  .option('-a, --aigis-root <aigis-root>','aigis root dir')
+  .action(options=>{
+    make_aigis.makeAigis(
+      options.htmlDir,
+      options.styleguideDir,
+      options.aigisRoot
+    )
+  });
+
+program
+  .parse(process.argv);
