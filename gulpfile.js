@@ -103,14 +103,14 @@ gulp.task('sasslint', function() {
 
 // styleguide
 
-gulp.task('aigis', function(){
+gulp.task('aigis', function() {
   return gulp.src('devStuff/aigis_config.yml')
   .pipe(aigis());
 });
 
 // copy css file to styleguide
 
-gulp.task('copy-css', function(){
+gulp.task('copy-css', function() {
   return gulp.src('devStuff/css/*.css')
   .pipe(gulp.dest('devStuff/styleguide/css'));
 });
@@ -131,7 +131,7 @@ gulp.task('server', function() {
 
 // build tasks
 
-gulp.task('create_build',function(){
+gulp.task('create_build',function() {
   var theme = get_theme_name();
   var values = get_deploy_values();
 
@@ -379,7 +379,7 @@ gulp.task('update-parts', function() {
   );
 });
 
-gulp.task('build', function(){
+gulp.task('build', function() {
   return runSequence(
     ['sass', 'create_b_placer_doc'],
     'create_build'
@@ -388,29 +388,13 @@ gulp.task('build', function(){
 
 gulp.task('default', function() {
   gulp.watch(
-    [`${config.html_templates_dir}**/meta.json`],
-    function(){ runSequence(
-      'make-allparts-datajson',
-      'make-html',
-      'make-aigis',
-      'aigis',
-      browserSync.reload
-    )}
-  );
-
-  gulp.watch(
-    [`${config.html_templates_dir}**/template.html`],
-    function(){ runSequence(
-      'make-html',
-      'make-aigis',
-      'aigis',
-      browserSync.reload
-    )}
+    [`${config.html_templates_dir}**/*`],
+    function(){ runSequence('update-parts', browserSync.reload) }
   );
 
   gulp.watch(
     ['devStuff/src/**/*.s[ac]ss'],
-    function(){ runSequence('sass', 'copy-css', browserSync.reload) }
+    function(){ runSequence('update-css', browserSync.reload) }
   );
 
   return runSequence(
