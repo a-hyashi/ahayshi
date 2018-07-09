@@ -388,8 +388,30 @@ gulp.task('watch-full', ['sass','aigis','server'], function() {
 });
 
 gulp.task('default', function() {
+  gulp.watch(
+    [`../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/**/meta.json`],
+    function(){ runSequence(
+      'make-allparts-datajson',
+      'make-html',
+      'make-aigis',
+      'aigis',
+      browserSync.reload
+    )}
+  );
+  gulp.watch(
+    [`../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/**/template.html`],
+    function(){ runSequence(
+      'make-html',
+      'make-aigis',
+      'aigis',
+      browserSync.reload
+    )}
+  );
+  gulp.watch(
+    ['devStuff/src/**/*.s[ac]ss'],
+    function(){ runSequence('sass', 'copy-css', browserSync.reload) }
+  );
   runSequence(
     'server'
   );
-  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-compact',browserSync.reload]);
 });
