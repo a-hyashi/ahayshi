@@ -2,10 +2,17 @@
 |-|-|-|-|-|-|-|-|
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|#{$variation1of2}|2%||10px|
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|#{$variation2of2}|2%||10px|
+|01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|3|2%||10px|
+|01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|4|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation1of2}|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation2of2}|2%||10px|
+|01.見出し|main|033_大見出し|.t0-b-lv2H|3|2%||10px|
+|01.見出し|main|033_大見出し|.t0-b-lv2H|4|2%||10px|
+|01.見出し|main|033_大見出し|.t0-b-lv2H|5|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation1of2}|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation2of2}|2%||10px|
+|01.見出し|main|034_中見出し|.t0-b-lv3H|3|2%||10px|
+|01.見出し|main|034_中見出し|.t0-b-lv3H|4|2%||10px|
 |01.見出し|main|035_装飾見出し|.t0-b-lv4H|#{$variation1of4}|2%||10px|
 |01.見出し|main|035_装飾見出し|.t0-b-lv4H|#{$variation2of4}|2%||10px|
 |01.見出し|main|035_装飾見出し|.t0-b-lv4H|#{$variation3of4}|2%||10px|
@@ -34,6 +41,7 @@
 |01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H||2%||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation1of2}|0||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation2of2}|0||10px|
+|01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|3|0||10px|
 |01.見出し|footer|198_フッター要素見出し|.t0-b-footerUnit-lv2H||3%||10px|
 |01.見出し|footer|199_フッター小見出し|.t0-b-footerUnit-lv1H||3%||10px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg||4%||20px|
@@ -91,6 +99,8 @@
 |05.メディア|footer|181_フッター自由HTML|.t0-b-footerFreeHtml||4%||15px|
 |05.メディア|footer|181_フッター自由HTML2|.t0-b-footerUnit-freeHtml||4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media||4%||15px|
+|05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|2|4%||15px|
+|05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|3|4%||15px|
 |05.メディア|footer|195_フッターメディアブロック|.t0-b-footerMedia||0||0px|
 |05.メディア|header|207_ヘッダー画像×横２|.t0-b-headerImgDouble||0||0px|
 |05.メディア|header|209_ヘッダー自由HTML|.t0-b-headerUnit-freeHtml||2%||15px|
