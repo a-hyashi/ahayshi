@@ -14,6 +14,7 @@ const browserSync = require('browser-sync');
 const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs');
+const sassdoc = require('sassdoc');
 const sourcemaps = require('gulp-sourcemaps');
 const debug = require('gulp-debug');
 const merge = require('event-stream').merge;
@@ -194,6 +195,27 @@ function output_rename_sp_css(value, folder) {
     .pipe(rename('theme.css'))
     .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
 }
+
+gulp.task('sassdoc', function(){
+  var options = {
+    dest: './devStuff/sassdoc',
+    verbose: true,
+    display: {
+      access: ['public', 'private'],
+      alias: true,
+      watermark: true,
+    },
+    groups: {
+      'undefined': 'Ungrouped',
+      foo: 'Foo group',
+      bar: 'Bar group',
+    },
+    basePath: 'https://github.com/SassDoc/sassdoc',
+  };
+
+  return gulp.src('devStuff/src/**/*.scss')
+    .pipe(sassdoc(options));
+});
 
 // gulp create_b_placer_doc
 
