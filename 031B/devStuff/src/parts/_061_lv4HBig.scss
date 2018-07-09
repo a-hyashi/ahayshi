@@ -434,6 +434,7 @@
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    position: relative;
     color: $_textColor;
     text-shadow:
       -1px -1px #fff,
@@ -457,12 +458,34 @@
     border-radius: 11px;
     border: 3px solid #481c00;
     background-color: #d9c7bf;
-    background-image:
-      url("../imgs/heading/heading027/heading027_frame01_v5f1.png"),
-      url("../imgs/heading/heading027/heading027_frame02_v5f1.png");
-    background-repeat: repeat-y, repeat-y;
-    background-position: left -1px top -1px, right top;
-    background-size: 25px 75px, 25px 76px;
+
+    // IE11でborder-radius部分に不要な枠線を表示させないため↓
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 25px;
+      height: calc(100% + 1px);
+      background-image: url("../imgs/heading/heading027/heading027_frame01_v5f1.png");
+      background-size: 25px 75px;
+      background-repeat: repeat-y;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -1px;
+      width: 25px;
+      height: calc(100% + 1px);
+      background-image: url("../imgs/heading/heading027/heading027_frame02_v5f1.png");
+      background-size: 25px 76px;
+      background-repeat: repeat-y;
+    }
 
     a {
       display: block;
@@ -813,6 +836,7 @@
     $_lineHeightType_caption: 1;
     $_textColor: #4a1e02;
 
+    position: relative;
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
@@ -838,12 +862,34 @@
     border-radius: 11px;
     border: 3px solid #481c00;
     background-color: #d9c7bf;
-    background-image:
-      url("../imgs/heading/heading027/heading027_frame01_v5f1.png"),
-      url("../imgs/heading/heading027/heading027_frame02_v5f1.png");
-    background-repeat: repeat-y, repeat-y;
-    background-position: left top, right top;
-    background-size: 38px *.5 114px *.5, 39px *.5 115px *.5;
+
+    // IE11でborder-radius部分に不要な枠線を表示させないため↓
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 38px *.5;
+      height: calc(100% + 1px);
+      background-image: url("../imgs/heading/heading027/heading027_frame01_v5f1.png");
+      background-size: 38px *.5 114px *.5;
+      background-repeat: repeat-y;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -1px;
+      width: 39px *.5;
+      height: calc(100% + 1px);
+      background-image: url("../imgs/heading/heading027/heading027_frame02_v5f1.png");
+      background-size: 39px *.5 115px *.5;
+      background-repeat: repeat-y;
+    }
 
     a {
       display: block;
