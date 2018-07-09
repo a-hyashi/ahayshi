@@ -21,7 +21,7 @@ const make_html = require('./lib/make_html');
 const make_datajson = require('./lib/make_datajson');
 const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
-
+const config = require('./gulp_config.json');
 
 // エラー通知 & watch中にエラーが出ても処理を止めないように
 
@@ -333,7 +333,7 @@ gulp.task('delete_datajson', function() {
 
 gulp.task('make-allparts-datajson', ['delete_datajson'], function() {
   return make_allDatajson.makeAllDatajsonFull(
-    `../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/`,
+    `../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/`,
     './styleguide_assets/datajson/'
   );
 });
@@ -346,7 +346,7 @@ gulp.task('make-html', ['delete_html'], function() {
   return make_html.makeHtml(
     './styleguide_assets/html/',
     './styleguide_assets/datajson/',
-    `../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/`,
+    `../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/`,
     false
   );
 });
@@ -389,7 +389,7 @@ gulp.task('watch-full', ['sass','aigis','server'], function() {
 
 gulp.task('default', function() {
   gulp.watch(
-    [`../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/**/meta.json`],
+    [`../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/**/meta.json`],
     function(){ runSequence(
       'make-allparts-datajson',
       'make-html',
@@ -399,7 +399,7 @@ gulp.task('default', function() {
     )}
   );
   gulp.watch(
-    [`../../ACRE-theme/acre/theme_materials/${get_theme_name()}/html_templates/**/template.html`],
+    [`../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/**/template.html`],
     function(){ runSequence(
       'make-html',
       'make-aigis',
