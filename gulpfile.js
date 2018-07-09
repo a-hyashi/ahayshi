@@ -333,7 +333,7 @@ gulp.task('delete_datajson', function() {
 
 gulp.task('make-allparts-datajson', ['delete_datajson'], function() {
   return make_allDatajson.makeAllDatajsonFull(
-    `../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/`,
+    config.html_templates_dir,
     './styleguide_assets/datajson/'
   );
 });
@@ -346,7 +346,7 @@ gulp.task('make-html', ['delete_html'], function() {
   return make_html.makeHtml(
     './styleguide_assets/html/',
     './styleguide_assets/datajson/',
-    `../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/`,
+    config.html_templates_dir,
     false
   );
 });
@@ -389,7 +389,7 @@ gulp.task('watch-full', ['sass','aigis','server'], function() {
 
 gulp.task('default', function() {
   gulp.watch(
-    [`../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/**/meta.json`],
+    [`${config.html_templates_dir}**/meta.json`],
     function(){ runSequence(
       'make-allparts-datajson',
       'make-html',
@@ -399,7 +399,7 @@ gulp.task('default', function() {
     )}
   );
   gulp.watch(
-    [`../../ACRE-theme/acre/theme_materials/${config.theme_materials_dir}/html_templates/**/template.html`],
+    [`${config.html_templates_dir}**/template.html`],
     function(){ runSequence(
       'make-html',
       'make-aigis',
