@@ -363,28 +363,27 @@ gulp.task('make-aigis', ['delete_unittest'], function() {
   );
 });
 
-gulp.task('unittest', function() {
+gulp.task('update-css', function() {
   return runSequence(
-    'make-allparts-datajson',
-    'make-html',
-    'make-aigis'
+    ['sass', 'create_b_placer_doc'],
+    'copy-css'
   );
 });
 
-// gulp tasks
+gulp.task('update-parts', function() {
+  return runSequence(
+    'make-allparts-datajson',
+    'make-html',
+    'make-aigis',
+    'aigis'
+  );
+});
 
-gulp.task('run-full', ['watch-full']);
-gulp.task('run-compact', ['watch-compact']);
 gulp.task('build', function(){
   return runSequence(
     ['sass', 'create_b_placer_doc'],
     'create_build'
   );
-});
-
-
-gulp.task('watch-full', ['sass','aigis','server'], function() {
-  gulp.watch(['devStuff/src/**/*','spec_description/**/*'],['developing-full',browserSync.reload]);
 });
 
 gulp.task('default', function() {
@@ -398,6 +397,7 @@ gulp.task('default', function() {
       browserSync.reload
     )}
   );
+
   gulp.watch(
     [`${config.html_templates_dir}**/template.html`],
     function(){ runSequence(
@@ -407,11 +407,13 @@ gulp.task('default', function() {
       browserSync.reload
     )}
   );
+
   gulp.watch(
     ['devStuff/src/**/*.s[ac]ss'],
     function(){ runSequence('sass', 'copy-css', browserSync.reload) }
   );
-  runSequence(
+
+  return runSequence(
     'server'
   );
 });
