@@ -6,6 +6,8 @@
 3. SASSのコンパイル
 のためのリポジトリです。
 
+<br>
+
 ## 全体で一度だけ実行すること
 
 ### node.jsのインストール
@@ -33,6 +35,7 @@ $ npm install
 ### テスト対象のブランチに変更
 ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
 
+<br>
 
 ## テーマごとに一度だけ実行すること
 
@@ -56,6 +59,8 @@ $ gulp update-css
 $ gulp update-parts
 ```
 
+<br>
+
 ## ツールの使い方
 
 ### ディレクトリの移動（031の場合）
@@ -78,6 +83,8 @@ Ctrl + C
 ```sh
 $ gulp --tasks
 ```
+
+<br>
 
 ## こんな時には？
 
@@ -110,11 +117,14 @@ $ gulp make-aigis
 $ gulp aigis
 ```
 
+<br>
 
 ## 関連資料
 
 - [単体テスト仕様書マスタ](https://docs.google.com/spreadsheets/d/1SaKg4pTiquk32kw9qauzWWrDsZcNiGSL83G8yULXJIE/edit#gid=852993701)
 - [機能／デザイン仕様一覧](https://docs.google.com/spreadsheets/d/1hUg4X2BChH0Uke0HFLX1G4h9MBK__HNb5_TWQ4eL05Y/edit#gid=1396076322)
+
+<br>
 
 ## システム仕様
 ```
