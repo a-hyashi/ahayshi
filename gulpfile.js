@@ -41,6 +41,7 @@ gulp.task('sass', function() {
       return gulp.src(styleSource)
         .pipe(sourcemaps.init())
         .pipe(plumberWithNotify())
+        .pipe(sass())
         .pipe(debug())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('devStuff/css'));
@@ -54,7 +55,7 @@ gulp.task('sass-build', function() {
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
         .pipe(plumberWithNotify())
-        .pipe(sass({outputStyle: 'compressed'}), sass())
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(debug())
         .pipe(autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
         .pipe(gulp.dest('devStuff/css'));
