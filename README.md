@@ -79,6 +79,11 @@ $ gulp
 Ctrl + C
 ```
 
+### 本番用CSSの出力
+```sh
+$ gulp build
+```
+
 ### コマンド一覧の表示
 ```sh
 $ gulp --tasks
