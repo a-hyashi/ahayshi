@@ -6,7 +6,7 @@
 3. SASSのコンパイル
 のためのリポジトリです。
 
-## 事前準備
+## 全体で一度だけ実行すること
 
 ### node.jsのインストール
   - https://nodejs.org/ja/にアクセス
@@ -14,55 +14,58 @@
   - インストール
   - インストールを確認する。ターミナルを開いて`node -v`と、`npm -v`でバージョン数が表示されればOK
 
-### 関連ファイルの配置
-テスト対象のテーマ、部品（htmlテンプレート, meta.json）のファイルは、ローカルリポジトリから取得します。
 
-#### ローカルリポジトリの準備
-以下のリポジトリをローカルにクローンしてください。
+### gulpのインストール
+```sh
+$ npm install -g gulp
+```
+
+### packageのインストール
+```sh
+$ cd （buddy-themeを配置した場所）
+$ npm install
+```
+
+### 関連ファイルの配置
+以下のリポジトリをローカルにクローンし、buddy-themeと同じフォルダ内に配置してください。
 - https://github.com/wmssystem/ACRE-theme
 
-ACRE-themeをbuddy-themeと同じフォルダ内に配置してください。
+### テスト対象のブランチに変更
+ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
 
-#### テスト対象のブランチに変更
-ACRE-theme, buddy-themeをそれぞれテスト対象のブランチがチェックアウトされた状態にしてください。
 
-#### 初回のセットアップ
+## テーマごとに一度だけ実行すること
 
 1. ディレクトリの移動（031の場合）
 ```sh
-$ cd （buddy-theme-toolsを配置した場所）/sample/031
+$ cd （buddy-themeを配置した場所）/031
 ```
 
 2. 共通ファイルの取得
 ```sh
-$ npm run copy
+$ ./copy.sh
 ```
 
-3. packageのインストール
+3. CSSのコンパイル
 ```sh
-$ npm install
+$ gulp update-css
 ```
 
-4. CSSのコンパイル
+4. StyleGuide(aigis)の初期化とテストデータ作成
 ```sh
-$ npm run update-css
-```
-
-5. StyleGuide(aigis)の初期化とテストデータ作成
-```sh
-$ npm run update-parts
+$ gulp update-parts
 ```
 
 ## ツールの使い方
 
 ### ディレクトリの移動（031の場合）
 ```sh
-$ cd （buddy-theme-toolsを配置した場所）/sample/031
+$ cd （buddy-themeを配置した場所）/031
 ```
 
 ### 起動
 ```sh
-$ npm start
+$ gulp
 ```
 起動中は部品、CSSの更新が自動で反映されます
 
@@ -73,38 +76,38 @@ Ctrl + C
 
 ### コマンド一覧の表示
 ```sh
-$ npm run
+$ gulp --tasks
 ```
 
 ## こんな時には？
 
-### npm startしていない時にCSSを修正した
+### 起動していない時にCSSを修正した
 
 ```sh
-$ npm run update-css
+$ gulp update-css
 ```
 
-### npm startしていない時にJSON/HTMLを修正した
+### 起動していない時にJSON/HTMLを修正した
 
 ```sh
-$ npm run update-parts
+$ gulp update-parts
 ```
 
 ※sassdocが更新された場合追加で実行する
 ```sh
-$ npm run update-sassdoc
+$ gulp update-sassdoc
 ```
 
-### Starting 'make-aigis'...の後にエラーが表示されている
+### Starting 'make-aigis'...の後にエラーが表示される
 
 ```sh
-$ npm run make-aigis
+$ gulp make-aigis
 ```
 
-### Starting 'aigis'...の後にエラーが表示されている
+### Starting 'aigis'...の後にエラーが表示される
 
 ```sh
-$ npm run aigis
+$ gulp aigis
 ```
 
 
@@ -144,7 +147,7 @@ $ npm run aigis
 ```
 
 ### btool-settings
-buddy-theme-toolsの設定情報等を格納する
+buddy-themeの設定情報等を格納する
 
 #### buddy-parts-testcases.json
 テストケース情報を設定しているファイル
