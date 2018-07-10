@@ -108,13 +108,13 @@ $ gulp update-sassdoc
 ### Starting 'make-aigis'...の後にエラーが表示される
 
 ```sh
-$ gulp make-aigis
+$ gulp make-aigis --max_old_space_size=8192
 ```
 
 ### Starting 'aigis'...の後にエラーが表示される
 
 ```sh
-$ gulp aigis
+$ gulp aigis --max_old_space_size=8192
 ```
 
 <br>
