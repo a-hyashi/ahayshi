@@ -117,6 +117,22 @@ $ gulp make-aigis --max_old_space_size=8192
 $ gulp aigis --max_old_space_size=8192
 ```
 
+### buddy-themeが更新された
+
+  `git pull`のあと、
+
+> テーマごとに一度だけ実行すること
+
+を再実行してください
+
+<br>
+
+## 新しいテーマを作る場合
+他のテーマを参考に同じ構造を再現し、以下のファイルをテーマごとの値に修正してください
+
+ - gulp_config.json
+ - devstuff/aigis_config.yml
+
 <br>
 
 ## 関連資料
@@ -127,8 +143,9 @@ $ gulp aigis --max_old_space_size=8192
 <br>
 
 ## システム仕様
+
 ```
-.
+lib
 ├── aigis-markdown
 │   ├── abstract_aigis_markdown.js
 │   ├── aigis_inner_markdown.js
