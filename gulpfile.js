@@ -58,22 +58,36 @@ switch (sassBuildType) {
 }
 
 gulp.task('sass', function() {
-  return merge(
+    styleSource = [
+      'devStuff/src/**/pc-L25.s[ac]ss',
+      'devStuff/src/**/pc-N00.s[ac]ss',
+      'devStuff/src/**/sp.s[ac]ss'
+    ];
+    return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-        // buildの場合はsourcemapsを実行しない
-        .pipe(gulpIf(!sassOptions.build, sourcemaps.init()))
+        .pipe(sourcemaps.init())
         .pipe(plumberWithNotify())
-        // sourcemapsの表示行数がずれるので開発時はminifyしない
-        .pipe(gulpIf(sassOptions.build, sass({outputStyle: 'compressed'}), sass()))
         .pipe(debug())
-        .pipe(gulpIf(sassOptions.build, autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))) // buildオプションが付いた場合はautoprefixerを有効にする
-        .pipe(gulpIf(!sassOptions.build, sourcemaps.write()))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('devStuff/css'));
     })
   );
 });
 
+gulp.task('sass_build', function() {
+  styleSource = ['devStuff/src/**/*.s[ac]ss'];
+  return merge(
+    styleSource.map(styleSource=>{
+      return gulp.src(styleSource)
+        .pipe(plumberWithNotify())
+        .pipe(sass({outputStyle: 'compressed'}), sass())
+        .pipe(debug())
+        .pipe(autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
+        .pipe(gulp.dest('devStuff/css'));
+    })
+  );
+});
 
 // sass lint
 
@@ -403,7 +417,7 @@ gulp.task('update-parts', function() {
 
 gulp.task('build', function() {
   return runSequence(
-    ['sass', 'create_b_placer_doc'],
+    ['sass_build', 'create_b_placer_doc'],
     'create_build'
   );
 });
