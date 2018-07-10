@@ -30,33 +30,6 @@ function plumberWithNotify() {
   return plumber({errorHandler: notify.onError("<%= error.message %>")});
 }
 
-// sass compile
-let sassBuildType = process.argv.slice(2)[1];
-let sassOptions = {};
-var styleSource;
-switch (sassBuildType) {
-  case '--pc':
-    styleSource = ['devStuff/src/**/pc-L25.s[ac]ss'];
-    sassOptions.build = false;
-    break;
-  case '--sp':
-    styleSource = ['devStuff/src/**/sp.s[ac]ss'];
-    sassOptions.build = false;
-    break;
-  case '--all':
-    styleSource = ['devStuff/src/**/*.s[ac]ss'];
-    sassOptions.build = false;
-    break;
-  case '--build':
-    styleSource = ['devStuff/src/**/*.s[ac]ss'];
-    sassOptions.build = true;
-    break;
-  default:
-    styleSource = ['devStuff/src/**/pc-L25.s[ac]ss','devStuff/src/**/pc-N00.s[ac]ss','devStuff/src/**/sp.s[ac]ss'];
-    sassOptions.build = false;
-    break;
-}
-
 gulp.task('sass', function() {
     styleSource = [
       'devStuff/src/**/pc-L25.s[ac]ss',
@@ -75,7 +48,7 @@ gulp.task('sass', function() {
   );
 });
 
-gulp.task('sass_build', function() {
+gulp.task('sass-build', function() {
   styleSource = ['devStuff/src/**/*.s[ac]ss'];
   return merge(
     styleSource.map(styleSource=>{
@@ -146,7 +119,7 @@ gulp.task('server', function() {
 
 // build tasks
 
-gulp.task('create_build',function() {
+gulp.task('create-build',function() {
   var theme = get_theme_name();
   var values = get_deploy_values();
 
@@ -210,7 +183,7 @@ function output_rename_sp_css(value, folder) {
     .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
 }
 
-gulp.task('sassdoc', function(){
+gulp.task('update-sassdoc', function(){
   var options = {
     dest: './devStuff/sassdoc',
     verbose: true,
@@ -231,9 +204,9 @@ gulp.task('sassdoc', function(){
     .pipe(sassdoc(options));
 });
 
-// gulp create_b_placer_doc
+// gulp create-b-placer-doc
 
-gulp.task('create_b_placer_doc', function() {
+gulp.task('create-b-placer-doc', function() {
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
   var b_placer_base = new BPlacerRecord();
@@ -363,22 +336,22 @@ function output_b_placer_doc(b_placers) {
 
 }
 
-gulp.task('delete_datajson', function() {
+gulp.task('delete-datajson', function() {
   return del(['./styleguide_assets/datajson/']);
 });
 
-gulp.task('make-allparts-datajson', ['delete_datajson'], function() {
+gulp.task('make-allparts-datajson', ['delete-datajson'], function() {
   return make_allDatajson.makeAllDatajsonFull(
     config.html_templates_dir,
     './styleguide_assets/datajson/'
   );
 });
 
-gulp.task('delete_html', function() {
+gulp.task('delete-html', function() {
   return del(['./styleguide_assets/html/']);
 });
 
-gulp.task('make-html', ['delete_html'], function() {
+gulp.task('make-html', ['delete-html'], function() {
   return make_html.makeHtml(
     './styleguide_assets/html/',
     './styleguide_assets/datajson/',
@@ -387,11 +360,11 @@ gulp.task('make-html', ['delete_html'], function() {
   );
 });
 
-gulp.task('delete_unittest', function() {
+gulp.task('delete-unittest', function() {
   return del(['./unittest/']);
 });
 
-gulp.task('make-aigis', ['delete_unittest'], function() {
+gulp.task('make-aigis', ['delete-unittest'], function() {
   return make_aigis.makeAigis(
     './styleguide_assets/html/',
     './unittest/',
@@ -401,7 +374,7 @@ gulp.task('make-aigis', ['delete_unittest'], function() {
 
 gulp.task('update-css', function() {
   return runSequence(
-    ['sass', 'create_b_placer_doc'],
+    ['sass', 'create-b-placer-doc'],
     'copy-css'
   );
 });
@@ -417,8 +390,8 @@ gulp.task('update-parts', function() {
 
 gulp.task('build', function() {
   return runSequence(
-    ['sass_build', 'create_b_placer_doc'],
-    'create_build'
+    ['sass-build', 'create-b-placer-doc'],
+    'create-build'
   );
 });
 
