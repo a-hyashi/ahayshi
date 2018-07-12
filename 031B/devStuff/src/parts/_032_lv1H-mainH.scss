@@ -74,13 +74,28 @@
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
     text-align: center;
-    padding: 15px 20px;
-    border-top: 2px solid #6c3f40;
-    border-bottom: 2px solid #6c3f40;
-    box-shadow :
-      0px 2px #fff inset,
-      0px -2px #fff inset;
+    padding: 13px 20px;
     background-color: #ebe5e2;
+    background-clip: padding-box;
+    border-top: 4px solid rgba(255, 255, 255, 0);
+    border-bottom: 4px solid rgba(255, 255, 255, 0);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      border-top: 2px solid #6c3f40;
+      width: 100%;
+      left: 0;
+      top: -4px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      border-bottom: 2px solid #6c3f40;
+      width: 100%;
+      left: 0;
+      bottom: -4px;
+    }
 
     a {
       display: block;
@@ -519,15 +534,16 @@
     }
 
     // ここでのcolor設定NG(aタグで囲われている為)
+    // Safari（SP）で不要な縦線が出るため、下線にbox-shadow使わない
     &__bd {
       @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
-      padding: 0 10px 11px;
-      box-shadow: 0px -2px #714748 inset;
+      padding: 0 10px 9px;
+      border-bottom: 2px solid #714748;
       position: relative;
       &::after {
         position: absolute;
         content: "";
-        bottom: 4px;
+        bottom: 2px;
         left: 0;
         right: 0;
         height: 4px;
@@ -564,13 +580,29 @@
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
     text-align: center;
-    padding: 7px 10px;
-    border-top: 2px solid #6c3f40;
-    border-bottom: 2px solid #6c3f40;
-    box-shadow :
-      0px 2px #fff inset,
-      0px -2px #fff inset;
+    padding: 5px 10px;
     background-color: #ebe5e2;
+    background-clip: padding-box;
+    border-top: 4px solid rgba(255, 255, 255, 0);
+    border-bottom: 4px solid rgba(255, 255, 255, 0);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-top: 2px solid #6c3f40;
+      width: 100%;
+      left: 0;
+      top: -4px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      border-bottom: 2px solid #6c3f40;
+      width: 100%;
+      left: 0;
+      bottom: -4px;
+    }
 
     a {
       display: block;
