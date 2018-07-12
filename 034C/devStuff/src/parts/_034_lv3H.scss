@@ -140,6 +140,145 @@
       text-align: right;
     }
   }
+
+  .t0-b-lv3H3 {
+    $_block: &;
+    $_fontSizePx: 24;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    line-height: 0;
+    text-align: center;
+
+    > div {
+      display: inline-block;
+    }
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+    }
+
+    a {
+      text-decoration: none;
+      color: $textcolor;
+
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+
+    &--size-2{}
+
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv3H4 {
+
+    text-align: center;
+    overflow: hidden;
+
+    $_block: &;
+    $_fontSizePx: 24;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $textcolor;
+
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+
+    h3 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      display: inline-block;
+      position: relative;
+      padding: 0 35px;
+      max-width: calc(100% - #{(50px + 35px) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: $areaContainerWidth;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: $areaContainerWidth;
+        left: 100%;
+      }
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+      }
+    }
+
+    &--size-2 {}
+
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{(50px + 35px)} );
+      }
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{(50px + 35px)} );
+      }
+    }
+  }
+
 }
 
 @if $device == SP {
@@ -229,4 +368,95 @@
       text-align: right;
     }
   }
+
+  .t0-b-lv3H3 {
+    $_block: &;
+    $_fontSizePx: 20;
+    $_lineHeightType: 1;
+
+    text-align: center;
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+
+    a {
+      text-decoration: none;
+      color: $textcolor;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv3H4 {
+    $_block: &;
+    $_fontSizePx: 20;
+    $_lineHeightType: 1;
+
+    overflow: hidden;
+    text-align: center;
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 15px;
+      max-width: calc(100% - #{(20px + 15px) * 2 } );
+
+      &::before {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: 100vW;
+        right: 100%;
+      }
+
+      &::after {
+        content: "";
+        border-top: 1px solid #45b1c7;
+        position: absolute;
+        top: 50%;
+        width: 100vW;
+        left: 100%;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $textcolor;
+    }
+
+    &--align-l {
+      text-align: left;
+      h3 {
+        padding-left: 0;
+        max-width: calc(100% - #{(20px + 15px)} );
+      }
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+      h3 {
+        padding-right: 0;
+        max-width: calc(100% - #{(20px + 15px)} );
+      }
+    }
+  }
+
 }
