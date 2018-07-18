@@ -25,9 +25,12 @@
     //上下のpaddingが0だとtwoColsMediaCardLandscapeの上下marginが消えてしまうので0.1px付けている
     padding: 40px 0 0.1px;
     &__hd, &__ft, &__bd {
-      width: $areaMainWidth;
-      max-width: 740px;
       margin: 0 auto;
+      @if $layout == "N00" {
+        width: 740px;
+      } @else {
+        width: $areaMainWidth;
+      }
     }
     @if $layout == "N00" {
       margin: 0 (-1000px - $areaSubWidth / 2);
