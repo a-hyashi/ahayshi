@@ -42,23 +42,50 @@
 
     &__media {
       text-align: center;
+      position: relative;
 
       a {
         text-decoration: none;
+        color: $g-baseFontColor;
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
       }
       & + div {
         margin-top: 3%;
       }
     }
 
-    a {
-      > img {
-        &:hover {
-          opacity: 0.8;
-        }
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
-      &:hover {
-        color: $hovercolor;
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -488,102 +515,125 @@
 @if $device == SP {
 
   .t0-b-media {
-    margin-left: auto;
-    margin-right: auto;
-    > * {
-      &:first-child {
-        padding-top: 0;
-      }
-    }
 
-    // width variations
-    &--width-l {
-      width: 100%;
-    }
+    margin: 0 auto;
 
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-
-    img {
-      width: 100%;
-      box-sizing: border-box;
-      display: block;
+    a {
+      text-decoration: none;
+      color: $g-baseFontColor;
     }
 
     &__h-upper {
       @include g-font(16, 1);
-
-      margin: 0 0 10px;
       text-align: center;
+      margin-bottom: 10px;
+      div {
+        display: inline-block;
+      }
+    }
+
+    img {
+      max-width: 100% !important;
     }
 
     &__media {
+      line-height: 0;
       text-align: center;
+      position: relative;
 
+      > *,
+      img {
+        width: 100%;
+        vertical-align: top;
+      }
+      > span {
+        vertical-align: baseline;
+      }
       a {
         text-decoration: none;
       }
-
+      // スイッチャブル時に&__h-lowerをoffにした時に適用
       & + div {
         margin-top: 10px;
       }
     }
 
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
-
-      margin: 10px 0 0;
       text-align: center;
-
+      margin-top: 10px;
+      div {
+        display: inline-block;
+      }
+      // スイッチャブル時に&__captionをoffにした時に適用
       & + div {
         margin-top: 10px;
       }
     }
 
     &__caption {
-      margin: 10px 0 0;
-      text-align: center;
-
+      margin-top: 10px;
       p {
         @include g-font(14, 2);
         text-align: center;
       }
-
       & + div {
         margin-top: 10px;
       }
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
     }
 
     &--align-l {
       text-align: left;
     }
-
     &--align-c {
       text-align: center;
     }
-
     &--align-r {
       text-align: right;
     }
-
-    &__h-upper,
-    &__h-lower {
-      a {
-        text-decoration: none;
-        color: $textcolor;
-      }
-
-      div {
-        display: inline-block;
-      }
-    }
   }
-  
+
   .t0-b-media2 {
     margin-left: auto;
     margin-right: auto;
