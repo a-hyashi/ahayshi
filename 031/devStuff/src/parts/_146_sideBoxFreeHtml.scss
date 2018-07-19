@@ -1,0 +1,58 @@
+@if $device == PC {
+
+  .t0-b-sideBoxFreeHtml {
+
+    overflow: hidden;
+    width: 100%;
+    color: $g-textcolor;
+    text-align: center;
+    box-sizing: border-box;
+
+    &--width-100per {
+      width: 100%;
+    }
+    &--width-90per {
+      width: 90%;
+    }
+    &--width-80per {
+      width: 80%;
+    }
+    &--width-70per {
+      width: 70%;
+    }
+    
+    // HTML部品にスライド動画が挿入されたときに、スライド動画の持つスタイル属性 margin: 0 を打ち消して中央寄せにする #230
+    > * {
+      margin: 0 auto !important;
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-sideBoxFreeHtml {
+
+    overflow: auto;
+    text-align: center;
+    padding: 0 5px;
+
+    // Youtubeのレスポンシブ対応
+    overflow: auto;
+    max-height: 240px;
+    text-align: center;
+    iframe,
+    object,
+    embed {
+      max-height: 240px;
+      max-width: 100%;
+    }
+    > * {
+      // HTML部品にスライド動画が挿入されたときに、スライド動画の持つスタイル属性 margin: 0 を打ち消して中央寄せにする #230
+      margin: 0 auto !important;
+      max-width: 100% !important;
+    }
+  }
+
+}// SP

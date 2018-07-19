@@ -1,0 +1,136 @@
+$g-baseFontSize: 14px;
+
+html {
+  font-size: $g-baseFontSize;
+}
+
+//*
+//* WEBフォントの指定 (2017年9月現在、テーマの独自仕様としてのみWEBフォントの仕様を許可している https://goo.gl/PPpm4x)
+//*
+
+/* cyrillic */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tenor Sans'), local('TenorSans'), url(https://fonts.gstatic.com/s/tenorsans/v7/Ktx0Cs11QAojS82RMZDizgsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tenor Sans'), local('TenorSans'), url(https://fonts.gstatic.com/s/tenorsans/v7/T3UKHM06bpMTaH0ff0QTZQsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tenor Sans'), local('TenorSans'), url(https://fonts.gstatic.com/s/tenorsans/v7/pH9G9MQ0Q-aF9ThG3ok-twzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+$tenorsans: 'Tenor Sans', $gothic;
+
+//*
+//*変更可エリア
+//*
+
+$g-textcolor: #664b3a;
+$g-hovercolor: #009fa5;
+
+// Start ぶち抜きカラー
+$headerFullWidthKeyColor: #ab9774;
+$fullWidthBgColor: #f6feff;
+$fullWidthBgColor2: #f7f7f7;
+$fullWidthBgColor3: #fff9fc;
+$fullWidthBgColor4: #fcf5e9;
+$fullWidthBgColor5: #fff;
+$fullWidthBgColor6: #e0fafd;
+$fullWidthBgColor7: #e4f9f5;
+$fullWidthBgColor8: #f7e8e8;
+$fullWidthBgColor9: #fbe7f1;
+$fullWidthBgColor10: #f4f0ff;
+$fullWidthBgColor11: #f6fff9;
+$fullWidthBgColor12: #f8f2f2;
+$fullWidthBgColor13: #f7f6ee;
+$fullWidthBgColor14: #FFFDF8;
+$fullWidthBgColor15: #fffff3;
+$fullWidthBgColor16: #fbf0f5;
+$fullWidthBgColor17: #f4f4f9;
+// End ぶち抜きカラー
+
+body.mod-body,
+div.mod-body {
+  font-weight: 500;
+  font-size: $g-baseFontSize;
+  font-family: $gothic;
+  color: $g-textcolor;
+  //この中で変更するのは下から2つのみ
+}
+
+a {
+  text-decoration: none;
+}
+
+// 何を示しているのか定かではないため最終的に何も影響がない場合消す！
+//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+// .cms-admin-anchorFlag{
+//   z-index: 10!important;
+//   position: relative;
+// }
+// これはadmin.cssに移行するべき
+
+//↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+
+//*
+//*変更不可エリア
+//*
+$g-spacingBaseLength: 5;
+
+@mixin cf {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+    > ul:first-child {
+      margin-top: 0;
+    }
+    > ol:first-child {
+      margin-top: 0;
+    }
+    > p:first-child {
+      margin-top: 0;
+    }
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
+

@@ -4,6 +4,7 @@
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
+    text-align: center;
     &--width-100per {
       width: 100%;
     }
@@ -24,6 +25,12 @@
       margin: 0 auto;
       border: 1px solid #666;
     }
+    > * {
+      // サイドより横幅が大きいGoogleMapを入れた場合の対応
+      max-width: 100%;
+      // スライド動画のインラインスタイルを打ち消すためにimportantを使用
+      margin: 0 auto !important;
+    }
   }
 }
 
@@ -35,20 +42,15 @@
     padding: 0 5px;
     // Youtubeのレスポンシブ対応
     max-height: 240px;
-    > div {
-      iframe,
-      object,
-      embed {
-        max-height: 240px;
-        max-width: 100%;
-      }
+    iframe,
+    object,
+    embed {
+      max-height: 240px;
+      max-width: 100%;
     }
-    > div {
-      overflow: auto;
-      > * {
-        margin: 0 auto !important;
-        max-width: 100% !important;
-      }
+    > * {
+      margin: 0 auto !important;
+      max-width: 100% !important;
     }
     .admin & {
       background: #666;
