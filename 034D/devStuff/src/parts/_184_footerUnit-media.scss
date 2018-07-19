@@ -1,31 +1,58 @@
 @if $device == PC {
   .t0-b-footerUnit-media {
-    color: #fff;
-
+    margin: 0 auto;
     &__media {
+      text-align: center;
+      position: relative;
       img {
         display: block;
         width: 100%;
         height: auto;
       }
-    }
-
-    a {
-      text-decoration: none;
-      color: #e92677;
-
-      &:hover {
-        color: $hovercolor;
-      }
-
-      > img {
+      a {
+        text-decoration: none;
+        color: $g-baseFontColor;
+        display: block;
         &:hover {
-          opacity: 0.8;
+          opacity: .8;
         }
       }
     }
 
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__nav {
+      color: #fff;
       margin-top: 10px;
       padding: 0 0 0 30px;
 
@@ -39,17 +66,26 @@
         display: inline-block;
         padding: 1px 0;
       }
+
+      a {
+        text-decoration: none;
+        color: #e92677;
+
+        &:hover {
+          color: $hovercolor;
+        }
+      }
     }
 
-    &--width-l img {
+    &--width-l {
       width: 100%;
     }
 
-    &--width-m img {
+    &--width-m {
       width: 75%;
     }
 
-    &--width-s img {
+    &--width-s {
       width: 50%;
     }
   }
@@ -268,53 +304,82 @@
 @if $device == SP {
 
   .t0-b-footerUnit-media {
-    color: #fff;
-
-    &__media {
-      img {
-        width: 100%;
-        display: block;
-        box-sizing: border-box;
-        height: auto;
-        margin: 0 auto;
-      }
-    }
-
-    &--width-l img {
-      width: 100%;
-    }
-
-    &--width-m img {
-      width: 75%;
-    }
-
-    &--width-s img {
-      width: 50%;
-    }
-
-    a {
-      text-decoration: none;
-      color: #e92677;
-    }
-
-    &__nav {
-      display: table;
       margin: 0 auto;
-      margin-top: 10px;
-      padding: 0 0 0 30px;
+      &__media {
+        text-align: center;
+        position: relative;
+        img {
+          width: 100%;
+          display: block;
+          box-sizing: border-box;
+          height: auto;
+          margin: 0 auto;
+        }
+      }
 
-      @include g-font(16, 1);
+      &__textOnImage-upper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
 
-      background: url("../imgs/t0-b-navItem/1.png") no-repeat 0 50%;
-      background-size: 24px 24px;
+        p {
+          @include g-font(18,1);
+          @include g-textOuterGlow;
+          padding: 10px 5px;
+          background: rgba(255,255,255,0.8);
+        }
+      }
 
-      > div {
-        border-bottom: 2px solid #f7418c;
-        display: inline-block;
-        padding: 1px 0;
+      &__textOnImage-lower {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        p {
+          @include g-font(18,1);
+          @include g-textOuterGlow;
+          padding: 10px 5px;
+          background: rgba(255,255,255,0.8);
+        }
+      }
+
+      &--width-l {
+        width: 100%;
+      }
+
+      &--width-m {
+        width: 75%;
+      }
+
+      &--width-s {
+        width: 50%;
+      }
+
+      &__nav {
+        color: #fff;
+        display: table;
+        margin: 0 auto;
+        margin-top: 10px;
+        padding: 0 0 0 30px;
+
+        @include g-font(16, 1);
+
+        background: url("../imgs/t0-b-navItem/1.png") no-repeat 0 50%;
+        background-size: 24px 24px;
+
+        > div {
+          border-bottom: 2px solid #f7418c;
+          display: inline-block;
+          padding: 1px 0;
+        }
+        a {
+          text-decoration: none;
+          color: #e92677;
+        }
       }
     }
-  }
 
   .t0-b-footerUnit-media2 {
       margin: 0 auto;

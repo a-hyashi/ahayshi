@@ -1,31 +1,58 @@
 @if $device == PC {
   .t0-b-footerUnit-media {
-    color: #fff;
-
+    margin: 0 auto;
     &__media {
+      text-align: center;
+      position: relative;
       img {
         display: block;
         width: 100%;
         height: auto;
       }
-    }
-
-    a {
-      text-decoration: none;
-      color: #4d5a01;
-
-      &:hover {
-        color: $hovercolor;
-      }
-
-      > img {
+      a {
+        text-decoration: none;
+        color: $g-baseFontColor;
+        display: block;
         &:hover {
-          opacity: 0.8;
+          opacity: .8;
         }
       }
     }
 
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__nav {
+      color: #fff;
       margin-top: 10px;
       padding: 0 0 0 30px;
 
@@ -39,17 +66,26 @@
         display: inline-block;
         padding: 1px 0;
       }
+
+      a {
+        text-decoration: none;
+        color: #4d5a01;
+
+        &:hover {
+          color: $hovercolor;
+        }
+      }
     }
 
-    &--width-l img {
+    &--width-l {
       width: 100%;
     }
 
-    &--width-m img {
+    &--width-m {
       width: 75%;
     }
 
-    &--width-s img {
+    &--width-s {
       width: 50%;
     }
   }
@@ -268,9 +304,10 @@
 @if $device == SP {
 
   .t0-b-footerUnit-media {
-    color: #fff;
-
+    margin: 0 auto;
     &__media {
+      text-align: center;
+      position: relative;
       img {
         width: 100%;
         display: block;
@@ -280,24 +317,48 @@
       }
     }
 
-    &--width-l img {
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &--width-l {
       width: 100%;
     }
 
-    &--width-m img {
+    &--width-m {
       width: 75%;
     }
 
-    &--width-s img {
+    &--width-s {
       width: 50%;
     }
 
-    a {
-      text-decoration: none;
-      color: #4d5a01;
-    }
-
     &__nav {
+      color: #fff;
       display: table;
       margin: 0 auto;
       margin-top: 10px;
@@ -312,6 +373,10 @@
         border-bottom: 2px solid #b7c113;
         display: inline-block;
         padding: 1px 0;
+      }
+      a {
+        text-decoration: none;
+        color: #4d5a01;
       }
     }
   }
