@@ -2,10 +2,6 @@
   .t0-b-sideBoxMedia {
     margin: 0 auto;
 
-    img {
-      width: 100%;
-    }
-
     &__caption-upper {
       @include g-font(16, 1);
 
@@ -15,18 +11,52 @@
     }
 
     &__main {
+      text-align: center;
+      position: relative;
       img {
+        width: 100%;
         display: block;
         margin: 0 auto;
         box-sizing: border-box;
       }
-    }
-
-    a {
-      > img {
+      a {
+      color: $g-baseFontColor;
+      display: block;
         &:hover {
           opacity: .8;
         }
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
       }
     }
 
@@ -336,73 +366,100 @@
 @if $device == SP {
 
   .t0-b-sideBoxMedia {
-    margin: 0 auto;
+      margin: 0 auto;
 
-    img {
-      width: 100%;
-    }
+      &__caption-upper {
+        @include g-font(16, 1);
 
-    &__caption-upper {
-      @include g-font(16, 1);
-
-      text-align: center;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    &__main {
-      img {
-        display: block;
-        margin: 0 auto;
-        box-sizing: border-box;
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: bold;
       }
-    }
 
-    &__caption-lower {
-      @include g-font(16, 1);
-
-      text-align: center;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    &__caption-upper,
-    &__caption-lower {
-      a {
-        text-decoration: none;
+      &__main {
+        text-align: center;
         position: relative;
-        color: $textcolor;
+        img {
+          width: 100%;
+          display: block;
+          margin: 0 auto;
+          box-sizing: border-box;
+        }
       }
 
-      div {
-        display: inline-block;
+      &__textOnImage-upper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        p {
+          @include g-font(18,1);
+          @include g-textOuterGlow;
+          padding: 10px 5px;
+          background: rgba(255,255,255,0.8);
+        }
+      }
+
+      &__textOnImage-lower {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        p {
+          @include g-font(18,1);
+          @include g-textOuterGlow;
+          padding: 10px 5px;
+          background: rgba(255,255,255,0.8);
+        }
+      }
+
+      &__caption-lower {
+        @include g-font(16, 1);
+
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      &__caption-upper,
+      &__caption-lower {
+        a {
+          text-decoration: none;
+          position: relative;
+          color: $textcolor;
+        }
+
+        div {
+          display: inline-block;
+        }
+      }
+
+      &--width-l {
+        width: 100%;
+      }
+
+      &--width-m {
+        width: 75%;
+      }
+
+      &--width-s {
+        width: 50%;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-  }
 
   .t0-b-sideBoxMedia2 {
       margin: 0 auto;
