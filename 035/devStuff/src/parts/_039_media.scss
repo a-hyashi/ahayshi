@@ -3,10 +3,6 @@
   .t0-b-media {
     color: #333;
     margin: 0 auto;
-    //padding-top: 15px;
-    img {
-      width: 100%;
-    }
 
     &__h-upper {
       @if $layout == "N00" {
@@ -27,30 +23,62 @@
     }
     &__media {
       text-align: center;
+      position: relative;
+      padding: 7px 7px 6px 6px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
+      box-shadow: 0px 0px 2px #f3ece0;
+      box-sizing: border-box;
       img {
-        padding: 7px 7px 6px 6px;
-        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-        background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
-        box-shadow: 0px 0px 2px #f3ece0;
-        box-sizing: border-box;
         width: 100%;
+        height: auto;
       }
       a {
+        display: block;
+        color: $g-baseTextColor;
         text-decoration: none;
         &:hover {
           opacity: .8;
-        }
-        > img {
-          &:hover {
-            opacity: 0.8;
-          }
         }
       }
       & + div {
         margin-top: 2%;
       }
     }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 7px;
+      left: 6px;
+      right: 7px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      right: 7px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__h-lower {
       @if $layout == "N00" {
                @include g-font(20, 1);
@@ -117,24 +145,26 @@
         display: inline-block;
       }
     }
-    img {
-      width: 100%;
-    }
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
+      padding: 2px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-media/2/bg.png"), url("../imgs/t0-b-media/2/bg2.png"), url("../imgs/t0-b-media/2/bg3.png"), url("../imgs/t0-b-media/2/bg4.png"), url("../imgs/t0-b-media/2/bg5.png"), url("../imgs/t0-b-media/2/bg6.png"), url("../imgs/t0-b-media/2/bg7.png"), url("../imgs/t0-b-media/2/bg8.png");
+      box-sizing: border-box;
       > *, img {
         vertical-align: top;
       }
       img {
-        padding: 2px;
-        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-        background-image: url("../imgs/t0-b-media/2/bg.png"), url("../imgs/t0-b-media/2/bg2.png"), url("../imgs/t0-b-media/2/bg3.png"), url("../imgs/t0-b-media/2/bg4.png"), url("../imgs/t0-b-media/2/bg5.png"), url("../imgs/t0-b-media/2/bg6.png"), url("../imgs/t0-b-media/2/bg7.png"), url("../imgs/t0-b-media/2/bg8.png");
-        box-sizing: border-box;
+        width: 100%;
+        height: auto;
       }
       a {
+        color: $g-baseTextColor;
         text-decoration: none;
+        display: block;
         &:hover {
           opacity: .8;
         }
@@ -143,6 +173,39 @@
         margin-top: 4%;
       }
     }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
@@ -192,9 +255,7 @@
     color: #333;
     margin: 0 auto;
     padding-top: 15px;
-    img {
-      width: 100%;
-    }
+
     &__h-upper {
       @include g-font(16, 1);
       text-align: center;
@@ -211,17 +272,22 @@
     &__media {
       line-height: 0;
       text-align: center;
+      position: relative;
+      padding: 2px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-media/3/bg.png"), url("../imgs/t0-b-media/3/bg2.png"), url("../imgs/t0-b-media/3/bg3.png"), url("../imgs/t0-b-media/3/bg4.png"), url("../imgs/t0-b-media/3/bg5.png"), url("../imgs/t0-b-media/3/bg6.png"), url("../imgs/t0-b-media/3/bg7.png"), url("../imgs/t0-b-media/3/bg8.png");
+      box-sizing: border-box;
       > *, img {
         vertical-align: top;
       }
       img {
-        padding: 2px;
-        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-        background-image: url("../imgs/t0-b-media/3/bg.png"), url("../imgs/t0-b-media/3/bg2.png"), url("../imgs/t0-b-media/3/bg3.png"), url("../imgs/t0-b-media/3/bg4.png"), url("../imgs/t0-b-media/3/bg5.png"), url("../imgs/t0-b-media/3/bg6.png"), url("../imgs/t0-b-media/3/bg7.png"), url("../imgs/t0-b-media/3/bg8.png");
-        box-sizing: border-box;
+        width: 100%;
+        height: auto;
       }
       a {
+        display: block;
+        color: $g-baseTextColor;
         text-decoration: none;
         &:hover {
           opacity: .8;
@@ -231,6 +297,40 @@
         margin-top: 4%;
       }
     }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      z-index: 1;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      right: 2px;
+      bottom: 2px;
+      left: 2px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
       text-align: center;
@@ -317,10 +417,6 @@
   .t0-b-media {
     margin: 0 auto;
     color: #333;
-    img {
-      width: 100%;
-      max-width: 100% !important;
-    }
     &__h-upper {
       @include g-font(16, 1);
       text-align: center;
@@ -337,6 +433,13 @@
     }
     &__media {
       text-align: center;
+      position: relative;
+      padding: 7px 7px 6px 6px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
+      box-shadow: 0px 0px 2px #f3ece0;
+      box-sizing: border-box;
       > *, img {
         vertical-align: top;
       }
@@ -344,16 +447,41 @@
         vertical-align: baseline;
       }
       img {
-        padding: 7px 7px 6px 6px;
-        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-        background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
-        box-shadow: 0px 0px 2px #f3ece0;
-        box-sizing: border-box;
+        width: 100%;
+        max-width: 100% !important;
+      }
+      a {
+        display: block;
+        color: $g-baseTextColor;
+        text-decoration: none;
       }
     }
-    a {
-      text-decoration: none;
+    &__textOnImage-upper {
+      position: absolute;
+      top: 7px;
+      left: 6px;
+      right: 7px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      right: 7px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
     }
     &__h-lower {
       @include g-font(16, 1);
@@ -380,24 +508,19 @@
       }
     }
 
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
+    // width variations
+    &--width-l {
+      width: 100%;
     }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
+
+    &--width-m {
+      width: 75%;
     }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
+
+    &--width-s {
+      width: 50%;
     }
+
     &--align-l {
       text-align: left;
     }
@@ -412,9 +535,6 @@
   .t0-b-media2 {
     margin: 0 auto;
     color: #333;
-    img {
-      width: 100%;
-    }
     &__h-upper {
       @include g-font(16, 1);
       padding-bottom: 10px;
@@ -431,6 +551,13 @@
     }
     &__media {
       text-align: center;
+      position: relative;
+      padding: 2px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-media/2/bg.png"), url("../imgs/t0-b-media/2/bg2.png"), url("../imgs/t0-b-media/2/bg3.png"), url("../imgs/t0-b-media/2/bg4.png"), url("../imgs/t0-b-media/2/bg5.png"), url("../imgs/t0-b-media/2/bg6.png"), url("../imgs/t0-b-media/2/bg7.png"), url("../imgs/t0-b-media/2/bg8.png");
+      box-sizing: border-box;
+
       > *, img {
         vertical-align: top;
       }
@@ -438,16 +565,44 @@
         vertical-align: baseline;
       }
       img {
-        padding: 2px;
-        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-        background-image: url("../imgs/t0-b-media/2/bg.png"), url("../imgs/t0-b-media/2/bg2.png"), url("../imgs/t0-b-media/2/bg3.png"), url("../imgs/t0-b-media/2/bg4.png"), url("../imgs/t0-b-media/2/bg5.png"), url("../imgs/t0-b-media/2/bg6.png"), url("../imgs/t0-b-media/2/bg7.png"), url("../imgs/t0-b-media/2/bg8.png");
-        box-sizing: border-box;
-        a {
-          text-decoration: none;
-        }
+        width: 100%;
+        max-width: 100% !important;
+      }
+      a {
+        text-decoration: none;
+        display: block;
+        color: $g-baseTextColor;
       }
     }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
+    }
+
     &__h-lower {
       @include g-font(16, 1);
       padding-top: 14px;
@@ -472,27 +627,15 @@
         margin-top: 10px;
       }
     }
-    img {
-      max-width: 100% !important;
+    // width variations
+    &--width-l {
+      width: 100%;
     }
-
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
+    &--width-m {
+      width: 75%;
     }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
-    }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
+    &--width-s {
+      width: 50%;
     }
     &--align-l {
       text-align: left;
@@ -523,6 +666,11 @@
     }
     &__media {
       text-align: center;
+      padding: 2px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-media/3/bg.png"), url("../imgs/t0-b-media/3/bg2.png"), url("../imgs/t0-b-media/3/bg3.png"), url("../imgs/t0-b-media/3/bg4.png"), url("../imgs/t0-b-media/3/bg5.png"), url("../imgs/t0-b-media/3/bg6.png"), url("../imgs/t0-b-media/3/bg7.png"), url("../imgs/t0-b-media/3/bg8.png");
+      box-sizing: border-box;
       > *, img {
         vertical-align: top;
       }
@@ -530,19 +678,42 @@
         vertical-align: baseline;
       }
       img {
-        padding: 2px;
-        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-        background-image: url("../imgs/t0-b-media/3/bg.png"), url("../imgs/t0-b-media/3/bg2.png"), url("../imgs/t0-b-media/3/bg3.png"), url("../imgs/t0-b-media/3/bg4.png"), url("../imgs/t0-b-media/3/bg5.png"), url("../imgs/t0-b-media/3/bg6.png"), url("../imgs/t0-b-media/3/bg7.png"), url("../imgs/t0-b-media/3/bg8.png");
-        box-sizing: border-box;
         width: 100%;
+        max-width: 100% !important;
+      }
+      a {
+        text-decoration: none;
+        display: block;
+        color: $g-baseTextColor;
       }
     }
-    a {
-      text-decoration: none;
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
     }
-    img {
-      max-width: 100% !important;
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
     }
 
     &__h-lower {
@@ -569,23 +740,15 @@
         margin-top: 10px;
       }
     }
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--width-l &__media {
-      img {
-        width: 100%;
-      }
+    // width variations
+    &--width-l {
+      width: 100%;
     }
-    &--width-m &__media {
-      img {
-        width: 75%;
-      }
+    &--width-m {
+      width: 75%;
     }
-    &--width-s &__media {
-      img {
-        width: 50%;
-      }
+    &--width-s {
+      width: 50%;
     }
     &--align-l {
       text-align: left;
