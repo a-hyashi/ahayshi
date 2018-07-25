@@ -30,23 +30,25 @@ function plumberWithNotify() {
   return plumber({errorHandler: notify.onError("<%= error.message %>")});
 }
 
-gulp.task('sass', function() {
-    styleSource = [
-      'devStuff/src/**/pc-L25.s[ac]ss',
-      'devStuff/src/**/pc-N00.s[ac]ss',
-      'devStuff/src/**/sp.s[ac]ss'
-    ];
-    return merge(
-    styleSource.map(styleSource=>{
+gulp.task('sass', function(callback) {
+  styleSources = [
+    'devStuff/src/**/pc-L25.s[ac]ss',
+    'devStuff/src/**/pc-N00.s[ac]ss',
+    'devStuff/src/**/sp.s[ac]ss'
+  ];
+  merge(
+    styleSources.map(styleSource=>{
       return gulp.src(styleSource)
-        .pipe(sourcemaps.init())
-        .pipe(plumberWithNotify())
-        .pipe(sass())
-        .pipe(debug())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('devStuff/css'));
+      .pipe(sourcemaps.init())
+      .pipe(plumberWithNotify())
+      .pipe(sass())
+      .pipe(debug())
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest('devStuff/css'))
+      .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   );
+  callback()
 });
 
 gulp.task('sass-build', function() {
@@ -97,22 +99,16 @@ gulp.task('aigis', function() {
   .pipe(aigis());
 });
 
-// copy css file to styleguide
-
-gulp.task('copy-css', function() {
-  return gulp.src('devStuff/css/*.css')
-  .pipe(gulp.dest('devStuff/styleguide/css'));
-});
-
 // webserver
 
 gulp.task('server', function() {
-  browserSync({
+  return browserSync({
     server: {
       baseDir: './devStuff/styleguide',
       routes: {
         "/sassdoc": "./devStuff/sassdoc"
-      }
+      },
+      proxy: "localhost:3000"
     }
   });
 });
@@ -250,7 +246,7 @@ gulp.task('create-b-placer-doc', function() {
       }
     }
   });
-  output_b_placer_doc(b_placers);
+  return output_b_placer_doc(b_placers);
 });
 
 function b_placer_lines() {
@@ -375,8 +371,7 @@ gulp.task('make-aigis', ['delete-unittest'], function() {
 
 gulp.task('update-css', function() {
   return runSequence(
-    ['sass', 'create-b-placer-doc'],
-    'copy-css'
+    ['sass', 'create-b-placer-doc']
   );
 });
 
@@ -397,14 +392,18 @@ gulp.task('build', function() {
 });
 
 gulp.task('default', function() {
-  gulp.watch(
-    [`${config.html_templates_dir}**/*`],
-    function(){ runSequence('update-parts', browserSync.reload) }
-  );
+  // ファイルが多いため部品のwatchはギブアップする
 
   gulp.watch(
     ['devStuff/src/**/*.s[ac]ss'],
-    function(){ runSequence('update-css', browserSync.reload) }
+    function() { runSequence('update-css') }
+  );
+
+  // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
+  // 複数回reloadが実行されるのは直したい
+  gulp.watch(
+    ['devStuff/styleguide/css/*.css'],
+    function() { browserSync.reload() }
   );
 
   return runSequence(
