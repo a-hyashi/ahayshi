@@ -2,31 +2,55 @@
 
   .t0-b-footerUnit-media {
     &__media {
+      text-align: center;
+      position: relative;
+      line-height: 0;
       img {
         display: block;
         width: 100%;
         height: auto;
       }
       a {
-        img {
-          &:hover {
-            opacity: .8;
-          }
+        color: $g-baseTextColor;
+        display: block;
+        &:hover {
+          opacity: .8;
         }
       }
     }
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--width-l img {
-      width: 100%;
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
     }
-    &--width-m img {
-      width: 75%;
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
     }
-    &--width-s img {
-      width: 50%;
-    }
+
     &__nav {
       text-indent: -20px;
       padding: 10px 0 0 20px;
@@ -48,6 +72,17 @@
         }
       }
     }
+
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
+    }
+
   }
 
 }// PC
@@ -57,6 +92,9 @@
 
   .t0-b-footerUnit-media {
     &__media {
+      text-align: center;
+      position: relative;
+      line-height: 0;
       img {
         width: 100%;
         display: block;
@@ -64,18 +102,35 @@
         margin: 0 auto;
       }
     }
-    &--width-s {}
-    &--width-m {}
-    &--width-l {}
-    &--width-l img {
-      width: 100%;
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
     }
-    &--width-m img {
-      width: 75%;
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+      }
     }
-    &--width-s img {
-      width: 50%;
-    }
+
     &__nav {
       text-indent: -20px;
       padding: 10px 0 0 20px;
@@ -91,6 +146,15 @@
           background-position: 3px 7px, left bottom;
         }
       }
+    }
+    &--width-l {
+      width: 100%;
+    }
+    &--width-m {
+      width: 75%;
+    }
+    &--width-s {
+      width: 50%;
     }
   }
 
