@@ -18,24 +18,61 @@
       color: #553010;
     }
     &__main {
+      text-align: center;
+      position: relative;
+      line-height: 0;
+      padding: 7px 7px 6px 6px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
+      box-shadow: 0px 0px 2px #f3ece0;
+      box-sizing: border-box;
+
       img {
         width: 100%;
         display: block;
-        padding: 7px 7px 6px 6px;
-        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-        background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
-        box-shadow: 0px 0px 2px #f3ece0;
-        box-sizing: border-box;
       }
-    }
-    a {
-      > img {
+      a {
+      color: $g-baseTextColor;
+      display: block;
         &:hover {
-          opacity: 0.8;
+          opacity: .8;
         }
       }
     }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18,1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255,255,255,0.8);
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
     &__caption-lower {
       @include g-font(14, 1);
       font-weight: bold;
