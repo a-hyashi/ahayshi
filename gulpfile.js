@@ -109,7 +109,8 @@ gulp.task('server', function() {
         "/sassdoc": "./devStuff/sassdoc"
       },
       proxy: "localhost:3000"
-    }
+    },
+    open: false
   });
 });
 
