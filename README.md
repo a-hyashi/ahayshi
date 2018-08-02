@@ -60,6 +60,8 @@ $ gulp update-parts --max_old_space_size=8192
 ## ツールの使い方
 
 ### 起動
+1. Dockerを起動する
+2. 以下のコマンドを実行する
 ```sh
 $ docker-compose up
 ```
