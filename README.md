@@ -3,29 +3,20 @@
 ## 概要
 1. ACRE-themeのコンパイル前のソースコード管理
 2. CSSの単体テスト
-3. SASSのコンパイル
+3. SASSのコンパイル  
 のためのリポジトリです。
 
 <br>
 
 ## 全体で一度だけ実行すること
 
-### node.jsのインストール
-  - https://nodejs.org/ja/にアクセス
-  - 推奨版をダウンロード
-  - インストール
-  - インストールを確認する。ターミナルを開いて`node -v`と、`npm -v`でバージョン数が表示されればOK
+### Dockerのインストール
+1. Dockerのアカウントを作成し、インストール、起動しておく  
+https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 
-
-### gulpのインストール
+2. 以下のコマンドを実行する
 ```sh
-$ npm install -g gulp
-```
-
-### packageのインストール
-```sh
-$ cd （buddy-themeを配置した場所）
-$ npm install
+$ docker-compose build
 ```
 
 ### 関連ファイルの配置
@@ -39,14 +30,19 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 
 ## テーマごとに一度だけ実行すること
 
-1. ディレクトリの移動（031の場合）
-```sh
-$ cd （buddy-themeを配置した場所）/031
+1. 作業場所の変更  
+`docker-compose.yml`の以下の箇所のテーマ名を変更する
+``` yaml
+working_dir: /buddy-theme/031/
 ```
 
 2. 共通ファイルの取得
 ```sh
-$ ./copy.sh
+$ docker-compose run base cp ../copy.sh ./copy.sh
+```
+
+```sh
+$ docker-compose run base ./copy.sh
 ```
 
 3. CSSのコンパイル
@@ -56,23 +52,29 @@ $ gulp update-css
 
 4. StyleGuide(aigis)の初期化とテストデータ作成
 ```sh
-$ gulp update-parts
+$ gulp update-parts --max_old_space_size=8192
 ```
 
 <br>
 
 ## ツールの使い方
 
-### ディレクトリの移動（031の場合）
-```sh
-$ cd （buddy-themeを配置した場所）/031
-```
-
 ### 起動
 ```sh
-$ gulp
+$ docker-compose up
 ```
-起動中は部品、CSSの更新が自動で反映されます
+起動中はCSSの更新が自動で反映されます
+
+以下のメッセージが表示された場合は`y`を押してください
+```sh
+Continue with the new image? [yN]
+```
+### 表示
+http://localhost:3000
+を開いてください  
+クロスブラウザテストで他の端末から接続する場合は  
+http://（PCのIP）:3000
+です
 
 ### 停止
 ```
@@ -81,50 +83,39 @@ Ctrl + C
 
 ### 本番用CSSの出力
 ```sh
-$ gulp build
-```
-
-### コマンド一覧の表示
-```sh
-$ gulp --tasks
+$ docker-compose run base gulp build
 ```
 
 <br>
 
 ## こんな時には？
 
+### JSON/HTMLを修正した
+
+```sh
+$ docker-compose run base gulp update-parts --max_old_space_size=8192
+```
+
 ### 起動していない時にCSSを修正した
 
 ```sh
-$ gulp update-css
-```
-
-### 起動していない時にJSON/HTMLを修正した
-
-```sh
-$ gulp update-parts
+$ docker-compose run base gulp update-css
 ```
 
 ※sassdocが更新された場合追加で実行する
 ```sh
-$ gulp update-sassdoc
+$ docker-compose run base gulp update-sassdoc
 ```
 
-### Starting 'make-aigis'...の後にエラーが表示される
-
+### 動作が遅くなってきた
+Dockerを再起動するか、以下のコマンドを実行してください
 ```sh
-$ gulp make-aigis --max_old_space_size=8192
-```
-
-### Starting 'aigis'...の後にエラーが表示される
-
-```sh
-$ gulp aigis --max_old_space_size=8192
+$ docker-compose down
 ```
 
 ### buddy-themeが更新された
 
-  `git pull`のあと、
+  更新を取り込んだあと、
 
 > テーマごとに一度だけ実行すること
 
@@ -132,11 +123,21 @@ $ gulp aigis --max_old_space_size=8192
 
 <br>
 
-## 新しいテーマを作る場合
+## リポジトリの保守
+
+### 新しいテーマを作る場合
 他のテーマを参考に同じ構造を再現し、以下のファイルをテーマごとの値に修正してください
 
  - gulp_config.json
  - devstuff/aigis_config.yml
+
+### docker-compose.ymlを変更する場合
+ユーザーがテーマ名を変更するため、gitignoreに含めています
+以下のコマンドで強制コミットしてください
+
+```sh
+$ git add -f docker-compose.yml
+```
 
 <br>
 
