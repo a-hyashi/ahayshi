@@ -19,9 +19,8 @@ Macの上部にアイコンが表示されていればOKです
 
 3. 以下のコマンドを実行する
 ```sh
+$ cd （buddy-themeフォルダの場所）
 $ cp _docker-compose.yml docker-compose.yml
-```
-```sh
 $ docker-compose run base npm install
 ```
 
@@ -71,6 +70,7 @@ Macの上部にアイコンが表示されていればOKです
 
 2. 以下のコマンドを実行する
 ```sh
+$ cd （buddy-themeフォルダの場所）
 $ docker-compose up
 ```
 起動中はCSSの更新が自動で反映されます
