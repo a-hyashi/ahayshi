@@ -10,11 +10,14 @@
 
 ## 全体で一度だけ実行すること
 
-### Dockerのインストール
-1. Dockerのアカウントを作成し、インストール、起動しておく  
+### Dockerとnpmのインストール
+1. アカウントを作成し、Dockerをインストールする  
 https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 
-2. 以下のコマンドを実行する
+2. アプリのアイコンをクリックしDockerを起動する  
+Macの上部にアイコンが表示されていればOKです
+
+3. 以下のコマンドを実行する
 ```sh
 $ docker-compose run base npm install
 ```
@@ -60,7 +63,9 @@ $ docker-compose run base gulp update-parts --max_old_space_size=8192
 ## ツールの使い方
 
 ### 起動
-1. Dockerを起動する
+1. アプリのアイコンをクリックしDockerを起動する  
+Macの上部にアイコンが表示されていればOKです
+
 2. 以下のコマンドを実行する
 ```sh
 $ docker-compose up
@@ -83,6 +88,10 @@ http://localhost:3000
 クロスブラウザテストで他の端末から接続する場合は  
 http://（PCのIP）:3000
 です
+
+#### 参考
+MacのIPの調べ方  
+https://pc-karuma.net/mac-ip-address/
 
 ### 停止
 ```
