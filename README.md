@@ -19,6 +19,9 @@ Macの上部にアイコンが表示されていればOKです
 
 3. 以下のコマンドを実行する
 ```sh
+$ cp _docker-compose.yml docker-compose.yml
+```
+```sh
 $ docker-compose run base npm install
 ```
 
