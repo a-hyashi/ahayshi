@@ -152,12 +152,8 @@ $ docker-compose down
  - devstuff/aigis_config.yml
 
 ### docker-compose.ymlを変更する場合
-ユーザーがテーマ名を変更するため、gitignoreに含めています
-以下のコマンドで強制コミットしてください
-
-```sh
-$ git add -f docker-compose.yml
-```
+ユーザーがテーマ名を変更するため、gitignoreに含めています  
+`_docker-compose.yml`を複製して使うようにしているので、このファイルを変更してください
 
 <br>
 
