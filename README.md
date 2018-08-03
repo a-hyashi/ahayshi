@@ -16,7 +16,7 @@ https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 
 2. 以下のコマンドを実行する
 ```sh
-$ docker-compose build
+$ docker-compose run base npm install
 ```
 
 ### 関連ファイルの配置
@@ -47,12 +47,12 @@ $ docker-compose run base ./copy.sh
 
 3. CSSのコンパイル
 ```sh
-$ gulp update-css
+$ docker-compose run base gulp update-css
 ```
 
 4. StyleGuide(aigis)の初期化とテストデータ作成
 ```sh
-$ gulp update-parts --max_old_space_size=8192
+$ docker-compose run base gulp update-parts --max_old_space_size=8192
 ```
 
 <br>
@@ -71,7 +71,13 @@ $ docker-compose up
 ```sh
 Continue with the new image? [yN]
 ```
+
 ### 表示
+```sh
+[Browsersync] Serving files from:
+```
+
+が表示されたら  
 http://localhost:3000
 を開いてください  
 クロスブラウザテストで他の端末から接続する場合は  
