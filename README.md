@@ -111,13 +111,7 @@ $ docker-compose run base gulp build
 $ docker-compose run base gulp update-parts --max_old_space_size=8192
 ```
 
-### 起動していない時にCSSを修正した
-
-```sh
-$ docker-compose run base gulp update-css
-```
-
-※sassdocが更新された場合追加で実行する
+### sassdocが更新された
 ```sh
 $ docker-compose run base gulp update-sassdoc
 ```
