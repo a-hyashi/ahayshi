@@ -383,7 +383,7 @@ gulp.task('build', function() {
   );
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['update-css'], function() {
   // ファイルが多いため部品のwatchはギブアップする
 
   gulp.watch(

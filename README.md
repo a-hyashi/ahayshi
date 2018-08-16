@@ -50,12 +50,7 @@ $ docker-compose run base cp ../copy.sh ./copy.sh
 $ docker-compose run base ./copy.sh
 ```
 
-3. CSSのコンパイル
-```sh
-$ docker-compose run base gulp update-css
-```
-
-4. StyleGuide(aigis)の初期化とテストデータ作成
+3. StyleGuide(aigis)の初期化とテストデータ作成
 ```sh
 $ docker-compose run base gulp update-parts --max_old_space_size=8192
 ```
@@ -73,7 +68,7 @@ Macの上部にアイコンが表示されていればOKです
 $ cd （buddy-themeフォルダの場所）
 $ docker-compose up
 ```
-起動中はCSSの更新が自動で反映されます
+CSSの更新は自動で反映されます
 
 以下のメッセージが表示された場合は`y`を押してください
 ```sh
