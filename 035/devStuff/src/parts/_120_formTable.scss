@@ -11,9 +11,11 @@
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       width: 100%;
+      margin-bottom: 6%;
       // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
       table-layout: fixed;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -21,7 +23,9 @@
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
+      width: 35%;
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
@@ -37,9 +41,11 @@
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -47,24 +53,32 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(12, 1);
       padding: 10px 0 0;
     }
+
     &__confirmer {
       @include g-font(14, 2);
     }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
+    // &__placer-singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList {
+    // &__placer-list {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -81,25 +95,39 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
+
+      &--align-vertical {
+        ul {
+          padding: 0;
+          li {
+            display: list-item;
+            padding: 5px 10px 0 18px;
+          }
+        }
       }
     }
-    &__required {
+    //&__placer-list--align-vertical : no style
+    // .ex-vertical {
+    //   padding: 0;
+    //   li {
+    //     display: list-item;
+    //     padding: 5px 10px 0 18px;
+    //   }
+    // }
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #c7a857;
       width: 47px;
@@ -116,66 +144,108 @@
         margin-left: 3px;
       }
     }
-    &__button {
-      &:hover {
-        opacity: 0.8;
+
+    &__buttons {
+      // .t0-b-buttonPlacer {
+      margin-bottom: 6%;
+      text-align: center;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
       }
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &:before,
+        &:after {
+          margin-top: 0;
+        }
+      }
     }
-    &__button2 {
-      &:hover {
-        opacity: 0.8;
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+    // &__button {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
       }
-      $_color_border: #e7a148;
-      $_color_typo: #fff;
-      $_color_bg: #e7a148;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
     }
-    &__button3 {
-      &:hover {
-        opacity: 0.8;
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+      // &__button2 {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #e7a148;
+        $_color_typo: #fff;
+        $_color_bg: #e7a148;
+        max-width: 266px;
+        min-width: 90px;
+        margin-right: 60px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
       }
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+    }
+
+    // 送信するボタン
+    &__button-send {
+    // &__button3 {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
@@ -190,9 +260,11 @@
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       width: 100%;
+      margin-bottom: 6%;
       // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
       table-layout: fixed;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -200,7 +272,9 @@
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
+      width: 35%;
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
@@ -216,9 +290,11 @@
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -226,24 +302,30 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(12, 1);
       padding: 10px 0 0;
     }
+
     &__confirmer {
       @include g-font(14, 2);
     }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -260,25 +342,31 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
+
+      &--align-vertical {
+        ul {
+          padding: 0;
+          li {
+            display: list-item;
+            padding: 5px 10px 0 18px;
+          }
+        }
       }
     }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #aa8855;
       width: 47px;
@@ -295,69 +383,107 @@
         margin-left: 3px;
       }
     }
-    &__button {
-      &:hover {
-        opacity: 0.8;
+
+    &__buttons {
+      margin-bottom: 6%;
+      text-align: center;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
       }
-      $_color_border: #e4c58f;
-      $_color_typo: #333;
-      $_color_bg: #e4c58f;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &:before,
+        &:after {
+          margin-top: 0;
+        }
+      }
     }
-    &__button2 {
-      &:hover {
-        opacity: 0.8;
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #e4c58f;
+        $_color_typo: #333;
+        $_color_bg: #e4c58f;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
       }
-      $_color_border: #e6e6e6;
-      $_color_typo: #333;
-      $_color_bg: #e6e6e6;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
     }
-    &__button3 {
-      &:hover {
-        opacity: 0.8;
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #e6e6e6;
+        $_color_typo: #333;
+        $_color_bg: #e6e6e6;
+        max-width: 266px;
+        min-width: 90px;
+        margin-right: 60px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
       }
-      $_color_border: #ddbb88;
-      $_color_typo: #333;
-      $_color_bg: #ddbb88;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+    }
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #ddbb88;
+        $_color_typo: #333;
+        $_color_bg: #ddbb88;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
@@ -372,9 +498,11 @@
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       width: 100%;
+      margin-bottom: 6%;
       // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
       table-layout: fixed;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -382,7 +510,9 @@
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
+      width: 35%;
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
@@ -398,9 +528,11 @@
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -408,24 +540,29 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(12, 1);
       padding: 10px 0 0;
     }
+
     &__confirmer {
       @include g-font(14, 2);
     }
-    &__placer-singleInput {
+
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -442,25 +579,21 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
     }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
-      }
-    }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #ef8888;
       width: 47px;
@@ -477,92 +610,132 @@
         margin-left: 3px;
       }
     }
-    &__button {
-      &:hover {
-        opacity: 0.8;
+
+    &__buttons {
+      // .t0-b-buttonPlacer {
+      margin-bottom: 6%;
+      text-align: center;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
       }
-      $_color_border: #ffc78a;
-      $_color_typo: #333;
-      $_color_bg: #f5a03c;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(14, 1);
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &:before,
+        &:after {
+          margin-top: 0;
+        }
+      }
     }
-    &__button2 {
-      &:hover {
-        opacity: 0.8;
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #ffc78a;
+        $_color_typo: #333;
+        $_color_bg: #f5a03c;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(14, 1);
       }
-      $_color_border: #ddbb77;
-      $_color_typo: #333;
-      $_color_bg: #ddbb77;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(14, 1);
     }
-    &__button3 {
-      &:hover {
-        opacity: 0.8;
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #ddbb77;
+        $_color_typo: #333;
+        $_color_bg: #ddbb77;
+        max-width: 266px;
+        min-width: 90px;
+        margin-right: 60px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(14, 1);
       }
-      $_color_border: #ffc78a;
-      $_color_typo: #333;
-      $_color_bg: #ffc78a;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(14, 1);
+    }
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #ffc78a;
+        $_color_typo: #333;
+        $_color_bg: #ffc78a;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(14, 1);
+      }
     }
   }
 
-  .t0-b-buttonPlacer {
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-      > * {
-        display: block;
-        white-space: normal;
-      }
-    }
-    p {
-      @include g-font(12, 1);
-      text-align: center;
-      padding: 15px 0 0;
-      &:before,
-      &:after {
-        margin-top: 0;
-      }
-    }
-  }
+  // .t0-b-formTable__buttons {
+  // // .t0-b-buttonPlacer {
+  //   text-align: center;
+  //   > div {
+  //     display: inline-block;
+  //     vertical-align: top;
+  //     > * {
+  //       display: block;
+  //       white-space: normal;
+  //     }
+  //   }
+  //   p {
+  //     @include g-font(12, 1);
+  //     text-align: center;
+  //     padding: 15px 0 0;
+  //     &:before,
+  //     &:after {
+  //       margin-top: 0;
+  //     }
+  //   }
+  // }
 
   .t0-b-inputText {
     box-sizing: border-box;
