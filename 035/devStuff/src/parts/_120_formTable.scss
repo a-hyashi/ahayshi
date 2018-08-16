@@ -823,28 +823,34 @@
     .t0-b-frameWithHCaption#{$variation3of3} & {
       margin: 0 -5px;
     }
+
     label {
       direction: ltr;
     }
+
     input[type="checkbox"],
     input[type="radio"] {
       width: 25px;
       height: 25px;
       vertical-align: middle;
     }
+
     select {
       width: 10%;
       height: 44px;
       font-size: 14px;
     }
+
     table, tbody, tr, th, td {
       display: block;
     }
+
     table {
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       margin: 0;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -852,6 +858,7 @@
       text-align: left;
       padding: 10px;
     }
+
     th {
       color: $_color_th_typo;
       background: $_color_th_bg;
@@ -864,9 +871,11 @@
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -874,21 +883,27 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(14, 1);
       padding: 10px 0 0;
     }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList,
+    &__checkboxList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -905,28 +920,42 @@
             top: -0.6em;
           }
         }
+
         > label {
           position: relative;
           top: 3px;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 29px;
-        text-indent: -29px;
-        line-height: 25px;
+
+      &--align-vertical {
+        padding: 0;
+        li {
+          display: list-item;
+          padding: 5px 10px 0 29px;
+          text-indent: -29px;
+          line-height: 25px;
+        }
       }
     }
-    &__required {
+    //&__placer-list--align-vertical : no style
+    // .ex-vertical {
+    //   padding: 0;
+    //   li {
+    //     display: list-item;
+    //     padding: 5px 10px 0 29px;
+    //     text-indent: -29px;
+    //     line-height: 25px;
+    //   }
+    // }
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #c7a857;
       width: 33px;
@@ -942,56 +971,68 @@
         margin-left: 3px;
       }
     }
-    &__button {
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      word-break: break-word;
-      margin-bottom: 5px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        word-break: break-word;
+        margin-bottom: 5px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
-    &__button2 {
-      $_color_border: #e7a148;
-      $_color_typo: #fff;
-      $_color_bg: #e7a148;
-      max-width: 113px;
-      word-break: break-word;
-      margin-bottom: 5px;
-      margin-right: 10px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        $_color_border: #e7a148;
+        $_color_typo: #fff;
+        $_color_bg: #e7a148;
+        max-width: 113px;
+        word-break: break-word;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
-    &__button3 {
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      width: 229px;
-      word-break: break-word;
-      margin-bottom: 5px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        width: 229px;
+        word-break: break-word;
+        margin-bottom: 5px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
