@@ -2,8 +2,6 @@ const gulp = require('gulp');
 const aigis = require('gulp-aigis');
 const sass = require('gulp-sass');
 const runSequence = require('run-sequence');
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
 const size = require('gulp-size');
 const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
@@ -24,12 +22,6 @@ const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
 const config = require('./gulp_config.json');
 
-// エラー通知 & watch中にエラーが出ても処理を止めないように
-
-function plumberWithNotify() {
-  return plumber({errorHandler: notify.onError("<%= error.message %>")});
-}
-
 gulp.task('sass', function(callback) {
   styleSources = [
     'devStuff/src/**/pc-L25.s[ac]ss',
@@ -40,7 +32,6 @@ gulp.task('sass', function(callback) {
     styleSources.map(styleSource=>{
       return gulp.src(styleSource)
       .pipe(sourcemaps.init())
-      .pipe(plumberWithNotify())
       .pipe(sass())
       .pipe(debug())
       .pipe(sourcemaps.write())
