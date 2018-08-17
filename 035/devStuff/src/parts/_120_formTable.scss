@@ -978,9 +978,12 @@
     &__buttons {
       padding-bottom: 30px;
       text-align: center;
+      /* display: inline-blockで生じる改行の隙間をなくす */
+      letter-spacing: -.4em;
       > div {
         display: inline-block;
         vertical-align: top;
+        letter-spacing: normal;
         > * {
           display: block;
         }
@@ -989,6 +992,7 @@
       p {
         @include g-font(12, 1);
         text-align: center;
+        letter-spacing: normal;
         padding: 15px 0 0;
         &::before,
         &::after {
@@ -1027,7 +1031,7 @@
         $_color_border: #e7a148;
         $_color_typo: #fff;
         $_color_bg: #e7a148;
-        max-width: 113px;
+        width: 113px;
         word-break: break-word;
         margin-bottom: 5px;
         margin-right: 10px;
@@ -1045,11 +1049,13 @@
 
     // 送信するボタン
     &__button-send {
+      // 「送信するボタン」の横幅は、ボタンセットを内包するdivの横幅100% から「編集するボタン」の横幅とmargin-rightを引いた値。
+      width: calc( 100% - 123px );
       input {
         $_color_border: #8db12a;
         $_color_typo: #fff;
         $_color_bg: #8db12a;
-        width: 229px;
+        width: 100%;
         word-break: break-word;
         margin-bottom: 5px;
         color: $_color_typo;
