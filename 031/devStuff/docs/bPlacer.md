@@ -474,3 +474,5 @@
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|7|0||0px|
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|8|0||0px|
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|9|0||0px|
+|12.その他|header|227_ヘッダーMV誘導バナー|.t0-b-headerFullWidthMedia-navBItem||4%||25px|
+|12.その他|header|227_ヘッダーMV誘導バナー|.t0-b-headerFullWidthMedia-navBItem|2|4%||25px|
