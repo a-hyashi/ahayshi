@@ -1,6 +1,7 @@
 @if $device == PC {
 
   .t0-b-twoColsMediaCardLandscapeDouble {
+    $_block: &;
     &__Wrapper {
       display: flex;
       flex-direction: row;
@@ -12,9 +13,26 @@
       border-radius: 5px;
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin: 0 auto 40px;
+      margin: 0 0 40px;
+    }
+    &__arrow {
+      width: 4%;
+      #{$_block}--colSpacing-l & {
+        width: 7%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 4%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 1%;
+      }
     }
     [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col2] {
+      flex: 1;
+      padding: 0 3%;
+      margin: 2% 0 0;
+    }
+    [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col4] {
       flex: 1;
       padding: 0 3%;
       margin: 2% 0 0;
@@ -23,14 +41,23 @@
       [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col1] {
         width: 50%;
       }
+      [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col3] {
+        width: 50%;
+      }
     }
     &--colW-m {
       [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col1] {
         width: 40%;
       }
+      [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col3] {
+        width: 40%;
+      }
     }
     &--colW-s {
       [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col1] {
+        width: 30%;
+      }
+      [class^=t0-b-twoColsMediaCardLandscapeDouble__row][class*=col3] {
         width: 30%;
       }
     }
