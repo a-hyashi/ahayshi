@@ -1,37 +1,68 @@
 @if $device == PC {
 
-  .t0-b-twoColsMediaCardLandscape {
+  .t0-b-twoColsMediaCardLandscapeTriple {
+    $_block: &;
+    &__Wrapper {
+      display: flex;
+      flex-direction: row;
+    }
     &__row {
       display: flex;
-      width: 100%;
+      width: 50%;
       background: #fff;
       border-radius: 5px;
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin: 0 auto 40px;
+      margin: 0 0 40px;
     }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col2] {
+    &__arrow {
+      width: 4%;
+      #{$_block}--colSpacing-l & {
+        width: 7%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 4%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 1%;
+      }
+    }
+    [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col2] {
+      flex: 1;
+      padding: 0 3%;
+      margin: 2% 0 0;
+    }
+    [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col4] {
       flex: 1;
       padding: 0 3%;
       margin: 2% 0 0;
     }
     &--colW-l {
-      [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
+      [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col1] {
+        width: 50%;
+      }
+      [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col3] {
         width: 50%;
       }
     }
     &--colW-m {
-      [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
+      [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col1] {
+        width: 40%;
+      }
+      [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col3] {
         width: 40%;
       }
     }
     &--colW-s {
-      [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
+      [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col1] {
+        width: 30%;
+      }
+      [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col3] {
         width: 30%;
       }
     }
     &--imgR {
-      .t0-b-twoColsMediaCardLandscape {
+      .t0-b-twoColsMediaCardLandscapeTriple {
         &__row {
           flex-direction: row-reverse;
         }
@@ -42,7 +73,7 @@
 
 @if $device == SP {
 
-  .t0-b-twoColsMediaCardLandscape {
+  .t0-b-twoColsMediaCardLandscapeTriple {
     display: flex;
     flex-direction: column;
     &__row {
@@ -53,14 +84,14 @@
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col1] {
+    [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col1] {
       img {
         width: 100%;
         max-height: 500px;
         object-fit: cover;
       }
     }
-    [class^=t0-b-twoColsMediaCardLandscape__row][class*=col2] {
+    [class^=t0-b-twoColsMediaCardLandscapeTriple__row][class*=col2] {
       padding: 16px 24px 0;
     }
   }
