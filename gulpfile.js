@@ -47,7 +47,6 @@ gulp.task('sass-build', function() {
   return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-        .pipe(plumberWithNotify())
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(debug())
         .pipe(autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
