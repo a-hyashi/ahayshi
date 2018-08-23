@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",  
+  "definitions": {
+    "content": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "useText": { "type": "boolean" },
+        "useImage": { "type": "boolean" },
+        "href": { "type": "string" },
+        "target": { "type": "string" },
+        "tel": { "type": "string" },
+        "email": { "type": "string" },
+        "iconType":{ "type": "string" },
+        "size": {},
+        "align": { "type": "string", "enum": ["l", "c", "r", ""]},
+        "alt": { "type": "string" },
+        "imgSrc": { "type": "string" },
+        "anchor": { "type": "string" },
+        "width": {"type": "string", "enum": ["s", "m", "l", ""]},
+        "userEditWidth": {"type": "integer"},
+        "editWidth": {"type": "boolean"},
+        "spWidth": {"type": "string"},
+        "spUserEditWidth": {"type": "integer"},
+        "html": {"type": "string"},
+        "previewUrl": {"type": "string"},
+        "publishUrl": {"type": "string"},
+        "label": {"type": "string"},
+        "switchable": {"type": "boolean"},
+        "switchableOrder": {"type": "integer"},
+        "strong": {"type": "boolean"},
+        "topicpathHtml": {"type": "string"},
+        "sidemenuHtml": {"type": "string"},
+        "siteName": {"type": "string"},
+        "upperCaption": {"type": "string"},
+        "lowerCaption": {"type": "string"},
+        "useUpperCaption": {"type": "boolean"},
+        "useLowerCaption": {"type": "boolean"},
+        "useLogo": {"type": "boolean"}
+      }
+    }
+  },
+  "description": "部品data.jsonのスキーマ",
+  "type": "object",
+  "properties": {
+    "data": { "type": "object",
+      "properties": {
+        "contents": {
+          "type": "object",
+          "patternProperties": {
+            "^[0-9]*$": {
+              "type": "object",
+              "$ref": "#/definitions/content"
+            }
+          }
+        },
+        "imageDirection": { "type": "string", "enum": ["L", "R"]},
+        "imageFloat": { "type": "boolean" },
+        "spLayout": { "type": "string" ,"enum": ["vertical", "horizon"]},
+        "formSettings": {"type": "string"},
+        "colWidth": { "type": "string", "enum": ["s", "m", "l", ""] },
+        "userEditColWidth": { "type": "number" },
+        "disableAutoHeight": {},
+        "widthEqualized": {"type": "boolean"},
+        "spacingTweak": { "type": "string" },
+        "leftSpacingTweak": {},
+        "leftSpaceFlag": {},
+        "colSpacing": { "type": "string", "enum": ["s", "m", "l", "" ]},
+        "useBackgroundImage": {},
+        "config": { "type": "object",
+          "properties": {
+            "partsVariation": { "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "partsVariation": { "type": "number" }
+      },
+      "required": ["contents"]
+    }
+  }
+}
