@@ -11,7 +11,11 @@
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       width: 100%;
+      margin-bottom: 6%;
+      // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
+      table-layout: fixed;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -19,21 +23,29 @@
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
+      width: 35%;
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
       > div {
-        display: table;
         width: 100%;
-        > * {
-          display: table-cell;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+          // 項目名に大量の文字を入れた場合、「必須」の装飾が潰れるため、全体から「必須」の項目の幅47pxを引いた値を、labelに設定する。
+          width: calc( 100% - 47px );
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -41,24 +53,27 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(12, 1);
       padding: 10px 0 0;
     }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList,
+    &__checkboxList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -75,29 +90,34 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
+
+      &--align-vertical {
+        ul {
+          padding: 0;
+          li {
+            display: list-item;
+            padding: 5px 10px 0 18px;
+          }
+        }
       }
     }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #c7a857;
       width: 47px;
-      vertical-align: middle;
       > span {
         display: block;
         color: $_color_typo;
@@ -111,66 +131,124 @@
         margin-left: 3px;
       }
     }
-    &__button {
-      &:hover {
-        opacity: 0.8;
-      }
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textInput,
+    &__email {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      @include g-font(12, 1);
+      border: 1px solid #ccc;
+      width: 100%;
     }
-    &__button2 {
-      &:hover {
-        opacity: 0.8;
-      }
-      $_color_border: #e7a148;
-      $_color_typo: #fff;
-      $_color_bg: #e7a148;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textarea {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      display: block;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+      border: 1px solid #ccc;
     }
-    &__button3 {
-      &:hover {
-        opacity: 0.8;
+
+    &__buttons {
+      margin-bottom: 6%;
+      text-align: center;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
       }
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &:before,
+        &:after {
+          margin-top: 0;
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #e7a148;
+        $_color_typo: #fff;
+        $_color_bg: #e7a148;
+        max-width: 266px;
+        min-width: 90px;
+        margin-right: 60px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
@@ -185,7 +263,11 @@
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       width: 100%;
+      margin-bottom: 6%;
+      // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
+      table-layout: fixed;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -193,21 +275,29 @@
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
+      width: 35%;
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
       > div {
-        display: table;
         width: 100%;
-        > * {
-          display: table-cell;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+          // 項目名に大量の文字を入れた場合、「必須」の装飾が潰れるため、全体から「必須」の項目の幅47pxを引いた値を、labelに設定する。
+          width: calc( 100% - 47px );
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -215,24 +305,27 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(12, 1);
       padding: 10px 0 0;
     }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList,
+    &__checkboxList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -249,29 +342,34 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
+
+      &--align-vertical {
+        ul {
+          padding: 0;
+          li {
+            display: list-item;
+            padding: 5px 10px 0 18px;
+          }
+        }
       }
     }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #aa8855;
       width: 47px;
-      vertical-align: middle;
       > span {
         display: block;
         color: $_color_typo;
@@ -285,69 +383,127 @@
         margin-left: 3px;
       }
     }
-    &__button {
-      &:hover {
-        opacity: 0.8;
-      }
-      $_color_border: #e4c58f;
-      $_color_typo: #333;
-      $_color_bg: #e4c58f;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textInput,
+    &__email {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      @include g-font(12, 1);
+      border: 1px solid #ccc;
+      width: 100%;
     }
-    &__button2 {
-      &:hover {
-        opacity: 0.8;
-      }
-      $_color_border: #e6e6e6;
-      $_color_typo: #333;
-      $_color_bg: #e6e6e6;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textarea {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      display: block;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+      border: 1px solid #ccc;
     }
-    &__button3 {
-      &:hover {
-        opacity: 0.8;
+
+    &__buttons {
+      margin-bottom: 6%;
+      text-align: center;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
       }
-      $_color_border: #ddbb88;
-      $_color_typo: #333;
-      $_color_bg: #ddbb88;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &:before,
+        &:after {
+          margin-top: 0;
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #e4c58f;
+        $_color_typo: #333;
+        $_color_bg: #e4c58f;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #e6e6e6;
+        $_color_typo: #333;
+        $_color_bg: #e6e6e6;
+        max-width: 266px;
+        min-width: 90px;
+        margin-right: 60px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #ddbb88;
+        $_color_typo: #333;
+        $_color_bg: #ddbb88;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
@@ -362,7 +518,11 @@
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
       width: 100%;
+      margin-bottom: 6%;
+      // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
+      table-layout: fixed;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -370,21 +530,29 @@
       text-align: left;
       padding: 10px 15px;
     }
+
     th {
+      width: 35%;
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
       > div {
-        display: table;
         width: 100%;
-        > * {
-          display: table-cell;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+          // 項目名に大量の文字を入れた場合、「必須」の装飾が潰れるため、全体から「必須」の項目の幅47pxを引いた値を、labelに設定する。
+          width: calc( 100% - 47px );
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -392,24 +560,26 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(12, 1);
       padding: 10px 0 0;
     }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
+
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList,
+    &__checkboxList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -426,29 +596,32 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
+
+      &--align-vertical {
+        padding: 0;
+        li {
+          display: list-item;
+          padding: 5px 10px 0 18px;
+        }
       }
     }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #ef8888;
       width: 47px;
-      vertical-align: middle;
       > span {
         display: block;
         color: $_color_typo;
@@ -462,129 +635,127 @@
         margin-left: 3px;
       }
     }
-    &__button {
-      &:hover {
-        opacity: 0.8;
-      }
-      $_color_border: #ffc78a;
-      $_color_typo: #333;
-      $_color_bg: #f5a03c;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(14, 1);
-    }
-    &__button2 {
-      &:hover {
-        opacity: 0.8;
-      }
-      $_color_border: #ddbb77;
-      $_color_typo: #333;
-      $_color_bg: #ddbb77;
-      max-width: 266px;
-      min-width: 90px;
-      margin-right: 60px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(14, 1);
-    }
-    &__button3 {
-      &:hover {
-        opacity: 0.8;
-      }
-      $_color_border: #ffc78a;
-      $_color_typo: #333;
-      $_color_bg: #ffc78a;
-      max-width: 266px;
-      min-width: 90px;
-      color: $_color_typo;
-      text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 9px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(14, 1);
-    }
-  }
 
-  .t0-b-buttonPlacer {
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-      > * {
-        display: block;
-        white-space: normal;
-      }
-    }
-    p {
+    &__textInput,
+    &__email {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
       @include g-font(12, 1);
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    &__textarea {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      display: block;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+      border: 1px solid #ccc;
+    }
+
+    &__buttons {
+      margin-bottom: 6%;
       text-align: center;
-      padding: 15px 0 0;
-      &:before,
-      &:after {
-        margin-top: 0;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &:before,
+        &:after {
+          margin-top: 0;
+        }
       }
     }
-  }
 
-  .t0-b-inputText {
-    box-sizing: border-box;
-    padding: 0.3em 6px 0.3em;
-    @include g-font(12, 1);
-    border: 1px solid #ccc;
-    width: 100%;
-  }
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
 
-  .t0-b-textarea {
-    box-sizing: border-box;
-    padding: 0.3em 6px 0.3em;
-    display: block;
-    width: 100%;
-    height: 100px;
-    resize: vertical;
-    @include g-font(12, 2);
-    border: 1px solid #ccc;
-  }
+        $_color_border: #ffc78a;
+        $_color_typo: #333;
+        $_color_bg: #f5a03c;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(14, 1);
+      }
+    }
 
-  .t0-b-required {
-    $_color_typo: #fff;
-    $_color_bg: #cf3e3e;
-    display: inline-block;
-    height: 1px;
-    vertical-align: middle;
-    > span {
-      display: block;
-      color: $_color_typo;
-      background: $_color_bg;
-      border-radius: 2px;
-      @include g-font(10, 1);
-      padding: 4px 5px;
-      text-align: center;
-      margin-top: -10px;
-      margin-bottom: -10px;
-      margin-right: 3px;
+    // 編集するボタン
+    &__button-edit {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #ddbb77;
+        $_color_typo: #333;
+        $_color_bg: #ddbb77;
+        max-width: 266px;
+        min-width: 90px;
+        margin-right: 60px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(14, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        $_color_border: #ffc78a;
+        $_color_typo: #333;
+        $_color_bg: #ffc78a;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        display: inline-block;
+        padding: 12px 23px;
+        border-radius: 9px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(14, 1);
+      }
     }
   }
 
@@ -601,36 +772,41 @@
     $_color_table_border: #aa8877;
     $_color_error_typo: #f80103;
 
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
     .t0-b-frameWithHCaption#{$variation3of3} & {
       margin: 0 -5px;
     }
+
     label {
       direction: ltr;
     }
+
     input[type="checkbox"],
     input[type="radio"] {
       width: 25px;
       height: 25px;
       vertical-align: middle;
     }
+
+    input[type="radio"] {
+      border-radius: 50%;
+    }
+
     select {
       width: 10%;
       height: 44px;
       font-size: 14px;
     }
+
     table, tbody, tr, th, td {
       display: block;
     }
+
     table {
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
-      margin: 0;
+      margin: 0 0 30px 0;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -638,22 +814,24 @@
       text-align: left;
       padding: 10px;
     }
+
     th {
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
       > div {
         display: table;
-        width: 100%;
         direction: rtl;
         > * {
           display: table-cell;
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -661,24 +839,27 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(14, 1);
       padding: 10px 0 0;
     }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList,
+    &__checkboxList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -695,28 +876,32 @@
             top: -0.6em;
           }
         }
+
         > label {
           position: relative;
           top: 3px;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 29px;
-        text-indent: -29px;
-        line-height: 25px;
+
+      &--align-vertical {
+        padding: 0;
+        li {
+          display: list-item;
+          padding: 5px 10px 0 29px;
+          text-indent: -29px;
+          line-height: 25px;
+        }
       }
     }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #c7a857;
       width: 33px;
@@ -729,61 +914,124 @@
         @include g-font(10, 1);
         padding: 4px 0;
         text-align: center;
-        margin-top: -10px;
-        margin-bottom: -10px;
         margin-left: 3px;
       }
     }
-    &__button {
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      word-break: break-word;
-      margin-bottom: 5px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textInput,
+    &__email {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      @include g-font(14, 1);
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #ccc;
     }
-    &__button2 {
-      $_color_border: #e7a148;
-      $_color_typo: #fff;
-      $_color_bg: #e7a148;
-      max-width: 113px;
-      word-break: break-word;
-      margin-bottom: 5px;
-      margin-right: 10px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textarea {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      display: block;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+      border: 1px solid #ccc;
     }
-    &__button3 {
-      $_color_border: #8db12a;
-      $_color_typo: #fff;
-      $_color_bg: #8db12a;
-      width: 229px;
-      word-break: break-word;
-      margin-bottom: 5px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__buttons {
+      padding-bottom: 30px;
+      text-align: center;
+      // display: inline-blockで生じる改行の隙間をなくす
+      letter-spacing: -.4em;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        letter-spacing: normal;
+        > * {
+          display: block;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        letter-spacing: normal;
+        padding: 15px 0 0;
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+      }
+
+      input {
+        white-space: inherit;
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        word-break: break-word;
+        margin-bottom: 5px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        $_color_border: #e7a148;
+        $_color_typo: #fff;
+        $_color_bg: #e7a148;
+        width: 113px;
+        word-break: break-word;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      // 「送信するボタン」の横幅は、ボタンセットを内包するdivの横幅100% から「編集するボタン」の横幅（113px）とmargin-right(10px)を引いた値。
+      width: calc( 100% - 123px );
+      input {
+        $_color_border: #8db12a;
+        $_color_typo: #fff;
+        $_color_bg: #8db12a;
+        width: 100%;
+        word-break: break-word;
+        margin-bottom: 5px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
@@ -794,36 +1042,42 @@
     $_color_td_bg: #fff;
     $_color_table_border: #aa8866;
     $_color_error_typo: #f80203;
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
+
     .t0-b-frameWithHCaption#{$variation3of3} & {
       margin: 0 -5px;
     }
+
     label {
       direction: ltr;
     }
+
     input[type="checkbox"],
     input[type="radio"] {
       width: 25px;
       height: 25px;
       vertical-align: middle;
     }
+
+    input[type="radio"] {
+      border-radius: 50%;
+    }
+    
     select {
       width: 10%;
       height: 44px;
       font-size: 14px;
     }
+
     table, tbody, tr, th, td {
       display: block;
     }
+
     table {
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
-      margin: 0;
+      margin: 0 0 30px 0;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -831,22 +1085,24 @@
       text-align: left;
       padding: 10px;
     }
+
     th {
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
       > div {
         display: table;
-        width: 100%;
         direction: rtl;
         > * {
           display: table-cell;
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -854,24 +1110,27 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(14, 1);
       padding: 10px 0 0;
     }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList,
+    &__checkboxList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -888,27 +1147,31 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 29px;
-        text-indent: -29px;
-        line-height: 25px;
+
+      &--align-vertical {
+        padding: 0;
+        li {
+          display: list-item;
+          padding: 5px 10px 0 29px;
+          text-indent: -29px;
+          line-height: 25px;
+        }
       }
     }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #aa8855;
       width: 33px;
@@ -921,58 +1184,122 @@
         @include g-font(10, 1);
         padding: 4px 0;
         text-align: center;
-        margin-top: -10px;
-        margin-bottom: -10px;
         margin-left: 3px;
       }
     }
-    &__button {
-      $_color_border: #e4c58f;
-      $_color_typo: #333;
-      $_color_bg: #e4c58f;
-      word-break: break-word;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textInput,
+    &__email {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      @include g-font(14, 1);
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #ccc;
     }
-    &__button2 {
-      $_color_border: #e6e6e6;
-      $_color_typo: #333;
-      $_color_bg: #e6e6e6;
-      max-width: 113px;
-      word-break: break-word;
-      margin-right: 10px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__textarea {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      display: block;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+      border: 1px solid #ccc;
     }
-    &__button3 {
-      $_color_border: #ddbb88;
-      $_color_typo: #333;
-      $_color_bg: #ddbb88;
-      width: 229px;
-      word-break: break-word;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
+
+    &__buttons {
+      padding-bottom: 30px;
+      text-align: center;
+      // display: inline-blockで生じる改行の隙間をなくす
+      letter-spacing: -.4em;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        letter-spacing: normal;
+        > * {
+          display: block;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        letter-spacing: normal;
+        padding: 15px 0 0;
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+      }
+
+      input {
+        white-space: inherit;
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        $_color_border: #e4c58f;
+        $_color_typo: #333;
+        $_color_bg: #e4c58f;
+        word-break: break-word;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        $_color_border: #e6e6e6;
+        $_color_typo: #333;
+        $_color_bg: #e6e6e6;
+        width: 113px;
+        word-break: break-word;
+        margin-right: 10px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      // 「送信するボタン」の横幅は、ボタンセットを内包するdivの横幅100% から「編集するボタン」の横幅（113px）とmargin-right(10px)を引いた値。
+      width: calc( 100% - 123px );
+      input {
+        $_color_border: #ddbb88;
+        $_color_typo: #333;
+        $_color_bg: #ddbb88;
+        width: 100%;
+        word-break: break-word;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
@@ -983,11 +1310,7 @@
     $_color_td_bg: #fff;
     $_color_table_border: #aa8866;
     $_color_error_typo: #e00203;
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
+
     .t0-b-frameWithHCaption#{$variation3of3} & {
       margin: 0 -5px;
     }
@@ -995,25 +1318,34 @@
     label {
       direction: ltr;
     }
+
     input[type="checkbox"],
     input[type="radio"] {
       width: 25px;
       height: 25px;
       vertical-align: middle;
     }
+
+    input[type="radio"] {
+      border-radius: 50%;
+    }
+
     select {
       width: 10%;
       height: 44px;
       font-size: 14px;
     }
+
     table, tbody, tr, th, td {
       display: block;
     }
+
     table {
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
-      margin: 0;
+      margin: 0 0 30px 0;
     }
+
     th, td {
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
@@ -1021,22 +1353,24 @@
       text-align: left;
       padding: 10px;
     }
+
     th {
       color: $_color_th_typo;
       background: $_color_th_bg;
       @include g-font(14, 1);
       > div {
         display: table;
-        width: 100%;
         direction: rtl;
         > * {
           display: table-cell;
         }
       }
     }
+
     td {
       background: $_color_td_bg;
     }
+
     .mod-formError {
       display: block;
       color: $_color_error_typo;
@@ -1044,24 +1378,27 @@
       font-weight: bold;
       padding: 10px 0 0;
     }
+
     &__td-caption {
       @include g-font(14, 1);
       padding: 10px 0 0;
     }
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-    &__placer-singleInput {
+
+    // selectBox
+    &__singleInput {
       input, select, textarea {
         display: block;
         width: 100%;
       }
     }
-    &__placer-list {
+
+    &__radioList,
+    &__checkboxList {
       ul {
         margin: (-5px) -10px 0 0;
         padding-top: 5px;
       }
+
       li {
         padding: 5px 4px 0 0;
         text-indent: -18px;
@@ -1078,27 +1415,31 @@
             top: -0.6em;
           }
         }
+
         > label {
           display: inline;
         }
       }
+
       li#{$_block}__listBreak {
         display: block;
         height: 0;
         padding: 0;
       }
-    }
-    //&__placer-list--align-vertical : no style
-    .ex-vertical {
-      padding: 0;
-      li {
-        display: list-item;
-        padding: 5px 10px 0 29px;
-        text-indent: -29px;
-        line-height: 25px;
+
+      &--align-vertical {
+        padding: 0;
+        li {
+          display: list-item;
+          padding: 5px 10px 0 29px;
+          text-indent: -29px;
+          line-height: 25px;
+        }
       }
     }
-    &__required {
+
+    // 必須
+    &__requiredLabel {
       $_color_typo: #fff;
       $_color_bg: #ef8888;
       width: 33px;
@@ -1111,120 +1452,121 @@
         @include g-font(10, 1);
         padding: 4px 0;
         text-align: center;
-        margin-top: -10px;
-        margin-bottom: -10px;
         margin-left: 3px;
       }
     }
-    &__button {
-      $_color_border: #ffc78a;
-      $_color_typo: #333;
-      $_color_bg: #f5a03c;
-      word-break: break-word;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
-    }
-    &__button2 {
-      $_color_border: #ddbb77;
-      $_color_typo: #333;
-      $_color_bg: #ddbb77;
-      max-width: 113px;
-      word-break: break-word;
-      margin-right: 10px;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
-    }
-    &__button3 {
-      $_color_border: #ffc78a;
-      $_color_typo: #333;
-      $_color_bg: #ffc78a;
-      width: 229px;
-      word-break: break-word;
-      color: $_color_typo;
-      background: $_color_bg;
-      border: 1px solid #{$_color_border};
-      padding: 8px 12px;
-      border-radius: 4px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      @include g-font(16, 1);
-    }
-  }
 
-  .t0-b-buttonPlacer {
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-      > * {
-        display: block;
-      }
+    &__textInput,
+    &__email {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
+      @include g-font(14, 1);
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #ccc;
     }
-    p {
-      @include g-font(12, 1);
-      text-align: center;
-      padding: 15px 0 0;
-      &::before,
-      &::after {
-        margin-top: 0;
-      }
-    }
-    input {
-      white-space: inherit;
-    }
-  }
-  .t0-b-inputText {
-    box-sizing: border-box;
-    padding: 0.3em 6px 0.3em;
-    @include g-font(14, 1);
-    width: 100%;
-    min-height: 44px;
-    border: 1px solid #ccc;
-  }
 
-  .t0-b-textarea {
-    box-sizing: border-box;
-    padding: 0.3em 6px 0.3em;
-    display: block;
-    width: 100%;
-    height: 100px;
-    resize: vertical;
-    @include g-font(12, 2);
-    border: 1px solid #ccc;
-  }
-
-  .t0-b-required {
-    $_color_typo: #fff;
-    $_color_bg: #cf3e3e;
-    display: inline-block;
-    height: 1px;
-    vertical-align: middle;
-    > span {
+    &__textarea {
+      box-sizing: border-box;
+      padding: 0.3em 6px 0.3em;
       display: block;
-      color: $_color_typo;
-      background: $_color_bg;
-      border-radius: 2px;
-      @include g-font(10, 1);
-      padding: 4px 5px;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+      border: 1px solid #ccc;
+    }
+
+    &__buttons {
+      padding-bottom: 30px;
       text-align: center;
-      margin-top: -10px;
-      margin-bottom: -10px;
-      margin-right: 3px;
+      // display: inline-blockで生じる改行の隙間をなくす
+      letter-spacing: -.4em;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        letter-spacing: normal;
+        > * {
+          display: block;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        letter-spacing: normal;
+        padding: 15px 0 0;
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+      }
+
+      input {
+        white-space: inherit;
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        $_color_border: #ffc78a;
+        $_color_typo: #333;
+        $_color_bg: #f5a03c;
+        word-break: break-word;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        $_color_border: #ddbb77;
+        $_color_typo: #333;
+        $_color_bg: #ddbb77;
+        width: 113px;
+        word-break: break-word;
+        margin-right: 10px;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      // 「送信するボタン」の横幅は、ボタンセットを内包するdivの横幅100% から「編集するボタン」の横幅（113px）とmargin-right(10px)を引いた値。
+      width: calc( 100% - 123px );
+      input {
+        $_color_border: #ffc78a;
+        $_color_typo: #333;
+        $_color_bg: #ffc78a;
+        width: 100%;
+        word-break: break-word;
+        color: $_color_typo;
+        background: $_color_bg;
+        border: 1px solid #{$_color_border};
+        padding: 8px 12px;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        @include g-font(16, 1);
+      }
     }
   }
 
