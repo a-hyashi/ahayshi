@@ -36,7 +36,9 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 ## テーマごとに一度だけ実行すること
 
 1. 作業場所の変更  
-`docker-compose.yml`の以下の箇所のテーマ名を変更する
+テキストエディタで、buddy-theme内の`docker-compose.yml`ファイルを開き、以下の箇所のテーマ名を変更する
+**_docker-compose.yml（アンダーバー付き）の方じゃないので注意**
+
 ``` yaml
 working_dir: /buddy-theme/031/
 ```
