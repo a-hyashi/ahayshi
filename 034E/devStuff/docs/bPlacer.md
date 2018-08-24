@@ -290,11 +290,3 @@
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia|3|0||0px|
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia|4|0||0px|
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia|5|0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text||0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|2|0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|3|0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|4|0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|5|0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|6|0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|7|0||0px|
-|12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia-text|8|0||0px|
