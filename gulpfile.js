@@ -58,24 +58,9 @@ gulp.task('sass-build', function() {
 // sass lint
 
 gulp.task('sasslint', function() {
-  return gulp.src(['devStuff/src/**/*.s[ac]ss'])
+  return gulp.src(['devStuff/src/parts/*.s[ac]ss'])
   .pipe(sassLint({
-    files: {
-      ignore: 'devStuff/src/assets/*.s[ac]ss'
-    },
-    rules: {
-      'property-sort-order': 0,
-      'no-css-comments': 0,
-      'no-color-keywords': 0,
-      'no-color-literals': 0,
-      'variable-name-format': 0,
-      'no-empty-rulesets': 0,
-      'class-name-format': 0,
-      'mixin-name-format': 0,
-      'empty-line-between-blocks': 0, //本来はチェックしたいが、017でこれを全て修正するのは難しい
-      'quotes': 0, //本来はチェックしたいが、017でこれを全て修正するのは難しい
-      'nesting-depth': 0 //本来はチェックしたいが、017でこれを全て修正するのは難しい
-    }
+    configFile: '.scss-lint.yml'
   }))
   .pipe(sassLint.format())
   .pipe(sassLint.failOnError());
