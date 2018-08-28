@@ -1,0 +1,67 @@
+@if $device == PC {
+
+  .t0-b-flow5LeftToRight {
+    $_block: &;
+    width: 100%;
+    &__row {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      padding-bottom: 5%;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+      width: (100%-2*(5-1))/5;
+      #{$_block}--colSpacing-l & {
+        width: (100%-3.5*(5-1))/5;
+      }
+      #{$_block}--colSpacing-m & {
+        width: (100%-2*(5-1))/5;
+      }
+      #{$_block}--colSpacing-s & {
+        width: (100%-0.5*(5-1))/5;
+      }
+    }
+    &__arrow {
+      display: table-cell;
+      text-align: center;
+      font-size: 2em;
+      color: #333;
+      vertical-align: middle;
+      width: 2%;
+      #{$_block}--colSpacing-l & {
+        width: 3.5%;
+      }
+      #{$_block}--colSpacing-m & {
+        width: 2%;
+      }
+      #{$_block}--colSpacing-s & {
+        width: 0.5%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+
+  .t0-b-flow5LeftToRight {
+    $_block: &;
+    width: 100%;
+    &__box {
+      padding-bottom: 15px;
+    }
+    &__row {
+      &:last-child {
+        .t0-b-flow5LeftToRight__box {
+          &:last-child {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
