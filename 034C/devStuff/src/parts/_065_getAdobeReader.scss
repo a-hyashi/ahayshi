@@ -1,0 +1,139 @@
+@if $device == PC {
+
+  .t0-b-getAdobeReader {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding: #{$_blockSpacing} 0 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      color: $textcolor;
+
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+
+    #{$_block}__itemSplit {
+      display: table;
+
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    #{$_block}__itemIcon {
+      padding: 0 10px 0 0;
+    }
+
+    #{$_block}__itemText {
+      @include g-font(16, 1);
+    }
+  }
+
+  .b-downloadIcon {
+    @mixin _icon($file) {
+      &--#{$file} {
+        $_src: "../imgs/b-downloadIcon/#{$file}.png";
+
+        background: url($_src) 0 0 no-repeat;
+        background-size: 30px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    display: inline-block;
+    vertical-align: middle;
+    @include _icon("reader");
+  }
+  // safariで下線が付かない不具合のハック
+  _::-webkit-full-page-media, _:future, :root .t0-b-getAdobeReader__itemText {
+    text-decoration:underline;
+  }
+}
+
+@if $device == SP {
+
+  .t0-b-getAdobeReader {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding: #{$_blockSpacing} 0 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    #{$_block}__itemSplit {
+      display: table;
+
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    #{$_block}__itemIcon {
+      padding: 0 8px 0 0;
+    }
+
+    #{$_block}__itemText {
+      @include g-font(16, 1);
+
+      text-decoration: underline;
+    }
+  }
+
+  .b-downloadIcon {
+    @mixin _icon($file) {
+      &--#{$file} {
+        $_src: "../imgs/b-downloadIcon/#{$file}.png";
+
+        background: url($_src) 0 0 no-repeat;
+        background-size: 27px 28px;
+        width: 27px;
+        height: 30px;
+      }
+    }
+
+    display: inline-block;
+    vertical-align: middle;
+
+    @include _icon("reader");
+  }
+}

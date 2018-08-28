@@ -8,6 +8,42 @@
 
 <br>
 
+## 構築する環境
+以下の環境になっていればスタイルガイドを起動できます。手順はこの環境を構築するための操作です。  
+もしツールが動かなかったりエラーが表示される場合は、以下の環境が整っていることを確認してください。
+
+1. Mac内でDockerが起動している
+2. 以下のフォルダ構成になっている
+
+```
+buddy-theme
+├── 031（各テーマ）
+│   ├── copy.sh
+│   ├── gulp_config.json
+│   ├── gulpfile.js
+│   ├── lib
+│   │   └── ･･･
+│   └── styleguide_assets
+│   │   └── ･･･
+│   └── unittest
+│       └── ･･･
+├── btool-settings
+│   ├── buddy-parts-testcases.json
+│   ├── function-design.json
+│   └── parts-categories.json
+├── copy.sh
+├── Dockerfile
+├── _docker-compose.yml
+├── docker-compose.yml
+├── gulpfile.js
+├── package.json
+├── package-lock.json
+└── node_modules
+    └── ･･･
+```
+
+<br>
+
 ## 全体で一度だけ実行すること
 
 ### Dockerとnpmのインストール
@@ -18,11 +54,13 @@ https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 Macの上部にアイコンが表示されていればOKです
 
 3. 以下のコマンドを実行する
+
 ```sh
 $ cd （buddy-themeフォルダの場所）
 $ cp _docker-compose.yml docker-compose.yml
 $ docker-compose run base npm install
 ```
+buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです
 
 ### 関連ファイルの配置
 以下のリポジトリをローカルにクローンし、buddy-themeと同じフォルダ内に配置してください。
@@ -36,7 +74,10 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 ## テーマごとに一度だけ実行すること
 
 1. 作業場所の変更  
-`docker-compose.yml`の以下の箇所のテーマ名を変更する
+テキストエディタで、buddy-theme内の`docker-compose.yml`ファイルを開き、以下の箇所のテーマ名を変更する
+**_docker-compose.yml（アンダーバー付き）の方じゃないので注意**  
+この操作で設定したフォルダ内でツールが実行されるようになります
+
 ``` yaml
 working_dir: /buddy-theme/031/
 ```
@@ -49,11 +90,13 @@ $ docker-compose run base cp ../copy.sh ./copy.sh
 ```sh
 $ docker-compose run base ./copy.sh
 ```
+先に設定したテーマフォルダ内にgulpfile.jsファイルとlibフォルダがあればOKです
 
 3. StyleGuide(aigis)の初期化とテストデータ作成
 ```sh
 $ docker-compose run base gulp update-parts --max_old_space_size=8192
 ```
+先に設定したテーマ/unittest/parts/フォルダに部品名.mdといったファイルが複数存在していればOKです
 
 <br>
 
@@ -100,6 +143,12 @@ Ctrl + C
 ```sh
 $ docker-compose run base gulp build
 ```
+
+### sasslintでコーディングスタイルのチェック
+```sh
+$ docker-compose run base gulp sasslint
+```
+**partsディレクトリ配下しかチェックしないので注意**
 
 <br>
 
