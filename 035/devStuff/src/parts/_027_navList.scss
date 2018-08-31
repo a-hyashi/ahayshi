@@ -13,7 +13,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -68,7 +68,9 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg.png") 0 0.45em no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 0.45em;
         padding: 0 0 0 14px;
         color: #333333;
         &:first-child {
@@ -156,7 +158,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -212,7 +214,7 @@
         @include g-font(18, 1);
         color: #553010;
         margin-top: 12px;
-        background: url("../imgs/t0-b-navList/bg3.png");
+        background-image: url("../imgs/t0-b-navList/bg3.png");
         background-repeat:  no-repeat;
         background-position: 0 1px;
         background-size: 20px;
@@ -311,7 +313,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-image: #999;
     }
 
     > hr:first-child {
@@ -366,7 +368,9 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg2.png") 0 0.3em no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-repeat: no-repeat;
+        background-position: 0 0.3em;
         padding: 0 0 0 18px;
         color: #333333;
         &:first-child {
@@ -445,7 +449,7 @@
     @include g-rteTableReset;
 
     color: #333;
-    background: #fff;
+    background-color: #fff;
     border: #ac8871 1px solid;
     border-radius: 5px;
     padding: 20px;
@@ -459,7 +463,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -513,7 +517,9 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg.png") 0 0.45em no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 0.45em;
         padding: 0 0 0 14px;
         color: #333333;
         &:first-child {
@@ -592,7 +598,7 @@
     @include g-rteTableReset;
 
     color: #333;
-    background: #fff;
+    background-color: #fff;
     border: #ac8871 1px solid;
     border-radius: 5px;
     padding: 20px;
@@ -606,7 +612,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -661,9 +667,164 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg2.png") 0 0.3em no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-repeat: no-repeat;
+        background-position: 0 0.3em;
         padding: 0 0 0 18px;
         color: #333333;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      th, td {
+        @include g-font(14, 1);
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font(14, 1);
+          background-position: 0 0.15em;
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background-color: $_color_table_th_bg;
+      }
+
+      td {
+        color: $_color_table_td_typo;
+        background-color: #fff;
+      }
+
+      tr {
+        border-bottom: 1px solid #777;
+        border-right: 1px solid $_color_table_border;
+        &:first-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th, td {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .t0-b-navList6 {
+    @include g-rteTableReset;
+
+    color: #333;
+    background-color: #fff;
+    border: #ac8871 1px solid;
+    border-radius: 5px;
+    padding: 20px;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #ac8871;
+    $_color_table_th_bg: #f7ebce;
+    $_color_table_td_typo: #333;
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background-color: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font(16, 2);
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font(18, 1);
+        color: #553010;
+        margin-top: 12px;
+        background-image: url("../imgs/t0-b-navList/bg3.png");
+        background-repeat:  no-repeat;
+        background-position: 0 1px;
+        background-size: 20px;
+        padding-left: 30px;
+        font-weight: bold;
+        min-height: 22px;
         &:first-child {
           margin-top: 0;
         }
@@ -753,7 +914,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -808,7 +969,9 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg.png") 0 7px no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 7px;
         padding: 0 0 0 14px;
         color: #333;
         &:first-child {
@@ -898,7 +1061,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -955,7 +1118,9 @@
         @include g-font(16, 2);
         color: #553010;
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg3.png") 0 0 no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg3.png");
+        background-repeat: no-repeat;
+        background-position: 0 0;
         background-size: 20px;
         padding: 0 0 0 30px;
         min-height: 31px;
@@ -1047,7 +1212,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -1102,7 +1267,9 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg2.png") 0 4px no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-repeat: no-repeat;
+        background-position: 0 4px;
         padding: 0 0 0 18px;
         color: #333;
         &:first-child {
@@ -1181,7 +1348,7 @@
 
   .t0-b-navList4 {
     color: #333;
-    background: #fff;
+    background-color: #fff;
     border: #ac8871 1px solid;
     border-radius: 5px;
     padding: 10px;
@@ -1194,7 +1361,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -1249,7 +1416,9 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg.png") 0 7px no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 7px;
         padding: 0 0 0 14px;
         color: #333;
         &:first-child {
@@ -1328,7 +1497,7 @@
 
   .t0-b-navList5 {
     color: #333;
-    background: #fff;
+    background-color: #fff;
     border: #ac8871 1px solid;
     border-radius: 5px;
     padding: 10px;
@@ -1341,7 +1510,7 @@
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
-      background: #999;
+      background-color: #999;
     }
 
     > hr:first-child {
@@ -1396,9 +1565,164 @@
       li {
         @include g-font(16, 1);
         margin: 10px 0 0;
-        background: url("../imgs/t0-b-navList/bg2.png") 0 4px no-repeat;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-repeat: no-repeat;
+        background-position: 0 4px;
         padding: 0 0 0 18px;
         color: #333;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font(14, 1);
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background-color: $_color_table_th_bg;
+      }
+
+      td {
+        color: $_color_table_td_typo;
+        background-color: #fff;
+      }
+
+      tr {
+        border-bottom: 1px solid #777;
+        &:first-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+          > th, td {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .t0-b-navList6 {
+    color: #333;
+    background-color: #fff;
+    border: #ac8871 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #ac8871;
+    $_color_table_th_bg: #f6e8c6;
+    $_color_table_td_typo: #333;
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background-color: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font(16, 2);
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      margin: 0 0 0 1.5em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font(16, 2);
+        color: #553010;
+        margin: 10px 0 0;
+        background-image: url("../imgs/t0-b-navList/bg3.png");
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 20px;
+        padding: 0 0 0 30px;
+        min-height: 31px;
+        font-weight: bold;
+        line-height: 1.3;
         &:first-child {
           margin-top: 0;
         }
