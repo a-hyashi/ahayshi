@@ -1,15 +1,13 @@
 @if $device == PC {
 
   .t0-b-media {
+    $_lineHeightType: 1;
+
     color: #333;
     margin: 0 auto;
 
     &__h-upper {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       text-align: center;
       color: #553010;
       font-weight: bold;
@@ -85,11 +83,7 @@
     }
 
     &__h-lower {
-      @if $layout == "N00" {
-        @include g-font(20, 1);
-      } @else {
-        @include g-font(16, 1);
-      }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       text-align: center;
       color: #553010;
       font-weight: bold;
