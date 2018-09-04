@@ -144,6 +144,12 @@ Ctrl + C
 $ docker-compose run base gulp build
 ```
 
+### sasslintでコーディングスタイルのチェック
+```sh
+$ docker-compose run base gulp sasslint
+```
+**partsディレクトリ配下しかチェックしないので注意**
+
 <br>
 
 ## こんな時には？
