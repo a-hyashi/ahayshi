@@ -57,7 +57,7 @@ Macの上部にアイコンが表示されていればOKです
 
 ```sh
 $ cd （buddy-themeフォルダの場所）
-$ cp _docker-compose.yml docker-compose.yml
+$ sed -e 's/theme-name/031/g' _docker-compose.yml > docker-compose.yml
 $ docker-compose run base npm install
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです
@@ -73,30 +73,15 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 
 ## テーマごとに一度だけ実行すること
 
-1. 作業場所の変更  
-テキストエディタで、buddy-theme内の`docker-compose.yml`ファイルを開き、以下の箇所のテーマ名を変更する
-**_docker-compose.yml（アンダーバー付き）の方じゃないので注意**  
-この操作で設定したフォルダ内でツールが実行されるようになります
-
-``` yaml
-working_dir: /buddy-theme/031/
-```
-
-2. 共通ファイルの取得
 ```sh
-$ docker-compose run base cp ../copy.sh ./copy.sh
+$ ./init.sh （テーマ名）
 ```
 
-```sh
-$ docker-compose run base ./copy.sh
-```
-先に設定したテーマフォルダ内にgulpfile.jsファイルとlibフォルダがあればOKです
-
-3. StyleGuide(aigis)の初期化とテストデータ作成
-```sh
-$ docker-compose run base gulp update-parts --max_old_space_size=8192
-```
-先に設定したテーマ/unittest/parts/フォルダに部品名.mdといったファイルが複数存在していればOKです
+指定したテーマフォルダ内に以下のファイルが作成されていればOKです
+- gulpfile.js
+- lib/
+- .scss-lint.yml
+- /unittest/parts/フォルダ内に部品名.md
 
 <br>
 
@@ -109,7 +94,7 @@ Macの上部にアイコンが表示されていればOKです
 2. 以下のコマンドを実行する
 ```sh
 $ cd （buddy-themeフォルダの場所）
-$ docker-compose up
+$ ./up.sh （テーマ名）
 ```
 CSSの更新は自動で反映されます
 
@@ -141,12 +126,17 @@ Ctrl + C
 
 ### 本番用CSSの出力
 ```sh
-$ docker-compose run base gulp build
+$ ./build.sh （テーマ名）
+```
+テーマ名を指定しない場合は全テーマ出力されます
+
+```sh
+$ ./build.sh
 ```
 
-### sasslintでコーディングスタイルのチェック
+### sass-lintでコーディングスタイルのチェック
 ```sh
-$ docker-compose run base gulp sasslint
+$ ./lint.sh （テーマ名）
 ```
 **partsディレクトリ配下しかチェックしないので注意**
 
@@ -157,7 +147,7 @@ $ docker-compose run base gulp sasslint
 ### JSON/HTMLを修正した
 
 ```sh
-$ docker-compose run base gulp update-parts --max_old_space_size=8192
+$ ./update-parts.sh （テーマ名）
 ```
 
 ### sassdocが更新された
