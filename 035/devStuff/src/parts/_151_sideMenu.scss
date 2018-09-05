@@ -1,13 +1,11 @@
 @if $device == PC {
 
   .b-sideMenu#{$variation1of2} {
+    $_lineHeightType: 1;
     $_block: &;
     padding-top: 15px;
-    @if $layout == "N00" {
-      @include g-font(18, 1);
-    } @else {
-      @include g-font(14, 1);
-    }
+    @include g-font-layout(14, $_lineHeightType, $layout);
+
     margin: 0 -5px;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left top, left bottom, right bottom, right top;
@@ -49,12 +47,7 @@
 
     h4 {
       position: relative;
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
-
+      @include g-font-layout(20, $_lineHeightType, $layout);
       color: #333;
       font-weight: bold;
       text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
@@ -270,17 +263,19 @@
           display: block;
           min-height: 0;
           padding: 0 10px 0 22px;
-          background: url("../imgs/b-sideMenu/1/bg2.png") 0 13px no-repeat;
+          background-image: url("../imgs/b-sideMenu/1/bg2.png");
+          background-position: 0 13px;
+          background-repeat: no-repeat;
           position: relative;
           margin-left: 12px;
           margin-bottom: 0;
 
           > span {
-            background: none;
+            background-image: none;
             > span {
-              background: none;
+              background-image: none;
               > span {
-                background: none;
+                background-image: none;
               }
             }
           }
@@ -314,7 +309,9 @@
           display: block;
           padding: 0 10px 0 22px;
           min-height: 0;
-          background: url("../imgs/b-sideMenu/1/bg2.png") 0 13px no-repeat;
+          background-image: url("../imgs/b-sideMenu/1/bg2.png");
+          background-position: 0 13px;
+          background-repeat: no-repeat;
           position: relative;
           margin-left: 12px;
           margin-bottom: 0;
@@ -342,7 +339,9 @@
         display: block;
         padding: 0 10px 0 12px;
         min-height: 0;
-        background: url("../imgs/b-sideMenu/1/bg3.png") 0 10px no-repeat;
+        background-image: url("../imgs/b-sideMenu/1/bg3.png");
+        background-repeat: no-repeat;
+        background-position: 0 10px;
         position: relative;
         margin-left: 21px;
         margin-bottom: 0;
@@ -368,7 +367,9 @@
         display: block;
         padding: 0 10px 0 12px;
         min-height: 0;
-        background: url("../imgs/b-sideMenu/1/bg3.png") 0 10px no-repeat;
+        background-image: url("../imgs/b-sideMenu/1/bg3.png");
+        background-repeat: no-repeat;
+        background-position: 0 10px;
         position: relative;
         margin-left: 21px;
         margin-bottom: 0;
@@ -407,6 +408,7 @@
 
   .b-sideMenu#{$variation2of2} {
     $_block: &;
+    $_lineHeightType: 1;
     margin: 0 auto;
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right top;
@@ -490,11 +492,7 @@
 
     h4 {
       position: relative;
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout(20, $_lineHeightType, $layout);
       font-weight: bold;
     }
 
@@ -536,10 +534,14 @@
       > ul > .b-sideMenu__item > .b-sideMenu__item2 {
         display: block;
         padding: 0 10px 0 30px;
-        background: url("../imgs/b-sideMenu/2/bg.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+        background-image: url("../imgs/b-sideMenu/2/bg.png"), url("../imgs/b-sideMenu/2/bg5.png");
+        background-position: 0 15px, 0 100%;
+        background-repeat: no-repeat, repeat-x;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+          background-image: url("../imgs/b-sideMenu/2/bg.png"), url("../imgs/b-sideMenu/2/bg5.png");
+          background-position: 0 15px, 0 100%;
+          background-repeat: no-repeat, repeat-x;
         }
 
         > div > a {
@@ -562,10 +564,14 @@
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 {
         display: block;
         padding: 0 10px 0 30px;
-        background: url("../imgs/b-sideMenu/2/bg4.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+        background-image: url("../imgs/b-sideMenu/2/bg4.png"), url("../imgs/b-sideMenu/2/bg5.png");
+        background-position: 0 15px, 0 100%;
+        background-repeat: no-repeat, repeat-x;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg4.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+          background-image: url("../imgs/b-sideMenu/2/bg4.png"), url("../imgs/b-sideMenu/2/bg5.png");
+          background-position: 0 15px, 0 100%;
+          background-repeat: no-repeat, repeat-x;
         }
 
         > div > a {
@@ -589,15 +595,21 @@
       }
 
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item {
-        background: url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+        background-image: url("../imgs/b-sideMenu/2/bg5.png");
+        background-position: 0 100%;
+        background-repeat: repeat-x;
 
         > .b-sideMenu__item2 {
           display: block;
           padding: 0 10px 0 17px;
-          background: url("../imgs/b-sideMenu/2/bg2.png") 0 14px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg2.png");
+          background-position: 0 14px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/2/bg2.png") 0  14px no-repeat;
+            background-image: url("../imgs/b-sideMenu/2/bg2.png");
+            background-position: 0 14px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 5px;
@@ -621,15 +633,21 @@
       }
 
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current {
-        background: url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+        background-image: url("../imgs/b-sideMenu/2/bg5.png");
+        background-position: 0 100%;
+        background-repeat: repeat-x;
 
         > .b-sideMenu__item2 {
           display: block;
           padding: 0 10px 0 17px;
-          background: url("../imgs/b-sideMenu/2/bg2.png") 0 14px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg2.png");
+          background-position: 0 14px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/2/bg2.png") 0 14px no-repeat;
+            background-image: url("../imgs/b-sideMenu/2/bg2.png");
+            background-position: 0 14px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 5px;
@@ -656,10 +674,14 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 {
         display: block;
         padding: 0 10px 0 12px;
-        background: url("../imgs/b-sideMenu/2/bg3.png") 0 12px no-repeat;
+        background-image: url("../imgs/b-sideMenu/2/bg3.png");
+        background-position: 0 12px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg3.png") 0 12px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg3.png");
+          background-position: 0 12px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 12px;
@@ -685,10 +707,14 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 {
         display: block;
         padding: 0 10px 0 12px;
-        background: url("../imgs/b-sideMenu/2/bg3.png") 0 12px no-repeat;
+        background-image: url("../imgs/b-sideMenu/2/bg3.png");
+        background-position: 0 12px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg3.png") 0 12px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg3.png");
+          background-position: 0 12px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 12px;
@@ -729,22 +755,23 @@
 
   .b-sideMenu3 {
     $_block: &;
+    $_lineHeightType: 1;
     border: 1px solid #ac8871;
     border-radius: 10px;
     overflow: hidden;
     margin: 0 auto;
     padding-top: 10px;
     position: relative;
-    background: #fff;
+    background-color: #fff;
 
     > span {
-      background: #adc550;
+      background-color: #adc550;
       position: absolute;
       left: 0;
       right: 0;
       top: 0;
       height: 10px;
-      background: #adc550;
+      background-color: #adc550;
       border-radius: 9px 9px 0 0;
     }
 
@@ -760,11 +787,7 @@
     }
 
     h4 {
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout(20, $_lineHeightType, $layout);
       font-weight: bold;
     }
 
@@ -777,7 +800,10 @@
     }
 
     &__hd {
-      background: url("../imgs/b-sideMenu/3/bg5.png") left bottom repeat-x #adc550;
+      background-image: url("../imgs/b-sideMenu/3/bg5.png");
+      background-position: left bottom;
+      background-repeat: repeat-x;
+      background-color: #adc550;
       text-align: center;
       color: #fff;
       padding: 15px 10px 25px;
@@ -791,7 +817,9 @@
       > ul > .b-sideMenu__item {
         &:last-child {
           > .b-sideMenu__list > ul {
-            background: url("../imgs/b-sideMenu/3/bg7.png") left top repeat-x;
+            background-image: url("../imgs/b-sideMenu/3/bg7.png");
+            background-position: left top;
+            background-repeat: repeat-x;
           }
 
           > .b-sideMenu__item2 {
@@ -838,11 +866,7 @@
           display: block;
           padding: 17px 0;
           font-weight: bold;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
@@ -872,24 +896,26 @@
           display: block;
           padding: 17px 0;
           font-weight: bold;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
       > ul > li > .b-sideMenu__list > ul {
-        background: url("../imgs/b-sideMenu/3/bg6.png") left bottom repeat-x, url("../imgs/b-sideMenu/3/bg7.png") left top repeat-x;
+        background-image: url("../imgs/b-sideMenu/3/bg6.png") left bottom repeat-x, url("../imgs/b-sideMenu/3/bg7.png");
+        background-position: left top;
+        background-repeat: repeat-x;
 
         > .b-sideMenu__item > .b-sideMenu__item2 {
           display: block;
           padding: 0 10px 0 17px;
-          background: url("../imgs/b-sideMenu/3/bg2.png") 0 10px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg2.png");
+          background-position: 0 10px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/3/bg2.png") 0 10px no-repeat;
+            background-image: url("../imgs/b-sideMenu/3/bg2.png");
+            background-position: 0 10px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 20px;
@@ -908,25 +934,27 @@
           > div > span {
             display: block;
             padding: 13px 0;
-            @if $layout == "N00" {
-              @include g-font(18, 1);
-            } @else {
-              @include g-font(14, 1);
-            }
+            @include g-font-layout(14, $_lineHeightType, $layout);
           }
         }
       }
 
       > ul > li > .b-sideMenu__list > ul {
-        background: url("../imgs/b-sideMenu/3/bg6.png") left bottom repeat-x, url("../imgs/b-sideMenu/3/bg7.png") left top repeat-x;
+        background-image: url("../imgs/b-sideMenu/3/bg6.png"), url("../imgs/b-sideMenu/3/bg7.png");
+        background-position: left bottom, left top;
+        background-repeat: repeat-x, repeat-x;
 
         > .b-sideMenu__item.state-current > .b-sideMenu__item2 {
           display: block;
           padding: 0 10px 0 17px;
-          background: url("../imgs/b-sideMenu/3/bg2.png") 0 10px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg2.png");
+          background-position: 0 10px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/3/bg2.png") 0 10px no-repeat;
+            background-image: url("../imgs/b-sideMenu/3/bg2.png");
+            background-position: 0 10px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 20px;
@@ -947,11 +975,7 @@
             display: block;
             padding: 13px 0;
             color: #ee8100;
-            @if $layout == "N00" {
-              @include g-font(18, 1);
-            } @else {
-              @include g-font(14, 1);
-            }
+            @include g-font-layout(14, $_lineHeightType, $layout);
           }
         }
       }
@@ -959,10 +983,14 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 {
         display: block;
         padding: 0 10px 0 12px;
-        background: url("../imgs/b-sideMenu/3/bg3.png") 0 7px no-repeat;
+        background-image: url("../imgs/b-sideMenu/3/bg3.png");
+        background-position: 0 7px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/3/bg3.png") 0 7px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg3.png");
+          background-position: 0 7px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 30px;
@@ -980,21 +1008,21 @@
         > div > span {
           display: block;
           padding: 5px 0 13px;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 {
         display: block;
         padding: 0 10px 0 12px;
-        background: url("../imgs/b-sideMenu/3/bg3.png") 0 7px no-repeat;
+        background-image: url("../imgs/b-sideMenu/3/bg3.png");
+        background-position: 0 7px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/3/bg3.png") 0 7px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg3.png");
+          background-position: 0 7px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 30px;
@@ -1015,11 +1043,7 @@
           display: block;
           padding: 5px 0 13px;
           color: #ee8100;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
@@ -1039,7 +1063,7 @@
         background-image: url("../imgs/b-sideMenu/3/bg11.png"), url("../imgs/b-sideMenu/3/bg11.png"), url("../imgs/b-sideMenu/3/bg10.png");
 
         &:first-child {
-          background: none;
+          background-image: none;
         }
       }
     }
@@ -1059,12 +1083,9 @@
 
   .b-sideMenuHandle#{$variation1of2} {
     $_block: &;
+    $_lineHeightType: 1;
     padding-top: 15px;
-    @if $layout == "N00" {
-      @include g-font(18, 1);
-    } @else {
-      @include g-font(14, 1);
-    }
+    @include g-font-layout(14, $_lineHeightType, $layout);
     margin: 0 -5px;
     .sideMenuHandle2 + .sideMenuHandle2,
     .sideMenuHandle3 + .sideMenuHandle2 {
@@ -1142,11 +1163,7 @@
 
     h4 {
       position: relative;
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout(20, $_lineHeightType, $layout);
       color: #333;
       font-weight: bold;
       text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
@@ -1362,17 +1379,19 @@
           display: block;
           min-height: 0;
           padding: 0 10px 0 30px;
-          background: url("../imgs/b-sideMenu/1/bg2.png") 8px 13px no-repeat;
+          background-image: url("../imgs/b-sideMenu/1/bg2.png");
+          background-position: 8px 13px;
+          background-repeat: no-repeat;
           position: relative;
           margin-left: 20px;
           margin-bottom: 0;
 
           > span {
-            background: none;
+            background-image: none;
             > span {
-              background: none;
+              background-image: none;
               > span {
-                background: none;
+                background-image: none;
               }
             }
           }
@@ -1404,7 +1423,9 @@
           display: block;
           padding: 0 10px 0 30px;
           min-height: 0;
-          background: url("../imgs/b-sideMenu/1/bg2.png") 8px 13px no-repeat;
+          background-image: url("../imgs/b-sideMenu/1/bg2.png");
+          background-position: 8px 13px;
+          background-repeat: no-repeat;
           position: relative;
           margin-left: 20px;
           margin-bottom: 0;
@@ -1433,7 +1454,9 @@
         display: block;
         padding: 0 10px 0 20px;
         min-height: 0;
-        background: url("../imgs/b-sideMenu/1/bg3.png") 8px 10px no-repeat;
+        background-image: url("../imgs/b-sideMenu/1/bg3.png");
+        background-position: 8px 10px;
+        background-repeat: no-repeat;
         position: relative;
         margin-left: 45px;
         margin-bottom: 0;
@@ -1459,7 +1482,9 @@
         display: block;
         padding: 0 10px 0 20px;
         min-height: 0;
-        background: url("../imgs/b-sideMenu/1/bg3.png") 8px 10px no-repeat;
+        background-image: url("../imgs/b-sideMenu/1/bg3.png");
+        background-position: 8px 10px;
+        background-repeat: no-repeat;
         position: relative;
         margin-left: 45px;
         margin-bottom: 0;
@@ -1519,7 +1544,9 @@
         top: -2px;
         bottom: 0;
         pointer-events: none;
-        background: url("../imgs/b-sideMenu/2/bg5.png") left top repeat-x;
+        background-image: url("../imgs/b-sideMenu/2/bg5.png");
+        background-position: left top;
+        background-repeat: repeat-x;
       }
     }
 
@@ -1608,11 +1635,7 @@
 
     h4 {
       position: relative;
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
+      @include g-font-layout(20, $_lineHeightType, $layout);
       color: #333;
       font-weight: bold;
     }
@@ -1655,10 +1678,14 @@
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 {
         display: block;
         padding: 0 10px 0 30px;
-        background: url("../imgs/b-sideMenu/2/bg.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+        background-image: url("../imgs/b-sideMenu/2/bg.png"), url("../imgs/b-sideMenu/2/bg5.png");
+        background-position: 0 15px, 0 100%;
+        background-repeat: no-repeat, repeat-x;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+          background-image: url("../imgs/b-sideMenu/2/bg.png"), url("../imgs/b-sideMenu/2/bg5.png");
+          background-position: 0 15px, 0 100%;
+          background-repeat: no-repeat, repeat-x;
         }
 
         > div > a {
@@ -1681,10 +1708,14 @@
 
       &:last-child {
         > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 {
-          background: url("../imgs/b-sideMenu/2/bg.png") 0 15px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg.png");
+          background-position: 0 15px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/2/bg.png") 0 15px no-repeat;
+            background-image: url("../imgs/b-sideMenu/2/bg.png");
+            background-position: 0 15px;
+            background-repeat: no-repeat;
           }
         }
       }
@@ -1692,10 +1723,14 @@
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 {
         display: block;
         padding: 0 10px 0 30px;
-        background: url("../imgs/b-sideMenu/2/bg4.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+        background-image: url("../imgs/b-sideMenu/2/bg4.png"), url("../imgs/b-sideMenu/2/bg5.png");
+        background-position: 0 15px, 0 100%;
+        background-repeat: no-repeat, repeat-x;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg4.png") 0 15px no-repeat, url("../imgs/b-sideMenu/2/bg5.png") 0 100% repeat-x;
+          background-image: url("../imgs/b-sideMenu/2/bg4.png"), url("../imgs/b-sideMenu/2/bg5.png");
+          background-position: 0 15px, 0 100%;
+          background-repeat: no-repeat, repeat-x;
         }
 
         > div > a {
@@ -1722,10 +1757,14 @@
         > .b-sideMenuHandle__item2 {
           display: block;
           padding: 0 10px 0 25px;
-          background: url("../imgs/b-sideMenu/2/bg2.png") 8px 14px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg2.png");
+          background-position: 8px 14px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/2/bg2.png") 8px 14px no-repeat;
+            background-image: url("../imgs/b-sideMenu/2/bg2.png");
+            background-position: 8px 14px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 5px;
@@ -1753,10 +1792,14 @@
         > .b-sideMenuHandle__item2 {
           display: block;
           padding: 0 10px 0 25px;
-          background: url("../imgs/b-sideMenu/2/bg2.png") 8px 14px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg2.png");
+          background-position: 8px 14px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/2/bg2.png") 8px 14px no-repeat;
+            background-image: url("../imgs/b-sideMenu/2/bg2.png");
+            background-position: 8px 14px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 5px;
@@ -1784,10 +1827,14 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 {
         display: block;
         padding: 0 10px 0 20px;
-        background: url("../imgs/b-sideMenu/2/bg3.png") 8px 12px no-repeat;
+        background-image: url("../imgs/b-sideMenu/2/bg3.png");
+        background-position: 8px 12px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg3.png") 8px 12px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg3.png");
+          background-position: 8px 12px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 21px;
@@ -1813,10 +1860,14 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 {
         display: block;
         padding: 0 10px 0 20px;
-        background: url("../imgs/b-sideMenu/2/bg3.png") 8px 12px no-repeat;
+        background-image: url("../imgs/b-sideMenu/2/bg3.png");
+        background-position: 8px 12px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/2/bg3.png") 8px 12px no-repeat;
+          background-image: url("../imgs/b-sideMenu/2/bg3.png");
+          background-position: 8px 12px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 21px;
@@ -1898,16 +1949,16 @@
     margin: 0 auto;
     padding-top: 10px;
     position: relative;
-    background: #fff;
+    background-color: #fff;
 
     > span {
-      background: #adc550;
+      background-color: #adc550;
       position: absolute;
       left: 0;
       right: 0;
       top: 0;
       height: 10px;
-      background: #adc550;
+      background-color: #adc550;
       border-radius: 9px 9px 0 0;
     }
 
@@ -1923,12 +1974,7 @@
     }
 
     h4 {
-      @if $layout == "N00" {
-        @include g-font(24, 1);
-      } @else {
-        @include g-font(20, 1);
-      }
-
+      @include g-font-layout(20, $_lineHeightType, $layout);
       color: #333;
       font-weight: bold;
     }
@@ -1942,7 +1988,10 @@
     }
 
     &__hd {
-      background: url("../imgs/b-sideMenu/3/bg5.png") left bottom repeat-x #adc550;
+      background-image: url("../imgs/b-sideMenu/3/bg5.png");
+      background-position: left bottom;
+      background-repeat: repeat-x;
+      background-color: #adc550;
       text-align: center;
       color: #fff;
       padding: 15px 10px 25px;
@@ -1980,11 +2029,7 @@
           display: block;
           padding: 17px 0;
           font-weight: bold;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
@@ -2014,23 +2059,23 @@
           display: block;
           padding: 17px 0;
           font-weight: bold;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
       > ul > li > .b-sideMenuHandle__list > ul {
-        background: none;
+        background-image: none;
         > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 {
           display: block;
           padding: 0 10px 0 25px;
-          background: url("../imgs/b-sideMenu/3/bg2.png") 8px 10px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg2.png");
+          background-position: 8px 10px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/3/bg2.png") 8px 10px no-repeat;
+            background-image: url("../imgs/b-sideMenu/3/bg2.png");
+            background-position: 8px 10px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 30px;
@@ -2051,12 +2096,7 @@
           > div > span {
             display: block;
             padding: 13px 0;
-            @if $layout == "N00" {
-              @include g-font(18, 1);
-            } @else {
-              @include g-font(14, 1);
-            }
-
+            @include g-font-layout(14, $_lineHeightType, $layout);
             position: relative;
             z-index: 1;
           }
@@ -2064,14 +2104,18 @@
       }
 
       > ul > li > .b-sideMenuHandle__list > ul {
-        background: none;
+        background-image: none;
         > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 {
           display: block;
           padding: 0 10px 0 25px;
-          background: url("../imgs/b-sideMenu/3/bg2.png") 8px 10px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg2.png");
+          background-position: 8px 10px;
+          background-repeat: no-repeat;
 
           &:hover {
-            background: url("../imgs/b-sideMenu/3/bg2.png") 8px 10px no-repeat;
+            background-image: url("../imgs/b-sideMenu/3/bg2.png");
+            background-position: 8px 10px;
+            background-repeat: no-repeat;
           }
 
           margin-left: 30px;
@@ -2094,12 +2138,7 @@
             display: block;
             padding: 13px 0;
             color: #ee8100;
-            @if $layout == "N00" {
-              @include g-font(18, 1);
-            } @else {
-              @include g-font(14, 1);
-            }
-
+            @include g-font-layout(14, $_lineHeightType, $layout);
             position: relative;
             z-index: 1;
           }
@@ -2109,10 +2148,14 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 {
         display: block;
         padding: 0 10px 0 20px;
-        background: url("../imgs/b-sideMenu/3/bg3.png") 8px 14px no-repeat;
+        background-image: url("../imgs/b-sideMenu/3/bg3.png");
+        background-position: 8px 14px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/3/bg3.png") 8px 14px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg3.png");
+          background-position: 8px 14px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 50px;
@@ -2131,21 +2174,21 @@
         > div > span {
           display: block;
           padding: 10px 0;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 {
         display: block;
         padding: 0 10px 0 20px;
-        background: url("../imgs/b-sideMenu/3/bg3.png") 8px 14px no-repeat;
+        background-image: url("../imgs/b-sideMenu/3/bg3.png");
+        background-position: 8px 14px;
+        background-repeat: no-repeat;
 
         &:hover {
-          background: url("../imgs/b-sideMenu/3/bg3.png") 8px 14px no-repeat;
+          background-image: url("../imgs/b-sideMenu/3/bg3.png");
+          background-position: 8px 14px;
+          background-repeat: no-repeat;
         }
 
         margin-left: 50px;
@@ -2166,11 +2209,7 @@
           display: block;
           padding: 10px 0;
           color: #ee8100;
-          @if $layout == "N00" {
-            @include g-font(18, 1);
-          } @else {
-            @include g-font(14, 1);
-          }
+          @include g-font-layout(14, $_lineHeightType, $layout);
         }
       }
 
@@ -2190,7 +2229,7 @@
         background-image: url("../imgs/b-sideMenu/3/bg11.png"), url("../imgs/b-sideMenu/3/bg11.png"), url("../imgs/b-sideMenu/3/bg10.png");
 
         &:first-child {
-          background: none;
+          background-image: none;
         }
       }
     }
@@ -2229,7 +2268,7 @@
 
     $_block: &;
     width: 100%;
-    background: #f6eedf;
+    background-color: #f6eedf;
     border: 1px solid #ac8871;
     @include g-font(14, 1);
     color: #333;
@@ -2271,7 +2310,9 @@
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
       }
@@ -2280,7 +2321,10 @@
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
         color: #fff;
@@ -2290,7 +2334,9 @@
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2298,7 +2344,10 @@
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2307,7 +2356,9 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2315,7 +2366,10 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2325,7 +2379,7 @@
   .b-sideMenu#{$variation2of2} {
     $_block: &;
     width: 100%;
-    background: #fff;
+    background-color: #fff;
     border: 1px solid #805b00;
     @include g-font(14, 1);
     color: #333;
@@ -2372,7 +2426,9 @@
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
         border-top: 1px solid #805b00;
       }
@@ -2381,7 +2437,10 @@
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
         color: #fff;
@@ -2391,7 +2450,9 @@
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2399,7 +2460,10 @@
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2408,7 +2472,9 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2416,7 +2482,10 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2426,7 +2495,7 @@
   .b-sideMenu3 {
     $_block: &;
     width: 100%;
-    background: #eee7d6;
+    background-color: #eee7d6;
     border: 1px solid #ac8871;
     @include g-font(14, 1);
     color: #333;
@@ -2473,7 +2542,9 @@
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
       }
@@ -2482,7 +2553,10 @@
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
         color: #fff;
@@ -2492,7 +2566,9 @@
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2500,7 +2576,10 @@
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2509,7 +2588,9 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2517,7 +2598,10 @@
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2532,7 +2616,7 @@
 
     $_block: &;
     width: 100%;
-    background: #f6eedf;
+    background-color: #f6eedf;
     border: 1px solid #ac8871;
     @include g-font(14, 1);
     color: #333;
@@ -2574,7 +2658,9 @@
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
       }
@@ -2583,7 +2669,10 @@
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
         color: #fff;
@@ -2593,7 +2682,9 @@
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2601,7 +2692,10 @@
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2610,7 +2704,9 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2618,7 +2714,10 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2628,7 +2727,7 @@
   .b-sideMenuHandle#{$variation2of2} {
     $_block: &;
     width: 100%;
-    background: #fff;
+    background-color: #fff;
     border: 1px solid #805b00;
     @include g-font(14, 1);
     color: #333;
@@ -2675,7 +2774,9 @@
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
         border-top: 1px solid #805b00;
       }
@@ -2684,7 +2785,10 @@
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
         color: #fff;
@@ -2694,7 +2798,9 @@
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2702,7 +2808,10 @@
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2711,7 +2820,9 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2719,7 +2830,10 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2729,7 +2843,7 @@
   .b-sideMenuHandle3 {
     $_block: &;
     width: 100%;
-    background: #eee7d6;
+    background-color: #eee7d6;
     border: 1px solid #ac8871;
     @include g-font(14, 1);
     color: #333;
@@ -2776,7 +2890,9 @@
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
       }
@@ -2785,7 +2901,10 @@
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         border-top: 1px solid #ac8871;
         color: #fff;
@@ -2795,7 +2914,9 @@
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2803,7 +2924,10 @@
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
@@ -2812,7 +2936,9 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
         background-size: 21px 21px;
       }
 
@@ -2820,7 +2946,10 @@
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/b-sideMenu/bg4.png") no-repeat 95% center #b19261;
+        background-image: url("../imgs/b-sideMenu/bg4.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-color: #b19261;
         background-size: 21px 21px;
         color: #fff;
       }
