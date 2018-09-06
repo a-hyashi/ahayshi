@@ -97,6 +97,7 @@
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia|#{$variation3of3}|0||0px|
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia|4|0||0px|
 |05.メディア|footer|181_フッター自由HTML|.t0-b-footerFreeHtml||4%||15px|
+|05.メディア|footer|181_フッター自由HTML|.t0-b-footerFreeHtml|2|0||15px|
 |05.メディア|footer|181_フッター自由HTML2|.t0-b-footerUnit-freeHtml||4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media||4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|2|4%||15px|
