@@ -1,6 +1,7 @@
 @if $device == PC {
 
   .t0-b-mediaObjFit {
+    $_block: &;
     //100%だとFirofoxで崩れるので対策
     height: 100.1%;
     &--img {
@@ -11,11 +12,9 @@
       font-family: 'object-fit: cover;';
     }
     a {
-      .t0-b-mediaObjFit {
-        &--img {
-          &:hover {
-            opacity: .8;
-          }
+      #{$_block}--img {
+        &:hover {
+          opacity: .8;
         }
       }
     }
