@@ -57,7 +57,7 @@ gulp.task('sass-build', function() {
 
 // sass lint
 
-gulp.task('sasslint', function() {
+gulp.task('sass-lint', function() {
   return gulp.src(['devStuff/src/parts/*.s[ac]ss'])
   .pipe(sassLint({
     configFile: '.scss-lint.yml'
@@ -70,6 +70,9 @@ gulp.task('sasslint', function() {
 // styleguide
 
 gulp.task('aigis', function() {
+  if (!fs.existsSync('./devStuff/css')){
+    fs.mkdirSync('./devStuff/css');
+  }
   return gulp.src('devStuff/aigis_config.yml')
   .pipe(aigis());
 });
