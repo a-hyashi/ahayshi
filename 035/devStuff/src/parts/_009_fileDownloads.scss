@@ -1,6 +1,7 @@
 @if $device == PC {
 
   .t0-b-fileDownloads {
+    color: #333;
     $_block: &;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
@@ -20,10 +21,9 @@
     a {
       display: block;
       float: left;
-      color: #3a1f08;
       text-decoration: underline;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
 
@@ -41,21 +41,21 @@
     }
 
     &__itemText {
-      @include g-font(16, 1);
+      @include g-font(12, 2);
       #{$_block}--size-2 & {
-        @include g-font(20, 1);
+        @include g-font(16, 2);
       }
 
       #{$_block}--size-3 & {
-        @include g-font(24, 1);
+        @include g-font(18, 2);
       }
 
       #{$_block}--size-4 & {
-        @include g-font(28, 1);
+        @include g-font(22, 2);
       }
 
       #{$_block}--size-5 & {
-        @include g-font(32, 1);
+        @include g-font(24, 1);
       }
     }
   }
@@ -108,12 +108,18 @@
     }
   }
 
+  // safariで下線が付かない不具合のハック
+  _::-webkit-full-page-media, _:future, :root .t0-b-fileDownloads__itemText {
+    text-decoration:underline;
+  }
+
 }// PC
 
 
 @if $device == SP {
 
   .t0-b-fileDownloads {
+    color: #333;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
     padding: #{$_blockSpacing} 0 0;
@@ -144,12 +150,11 @@
     }
 
     &__itemIcon {
-      padding-right: 10px;
+      padding-right: 8px;
     }
 
     &__itemText {
       @include g-font(16, 1);
-      color: #3a1f08;
       text-decoration: underline;
     }
   }
@@ -161,7 +166,7 @@
         $_src: "b-downloadIcon/#{$file}.png";
         background-image: url("../imgs/#{$_src}");
         background-repeat: no-repeat;
-        width: 30px;
+        width: 27px;
         height: 30px;
         background-size: 30px;
       }
