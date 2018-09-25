@@ -58,6 +58,7 @@
 |03.リスト|main|027_ナビリスト|.t0-b-navList|#{$variation3of1and3}|4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|4|4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|5|4%||20px|
+|03.リスト|main|027_ナビリスト|.t0-b-navList|6|4%||20px|
 |03.リスト|main|028_装飾された番号リスト|.t0-b-orderedList|#{$variation1of2}|1%||10px|
 |03.リスト|main|028_装飾された番号リスト|.t0-b-orderedList|#{$variation2of2}|1%||10px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation1of2}|2%||10px|
