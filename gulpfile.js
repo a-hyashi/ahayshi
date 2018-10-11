@@ -70,7 +70,9 @@ gulp.task('sass-lint', function() {
 // styleguide
 
 gulp.task('aigis', function() {
-  fs.mkdirSync('./devStuff/css');
+  if (!fs.existsSync('./devStuff/css')){
+    fs.mkdirSync('./devStuff/css');
+  }
   return gulp.src('devStuff/aigis_config.yml')
   .pipe(aigis());
 });
