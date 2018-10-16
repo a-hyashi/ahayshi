@@ -250,3 +250,5 @@
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia|3|0||0px|
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia|4|0||0px|
 |12.その他|header|206_ヘッダーぶち抜き|.t0-b-headerFullWidthMedia|5|0||0px|
+|12.その他|header|227_ヘッダーMV誘導バナー|.t0-b-headerFullWidthMedia-navBItem||2%||25px|
+|12.その他|header|227_ヘッダーMV誘導バナー|.t0-b-headerFullWidthMedia-navBItem|2|2%||25px|
