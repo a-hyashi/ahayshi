@@ -169,12 +169,12 @@
 |09.電話番号・メールアドレス|side|140_サイドボックス電話番号|.t0-b-sideBoxIconText-tel||5%||35px|
 |09.電話番号・メールアドレス|side|141_サイドボックスメールアドレス|.t0-b-sideBoxIconText-mail||4%||35px|
 |09.電話番号・メールアドレス|header|170_ヘッダーFAX番号|.t0-b-headerUnit-contact-fax||2%||35px|
-|09.電話番号・メールアドレス|header|174_ヘッダー電話番号|.t0-b-headerUnit-contact-tel||2%||35px|
+|09.電話番号・メールアドレス|header|174_ヘッダー電話番号|.t0-b-headerUnit-contact-tel||2%||20px|
 |09.電話番号・メールアドレス|footer|188_フッターコンタクト|.t0-b-footerUnit-contact||4%||35px|
 |10.サイト名|main|054_サイト名|.t0-b-siteName||2%|3%|35px|
 |10.サイト名|main|054_サイト名|.t0-b-siteTitle||2%|3%|35px|
-|10.サイト名|header|169_ヘッダーサイト名|.t0-b-headerUnit-siteTitle||2%||35px|
-|10.サイト名|header|169_ヘッダーサイト名|.t0-b-headerUnit-siteTitle|2|2%||35px|
+|10.サイト名|header|169_ヘッダーサイト名|.t0-b-headerUnit-siteTitle||2%||15px|
+|10.サイト名|header|169_ヘッダーサイト名|.t0-b-headerUnit-siteTitle|2|2%||15px|
 |10.サイト名|header|177_ヘッダーサイト名（画像）|.t0-b-headerUnit-siteName||2%||35px|
 |10.サイト名|header|177_ヘッダーサイト名（画像）|.t0-b-headerUnit-siteName|2|2%||35px|
 |10.サイト名|footer|191_フッターサイト名|.t0-b-footerUnit-siteTitle||2%||35px|
