@@ -1,7 +1,7 @@
 require 'json'
 
 groups = {
-  A: {
+  "_1001_frame1colD": {
     frame: [],
     frameWithHCaptionNumIcon: [],
     frameWithHCaption: [],
@@ -9,25 +9,25 @@ groups = {
     bannerTriplexRow: [],
     articleDecoration: []
   },
-  B: {
+  "_1002_frame2colD": {
     article2Image: [],
     flow2LeftToRight: []
   },
-  C: {
+  "_1003_frame3colD": {
     article3Image: [],
     layoutSplitter: [],
     flow3LeftToRight: []
   },
-  D: {
+  "_1004_frame4col": {
     flow4LeftToRight: []
   },
-  E: {
+  "_1005_frame5col": {
     flow5LeftToRight: []
   },
-  F: {
+  "_1006_frame6col": {
     flow6LeftToRight: []
   },
-  G: {
+  "_1007_frame7col": {
     flow7LeftToRight: []
   }
 }.freeze
@@ -45,3 +45,13 @@ groups.each do |group, classes|
 end
 
 File.open('variations.json',"w").puts(JSON.pretty_generate(groups))
+
+max_variation = {}
+groups.each do |group, classes|
+  max_variation[group.to_s.split("_").last] = 0
+  classes.each do |cls, variations|
+    max_variation[group.to_s.split("_").last] += variations.size
+  end
+end
+
+File.open('max_variation.json',"w").puts(JSON.pretty_generate(max_variation))
