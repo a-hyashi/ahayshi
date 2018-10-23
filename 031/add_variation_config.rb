@@ -16,7 +16,8 @@ if File.exists?("./devStuff/src/config/_variationConfig.scss")
       i += 1
     end
   end
-  File.open("./devStuff/src/config/_variationConfig.scss", "a").puts(add_configs)
+  old_file = File.open("./devStuff/src/config/_variationConfig.scss").read
+  File.open("./devStuff/src/config/_variationConfig.scss", "w").puts("#{old_file.chomp.chomp}\n#{add_configs}")
 end
 
 if File.exists?("./devStuff/src/config/_variationConfig2.scss")
@@ -40,7 +41,8 @@ if File.exists?("./devStuff/src/config/_variationConfig2.scss")
       i += 1
     end
   end
-   File.open("./devStuff/src/config/_variationConfig2.scss", "a").puts(add_configs)
+  old_file = File.open("./devStuff/src/config/_variationConfig2.scss").read
+  File.open("./devStuff/src/config/_variationConfig2.scss", "w").puts("#{old_file.chomp.chomp}\n#{add_configs}")
 end
 
 if File.exists?("./devStuff/src/config/_variationConfig3.scss")
@@ -60,5 +62,6 @@ if File.exists?("./devStuff/src/config/_variationConfig3.scss")
       i += 1
     end
   end
-   File.open("./devStuff/src/config/_variationConfig3.scss", "a").puts(add_configs)
+  old_file = File.open("./devStuff/src/config/_variationConfig3.scss").read
+  File.open("./devStuff/src/config/_variationConfig3.scss", "w").puts("#{old_file.chomp.chomp}\n#{add_configs}")
 end
