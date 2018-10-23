@@ -36,7 +36,5 @@ sp_add_position = sp_b_placer.match(/\s{2}\.t0-b-creditCard-bPlacer{.*}/).to_s
 pc_b_placer.gsub!('//# 12.その他', "#{pc_add_b_placer}//# 12.その他")
 sp_b_placer.gsub!(sp_add_position, "#{sp_add_b_placer}#{sp_add_position}")
 
-puts sp_add_b_placer
-
 b_placer = File.open('./devStuff/src/config/_bPlacer.scss', 'w').puts("#{b_placer.split("\n").first}\n#{pc_b_placer}\n#{sp_b_placer}")
 
