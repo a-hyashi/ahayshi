@@ -157,5 +157,4 @@ groups.each do |group, classes|
   to_scss.gsub!("& + div", "&__ft")
   to_scss.gsub!("& > span + &__bd", "&__tp")
   File.open("./devStuff/src/parts/#{group}.scss", "w").puts(to_scss)
-  exit
 end
