@@ -22,4 +22,6 @@ for theme in "${themes[@]}"; do
   rm variations.json
   rm max_variation.json
   cd ..
+  ./set-theme.sh ${theme}
+  docker-compose run base gulp create-b-placer-doc
 done
