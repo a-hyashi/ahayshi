@@ -14,5 +14,12 @@ for theme in "${themes[@]}"; do
   ruby add_variation_config.rb
   ruby add_bPlacer.rb
   ruby add_all.rb
+  rm create_variations.rb
+  rm create_parts_sass.rb
+  rm add_variation_config.rb
+  rm add_bPlacer.rb
+  rm add_all.rb
+  rm variations.json
+  rm max_variation.json
   cd ..
 done
