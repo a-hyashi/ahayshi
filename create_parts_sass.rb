@@ -79,12 +79,16 @@ frameWithHCaption_scss = File.open("./devStuff/src/parts/_003_frameWithHCaption.
 frameWithHCaption_pc_scss = split_by_device(frameWithHCaption_scss, 'PC').match(/[\s]{2}\.t0-b-.*[\s\S]*?\n[\s]{2}\}\n/).to_s
 frameWithHCaption_sp_scss = split_by_device(frameWithHCaption_scss, 'SP').match(/[\s]{2}\.t0-b-.*[\s\S]*?\n[\s]{2}\}\n/).to_s
 
-@pc_fontSizePx_hd = frameWithHCaption_pc_scss.match(/\$_fontSizePx_hd:\s?(\d*)(px)?;/)[1]
-@pc_fontSizePx_caption = frameWithHCaption_pc_scss.match(/\$_fontSizePx_caption:\s?(\d*)(px)?;/)[1]
-@pc_textColor = frameWithHCaption_pc_scss.match(/\$_textColor:\s?(.*)?;/)[1]
-@sp_fontSizePx_hd = frameWithHCaption_sp_scss.match(/\$_fontSizePx_hd:\s?(\d*)(px)?;/)[1]
-@sp_fontSizePx_caption = frameWithHCaption_sp_scss.match(/\$_fontSizePx_caption:\s?(\d*)(px)?;/)[1]
-@sp_textColor = frameWithHCaption_sp_scss.match(/\$_textColor:\s?(.*)?;/)[1]
+def mark_if_nil(match_data)
+  match_data.nil? ? "######" : match_data[1]
+end
+
+@pc_fontSizePx_hd = mark_if_nil(frameWithHCaption_pc_scss.match(/\$_fontSizePx_hd?:\s?(\d*)(px)?;/))
+@pc_fontSizePx_caption = mark_if_nil(frameWithHCaption_pc_scss.match(/\$_fontSizePx_caption:\s?(\d*)(px)?;/))
+@pc_textColor = mark_if_nil(frameWithHCaption_pc_scss.match(/\$_textColor:\s?(.*)?;/))
+@sp_fontSizePx_hd = mark_if_nil(frameWithHCaption_sp_scss.match(/\$_fontSizePx_hd?:\s?(\d*)(px)?;/))
+@sp_fontSizePx_caption = mark_if_nil(frameWithHCaption_sp_scss.match(/\$_fontSizePx_caption:\s?(\d*)(px)?;/))
+@sp_textColor = mark_if_nil(frameWithHCaption_sp_scss.match(/\$_textColor:\s?(.*)?;/))
 
 def scraping_sass(cls, variation, from_scss)
   cls_variation_scss = from_scss.match(/[\s]{2}\.t0-b-#{Regexp.escape("#{cls}#{variation}")}[\s\S]*?\n[\s]{2}\}\n/).to_s
