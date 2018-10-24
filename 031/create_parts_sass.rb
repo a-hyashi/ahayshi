@@ -86,9 +86,8 @@ frameWithHCaption_sp_scss = split_by_device(frameWithHCaption_scss, 'SP').match(
 @sp_fontSizePx_caption = frameWithHCaption_sp_scss.match(/\$_fontSizePx_caption:\s?(\d*)(px)?;/)[1]
 @sp_textColor = frameWithHCaption_sp_scss.match(/\$_textColor:\s?(.*)?;/)[1]
 
-def scraping_sass(group_name, i, cls, variation, from_scss)
+def scraping_sass(cls, variation, from_scss)
   cls_variation_scss = from_scss.match(/[\s]{2}\.t0-b-#{Regexp.escape("#{cls}#{variation}")}[\s\S]*?\n[\s]{2}\}\n/).to_s
-  cls_variation_scss.gsub!("#{cls}#{variation}", "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}")
   "#{cls_variation_scss}\n"
 end
 
@@ -131,6 +130,14 @@ def add_sp_header_and_footer(cls_variation_scss)
   cls_variation_scss
 end
 
+def if_first_to_blank(i)
+  i == 1 ? "": i
+end
+
+def variation_name(group_name, i)
+  group_name == "frame1colD" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
+end
+
 groups.each do |group, classes|
   group_name = group.split("_").last
   i = 1
@@ -142,11 +149,17 @@ groups.each do |group, classes|
     from_pc_scss = split_by_device(from_scss, 'PC')
     from_sp_scss = split_by_device(from_scss, 'SP')
     variations.each do |variation|
-      to_pc_scss << add_pc_header_and_footer(scraping_sass(group_name, i, cls, variation, from_pc_scss))
-      to_sp_scss << add_sp_header_and_footer(scraping_sass(group_name, i, cls, variation, from_sp_scss))
+      pc_cls_variation_scss = scraping_sass(cls, variation, from_pc_scss)
+      pc_cls_variation_scss.gsub!("#{cls}#{variation}", variation_name(group_name, i))
+      to_pc_scss << add_pc_header_and_footer(pc_cls_variation_scss)
+      sp_cls_variation_scss = scraping_sass(cls, variation, from_sp_scss)
+      sp_cls_variation_scss.gsub!("#{cls}#{variation}", variation_name(group_name, i))
+      to_sp_scss << add_sp_header_and_footer(sp_cls_variation_scss)
+
       i += 1
     end
   end
+
   to_pc_scss << "}\n"
   to_sp_scss << "}\n"
   to_scss = [to_pc_scss, to_sp_scss].join("\n")
