@@ -213,7 +213,7 @@ $ docker-compose down
 1. devstuff/aigis_config.ymlの設定  
 nameを新しいテーマ名に設定してください  
 **例**
-Theme 031B
+Theme 031A
 1. gulp_config.jsonの設定  
 html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください  
 **例**
