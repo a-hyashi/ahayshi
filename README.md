@@ -206,10 +206,18 @@ $ docker-compose down
 ## リポジトリの保守
 
 ### 新しいテーマを作る場合
-他のテーマを参考に同じ構造を再現し、以下のファイルをテーマごとの値に修正してください
-
- - gulp_config.json
- - devstuff/aigis_config.yml
+1. フォルダの作成  
+既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください  
+**例**
+031を複製して031Aのフォルダを作成する
+1. devstuff/aigis_config.ymlの設定  
+nameを新しいテーマ名に設定してください  
+**例**
+Theme 031B
+1. gulp_config.jsonの設定  
+html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください  
+**例**
+"../../ACRE-theme/acre/theme_materials/031/html_templates/"
 
 <br>
 
