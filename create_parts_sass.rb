@@ -139,7 +139,7 @@ def if_first_to_blank(i)
 end
 
 def variation_name(group_name, i)
-  group_name == "frame1colD" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
+  group_name == "frameN" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
 end
 
 groups.each do |group, classes|

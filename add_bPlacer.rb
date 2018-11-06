@@ -20,19 +20,18 @@ def if_first_to_blank(i)
 end
 
 def variation_name(group_name, i)
-  group_name == "frame1colD" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
+  group_name == "frameN" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
 end
 
 variations.each do |new_class, old_classes|
-  new_class_values = new_class.match(/_(\d{4})_(frame(\d)colD?)/)
-  pc_add_b_placer << "  //## main | #{new_class_values[1]}_枠(#{new_class_values[3]}列)\n"
+  pc_add_b_placer << "//## main | 1001_枠\n"
   i = 1
   old_classes.each do |old_class, old_class_variations|
     old_class_variations.each do |old_class_variation|
       pc_class_variation_b_placer = pc_b_placer.match(/\.t0-b-#{old_class}#{Regexp.escape(old_class_variation)}-bPlacer\{(.*)\}/)[1]
       sp_class_variation_b_placer = sp_b_placer.match(/\.t0-b-#{old_class}#{Regexp.escape(old_class_variation)}-bPlacer\{(.*)\}/)[1]
-      pc_add_b_placer << "  .t0-b-#{variation_name(new_class_values[2], i)}-bPlacer\{#{pc_class_variation_b_placer}\}\n"
-      sp_add_b_placer << "  .t0-b-#{variation_name(new_class_values[2], i)}-bPlacer\{#{sp_class_variation_b_placer}\}\n"
+      pc_add_b_placer << "  .t0-b-#{variation_name("frameN", i)}-bPlacer\{#{pc_class_variation_b_placer}\}\n"
+      sp_add_b_placer << "  .t0-b-#{variation_name("frameN", i)}-bPlacer\{#{sp_class_variation_b_placer}\}\n"
       i += 1
     end
   end

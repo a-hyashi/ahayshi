@@ -1,5 +1,5 @@
 PARTS = <<-PARTS
-@import '1001_frame1colD';
+@import '1001_frameN';
 @import '1002_frame2colD';
 @import '1003_frame3colD';
 @import '1004_frame4col';

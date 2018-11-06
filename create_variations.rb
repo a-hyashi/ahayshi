@@ -1,34 +1,13 @@
 require 'json'
 
 groups = {
-  "_1001_frame1colD": {
+  "_1001_frameN": {
     frame: [],
     frameWithHCaptionNumIcon: [],
     frameWithHCaption: [],
     serviceSet: [],
     bannerTriplexRow: [],
     articleDecoration: []
-  },
-  "_1002_frame2colD": {
-    article2Image: [],
-    flow2LeftToRight: []
-  },
-  "_1003_frame3colD": {
-    article3Image: [],
-    layoutSplitter: [],
-    flow3LeftToRight: []
-  },
-  "_1004_frame4col": {
-    flow4LeftToRight: []
-  },
-  "_1005_frame5col": {
-    flow5LeftToRight: []
-  },
-  "_1006_frame6col": {
-    flow6LeftToRight: []
-  },
-  "_1007_frame7col": {
-    flow7LeftToRight: []
   }
 }.freeze
 
