@@ -175,3 +175,7 @@ groups.each do |group, classes|
   to_scss.gsub!("& > span + &__bd", "&__tp")
   File.open("./devStuff/src/parts/#{group}.scss", "w").puts(to_scss)
 end
+
+%w[1002_frame2colD 1003_frame3colD 1004_frame4col 1005_frame5col 1006_frame6col 1007_frame7col].each do |cls|
+  File.open("./devStuff/src/parts/_#{cls}.scss", "w").puts("@import '../../../../common/devStuff/src/parts/#{cls}';")
+end
