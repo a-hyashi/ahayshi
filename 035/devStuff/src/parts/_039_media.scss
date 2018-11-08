@@ -666,15 +666,27 @@
     }
 
     &__media {
-      text-align: center;
       position: relative;
       padding: 7px 7px 6px 6px;
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-      background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
-      background-size: 6.4px 7.4px, 6.4px 6.4px, 7.4px 6.4px, 7.4px 7.4px, 6.4px 5px, 5px 6.4px, 7.4px 6px, 6px 7.4px;
-      box-shadow: 0px 0px 2px #f3ece0;
+      overflow: hidden;
+      text-align: center;
       box-sizing: border-box;
+      line-height: 0;
+
+      > span {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+        background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+        background-image: url("../imgs/t0-b-media/1/bg.png"), url("../imgs/t0-b-media/1/bg2.png"), url("../imgs/t0-b-media/1/bg3.png"), url("../imgs/t0-b-media/1/bg4.png"), url("../imgs/t0-b-media/1/bg5.png"), url("../imgs/t0-b-media/1/bg6.png"), url("../imgs/t0-b-media/1/bg7.png"), url("../imgs/t0-b-media/1/bg8.png");
+        background-size: 6.4px 7.4px, 6.4px 6.4px, 7.4px 6.4px, 7.4px 7.4px, 6.4px 5px, 5px 6.4px, 7.4px 6px, 6px 7.4px;
+        box-shadow: 0px 0px 2px #f3ece0;
+        pointer-events: none;
+      }
 
       > *, img {
         vertical-align: top;
@@ -695,7 +707,9 @@
         transition: 0.5s ease;
         &:hover {
           opacity: .8;
-          transform: scale(1.2);
+          img {
+            transform: scale(1.2);
+          }
         }
       }
 
@@ -706,9 +720,10 @@
 
     &__textOnImage-upper {
       position: absolute;
-      top: 2px;
-      left: 2px;
-      right: 2px;
+      top: 7px;
+      left: 6px;
+      right: 7px;
+
       z-index: 1;
 
       p {
@@ -723,9 +738,9 @@
 
     &__textOnImage-lower {
       position: absolute;
-      right: 2px;
-      bottom: 2px;
-      left: 2px;
+      bottom: 6px;
+      left: 6px;
+      right: 7px;
 
       p {
         @include g-font(18,1);
