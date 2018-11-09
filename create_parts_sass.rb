@@ -173,6 +173,7 @@ groups.each do |group, classes|
   to_scss.gsub!(/\s*.*\s?{\s?}/, "")
   to_scss.gsub!(/\n\s*\$_fontSizePx_numIcon:.*\s*\n/, "\n\n")
   to_scss.gsub!(/\n\s*\$_textColor_numIcon:.*\s*\n/, "\n\n")
+  to_scss.gsub!(/\n\s*\$_textColor_nCaption:.*\s*\n/, "\n\n")
   to_scss.gsub!(/\s*\#\{\$_block\}__numIcon-h\s?\{[\s\S]*?\n\s{8,9}\}/, "")
   to_scss.gsub!(/\s*&__numIcon\s?\{[\s\S]*?\n\s{4}\}/, "")
   to_scss.gsub!(/\s*&__iconPlacer\s?\{[\s\S]*?\n\s{4}\}/, "")
