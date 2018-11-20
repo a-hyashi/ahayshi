@@ -106,7 +106,6 @@
     $_block: &;
 
     > div {
-      display: table-cell;
       vertical-align: top;
       text-align: left;
     }
@@ -135,23 +134,23 @@
     }
 
     &--imgR {
-      direction: rtl;
+
+      display: flex;
+      flex-direction: row-reverse;
 
       #{$_block}__text {
-        padding: 0 8px 0 0;
+        padding: 0;
       }
-      &.ex-imageFloat{
-        > div {
-          display: block;
-        }
 
-        #{$_block}__text {
-          padding: 0;
-        }
+      #{$_block}__media {
+        padding: 0 0 8px 8px;
+      }
+
+      &.ex-imageFloat{
+        display: block;
 
         #{$_block}__media {
           float: right;
-          padding: 0 0 8px 8px;
         }
 
         .clearfix {
@@ -161,18 +160,22 @@
     }
 
     &--imgL {
-      &.ex-imageFloat{
-        > div {
-          display: block;
-        }
 
-        #{$_block}__text {
-          padding: 0;
-        }
+      display: flex;
+
+      #{$_block}__text {
+        padding: 0;
+      }
+
+      #{$_block}__media {
+        padding: 0 8px 8px 0;
+      }
+
+      &.ex-imageFloat{
+        display: block;
 
         #{$_block}__media {
           float: left;
-          padding: 0 8px 8px 0;
         }
 
         .clearfix {
@@ -180,6 +183,6 @@
         }
       }
     }
-
   }
+
 }
