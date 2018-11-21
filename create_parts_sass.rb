@@ -66,6 +66,15 @@ SP_FOOTER = <<-SP_FOOTER
     }
 SP_FOOTER
 
+CREARFIX = <<-CREARFIX
+  //frameOuterのclearfix
+  .frameOuter-clearfix.clearfix::after, .frameOuter-clearfix .clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+CREARFIX
+
 # PC, SPのみのscssを返す.
 def split_by_device(from_scss, device)
   from_scss.match(/@if\s\$device\s==\s#{device}[\s\S]*?\n}/).to_s
@@ -145,7 +154,7 @@ end
 groups.each do |group, classes|
   group_name = group.split("_").last
   i = 1
-  to_pc_scss = "@if $device == PC {\n\n"
+  to_pc_scss = "@if $device == PC {\n\n#{CREARFIX}\n"
   to_sp_scss = "@if $device == SP {\n\n"
   classes.each do |cls, variations|
     file_name = Dir.glob("./devStuff/src/parts/*_#{cls}.scss").first
