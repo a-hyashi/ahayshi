@@ -139,7 +139,7 @@ def if_first_to_blank(i)
 end
 
 def variation_name(group_name, i)
-  group_name == "frameN" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
+  group_name == "frameOuter" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
 end
 
 groups.each do |group, classes|
@@ -184,6 +184,6 @@ groups.each do |group, classes|
   File.open("./devStuff/src/parts/#{group}.scss", "w").puts(to_scss)
 end
 
-%w[1002_frame2colD 1003_frame3colD 1004_frame4col 1005_frame5col 1006_frame6col 1007_frame7col].each do |cls|
+%w[1001_mediaCols 1002_frame2col 1003_frame3col 1004_frame4col 1005_frame5col 1006_frame6col 1007_frame7col].each do |cls|
   File.open("./devStuff/src/parts/_#{cls}.scss", "w").puts("@import '../../../../common/devStuff/src/parts/#{cls}';")
 end

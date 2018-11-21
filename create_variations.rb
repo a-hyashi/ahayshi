@@ -1,7 +1,7 @@
 require 'json'
 
 groups = {
-  "_1001_frameN": {
+  "_1000_frameOuter": {
     frame: [],
     frameWithHCaptionNumIcon: [],
     frameWithHCaption: [],

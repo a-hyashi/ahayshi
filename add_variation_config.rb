@@ -10,7 +10,7 @@ end
 if File.exists?("./devStuff/src/config/_variationConfig.scss")
   i = 1
   add_configs = "\n"
-  variations["_1001_frameN"].each do |old_class, class_variations|
+  variations["_1000_frameOuter"].each do |old_class, class_variations|
     class_variations.each do |class_variation|
       add_configs << "$variation#{if_first_to_blank(i)}of#{max_variation["frameN"]}: '#{if_first_to_blank(i)}';\n"
       i += 1
@@ -23,7 +23,7 @@ end
 if File.exists?("./devStuff/src/config/_variationConfig2.scss")
   i = 1
   add_configs = "\n"
-  variations["_1001_frameN"].each do |old_class, class_variations|
+  variations["_1000_frameOuter"].each do |old_class, class_variations|
     class_variations.each do |class_variation|
       if class_variation.include?("1of2")
         add_configs << "$variation#{if_first_to_blank(i)}of#{max_variation["frameN"]}: '#{if_first_to_blank(i + 1)}';\n"
@@ -48,7 +48,7 @@ end
 if File.exists?("./devStuff/src/config/_variationConfig3.scss")
   i = 1
   add_configs = "\n"
-  variations["_1001_frameN"].each do |old_class, class_variations|
+  variations["_1000_frameOuter"].each do |old_class, class_variations|
     class_variations.each do |class_variation|
       if class_variation.include?("1of3")
         add_configs << "$variation#{if_first_to_blank(i)}of#{max_variation["frameN"]}: '#{if_first_to_blank(i + 1)}';\n"

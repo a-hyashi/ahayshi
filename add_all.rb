@@ -1,7 +1,8 @@
 PARTS = <<-PARTS
-@import '1001_frameN';
-@import '1002_frame2colD';
-@import '1003_frame3colD';
+@import '1000_frameOuter';
+@import '1001_mediaCols';
+@import '1002_frame2col';
+@import '1003_frame3col';
 @import '1004_frame4col';
 @import '1005_frame5col';
 @import '1006_frame6col';
