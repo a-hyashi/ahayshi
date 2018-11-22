@@ -85,6 +85,7 @@
 |05.メディア|main|039_メディアブロック|.t0-b-media|3|3%||10px|
 |05.メディア|main|039_メディアブロック|.t0-b-media|4|3%||10px|
 |05.メディア|main|039_メディアブロック|.t0-b-media|5|3%||10px|
+|05.メディア|main|039_メディアブロック|.t0-b-media|6|3%||10px|
 |05.メディア|main|画像のみ（t0-b-mediaOnly|.t0-b-mediaOnly||4%||15px|
 |05.メディア|side|134_サイド自由HTML|.t0-b-sideFreeHtml||4%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia||5%||15px|
