@@ -93,6 +93,7 @@
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|3|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|4|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|5|5%||15px|
+|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|6|5%||15px|
 |05.メディア|side|145_サイドボックス片側画像ブロック|.t0-b-sideBoxMediaBox||5%||15px|
 |05.メディア|side|146_サイドボックス自由HTML|.t0-b-sideBoxFreeHtml||4%||15px|
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia|#{$variation1of3}|0||0px|
