@@ -85,6 +85,7 @@
 |05.メディア|main|039_メディアブロック|.t0-b-media|3|3%||10px|
 |05.メディア|main|039_メディアブロック|.t0-b-media|4|3%||10px|
 |05.メディア|main|039_メディアブロック|.t0-b-media|5|3%||10px|
+|05.メディア|main|039_メディアブロック|.t0-b-media|6|3%||10px|
 |05.メディア|main|画像のみ（t0-b-mediaOnly|.t0-b-mediaOnly||4%||15px|
 |05.メディア|side|134_サイド自由HTML|.t0-b-sideFreeHtml||4%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia||5%||15px|
@@ -92,6 +93,7 @@
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|3|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|4|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|5|5%||15px|
+|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|6|5%||15px|
 |05.メディア|side|145_サイドボックス片側画像ブロック|.t0-b-sideBoxMediaBox||5%||15px|
 |05.メディア|side|146_サイドボックス自由HTML|.t0-b-sideBoxFreeHtml||4%||15px|
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia|#{$variation1of3}|0||0px|
