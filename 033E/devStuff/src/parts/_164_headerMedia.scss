@@ -192,7 +192,10 @@
 @if $device == SP {
 
   // Youtubeのレスポンシブ対応
-  [class^=t0-b-headerMedia] {
+  .t0-b-headerMedia#{$variation1of2},
+  .t0-b-headerMedia#{$variation2of2},
+  .t0-b-headerMedia3,
+  .t0-b-headerMedia4 {
     > div > div {
       max-height: 240px;
       iframe,
@@ -230,8 +233,15 @@
         margin: 0 20px 0 10px;
         padding: 0 0 0 10px;
         overflow: auto;
-        max-height: 200px;
         width: auto;
+        max-height: 240px;
+        // Youtubeのレスポンシブ対応
+        iframe,
+        object,
+        embed {
+          max-height: 240px;
+          max-width: 100%;
+        }
         > * {
           overflow: auto;
           max-width: 100% !important;
