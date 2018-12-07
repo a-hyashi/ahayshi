@@ -151,6 +151,35 @@ def variation_name(group_name, i)
   group_name == "frameOuter" ? "#{group_name}\#\{$variation#{i}of#{@max_variation[group_name]}\}" : "#{group_name}#{if_first_to_blank(i)}"
 end
 
+def gsub_box(scss)
+  box = scss.match(/\n\s*&__box\s{[\s\S]*?\n\s{4}\}/).to_s
+  return scss unless box
+  changed_box = box.gsub(/\n\s{2}/, "\n")
+  changed_box.gsub!(/\n\s*&__box\s\{/, "")
+  changed_box.gsub!(/\n\s{2}\}/, "")
+  changed_box.split("\n")
+  scss.gsub(box, changed_box)
+end
+
+def gsub_caption(scss)
+  caption_upper = scss.match(/\n\s*&__hd-caption-upper\s{[\s\S]*?\n\s{4}\}/).to_s
+  caption_lower = scss.match(/\n\s*&__hd-caption-lower\s{[\s\S]*?\n\s{4}\}/).to_s
+  return scss unless (caption_upper && caption_lower)
+  changed_caption_upper = caption_upper.gsub("\n", "\n  ")
+  changed_caption_upper.gsub!("&__hd", "&")
+  changed_caption_lower = caption_lower.gsub("\n", "\n  ")
+  changed_caption_lower.gsub!("&__hd", "&")
+  caption = scss.match(/\n\s*&__hd\s{[\s\S]*?\n\s{4}\}/).to_s
+  changed_caption = caption.gsub(/\n\s{4}\}/, "#{changed_caption_upper}\n    }")
+  changed_caption = changed_caption.gsub(/\n\s{4}\}/, "#{changed_caption_lower}\n    }")
+  scss.gsub(caption, changed_caption)
+end
+
+def gsub(scss)
+  gsub_box(scss)
+  gsub_caption(scss)
+end
+
 groups.each do |group, classes|
   group_name = group.split("_").last
   i = 1
@@ -164,9 +193,11 @@ groups.each do |group, classes|
     variations.each do |variation|
       pc_cls_variation_scss = scraping_sass(cls, variation, from_pc_scss)
       pc_cls_variation_scss.gsub!("#{cls}#{variation}", variation_name(group_name, i))
+      pc_cls_variation_scss = gsub(pc_cls_variation_scss)
       to_pc_scss << add_pc_header_and_footer(pc_cls_variation_scss)
       sp_cls_variation_scss = scraping_sass(cls, variation, from_sp_scss)
       sp_cls_variation_scss.gsub!("#{cls}#{variation}", variation_name(group_name, i))
+      sp_cls_variation_scss = gsub(sp_cls_variation_scss)
       to_sp_scss << add_sp_header_and_footer(sp_cls_variation_scss)
 
       i += 1
