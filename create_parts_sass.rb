@@ -175,9 +175,21 @@ def gsub_caption(scss)
   scss.gsub(caption, changed_caption)
 end
 
+def gsub_if_match(scss, cls)
+  return scss unless scss.match(cls)
+  scss.gsub(cls, "")
+end
+
 def gsub(scss)
   gsub_box(scss)
   gsub_caption(scss)
+  gsub_if_match(scss, /\n\s*&__numIcon.*?\s{[\s\S]*?\n\s{4}\}/)
+  gsub_if_match(scss, /\n\s*&__icon.*?\s{[\s\S]*?\n\s{4}\}/)
+  gsub_if_match(scss, /\n\s*&__textColWithH.*?\s{[\s\S]*?\n\s{4}\}/)
+  gsub_if_match(scss, /\n\s*&__twoColsMedia.*?\s{[\s\S]*?\n\s{4}\}/)
+  gsub_if_match(scss, /\n\s*&__arrow.*?\s{[\s\S]*?\n\s{4}\}/)
+  gsub_if_match(scss, /\n\s*&__col.*?\s{[\s\S]*?\n\s{4}\}/)
+  gsub_if_match(scss, /\n\s*&__row.*?\s{[\s\S]*?\n\s{4}\}/)
 end
 
 groups.each do |group, classes|
