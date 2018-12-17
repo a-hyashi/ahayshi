@@ -119,24 +119,6 @@
         text-indent: -18px;
         @include g-font(14, 1);
         display: inline;
-
-        > span {
-          width: 18px;
-          height: 1px;
-          display: inline-block;
-          vertical-align: middle;
-
-          input {
-            display: block;
-            position: relative;
-            top: -0.6em;
-          }
-        }
-
-        > label {
-          display: inline;
-          vertical-align: middle;
-        }
       }
 
       li#{$_block}__listBreak {
@@ -152,6 +134,54 @@
             display: list-item;
             padding: 5px 10px 0 18px;
           }
+        }
+      }
+    }
+
+    &__radioList {
+      input {
+        display: inline;
+        position: relative;
+        top: -1px;
+      }
+
+      // Firefox対応(ラジオボタンとlabelの位置調整のため)
+      @-moz-document url-prefix() {
+        input, label {
+          vertical-align: middle;
+        }
+      }
+
+      // IE対応(ラジオボタンとlabelの位置調整のため)
+      @media all and (-ms-high-contrast: none) {
+        input, label {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &__checkboxList {
+      input {
+        display: inline;
+        vertical-align: middle;
+      }
+
+       label {
+        display: inline;
+        vertical-align: text-top;
+      }
+
+      // Firefox対応(checkboxとlabelの位置調整のため)
+      @-moz-document url-prefix() {
+        label {
+          vertical-align: middle;
+        }
+      }
+
+      // IE対応(checkboxとlabelの位置調整のため)
+      @media all and (-ms-high-contrast: none) {
+        label {
+          vertical-align: middle;
         }
       }
     }
@@ -411,24 +441,6 @@
         text-indent: -18px;
         @include g-font(14, 1);
         display: inline;
-
-        > span {
-          width: 18px;
-          height: 1px;
-          display: inline-block;
-          vertical-align: middle;
-
-          input {
-            display: block;
-            position: relative;
-            top: -0.6em;
-          }
-        }
-
-        > label {
-          display: inline;
-          vertical-align: middle;
-        }
       }
 
       li#{$_block}__listBreak {
@@ -440,11 +452,58 @@
       &--align-vertical {
         ul {
           padding: 0;
-
           li {
             display: list-item;
             padding: 5px 10px 0 18px;
           }
+        }
+      }
+    }
+
+    &__radioList {
+      input {
+        display: inline;
+        position: relative;
+        top: -1px;
+      }
+
+      // Firefox対応(ラジオボタンとlabelの位置調整のため)
+      @-moz-document url-prefix() {
+        input, label {
+          vertical-align: middle;
+        }
+      }
+
+      // IE対応(ラジオボタンとlabelの位置調整のため)
+      @media all and (-ms-high-contrast: none) {
+        input, label {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &__checkboxList {
+      input {
+        display: inline;
+        vertical-align: middle;
+      }
+
+       label {
+        display: inline;
+        vertical-align: text-top;
+      }
+
+      // Firefox対応(checkboxとlabelの位置調整のため)
+      @-moz-document url-prefix() {
+        label {
+          vertical-align: middle;
+        }
+      }
+
+      // IE対応(checkboxとlabelの位置調整のため)
+      @media all and (-ms-high-contrast: none) {
+        label {
+          vertical-align: middle;
         }
       }
     }
@@ -707,24 +766,6 @@
         text-indent: -18px;
         @include g-font(14, 1);
         display: inline;
-
-        > span {
-          width: 18px;
-          height: 1px;
-          display: inline-block;
-          vertical-align: middle;
-
-          input {
-            display: block;
-            position: relative;
-            top: -0.6em;
-          }
-        }
-
-        > label {
-          display: inline;
-          vertical-align: middle;
-        }
       }
 
       li#{$_block}__listBreak {
@@ -734,10 +775,60 @@
       }
 
       &--align-vertical {
-        padding: 0;
-        li {
-          display: list-item;
-          padding: 5px 10px 0 18px;
+        ul {
+          padding: 0;
+          li {
+            display: list-item;
+            padding: 5px 10px 0 18px;
+          }
+        }
+      }
+    }
+
+    &__radioList {
+      input {
+        display: inline;
+        position: relative;
+        top: -1px;
+      }
+
+      // Firefox対応(ラジオボタンとlabelの位置調整のため)
+      @-moz-document url-prefix() {
+        input, label {
+          vertical-align: middle;
+        }
+      }
+
+      // IE対応(ラジオボタンとlabelの位置調整のため)
+      @media all and (-ms-high-contrast: none) {
+        input, label {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &__checkboxList {
+      input {
+        display: inline;
+        vertical-align: middle;
+      }
+
+       label {
+        display: inline;
+        vertical-align: text-top;
+      }
+
+      // Firefox対応(checkboxとlabelの位置調整のため)
+      @-moz-document url-prefix() {
+        label {
+          vertical-align: middle;
+        }
+      }
+
+      // IE対応(checkboxとlabelの位置調整のため)
+      @media all and (-ms-high-contrast: none) {
+        label {
+          vertical-align: middle;
         }
       }
     }
@@ -1034,8 +1125,9 @@
         }
 
         > label {
+          display: inline;
           position: relative;
-          top: 3px;
+          top: 2px;
         }
       }
 
@@ -1336,6 +1428,8 @@
 
         > label {
           display: inline;
+          position: relative;
+          top: 2px;
         }
       }
 
@@ -1635,6 +1729,8 @@
 
         > label {
           display: inline;
+          position: relative;
+          top: 2px;
         }
       }
 
