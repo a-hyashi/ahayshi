@@ -1,0 +1,210 @@
+@if $device == SP {
+  .mod-sp {
+    $shadow-color: rgba(0, 0, 0, .1);
+
+    &-accordion {
+      height: 35px;
+      width: 38px;
+
+      ul,
+      li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      &-h {
+        $bg-color: #fff;
+        $border-color: #a0a0a0;
+        $text-color: #555;
+        background-color: $bg-color;
+        border: 2px solid $border-color;
+        border-radius: 1px;
+        cursor: pointer;
+        display: block;
+        height: 35px;
+        margin-top: -3px;
+        position: relative;
+        width: 38px;
+        z-index: 2;
+
+        &::before {
+          background-image: url("../../common/img/sp/menu.png");
+          background-position: center 4px;
+          background-repeat: no-repeat;
+          background-size: 20px 15px;
+          box-sizing: border-box;
+          content: "";
+          display: inline-block;
+          height: 34px;
+          width: 37px;
+        }
+
+        p {
+          color: $text-color;
+          display: block;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: bold;
+          line-height: 1.6;
+          margin: -20px 0 0;
+          text-align: center;
+        }
+      }
+
+      &-item {
+        $bg-color: #ddd;
+        $border-color: #ccc;
+        background-color: $bg-color;
+        border: 1px solid $border-color;
+        box-shadow: 0 1px 3px $shadow-color;
+        box-sizing: border-box;
+        display: table;
+        height: 100%;
+        margin-top: -1px;
+        width: 100%;
+      }
+
+      .mod-side-menu-item {
+        $bg-color: #ddd;
+        $border-color: #ccc;
+        $text-color: #333;
+
+        a {
+          background-color: $bg-color;
+          background-size: 21px 21px;
+          border-left: 1px solid $border-color;
+          color: $text-color;
+          display: table-cell;
+          font-size: 13px;
+          font-weight: bold;
+          line-height: 1.6;
+          padding: 10px 45px 10px 10px;
+          text-align: left;
+          text-decoration: underline;
+          vertical-align: middle;
+        }
+
+        &-not-link {
+          background-color: $bg-color;
+          border-left: 1px solid $border-color;
+          color: $text-color;
+          display: table-cell;
+          font-size: 13px;
+          font-weight: bold;
+          line-height: 1.6;
+          padding: 10px 45px 10px 10px;
+          text-align: left;
+          vertical-align: middle;
+        }
+
+        &.mod-sp-space {
+          padding-left: 40px;
+        }
+      }
+
+      .mod-side-menu,
+      .mod-side-menu2 {
+        display: none;
+        left: 0;
+        overflow: auto;
+        position: absolute;
+        top: 40px;
+        width: 100%;
+        z-index: 20;
+      }
+    }
+
+    &-head-bar {
+      $bg-color:  rgba(255, 255, 255, .9);
+      $text-color: #ccc;
+
+      background-color: $bg-color;
+      border-bottom: 1px solid $text-color;
+      box-shadow: 0 1px 3px $shadow-color;
+      box-sizing: border-box;
+      height: 42px;
+      left: 0;
+      margin: 0;
+      padding: 1px 4px 2px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 20;
+
+      &-inner {
+        display: table;
+        width: 100%;
+
+        .mod-sp-head-bar-menu {
+          display: table-cell;
+          max-width: 39px;
+          vertical-align: middle;
+          width: 39px;
+        }
+
+        .mod-sp-head-bar-name {
+          display: table-cell;
+          padding: 0 5px;
+          text-align: center;
+          vertical-align: middle;
+        }
+
+        .mod-sp-head-bar-tel {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      &-head-bar-tel {
+        display: table-cell;
+        height: 39px;
+        max-width: 39px;
+        vertical-align: middle;
+        width: 39px;
+
+        p {
+          $bg-color: #fff;
+          $border-color: #a0a0a0;
+
+          background-color: $bg-color;
+          border: 2px solid $border-color;
+          border-radius: 1px;
+          box-sizing: border-box;
+          height: 39px;
+          margin: 0;
+          width: 39px;
+
+          a {
+            background-image: url("../../common/img/sp/tel.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 22px 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: block;
+            height: 35px;
+            text-decoration: none;
+            width: 35px;
+          }
+        }
+      }
+
+      &-name {
+        p {
+          font-size: 16px;
+          font-weight: bold;
+          text-align: center;
+
+          > span {
+            align-items: center;
+            display: flex;
+            height: 39px;
+            justify-content: center;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
