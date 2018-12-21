@@ -120,7 +120,7 @@ $(function(){
   // var menu_tag = getMainMenuAccordion();
   // replaceTopicPath();
   // createHead(site_name_tag, tel_tag, menu_tag);
-  createGnavAccordion();
+  // createGnavAccordion();
   createSideMenuAccordion();
   rearrangeMod2col();
 
