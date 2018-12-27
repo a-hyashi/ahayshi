@@ -47,16 +47,15 @@ gulp.task('sass-build', function() {
   return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-        .pipe(sass({outputStyle: 'compressed'}))
-        .pipe(debug())
-        .pipe(autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
-        .pipe(gulp.dest('devStuff/css'));
+      .pipe(sass({outputStyle: 'compressed'}))
+      .pipe(debug())
+      .pipe(autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
+      .pipe(gulp.dest('devStuff/css'));
     })
   );
 });
 
 // sass lint
-
 gulp.task('sass-lint', function() {
   return gulp.src(['devStuff/src/parts/*.s[ac]ss'])
   .pipe(sassLint({
@@ -68,7 +67,6 @@ gulp.task('sass-lint', function() {
 
 
 // styleguide
-
 gulp.task('aigis', function() {
   if (!fs.existsSync('./devStuff/css')){
     fs.mkdirSync('./devStuff/css');
@@ -78,7 +76,6 @@ gulp.task('aigis', function() {
 });
 
 // webserver
-
 gulp.task('server', function() {
   return browserSync({
     server: {
@@ -92,13 +89,10 @@ gulp.task('server', function() {
   });
 });
 
-
 // build tasks
-
 gulp.task('create-build',function() {
   var theme = get_theme_name();
   var values = get_deploy_values();
-
   output_imgs(theme);
   output_css(theme, values);
 })
@@ -129,10 +123,10 @@ function create_deploy_hush(aVlues) {
 
 function output_imgs(aTheme) {
   gulp.src('devStuff/src/imgs/**/*.+(jpg|jpeg|png|gif|svg)')
-    .pipe(size())
-    .pipe(imagemin())
-    .pipe(size())
-    .pipe(gulp.dest('../../ACRE-theme/acre/theme_materials/' + aTheme + '/imgs/'));
+  .pipe(size())
+  .pipe(imagemin())
+  .pipe(size())
+  .pipe(gulp.dest('../../ACRE-theme/acre/theme_materials/' + aTheme + '/imgs/'));
 }
 
 function output_css(aTheme, aValues) {
@@ -141,7 +135,6 @@ function output_css(aTheme, aValues) {
     if(value.variation){
       folder += '-' + value.variation;
     }
-
     output_rename_pc_css(value, folder);
     output_rename_sp_css(value, folder);
   }
@@ -149,14 +142,14 @@ function output_css(aTheme, aValues) {
 
 function output_rename_pc_css(value, folder) {
   gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
-    .pipe(rename('theme.css'))
-    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/pc/'));
+  .pipe(rename('theme.css'))
+  .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/pc/'));
 }
 
 function output_rename_sp_css(value, folder) {
   gulp.src('devStuff/css/sp' + value.variation + '.css')
-    .pipe(rename('theme.css'))
-    .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
+  .pipe(rename('theme.css'))
+  .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
 }
 
 gulp.task('update-sassdoc', function(){
@@ -175,13 +168,11 @@ gulp.task('update-sassdoc', function(){
     },
     basePath: 'https://github.com/SassDoc/sassdoc',
   };
-
   return gulp.src('devStuff/src/**/*.scss')
-    .pipe(sassdoc(options));
+  .pipe(sassdoc(options));
 });
 
 // gulp create-b-placer-doc
-
 gulp.task('create-b-placer-doc', function() {
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
@@ -309,7 +300,6 @@ function output_b_placer_doc(b_placers) {
     table.push(b_placer.to_td_line());
   });
   fs.writeFileSync('devStuff/docs/bPlacer.md', (table.join('\n')));
-
 }
 
 gulp.task('delete-datajson', function() {
@@ -349,9 +339,10 @@ gulp.task('make-aigis', ['delete-unittest'], function() {
 });
 
 gulp.task('update-css', function() {
-  return runSequence(
-    ['sass', 'create-b-placer-doc']
-  );
+  return runSequence([
+    'sass',
+    'create-b-placer-doc'
+  ]);
 });
 
 gulp.task('update-parts', function() {
@@ -364,8 +355,14 @@ gulp.task('update-parts', function() {
 });
 
 gulp.task('build', function() {
+  return runSequence([
+    'sass-build',
+    'create-b-placer-doc'
+  ]);
+});
+
+gulp.task('output', function() {
   return runSequence(
-    ['sass-build', 'create-b-placer-doc'],
     'create-build'
   );
 });
