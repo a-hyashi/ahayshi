@@ -126,7 +126,7 @@ function output_imgs(aTheme) {
   .pipe(size())
   .pipe(imagemin())
   .pipe(size())
-  .pipe(gulp.dest('../../ACRE-theme/acre/theme_materials/' + aTheme + '/imgs/'));
+  .pipe(gulp.dest('build/theme_materials/' + aTheme + '/imgs/'));
 }
 
 function output_css(aTheme, aValues) {
@@ -143,13 +143,13 @@ function output_css(aTheme, aValues) {
 function output_rename_pc_css(value, folder) {
   gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
   .pipe(rename('theme.css'))
-  .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/pc/'));
+  .pipe(gulp.dest('build/themes/' + folder + '/pc/'));
 }
 
 function output_rename_sp_css(value, folder) {
   gulp.src('devStuff/css/sp' + value.variation + '.css')
   .pipe(rename('theme.css'))
-  .pipe(gulp.dest('../../ACRE-theme/acre/themes/' + folder + '/sp/'));
+  .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
 }
 
 gulp.task('update-sassdoc', function(){
@@ -355,10 +355,10 @@ gulp.task('update-parts', function() {
 });
 
 gulp.task('build', function() {
-  return runSequence([
-    'sass-build',
-    'create-b-placer-doc'
-  ]);
+  return runSequence(
+    ['sass-build', 'create-b-placer-doc'],
+    'create-build'
+  );
 });
 
 gulp.task('output', function() {
@@ -367,21 +367,30 @@ gulp.task('output', function() {
   );
 });
 
+// themesとtheme_materialsをACRE-Themeにコピー
+gulp.task('output', function() {
+  return gulp.src([
+    'build/themes/**/*',
+    'build/theme_materials/**/*'
+  ], {
+    // ディレクトリ構造を維持させる
+    base: 'build'
+  })
+  .pipe(gulp.dest('../../ACRE-theme/acre/'));
+});
+
 gulp.task('default', ['update-css'], function() {
   // ファイルが多いため部品のwatchはギブアップする
-
   gulp.watch(
     ['devStuff/src/**/*.s[ac]ss'],
     function() { runSequence('update-css') }
   );
-
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
   gulp.watch(
     ['devStuff/styleguide/css/*.css'],
     function() { browserSync.reload() }
   );
-
   return runSequence(
     'server'
   );
