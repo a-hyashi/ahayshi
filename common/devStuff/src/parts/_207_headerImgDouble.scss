@@ -1,44 +1,57 @@
-/*
----
-name: 207_ヘッダー画像×横２
-tag:
-  - header
-category:
-  - 全部品
-  - 05.メディア
-  - 05.メディア/207_ヘッダー画像×横２
----
-
-部品は取り下げており更新画面から追加できない。
-
-すでにサイトに挿入済みの部品、もしくはE-R→E-Gマイグレーションツールによって追加された部品に対応するためスタイルを書く。
-
-### 基本形
-
-```html
-<div class="t0-b-headerImgDouble-bPlacer">
-  <div class="t0-b-headerImgDouble">
-    <div class="t0-b-headerImgDouble__bd">
-      <p class="mod-image8">
-        <a href="#" target="">
-          <img src="https://placehold.jp/600x120.png">
-        </a>
-      </p>
-        <p class="mod-image9">
-          <a href="#" target="">
-            <img src="https://placehold.it/380x120/e67928/fff.png">
-          </a>
-        </p>
-    </div>
-  <!-- /t0-b-headerImgDouble --></div>
-</div>
-```
-*/
-
 @if $device == PC {
+
+  .t0-b-headerImgDouble {
+
+    &__bd {
+      width: 1060px;
+      margin: 0 auto;
+      display: table;
+      p {
+        width: 38.8%;
+        display: table-cell;
+        vertical-align: bottom;
+        img {
+          width: 100%;
+        }
+        &:first-child {
+          width: 61.2%;
+        }
+      }
+      a {
+        > img {
+          &:hover {
+            opacity: .8;
+          }
+        }
+      }
+    }
+  }
 
 }
 
+
 @if $device == SP {
+
+  .t0-b-headerImgDouble {
+
+    &__bd {
+      p {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .t0-b-headerImgDouble {
+
+    &__bd {
+      p {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 
 }
