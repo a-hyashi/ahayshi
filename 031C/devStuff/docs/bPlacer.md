@@ -339,8 +339,12 @@
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||20px|
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|2|0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|3|0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|4|0||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop||4%||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop|2|4%||20px|
+|12.その他|main|025_トップへ戻る|.t0-b-goToTop|3|4%||20px|
 |12.その他|main|044_区切り線|.t0-b-line||4%||25px|
 |12.その他|main|047_料金表|.t0-b-priceTable|#{$variation1of2}|4%||15px|
 |12.その他|main|047_料金表|.t0-b-priceTable|#{$variation2of2}|4%||15px|
