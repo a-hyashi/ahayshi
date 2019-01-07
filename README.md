@@ -69,6 +69,9 @@ buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォ
 以下のリポジトリをローカルにクローンし、buddy-themeと同じフォルダ内に配置してください。
 - https://github.com/wmssystem/ACRE-theme
 
+buddy-themeフォルダ内にsshフォルダを新規作成してください。
+devwork_rsaとssh_config.jsonをダウンロードし、buddy-theme/sshに配置してください。
+
 #### テスト対象のブランチに変更
 ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
 
@@ -157,6 +160,13 @@ $ ./build.sh
 $ ./lint.sh （テーマ名）
 ```
 **partsディレクトリ配下しかチェックしないので注意**
+
+<br>
+
+### CSSを開発環境にアップロード
+```sh
+$ docker-compose run base gulp upload ; docker-compose run base gulp upload-2 ; docker-compose run base gulp upload-3
+```
 
 <br>
 
