@@ -34,6 +34,9 @@ buddy-theme
 │   ├── buddy-parts-testcases.json
 │   ├── function-design.json
 │   └── parts-categories.json
+├── ssh
+│   ├── devwork_rsa
+│   └── sshconfig.json
 ├── copy.sh
 ├── Dockerfile
 ├── _docker-compose.yml
@@ -69,7 +72,7 @@ buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォ
 以下のリポジトリをローカルにクローンし、buddy-themeと同じフォルダ内に配置してください。
 - https://github.com/wmssystem/ACRE-theme
 
-devwork_rsaとssh_config.jsonをダウンロードし、sshフォルダ内に配置してください。
+Googleドライブからdevwork_rsaとssh_config.jsonをダウンロードし、sshフォルダ内に配置してください。
 
 <br>
 
