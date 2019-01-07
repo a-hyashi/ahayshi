@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const aigis = require('gulp-aigis');
 const sass = require('gulp-sass');
 const runSequence = require('run-sequence');
+const sftp = require('gulp-sftp');
 const size = require('gulp-size');
 const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
@@ -17,6 +18,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const debug = require('gulp-debug');
 const merge = require('event-stream').merge;
 const make_html = require('./lib/make_html');
+const ssh_config = require('../ssh/ssh_config.json');
 const make_datajson = require('./lib/make_datajson');
 const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
@@ -64,7 +66,6 @@ gulp.task('sass-lint', function() {
   .pipe(sassLint.format())
   .pipe(sassLint.failOnError());
 });
-
 
 // styleguide
 gulp.task('aigis', function() {
@@ -174,12 +175,14 @@ gulp.task('update-sassdoc', function(){
 
 // gulp create-b-placer-doc
 gulp.task('create-b-placer-doc', function() {
+
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
   var b_placer_base = new BPlacerRecord();
   var b_placers = [];
   var is_sp = false;
   b_placer_lines().forEach(function(line) {
+
     // $device =='SP' 以降はSPの余白として設定する
     sp_match = line.match(/\$device\s*==\s*\'SP\'/);
     if(sp_match) is_sp = true;
@@ -244,7 +247,6 @@ class BPlacerRecord {
     this.pc_n00_value = pc_n00_value;
     this.sp_value = sp_value;
   }
-
   to_td_line() {
     return to_td_line([
       this.category,
@@ -366,6 +368,48 @@ gulp.task('output', function() {
     'create-build'
   );
 });
+
+// sftp upload
+// FTPサーバーにテーマフォルダのtheme.cssをアップロードする
+// 全部まとめてやると多すぎてエラーになるのでテーマの値違いで分割してある
+gulp.task('upload', function () {
+  upload_themes('');
+})
+// テーマの2番をアップロード
+gulp.task('upload-2', function () {
+  upload_themes('-2');
+})
+// テーマの3番をアップロード
+gulp.task('upload-3', function () {
+  upload_themes('-3');
+})
+
+function upload_themes(variation) {
+  var theme = get_theme_name();
+  for(var ratio of ["L25", "L30", "N00", "R25", "R30"]) {
+    for(var device of ["pc", "sp"]) {
+      // variationでテーマの2番と3番に対応
+      sftp_each_themes(theme + '-' + ratio + variation + '/' + device + '/');
+    }
+  }
+};
+
+// sftpでファイルがアップロードされる
+function sftp_each_themes(folder) {
+  return gulp.src([
+    'build/themes/' + folder + '/theme.css'
+  ])
+  .pipe(sftp({
+    // 内容はssh_config.jsonに記載
+    host: ssh_config.host_name,
+    user: ssh_config.user_name,
+    key:{
+      location: ssh_config.key_location,
+      passphrase: ssh_config.password
+    },
+    remotePath: ('/mnt/efs/master/acre/themes/' + folder + '/')
+  }));
+}
 
 // themesとtheme_materialsをACRE-Themeにコピー
 gulp.task('output', function() {
