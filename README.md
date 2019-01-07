@@ -69,8 +69,7 @@ buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォ
 以下のリポジトリをローカルにクローンし、buddy-themeと同じフォルダ内に配置してください。
 - https://github.com/wmssystem/ACRE-theme
 
-buddy-themeフォルダ内にsshフォルダを新規作成してください。
-devwork_rsaとssh_config.jsonをダウンロードし、buddy-theme/sshに配置してください。
+devwork_rsaとssh_config.jsonをダウンロードし、sshフォルダ内に配置してください。
 
 #### テスト対象のブランチに変更
 ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
