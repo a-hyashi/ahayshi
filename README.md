@@ -71,6 +71,8 @@ buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォ
 
 devwork_rsaとssh_config.jsonをダウンロードし、sshフォルダ内に配置してください。
 
+<br>
+
 #### テスト対象のブランチに変更
 ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
 
@@ -164,7 +166,14 @@ $ ./lint.sh （テーマ名）
 
 ### CSSを開発環境にアップロード
 ```sh
-$ docker-compose run base gulp upload ; docker-compose run base gulp upload-2 ; docker-compose run base gulp upload-3
+$ ./upload.sh (テーマ名)
+```
+
+<br>
+
+#### /buildの中身をACRE-themeにコピー
+```bash
+$ docker-compose run base gulp output
 ```
 
 <br>
