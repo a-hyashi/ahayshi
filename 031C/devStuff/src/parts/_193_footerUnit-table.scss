@@ -93,7 +93,8 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
@@ -101,6 +102,8 @@
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
         p,
         ul,
         ol {
@@ -129,11 +132,11 @@
         }
       }
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -233,7 +236,8 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
@@ -241,6 +245,8 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
         p,
         ul,
         ol {
@@ -269,11 +275,11 @@
         }
       }
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
