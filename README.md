@@ -175,8 +175,8 @@ $ ./upload.sh (テーマ名)
 <br>
 
 #### /buildの中身をACRE-themeにコピー
-```bash
-$ docker-compose run base gulp output
+```sh
+$ ./output.sh (テーマ名)
 ```
 
 <br>
