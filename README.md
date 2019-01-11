@@ -34,6 +34,9 @@ buddy-theme
 │   ├── buddy-parts-testcases.json
 │   ├── function-design.json
 │   └── parts-categories.json
+├── ssh
+│   ├── devwork_rsa
+│   └── sshconfig.json
 ├── copy.sh
 ├── Dockerfile
 ├── _docker-compose.yml
@@ -68,6 +71,10 @@ buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォ
 #### 関連ファイルの配置
 以下のリポジトリをローカルにクローンし、buddy-themeと同じフォルダ内に配置してください。
 - https://github.com/wmssystem/ACRE-theme
+
+Googleドライブからdevwork_rsaとssh_config.jsonをダウンロードし、sshフォルダ内に配置してください。
+
+<br>
 
 #### テスト対象のブランチに変更
 ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
@@ -157,6 +164,20 @@ $ ./build.sh
 $ ./lint.sh （テーマ名）
 ```
 **partsディレクトリ配下しかチェックしないので注意**
+
+<br>
+
+### CSSを開発環境にアップロード
+```sh
+$ ./upload.sh (テーマ名)
+```
+
+<br>
+
+#### /buildの中身をACRE-themeにコピー
+```sh
+$ ./output.sh (テーマ名)
+```
 
 <br>
 
