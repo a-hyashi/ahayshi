@@ -119,6 +119,7 @@
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList||6%||20px|
 |04.表|main|030_表|.t0-b-table|#{$variation1of2}|4%||15px|
 |04.表|main|030_表|.t0-b-table|#{$variation2of2}|4%||15px|
+|04.表|main|030_表|.t0-b-table|3|4%||15px|
 |04.表|side|143_サイドボックス表|.t0-b-sideBoxTable||4%||15px|
 |04.表|footer|193_フッター表|.t0-b-footerUnit-table||4%||15px|
 |04.表|header|210_ヘッダー表|.t0-b-headerUnit-table||2%||15px|
@@ -246,8 +247,12 @@
 |06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|10|2%||15px|
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav||3%||15px|
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav|2|3%||15px|
+|06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav|3|3%||15px|
+|06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav|4|3%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|#{$variation1of2}|4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|#{$variation2of2}|4%||15px|
+|06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|3|4%||15px|
+|06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|4|4%||15px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation1of2}|6%||30px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation2of2}|6%||30px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation1of2}|8%||25px|
@@ -335,7 +340,12 @@
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||20px|
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|2|0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|3|0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|4|0||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop||4%||20px|
+|12.その他|main|025_トップへ戻る|.t0-b-goToTop|2|4%||20px|
+|12.その他|main|025_トップへ戻る|.t0-b-goToTop|3|4%||20px|
 |12.その他|main|044_区切り線|.t0-b-line||4%||25px|
 |12.その他|main|047_料金表|.t0-b-priceTable|#{$variation1of2}|4%||15px|
 |12.その他|main|047_料金表|.t0-b-priceTable|#{$variation2of2}|4%||15px|
