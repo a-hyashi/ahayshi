@@ -94,7 +94,7 @@
       width: 100%;
       margin-top: $_blockSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
+      border: transparent solid 1px;
       th,
       td {
         @include g-font(14, 1);
@@ -255,7 +255,7 @@
       width: 100%;
       margin-top: $_blockSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
+      border: transparent solid 1px;
       th,
       td {
         @include g-font(14, 1);
@@ -415,12 +415,10 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
+      border: 1px solid $_color_table_border;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
@@ -445,6 +443,9 @@
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
+        &:last-child {
+          border-right: $_color_table_border;
+        }
       }
       td {
         color: $_color_table_td_text;
@@ -558,7 +559,7 @@
       width: 100%;
       margin-top: $_blockSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
+      border: transparent solid 1px;
       th,
       td {
         @include g-font(14, 1);
@@ -695,7 +696,7 @@
       width: 100%;
       margin-top: $_blockSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
+      border: transparent solid 1px;
       th,
       td {
         @include g-font(14, 1);
@@ -831,8 +832,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
+      border: 1px solid $_color_table_border;
       th,
       td {
         @include g-font(14, 1);
@@ -861,6 +861,9 @@
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
+        &:last-child {
+          border-right: $_color_table_border;
+        }
       }
       td {
         color: $_color_table_td_text;
@@ -872,7 +875,6 @@
       tr {
         border: 1px solid $_color_table_border;
         &:last-child {
-          border-right: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -880,6 +882,7 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
