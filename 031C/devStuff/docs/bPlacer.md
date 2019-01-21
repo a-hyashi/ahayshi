@@ -107,10 +107,10 @@
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation2of2}|2%||10px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation3of3and4}|2%||10px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation4of3and4}|2%||10px|
-|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|5|4%||20px|
-|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|6|4%||20px|
-|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|7|4%||20px|
-|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|8|4%||20px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|5|2%||10px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|6|2%||10px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|7|2%||10px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|8|2%||10px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList|#{$variation1of2}|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList|#{$variation2of2}|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|#{$variation1of2}|4%||20px|
