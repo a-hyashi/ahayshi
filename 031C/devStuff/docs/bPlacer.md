@@ -119,6 +119,7 @@
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList||6%||20px|
 |04.表|main|030_表|.t0-b-table|#{$variation1of2}|4%||15px|
 |04.表|main|030_表|.t0-b-table|#{$variation2of2}|4%||15px|
+|04.表|main|030_表|.t0-b-table|3|4%||15px|
 |04.表|side|143_サイドボックス表|.t0-b-sideBoxTable||4%||15px|
 |04.表|footer|193_フッター表|.t0-b-footerUnit-table||4%||15px|
 |04.表|header|210_ヘッダー表|.t0-b-headerUnit-table||2%||15px|
