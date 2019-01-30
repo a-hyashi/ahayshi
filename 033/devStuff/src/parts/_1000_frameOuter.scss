@@ -329,7 +329,8 @@
       position: relative;
       text-align: center;
 
-      > span {
+      &:after {
+        content: '';
         position: absolute;
         top: 28px;
         bottom: 28px;
@@ -341,6 +342,12 @@
       }
 
       $_block: &;
+
+      &-h,
+      &-caption-upper,
+      &-caption-lower {
+        z-index: 1;
+      }
 
       &-h {
         @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
