@@ -61,7 +61,7 @@ gulp.task('sass-build', function() {
 gulp.task('sass-lint', function() {
   return gulp.src(['devStuff/src/parts/*.s[ac]ss'])
   .pipe(sassLint({
-    configFile: '.scss-lint.yml'
+    configFile: '../.scss-lint.yml'
   }))
   .pipe(sassLint.format())
   .pipe(sassLint.failOnError());
