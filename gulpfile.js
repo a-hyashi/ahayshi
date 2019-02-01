@@ -358,7 +358,7 @@ gulp.task('update-parts', function() {
 
 gulp.task('build', function() {
   return runSequence(
-    ['sass-build', 'create-b-placer-doc'],
+    ['sass-lint', 'sass-build', 'create-b-placer-doc'],
     'create-build'
   );
 });
