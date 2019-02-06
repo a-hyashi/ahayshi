@@ -79,14 +79,15 @@ gulp.task('stylelint-fix', function() {
   return gulp.src('devStuff/src/parts/*.scss')
     .pipe(stylelint({
       fix: true,
-      reporters: [{formatter: 'string', console: true}]
+      failAfterError: false
     }))
     .pipe(gulp.dest('devStuff/src/parts'));
 });
 gulp.task('stylelint', function() {
   return gulp.src('devStuff/src/parts/*.scss')
     .pipe(stylelint({
-      reporters: [{formatter: 'string', console: true}]
+      failAfterError: false,
+      reporters: [{formatter: 'verbose', console: true}]
     }));
 });
 
