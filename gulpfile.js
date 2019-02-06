@@ -8,6 +8,7 @@ const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
 const gulpIf = require('gulp-if');
 const sassLint = require('gulp-sass-lint');
+const stylelint = require('gulp-stylelint');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync');
 const minimist = require('minimist');
@@ -65,6 +66,28 @@ gulp.task('sass-lint', function() {
   }))
   .pipe(sassLint.format())
   .pipe(sassLint.failOnError());
+});
+
+// styelint styling scss
+gulp.task('style', function() {
+  return runSequence(
+    'stylelint-fix',
+    'stylelint'
+  );
+});
+gulp.task('stylelint-fix', function() {
+  return gulp.src('devStuff/src/parts/*.scss')
+    .pipe(stylelint({
+      fix: true,
+      reporters: [{formatter: 'string', console: true}]
+    }))
+    .pipe(gulp.dest('devStuff/src/parts'));
+});
+gulp.task('stylelint', function() {
+  return gulp.src('devStuff/src/parts/*.scss')
+    .pipe(stylelint({
+      reporters: [{formatter: 'string', console: true}]
+    }));
 });
 
 // styleguide
