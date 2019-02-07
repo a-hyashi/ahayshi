@@ -163,11 +163,16 @@ $ ./build.sh
 
 <br>
 
-### sass-lintでコーディングスタイルのチェック
+### Stylelintで整形・コーディングスタイルのチェック
 ```sh
 $ ./lint.sh （テーマ名）
 ```
-**partsディレクトリ配下しかチェックしないので注意**
+自動整形できない部分はログに出るので手動で修正してください<br>
+**整形・チェックはpartsディレクトリ配下のscssファイルしか行わないので注意**
+
+エディタに拡張機能を入れておくとリアルタイムでエラーを確認できます(推奨)<br>
+- [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint) (VS code)
+- [Sublime​Linter-stylelint](https://packagecontrol.io/packages/SublimeLinter-stylelint) (Sublime Text)
 
 <br>
 
