@@ -46,9 +46,9 @@
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|3|6%||25px|
 |02.テキスト|main|031_キャッチコピー|.t0-b-catchText|#{$variation1of2}|4%||15px|
 |02.テキスト|main|031_キャッチコピー|.t0-b-catchText|#{$variation2of2}|4%||15px|
-|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText||5%||5px|
-|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText|2|5%||5px|
-|02.テキスト|side|138_サイドボックステキスト（強調）|.t0-b-sideBoxTextStrong||3%||15px|
+|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText||5%||15px|
+|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText|2|5%||15px|
+|02.テキスト|side|138_サイドボックステキスト（強調）|.t0-b-sideBoxTextStrong||3%||5px|
 |02.テキスト|header|166_ヘッダテキスト|.t0-b-headerText||4%||10px|
 |02.テキスト|header|178_ヘッダーテキストセット|.t0-b-headerUnit-text||2%||10px|
 |02.テキスト|footer|194_フッターテキストセット|.t0-b-footerUnit-text||4%||10px|
