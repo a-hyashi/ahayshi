@@ -94,7 +94,6 @@ $ ./init.sh （テーマ名）
 指定したテーマフォルダ内に以下のファイルが作成されていればOKです
 - gulpfile.js
 - lib/
-- .scss-lint.yml
 - /unittest/parts/フォルダ内に部品名.md
 
 <br>
