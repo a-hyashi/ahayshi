@@ -7,7 +7,6 @@ const size = require('gulp-size');
 const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
 const gulpIf = require('gulp-if');
-const sassLint = require('gulp-sass-lint');
 const stylelint = require('gulp-stylelint');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync');
@@ -58,23 +57,14 @@ gulp.task('sass-build', function() {
   );
 });
 
-// sass lint
-gulp.task('sass-lint', function() {
-  return gulp.src(['devStuff/src/parts/*.s[ac]ss'])
-  .pipe(sassLint({
-    configFile: '../.scss-lint.yml'
-  }))
-  .pipe(sassLint.format())
-  .pipe(sassLint.failOnError());
-});
-
-// styelint styling scss
-gulp.task('style', function() {
+// Stylelintで自動整形と構文チェック .stylelintrcのルール参照
+gulp.task('stylelint', function() {
   return runSequence(
     'stylelint-fix',
-    'stylelint'
+    'stylelint-check'
   );
 });
+
 gulp.task('stylelint-fix', function() {
   return gulp.src('devStuff/src/parts/*.scss')
     .pipe(stylelint({
@@ -83,7 +73,9 @@ gulp.task('stylelint-fix', function() {
     }))
     .pipe(gulp.dest('devStuff/src/parts'));
 });
-gulp.task('stylelint', function() {
+
+// fix時にチェックも入れると拾いきれない場合があるので分割している
+gulp.task('stylelint-check', function() {
   return gulp.src('devStuff/src/parts/*.scss')
     .pipe(stylelint({
       failAfterError: false,
