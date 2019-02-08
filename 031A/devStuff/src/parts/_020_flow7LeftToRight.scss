@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .t0-b-flow7LeftToRight {
 
     $_block: &;
@@ -8,50 +7,54 @@
     &__row {
       display: table;
       width: 100%;
-      table-layout: fixed;
       padding-bottom: 5%;
+      table-layout: fixed;
       &:last-child {
         padding-bottom: 0;
       }
     }
+
     &__box {
       display: table-cell;
-      vertical-align: top;
       width: (100%-2*(7-1))/7;
+      vertical-align: top;
       #{$_block}--colSpacing-l & {
         width: (100%-3.5*(7-1))/7;
       }
+
       #{$_block}--colSpacing-m & {
         width: (100%-2*(7-1))/7;
       }
+
       #{$_block}--colSpacing-s & {
         width: (100%-0.5*(7-1))/7;
       }
     }
+
     &__arrow {
       display: table-cell;
-      text-align: center;
+      width: 2%;
       font-size: 2em;
       color: #333;
+      text-align: center;
       vertical-align: middle;
-      width: 2%;
       #{$_block}--colSpacing-l & {
         width: 3.5%;
       }
+
       #{$_block}--colSpacing-m & {
         width: 2%;
       }
+
       #{$_block}--colSpacing-s & {
-        width: 0.5%;
+        width: .5%;
       }
     }
   }
-
 }// PC
 
 
 @if $device == SP {
-
   .t0-b-flow7LeftToRight {
 
     $_block: &;
@@ -60,6 +63,7 @@
     &__box {
       padding-bottom: 15px;
     }
+
     &__row {
       &:last-child {
         .t0-b-flow7LeftToRight__box {
@@ -70,5 +74,4 @@
       }
     }
   }
-
 }// SP

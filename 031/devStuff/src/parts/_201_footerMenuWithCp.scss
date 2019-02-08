@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .t0-b-footerMenuWithCp {
 
     $_fontSizePx: 12;
@@ -9,12 +8,11 @@
     $_textStateCurrentColor: #a97417;
 
     width: 100%;
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
     margin: 0 auto;
+    font-family: $tenorsans;
+    color: $_textColor;
     background-color: $_bgColor;
-
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       color: $_textColor;
       text-decoration: underline;
@@ -22,28 +20,32 @@
         color: $g-hovercolor;
       }
     }
+
     > div {
+      box-sizing: border-box;
       display: table;
       width: 1100px;
       min-height: 34px;
+      padding: 8px 0;
+      // End firefoxだとmin-height効かない為
+      margin: 0 auto;
       // Start firefoxだとmin-height効かない為
       @-moz-document url-prefix() {
         height: 34px;
       }
-      // End firefoxだとmin-height効かない為
-      margin: 0 auto;
-      padding: 8px 0;
-      box-sizing: border-box;
     }
+
     p {
       display: table-cell;
     }
+
     &__menu {
       display: table-cell;
       ul {
         text-align: right;
-        letter-spacing: -0.4em;
+        letter-spacing: -.4em;
       }
+
       li {
         display: inline-block;
         letter-spacing: normal;
@@ -55,6 +57,7 @@
             }
           }
         }
+
         div {
           padding: 0 15px;
           background: url("../imgs/menu/menu005/menu005_ico01_v1f2.png");
@@ -64,6 +67,7 @@
         }
       }
     }
+
     .state-em {
       div {
         font-weight: bold;
@@ -71,12 +75,10 @@
       }
     }
   }
-
 }// PC
 
 
 @if $device == SP {
-
   .t0-b-footerMenuWithCp {
 
     $_fontSizePx: 14;
@@ -84,37 +86,39 @@
     $_textColor: #8f8074;
     $_bgColor: #f4efe5;
     $_textStateCurrentColor: #a97417;
+    margin: 0 -15px;
 
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
-    margin: 0 -15px;
     background-color: $_bgColor;
-
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       color: $_textColor;
       text-decoration: underline;
     }
 
     > div {
+      box-sizing: border-box;
       display: block;
       min-height: 55px;
-      margin: 0 auto;
-      box-sizing: border-box;
       padding: 5px 0;
+      margin: 0 auto;
     }
+
     p {
       width: 100%;
-      text-align: center;
       margin: 0;
+      text-align: center;
     }
+
     &__menu {
       width: 100%;
       ul {
-        letter-spacing: -0.4em;
-        text-align: center;
         padding: 5px 10px;
+        text-align: center;
+        letter-spacing: -.4em;
       }
+
       li {
         display: inline-block;
         letter-spacing: normal;
@@ -122,17 +126,18 @@
           color: $_textColor;
           text-decoration: underline;
         }
+
         div {
-          color: $_textColor;
           padding: 0 7px;
+          color: $_textColor;
         }
       }
     }
+
     .state-em {
       div {
         color: $_textStateCurrentColor;
       }
     }
   }
-
 }// SP

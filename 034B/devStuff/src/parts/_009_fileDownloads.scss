@@ -1,12 +1,10 @@
 @if $device == PC {
-
   .t0-b-fileDownloads {
     $_block: &;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
 
     padding: #{$_blockSpacing} 0 0;
-
     &:first-child {
       padding-top: 0;
     }
@@ -15,7 +13,6 @@
       padding: #{$_itemSpacing} 0 0;
 
       @include cf;
-
       &:first-child {
         padding-top: 0;
       }
@@ -23,7 +20,6 @@
 
     a {
       color: $textcolor;
-
       &:hover {
         color: $hovercolor;
       }
@@ -31,7 +27,6 @@
 
     #{$_block}__itemSplit {
       display: table;
-
       > span {
         display: table-cell;
         text-align: left;
@@ -48,12 +43,15 @@
       #{$_block}--size-2 & {
         @include g-font(20, 2);
       }
+
       #{$_block}--size-3 & {
         @include g-font(24, 2);
       }
+
       #{$_block}--size-4 & {
         @include g-font(28, 2);
       }
+
       #{$_block}--size-5 & {
         @include g-font(32, 2);
       }
@@ -66,11 +64,11 @@
     @mixin _icon($file,$mag) {
       &--#{$file} {
         $_src: "../imgs/b-downloadIcon/#{$file}.png";
-
-        background: url($_src) 0 0 no-repeat;
-        background-size: 30px*$mag;
         width: 30px*$mag;
         height: 30px*$mag;
+
+        background: url($_src)0 0 no-repeat;
+        background-size: 30px*$mag;
       }
     }
 
@@ -87,18 +85,21 @@
       @include _icon("xls",1.25);
       @include _icon("img",1.25);
     }
+
     .t0-b-fileDownloads--size-3 & {
       @include _icon("pdf",1.5);
       @include _icon("doc",1.5);
       @include _icon("xls",1.5);
       @include _icon("img",1.5);
     }
+
     .t0-b-fileDownloads--size-4 & {
       @include _icon("pdf",1.75);
       @include _icon("doc",1.75);
       @include _icon("xls",1.75);
       @include _icon("img",1.75);
     }
+
     .t0-b-fileDownloads--size-5 & {
       @include _icon("pdf",2);
       @include _icon("doc",2);
@@ -108,19 +109,17 @@
   }
   // safariで下線が付かない不具合のハック
   _::-webkit-full-page-media, _:future, :root .t0-b-fileDownloads__itemText {
-     text-decoration:underline;
+    text-decoration: underline;
   }
 }
 
 @if $device == SP {
-
   .t0-b-fileDownloads {
     $_block: &;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
 
     padding: #{$_blockSpacing} 0 0;
-
     &:first-child {
       padding-top: 0;
     }
@@ -129,20 +128,18 @@
       padding: #{$_itemSpacing} 0 0;
 
       @include cf;
-
       &:first-child {
         padding-top: 0;
       }
     }
 
     a {
-      text-decoration: none;
       color: $textcolor;
+      text-decoration: none;
     }
 
     #{$_block}__itemSplit {
       display: table;
-
       > span {
         display: table-cell;
         text-align: left;
@@ -156,9 +153,9 @@
 
     #{$_block}__itemText {
       @include g-font(16, 1);
+      padding-top: 3px;
 
       text-decoration: underline;
-      padding-top: 3px;
     }
   }
 
@@ -166,11 +163,11 @@
     @mixin _icon($file) {
       &--#{$file} {
         $_src: "../imgs/b-downloadIcon/#{$file}.png";
-
-        background: url($_src) 0 0 no-repeat;
-        background-size: 27px 30px;
         width: 27px;
         height: 30px;
+
+        background: url($_src)0 0 no-repeat;
+        background-size: 27px 30px;
       }
     }
 

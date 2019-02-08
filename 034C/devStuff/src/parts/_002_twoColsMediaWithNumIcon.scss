@@ -4,9 +4,13 @@
 
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     &__numIcon {
+      position: relative;
+
+      display: table;
+      width: 100%;
+      padding-bottom: 9px;
       line-height: 0;
       border-bottom: 3px solid #777;
-      padding-bottom: 9px;
 
       @at-root #{$_block}__iconPlacer {
         > * {
@@ -22,44 +26,42 @@
         }
 
         $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-        background-size: 60px 60px;
-        background-position: 0 0;
-        background-repeat: no-repeat;
         display: inline-block;
         width: 60px;
         height: 60px;
-        overflow: hidden;
-        text-indent: -100px;
-        color: transparent;
         margin-right: 15px;
+        overflow: hidden;
+        color: transparent;
+        text-indent: -100px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+
+        background-size: 60px 60px;
 
         @each $_type in $_types {
           @for $_i from 1 through 10 {
             &--#{$_type}-#{$_i} {
               @include _iconStyles($_type, $_i);
-
               &:before {
-                content: "#{$_i}";
                 display: block;
+                padding-top: 28px;
+
+                font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
                 color: #fff;
+                text-align: left;
+                content: "#{$_i}";
                 @if $_i < 10 {
                   text-indent: 22px;
                 } @else {
                   text-indent: 16px;
                 }
-                padding-top: 28px;
 
                 @include g-font(26, 0);
-
-                font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-                text-align: left;
               }
             }
           }
         }
       }
-
       #{$_block}__numIcon-bd {
         width: 100%;
       }
@@ -91,22 +93,16 @@
       a {
         color: $textcolor;
         text-decoration: none;
-
         &:hover {
           color: $hovercolor;
         }
       }
-
-      display: table;
-      width: 100%;
-      position: relative;
-
       > * {
         display: table-cell;
         vertical-align: middle;
       }
 
-      &--size-1{
+      &--size-1 {
         #{$_block}__numIcon-caption-upper {
           @include g-font-layout(12, 1, $layout);
 
@@ -132,25 +128,24 @@
         }
 
         #{$_block}__icon {
-          background-size: 48px 48px;
           width: 48px;
           height: 48px;
+          background-size: 48px 48px;
           $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
 
           @each $_type in $_types {
             @for $_i from 1 through 10 {
               &--#{$_type}-#{$_i} {
-
                 &:before {
-                  content: "#{$_i}";
                   display: block;
+                  padding-top: 22px;
                   color: #fff;
+                  content: "#{$_i}";
                   @if $_i < 10 {
                     text-indent: 17.6px;
                   } @else {
                     text-indent: 12.8px;
                   }
-                  padding-top: 22px;
 
                   @include g-font(20, 0);
                 }
@@ -164,7 +159,7 @@
 
       }
 
-      &--size-3{
+      &--size-3 {
         #{$_block}__numIcon-caption-upper {
           @include g-font-layout(18, 1, $layout);
 
@@ -190,25 +185,24 @@
         }
 
         #{$_block}__icon {
-          background-size: 72px 72px;
           width: 72px;
           height: 72px;
+          background-size: 72px 72px;
           $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
 
           @each $_type in $_types {
             @for $_i from 1 through 10 {
               &--#{$_type}-#{$_i} {
-
                 &:before {
-                  content: "#{$_i}";
                   display: block;
+                  padding-top: 33px;
                   color: #fff;
+                  content: "#{$_i}";
                   @if $_i < 10 {
                     text-indent: 26.4px;
                   } @else {
                     text-indent: 19.2px;
                   }
-                  padding-top: 33px;
 
                   @include g-font(30, 0);
                 }
@@ -220,7 +214,7 @@
     }
 
     &__box {
-      padding: 20px 0 0 0;
+      padding: 20px 0 0;
     }
 
     &__numIcon-bd--align-l {
@@ -238,29 +232,24 @@
     & + div { // 最下部の枠があったら
       margin-top: 2%;
     }
-
   }
 
   .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
     $_block: &;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-
     &__numIcon {
-      line-height: 0;
+      position: relative;
 
+      display: table;
+      width: 100%;
+      line-height: 0;
       a {
         color: $textcolor;
         text-decoration: none;
-
         &:hover {
           color: $hovercolor;
         }
       }
-
-      display: table;
-      width: 100%;
-      position: relative;
-
       > * {
         display: table-cell;
         vertical-align: middle;
@@ -271,7 +260,6 @@
           display: block;
         }
       }
-
       #{$_block}__numIcon-bd {
         width: 100%;
       }
@@ -302,7 +290,7 @@
 
       #{$_block}__box {
         position: relative;
-        padding: 20px 0 0 0;
+        padding: 20px 0 0;
       }
 
       @at-root #{$_block}__icon {
@@ -313,43 +301,40 @@
         }
 
         $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-        background-size: 94px 49px;
-        background-position: 0 0;
-        background-repeat: no-repeat;
         display: inline-block;
         width: 94px;
         height: 49px;
+        margin-right: 14px;
         overflow: hidden;
         color: transparent;
-        margin-right: 14px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+
+        background-size: 94px 49px;
 
         @each $_type in $_types {
           @for $_i from 1 through 10 {
             &--#{$_type}-#{$_i} {
               @include _iconStyles($_type, $_i);
-
               &:before {
-                content: "#{$_i}";
                 display: block;
-                color: #fff;
                 // 背景の中で文字指定するエリア指定
                 width: 44px;
-                padding-left: 50px;
                 padding-top: 7px;
-
-                @include g-font(34, 0);
+                padding-left: 50px;
 
                 font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+                color: #fff;
                 text-align: center;
+                content: "#{$_i}";
+
+                @include g-font(34, 0);
               }
             }
           }
         }
       }
-
       &--size-1 {
-
         #{$_block}__numIcon-caption-upper {
           @include g-font-layout(12, 1, $layout);
         }
@@ -372,32 +357,29 @@
 
         #{$_block}__icon {
           $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-          background-size: 75.2px 39.2px;
           width: 75.2px;
           height: 39.2px;
+
+          background-size: 75.2px 39.2px;
 
           @each $_type in $_types {
             @for $_i from 1 through 10 {
               &--#{$_type}-#{$_i} {
-
                 &:before {
-                  content: "#{$_i}";
                   display: block;
-                  color: #fff;
                   // 背景の中で文字指定するエリア指定
                   width: 44px;
-                  padding-left: 35px;
                   padding-top: 4px;
+                  padding-left: 35px;
+                  color: #fff;
+                  content: "#{$_i}";
 
                   @include g-font(28, 0);
-
                 }
               }
             }
           }
         }
-
       }
 
       &--size-2 {
@@ -427,23 +409,22 @@
 
         #{$_block}__icon {
           $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-          background-size: 112.8px 58.8px;
           width: 112.8px;
           height: 58.8px;
+
+          background-size: 112.8px 58.8px;
 
           @each $_type in $_types {
             @for $_i from 1 through 10 {
               &--#{$_type}-#{$_i} {
-
                 &:before {
-                  content: "#{$_i}";
                   display: block;
-                  color: #fff;
                   // 背景の中で文字指定するエリア指定
                   width: 44px;
-                  padding-left: 65px;
                   padding-top: 9.8px;
+                  padding-left: 65px;
+                  color: #fff;
+                  content: "#{$_i}";
                   @include g-font(40, 0);
                   @if $_i < 10 {
                   } @else {
@@ -451,8 +432,6 @@
                     padding-left: 58px;
                     text-indent: -1.4px;
                   }
-
-
                 }
               }
             }
@@ -476,31 +455,26 @@
     & + div { // 最下部の枠があったら
       margin-top: 2%;
     }
-
   }
 }
 
 @if $device == SP {
-
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
     $_block: &;
 
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-
     &__numIcon {
+      position: relative;
+
+      display: table;
+      width: 100%;
+      padding-bottom: 5px;
       line-height: 0;
       border-bottom: 2px solid #777;
-      padding-bottom: 5px;
-
       a {
         color: $textcolor;
         text-decoration: none;
       }
-
-      display: table;
-      width: 100%;
-      position: relative;
-
       > * {
         display: table-cell;
         vertical-align: middle;
@@ -546,17 +520,17 @@
       }
 
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-      background-size: 50px 50px;
-      background-position: 0 0;
-      background-repeat: no-repeat;
       display: inline-block;
       width: 50px;
       height: 50px;
-      overflow: hidden;
-      text-indent: -100px;
-      color: transparent;
       margin-right: 10px;
+      overflow: hidden;
+      color: transparent;
+      text-indent: -100px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+
+      background-size: 50px 50px;
 
       @each $_type in $_types {
         @for $_i from 1 through 10 {
@@ -573,36 +547,34 @@
       @for $_i from 1 through 9 {
         &__icon--#{$_type}-#{$_i} {
           &:before {
-            content: "#{$_i}";
             display: block;
-            color: #fff;
-            text-indent: 19px;
             padding-top: 23px;
 
-            @include g-font(20, 0);
-
             font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            color: #fff;
             text-align: initial;
+            text-indent: 19px;
+            content: "#{$_i}";
+
+            @include g-font(20, 0);
           }
         }
       }
-
       &__icon--#{$_type}-10 {
         &:before {
-          content: "10";
           display: block;
-          color: #fff;
-          text-indent: 14px;
           padding-top: 23px;
 
-          @include g-font(20, 0);
-
           font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+          color: #fff;
           text-align: initial;
+          text-indent: 14px;
+          content: "10";
+
+          @include g-font(20, 0);
         }
       }
     }
-
     &__numIcon-bd--align-l {
       text-align: left;
     }
@@ -626,19 +598,16 @@
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
 
     margin-bottom: 20px;
-
     &__numIcon {
-      line-height: 0;
+      position: relative;
 
+      display: table;
+      width: 100%;
+      line-height: 0;
       a {
         color: $textcolor;
         text-decoration: none;
       }
-
-      display: table;
-      width: 100%;
-      position: relative;
-
       > * {
         display: table-cell;
         vertical-align: middle;
@@ -673,7 +642,7 @@
 
     &__box {
       position: relative;
-      padding: 10px 0 0 0;
+      padding: 10px 0 0;
     }
 
     &__icon {
@@ -684,17 +653,17 @@
       }
 
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-      background-size: 47px 50px;
-      background-position: 0 0;
-      background-repeat: no-repeat;
       display: inline-block;
       width: 47px;
       height: 50px;
-      overflow: hidden;
-      text-indent: -100px;
-      color: transparent;
       margin-right: 10px;
+      overflow: hidden;
+      color: transparent;
+      text-indent: -100px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+
+      background-size: 47px 50px;
 
       @each $_type in $_types {
         @for $_i from 1 through 10 {
@@ -711,36 +680,34 @@
       @for $_i from 1 through 9 {
         &__icon--#{$_type}-#{$_i} {
           &:before {
-            content: "#{$_i}";
             display: block;
-            color: #fff;
-            text-indent: 18px;
             padding-top: 23px;
 
-            @include g-font(20, 0);
-
             font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+            color: #fff;
             text-align: initial;
+            text-indent: 18px;
+            content: "#{$_i}";
+
+            @include g-font(20, 0);
           }
         }
       }
-
       &__icon--#{$_type}-10 {
         &:before {
-          content: "10";
           display: block;
-          color: #fff;
-          text-indent: 12px;
           padding-top: 23px;
 
-          @include g-font(20, 0);
-
           font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+          color: #fff;
           text-align: initial;
+          text-indent: 12px;
+          content: "10";
+
+          @include g-font(20, 0);
         }
       }
     }
-
     &__numIcon-bd--align-l {
       text-align: left;
     }
