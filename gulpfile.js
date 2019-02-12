@@ -79,7 +79,7 @@ gulp.task('stylelint-check', function() {
   return gulp.src('devStuff/src/parts/*.scss')
     .pipe(stylelint({
       failAfterError: false,
-      reporters: [{formatter: 'verbose', console: true}]
+      reporters: [{formatter: 'string', console: true}]
     }));
 });
 
