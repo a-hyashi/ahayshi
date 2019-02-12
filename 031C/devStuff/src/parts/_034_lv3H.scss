@@ -30,10 +30,6 @@
       }
     }
 
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-
     &--size-3 {
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
@@ -126,10 +122,6 @@
       h3 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
-    }
-
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
     }
 
     &--size-3 {
@@ -244,10 +236,6 @@
       }
     }
 
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-
     &--size-3 {
       #{$_block}__iconPlacer {
         width: 10px *1.2;
@@ -359,10 +347,6 @@
       }
     }
 
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-
     &--size-3 {
       #{$_block}__iconPlacer {
         width: 15px *1.2;
@@ -409,7 +393,7 @@
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
     // 文字と横線との間のpaddingの値
-    $_text-linePadding: 22px;
+    $_textlinePadding: 22px;
     // 文字量が多い場合に横線が持つ最低幅
     $_lineMinWidth: 30px;
     $_lineColor: #fee57d;
@@ -432,9 +416,9 @@
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       position: relative;
       display: inline-block;
-      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)* 2 });
+      max-width: calc(100% - ($_lineMinWidth + $_textlinePadding) * 2);
       min-height: 35px;
-      padding: 0 $_text-linePadding;
+      padding: 0 $_textlinePadding;
       &:before {
         position: absolute;
         top: 50%;
@@ -464,10 +448,6 @@
       }
     }
 
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-
     &--size-3 {
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
@@ -479,7 +459,7 @@
     &--align-l {
       text-align: left;
       h3 {
-        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)});
+        max-width: calc(100% - ($_lineMinWidth + $_textlinePadding));
         padding-left: 0;
       }
     }
@@ -491,7 +471,7 @@
     &--align-r {
       text-align: right;
       h3 {
-        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)});
+        max-width: calc(100% - ($_lineMinWidth + $_textlinePadding));
         padding-right: 0;
       }
     }
@@ -530,10 +510,6 @@
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
         min-height: 29px;
       }
-    }
-
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
     }
 
     &--size-3 {
@@ -591,10 +567,6 @@
       }
     }
 
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-
     &--size-3 {
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
@@ -648,10 +620,6 @@
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
         min-height: 25px;
       }
-    }
-
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
     }
 
     &--size-3 {
@@ -709,10 +677,6 @@
       }
     }
 
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-
     &--size-3 {
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
@@ -768,10 +732,6 @@
       }
     }
 
-    &--size-2 {
-      // size2 の場合（サイズ指定なしと同じ）
-    }
-
     &--size-3 {
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
@@ -791,8 +751,8 @@
       text-align: right;
     }
   }
-}// PC
-
+}
+// PC
 
 @if $device == SP {
   .t0-b-lv3H#{$variation1of2} {
@@ -900,7 +860,6 @@
       }
     }
   }
-
 
   .t0-b-lv3H3 {
 
@@ -1058,9 +1017,8 @@
     color: $_textColor;
     text-align: center;
 
-
     // 文字と横線との間のpaddingの値
-    $_text-linePadding: 10px;
+    $_textlinePadding: 10px;
     // 文字量が多い場合に横線が持つ最低幅
     $_lineMinWidth: 15px;
     $_lineColor: #fee57d;
@@ -1074,9 +1032,9 @@
       @include g-font($_fontSizePx, $_lineHeightType);
       position: relative;
       display: inline-block;
-      max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)* 2 });
+      max-width: calc(100% - ($_lineMinWidth + $_textlinePadding) * 2);
       min-height: 22px;
-      padding: 0 $_text-linePadding;
+      padding: 0 $_textlinePadding;
       &:before {
         position: absolute;
         top: 50%;
@@ -1101,7 +1059,7 @@
     &--align-l {
       text-align: left;
       h3 {
-        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)});
+        max-width: calc(100% - ($_lineMinWidth + $_textlinePadding));
         padding-left: 0;
       }
     }
@@ -1113,7 +1071,7 @@
     &--align-r {
       text-align: right;
       h3 {
-        max-width: calc(100% - #{($_lineMinWidth + $_text-linePadding)});
+        max-width: calc(100% - ($_lineMinWidth + $_textlinePadding));
         padding-right: 0;
       }
     }
@@ -1293,4 +1251,5 @@
       text-align: right;
     }
   }
-}// SP
+}
+// SP

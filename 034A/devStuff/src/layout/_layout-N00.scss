@@ -1,41 +1,38 @@
 $areaContainerWidth: 1100px;
 $areaMainWidth: 1100px;
 $areaSubWidth: 320px;
-
 .area-all {
+  min-width: $areaContainerWidth + 36px;
   margin: 0 auto;
+  overflow: hidden;
   word-break: break-all;
   word-wrap: break-word;
   background-color: $g-baseBackgroundColor;
-  min-width: $areaContainerWidth + 36px;
-  overflow: hidden;
 }
 
 .area-container {
   width: $areaContainerWidth;
-  margin-left: auto;
-  margin-right: auto;
   padding-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
   // *zoom: 1;
-
-  &::before,
-  &::after {
-    content: '';
+  &:before,
+  &:after {
     display: table;
+    content: '';
   }
 
-  &::after {
+  &:after {
     clear: both;
   }
 }
 
-
 .area-main {
   box-sizing: border-box;
+  width: 1100px;
+  min-height: 100px;
   padding: 0 0 50px;
   margin: 0 auto;
-  min-height: 100px;
-  width: 1100px;
 }
 
 .area-sub {
@@ -43,6 +40,6 @@ $areaSubWidth: 320px;
 }
 
 .area-footer {
-  background: $g-baseBackgroundColor;
   padding-top: 1px; //フッター最上部のフッターメニューの背景が伸びないための指定
+  background: $g-baseBackgroundColor;
 }
