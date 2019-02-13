@@ -1,4 +1,8 @@
 # buddy-theme
+![Docker:18.09.1](https://img.shields.io/badge/Docker-18.09.1-blue.svg)
+![node:v9.8.0](https://img.shields.io/badge/node-v9.8.0-blue.svg)
+![npm:5.7.1](https://img.shields.io/badge/npm-5.7.1-blue.svg)
+![gulp:3.9.1](https://img.shields.io/badge/gulp-3.9.1-blue.svg)
 
 ## 概要
 1. ACRE-themeのコンパイル前のソースコード管理
@@ -175,8 +179,8 @@ $ ./upload.sh (テーマ名)
 <br>
 
 #### /buildの中身をACRE-themeにコピー
-```bash
-$ docker-compose run base gulp output
+```sh
+$ ./output.sh (テーマ名)
 ```
 
 <br>

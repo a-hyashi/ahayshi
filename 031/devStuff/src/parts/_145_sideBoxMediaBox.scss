@@ -6,7 +6,6 @@
     $_lineHeightType: 1;
     $_block: &;
 
-    display: table;
     width: 100%;
     text-align: left;
     color: $g-textcolor;
@@ -17,6 +16,7 @@
       &:hover {
         color: $g-hovercolor;
       }
+
       > img {
         &:hover {
           opacity: .8;
@@ -25,7 +25,6 @@
     }
 
     &__media {
-      display: table-cell;
       vertical-align: top;
       img {
         display: block;
@@ -35,7 +34,6 @@
     }
 
     &__text {
-      display: table-cell;
       vertical-align: top;
       width: 100%;
       padding: 0 0 0 8px;
@@ -49,26 +47,26 @@
     }
 
     &--imgR {
-      direction: rtl;
-      #{$_block}__text {
-        padding: 0 8px 0 0;
-      }
-    }
 
-    &--imgR {
-      display: block;
+      display: flex;
+      flex-direction: row-reverse;
+
+      #{$_block}__text {
+        padding: 0;
+      }
+
+      #{$_block}__media {
+        padding: 0 0 8px 8px;
+      }
 
       &.ex-imageFloat {
-        > div {
-          display: block;
-        }
-        .t0-b-sideBoxMediaBox__text {
-          padding: 0;
-        }
-        .t0-b-sideBoxMediaBox__media {
+        
+        display: block;
+
+        #{$_block}__media {
           float: right;
-          padding: 0 0 8px 8px;
         }
+
         .clearfix {
           clear: right;
         }
@@ -76,19 +74,25 @@
     }
 
     &--imgL {
-      display: block;
+
+      display: flex;
+
+      #{$_block}__text {
+        padding: 0;
+      }
+
+      #{$_block}__media {
+        padding: 0 8px 8px 0;
+      }
 
       &.ex-imageFloat {
-        > div {
-          display: block;
-        }
-        .t0-b-sideBoxMediaBox__text {
-          padding: 0;
-        }
-        .t0-b-sideBoxMediaBox__media {
+
+        display: block;
+
+        #{$_block}__media {
           float: left;
-          padding: 0 8px 8px 0;
         }
+
         .clearfix {
           clear: left;
         }
@@ -107,7 +111,6 @@
     $_lineHeightType: 1;
     $_block: &;
 
-    display: table;
     text-align: left;
     color: $g-textcolor;
 
@@ -122,7 +125,6 @@
     }
 
     &__media {
-      display: table-cell;
       vertical-align: top;
       img {
         display: block;
@@ -132,7 +134,6 @@
     }
 
     &__text {
-      display: table-cell;
       vertical-align: top;
       width: 100%;
       padding: 0 0 0 8px;
@@ -146,46 +147,52 @@
     }
 
     &--imgR {
-      direction: rtl;
-      #{$_block}__text {
-        padding: 0 8px 0 0;
-      }
-    }
 
-    &--imgR {
-      display: block;
+      display: flex;
+      flex-direction: row-reverse;
+
+      #{$_block}__text {
+        padding: 0;
+      }
+
+      #{$_block}__media {
+        padding: 0 0 8px 8px;
+      }
 
       &.ex-imageFloat {
-        > div {
-          display: block;
-        }
-        .t0-b-sideBoxMediaBox__text {
-          padding: 0;
-        }
-        .t0-b-sideBoxMediaBox__media {
+
+        display: block;
+
+        #{$_block}__media {
           float: right;
-          padding: 0 0 8px 8px;
         }
+
         .clearfix {
           clear: right;
         }
       }
     }
-  
+
     &--imgL {
-      display: block;
+
+      display: flex;
+
+      #{$_block}__text {
+        padding: 0;
+      }
+
+      #{$_block}__media {
+        padding: 0 8px 8px 0;
+      }
 
       &.ex-imageFloat {
-        > div {
-          display: block;
-        }
-        .t0-b-sideBoxMediaBox__text {
-          padding: 0;
-        }
-        .t0-b-sideBoxMediaBox__media {
+        
+        display: block;
+
+        #{$_block}__media {
           float: left;
-          padding: 0 8px 8px 0;
         }
+
         .clearfix {
           clear: left;
         }
@@ -193,4 +200,4 @@
     }
   }
 
-}// SP 
+}// SP
