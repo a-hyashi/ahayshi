@@ -166,10 +166,35 @@ $ ./build.sh
 ```sh
 $ ./lint.sh （テーマ名）
 ```
-自動整形できない部分はログに出るので手動で修正してください<br>
+コーディングルールに沿って自動修正された後、エラーチェックが行われます<br>
 **整形・チェックはpartsディレクトリ配下のscssファイルしか行わないので注意**
+<br>
 
-エディタに拡張機能を入れておくとリアルタイムでエラーを確認できます(推奨)<br>
+自動整形できない部分はログに出るので手動で修正してください<br>
+ファイル名の次に、行数:文字数・警告度・エラー文・エラールールの順で表示されます<br>
+
+###### ❌：エラーの例
+```sh
+devStuff/src/parts/_007_serviceSet.scss
+  1:1  ✖  Unknown word   CssSyntaxError
+```
+「_007_serviceSet.scssの1行目が構文エラー」<br>
+閉じ括弧が無いと自動整形で不正な出力値になってしまうので注意<br>
+
+###### ⚠：警告の例
+```sh
+devStuff/src/parts/_168_headerMenu.scss
+  792:15  ⚠  Unexpected vendor-prefix "-ms-flex"   property-no-vendor-prefix
+  891:15  ⚠  Unexpected vendor-prefix "-ms-flex"   property-no-vendor-prefix
+```
+「_168_headerMenu.scssの792行目と891行目にベンダープレフィックス"-ms-flex"が入っている」<br>
+ルールで許可されていない項目は、修正か削除をしてください
+
+<br>
+
+エラールールの詳細は[このページ](https://stylelint.io/user-guide/rules/)で確認してください
+<br>
+また、テキストエディタに拡張機能を入れておくとリアルタイムでエラーを確認できます(推奨)
 - [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint) (VS code)
 - [Sublime​Linter-stylelint](https://packagecontrol.io/packages/SublimeLinter-stylelint) (Sublime Text)
 
