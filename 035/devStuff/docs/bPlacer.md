@@ -25,10 +25,10 @@
 |01.見出し|main|049_用途別の装飾見出し(事例)|.t0-b-lv4H-caseIcon|#{$variation2of2}|2%||10px|
 |01.見出し|main|050_用途別の装飾見出し(お客様の声)|.t0-b-lv4H-voiceIcon|#{$variation1of2}|2%||10px|
 |01.見出し|main|050_用途別の装飾見出し(お客様の声)|.t0-b-lv4H-voiceIcon|#{$variation2of2}|2%||10px|
-|01.見出し|main|051_用途別の装飾見出し(Q)|.t0-b-lv4H-qIcon|#{$variation1of2}|2%||10px|
-|01.見出し|main|051_用途別の装飾見出し(Q)|.t0-b-lv4H-qIcon|#{$variation2of2}|2%||10px|
-|01.見出し|main|052_用途別の装飾見出し(A)|.t0-b-lv4H-aIcon|#{$variation1of2}|2%||10px|
-|01.見出し|main|052_用途別の装飾見出し(A)|.t0-b-lv4H-aIcon|#{$variation2of2}|2%||10px|
+|01.見出し|main|051_用途別の装飾見出し(Q)|.t0-b-lv4H-qIcon|#{$variation1of2}|1%||10px|
+|01.見出し|main|051_用途別の装飾見出し(Q)|.t0-b-lv4H-qIcon|#{$variation2of2}|1%||10px|
+|01.見出し|main|052_用途別の装飾見出し(A)|.t0-b-lv4H-aIcon|#{$variation1of2}|1%||10px|
+|01.見出し|main|052_用途別の装飾見出し(A)|.t0-b-lv4H-aIcon|#{$variation2of2}|1%||10px|
 |01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|#{$variation1of2}|2%||10px|
 |01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|#{$variation2of2}|2%||10px|
 |01.見出し|main|061_装飾見出し(大)|.t0-b-lv4HBig|#{$variation1of2}|2%||10px|
@@ -44,7 +44,7 @@
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg||4%||20px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|2|6%||25px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|3|6%||25px|
-|02.テキスト|main|031_キャッチコピー|.t0-b-catchText|#{$variation1of2}|4%||15px|
+|02.テキスト|main|031_キャッチコピー|.t0-b-catchText|#{$variation1of2}|0%||15px|
 |02.テキスト|main|031_キャッチコピー|.t0-b-catchText|#{$variation2of2}|4%||15px|
 |02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText||5%||15px|
 |02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText|2|5%||15px|
@@ -232,7 +232,7 @@
 |12.その他|main|044_区切り線|.t0-b-line||4%||25px|
 |12.その他|main|047_料金表|.t0-b-priceTable|#{$variation1of2}|4%||15px|
 |12.その他|main|047_料金表|.t0-b-priceTable|#{$variation2of2}|4%||15px|
-|12.その他|main|055_矢印|.t0-b-arrow||3%||20px|
+|12.その他|main|055_矢印|.t0-b-arrow||1%||20px|
 |12.その他|main|065_Adobe Readerリンク|.t0-b-getAdobeReader||4%||20px|
 |12.その他|header|176_ヘッダーお問い合わせボックス|.t0-b-headerUnit-miniCol||2%||10px|
 |12.その他|footer|203_フッターぶち抜き|.t0-b-footerFullWidthFrame||0||0px|
