@@ -258,12 +258,9 @@
 |11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation7of15}|8%||25px|
 |11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation8of15}|8%||25px|
 |11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation9of15}|8%||25px|
-|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation10of15}|8%||25px|
-|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation11of15}|8%||25px|
-|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation12of15}|8%||25px|
-|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation13of15}|8%||45px|
-|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation14of15}|8%||45px|
-|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation15of15}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation10of15}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation11of15}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation12of15}|8%||45px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||20px|
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
