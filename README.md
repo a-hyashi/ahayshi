@@ -199,7 +199,7 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
 
 <br>
 
-エディタに拡張機能を入れておくとリアルタイムでエラーを発見できます(推奨)<br>
+エディタに拡張機能を入れておくとリアルタイムでエラーを発見できます。(推奨)<br>
 - [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint) (VS code)<br>
 - [Sublime​Linter-stylelint](https://packagecontrol.io/packages/SublimeLinter-stylelint) (Sublime Text)
 
@@ -226,7 +226,7 @@ base_1  | Error: Invalid CSS after "...r: $_textColor;": expected "}", was "&:ho
 base_1  |         on line 19 of devStuff/src/parts/_033_lv2H.scss
 base_1  | >>       color: $_textColor;
 ```
-SASSの構文エラーです。
+SASSの構文エラーです。<br>
 大抵の場合、メッセージ内にエラー内容、ファイル名、行数が書いてありますので、読んで修正してください。
 
 #### JSON/HTMLを修正した
@@ -248,7 +248,7 @@ $ docker-compose down
 
 #### buddy-themeが更新された
 
-  更新を取り込んだあと、
+更新を取り込んだあと、<br>
 
 > テーマごとに一度だけ実行すること
 
