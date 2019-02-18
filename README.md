@@ -16,7 +16,7 @@
 ## 準備編
 
 ### 構築する環境
-以下の環境になっていればスタイルガイドを起動できます。手順はこの環境を構築するための操作です。
+以下の環境になっていればスタイルガイドを起動できます。手順はこの環境を構築するための操作です。  
 もしツールが動かなかったりエラーが表示される場合は、以下の環境が整っていることを確認してください。
 
 1. Mac内でDockerが起動している
@@ -57,10 +57,10 @@ buddy-theme
 ### 全体で一度だけ実行すること
 
 #### Dockerとnpmのインストール
-1. アカウントを作成し、Dockerをインストール
+1. アカウントを作成し、Dockerをインストール  
 https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 
-2. アプリのアイコンをクリックしDockerを起動する
+2. アプリのアイコンをクリックしDockerを起動する  
 Macの上部にアイコンが表示されていればOK
 
 3. 以下のコマンドを実行
@@ -102,7 +102,7 @@ $ ./init.sh (テーマ名)
 ## 利用編
 
 ### 起動
-1. アプリのアイコンをクリックしDockerを起動
+1. アプリのアイコンをクリックしDockerを起動  
 Macの上部にアイコンが表示されていればOKです。
 
 2. 以下のコマンドを実行
@@ -119,7 +119,7 @@ Continue with the new image? [yN]
 
 起動中には、以下のことが自動で実行されます
 - CSSとスタイルガイドの更新
-- bPlacer.md（余白設定値表）の更新
+- bPlacer.md（余白設定値表）の更新  
 _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットしてください。
 
 <br>
@@ -154,7 +154,7 @@ Ctrl + C
 ```sh
 $ ./build.sh (テーマ名)
 ```
-`ACRE-theme/acre/themes/`内にCSSが出力されます。
+`ACRE-theme/acre/themes/`内にCSSが出力されます。  
 テーマ名を指定しない場合は全テーマ出力されます。
 
 ```sh
@@ -181,7 +181,7 @@ $ ./output.sh (テーマ名)
 ```sh
 $ ./lint.sh (テーマ名)
 ```
-コーディングルールに従ってscssファイルの中身が自動で整形されます。
+コーディングルールに従ってscssファイルの中身が自動で整形されます。  
 自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
 
 #### エラーの例
@@ -225,7 +225,7 @@ base_1  | Error: Invalid CSS after "...r: $_textColor;": expected "}", was "&:ho
 base_1  |         on line 19 of devStuff/src/parts/_033_lv2H.scss
 base_1  | >>       color: $_textColor;
 ```
-SASSの構文エラーです。
+SASSの構文エラーです。  
 大抵の場合、メッセージ内にエラー内容、ファイル名、行数が書いてありますので、読んで修正してください。
 
 #### JSON/HTMLを修正した
@@ -260,16 +260,16 @@ $ docker-compose down
 
 ### 新しいテーマを作る場合
 1. フォルダの作成
-既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください。
+既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください。  
 **例**
 031を複製して031Aのフォルダを作成
 
-2. devstuff/aigis_config.ymlの設定
+2. devstuff/aigis_config.ymlの設定  
 nameを新しいテーマ名に設定してください。
 **例**
 Theme 031A
 
-3. gulp_config.jsonの設定
+3. gulp_config.jsonの設定  
 html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください。
 **例**
 "../../ACRE-theme/acre/theme_materials/031/html_templates/"
@@ -277,7 +277,7 @@ html_templates_dirをACRE-theme内の対象テーマの部品があるフォル�
 <br>
 
 ### docker-compose.ymlを変更する場合
-ユーザーがテーマ名を変更するため、.gitignoreに含めています。
+ユーザーがテーマ名を変更するため、.gitignoreに含めています。  
 `_docker-compose.yml`を複製して使うようにしているので、このファイルを変更してください。
 
 <br>
