@@ -16,7 +16,7 @@
 ## 準備編
 
 ### 構築する環境
-以下の環境になっていればスタイルガイドを起動できます。手順はこの環境を構築するための操作です。<br>
+以下の環境になっていればスタイルガイドを起動できます。手順はこの環境を構築するための操作です。
 もしツールが動かなかったりエラーが表示される場合は、以下の環境が整っていることを確認してください。
 
 1. Mac内でDockerが起動している
@@ -102,7 +102,7 @@ $ ./init.sh (テーマ名)
 ## 利用編
 
 ### 起動
-1. アプリのアイコンをクリックしDockerを起動<br>
+1. アプリのアイコンをクリックしDockerを起動
 Macの上部にアイコンが表示されていればOKです。
 
 2. 以下のコマンドを実行
@@ -119,7 +119,7 @@ Continue with the new image? [yN]
 
 起動中には、以下のことが自動で実行されます
 - CSSとスタイルガイドの更新
-- bPlacer.md（余白設定値表）の更新<br>
+- bPlacer.md（余白設定値表）の更新
 _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットしてください。
 
 <br>
@@ -132,10 +132,9 @@ _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットし
 が表示されたら
 http://localhost:3000
 を開いてください。
-<br>
 
-クロスブラウザテストで他の端末から接続する場合は<br>
-http://（PCのIP）:3000<br>
+クロスブラウザテストで他の端末から接続する場合は
+http://（PCのIP）:3000
 です。
 
 #### 参考
@@ -155,7 +154,7 @@ Ctrl + C
 ```sh
 $ ./build.sh (テーマ名)
 ```
-`ACRE-theme/acre/themes/`内にCSSが出力されます。<br>
+`ACRE-theme/acre/themes/`内にCSSが出力されます。
 テーマ名を指定しない場合は全テーマ出力されます。
 
 ```sh
@@ -182,8 +181,8 @@ $ ./output.sh (テーマ名)
 ```sh
 $ ./lint.sh (テーマ名)
 ```
-コーディングルールに従ってscssファイルの中身が自動で整形されます。<br>
-自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。<br>
+コーディングルールに従ってscssファイルの中身が自動で整形されます。
+自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
 
 #### エラーの例
 ```sh
@@ -191,23 +190,23 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
   2:51  ✖  Unexpected empty block               block-no-empty
  26:5   ⚠  Unexpected duplicate "#fff"          declaration-block-no-duplicate-properties
 ```
-"2行目51文字目　エラー　ブロックが空　ルール: block-no-empty"<br>
-> 空のブロックを削除してください<br>
+"2行目でエラーです❌。ブロックの中身が空です。(ルール:`block-no-empty`)"
+> 空のブロックを削除してください
 
-"26行目5文字目　警告　"#fff"が重複　ルール: declaration-block-no-duplicate-properties"<br>
+"26行目で警告です⚠。`#fff`が重複しています。(ルール:`declaration-block-no-duplicate-properties`)"
 > 重複している項目を修正してください
 
 <br>
 
-エディタに拡張機能を入れておくとリアルタイムでエラーを発見できます。(推奨)<br>
-- [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint) (VS code)<br>
+エディタに拡張機能を入れておくとリアルタイムでエラーを発見できます。(推奨)
+- [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint) (VS code)
 - [Sublime​Linter-stylelint](https://packagecontrol.io/packages/SublimeLinter-stylelint) (Sublime Text)
 
 <br>
 
-コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。<br>
+コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。
 
-stylelintのルールの詳細については、[https://stylelint.io/user-guide/rules](https://stylelint.io/user-guide/rules) を参考にしてください。<br>
+stylelintのルールの詳細については、[https://stylelint.io/user-guide/rules](https://stylelint.io/user-guide/rules) を参考にしてください。
 
 **※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意**
 
@@ -226,7 +225,7 @@ base_1  | Error: Invalid CSS after "...r: $_textColor;": expected "}", was "&:ho
 base_1  |         on line 19 of devStuff/src/parts/_033_lv2H.scss
 base_1  | >>       color: $_textColor;
 ```
-SASSの構文エラーです。<br>
+SASSの構文エラーです。
 大抵の場合、メッセージ内にエラー内容、ファイル名、行数が書いてありますので、読んで修正してください。
 
 #### JSON/HTMLを修正した
@@ -248,7 +247,7 @@ $ docker-compose down
 
 #### buddy-themeが更新された
 
-更新を取り込んだあと、<br>
+更新を取り込んだあと、
 
 > テーマごとに一度だけ実行すること
 
@@ -260,25 +259,25 @@ $ docker-compose down
 ## リポジトリの保守
 
 ### 新しいテーマを作る場合
-1. フォルダの作成<br>
-既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください。<br>
+1. フォルダの作成
+既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください。
 **例**
-031を複製して031Aのフォルダを作成<br>
+031を複製して031Aのフォルダを作成
 
-2. devstuff/aigis_config.ymlの設定<br>
-nameを新しいテーマ名に設定してください。<br>
+2. devstuff/aigis_config.ymlの設定
+nameを新しいテーマ名に設定してください。
 **例**
-Theme 031A<br>
+Theme 031A
 
-3. gulp_config.jsonの設定<br>
-html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください。<br>
+3. gulp_config.jsonの設定
+html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください。
 **例**
 "../../ACRE-theme/acre/theme_materials/031/html_templates/"
 
 <br>
 
 ### docker-compose.ymlを変更する場合
-ユーザーがテーマ名を変更するため、.gitignoreに含めています。<br>
+ユーザーがテーマ名を変更するため、.gitignoreに含めています。
 `_docker-compose.yml`を複製して使うようにしているので、このファイルを変更してください。
 
 <br>
@@ -322,20 +321,20 @@ lib
 ```
 
 ### btool-settings
-buddy-themeの設定情報等を格納する<br>
+buddy-themeの設定情報等を格納する
 
 #### buddy-parts-testcases.json
-テストケース情報を設定しているファイル<br>
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/16pk-IFDGNxv7gjVvLemW0kNlOwpuLdcpc8zJYL81N6Y/edit#gid=318273719)<br>
+テストケース情報を設定しているファイル
+- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/16pk-IFDGNxv7gjVvLemW0kNlOwpuLdcpc8zJYL81N6Y/edit#gid=318273719)
 - 単体テスト > make buddy parts testcases json
 
 #### function-design.json
-標準機能仕様、ブロック個別機能仕様を一覧で管理する情報<br>
-- [取得スクリプト](https://script.google.com/a/wmshome.net/d/1yw1TXWMZCW3-n5IJzYfirvsKSqnuWVVPKZuNhecPf3nQkS6VsKdl8k8k/edit?usp=drive_web)<br>
+標準機能仕様、ブロック個別機能仕様を一覧で管理する情報
+- [取得スクリプト](https://script.google.com/a/wmshome.net/d/1yw1TXWMZCW3-n5IJzYfirvsKSqnuWVVPKZuNhecPf3nQkS6VsKdl8k8k/edit?usp=drive_web)
 
 #### parts-categories.json
-部品とCSSブロックのマッピング情報<br>
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)<br>
+部品とCSSブロックのマッピング情報
+- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)
 - 単体テスト > make parts categories json
 
 <br>
@@ -348,17 +347,17 @@ dataJson, metaJsonのスキーマ情報
 ### utils
 
 #### buddy-parts-functions.json
-機能初期値、テスト値とブロックの対応状況の定義情報<br>
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)<br>
+機能初期値、テスト値とブロックの対応状況の定義情報
+- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)
 - 単体テスト > make buddy parts functions json
 
 #### buddy-parts-design.json
-デザイン仕様を確認するための機能とマッピング<br>
+デザイン仕様を確認するための機能とマッピング
 手動で作成
 
 #### ブロック専用jsonファイル
-ブロック固有の事情で必要になるファイル<br>
-手動で作成<br>
+ブロック固有の事情で必要になるファイル
+手動で作成
 - breadcrumbs001.json
 - formTableAll.json
 - sideMenu001.json
