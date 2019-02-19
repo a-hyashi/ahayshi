@@ -7,7 +7,7 @@
 ## 概要
 1. ACRE-themeのコンパイル前のソースコード管理
 2. CSSの単体テスト
-3. SASSのコンパイル
+3. SASSのコンパイル  
 のためのリポジトリです。
 
 <br>
@@ -64,7 +64,6 @@ https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 Macの上部にアイコンが表示されていればOK
 
 3. 以下のコマンドを実行
-
 ```sh
 $ cd （buddy-themeフォルダの場所）
 $ sed -e 's/theme-name/031/g' _docker-compose.yml > docker-compose.yml
@@ -73,10 +72,10 @@ $ docker-compose run base npm install
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
 
 #### 関連ファイルの配置
-以下のリポジトリをローカルにクローンし、buddy-themeと同じフォルダ内に配置してください。
+以下のリポジトリをローカルにクローンし、buddy-themeと同じディレクトリに配置してください。
 - https://github.com/wmssystem/ACRE-theme
 
-Googleドライブからdevwork_rsaとssh_config.jsonをダウンロードし、sshフォルダ内に配置してください。
+Googleドライブから**devwork_rsa**と**ssh_config.json**をダウンロードし、sshフォルダ内に配置してください。
 
 <br>
 
@@ -138,7 +137,7 @@ http://（PCのIP）:3000
 です。
 
 #### 参考
-MacのIPの調べ方
+MacのIPの調べ方  
 https://pc-karuma.net/mac-ip-address/
 
 <br>
@@ -184,17 +183,19 @@ $ ./lint.sh (テーマ名)
 コーディングルールに従ってscssファイルの中身が自動で整形されます。  
 自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
 
+**※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意** 
+
 #### エラーの例
 ```sh
 devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
   2:51  ✖  Unexpected empty block               block-no-empty
  26:5   ⚠  Unexpected duplicate "#fff"          declaration-block-no-duplicate-properties
 ```
-"2行目でエラーです❌。ブロックの中身が空です。(ルール:`block-no-empty`)"
-> 空のブロックを削除してください
+「2行目で✖(エラー)です。ブロックの中身が空です。(ルール:`block-no-empty`)」  
+→ 空のブロックを削除してください。
 
-"26行目で警告です⚠。`#fff`が重複しています。(ルール:`declaration-block-no-duplicate-properties`)"
-> 重複している項目を修正してください
+「26行目で⚠(警告)です。`#fff`が重複しています。(ルール:`declaration-block-no-duplicate-properties`)」  
+→ 重複している項目を修正してください。
 
 <br>
 
@@ -203,12 +204,12 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
 - [Sublime​Linter-stylelint](https://packagecontrol.io/packages/SublimeLinter-stylelint) (Sublime Text)
 
 <br>
+ 
+また、コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。
 
-コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。
-
-stylelintのルールの詳細については、[https://stylelint.io/user-guide/rules](https://stylelint.io/user-guide/rules) を参考にしてください。
-
-**※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意**
+#### 参考
+stylelintのルール一覧  
+https://stylelint.io/user-guide/rules
 
 <br>
 <br>
@@ -229,7 +230,6 @@ SASSの構文エラーです。
 大抵の場合、メッセージ内にエラー内容、ファイル名、行数が書いてありますので、読んで修正してください。
 
 #### JSON/HTMLを修正した
-
 ```sh
 $ ./update-parts.sh (テーマ名)
 ```
@@ -261,17 +261,17 @@ $ docker-compose down
 ### 新しいテーマを作る場合
 1. フォルダの作成
 既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください。  
-**例**
+**例:**
 031を複製して031Aのフォルダを作成
 
 2. devstuff/aigis_config.ymlの設定  
-nameを新しいテーマ名に設定してください。
-**例**
+nameを新しいテーマ名に設定してください。  
+**例:**
 Theme 031A
 
 3. gulp_config.jsonの設定  
-html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください。
-**例**
+html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください。  
+**例:**
 "../../ACRE-theme/acre/theme_materials/031/html_templates/"
 
 <br>
@@ -289,7 +289,7 @@ html_templates_dirをACRE-theme内の対象テーマの部品があるフォル�
 
 <br>
 
-### システム仕様
+## システム仕様
 
 ```
 lib
@@ -352,7 +352,7 @@ dataJson, metaJsonのスキーマ情報
 - 単体テスト > make buddy parts functions json
 
 #### buddy-parts-design.json
-デザイン仕様を確認するための機能とマッピング
+デザイン仕様を確認するための機能とマッピング  
 手動で作成
 
 #### ブロック専用jsonファイル
