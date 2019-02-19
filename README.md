@@ -216,7 +216,7 @@ https://stylelint.io/user-guide/rules
 
 ## こんな時には？
 
-#### 以下のようなエラーが表示される
+### 以下のようなエラーが表示される
 ```sh
 base_1  | events.js:165
 base_1  |       throw er; // Unhandled 'error' event
@@ -229,17 +229,17 @@ base_1  | >>       color: $_textColor;
 SASSの構文エラーです。  
 大抵の場合、メッセージ内にエラー内容、ファイル名、行数が書いてありますので、読んで修正してください。
 
-#### JSON/HTMLを修正した
+### JSON/HTMLを修正した
 ```sh
 $ ./update-parts.sh (テーマ名)
 ```
 
-#### sassdocが更新された
+### sassdocが更新された
 ```sh
 $ docker-compose run base gulp update-sassdoc
 ```
 
-#### 動作が遅くなってきた
+### 動作が遅くなってきた
 Dockerを再起動するか、以下のコマンドを実行してください。
 ```sh
 $ docker-compose down
