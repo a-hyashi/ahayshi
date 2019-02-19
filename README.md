@@ -245,7 +245,7 @@ Dockerを再起動するか、以下のコマンドを実行してください�
 $ docker-compose down
 ```
 
-#### buddy-themeが更新された
+### buddy-themeが更新された
 
 更新を取り込んだあと、
 
