@@ -1,27 +1,25 @@
 $areaContainerWidth: 1060px;
 $areaMainWidth: 740px;
 $areaSubWidth: 320px;
-
 .area-all {
-  background-color: #edfaf9;
+  min-width: $areaContainerWidth + 36px;
   margin: 0 auto;
+  overflow: hidden;
   word-break: break-all;
   word-wrap: break-word;
-  min-width: $areaContainerWidth + 36px;
-  overflow: hidden;
+  background-color: #edfaf9;
 }
 
 .area-container {
   width: $areaContainerWidth;
-  margin-left: auto;
-  margin-right: auto;
   padding-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
   *zoom: 1;
-
   &::before,
   &::after {
-    content: '';
     display: table;
+    content: '';
   }
 
   &::after {
@@ -30,31 +28,32 @@ $areaSubWidth: 320px;
 }
 
 .area-main {
+  //デフォルトの背景より上にユーザー側が選択した画像を表示させる為、重ね順を規定
+  position: relative;
+  z-index: 0;
   box-sizing: border-box;
-  padding-bottom: 50px;
   float: right;
   width: $areaMainWidth;
   min-height: 100px;
-  //デフォルトの背景より上にユーザー側が選択した画像を表示させる為、重ね順を規定
-  position: relative;
-  z-index: 0;
+  padding-bottom: 50px;
 }
 
 .area-sub {
-  box-sizing: border-box;
-  min-height: 100px;
-  float: left;
-  width: $areaSubWidth;
-  padding: 0 50px 50px 0;
   position: relative;
   //R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
   z-index: 11;
+  box-sizing: border-box;
+  float: left;
+  width: $areaSubWidth;
+  min-height: 100px;
+  padding: 0 50px 50px 0;
 }
 
 .area-footer {
-  background: #fff;
-  padding-top: 1px; //フッター最上部のフッターメニューの背景が伸びないための指定
   //デフォルトの背景より上にユーザー側が選択した画像を表示させる為、重ね順を規定
   position: relative;
   z-index: 0;
+  //フッター最上部のフッターメニューの背景が伸びないための指定
+  padding-top: 1px;
+  background: #fff;
 }
