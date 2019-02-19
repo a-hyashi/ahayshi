@@ -57,7 +57,7 @@ gulp.task('sass-build', function() {
   );
 });
 
-// Stylelintで自動整形と構文チェック .stylelintrcのルール参照
+// Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
 gulp.task('stylelint', function() {
   return runSequence(
     'stylelint-fix',
@@ -65,6 +65,7 @@ gulp.task('stylelint', function() {
   );
 });
 
+// ファイルを自動整形
 gulp.task('stylelint-fix', function() {
   return gulp.src('devStuff/src/parts/*.scss')
     .pipe(stylelint({
