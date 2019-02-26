@@ -1,0 +1,79 @@
+@if $device == PC {
+  .t0-b-headerUnit-contact-fax {
+
+    $_fontSizePx: 20;
+    $_lineHeightType: 1;
+    $_textColor: #ed7573;
+
+    display: table;
+    min-width: 150px;
+    color: $_textColor;
+    white-space: nowrap;
+    a {
+      color: $_textColor;
+      text-decoration: underline;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    div {
+      display: table-cell;
+      width: 45px;
+      // 親要素の幅が小さいとアイコン部分が欠けてしまうのを防ぐためmin-widthを指定する
+      min-width: 45px;
+      height: 22px;
+      background-image: url("../imgs/contact/contact003/contact003_fax_v2.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 36px 22px;
+    }
+
+    p {
+      display: table-cell;
+      padding-top: 2px;
+      font-family: $tenorsans;
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      margin: 0 auto;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-contact-fax {
+
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #ed7573;
+
+    display: table;
+    margin: 0 auto;
+    color: $_textColor;
+    white-space: nowrap;
+    a {
+      color: $_textColor;
+      text-decoration: underline;
+    }
+
+    div {
+      display: table-cell;
+      width: 35px;
+      height: 15px;
+      background-image: url("../imgs/contact/contact003/contact003_fax_v2.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 35px 15px;
+    }
+
+    p {
+      display: table-cell;
+      padding-top: 2px;
+      font-family: $tenorsans;
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+  }
+}
