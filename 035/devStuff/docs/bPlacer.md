@@ -46,8 +46,8 @@
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|3|6%||25px|
 |02.テキスト|main|031_キャッチコピー|.t0-b-catchText|#{$variation1of2}|0%||0px|
 |02.テキスト|main|031_キャッチコピー|.t0-b-catchText|#{$variation2of2}|4%||0px|
-|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText||5%||15px|
-|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText|2|5%||15px|
+|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText||5%||20px|
+|02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText|2|5%||20px|
 |02.テキスト|side|138_サイドボックステキスト（強調）|.t0-b-sideBoxTextStrong||3%||5px|
 |02.テキスト|header|166_ヘッダテキスト|.t0-b-headerText||4%||10px|
 |02.テキスト|header|178_ヘッダーテキストセット|.t0-b-headerUnit-text||2%||10px|
@@ -94,7 +94,7 @@
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|4|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|5|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|6|5%||15px|
-|05.メディア|side|145_サイドボックス片側画像ブロック|.t0-b-sideBoxMediaBox||5%||15px|
+|05.メディア|side|145_サイドボックス片側画像ブロック|.t0-b-sideBoxMediaBox||5%||20px|
 |05.メディア|side|146_サイドボックス自由HTML|.t0-b-sideBoxFreeHtml||4%||15px|
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia|#{$variation1of3}|0||0px|
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia|#{$variation2of3}|0||0px|
@@ -141,7 +141,7 @@
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation3of3}|4%||35px|
 |06.ナビゲーション|side|133_サイドバナー|.t0-b-sideBanner||4%||35px|
 |06.ナビゲーション|side|133_サイドバナー|.t0-b-sideBanner|2|4%||35px|
-|06.ナビゲーション|side|147_サイドボックス誘導リンク|.t0-b-sideBoxNav||4%||35px|
+|06.ナビゲーション|side|147_サイドボックス誘導リンク|.t0-b-sideBoxNav||4%||20px|
 |06.ナビゲーション|side|148_サイドボックス誘導バナー|.t0-b-sideBoxNavB|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|side|148_サイドボックス誘導バナー|.t0-b-sideBoxNavB|#{$variation2of2}|4%||35px|
 |06.ナビゲーション|header|171_ヘッダー誘導リンク|.t0-b-headerUnit-contact-nav||2%||15px|
@@ -168,7 +168,7 @@
 |08.メニュー|footer|201_フッターメニュー（コピーライト付き）|.t0-b-footerMenuWithCp||0||px|
 |09.電話番号・メールアドレス|main|045_電話番号|.t0-b-iconText-tel||4%||20px|
 |09.電話番号・メールアドレス|main|046_メールアドレス|.t0-b-iconText-mail||4%||35px|
-|09.電話番号・メールアドレス|side|140_サイドボックス電話番号|.t0-b-sideBoxIconText-tel||5%||35px|
+|09.電話番号・メールアドレス|side|140_サイドボックス電話番号|.t0-b-sideBoxIconText-tel||5%||20px|
 |09.電話番号・メールアドレス|side|141_サイドボックスメールアドレス|.t0-b-sideBoxIconText-mail||4%||35px|
 |09.電話番号・メールアドレス|header|170_ヘッダーFAX番号|.t0-b-headerUnit-contact-fax||2%||35px|
 |09.電話番号・メールアドレス|header|174_ヘッダー電話番号|.t0-b-headerUnit-contact-tel||2%||20px|
@@ -230,8 +230,8 @@
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop||4%||20px|
 |12.その他|main|044_区切り線|.t0-b-line||4%||25px|
-|12.その他|main|047_料金表|.t0-b-priceTable|#{$variation1of2}|4%||15px|
-|12.その他|main|047_料金表|.t0-b-priceTable|#{$variation2of2}|4%||15px|
+|12.その他|main|047_料金表|.t0-b-priceTable|#{$variation1of2}|2%||15px|
+|12.その他|main|047_料金表|.t0-b-priceTable|#{$variation2of2}|2%||15px|
 |12.その他|main|055_矢印|.t0-b-arrow||1%||10px|
 |12.その他|main|065_Adobe Readerリンク|.t0-b-getAdobeReader||4%||20px|
 |12.その他|header|176_ヘッダーお問い合わせボックス|.t0-b-headerUnit-miniCol||2%||10px|
