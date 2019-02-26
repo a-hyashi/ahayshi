@@ -2,13 +2,13 @@
 
   .t0-b-lv5H#{$variation1of3} {
     $_block: &;
-    $_fontSizePx_caption: 12;
+    $_fontSizePx_caption: 16;
     $_fontSizePx_bd: 20;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
 
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
-    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference - 2;
     $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
     $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
 
@@ -25,11 +25,7 @@
 
     &__bd {
       display: inline-block;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
-      h5{
+      h5 {
         @include g-font-layout($_fontSizePx_bd, $_lineHeightType, $layout);
         padding: 0 0 0 6px;
         &:before,
@@ -37,6 +33,13 @@
           margin-top: 0;
         }
       }
+    }
+
+    &__iconPlacer,
+    h5,
+    a {
+      display: table-cell;
+      vertical-align: middle;
     }
 
     &__caption-lower {
@@ -49,7 +52,7 @@
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -68,14 +71,17 @@
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
       }
+
       #{$_block}__bd {
-        h5{
+        h5 {
           @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType, $layout);
         }
       }
+
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
       }
+
       #{$_block}__icon {
         background-size: 9px*.8;
         width: 9px*.8;
@@ -83,21 +89,21 @@
       }
     }
 
-    &--size-2 {
-    }
-
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
       }
+
       #{$_block}__bd {
-        h5{
+        h5 {
           @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType, $layout);
         }
       }
+
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
       }
+
       #{$_block}__icon {
         background-size: 9px*1.2;
         width: 9px*1.2;
@@ -107,10 +113,6 @@
 
     &--align-l {
       text-align: left;
-      #{$_block}__caption-upper {
-      }
-      #{$_block}__caption-lower {
-      }
     }
 
     &--align-c {
@@ -118,11 +120,13 @@
       #{$_block}__caption-upper {
         padding-left: 0;
       }
+
       #{$_block}__bd {
-        h5{
-          padding-left:10px;
+        h5 {
+          padding-left: 10px;
         }
       }
+
       #{$_block}__caption-lower {
         padding-left: 0;
       }
@@ -131,8 +135,8 @@
     &--align-r {
       text-align: right;
       #{$_block}__bd {
-        h5{
-          padding-left:10px;
+        h5 {
+          padding-left: 10px;
         }
       }
     }
@@ -141,7 +145,7 @@
       text-decoration: none;
       color: #333;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
   }
@@ -149,13 +153,13 @@
   .t0-b-lv5H#{$variation2of3} {
 
     $_block: &;
-    $_fontSizePx_caption: 12;
+    $_fontSizePx_caption: 16;
     $_fontSizePx_bd: 20;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
 
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
-    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference - 2;
     $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
     $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
 
@@ -172,14 +176,17 @@
 
     &__bd {
       display: inline-block;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
-      h5{
+      h5 {
         @include g-font-layout($_fontSizePx_bd, $_lineHeightType, $layout);
         padding-left: 6px;
       }
+    }
+
+    &__iconPlacer,
+    h5,
+    a {
+      display: table-cell;
+      vertical-align: middle;
     }
 
     &__caption-lower {
@@ -192,7 +199,7 @@
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -208,14 +215,13 @@
     }
 
     &--size-1 {
-
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
         padding-left: 32px;
       }
 
       #{$_block}__bd {
-        h5{
+        h5 {
           @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType, $layout);
         }
       }
@@ -236,20 +242,20 @@
       #{$_block}__caption-upper {
         padding-left: 38px;
       }
+
       #{$_block}__caption-lower {
         padding-left: 38px;
       }
     }
 
     &--size-3 {
-
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
         padding-left: 45px;
       }
 
       #{$_block}__bd {
-        h5{
+        h5 {
           @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType, $layout);
         }
       }
@@ -269,32 +275,36 @@
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
-
       #{$_block}__caption-upper {
         padding-left: 0;
       }
+
       #{$_block}__bd {
-        h5{
-          padding-left:10px;
+        h5 {
+          padding-left: 10px;
         }
       }
+
       #{$_block}__caption-lower {
         padding-left: 0;
       }
     }
+
     &--align-r {
       text-align: right;
-
       #{$_block}__caption-upper {
         padding-left: 0;
       }
+
       #{$_block}__bd {
-        h5{
-          padding-left:10px;
+        h5 {
+          padding-left: 10px;
         }
       }
+
       #{$_block}__caption-lower {
         padding-left: 0;
       }
@@ -304,7 +314,7 @@
       text-decoration: none;
       color: #333;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
   }
@@ -312,13 +322,13 @@
   .t0-b-lv5H#{$variation3of3} {
 
     $_block: &;
-    $_fontSizePx_caption: 12;
+    $_fontSizePx_caption: 16;
     $_fontSizePx_bd: 20;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
 
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
-    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference - 2;
     $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
     $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
 
@@ -340,11 +350,7 @@
 
     &__bd {
       display: inline-block;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
-      h5{
+      h5 {
         @include g-font-layout($_fontSizePx_bd, $_lineHeightType, $layout);
         padding-left: 6px;
         &:before,
@@ -352,6 +358,13 @@
           margin-top: 0;
         }
       }
+    }
+
+    &__iconPlacer,
+    h5,
+    a {
+      display: table-cell;
+      vertical-align: middle;
     }
 
     &__caption-lower {
@@ -364,7 +377,7 @@
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -381,13 +394,12 @@
     }
 
     &--size-1 {
-
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
       }
 
       #{$_block}__bd {
-        h5{
+        h5 {
           @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType, $layout);
         }
       }
@@ -401,21 +413,15 @@
         width: 7px*.8;
         height: 6px*.8;
       }
-
-    }
-
-    &--size-2 {
-
     }
 
     &--size-3 {
-
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
       }
 
       #{$_block}__bd {
-        h5{
+        h5 {
           @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType, $layout);
         }
       }
@@ -429,7 +435,6 @@
         width: 7px*1.2;
         height: 6px*1.2;
       }
-
     }
 
     &--align-l {
@@ -438,15 +443,16 @@
 
     &--align-c {
       text-align: center;
-
       #{$_block}__caption-upper {
         padding-left: 0;
       }
+
       #{$_block}__bd {
-        h5{
-          padding-left:10px;
+        h5 {
+          padding-left: 10px;
         }
       }
+
       #{$_block}__caption-lower {
         padding-left: 0;
       }
@@ -454,15 +460,16 @@
 
     &--align-r {
       text-align: right;
-
       #{$_block}__caption-upper {
         padding-left: 0;
       }
+
       #{$_block}__bd {
-        h5{
-          padding-left:10px;
+        h5 {
+          padding-left: 10px;
         }
       }
+
       #{$_block}__caption-lower {
         padding-left: 0;
       }
@@ -472,10 +479,9 @@
       text-decoration: none;
       color: #333;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
-
   }
 
 }// PC
@@ -493,19 +499,11 @@
 
     &__caption-upper {
       @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 0 0 10px 15px;
-    }
-
-    &__main {
-
+      padding: 0 0 5px 15px;
     }
 
     &__bd {
       display: inline-block;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
       h5 {
         padding-left: 6px;
         @include g-font($_fontSizePx_bd, $_lineHeightType);
@@ -516,13 +514,20 @@
       }
     }
 
+    &__iconPlacer,
+    h5,
+    a {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
     &__caption-lower {
       @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 4px 0 1px 15px;
+      padding: 0 0 1px 15px;
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -539,12 +544,15 @@
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
       color: #333;
@@ -561,32 +569,31 @@
 
     &__caption-upper {
       @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 0 0 10px 36px;
-    }
-
-    &__main {
-
+      padding: 0 0 5px 36px;
     }
 
     &__bd {
       display: inline-block;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
       h5 {
         padding-left: 6px;
         @include g-font($_fontSizePx_bd, $_lineHeightType);
       }
     }
 
+    &__iconPlacer,
+    h5,
+    a {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
     &__caption-lower {
       @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 4px 0 1px 36px;
+      padding: 0 0 1px 36px;
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -603,12 +610,15 @@
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
       color: #333;
@@ -625,7 +635,7 @@
 
     &__caption-upper {
       @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 0 0 10px 13px;
+      padding: 0 0 5px 13px;
     }
 
     &__main {
@@ -633,15 +643,10 @@
       background-image: url("../imgs/t0-b-lv5H/bg2.png");
       background-position: left bottom;
       background-repeat: repeat-x;
-      padding-bottom: 5px;
     }
 
     &__bd {
       display: inline-block;
-      > * {
-        display: table-cell;
-        vertical-align: middle;
-      }
       h5 {
         padding-left: 6px;
         @include g-font($_fontSizePx_bd, $_lineHeightType);
@@ -652,13 +657,20 @@
       }
     }
 
+    &__iconPlacer,
+    h5,
+    a {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
     &__caption-lower {
       @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 4px 0 1px 13px;
+      padding: 5px 0 1px 13px;
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -675,9 +687,11 @@
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }

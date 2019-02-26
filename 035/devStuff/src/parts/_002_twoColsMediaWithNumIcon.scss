@@ -2,107 +2,95 @@
 
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
 
+    $_lineHeightType: 1;
     $_block: &;
     color: #333;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     &__numIcon {
       display: table;
-      > * {
+      > div {
         display: table-cell;
         vertical-align: middle;
       }
+
       &--size-1 {
         &__numIcon-caption-upper {
           color: #ff0000;
         }
       }
-      &--size-2 {}
-      &--size-3 {}
     }
+
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
-        padding: 0 0 10px;
       }
     }
+
     &__numIcon-bd {
       padding-left: 15px;
       width: 100%;
     }
+
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-               @include g-font(20, 1);
-             } @else {
-               @include g-font(16, 1);
-             }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       padding: 0 0 5px;
     }
+
     &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(30, 1);
-             } @else {
-               @include g-font(26, 1);
-             }
-      font-weight: bold;
-      padding-bottom: 12px;
+      @include g-font-layout(26, $_lineHeightType, $layout);
+      padding-bottom: 10px;
       background-repeat: repeat-x;
       background-position: left bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg4.png");
     }
+
     a {
       color: #333;
       text-decoration: none;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
+
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-               @include g-font(20, 1);
-             } @else {
-               @include g-font(16, 1);
-             }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       padding: 5px 0 0;
     }
+
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(28, 1);
-             } @else {
-               @include g-font(24, 1);
-             }
+      @include g-font-layout(24, $_lineHeightType, $layout);
     }
+
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(28, 1);
-             } @else {
-               @include g-font(24, 1);
-             }
+      @include g-font-layout(24, $_lineHeightType, $layout);
     }
+
     &__box {
       padding: 1.5% 0 2%;
       padding-left: 78px;
       position: relative;
       > span {
-        top: 16px;
-        bottom: 9px;
+        top: 1px;
+        bottom: 23px;
         left: 0;
         width: 63px;
-        background-repeat: no-repeat, no-repeat;
-        background-position: center bottom, center top;
-        background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg2.png");
+        background-repeat: repeat-y;
+        background-position: center bottom;
+        background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg3.png");
         position: absolute;
         > span {
-          top: -20px;
-          bottom: 17px;
+          top: 0;
+          bottom: -16px;
           left: 0;
           width: 63px;
-          background-repeat: repeat-y;
-          background-position: center bottom;
-          background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg3.png");
+          background-repeat: no-repeat, no-repeat;
+          background-position: center bottom, center top;
+          background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg2.png");
           position: absolute;
         }
       }
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-twoColsMediaWithNumIcon__icon/#{$type}/#{$index}.png";
@@ -114,7 +102,7 @@
       background-repeat: no-repeat;
       display: inline-block;
       width: 63px;
-      height: 62px;
+      height: 66px;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
@@ -126,176 +114,157 @@
         }
       }
     }
+
     &__numIcon-bd--align-l {
       text-align: left;
     }
+
     &__numIcon-bd--align-c {
       text-align: center;
     }
+
     &__numIcon-bd--align-r {
       text-align: right;
     }
+
     &__numIcon--size-1 {
+      & + .t0-b-twoColsMediaWithNumIcon__box > span {
+        width: 45px;
+      }
+      & + .t0-b-twoColsMediaWithNumIcon__box > span > span {
+        width: 45px;
+      }
+
       #{$_block}__icon {
         background-size: 60px*.8;
         width: 60px*.8;
         height: 60px*.8;
       }
+
       #{$_block}__numIcon-caption-upper {
-        @if $layout == "N00" {
-                 @include g-font(16, 1);
-               } @else {
-                 @include g-font(12, 1);
-               }
+        @include g-font-layout(12, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-lower {
-        @if $layout == "N00" {
-                 @include g-font(16, 1);
-               } @else {
-                 @include g-font(12, 1);
-               }
+        @include g-font-layout(12, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(26, 1);
-               } @else {
-                 @include g-font(22, 1);
-               }
+        @include g-font-layout(22, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h,
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(20, $_lineHeightType, $layout);
       }
     }
-    &__numIcon--size-2 {}
+
     &__numIcon--size-3 {
+      & + .t0-b-twoColsMediaWithNumIcon__box > span {
+        width: 73px;
+      }
+      & + .t0-b-twoColsMediaWithNumIcon__box > span > span {
+        width: 73px;
+      }
+
       #{$_block}__icon {
         background-size: 60px*1.2;
         width: 60px*1.2;
         height: 60px*1.2;
       }
+
       #{$_block}__numIcon-caption-upper {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(18, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-lower {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(18, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(34, 1);
-               } @else {
-                 @include g-font(30, 1);
-               }
+        @include g-font-layout(30, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h,
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(32, 1);
-               } @else {
-                 @include g-font(28, 1);
-               }
+        @include g-font-layout(28, $_lineHeightType, $layout);
       }
     }
-    & + div { // 最下部の枠があるとき
-     margin-top: 20px;
+
+    // 最下部の枠があるとき
+    & + div {
+      margin-top: 2%;
     }
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
   }
 
   .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
 
+    $_lineHeightType: 1;
     $_block: &;
     color: #333;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     &__numIcon {
       display: table;
-      > * {
+      > div {
         display: table-cell;
         vertical-align: middle;
       }
     }
+
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
-        padding: 0 0 10px;
       }
     }
+
     &__numIcon-bd {
       padding-left: 15px;
       width: 100%;
     }
+
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-               @include g-font(20, 1);
-             } @else {
-               @include g-font(16, 1);
-             }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       padding: 0 0 5px;
       padding-right: 25px;
     }
+
     &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(30, 1);
-             } @else {
-               @include g-font(26, 1);
-             }
-      font-weight: bold;
-      padding-bottom: 5px;
+      @include g-font-layout(26, $_lineHeightType, $layout);
+      padding-bottom: 10px;
       background-repeat: no-repeat, repeat-x;
       background-position: right bottom, left bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg4.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg3.png");
       padding-right: 25px;
     }
+
     a {
       color: #333;
       text-decoration: none;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
+
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-               @include g-font(20, 1);
-             } @else {
-               @include g-font(16, 1);
-             }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       padding: 5px 0 0;
       padding-right: 25px;
     }
+
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(28, 1);
-             } @else {
-               @include g-font(24, 1);
-             }
+      @include g-font-layout(24, $_lineHeightType, $layout);
     }
+
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(28, 1);
-             } @else {
-               @include g-font(24, 1);
-             }
+      @include g-font-layout(24, $_lineHeightType, $layout);
     }
+
     &__box {
       padding: 1.5% 0 2%;
       padding-left: 78px;
       position: relative;
       > span {
-        top: 0;
+        top: 16px;
         bottom: 9px;
         left: 0;
         width: 60px;
@@ -304,7 +273,7 @@
         background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg.png");
         position: absolute;
         > span {
-          top: 17px;
+          top: 0;
           bottom: 188px;
           left: 0;
           width: 60px;
@@ -315,11 +284,13 @@
         }
       }
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-twoColsMediaWithNumIcon2__icon/#{$type}/#{$index}.png";
         background-image: url($_src);
       }
+
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
       background-size: 60px 60px;
       background-position: 0 0;
@@ -338,169 +309,148 @@
         }
       }
     }
+
     &__numIcon-bd--align-l {
       text-align: left;
     }
+
     &__numIcon-bd--align-c {
       text-align: center;
     }
+
     &__numIcon-bd--align-r {
       text-align: right;
     }
+
     &__numIcon--size-1 {
+      & + .t0-b-twoColsMediaWithNumIcon2__box > span {
+        width: 49px;
+      }
+      & + .t0-b-twoColsMediaWithNumIcon2__box > span > span {
+        width: 49px;
+      }
+
       #{$_block}__icon {
         background-size: 60px*.8;
         width: 60px*.8;
         height: 60px*.8;
       }
+
       #{$_block}__numIcon-caption-upper {
-        @if $layout == "N00" {
-                 @include g-font(16, 1);
-               } @else {
-                 @include g-font(12, 1);
-               }
+        @include g-font-layout(12, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-lower {
-        @if $layout == "N00" {
-                 @include g-font(16, 1);
-               } @else {
-                 @include g-font(12, 1);
-               }
+        @include g-font-layout(12, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(26, 1);
-               } @else {
-                 @include g-font(22, 1);
-               }
+        @include g-font-layout(22, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h,
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(20, $_lineHeightType, $layout);
       }
     }
-    &__numIcon--size-2 {}
+
     &__numIcon--size-3 {
+      & + .t0-b-twoColsMediaWithNumIcon2__box > span {
+        width: 73px;
+      }
+      & + .t0-b-twoColsMediaWithNumIcon2__box > span > span {
+        width: 73px;
+      }
+
       #{$_block}__icon {
         background-size: 60px*1.2;
         width: 60px*1.2;
         height: 60px*1.2;
       }
+
       #{$_block}__numIcon-caption-upper {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(18, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-lower {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(18, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(34, 1);
-               } @else {
-                 @include g-font(30, 1);
-               }
+        @include g-font-layout(30, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h,
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(32, 1);
-               } @else {
-                 @include g-font(28, 1);
-               }
+        @include g-font-layout(28, $_lineHeightType, $layout);
       }
     }
-    & + div { // 最下部の枠があるとき
-     margin-top: 20px;
-    }
 
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
+    // 最下部の枠があるとき
+    & + div {
+      margin-top: 2%;
+    }
   }
 
   .t0-b-twoColsMediaWithNumIcon3 {
 
+    $_lineHeightType: 1;
     $_block: &;
     color: #333;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     &__numIcon {
       display: table;
-      > * {
+      > div {
         display: table-cell;
         vertical-align: middle;
       }
     }
+
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
-        padding: 0 0 10px;
       }
     }
+
     &__numIcon-bd {
       padding-left: 15px;
-      //padding-bottom: 15px;
       width: 100%;
     }
+
     &__numIcon-caption-upper {
-      @if $layout == "N00" {
-               @include g-font(20, 1);
-             } @else {
-               @include g-font(16, 1);
-             }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       padding: 0 0 5px;
     }
+
     &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(30, 1);
-             } @else {
-               @include g-font(26, 1);
-             }
-      font-weight: bold;
-      padding-bottom: 5px;
+      @include g-font-layout(26, $_lineHeightType, $layout);
+      padding-bottom: 10px;
       background-repeat: repeat-x;
       background-position: left bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon3__icon/bg3.png");
     }
+
     a {
       color: #333;
       text-decoration: none;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
+
     &__numIcon-caption-lower {
-      @if $layout == "N00" {
-               @include g-font(20, 1);
-             } @else {
-               @include g-font(16, 1);
-             }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       padding: 5px 0 0;
     }
+
     &__numIcon-caption-upper + &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(28, 1);
-             } @else {
-               @include g-font(24, 1);
-             }
+      @include g-font-layout(24, $_lineHeightType, $layout);
     }
+
     &__numIcon-caption-upper + a > &__numIcon-h {
-      @if $layout == "N00" {
-               @include g-font(28, 1);
-             } @else {
-               @include g-font(24, 1);
-             }
+      @include g-font-layout(24, $_lineHeightType, $layout);
     }
+
     &__box {
       padding: 1.5% 0 2%;
       padding-left: 78px;
@@ -526,6 +476,7 @@
         }
       }
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-twoColsMediaWithNumIcon3__icon/#{$type}/#{$index}.png";
@@ -549,95 +500,87 @@
         }
       }
     }
+
     &__numIcon-bd--align-l {
       text-align: left;
     }
+
     &__numIcon-bd--align-c {
       text-align: center;
     }
+
     &__numIcon-bd--align-r {
       text-align: right;
     }
+
     &__numIcon--size-1 {
+      & + .t0-b-twoColsMediaWithNumIcon3__box > span {
+        width: 49px;
+      }
+      & + .t0-b-twoColsMediaWithNumIcon3__box > span > span {
+        width: 49px;
+      }
+
       #{$_block}__icon {
         background-size: 60px*.8;
         width: 60px*.8;
         height: 60px*.8;
       }
+
       #{$_block}__numIcon-caption-upper {
-        @if $layout == "N00" {
-                 @include g-font(16, 1);
-               } @else {
-                 @include g-font(12, 1);
-               }
+        @include g-font-layout(12, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-lower {
-        @if $layout == "N00" {
-                 @include g-font(16, 1);
-               } @else {
-                 @include g-font(12, 1);
-               }
+        @include g-font-layout(12, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(26, 1);
-               } @else {
-                 @include g-font(22, 1);
-               }
+        @include g-font-layout(22, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h,
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(20, $_lineHeightType, $layout);
       }
     }
-    &__numIcon--size-2 {}
+
     &__numIcon--size-3 {
+      & + .t0-b-twoColsMediaWithNumIcon3__box > span {
+        width: 73px;
+      }
+      & + .t0-b-twoColsMediaWithNumIcon3__box > span > span {
+        width: 73px;
+      }
+
       #{$_block}__icon {
         background-size: 60px*1.2;
         width: 60px*1.2;
         height: 60px*1.2;
       }
+
       #{$_block}__numIcon-caption-upper {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(18, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-lower {
-        @if $layout == "N00" {
-                 @include g-font(24, 1);
-               } @else {
-                 @include g-font(20, 1);
-               }
+        @include g-font-layout(18, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(34, 1);
-               } @else {
-                 @include g-font(30, 1);
-               }
+        @include g-font-layout(30, $_lineHeightType, $layout);
       }
+
       #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h,
       #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-        @if $layout == "N00" {
-                 @include g-font(32, 1);
-               } @else {
-                 @include g-font(28, 1);
-               }
+        @include g-font-layout(28, $_lineHeightType, $layout);
       }
     }
 
-    & + div { // 最下部の枠があるとき
-     margin-top: 20px;
+    // 最下部の枠があるとき
+    & + div {
+      margin-top: 2%;
     }
-    &--size-1 {}
-    &--size-2 {}
-    &--size-3 {}
   }
 
 }// PC
@@ -651,29 +594,35 @@
       text-decoration: none;
       color: #333;
     }
+
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    > * {
+    > div {
       vertical-align: middle;
     }
+
     &__numIcon {
-      padding-bottom: 14px;
+      padding-bottom: 5px;
       display: table;
       line-height: 0;
-      > * {
+      > div {
         display: table-cell;
         vertical-align: middle;
       }
     }
+
     &__iconPlacer {
       padding: 0 10px 0 0;
-      > * {
+      > span {
         display: block;
+        padding: 0 0 5px;
       }
     }
+
     &__numIcon-caption-upper {
       @include g-font(14, 1);
       padding: 0 0 5px;
     }
+
     &__numIcon-h {
       @include g-font(20, 1);
       padding-bottom: 11px;
@@ -681,13 +630,20 @@
       background-position: left bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon__icon/bg4.png");
     }
+
     &__numIcon-caption-lower {
       @include g-font(14, 1);
       padding: 5px 0 0;
     }
+
+    &__box {
+      padding: 0 0 10px;
+    }
+
     &__numIcon-bd {
       width: 100%;
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-twoColsMediaWithNumIcon__icon/#{$type}/#{$index}.png";
@@ -711,17 +667,22 @@
         }
       }
     }
+
     &__numIcon-bd--align-l {
       text-align: left;
     }
+
     &__numIcon-bd--align-c {
       text-align: center;
     }
+
     &__numIcon-bd--align-r {
       text-align: right;
     }
-    & + div { // 最下部の枠があるとき
-     margin-top: 20px;
+
+    // 最下部の枠があるとき
+    & + div {
+      margin-top: 20px;
     }
   }
 
@@ -731,28 +692,38 @@
       text-decoration: none;
       color: #333;
     }
+
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    > * {
+    > div {
       vertical-align: middle;
     }
+
     &__numIcon {
       display: table;
-      padding-bottom: 14px;
+      padding-bottom: 5px;
       line-height: 0;
-      > * {
+      > div {
         display: table-cell;
         vertical-align: middle;
       }
     }
+
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
+        padding: 0 0 5px;
       }
     }
+
     &__numIcon-caption-upper {
       @include g-font(14, 1);
       padding: 0 0 5px 10px;
     }
+
+    &__box {
+      padding: 0 0 10px;
+    }
+
     &__numIcon-h {
       @include g-font(20, 1);
       padding: 0 25px 8px 10px;
@@ -760,18 +731,22 @@
       background-position: right bottom, left bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg4.png"), url("../imgs/t0-b-twoColsMediaWithNumIcon2__icon/bg3.png");
     }
+
     &__numIcon-caption-lower {
       @include g-font(14, 1);
       padding: 5px 0 0 10px;
     }
+
     &__numIcon-bd {
       width: 100%;
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-twoColsMediaWithNumIcon2__icon/#{$type}/#{$index}.png";
         background-image: url($_src);
       }
+
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
       background-size: 50px 50px;
       background-position: 0 0;
@@ -790,17 +765,22 @@
         }
       }
     }
+
     &__numIcon-bd--align-l {
       text-align: left;
     }
+
     &__numIcon-bd--align-c {
       text-align: center;
     }
+
     &__numIcon-bd--align-r {
       text-align: right;
     }
-    & + div { // 最下部の枠があるとき
-     margin-top: 20px;
+
+    // 最下部の枠があるとき
+    & + div {
+      margin-top: 20px;
     }
   }
 
@@ -810,29 +790,39 @@
       text-decoration: none;
       color: #333;
     }
+
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    > * {
+    > div {
       vertical-align: middle;
     }
+
     &__numIcon {
       display: table;
-      padding-bottom: 14px;
+      padding-bottom: 5px;
       line-height: 0;
-      > * {
+      > div {
         display: table-cell;
         vertical-align: middle;
       }
     }
+
     &__iconPlacer {
       padding-right: 3px;
-      > * {
+      > span {
         display: block;
+        padding: 0 0 3px;
       }
     }
+
     &__numIcon-caption-upper {
       @include g-font(14, 1);
       padding: 0 0 5px 7px;
     }
+
+    &__box {
+      padding: 0 0 10px;
+    }
+
     &__numIcon-h {
       @include g-font(20, 1);
       padding: 0 0 8px 7px;
@@ -840,18 +830,22 @@
       background-position: left bottom;
       background-image: url("../imgs/t0-b-twoColsMediaWithNumIcon3__icon/bg3.png");
     }
+
     &__numIcon-caption-lower {
       @include g-font(14, 1);
       padding: 5px 0 0 7px;
     }
+
     &__numIcon-bd {
       width: 100%;
     }
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-twoColsMediaWithNumIcon3__icon/#{$type}/#{$index}.png";
         background-image: url($_src);
       }
+
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
       background-size: 50px 50px;
       background-position: 0 0;
@@ -870,17 +864,22 @@
         }
       }
     }
+
     &__numIcon-bd--align-l {
       text-align: left;
     }
+
     &__numIcon-bd--align-c {
       text-align: center;
     }
+
     &__numIcon-bd--align-r {
       text-align: right;
     }
-    & + div { // 最下部の枠があるとき
-     margin-top: 20px;
+
+    // 最下部の枠があるとき
+    & + div {
+      margin-top: 20px;
     }
   }
 

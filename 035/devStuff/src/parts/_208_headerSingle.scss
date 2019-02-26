@@ -5,24 +5,30 @@
     $_color_hd_typo: #333;
     $_colSpacing: #{$g-spacingBaseLength * 3}px;
     padding-bottom: 10px;
-    * {
+
+    //意図的にユニバーサルセレクタを使用
+    > * {
       white-space: normal;
     }
+
     &__hd {
       color: $_color_hd_typo;
       padding: 10px 0;
       text-align: center;
+
       > p {
         width: $_width_content;
         margin: 0 auto;
         @include g-font(14, 1);
       }
     }
+
     &__bd {
       > div {
         display: block;
         width: $_width_content;
         margin: 0 auto;
+
         > div {
           max-width: $_width_content;
           margin: 0 auto;
@@ -33,14 +39,25 @@
         }
       }
     }
+
     &__col1 {
       width: 100%;
     }
+
     &__col2 {
       padding-left: $_colSpacing;
     }
+
     &__col3 {
       padding-left: $_colSpacing;
+    }
+
+    a {
+      color: $_color_hd_typo;
+
+      &:hover {
+        color: $g-hovercolor;
+      }
     }
   }
 
@@ -54,24 +71,29 @@
     $_color_hd_typo: #333;
     $_color_hd_bg: none;
     $_colSpacing: #{$g-spacingBaseLength * 3}px;
-    padding: 20px 15px 0;
+    padding: 20px 0 0;
+
     &__hd {
       color: $_color_hd_typo;
-      background: $_color_hd_bg;
+      background-color: $_color_hd_bg;
       padding: 5px 5px 15px;
       text-align: center;
+
       > p {
         width: 100%;
         margin: 0 auto;
         @include g-font(14, 1);
       }
     }
+
     &__bd {
       padding: 5px 20px 0;
+
       > div {
         width: 100%;
         margin: 0 auto;
         display: block;
+
         > div {
           text-align: center;
           vertical-align: middle;
@@ -81,12 +103,17 @@
     &__col {
       width: 100%;
     }
+
     //▽サイト名中央に入ったときのみ中央寄せの見た目にする
     .t0-b-headerUnit-siteName__bd,
     .t0-b-headerUnit-siteTitle2__bd,
     .t0-b-headerUnit-labeledList table,
     .t0-b-headerUnit-labeledList2 table {
       margin: 0 auto;
+    }
+
+    a {
+      color: $_color_hd_typo;
     }
   }
 

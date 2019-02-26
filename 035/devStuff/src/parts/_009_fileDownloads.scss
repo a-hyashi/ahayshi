@@ -1,6 +1,7 @@
 @if $device == PC {
 
   .t0-b-fileDownloads {
+    color: #333;
     $_block: &;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
@@ -8,6 +9,7 @@
     &:first-child {
       padding-top: 0;
     }
+
     &__item {
       @include cf;
       padding: #{$_itemSpacing} 0 0;
@@ -15,15 +17,16 @@
         padding-top: 0;
       }
     }
+
     a {
       display: block;
       float: left;
-      color: #3a1f08;
       text-decoration: underline;
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
+
     &__itemSplit {
       display: table;
       > span {
@@ -32,20 +35,25 @@
         vertical-align: middle;
       }
     }
+
     &__itemIcon {
       padding-right: 10px;
     }
+
     &__itemText {
-      @include g-font(16, 1);
+      @include g-font(16, 2);
       #{$_block}--size-2 & {
-        @include g-font(20, 1);
+        @include g-font(20, 2);
       }
+
       #{$_block}--size-3 & {
-        @include g-font(24, 1);
+        @include g-font(24, 2);
       }
+
       #{$_block}--size-4 & {
-        @include g-font(28, 1);
+        @include g-font(28, 2);
       }
+
       #{$_block}--size-5 & {
         @include g-font(32, 1);
       }
@@ -64,9 +72,9 @@
         background-size: 30px*$mag;
       }
     }
+
     display: inline-block;
     vertical-align: middle;
-    //border: 1px solid #{$_color_border}
     @include _icon("pdf",1);
     @include _icon("doc",1);
     @include _icon("xls",1);
@@ -77,18 +85,21 @@
       @include _icon("xls",1.25);
       @include _icon("img",1.25);
     }
+
     .t0-b-fileDownloads--size-3 & {
       @include _icon("pdf",1.5);
       @include _icon("doc",1.5);
       @include _icon("xls",1.5);
       @include _icon("img",1.5);
     }
+
     .t0-b-fileDownloads--size-4 & {
       @include _icon("pdf",1.75);
       @include _icon("doc",1.75);
       @include _icon("xls",1.75);
       @include _icon("img",1.75);
     }
+
     .t0-b-fileDownloads--size-5 & {
       @include _icon("pdf",2);
       @include _icon("doc",2);
@@ -97,18 +108,25 @@
     }
   }
 
+  // safariで下線が付かない不具合のハック
+  _::-webkit-full-page-media, _:future, :root .t0-b-fileDownloads__itemText {
+    text-decoration:underline;
+  }
+
 }// PC
 
 
 @if $device == SP {
 
   .t0-b-fileDownloads {
+    color: #333;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
     padding: #{$_blockSpacing} 0 0;
     &:first-child {
       padding-top: 0;
     }
+
     &__item {
       padding: #{$_itemSpacing} 0 0;
       @include cf;
@@ -116,10 +134,12 @@
         padding-top: 0;
       }
     }
+
     a {
       display: block;
       float: left;
     }
+
     &__itemSplit {
       display: table;
       > span {
@@ -128,12 +148,13 @@
         vertical-align: middle;
       }
     }
+
     &__itemIcon {
-      padding-right: 10px;
+      padding-right: 8px;
     }
+
     &__itemText {
       @include g-font(16, 1);
-      color: #3a1f08;
       text-decoration: underline;
     }
   }
@@ -145,14 +166,14 @@
         $_src: "b-downloadIcon/#{$file}.png";
         background-image: url("../imgs/#{$_src}");
         background-repeat: no-repeat;
-        width: 30px;
+        width: 27px;
         height: 30px;
         background-size: 30px;
       }
     }
+
     display: inline-block;
     vertical-align: middle;
-    //border: 1px solid #{$_color_border}
     @include _icon("pdf");
     @include _icon("doc");
     @include _icon("xls");

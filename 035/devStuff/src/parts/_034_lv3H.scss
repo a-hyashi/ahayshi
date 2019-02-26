@@ -2,7 +2,7 @@
 
   .t0-b-lv3H#{$variation1of3} {
     $_block: &;
-    $_fontSizePx: 22;
+    $_fontSizePx: 26;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
@@ -14,7 +14,10 @@
     > div {
       display: inline-block;
     }
-    > div > * {
+
+    &__iconPlacer,
+    h3,
+    a {
       display: table-cell;
       vertical-align: middle;
     }
@@ -34,7 +37,7 @@
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -42,10 +45,10 @@
     &__icon {
       background-repeat: no-repeat;
       background-position: left center;
-      width: 24px;
-      height: 22px;
+      width: 30px;
+      height: 28px;
       background-image: url("../imgs/t0-b-lv3H/1/bg.png");
-      background-size: 24px 22px;
+      background-size: 30px 28px;
       position: relative;
       padding-right: 8px;
     }
@@ -53,26 +56,19 @@
 
     // size 小さいの場合
     &--size-1 {
-
       h3 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
 
       #{$_block}__iconPlacer {
-        // width: 15px*.8;
         height: 30px*.8;
       }
 
       #{$_block}__icon {
-        background-size: 28px*.8 22px*.8;
-        width: 28px*.8;
-        height: 22px*.8;
+        background-size: 30px*.8 28px*.8;
+        width: 30px*.8;
+        height: 28px*.8;
       }
-
-    }
-    // size 中の場合（サイズ指定なしと同じ）
-    &--size-2 {
-
     }
 
     // size 大きいの場合
@@ -82,14 +78,13 @@
       }
 
       #{$_block}__iconPlacer {
-        // width: 15px*1.2;
         height: 30px*1.2;
       }
 
       #{$_block}__icon {
-        background-size: 28px*1.2 22px*1.2;
-        width: 28px*1.2;
-        height: 22px*1.2;
+        background-size: 30px*1.2 28px*1.2;
+        width: 30px*1.2;
+        height: 28px*1.2;
       }
     }
 
@@ -104,7 +99,6 @@
     &--align-r {
       text-align: right;
     }
-
   }
 
   .t0-b-lv3H#{$variation2of3} {
@@ -116,7 +110,9 @@
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
     margin: 0 auto;
-    background: url("../imgs/t0-b-lv3H/2/bg.png") left center no-repeat;
+    background-image: url("../imgs/t0-b-lv3H/2/bg.png");
+    background-repeat: no-repeat;
+    background-position: left center;
     position: relative;
     color: #333;
     margin-top: -15px;
@@ -151,6 +147,7 @@
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
       position: relative;
       padding: 30px 0 25px 0;
+      min-height: 18px;
     }
 
     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
@@ -162,48 +159,18 @@
       }
     }
 
-    &__iconPlacer {
-
-    }
-
-    &__icon {
-
-    }
-
-
     // size 小さいの場合
     &--size-1 {
-
       h3 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        min-height: 15px;
       }
-
-      #{$_block}__iconPlacer {
-
-      }
-
-      #{$_block}__icon {
-
-      }
-
-    }
-    // size 中の場合（サイズ指定なしと同じ）
-    &--size-2 {
-
     }
 
     // size 大きいの場合
     &--size-3 {
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
-      }
-
-      #{$_block}__iconPlacer {
-
-      }
-
-      #{$_block}__icon {
-
       }
     }
 
@@ -218,96 +185,89 @@
     &--align-r {
       text-align: right;
     }
-
   }
 
-  //v3がないためv2を流用
   .t0-b-lv3H#{$variation3of3} {
     $_block: &;
-    $_fontSizePx: 22;
+    $_fontSizePx: 26;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
     margin: 0 auto;
-    background: url("../imgs/t0-b-lv3H/3/bg.png") left center no-repeat;
-    position: relative;
     color: #333;
-    margin-top: -12px;
-    div {
-      padding: 0 0 0 32px;
-    }
-    > span {
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 7px;
-      background-image: url("../imgs/t0-b-lv3H/3/bg2.png");
-      background-repeat: repeat-x;
-      background-position: left bottom;
+    line-height: 0;
+    background-image: url("../imgs/t0-b-lv3H/3/bg2.png");
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    padding-bottom: 7px;
+    position: relative;
+
+    > div {
+      display: table;
+      width: 100%;
     }
 
-   // size指定が無い時に適用されるh2
-    h3 {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-      position: relative;
-      padding: 12px 0 10px 0;
-    }
-
-    // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+    h3,
     a {
-      text-decoration: none;
-      color: #333;
-      &:hover {
-        color: $g-hovercolor;
-      }
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
     }
+
+    // size指定が無い時に適用されるh2
+     h3 {
+       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+     }
+
+     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
+     a {
+       text-decoration: none;
+       color: #333;
+       &:hover {
+         color: $g-hovercolor;
+       }
+     }
 
     &__iconPlacer {
-
+      display: table-cell;
+      vertical-align: middle;
+      background-image: url("../imgs/t0-b-lv3H/3/bg.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      min-height: 30px;
+      width: 30px;
+      height: 30px;
+      background-size: 30px 30px;
+      padding-right: 8px;
     }
-
-    &__icon {
-
-    }
-
 
     // size 小さいの場合
     &--size-1 {
-
       h3 {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        padding: 2px 0 0;
       }
 
       #{$_block}__iconPlacer {
-
+        background-size: 30px*.8 30px*.8;
+        width: 30px*.8;
+        height: 30px*.8;
       }
-
-      #{$_block}__icon {
-
-      }
-
-    }
-    // size 中の場合（サイズ指定なしと同じ）
-    &--size-2 {
-
     }
 
     // size 大きいの場合
     &--size-3 {
       h3 {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        padding: 2px 0 0;
       }
 
       #{$_block}__iconPlacer {
-
-      }
-
-      #{$_block}__icon {
-
+        background-size: 30px*1.2 30px*1.2;
+        width: 30px*1.2;
+        height: 30px*1.2;
       }
     }
 
@@ -322,7 +282,6 @@
     &--align-r {
       text-align: right;
     }
-
   }
 
 }// PC
@@ -340,7 +299,10 @@
     > div {
       display: inline-block;
     }
-    > div > * {
+
+    &__iconPlacer,
+    h3,
+    a {
       display: table-cell;
       vertical-align: middle;
     }
@@ -357,7 +319,7 @@
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -382,7 +344,6 @@
     &--align-r {
       text-align: right;
     }
-
   }
 
   .t0-b-lv3H#{$variation2of3} {
@@ -395,7 +356,10 @@
     > div {
       display: inline-block;
     }
-    > div > * {
+
+    &__iconPlacer,
+    h3,
+    a {
       display: table-cell;
       vertical-align: middle;
     }
@@ -413,7 +377,7 @@
     }
 
     &__iconPlacer {
-      > * {
+      > span {
         display: block;
       }
     }
@@ -438,7 +402,6 @@
     &--align-r {
       text-align: right;
     }
-
   }
 
   //v3がないためv2を流用
@@ -448,11 +411,14 @@
     $_lineHeightType: 1;
 
     margin: 0 auto;
-    background: url("../imgs/t0-b-lv3H/3/bg.png") left center no-repeat;
+    background-image: url("../imgs/t0-b-lv3H/3/bg.png");
+    background-repeat: no-repeat;
+    background-position: left center;
     position: relative;
     color: #333;
     margin-top: -10px;
     line-height: 3;
+    min-height: 40px;
     div {
       padding: 0 0 0 28px;
     }
@@ -481,14 +447,6 @@
       color: #333;
     }
 
-    &__iconPlacer {
-
-    }
-
-    &__icon {
-
-    }
-
     &--align-l {
       text-align: left;
     }
@@ -500,7 +458,6 @@
     &--align-r {
       text-align: right;
     }
-
   }
 
 }// SP

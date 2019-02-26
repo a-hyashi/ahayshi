@@ -1,10 +1,15 @@
 @if $device == PC {
 
   .t0-b-serviceSet#{$variation1of2} {
-    * {
+    $_lineHeightType: 1;
+    $_block: &;
+
+    &__hd-h,
+    &__hd-caption-upper,
+    &__hd-caption-lower {
       position: relative;
     }
-    $_block: &;
+
     &__hd {
       padding: 15px 10px;
       text-align: center;
@@ -17,8 +22,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/1/1/bg5.png"), url("../imgs/t0-b-serviceSet/1/1/bg7.png");
         position: absolute;
-        top: 12px;
-        bottom: 12px;
+        top: 11px;
+        bottom: 11px;
         left: 0;
         right: 0;
         > span {
@@ -26,66 +31,62 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/1/1/bg6.png"), url("../imgs/t0-b-serviceSet/1/1/bg8.png");
           position: absolute;
-          top: -12px;
-          bottom: -12px;
-          left: 17px;
-          right: 17px;
+          top: -11px;
+          bottom: -11px;
+          left: 16px;
+          right: 16px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/1/1/bg9.png");
             position: absolute;
-            top: 12px;
-            bottom: 12px;
+            top: 11px;
+            bottom: 11px;
             left: 0;
             right: 0;
           }
         }
       }
-      > * {
+
+      > div {
         color: #333;
       }
+
       #{$_block}__hd-h {
-        @if $layout == "N00" {
-                 @include g-font(28, 1);
-               } @else {
-                 @include g-font(24, 1);
-               }
+        @include g-font-layout(24, $_lineHeightType, $layout);
         font-weight: bold;
       }
+
       #{$_block}__hd-caption-upper {
+        @include g-font-layout(14, $_lineHeightType, $layout);
         padding-bottom: 5px;
-        @if $layout == "N00" {
-                 @include g-font(18, 1);
-               } @else {
-                 @include g-font(14, 1);
-               }
       }
+
       #{$_block}__hd-caption-lower {
+        @include g-font-layout(14, $_lineHeightType, $layout);
         padding-top: 5px;
-        @if $layout == "N00" {
-                 @include g-font(18, 1);
-               } @else {
-                 @include g-font(14, 1);
-               }
       }
+
       a {
         color: #333;
         text-decoration: none;
         &:hover {
-          color: #ee8100;
+          color: $g-hovercolor;
         }
       }
     }
+
     &__bd {
       padding: 0;
       > div > .t0-b-wysiwyg {
         padding: 0 25px;
       }
     }
+
     &__hd + &__bd {
       padding: 25px 0 0;
     }
+
     &__textColWithH {
       margin-bottom: 4%;
       border: 2px solid #e6ca92;
@@ -94,6 +95,7 @@
       box-sizing: border-box;
       background-color: #fff6dc;
     }
+
     &__textColWithH-hd {
       position: relative;
       box-sizing: border-box;
@@ -107,53 +109,59 @@
         min-height: 28px;
         box-sizing: border-box;
       }
+
       a {
         color: #333;
         text-decoration: none;
         &:hover {
-          color: #ee8100;
+          color: $g-hovercolor;
         }
       }
     }
+
     &__textColWithH-hd-h {
-      @if $layout == "N00" {
-               @include g-font(24, 1);
-             } @else {
-               @include g-font(20, 1);
-             }
+      @include g-font-layout(20, $_lineHeightType, $layout);
       position: relative;
       padding-bottom: 8px;
       background-repeat: repeat-x;
       background-position: left bottom;
       background-image: url("../imgs/t0-b-serviceSet/1/2/bg2.png");
-      > * {
+      h3 {
         font-weight: bold;
       }
     }
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
+
     &__textColWithH-hd--align-l {
       text-align: left;
     }
+
     &__textColWithH-hd--align-c {
       text-align: center;
     }
+
     &__textColWithH-hd--align-r {
       text-align: right;
     }
+
     #{$_block}__twoColsMedia__row1col1 {
       width: 60%;
       height: 124px;
       box-sizing: border-box;
       padding: 10px 10px 0 10px;
     }
+
     #{$_block}__twoColsMedia__row1col2 {
       box-sizing: border-box;
       height: 176px;
@@ -168,12 +176,14 @@
         border-radius: 0 8px 8px 0;
       }
     }
+
     #{$_block}__textColWithH-hd + #{$_block}__textColWithH-bd > #{$_block}__twoColsMedia > #{$_block}__twoColsMedia__div > #{$_block}__twoColsMedia__row1col1 {
       width: 60%;
       height: 124px;
       box-sizing: border-box;
       padding: 0 10px 0 10px;
     }
+
     #{$_block}__textColWithH-hd + #{$_block}__textColWithH-bd > #{$_block}__twoColsMedia > #{$_block}__twoColsMedia__div > #{$_block}__twoColsMedia__row1col2 {
       box-sizing: border-box;
       height: 176px;
@@ -188,6 +198,7 @@
         border-radius: 0 8px 8px 0;
       }
     }
+
     #{$_block}__twoColsMedia {
       position: relative;
       #{$_block}__twoColsMedia__div {
@@ -199,6 +210,7 @@
           text-align: left;
         }
       }
+
       &--imgL {
         > div {
           direction: rtl;
@@ -211,7 +223,9 @@
   }
 
   .t0-b-serviceSet#{$variation2of2} {
+    $_lineHeightType: 1;
     $_block: &;
+
     &__hd {
       padding: 0 10px 20px;
       text-align: center;
@@ -224,44 +238,48 @@
         min-height: 31px;
         box-sizing: border-box;
       }
-      > * {
+
+      > div {
         color: #553010;
       }
+
       #{$_block}__hd-h {
-        @if $layout == "N00" {
-                 @include g-font(28, 1);
-               } @else {
-                 @include g-font(24, 1);
-               }
+        @include g-font-layout(24, $_lineHeightType, $layout);
         font-weight: bold;
         padding-bottom: 20px;
         background-repeat: repeat-x;
         background-position: left bottom;
         background-image: url("../imgs/t0-b-serviceSet/2/1/bg3.png");
       }
+
       #{$_block}__hd-caption-upper {
         padding-bottom: 8px;
       }
+
       #{$_block}__hd-caption-lower {
         padding-top: 10px;
       }
+
       a {
         color: #553010;
         text-decoration: none;
         &:hover {
-          color: #ee8100;
+          color: $g-hovercolor;
         }
       }
     }
+
     &__bd {
       padding: 0 10px;
       > div > .t0-b-wysiwyg {
         padding: 0 15px;
       }
     }
+
     &__textColWithH {
       margin-bottom: 4%;
     }
+
     &__textColWithH-hd {
       position: relative;
       min-height: 40px;
@@ -278,8 +296,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/2/2/bg5.png"), url("../imgs/t0-b-serviceSet/2/2/bg7.png");
         position: absolute;
-        top: 11px;
-        bottom: 10px;
+        top: 10px;
+        bottom: 9px;
         left: 0;
         right: 0;
         > span {
@@ -287,68 +305,74 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/2/2/bg6.png"), url("../imgs/t0-b-serviceSet/2/2/bg8.png");
           position: absolute;
-          top: -11px;
-          bottom: -10px;
-          left: 17px;
-          right: 17px;
+          top: -10px;
+          bottom: -9px;
+          left: 16px;
+          right: 16px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/2/2/bg9.png");
             position: absolute;
-            top: 11px;
-            bottom: 10px;
+            top: 10px;
+            bottom: 9px;
             left: 0;
             right: 0;
           }
         }
       }
+
       a {
         color: #333;
         text-decoration: none;
         &:hover {
-          color: #ee8100;
+          color: $g-hovercolor;
         }
       }
     }
+
     &__textColWithH-hd-h {
-      @if $layout == "N00" {
-               @include g-font(24, 1);
-             } @else {
-               @include g-font(20, 1);
-             }
+      @include g-font-layout(20, $_lineHeightType, $layout);
       position: relative;
       background-repeat: no-repeat, no-repeat;
       background-position: left center, right center;
       background-image: url("../imgs/t0-b-serviceSet/2/2/bg10.png"), url("../imgs/t0-b-serviceSet/2/2/bg11.png");
       padding: 0 43px;
-      > * {
+      h3 {
         font-weight: bold;
       }
     }
+
     &__textColWithH-bd {
       background-color: #fff;
       margin-top: 18px;
       border-radius: 10px;
     }
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
+
     &__textColWithH-hd--align-l {
       text-align: left;
     }
+
     &__textColWithH-hd--align-c {
       text-align: center;
     }
+
     &__textColWithH-hd--align-r {
       text-align: right;
     }
+
     &__twoColsMedia {
       $_block: &;
       &__div {
@@ -359,6 +383,7 @@
           text-align: left;
         }
       }
+
       // &__media : no style
       @for $_i from 1 through 20 {
         &__row#{$_i}col1 {
@@ -367,6 +392,7 @@
           padding: 0 22px;
         }
       }
+
       @for $_i from 1 through 20 {
         &__row#{$_i}col2 {
           width: 100%;
@@ -377,6 +403,7 @@
           }
         }
       }
+
       // spacing
       // codes below render like this.
       // &.t0-b-twoColsMedia--spacing-2s
@@ -414,10 +441,16 @@
   }
 
   .t0-b-serviceSet3 {
+    $_lineHeightType: 1;
     $_block: &;
-    * {
+
+    &__hd-h,
+    &__hd-caption-upper,
+    &__hd-caption-lower,
+    > div {
       position: relative;
     }
+
     padding: 20px 20px 0;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left top, left bottom, right bottom, right top;
@@ -428,8 +461,8 @@
       background-position: left top, right top;
       background-image: url("../imgs/t0-b-serviceSet/3/1/bg5.png"), url("../imgs/t0-b-serviceSet/3/1/bg7.png");
       position: absolute;
-      top: 17px;
-      bottom: 17px;
+      top: 16px;
+      bottom: 16px;
       left: 0;
       right: 0;
       > span {
@@ -437,22 +470,23 @@
         background-position: left bottom, left top;
         background-image: url("../imgs/t0-b-serviceSet/3/1/bg6.png"), url("../imgs/t0-b-serviceSet/3/1/bg8.png");
         position: absolute;
-        top: -17px;
-        bottom: -17px;
-        left: 17px;
-        right: 17px;
+        top: -16px;
+        bottom: -16px;
+        left: 16px;
+        right: 16px;
         > span {
           background-repeat: repeat;
           background-position: left top;
           background-image: url("../imgs/t0-b-serviceSet/3/1/bg9.png");
           position: absolute;
-          top: 17px;
-          bottom: 17px;
+          top: 16px;
+          bottom: 16px;
           left: 0;
           right: 0;
         }
       }
     }
+
     &__hd {
       padding: 18px 10px 18px;
       text-align: center;
@@ -465,8 +499,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/3/2/bg5.png"), url("../imgs/t0-b-serviceSet/3/2/bg7.png");
         position: absolute;
-        top: 15px;
-        bottom: 15px;
+        top: 14px;
+        bottom: 14px;
         left: 0;
         right: 0;
         > span {
@@ -474,56 +508,61 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/3/2/bg6.png"), url("../imgs/t0-b-serviceSet/3/2/bg8.png");
           position: absolute;
-          top: -15px;
-          bottom: -15px;
-          left: 15px;
-          right: 15px;
+          top: -14px;
+          bottom: -14px;
+          left: 14px;
+          right: 14px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/3/2/bg9.png");
             position: absolute;
-            top: 15px;
-            bottom: 15px;
+            top: 14px;
+            bottom: 14px;
             left: 0;
             right: 0;
           }
         }
       }
-      > * {
+
+      > div {
         color: #fff;
       }
+
       #{$_block}__hd-h {
-        @if $layout == "N00" {
-                 @include g-font(26, 1);
-               } @else {
-                 @include g-font(22, 1);
-               }
+        @include g-font-layout(22, $_lineHeightType, $layout);
         font-weight: bold;
       }
+
       #{$_block}__hd-caption-upper {
         padding-bottom: 8px;
       }
+
       #{$_block}__hd-caption-lower {
         padding-top: 10px;
       }
+
       a {
         color: #fff;
         text-decoration: none;
         &:hover {
-          color: #ee8100;
+          color: $g-hovercolor;
         }
       }
     }
+
     &__bd {
       padding: 15px 15px 0;
     }
+
     &__hd + &__bd {
       padding: 25px 15px 0;
     }
+
     &__textColWithH {
       margin-bottom: 4%;
     }
+
     &__textColWithH-hd {
       min-height: 39px;
       box-sizing: border-box;
@@ -531,7 +570,7 @@
       text-align: center;
       padding: 10px 10px 15px;
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: left top, left bottom, right bottom, right top;
+      background-position: left top, left bottom 0, right bottom 0, right top;
       background-image: url("../imgs/t0-b-serviceSet/3/3/bg.png"), url("../imgs/t0-b-serviceSet/3/3/bg2.png"), url("../imgs/t0-b-serviceSet/3/3/bg3.png"), url("../imgs/t0-b-serviceSet/3/3/bg4.png");
       position: relative;
       > span {
@@ -539,8 +578,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/3/3/bg5.png"), url("../imgs/t0-b-serviceSet/3/3/bg7.png");
         position: absolute;
-        top: 9px;
-        bottom: 9px;
+        top: 8px;
+        bottom: 8px;
         left: 0;
         right: 0;
         > span {
@@ -548,63 +587,69 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/3/3/bg6.png"), url("../imgs/t0-b-serviceSet/3/3/bg8.png");
           position: absolute;
-          top: -9px;
-          bottom: -9px;
-          left: 9px;
-          right: 9px;
+          top: -8px;
+          bottom: -8px;
+          left: 8px;
+          right: 8px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/3/3/bg9.png");
             position: absolute;
-            top: 9px;
-            bottom: 9px;
+            top: 8px;
+            bottom: 8px;
             left: 0;
             right: 0;
           }
         }
       }
+
       a {
         color: #333;
         text-decoration: none;
         &:hover {
-          color: #ee8100;
+          color: $g-hovercolor;
         }
       }
     }
+
     &__textColWithH-hd-h {
-      @if $layout == "N00" {
-               @include g-font(24, 1);
-             } @else {
-               @include g-font(20, 1);
-             }
+      @include g-font-layout(20, $_lineHeightType, $layout);
       position: relative;
       padding: 0;
-      > * {
+      h3 {
         font-weight: bold;
       }
     }
+
     &__textColWithH-bd {
       padding: 18px 0 0;
     }
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
+
     &__textColWithH-hd--align-l {
       text-align: left;
     }
+
     &__textColWithH-hd--align-c {
       text-align: center;
     }
+
     &__textColWithH-hd--align-r {
       text-align: right;
     }
+
     &__twoColsMedia {
       $_block: &;
       &__div {
@@ -615,6 +660,7 @@
           text-align: left;
         }
       }
+
       // &__media : no style
       @for $_i from 1 through 20 {
         &__row#{$_i}col1 {
@@ -622,12 +668,14 @@
           display: table-footer-group;
         }
       }
+
       @for $_i from 1 through 20 {
         &__row#{$_i}col2 {
           width: 100%;
           display: table-cell;
         }
       }
+
       // spacing
       // codes below render like this.
       // &.t0-b-twoColsMedia--spacing-2s
@@ -669,14 +717,16 @@
 
 }// PC
 
-
 @if $device == SP {
 
   .t0-b-serviceSet#{$variation1of2} {
     margin: 0 -5px;
-    * {
+    &__hd-h,
+    &__hd-caption-upper,
+    &__hd-caption-lower {
       position: relative;
     }
+
     $_block: &;
     &__hd {
       padding: 18px 10px 18px;
@@ -690,8 +740,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/1/1/bg5.png"), url("../imgs/t0-b-serviceSet/1/1/bg7.png");
         position: absolute;
-        top: 12px;
-        bottom: 12px;
+        top: 11px;
+        bottom: 11px;
         left: 0;
         right: 0;
         > span {
@@ -699,52 +749,61 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/1/1/bg6.png"), url("../imgs/t0-b-serviceSet/1/1/bg8.png");
           position: absolute;
-          top: -12px;
+          top: -11px;
           bottom: -12px;
-          left: 17px;
-          right: 17px;
+          left: 16px;
+          right: 16px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/1/1/bg9.png");
             position: absolute;
-            top: 12px;
-            bottom: 12px;
+            top: 11px;
+            bottom: 11px;
             left: 0;
             right: 0;
           }
         }
       }
-      > * {
+
+      > div {
         color: #333;
       }
+
       #{$_block}__hd-h {
         @include g-font(18, 1);
         font-weight: bold;
       }
+
       #{$_block}__hd-caption-upper {
         padding-bottom: 8px;
       }
+
       #{$_block}__hd-caption-lower {
         padding-top: 10px;
       }
+
       a {
         color: #333;
         text-decoration: none;
       }
     }
+
     &__bd {
       padding: 0;
       > div > .t0-b-wysiwyg {
         padding: 0 25px;
       }
+
       .t0-b-layoutSplitter__div > div {
         padding-top: 20px;
       }
     }
+
     &__hd + &__bd {
       padding: 25px 0 0;
     }
+
     &__textColWithH {
       border: 2px solid #e6ca92;
       border-radius: 10px;
@@ -752,6 +811,7 @@
       box-sizing: border-box;
       background-color: #fff6dc;
     }
+
     &__textColWithH-hd {
       position: relative;
       box-sizing: border-box;
@@ -766,11 +826,13 @@
         min-height: 28px;
         box-sizing: border-box;
       }
+
       a {
         color: #333;
         text-decoration: none;
       }
     }
+
     &__textColWithH-hd-h {
       @include g-font(16, 1);
       position: relative;
@@ -778,34 +840,42 @@
       background-repeat: repeat-x;
       background-position: left bottom;
       background-image: url("../imgs/t0-b-serviceSet/1/2/bg2.png");
-      > * {
+      h3 {
         font-weight: bold;
       }
     }
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
+
     &__textColWithH-hd--align-l {
       text-align: left;
     }
+
     &__textColWithH-hd--align-c {
       text-align: center;
     }
+
     &__textColWithH-hd--align-r {
       text-align: right;
     }
+
     #{$_block}__twoColsMedia__row1col1 {
       width: 60%;
       height: 133px;
       box-sizing: border-box;
       padding: 10px 10px 0 10px;
     }
+
     #{$_block}__twoColsMedia__row1col2 {
       box-sizing: border-box;
       height: 195px;
@@ -814,21 +884,18 @@
       top: 0;
       right: 0;
       border-radius: 0 9px 9px 0;
-      * {
-        height: 195px;
-        box-sizing: border-box;
-        border-radius: 0 8px 8px 0;
-      }
       img {
         height: 195px;
       }
     }
+
     #{$_block}__textColWithH-hd + #{$_block}__textColWithH-bd > #{$_block}__twoColsMedia > #{$_block}__twoColsMedia__div > #{$_block}__twoColsMedia__row1col1 {
       width: 60%;
       height: 133px;
       box-sizing: border-box;
       padding: 0 10px 0 10px;
     }
+
     #{$_block}__textColWithH-hd + #{$_block}__textColWithH-bd > #{$_block}__twoColsMedia > #{$_block}__twoColsMedia__div > #{$_block}__twoColsMedia__row1col2 {
       box-sizing: border-box;
       height: 195px;
@@ -837,12 +904,13 @@
       top: -63px;
       right: 0;
       border-radius: 0 9px 9px 0;
-      * {
+      div {
         height: 195px;
         box-sizing: border-box;
         border-radius: 0 8px 8px 0;
       }
     }
+
     #{$_block}__twoColsMedia {
       position: relative;
       #{$_block}__twoColsMedia__div {
@@ -854,6 +922,7 @@
           text-align: left;
         }
       }
+
       &--imgL {
         > div {
           direction: rtl;
@@ -862,11 +931,13 @@
           }
         }
       }
+
       @for $_i from 1 through 20 {
         &__row#{$_i}col1 {
           width: 100%;
         }
       }
+
       // spacing
       // codes below render like this.
       // &.t0-b-twoColsMedia--spacing-2s
@@ -904,9 +975,11 @@
         }
       }
     }
+
     .t0-b-layoutSplitter__div > div {
       padding-top: 0;
     }
+
     &__textColWithH {
       margin-bottom: 20px;
     }
@@ -915,9 +988,6 @@
   .t0-b-serviceSet#{$variation2of2} {
     margin: 0 -5px;
     padding: 0;
-    * {
-      position: relative;
-    }
     $_block: &;
     &__hd {
       padding: 13px 10px 13px;
@@ -931,9 +1001,11 @@
         min-height: 31px;
         box-sizing: border-box;
       }
-      > * {
+
+      > div {
         color: #553010;
       }
+
       #{$_block}__hd-h {
         @include g-font(18, 1);
         font-weight: bold;
@@ -942,17 +1014,21 @@
         background-position: left bottom;
         background-image: url("../imgs/t0-b-serviceSet/2/1/bg3.png");
       }
+
       #{$_block}__hd-caption-upper {
         padding-bottom: 8px;
       }
+
       #{$_block}__hd-caption-lower {
         padding-top: 10px;
       }
+
       a {
         color: #553010;
         text-decoration: none;
       }
     }
+
     &__textColWithH-hd-h {
       @include g-font(16, 1);
       position: relative;
@@ -960,11 +1036,12 @@
       background-position: left center, right center;
       background-image: url("../imgs/t0-b-serviceSet/2/2/bg10.png"), url("../imgs/t0-b-serviceSet/2/2/bg11.png");
       padding: 0 43px;
-      > * {
+      margin-bottom: 20px;
+      h3 {
         font-weight: bold;
       }
-      margin-bottom: 20px;
     }
+
     &__textColWithH-hd {
       position: relative;
       min-height: 40px;
@@ -981,8 +1058,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/2/2/bg5.png"), url("../imgs/t0-b-serviceSet/2/2/bg7.png");
         position: absolute;
-        top: 11px;
-        bottom: 10px;
+        top: 10px;
+        bottom: 9px;
         left: 0;
         right: 0;
         > span {
@@ -990,48 +1067,57 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/2/2/bg6.png"), url("../imgs/t0-b-serviceSet/2/2/bg8.png");
           position: absolute;
-          top: -11px;
-          bottom: -10px;
-          left: 17px;
-          right: 17px;
+          top: -10px;
+          bottom: -9px;
+          left: 16px;
+          right: 16px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/2/2/bg9.png");
             position: absolute;
-            top: 11px;
-            bottom: 10px;
+            top: 10px;
+            bottom: 9px;
             left: 0;
             right: 0;
           }
         }
       }
+
       a {
         color: #333;
         text-decoration: none;
       }
     }
+
     &__textColWithH-bd {
       background-color: #fff;
     }
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
+
     &__textColWithH-hd--align-l {
       text-align: left;
     }
+
     &__textColWithH-hd--align-c {
       text-align: center;
     }
+
     &__textColWithH-hd--align-r {
       text-align: right;
     }
+
     &__twoColsMedia {
       $_block: &;
       &__div {
@@ -1042,6 +1128,7 @@
           text-align: left;
         }
       }
+
       // &__media : no style
       @for $_i from 1 through 20 {
         &__row#{$_i}col1 {
@@ -1049,12 +1136,14 @@
           display: table-cell;
         }
       }
+
       @for $_i from 1 through 20 {
         &__row#{$_i}col2 {
           width: 100%;
           display: table-header-group;
         }
       }
+
       // spacing
       // codes below render like this.
       // &.t0-b-twoColsMedia--spacing-2s
@@ -1094,9 +1183,11 @@
         }
       }
     }
+
     .t0-b-layoutSplitter__div > div {
       padding-top: 0;
     }
+
     &__textColWithH {
       margin-bottom: 20px;
     }
@@ -1104,9 +1195,13 @@
 
   .t0-b-serviceSet3 {
     margin: 0 -5px;
-    * {
+    &__hd-h,
+    &__hd-caption-upper,
+    &__hd-caption-lower,
+    > div {
       position: relative;
     }
+
     padding: 20px 20px 0;
     $_block: &;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -1118,8 +1213,8 @@
       background-position: left top, right top;
       background-image: url("../imgs/t0-b-serviceSet/3/1/bg5.png"), url("../imgs/t0-b-serviceSet/3/1/bg7.png");
       position: absolute;
-      top: 17px;
-      bottom: 17px;
+      top: 16px;
+      bottom: 16px;
       left: 0;
       right: 0;
       > span {
@@ -1127,22 +1222,23 @@
         background-position: left bottom, left top;
         background-image: url("../imgs/t0-b-serviceSet/3/1/bg6.png"), url("../imgs/t0-b-serviceSet/3/1/bg8.png");
         position: absolute;
-        top: -17px;
-        bottom: -17px;
-        left: 17px;
-        right: 17px;
+        top: -16px;
+        bottom: -16px;
+        left: 16px;
+        right: 16px;
         > span {
           background-repeat: repeat;
           background-position: left top;
           background-image: url("../imgs/t0-b-serviceSet/3/1/bg9.png");
           position: absolute;
-          top: 17px;
-          bottom: 17px;
+          top: 16px;
+          bottom: 16px;
           left: 0;
           right: 0;
         }
       }
     }
+
     &__hd {
       padding: 18px 10px 18px;
       text-align: center;
@@ -1155,8 +1251,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/3/2/bg5.png"), url("../imgs/t0-b-serviceSet/3/2/bg7.png");
         position: absolute;
-        top: 15px;
-        bottom: 15px;
+        top: 14px;
+        bottom: 14px;
         left: 0;
         right: 0;
         > span {
@@ -1164,53 +1260,61 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/3/2/bg6.png"), url("../imgs/t0-b-serviceSet/3/2/bg8.png");
           position: absolute;
-          top: -15px;
-          bottom: -15px;
-          left: 15px;
-          right: 15px;
+          top: -14px;
+          bottom: -14px;
+          left: 14px;
+          right: 14px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/3/2/bg9.png");
             position: absolute;
-            top: 15px;
-            bottom: 15px;
+            top: 14px;
+            bottom: 14px;
             left: 0;
             right: 0;
           }
         }
       }
-      > * {
+
+      > div {
         color: #fff;
       }
+
       #{$_block}__hd-h {
         @include g-font(18, 1);
         font-weight: bold;
       }
+
       #{$_block}__hd-caption-upper {
         padding-bottom: 8px;
       }
+
       #{$_block}__hd-caption-lower {
         padding-top: 10px;
       }
+
       a {
         color: #fff;
         text-decoration: none;
       }
     }
+
     &__bd {
       padding: 0;
     }
+
     &__hd + &__bd {
       padding: 20px 0 0;
     }
+
     &__textColWithH-hd {
       min-height: 39px;
       box-sizing: border-box;
       color: #333;
       padding: 10px 10px 15px;
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: left top, left bottom, right bottom, right top;
+      background-position: left top, left bottom 0, right bottom 0, right top;
       background-image: url("../imgs/t0-b-serviceSet/3/3/bg.png"), url("../imgs/t0-b-serviceSet/3/3/bg2.png"), url("../imgs/t0-b-serviceSet/3/3/bg3.png"), url("../imgs/t0-b-serviceSet/3/3/bg4.png");
       position: relative;
       > span {
@@ -1218,8 +1322,8 @@
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-serviceSet/3/3/bg5.png"), url("../imgs/t0-b-serviceSet/3/3/bg7.png");
         position: absolute;
-        top: 9px;
-        bottom: 9px;
+        top: 8px;
+        bottom: 8px;
         left: 0;
         right: 0;
         > span {
@@ -1227,56 +1331,66 @@
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-serviceSet/3/3/bg6.png"), url("../imgs/t0-b-serviceSet/3/3/bg8.png");
           position: absolute;
-          top: -9px;
-          bottom: -9px;
-          left: 9px;
-          right: 9px;
+          top: -8px;
+          bottom: -8px;
+          left: 8px;
+          right: 8px;
           > span {
             background-repeat: repeat;
             background-position: left top;
             background-image: url("../imgs/t0-b-serviceSet/3/3/bg9.png");
             position: absolute;
-            top: 9px;
-            bottom: 9px;
+            top: 8px;
+            bottom: 8px;
             left: 0;
             right: 0;
           }
         }
       }
+
       a {
         color: #333;
         text-decoration: none;
       }
     }
+
     &__textColWithH-hd-h {
       @include g-font(16, 1);
       position: relative;
       padding: 0;
-      > * {
+      h3 {
         font-weight: bold;
       }
     }
+
     &__textColWithH-bd {
       padding: 20px 0 0;
     }
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
+
     &__textColWithH-hd--align-l {
       text-align: left;
     }
+
     &__textColWithH-hd--align-c {
       text-align: center;
     }
+
     &__textColWithH-hd--align-r {
       text-align: right;
     }
+
     &__twoColsMedia {
       $_block: &;
       &__div {
@@ -1287,6 +1401,7 @@
           text-align: left;
         }
       }
+
       // &__media : no style
       @for $_i from 1 through 20 {
         &__row#{$_i}col1 {
@@ -1294,12 +1409,14 @@
           display: table-cell;
         }
       }
+
       @for $_i from 1 through 20 {
         &__row#{$_i}col2 {
           width: 100%;
           display: table-header-group;
         }
       }
+
       // spacing
       // codes below render like this.
       // &.t0-b-twoColsMedia--spacing-2s
@@ -1337,9 +1454,11 @@
         }
       }
     }
+
     .t0-b-layoutSplitter__div > div {
       padding-top: 0;
     }
+
     &__textColWithH {
       margin-bottom: 20px;
     }

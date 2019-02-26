@@ -12,12 +12,14 @@
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
       background-position: left top, left bottom, right bottom, right top;
       background-image: url("../imgs/t0-b-priceTable/1/bg.png"), url("../imgs/t0-b-priceTable/1/bg2.png"), url("../imgs/t0-b-priceTable/1/bg3.png"), url("../imgs/t0-b-priceTable/1/bg4.png");
+      background-size: 20.4px 15.4px, 20.4px 15.4px, 62.4px 15.4px, 62.4px 15.4px;
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
       pointer-events: none;
+      min-height: 30px;
       > span {
         background-repeat: repeat-y, repeat-y;
         background-position: left top, right top;
@@ -31,6 +33,7 @@
           background-repeat: repeat-x, repeat-x;
           background-position: left bottom, left top;
           background-image: url("../imgs/t0-b-priceTable/1/bg6.png"), url("../imgs/t0-b-priceTable/1/bg8.png");
+          background-size: 135.4px 15.4px, 135.4px 15.4px;
           position: absolute;
           top: -15px;
           bottom: -15px;
@@ -39,22 +42,31 @@
         }
       }
     }
+
     table {
       width: 100%;
+      background-repeat: repeat;
+      background-position: left top;
+      background-image: url(../imgs/t0-b-priceTable/1/bg10.png);
+      border-radius: 14px 13px 16px 14px;
     }
+
     th, td {
       @include g-font(20, 1);
       vertical-align: middle;
       color: #333;
     }
+
     th {
       background-repeat: repeat;
       background-position: left top;
       background-image: url("../imgs/t0-b-priceTable/1/bg9.png");
+      background-size: 10px 10.4px;
       text-align: center;
       padding: 20px 9px 14px;
       border-radius: 14px 0 0 14px;
     }
+
     td {
       background-repeat: repeat;
       background-position: left top;
@@ -63,38 +75,77 @@
       padding: 20px 20px 14px 9px;
       border-radius: 0 13px 16px 0;
     }
+
+    a {
+      color: #333;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
   }
 
   .t0-b-priceTable#{$variation2of2} {
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_hSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 4}px;
+
+    position: relative;
     box-sizing: border-box;
     margin: 0;
+
+    > span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      background-repeat: repeat-x, repeat-x;
+      background-position: left top, left bottom;
+      background-image: url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png");
+      border-radius: 6px;
+    }
+
     table {
       width: 100%;
+      background-repeat: repeat;
+      background-position: left top;
+      background-image: url("../imgs/t0-b-priceTable/2/bg.png");
+      border-radius: 6px;
     }
+
     th, td {
       @include g-font(20, 1);
       vertical-align: middle;
       color: #333;
     }
+
     th {
-      background-repeat: no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat;
-      background-position: left top, left bottom, left top, left bottom, left top, left top;
-      background-image: url("../imgs/t0-b-priceTable/2/bg4.png"), url("../imgs/t0-b-priceTable/2/bg5.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg.png");
+      background-repeat: no-repeat, no-repeat, repeat-y, repeat;
+      background-position: left top, left bottom, left top, left top;
+      background-image: url("../imgs/t0-b-priceTable/2/bg4.png"), url("../imgs/t0-b-priceTable/2/bg5.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg.png");
       text-align: center;
       padding: 18px 10px 18px;
       border-radius: 6px 0 0 6px;
     }
+
     td {
-      background-repeat: no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat-y, repeat;
-      background-position: right top, right bottom, left top, left bottom, right top, left top, left top;
-      background-image: url("../imgs/t0-b-priceTable/2/bg7.png"), url("../imgs/t0-b-priceTable/2/bg6.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg8.png"), url("../imgs/t0-b-priceTable/2/bg2.png");
+      background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat;
+      background-position: right top, right bottom, right top, left top, left top;
+      background-image: url("../imgs/t0-b-priceTable/2/bg7.png"), url("../imgs/t0-b-priceTable/2/bg6.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg8.png"), url("../imgs/t0-b-priceTable/2/bg2.png");
       text-align: right;
       padding: 18px 26px 18px 10px;
       border-radius: 0 6px 6px 0;
     }
+
+    a {
+      color: #333;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
   }
 
 }// PC
@@ -108,20 +159,25 @@
     $_elementSpacing: #{$g-spacingBaseLength * 4}px;
     position: relative;
     padding: 2px 2px 3px 2px;
+
     > span {
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
       background-position: left top, left bottom, right bottom, right top;
       background-image: url("../imgs/t0-b-priceTable/1/bg.png"), url("../imgs/t0-b-priceTable/1/bg2.png"), url("../imgs/t0-b-priceTable/1/bg3.png"), url("../imgs/t0-b-priceTable/1/bg4.png");
+      background-size: 20.4px 15.4px, 20.4px 15.4px, 62.4px 15.4px, 62.4px 15.4px;
       position: absolute;
+      pointer-events: none;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
+      min-height: 30px;
       > span {
         background-repeat: repeat-y, repeat-y;
         background-position: left top, right top;
         background-image: url("../imgs/t0-b-priceTable/1/bg5.png"), url("../imgs/t0-b-priceTable/1/bg7.png");
         position: absolute;
+        pointer-events: none;
         top: 15px;
         bottom: 15px;
         left: 0;
@@ -130,7 +186,9 @@
           background-repeat: repeat-x, repeat-x;
           background-position: right bottom, left top;
           background-image: url("../imgs/t0-b-priceTable/1/bg6.png"), url("../imgs/t0-b-priceTable/1/bg8.png");
+          background-size: 135.4px 15.4px, 135.4px 15.4px;
           position: absolute;
+          pointer-events: none;
           top: -15px;
           bottom: -15px;
           left: 20px;
@@ -138,23 +196,30 @@
         }
       }
     }
+
     table {
       width: 100%;
+      background-repeat: repeat;
+      background-position: left top;
+      background-image: url(../imgs/t0-b-priceTable/1/bg10.png);
+      border-radius: 14px 13px 16px 14px;
     }
+
     th, td {
       @include g-font(16, 1);
       padding: 15px 10px;
       vertical-align: middle;
       color: #333;
     }
+
     th {
       background-repeat: repeat;
       background-position: left top;
       background-image: url("../imgs/t0-b-priceTable/1/bg9.png");
-      width: 45% !important;
       text-align: center;
       border-radius: 14px 0 0 14px;
     }
+
     td {
       background-repeat: repeat;
       background-position: left top;
@@ -162,35 +227,65 @@
       text-align: right;
       border-radius: 0 13px 16px 0;
     }
+
+    a {
+      color: #333;
+    }
+
   }
 
   .t0-b-priceTable#{$variation2of2} {
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_hSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 4}px;
+    position: relative;
+
+    > span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      background-repeat: repeat-x, repeat-x;
+      background-position: left top, left bottom;
+      background-image: url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png");
+      border-radius: 6px;
+    }
+
     table {
       width: 100%;
+      background-repeat: repeat;
+      background-position: left top;
+      background-image: url("../imgs/t0-b-priceTable/2/bg.png");
+      border-radius: 6px;
     }
+
     th, td {
       @include g-font(16, 1);
       padding: 10px;
       vertical-align: middle;
       color: #333;
     }
+
     th {
-      width: 45% !important;
-      background-repeat: no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat;
-      background-position: left top, left bottom, left top, left bottom, left top, left top;
-      background-image: url("../imgs/t0-b-priceTable/2/bg4.png"), url("../imgs/t0-b-priceTable/2/bg5.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg.png");
+      background-repeat: no-repeat, no-repeat, repeat-y, repeat;
+      background-position: left top, left bottom, left top, left top;
+      background-image: url("../imgs/t0-b-priceTable/2/bg4.png"), url("../imgs/t0-b-priceTable/2/bg5.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg.png");
       text-align: center;
       border-radius: 6px 0 0 6px;
     }
+
     td {
-      background-repeat: no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat-y, repeat;
-      background-position: right top, right bottom, left top, left bottom, right top, left top, left top;
-      background-image: url("../imgs/t0-b-priceTable/2/bg7.png"), url("../imgs/t0-b-priceTable/2/bg6.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg8.png"), url("../imgs/t0-b-priceTable/2/bg2.png");
+      background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat;
+      background-position: right top, right bottom, right top, left top, left top;
+      background-image: url("../imgs/t0-b-priceTable/2/bg7.png"), url("../imgs/t0-b-priceTable/2/bg6.png"), url("../imgs/t0-b-priceTable/2/bg3.png"), url("../imgs/t0-b-priceTable/2/bg8.png"), url("../imgs/t0-b-priceTable/2/bg2.png");
       text-align: right;
       border-radius: 0 6px 6px 0;
+    }
+
+    a {
+      color: #333;
     }
   }
 

@@ -1,24 +1,28 @@
 @if $device == PC {
 
   .t0-b-sideBoxLv2H {
+    $_lineHeightType: 1;
     color: #333;
+
     h6 {
       font-weight: bold;
-      @if $layout == "N00" {
-               @include g-font(20, 1);
-             } @else {
-               @include g-font(16, 1);
-             }
+      @include g-font-layout(16, $_lineHeightType, $layout);
       padding-left: 3px;
     }
+
     > div {
       display: inline-block;
+
+      > div,
+      > h6,
+      > a {
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
-    > div > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
+
     &__icon {
+      display: block;
       background-repeat: no-repeat;
       background-position: left center;
       width: 12px;
@@ -27,25 +31,25 @@
       position: relative;
       background-position: left bottom;
     }
-    &__iconPlacer {
-      > * {
-        display: block;
-      }
-    }
+
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
       color: #333;
+
       &:hover {
-        color: #ee8100;
+        color: $g-hovercolor;
       }
     }
   }
@@ -57,19 +61,26 @@
 
   .t0-b-sideBoxLv2H {
     color: #333;
+
     h6 {
       font-weight: bold;
       @include g-font(16, 1);
       padding-left: 3px;
     }
+
     > div {
       display: inline-block;
+
+      > div,
+      > h6,
+      > a {
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
-    > div > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
+
     &__icon {
+      display: block;
       background-repeat: no-repeat;
       background-position: left center;
       width: 12px;
@@ -77,20 +88,19 @@
       background-image: url("../imgs/t0-b-sideBoxLv2H/bg.png");
       position: relative;
     }
-    &__iconPlacer {
-      > * {
-        display: block;
-      }
-    }
+
     &--align-l {
       text-align: left;
     }
+
     &--align-c {
       text-align: center;
     }
+
     &--align-r {
       text-align: right;
     }
+
     a {
       text-decoration: none;
       color: #333;
