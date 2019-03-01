@@ -1,0 +1,95 @@
+@if $device == PC {
+
+  .t0-b-lv5H-subH {
+    $_block: &;
+    $_fontSizePx: 18;
+    $_lineHeightType: 1;
+    $_fontSizeDifference: 4;
+
+    font-weight: bold;
+    @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+    &:before,
+    &:after {
+      margin-top: 0;
+    }
+
+    color: #553010;
+
+    h5 {
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      display: inline;
+    }
+
+    &--size-1 {
+      h5 {
+        @include g-font-layout($_fontSizePx - $_fontSizeDifference, $_lineHeightType, $layout);
+      }
+    }
+
+    &--size-3 {
+      h5 {
+        @include g-font-layout($_fontSizePx + $_fontSizeDifference, $_lineHeightType, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline;
+      color: #553010;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-lv5H-subH {
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+
+    font-weight: bold;
+    @include g-font(16, 1);
+    color: #553010;
+    padding-bottom: 2px;
+
+    h5 {
+      display: inline;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline;
+      color: #553010;
+    }
+  }
+
+}// SP
