@@ -1,5 +1,5 @@
 # buddy-theme
-![Docker:18.09.1](https://img.shields.io/badge/Docker-18.09.1-blue.svg)
+![Docker:18.09.2](https://img.shields.io/badge/Docker-18.09.2-blue.svg)
 ![node:v11.10.1](https://img.shields.io/badge/node-v11.10.1-blue.svg)
 ![npm:6.8.0](https://img.shields.io/badge/npm-6.8.0-blue.svg)
 ![gulp:3.9.1](https://img.shields.io/badge/gulp-3.9.1-blue.svg)
