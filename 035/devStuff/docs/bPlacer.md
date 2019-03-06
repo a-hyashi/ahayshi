@@ -179,8 +179,8 @@
 |10.サイト名|header|169_ヘッダーサイト名|.t0-b-headerUnit-siteTitle|2|2%||15px|
 |10.サイト名|header|177_ヘッダーサイト名（画像）|.t0-b-headerUnit-siteName||2%||15px|
 |10.サイト名|header|177_ヘッダーサイト名（画像）|.t0-b-headerUnit-siteName|2|2%||35px|
-|10.サイト名|footer|191_フッターサイト名|.t0-b-footerUnit-siteTitle||2%||35px|
-|10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName||2%||35px|
+|10.サイト名|footer|191_フッターサイト名|.t0-b-footerUnit-siteTitle||2%||15px|
+|10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName||2%||15px|
 |10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName|2|2%||35px|
 |11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation1of3}|8%||25px|
 |11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation2of3}|8%||25px|
