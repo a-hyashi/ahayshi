@@ -62,7 +62,7 @@ window.onload = function () {
 
   spButton.onclick = function() {
     var url = [location.protocol, '//', location.host, location.pathname].join('');
-    location.href = url + "?l=sp";
+    location.href = `${url}?l=sp`;
   }
 
   function changeWidth() {
