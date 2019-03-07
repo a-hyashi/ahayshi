@@ -1,4 +1,15 @@
 @if $device == SP {
+  .mod-sp-backto,
+  .mod-sp-viewchange {
+    a {
+      color: $textcolor;
+      text-decoration: underline;
+      &:hover {
+        color: $hovercolor;
+      }
+    }
+  }
+
   .mod-sp-accordion {
     ul,
     li {
@@ -66,11 +77,12 @@
       display: none;
       width: 100%;
       overflow: auto;
+      background-color: rgba(245, 245, 245, .9);
     }
   }
 
   .mod-sp-head-bar {
-    $bg-color:  rgba(255, 255, 255, .9);
+    $bg-color: rgba(255, 255, 255, .9);
     $text-color: #ddd;
     $shadow-color: rgba(0, 0, 0, .1);
     position: fixed;
@@ -157,22 +169,20 @@
   }
 
   .mod-side-menu {
-    $bg-color: rgba(255, 255, 255, .8);
+    $lv1-bg-color: rgba(225, 225, 225, .7);
+    $lv2andUnder-bg-color: rgba(245, 245, 245, .7);
     $border-color: #ccc;
+
     display: block;
-
-    background-color: $bg-color;
+    color: #777;
     a {
-      $text-color: #555;
-
-      color: $text-color;
+      color: #112;
       text-decoration: none;
     }
 
     .b-sideMenu__list > ul > {
       // 1階層目
       .b-sideMenu__item > .b-sideMenu__item2 > div {
-        $lv1-bg-color:  rgba(221, 221, 221, .7);
         background-color: $lv1-bg-color;
         > a > span,
         > span {
@@ -188,7 +198,7 @@
       li > .b-sideMenu__list > ul > {
         // 2階層目
         .b-sideMenu__item > .b-sideMenu__item2 > div {
-          background-color: $bg-color;
+          background-color: $lv2andUnder-bg-color;
           > a > span,
           > span {
             display: block;
@@ -198,7 +208,7 @@
 
         // 3階層目
         li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div {
-          background-color: $bg-color;
+          background-color: $lv2andUnder-bg-color;
           > a > span,
           > span {
             display: block;
