@@ -7,55 +7,218 @@
     display: block;
   }
 
-  .t0-b-frameOuter#{$variation1of8}#{$variation1of2} {
+  .t0-b-frameOuter#{$variation1of8} {
+
+    $_fontSizePx_hd: 24;
+    $_fontSizePx_caption: 14;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_block: &;
+
     &__hd {
+      text-align: center;
+      color: $textcolor;
+      padding-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0 0;
+      }
+
+      &--size-1 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
-    &__bd {
-      padding: 0;
-    }
     &__ft {
       margin-top: 2%;
     }
-
   }
 
+  .t0-b-frameOuter#{$variation2of8} {
 
     $_fontSizePx_hd: 24;
     $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: ######;
-
-
-    $_fontSizePx_hd: 24;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: ######;
-  .t0-b-frameOuter#{$variation3of8} {
-    $_block: &;
-    $_fontSizePx_hd-h: 28;
-    $_fontSizePx_hd-caption: 16;
-    $_fontSizePx_numIcon-h: 26;
-    $_fontSizePx_numIcon-caption: 16;
     $_fontSizeDifference: 4;
-    $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
-    $_fontSizePx_hd-h_l: $_fontSizePx_hd-h + $_fontSizeDifference;
-    $_fontSizePx_hd-caption_s: $_fontSizePx_hd-caption - $_fontSizeDifference;
-    $_fontSizePx_hd-caption_l: $_fontSizePx_hd-caption + $_fontSizeDifference;
-    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
-    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
-    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
-    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference - 2;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_block: &;
 
-    $_lineHeightType_hd-h: 1;
-    $_lineHeightType_hd-caption: 1;
-    $_lineHeightType_numIcon-h: 1;
-    $_lineHeightType_numIcon-caption: 1;
+    margin-bottom: 2%;
+    padding: 3% 3% 1%;
+    border: 6px double #ccc;
+
+    &__hd {
+      text-align: center;
+      color: inherit;
+      padding-bottom: 10px;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0 0;
+      }
+
+      &--size-1 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+
+    &__ft {
+      margin-top: 2%;
+    }
+  }
+
+  .t0-b-frameOuter#{$variation3of8} {
+
+    $_fontSizePx_hd: 28;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 16;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_block: &;
 
     padding: 4.5% 4% 1%;
-
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-
     background-repeat: no-repeat, no-repeat, repeat-x;
     background-position: 7px top, right 7px top 0, left top;
     background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/1.png");
@@ -63,213 +226,107 @@
 
     &__hd {
       text-align: center;
+      color: inherit;
       background-repeat: no-repeat, no-repeat, repeat-x;
       background-position: right bottom, left bottom, left bottom;
       background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/4.png");
       padding-bottom: 15px;
       margin-bottom: 30px;
 
-      #{$_block}__hd-caption-upper {
-        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-
-        padding: 0 0 5px;
-      }
-
-      #{$_block}__hd-caption-lower {
-        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-
-        padding: 5px 0 0;
-      }
-
-      #{$_block}__hd-h h2 {
-        @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
-      }
-
       a {
-        color: $textcolor;
         text-decoration: none;
-
+        color: inherit;
         &:hover {
           color: $hovercolor;
         }
       }
 
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0;
+      }
+
       &--size-1 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h h2 {
-          @include g-font-layout($_fontSizePx_hd-h_s, $_lineHeightType_hd-h, $layout);
-        }
-      }
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-      &--size-2 {
-
-      }
-
-      &--size-3 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
-        }
-
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
-        }
-
-        #{$_block}__hd-h h2 {
-          @include g-font-layout($_fontSizePx_hd-h_l, $_lineHeightType_hd-h, $layout);
-        }
-      }
-
-    }
-
-    &__box {
-//      padding: 10px 0 0 75px;
-      padding-bottom: 2%;
-    }
-
-    &__numIcon-caption-upper {
-      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
-
-      padding: 0 0 5px;
-    }
-
-    &__numIcon-h {
-      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
-    }
-
-    &__numIcon-caption-lower {
-      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
-
-      padding: 5px 0 0;
-    }
-
-    &__numIcon-caption-upper + &__numIcon-h {
-      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
-    }
-
-    &__numIcon-caption-upper + a > &__numIcon-h {
-      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
-    }
-
-    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-    @each $_type in $_types {
-      @for $_i from 1 through 9 {
-        &__icon--#{$_type}-#{$_i} {
-          &:before {
-            content: "#{$_i}";
-            display: block;
-            color: #fff;
-            text-indent: 22px;
-            padding-top: 28px;
-
-            @include g-font(26, 0);
-
-            font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-            text-align: left;
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
-      &__icon--#{$_type}-10 {
-        &:before {
-          content: "10";
-          display: block;
-          color: #fff;
-          text-indent: 16px;
-          padding-top: 28px;
+      &--size-3 {
+        #{$_block}__hd {
 
-          @include g-font(26, 0);
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
 
-          font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-          text-align: left;
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
       }
-    }
 
-    &__hd--align-l {
-      text-align: left;
-    }
+      &--align-l {
+        text-align: left;
+      }
 
-    &__hd--align-c {
-      text-align: center;
-    }
+      &--align-c {
+        text-align: center;
+      }
 
-    &__hd--align-r {
-      text-align: right;
-    }
-
-    &__numIcon--align {
-      width: 100%;
-      line-height: 0;
-    }
-
-    &__numIcon--align-l {
-      text-align: left;
-    }
-
-    &__numIcon--align-c {
-      text-align: center;
-    }
-
-    &__numIcon--align-r {
-      text-align: right;
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__ft { // 最下部の枠があるとき
       margin-top: 2%;
     }
-
-    &__numIcon--size-1 {
-      #{$_block}__numIcon-caption-upper {
-        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
-
-        padding: 0 0 5px;
-      }
-      }
-
-    }
-
-    &__numIcon--size-3 {
-      #{$_block}__numIcon-caption-upper {
-        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
-
-        padding: 0 0 5px;
-      }
-      }
-    }
   }
 
   .t0-b-frameOuter#{$variation4of8} {
-    $_block: &;
-    $_fontSizePx_hd-h: 28;
-    $_fontSizePx_hd-caption: 16;
-    $_fontSizePx_numIcon-h: 26;
-    $_fontSizePx_numIcon-caption: 16;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
-    $_fontSizePx_hd-h_l: $_fontSizePx_hd-h + $_fontSizeDifference;
-    $_fontSizePx_hd-caption_s: $_fontSizePx_hd-caption - $_fontSizeDifference;
-    $_fontSizePx_hd-caption_l: $_fontSizePx_hd-caption + $_fontSizeDifference;
-    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
-    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
-    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
-    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference - 2;
 
-    $_lineHeightType_hd-h: 1;
-    $_lineHeightType_hd-caption: 1;
-    $_lineHeightType_numIcon-h: 1;
-    $_lineHeightType_numIcon-caption: 1;
+    $_fontSizePx_hd: 28;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 16;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_block: &;
 
     padding: 4.5% 4% 1%;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-
     border-top: 6px double #ffdbe8;
     border-bottom: 6px double #ffdbe8;
 
@@ -281,194 +338,97 @@
       padding: 15px 15px;
       margin-bottom: 30px;
 
-      #{$_block}__hd-caption-upper {
-        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-
-        padding: 0 0 5px;
-      }
-
-      #{$_block}__hd-caption-lower {
-        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-
-        padding: 5px 0 0;
-      }
-
-      #{$_block}__hd-h h2 {
-        @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
-      }
-
       a {
         color: #fff;
         text-decoration: none;
-
         &:hover {
           color: $hovercolor;
         }
       }
 
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0;
+      }
+
       &--size-1 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h h2 {
-          @include g-font-layout($_fontSizePx_hd-h_s, $_lineHeightType_hd-h, $layout);
-        }
-      }
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-      &--size-2 {
-
-      }
-
-      &--size-3 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
-        }
-
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
-        }
-
-        #{$_block}__hd-h h2 {
-          @include g-font-layout($_fontSizePx_hd-h_l, $_lineHeightType_hd-h, $layout);
-        }
-      }
-    }
-
-    &__box {
-      padding-bottom: 2%;
-    }
-
-    &__numIcon-caption-upper {
-      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
-
-      padding: 0 0 5px;
-    }
-
-    &__numIcon-h {
-      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
-    }
-
-    &__numIcon-caption-lower {
-      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
-
-      padding: 5px 0 0;
-    }
-
-    &__numIcon-caption-upper + &__numIcon-h {
-      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
-    }
-
-    &__numIcon-caption-upper + a > &__numIcon-h {
-      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
-    }
-
-    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-    @each $_type in $_types {
-      @for $_i from 1 through 9 {
-        &__icon--#{$_type}-#{$_i} {
-          &:before {
-            content: "#{$_i}";
-            display: block;
-            color: #fff;
-            text-indent: 63px;
-            padding-top: 7px;
-
-            @include g-font(34, 0);
-
-            font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-            text-align: left;
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
-      &__icon--#{$_type}-10 {
-        &:before {
-          content: "10";
-          display: block;
-          color: #fff;
-          width: 44px;
-          padding-left: 50px;
-          padding-top: 7px;
+      &--size-3 {
+        #{$_block}__hd {
 
-          @include g-font(34, 0);
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
 
-          font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-          text-align: center;
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
-
-    &__numIcon--align {
-      width: 100%;
-      line-height: 0;
-    }
-
-    &__numIcon--align-l {
-      text-align: left;
-    }
-
-    &__numIcon--align-c {
-      text-align: center;
-    }
-
-    &__numIcon--align-r {
-      text-align: right;
-    }
     &__ft { // 最下部の枠があるとき
       margin-top: 2%;
     }
-
-    &__numIcon--size-1 {
-      #{$_block}__numIcon-caption-upper {
-        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
-
-        padding: 0 0 5px;
-      }
-      }
-
-    }
-
-    &__numIcon--size-3 {
-      #{$_block}__numIcon-caption-upper {
-        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
-
-        padding: 0 0 5px;
-      }
-      }
-    }
-
   }
 
   .t0-b-frameOuter#{$variation5of8} {
-    $_block: &;
-    $_fontSizePx_h: 24;
-    $_fontSizePx_caption: 14;
+
+    $_fontSizePx_hd: 24;
     $_fontSizeDifference: 4;
-    $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
-    $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 14;
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_lineHeightType: 1;
+    $_block: &;
 
     padding: 3.5% 3.5% 1%;
     border: 4px solid #bbb;
@@ -488,6 +448,7 @@
     }
 
     &__hd {
+      color: inherit;
       padding: 0 0 12px;
       margin-bottom: 20px;
       position: relative;
@@ -497,77 +458,78 @@
       background-image: url("../imgs/t0-b-frameWithHCaption/1.png"), url("../imgs/t0-b-frameWithHCaption/2.png");
 
       a {
-        color: $textcolor;
         text-decoration: none;
-
+        color: inherit;
         &:hover {
           color: $hovercolor;
         }
       }
-    }
 
-    &__hd-h {
-      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
-    }
-
-    &__hd-caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-
-      padding: 0 0 5px;
-    }
-
-    &__hd-caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-
-      padding: 5px 0 0;
-    }
-
-    &__hd--size-1 {
-
-      #{$_block}__hd-h {
-        @include g-font-layout($_fontSizePx_h_s, $_lineHeightType_h, $layout);
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
       }
 
-      #{$_block}__hd-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px;
       }
 
-      #{$_block}__hd-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0;
       }
 
-    }
+      &--size-1 {
+        #{$_block}__hd {
 
-    &__hd--size-2 {
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-    }
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-    &__hd--size-3 {
-
-      #{$_block}__hd-h {
-        @include g-font-layout($_fontSizePx_h_l, $_lineHeightType_h, $layout);
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
+        }
       }
 
-      #{$_block}__hd-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+      &--size-3 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
+        }
       }
 
-      #{$_block}__hd-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+      &--align-l {
+        text-align: left;
       }
 
-    }
+      &--align-c {
+        text-align: center;
+      }
 
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__ft {
@@ -576,17 +538,16 @@
   }
 
   .t0-b-frameOuter#{$variation6of8} {
-    $_block: &;
-    $_fontSizePx_h: 24;
-    $_fontSizePx_caption: 14;
+
+    $_fontSizePx_hd: 24;
     $_fontSizeDifference: 4;
-    $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
-    $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 14;
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_lineHeightType: 1;
+    $_block: &;
 
     &__hd {
       padding: 20px;
@@ -601,10 +562,75 @@
       a {
         color: #fff;
         text-decoration: none;
-
         &:hover {
           color: $hovercolor;
         }
+      }
+
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0;
+      }
+
+      &--size-1 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
@@ -612,7 +638,6 @@
       padding: 20px 3.5% 1%;
       background: #ffedf5;
       position: relative;
-
       &:after {
         content: "";
         position: absolute;
@@ -625,70 +650,6 @@
       }
     }
 
-    &__hd-h {
-      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
-    }
-
-    &__hd-caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-
-      padding: 0 0 5px;
-    }
-
-    &__hd-caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
-
-      padding: 5px 0 0;
-    }
-
-    &__hd--size-1 {
-
-      #{$_block}__hd-h {
-        @include g-font-layout($_fontSizePx_h_s, $_lineHeightType_h, $layout);
-      }
-
-      #{$_block}__hd-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-      }
-
-      #{$_block}__hd-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
-      }
-
-    }
-
-    &__hd--size-2 {
-
-    }
-
-    &__hd--size-3 {
-
-      #{$_block}__hd-h {
-        @include g-font-layout($_fontSizePx_h_l, $_lineHeightType_h, $layout);
-      }
-
-      #{$_block}__hd-caption-upper {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-      }
-
-      #{$_block}__hd-caption-lower {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
-      }
-
-    }
-
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
-
     &__ft {
       margin-top: 2%;
     }
@@ -696,135 +657,121 @@
 
   .t0-b-frameOuter#{$variation7of8} {
 
-    $_fontSizePx_hd: 24;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: ######;
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
+    $_fontSizePx_hd: 28;
     $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_block: &;
+
+    background-color: #ffedf5;
+    padding: 25px 25px 10px;
+    background-repeat: repeat-x, repeat-x;
+    background-position: left top, left bottom;
+    background-image: url("../imgs/t0-b-articleDecoration/1/1.png"), url("../imgs/t0-b-articleDecoration/1/2.png");
 
     &__hd {
       text-align: center;
-      color: $_textColor_hd;
+      color: inherit;
       padding-bottom: 10px;
+      margin-bottom: 18px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
       &-h {
-        text-align: center;
+        overflow: hidden;
+        border-left: 6px solid #ff459a;
+        border-bottom: 2px solid #ff459a;
+        padding: 0 0 7px 10px;
+        position: relative;
+        z-index: 1;
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 1px;
+          height: 1px;
+          border-top: 1px solid #ffcbe3;
+          z-index: -1;
+        }
+
         h2 {
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
         }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
       }
+
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
+        padding: 0 0 5px 20px;
       }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
-      }
-    }
-
-    &__col {
-      padding-left: 7%;
-      flex: 1 1 (100% / 2);
-      &:first-child {
-        padding-left: 0;
-      }
-    }
-
-    &__bd {
-      display: table;
-      width: 100%;
-    }
-
-    &__box {
-      display: table-cell;
-      width: 49%;
-      background-color: #ffedf5;
-      padding: 25px 25px 10px;
-      background-repeat: repeat-x, repeat-x;
-      background-position: left top, left bottom;
-      background-image: url("../imgs/t0-b-articleDecoration/1/1.png"), url("../imgs/t0-b-articleDecoration/1/2.png");
-    }
-
-    &__arrow {
-      display: table-cell;
-      width: 20px;
-    }
-
-    &__hd-h {
-      // 回り込みなしに必要
-      overflow: hidden;
-      border-left: 6px solid #ff459a;
-      border-bottom: 2px solid #ff459a;
-      margin-bottom: 18px;
-      padding: 4px 0 7px 10px;
-      position: relative;
-      z-index: 1;
-
-      &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 1px;
-        height: 1px;
-        border-top: 1px solid #ffcbe3;
-        z-index: -1;
-      }
-
-      h2 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-      }
-
-      a {
-        color: $textcolor;
-        text-decoration: none;
-
-        &:hover {
-          h2 {
-            color: $hovercolor;
-          }
-        }
-      }
-
-      #{$_block}--align-l {
-        text-align: left;
-      }
-
-      #{$_block}--align-c {
-        text-align: center;
-      }
-
-      #{$_block}--align-r {
-        text-align: right;
+        padding: 5px 0 0 20px;
       }
 
       &--size-1 {
-        h2 {
-          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
         }
       }
 
       &--size-3 {
-        h2 {
-          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
       }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
+
     &__ft {
       margin-top: 2%;
     }
@@ -832,189 +779,233 @@
 
   .t0-b-frameOuter#{$variation8of8} {
 
-    $_fontSizePx_hd: 24;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: ######;
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
+    $_fontSizePx_hd: 28;
     $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_lineHeightType: 1;
+    $_block: &;
+
+    background-color: #fff;
+    padding: 33px 35px 20px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+    background-image: url("../imgs/t0-b-articleDecoration/2/bg.png"), url("../imgs/t0-b-articleDecoration/2/bg2.png"), url("../imgs/t0-b-articleDecoration/2/bg3.png"), url("../imgs/t0-b-articleDecoration/2/bg4.png"), url("../imgs/t0-b-articleDecoration/2/bg5.png"), url("../imgs/t0-b-articleDecoration/2/bg6.png"), url("../imgs/t0-b-articleDecoration/2/bg7.png"), url("../imgs/t0-b-articleDecoration/2/bg8.png");
 
     &__hd {
       text-align: center;
-      color: $_textColor_hd;
+      color: inherit;
       padding-bottom: 10px;
+      margin-bottom: 20px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
       &-h {
-        text-align: center;
+        overflow: hidden;
+        border-bottom: 6px double #ff65ab;
+        padding: 0 0 6px;
+        position: relative;
         h2 {
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
         }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
       }
+
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
+        padding: 0 0 5px;
       }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
-      }
-    }
-
-    &__col {
-      padding-left: 7%;
-      flex: 1 1 (100% / 2);
-      &:first-child {
-        padding-left: 0;
-      }
-    }
-
-    &__bd {
-      display: table;
-      width: 100%;
-    }
-
-    &__box {
-      display: table-cell;
-      width: 49%;
-      background-color: #fff;
-      padding: 33px 35px 20px;
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-      background-image: url("../imgs/t0-b-articleDecoration/2/bg.png"), url("../imgs/t0-b-articleDecoration/2/bg2.png"), url("../imgs/t0-b-articleDecoration/2/bg3.png"), url("../imgs/t0-b-articleDecoration/2/bg4.png"), url("../imgs/t0-b-articleDecoration/2/bg5.png"), url("../imgs/t0-b-articleDecoration/2/bg6.png"), url("../imgs/t0-b-articleDecoration/2/bg7.png"), url("../imgs/t0-b-articleDecoration/2/bg8.png");
-    }
-
-    &__arrow {
-      display: table-cell;
-      width: 20px;
-    }
-
-    &__hd-h {
-      // 回り込みなしに必要
-      overflow: hidden;
-      border-bottom: 6px double #ff65ab;
-      margin-bottom: 20px;
-      padding: 4px 0 6px;
-      position: relative;
-
-      h2 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-
-        text-align: center;
+        padding: 5px 0 0;
       }
 
-      a {
-        color: $textcolor;
-        text-decoration: none;
-
-        &:hover {
-          h2 {
-            color: $hovercolor;
-          }
-        }
-      }
-
-      #{$_block}--align-l {
-        text-align: left;
-      }
-
-      #{$_block}--align-c {
-        text-align: center;
-      }
-
-      #{$_block}--align-r {
-        text-align: right;
-      }
       &--size-1 {
-        border-bottom: 4.8px double #ff65ab;
-        h2 {
-          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
         }
       }
 
       &--size-3 {
-        border-bottom: 7.2px double #ff65ab;
-        h2 {
-          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
       }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
+
     &__ft {
       margin-top: 2%;
     }
   }
-
 }
 
 @if $device == SP {
 
-  .t0-b-frameOuter#{$variation1of8}#{$variation1of2} {
+  // frameOuterのclearfix
+  .frameOuter-clearfix.clearfix::after,
+  .frameOuter-clearfix .clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .t0-b-frameOuter#{$variation1of8} {
 
     $_fontSizePx_hd: 20;
     $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
-    $_textColor_hd: ######;
+
     &__hd {
       text-align: center;
-      color: $_textColor_hd;
+      color: inherit;
       padding: 5px 0;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       &-h {
-        text-align: center;
         h2 {
           @include g-font($_fontSizePx_hd, $_lineHeightType);
         }
       }
+
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         padding: 0 0 5px 0;
       }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         padding: 5px 0 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
     &__ft {
       margin-top: 20px;
     }
-
   }
 
+  .t0-b-frameOuter#{$variation2of8} {
 
     $_fontSizePx_hd: 20;
     $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
-    $_textColor_hd: ######;
 
+    padding: 12px 12px 10px;
+    border: 6px double #ccc;
+    margin: 0 -5px;
+    margin-bottom: 20px;
 
-    $_fontSizePx_hd: 20;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: ######;
+    &__hd {
+      text-align: center;
+      color: inherit;
+      padding: 0 0 10px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+
+    &__ft {
+      margin-top: 20px;
+    }
+  }
+
   .t0-b-frameOuter#{$variation3of8} {
-    $_block: &;
-    $_fontSizePx_hd-h: 20;
-    $_fontSizePx_hd-caption: 14;
-    $_fontSizePx_numIcon-h: 20;
-    $_fontSizePx_numIcon-caption: 14;
 
-    $_lineHeightType_hd-h: 1;
-    $_lineHeightType_hd-caption: 1;
-    $_lineHeightType_numIcon-h: 1;
-    $_lineHeightType_numIcon-caption: 1;
-
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
 
     background-repeat: no-repeat, no-repeat, repeat-x;
@@ -1025,6 +1016,7 @@
     margin: 0 -5px;
 
     &__hd {
+      color: inherit;
       text-align: center;
       background-repeat: no-repeat, no-repeat, repeat-x;
       background-position: right bottom, left bottom, left bottom;
@@ -1033,128 +1025,50 @@
       margin-bottom: 20px;
       margin-top: -2px;
 
-      h2 {
-        @include g-font($_fontSizePx_hd-h, $_lineHeightType_hd-h);
-      }
-
       a {
-        color: $textcolor;
+        color: inherit;
         text-decoration: none;
       }
-    }
 
-    &__hd-caption-upper {
-      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
-
-      padding: 0 0 5px;
-    }
-
-    &__hd-caption-lower {
-      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
-
-      padding: 5px 0 0;
-    }
-
-    &__box {
-      padding: 10px 0 0 0;
-    }
-
-    &__numIcon-caption-upper {
-      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
-      padding: 0 0 5px;
-    }
-
-    &__numIcon-h {
-      @include g-font($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h);
-    }
-
-    &__numIcon-caption-lower {
-      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
-
-      padding: 5px 0 0;
-    }
-
-    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-    @each $_type in $_types {
-      @for $_i from 1 through 9 {
-        &__icon--#{$_type}-#{$_i} {
-          &:before {
-            content: "#{$_i}";
-            display: block;
-            color: #fff;
-            text-indent: 19px;
-            padding-top: 23px;
-
-            @include g-font(20, 0);
-
-            font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-            text-align: initial;
-          }
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
         }
       }
 
-      &__icon--#{$_type}-10 {
-        &:before {
-          content: "10";
-          display: block;
-          color: #fff;
-          text-indent: 14px;
-          padding-top: 23px;
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px;
+      }
 
-          @include g-font(20, 0);
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0;
+      }
 
-          font-family: "游明朝体 デミボールド", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-          text-align: initial;
-        }
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
-
-    &__numIcon--align {
-      width: 100%;
-      line-height: 0;
-    }
-
-    &__numIcon--align-l {
-      text-align: left;
-    }
-
-    &__numIcon--align-c {
-      text-align: center;
-    }
-
-    &__numIcon--align-r {
-      text-align: right;
-    }
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 20px;
     }
   }
 
   .t0-b-frameOuter#{$variation4of8} {
-    $_block: &;
-    $_fontSizePx_hd-h: 20;
-    $_fontSizePx_hd-caption: 14;
-    $_fontSizePx_numIcon-h: 20;
-    $_fontSizePx_numIcon-caption: 14;
 
-    $_lineHeightType_hd-h: 1;
-    $_lineHeightType_hd-caption: 1;
-    $_lineHeightType_numIcon-h: 1;
-    $_lineHeightType_numIcon-caption: 1;
-
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
 
     border-top: 6px double #ffdbe8;
@@ -1170,123 +1084,50 @@
       padding: 9px 15px;
       margin-bottom: 20px;
 
-      h2 {
-        @include g-font($_fontSizePx_hd-h, $_lineHeightType_hd-h);
-      }
-
       a {
         color: #fff;
         text-decoration: none;
       }
-    }
 
-    &__hd-caption-upper {
-      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
-
-      padding: 0 0 5px;
-    }
-
-    &__hd-caption-lower {
-      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
-
-      padding: 5px 0 0;
-    }
-
-    &__box {
-      padding: 10px 0 0 0;
-    }
-
-    &__numIcon-caption-upper {
-      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
-
-      padding: 0 0 5px;
-    }
-
-    &__numIcon-h {
-      @include g-font($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h);
-    }
-
-    &__numIcon-caption-lower {
-      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
-
-      padding: 5px 0 0;
-    }
-
-    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
-    @each $_type in $_types {
-      @for $_i from 1 through 9 {
-        &__icon--#{$_type}-#{$_i} {
-          &:before {
-            content: "#{$_i}";
-            display: block;
-            color: #fff;
-            text-indent: 18px;
-            padding-top: 23px;
-
-            @include g-font(20, 0);
-
-            font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-            text-align: initial;
-          }
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
         }
       }
 
-      &__icon--#{$_type}-10 {
-        &:before {
-          content: "10";
-          display: block;
-          color: #fff;
-          text-indent: 12px;
-          padding-top: 23px;
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px;
+      }
 
-          @include g-font(20, 0);
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0;
+      }
 
-          font-family: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-          text-align: initial;
-        }
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
-
-    &__numIcon--align {
-      width: 100%;
-      line-height: 0;
-    }
-
-    &__numIcon--align-l {
-      text-align: left;
-    }
-
-    &__numIcon--align-c {
-      text-align: center;
-    }
-
-    &__numIcon--align-r {
-      text-align: right;
-    }
     &__ft { // 最下部の枠があるとき
       margin-top: 20px;
     }
   }
 
   .t0-b-frameOuter#{$variation5of8} {
-    $_fontSizePx_h: 20;
-    $_fontSizePx_caption: 14;
 
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
 
     margin: 0 -5px;
     padding: 20px 20px 10px;
@@ -1307,6 +1148,7 @@
     }
 
     &__hd {
+      color: inherit;
       padding-bottom: 17px;
       margin-top: -2px;
       margin-bottom: 20px;
@@ -1317,49 +1159,49 @@
       background-image: url("../imgs/t0-b-frameWithHCaption/1.png"), url("../imgs/t0-b-frameWithHCaption/2.png");
 
       a {
-        color: $textcolor;
+        color: inherit;
         text-decoration: none;
+      }
+
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
-    &__hd-h {
-      @include g-font($_fontSizePx_h, $_lineHeightType_h);
-    }
-
-    &__hd-caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
-
-      padding: 0 0 5px;
-    }
-
-    &__hd-caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
-
-      padding: 5px 0 0;
-    }
-
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
     &__ft {
       margin-top: 20px;
     }
   }
 
   .t0-b-frameOuter#{$variation6of8} {
-    $_fontSizePx_h: 20;
-    $_fontSizePx_caption: 14;
 
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
 
     margin: 0 -5px;
 
@@ -1377,13 +1219,40 @@
         color: #fff;
         text-decoration: none;
       }
+
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__bd {
       padding: 14px;
       background: #ffedf5;
       position: relative;
-
       &:after {
         content: "";
         position: absolute;
@@ -1396,184 +1265,148 @@
       }
     }
 
-    &__hd-h {
-      @include g-font($_fontSizePx_h, $_lineHeightType_h);
-    }
-
-    &__hd-caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
-
-      padding: 0 0 5px;
-    }
-
-    &__hd-caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
-
-      padding: 5px 0 0;
-    }
-
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
     &__ft {
       margin-top: 20px;
     }
   }
 
   .t0-b-frameOuter#{$variation7of8} {
-    $_block: &;
-    $_fontSizePx: 20;
+
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
 
     margin: 0 -5px;
-
-    &__col {
-      padding-bottom: 30px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
+    background-color: #ffedf5;
+    padding: 15px 15px 10px;
+    background-repeat: repeat-x, repeat-x;
+    background-position: left top, left bottom;
+    background-image: url("../imgs/t0-b-articleDecoration/1/1.png"), url("../imgs/t0-b-articleDecoration/1/2.png");
 
     &__hd {
-      padding: 0 20px;
-    }
-
-    &__arrow {
-      height: 20px;
-    }
-
-    &__box {
-      background-color: #ffedf5;
-      padding: 15px 15px 10px;
-      background-repeat: repeat-x, repeat-x;
-      background-position: left top, left bottom;
-      background-image: url("../imgs/t0-b-articleDecoration/1/1.png"), url("../imgs/t0-b-articleDecoration/1/2.png");
-    }
-
-    &__hd-h {
-      // 回り込みなしに必要
-      overflow: hidden;
-      border-left: 6px solid #ff459a;
-      border-bottom: 2px solid #ff459a;
+      color: inherit;
+      text-align: center;
       margin-bottom: 16px;
-      padding: 4px 0 7px 7px;
-      position: relative;
-      z-index: 1;
-
-      &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 1px;
-        height: 1px;
-        border-top: 1px solid #ffcbe3;
-        z-index: -1;
-      }
-
-      h2 {
-        @include g-font($_fontSizePx, $_lineHeightType);
-      }
 
       a {
-        color: $textcolor;
         text-decoration: none;
+        color: inherit;
       }
 
-      #{$_block}--align-l {
+      &-h {
+        // 回り込みなしに必要
+        overflow: hidden;
+        border-left: 6px solid #ff459a;
+        border-bottom: 2px solid #ff459a;
+        padding: 0 0 7px 7px;
+        position: relative;
+        z-index: 1;
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 1px;
+          height: 1px;
+          border-top: 1px solid #ffcbe3;
+          z-index: -1;
+        }
+
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 15px;
+      }
+
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 15px;
+      }
+
+      &--align-l {
         text-align: left;
       }
 
-      #{$_block}--align-c {
+      &--align-c {
         text-align: center;
       }
 
-      #{$_block}--align-r {
+      &--align-r {
         text-align: right;
       }
     }
+
     &__ft {
-      margin-top: 2%;
+      margin-top: 20px;
     }
   }
 
   .t0-b-frameOuter#{$variation8of8} {
-    $_block: &;
-    $_fontSizePx: 20;
+
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
 
     margin: 0 -5px;
-
-    &__col {
-      padding-bottom: 30px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
+    background-color: #fff;
+    padding: 20px 17px 20px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+    background-image: url("../imgs/t0-b-articleDecoration/2/bg.png"), url("../imgs/t0-b-articleDecoration/2/bg2.png"), url("../imgs/t0-b-articleDecoration/2/bg3.png"), url("../imgs/t0-b-articleDecoration/2/bg4.png"), url("../imgs/t0-b-articleDecoration/2/bg5.png"), url("../imgs/t0-b-articleDecoration/2/bg6.png"), url("../imgs/t0-b-articleDecoration/2/bg7.png"), url("../imgs/t0-b-articleDecoration/2/bg8.png");
 
     &__hd {
-      padding: 0 28px 5px;
-    }
-
-    &__arrow {
-      height: 20px;
-    }
-
-    &__box {
-      background-color: #fff;
-      padding: 20px 17px 20px;
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
-      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-      background-image: url("../imgs/t0-b-articleDecoration/2/bg.png"), url("../imgs/t0-b-articleDecoration/2/bg2.png"), url("../imgs/t0-b-articleDecoration/2/bg3.png"), url("../imgs/t0-b-articleDecoration/2/bg4.png"), url("../imgs/t0-b-articleDecoration/2/bg5.png"), url("../imgs/t0-b-articleDecoration/2/bg6.png"), url("../imgs/t0-b-articleDecoration/2/bg7.png"), url("../imgs/t0-b-articleDecoration/2/bg8.png");
-    }
-
-    &__arrow {
-      height: 20px;
-    }
-
-    &__hd-h {
-      // 回り込みなしに必要
-      overflow: hidden;
-      border-bottom: 6px double #ff65ab;
+      padding: 0 0 5px;
+      text-align: center;
+      color: inherit;
       margin-bottom: 16px;
-      padding-bottom: 6px;
-      position: relative;
-
-      h2 {
-        @include g-font($_fontSizePx, $_lineHeightType);
-
-        text-align: center;
-      }
 
       a {
-        color: $textcolor;
+        color: inherit;
         text-decoration: none;
         position: relative;
       }
 
-      #{$_block}--align-l {
+      &-h {
+        // 回り込みなしに必要
+        overflow: hidden;
+        border-bottom: 6px double #ff65ab;
+        padding-bottom: 6px;
+        position: relative;
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0;
+      }
+
+      &--align-l {
         text-align: left;
       }
 
-      #{$_block}--align-c {
+      &--align-c {
         text-align: center;
       }
 
-      #{$_block}--align-r {
+      &--align-r {
         text-align: right;
       }
     }
+
     &__ft {
-      margin-top: 2%;
+      margin-top: 20px;
     }
   }
-
 }
