@@ -14,10 +14,3 @@ if [ -e ./lib/ ]; then
 fi
 cp -r ../lib/ ./lib/
 echo "libのコピーが完了しました"
-
-if [ -e ./.scss-lint.yml ]; then
-  rm -r ./.scss-lint.yml
-  echo ".scss-lint.ymlを削除しました"
-fi
-cp ../.scss-lint.yml ./.scss-lint.yml
-echo ".scss-lint.ymlのコピーが完了しました"

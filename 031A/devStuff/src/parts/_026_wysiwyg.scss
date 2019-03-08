@@ -1,8 +1,6 @@
 @if $device == PC {
-
   .t0-b-wysiwyg {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -12,27 +10,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -45,30 +33,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -77,6 +69,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -87,29 +80,35 @@
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -117,13 +116,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -131,12 +133,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -144,35 +148,37 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
 
     @include g-font($_fontSizePx, $_lineHeightType);
     color: $g-textcolor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     p {
       @include g-font($_fontSizePx, $_lineHeightType);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -183,7 +189,6 @@
 
   .t0-b-wysiwyg2 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -193,27 +198,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -226,30 +221,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -258,6 +257,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -268,29 +268,35 @@
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -298,13 +304,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -312,12 +321,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -325,38 +336,40 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_backgroundColor: #f6f6f6;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 15px;
+    color: $g-textcolor;
     background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     p {
       @include g-font($_fontSizePx, $_lineHeightType);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -367,7 +380,6 @@
 
   .t0-b-wysiwyg3 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -377,27 +389,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -410,30 +412,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -442,6 +448,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -452,29 +459,34 @@
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
-        vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -482,13 +494,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -496,12 +511,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -509,38 +526,41 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
+
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_borderColor: #c0c0c0;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 15px;
+    color: $g-textcolor;
     border: 1px solid $_borderColor;
     border-radius: 7px;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     p {
       @include g-font($_fontSizePx, $_lineHeightType);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -551,7 +571,6 @@
 
   .t0-b-wysiwyg4 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -561,27 +580,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -594,30 +603,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -626,6 +639,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -636,29 +650,35 @@
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -666,13 +686,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -680,12 +703,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: solid 1px $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -693,38 +718,40 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_backgroundColor: #fcfaf6;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 15px;
+    color: $g-textcolor;
     background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     p {
       @include g-font($_fontSizePx, $_lineHeightType);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -735,7 +762,6 @@
 
   .t0-b-wysiwyg5 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -745,27 +771,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -778,30 +794,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -810,6 +830,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -820,29 +841,35 @@
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -850,13 +877,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -864,12 +894,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -877,38 +909,40 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_backgroundColor: #faf3f3;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 15px;
+    color: $g-textcolor;
     background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     p {
       @include g-font($_fontSizePx, $_lineHeightType);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -919,7 +953,6 @@
 
   .t0-b-wysiwyg6 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -929,27 +962,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -962,30 +985,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -994,6 +1021,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -1004,29 +1032,35 @@
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -1034,13 +1068,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -1048,12 +1085,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -1061,41 +1100,43 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
-    $_borderColor: #dddddd;
+    $_borderColor: #ddd;
     $_backgroundColor: #f4faff;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 15px;
+    color: $g-textcolor;
+    background-color: $_backgroundColor;
     border-top: 1px solid $_borderColor;
     border-bottom: 1px solid $_borderColor;
-    background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     p {
       @include g-font($_fontSizePx, $_lineHeightType);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -1103,15 +1144,11 @@
       }
     }
   }
-
-}// PC
-
+}
 
 @if $device == SP {
-
   .t0-b-wysiwyg {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -1121,27 +1158,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1150,20 +1177,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1172,6 +1202,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -1181,23 +1212,29 @@
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -1205,13 +1242,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 2);
       }
+
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -1219,12 +1259,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -1232,32 +1274,34 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
 
     @include g-font($_fontSizePx, $_lineHeightType);
     color: $g-textcolor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
     }
+
     p {
-      @include g-font(14, 2)
+      @include g-font(14, 2);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -1268,7 +1312,6 @@
 
   .t0-b-wysiwyg2 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -1278,27 +1321,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1307,20 +1340,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1329,6 +1365,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -1338,23 +1375,29 @@
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -1362,13 +1405,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 2);
       }
+
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -1376,12 +1422,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -1389,35 +1437,37 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_backgroundColor: #f6f6f6;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 7px;
+    color: $g-textcolor;
     background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
     }
+
     p {
       @include g-font(14, 2);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -1428,7 +1478,6 @@
 
   .t0-b-wysiwyg3 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -1438,27 +1487,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1467,20 +1506,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1489,6 +1531,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -1498,23 +1541,29 @@
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -1522,13 +1571,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 2);
       }
+
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -1536,12 +1588,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -1549,36 +1603,38 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_borderColor: #c0c0c0;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 7px;
+    color: $g-textcolor;
     border: 1px solid $_borderColor;
     border-radius: 7px;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
     }
+
     p {
       @include g-font(14, 2);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -1589,7 +1645,6 @@
 
   .t0-b-wysiwyg4 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -1599,27 +1654,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1628,20 +1673,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1650,6 +1698,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -1659,23 +1708,29 @@
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -1683,13 +1738,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 2);
       }
+
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -1697,12 +1755,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -1710,35 +1770,37 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_backgroundColor: #fcfaf6;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 7px;
+    color: $g-textcolor;
     background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
     }
+
     p {
       @include g-font(14, 2);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -1749,7 +1811,6 @@
 
   .t0-b-wysiwyg5 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -1759,27 +1820,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1788,20 +1839,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1810,6 +1864,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -1819,23 +1874,29 @@
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -1843,13 +1904,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 2);
       }
+
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -1857,12 +1921,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -1870,35 +1936,37 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_backgroundColor: #faf3f3;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 7px;
+    color: $g-textcolor;
     background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
     }
+
     p {
       @include g-font(14, 2);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -1909,7 +1977,6 @@
 
   .t0-b-wysiwyg6 {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -1919,27 +1986,17 @@
     $_color_table_td_bg: #f7f7f7;
     $_color_table_th_text: #000;
     $_color_table_td_text: #333;
-
-    hr {
-      margin-top: $_blockSpacing;
-      border: 0;
-      height: 1px;
-      background: #999;
-    }
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1948,20 +2005,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -1970,6 +2030,7 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
         margin-top: $_elementSpacing;
@@ -1979,23 +2040,29 @@
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -2003,13 +2070,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 2);
       }
+
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -2017,12 +2087,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -2030,38 +2102,40 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-// End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
-    $_borderColor: #dddddd;
+    $_borderColor: #ddd;
     $_backgroundColor: #f4faff;
 
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
     padding: 7px;
+    color: $g-textcolor;
+    background-color: $_backgroundColor;
     border-top: 1px solid $_borderColor;
     border-bottom: 1px solid $_borderColor;
-    background-color: $_backgroundColor;
-
     a {
       display: inline-block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
     }
+
     p {
       @include g-font(14, 2);
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
+
     ol {
       @include g-font($_fontSizePx, $_lineHeightType);
       li {
@@ -2069,5 +2143,4 @@
       }
     }
   }
-
-}// SP
+}

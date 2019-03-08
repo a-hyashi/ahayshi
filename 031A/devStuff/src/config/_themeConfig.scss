@@ -1,48 +1,39 @@
 $g-baseFontSize: 14px;
-
 html {
   font-size: $g-baseFontSize;
 }
 
-//*
-//* WEBフォントの指定 (2017年9月現在、テーマの独自仕様としてのみWEBフォントの仕様を許可している https://goo.gl/PPpm4x)
-//*
+// WEBフォントの指定 (2017年9月現在、テーマの独自仕様としてのみWEBフォントの仕様を許可している https://goo.gl/PPpm4x)
 
 /* cyrillic */
 @font-face {
-  font-family: 'Tenor Sans';
+  font-family: "Tenor Sans";
   font-style: normal;
   font-weight: 400;
-  src: local('Tenor Sans'), local('TenorSans'), url(https://fonts.gstatic.com/s/tenorsans/v7/Ktx0Cs11QAojS82RMZDizgsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  src: local("Tenor Sans"), local("TenorSans"), url("https://fonts.gstatic.com/s/tenorsans/v7/Ktx0Cs11QAojS82RMZDizgsYbbCjybiHxArTLjt7FRU.woff2") format('woff2');
+  unicode-range: u+0400-045f, u+0490-0491, u+04b0-04b1, u+2116;
 }
 /* latin-ext */
 @font-face {
-  font-family: 'Tenor Sans';
+  font-family: "Tenor Sans";
   font-style: normal;
   font-weight: 400;
-  src: local('Tenor Sans'), local('TenorSans'), url(https://fonts.gstatic.com/s/tenorsans/v7/T3UKHM06bpMTaH0ff0QTZQsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  src: local("Tenor Sans"), local("TenorSans"), url("https://fonts.gstatic.com/s/tenorsans/v7/T3UKHM06bpMTaH0ff0QTZQsYbbCjybiHxArTLjt7FRU.woff2") format('woff2');
+  unicode-range: u+0100-024f, u+1e00-1eff, u+20a0-20ab, u+20ad-20cf, u+2c60-2c7f, u+a720-a7ff;
 }
 /* latin */
 @font-face {
-  font-family: 'Tenor Sans';
+  font-family: "Tenor Sans";
   font-style: normal;
   font-weight: 400;
-  src: local('Tenor Sans'), local('TenorSans'), url(https://fonts.gstatic.com/s/tenorsans/v7/pH9G9MQ0Q-aF9ThG3ok-twzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  src: local("Tenor Sans"), local("TenorSans"), url("https://fonts.gstatic.com/s/tenorsans/v7/pH9G9MQ0Q-aF9ThG3ok-twzyDMXhdD8sAj6OAJTFsBI.woff2") format('woff2');
+  unicode-range: u+0000-00ff, u+0131, u+0152-0153, u+02c6, u+02da, u+02dc, u+2000-206f, u+2074, u+20ac, u+2212, u+2215;
 }
 
-$tenorsans: 'Tenor Sans', $gothic;
-
-//*
-//*変更可エリア
-//*
-
+$tenorsans: "Tenor Sans", $gothic;
 $g-textcolor: #666;
 $g-hovercolor: #aa841b;
 
-// Start ぶち抜きカラー
 $headerFullWidthKeyColor: #333;
 $fullWidthBgColor: #fffdef;
 $fullWidthBgColor2: #f8f5ff;
@@ -53,73 +44,58 @@ $fullWidthBgColor6: #ebe4d9;
 $fullWidthBgColor7: #f9e8ee;
 $fullWidthBgColor8: #e2edf1;
 $fullWidthBgColor9: #e8a3b7;
-$fullWidthBgColor10: #bbbbbb;
+$fullWidthBgColor10: #bbb;
 $fullWidthBgColor11: #f9f9f9;
 $fullWidthBgColor12: #fffff3;
 $fullWidthBgColor13: #e6e8ec;
 $fullWidthBgColor14: #eceae9;
-$fullWidthBgColor15: #F6F5F3;
-$fullWidthBgColor16: #EDF0F3;
-$fullWidthBgColor17: #F8F2F2;
-// End ぶち抜きカラー
-
+$fullWidthBgColor15: #f6f5f3;
+$fullWidthBgColor16: #edf0f3;
+$fullWidthBgColor17: #f8f2f2;
 body.mod-body,
 div.mod-body {
-  font-weight: 500;
-  font-size: $g-baseFontSize;
   font-family: $gothic;
+  font-size: $g-baseFontSize;
+  font-weight: 500;
   color: $g-textcolor;
-  //この中で変更するのは下から2つのみ
 }
 
 a {
   text-decoration: none;
 }
 
-// 何を示しているのか定かではないため最終的に何も影響がない場合消す！
-//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-// .cms-admin-anchorFlag{
-//   z-index: 10!important;
-//   position: relative;
-// }
-// これはadmin.cssに移行するべき
-
-//↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
-
-
-//*
-//*変更不可エリア
-//*
 $g-spacingBaseLength: 5;
 
 @mixin cf {
-  &:before,
-  &:after {
-    content: "";
+  &::before,
+  &::after {
     display: table;
+    content: "";
   }
-  &:after {
+
+  &::after {
     clear: both;
   }
 }
-
 
 @mixin g-rteTableReset() {
   th, td {
     > table:first-child {
       margin-top: 0;
     }
+
     > ul:first-child {
       margin-top: 0;
     }
+
     > ol:first-child {
       margin-top: 0;
     }
+
     > p:first-child {
       margin-top: 0;
     }
+
     > hr:first-child {
       margin-top: 0;
     }
@@ -129,8 +105,6 @@ $g-spacingBaseLength: 5;
 $frameSpacingPC-l: 50px;
 $frameSpacingPC-m: 25px;
 $frameSpacingPC-s: 10px;
-
 $frameSpacingSP-l: 50px;
 $frameSpacingSP-m: 25px;
 $frameSpacingSP-s: 10px;
-

@@ -1,0 +1,314 @@
+@if $device == PC {
+
+  .t0-b-navItemCaptioned {
+
+    $_block: &;
+    display: table;
+    color: #333;
+
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+    &--align-c {
+      margin: 0 auto;
+    }
+    &--align-r {
+      margin: 0 0 0 auto;
+    }
+
+
+    &__inner {
+      display: table;
+      width: 100%;
+      box-sizing: border-box;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+
+        &:before {
+          content: "";
+          display: block;
+          line-height: 1;
+          padding: 2px 0 0;
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-image: url("../imgs/t0-b-navItemCaptioned/3/bg.png");
+          width: 23px;
+          height: 26px;
+        }
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0;
+      }
+    }
+
+    > a {
+      color: #333;
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    &__main {
+      font-weight: bold;
+      padding-bottom: 4px;
+      display: inline;
+      text-decoration: underline;
+
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+
+      a:hover & {
+        color: #ee8100;
+      }
+    }
+
+    &__caption {
+      padding: 8px 0 0;
+      @include g-font(15, 1);
+
+      > div {
+        padding: 0 10px;
+      }
+
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+
+      > a {
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+
+    // サイズごとの設定
+    &--size-1 {
+      #{$_block}__inner {
+
+        > span {
+          padding-right: 6px;
+
+          &:before {
+            background-image: url("../imgs/t0-b-navItemCaptioned/3/1.png");
+            width: 21px;
+            height: 18px;
+          }
+        }
+
+        #{$_block}__main {
+          @include g-font(16, 1);
+        }
+
+        #{$_block}__caption {
+          padding: 3px 0 0;
+          @include g-font(13, 1);
+        }
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__inner {
+        > span {
+          padding-right: 7px;
+
+          &:before {
+            background-image: url("../imgs/t0-b-navItemCaptioned/3/2.png");
+            width: 23px;
+            height: 20px;
+          }
+        }
+
+        #{$_block}__main {
+          @include g-font(18, 1);
+        }
+
+        #{$_block}__caption {
+          padding: 3px 0 0;
+          @include g-font(13, 1);
+        }
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__inner {
+        > span {
+          padding-right: 8px;
+
+          &:before {
+            background-image: url("../imgs/t0-b-navItemCaptioned/3/3.png");
+            width: 26px;
+            height: 22px;
+          }
+        }
+
+        #{$_block}__main {
+          @include g-font(20, 1);
+        }
+
+        #{$_block}__caption {
+          padding: 4px 0 0;
+          @include g-font(15, 1);
+          > div {
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__inner {
+        > span {
+          padding-right: 9px;
+
+          &:before {
+            background-image: url("../imgs/t0-b-navItemCaptioned/3/4.png");
+            width: 29px;
+            height: 24px;
+          }
+        }
+
+        #{$_block}__main {
+          @include g-font(22, 1);
+        }
+
+        #{$_block}__caption {
+          padding: 4px 0 0;
+          @include g-font(17, 1);
+        }
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__inner {
+        > span {
+          padding-right: 10px;
+
+          &:before {
+            background-image: url("../imgs/t0-b-navItemCaptioned/3/5.png");
+            width: 31px;
+            height: 26px;
+          }
+        }
+
+        #{$_block}__main {
+          @include g-font(24, 1);
+        }
+
+        #{$_block}__caption {
+          padding: 5px 0 0;
+          @include g-font(19, 1);
+        }
+      }
+    }
+  }
+
+  .t0-b-navItemCaptionedDouble {
+    display: flex;
+    &__layout {
+      padding-left: 4%;
+      flex: 1 1 (100% / 2);
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+}// PC
+
+
+@if $device == SP {
+
+  .t0-b-navItemCaptioned {
+
+    $_block: &;
+    display: table;
+    color: #333;
+    margin: 0 auto;
+    > a {
+      color: #333;
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    &__inner {
+      display: table;
+      width: 100%;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 0 0 10px;
+        &:before {
+          content: "";
+          display: block;
+          line-height: 1;
+          padding: 2px 0 0;
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-image: url("../imgs/t0-b-navItemCaptioned/3/bg.png");
+          width: 23px;
+          height: 26px;
+        }
+      }
+
+      > div {
+        padding: 12px 10px;
+      }
+    }
+
+    &__main {
+      @include g-font(16, 1);
+      font-weight: bold;
+      padding-bottom: 4px;
+      display: inline;
+      text-decoration: underline;
+    }
+
+    &__caption {
+      padding: 4px 0 0;
+      @include g-font(14, 1);
+    }
+  }
+
+  .t0-b-navItemCaptionedDouble {
+    &__layout {
+      padding-bottom: 10px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+}// SP

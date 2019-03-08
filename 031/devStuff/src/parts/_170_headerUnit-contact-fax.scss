@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .t0-b-headerUnit-contact-fax {
 
     $_fontSizePx: 20;
@@ -7,10 +6,9 @@
     $_textColor: #a97417;
 
     display: table;
-    white-space: nowrap;
     min-width: 150px;
     color: $_textColor;
-    
+    white-space: nowrap;
     a {
       color: $_textColor;
       text-decoration: underline;
@@ -21,11 +19,11 @@
 
     div {
       display: table-cell;
-      width: 43px;
+      width: 45px;
       // 親要素の幅が小さいとアイコン部分が欠けてしまうのを防ぐためmin-widthを指定する
-      min-width: 43px;
+      min-width: 45px;
       height: 22px;
-      background-image: url("../imgs/contact/contact003/contact003_fax_v2.png");
+      background-image: url("../imgs/contact/contact003/contact003_fax_v2.svg");
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 36px 22px;
@@ -33,23 +31,19 @@
 
     p {
       display: table-cell;
+      padding-top: 2px;
       font-family: $tenorsans;
       @include g-font($_fontSizePx, $_lineHeightType);
-      padding-top: 2px;
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
       margin: 0 auto;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
-
-}// PC
-
+}
 
 @if $device == SP {
-
   .t0-b-headerUnit-contact-fax {
 
     $_fontSizePx: 16;
@@ -57,31 +51,29 @@
     $_textColor: #a97417;
 
     display: table;
-    white-space: nowrap;
-    color: $_textColor;
     margin: 0 auto;
-
-     a {
-       color: $_textColor;
-       text-decoration: underline;
-     }
+    color: $_textColor;
+    white-space: nowrap;
+    a {
+      color: $_textColor;
+      text-decoration: underline;
+    }
 
     div {
       display: table-cell;
-      width: 60px *.5;
-      height: 26px *.5;
-      background-image: url("../imgs/contact/contact002/sp_contact002_fax_v1_09.png");
+      width: 35px;
+      height: 15px;
+      background-image: url("../imgs/contact/contact003/contact003_fax_v2.svg");
       background-repeat: no-repeat;
       background-position: left center;
-      background-size: 44px *.5 26px *.5;
+      background-size: 35px 15px;
     }
 
     p {
       display: table-cell;
+      padding-top: 2px;
       font-family: $tenorsans;
       @include g-font($_fontSizePx, $_lineHeightType);
-      padding-top: 2px;
     }
   }
-
-}// SP
+}

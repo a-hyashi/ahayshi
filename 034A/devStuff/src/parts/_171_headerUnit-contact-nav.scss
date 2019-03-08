@@ -1,18 +1,15 @@
 @if $device == PC {
-
   .t0-b-headerUnit-contact-nav {
     $_block: &;
-
-    white-space: nowrap;
     display: table;
     line-height: 0;
     color: #fff;
 
+    white-space: nowrap;
     a {
+      display: inline-table;
       color: #fff;
       text-decoration: none;
-      display: inline-table;
-
       &:hover {
         color: $hovercolor;
       }
@@ -22,12 +19,11 @@
       display: table-cell;
       padding: 0 6px 0 0;
       vertical-align: middle;
-
-      &:before {
-        content: "";
+      &::before {
         display: block;
         width: 24px;
         height: 24px;
+        content: "";
         background: url("../imgs/t0-b-navItem/1.png") no-repeat 0 50%;
         background-size: 24px 24px;
       }
@@ -35,22 +31,20 @@
 
     p {
       display: table-cell;
+      padding: 1px 0;
       empty-cells: hide;
 
-      @include g-font(16, 1);
-
       border-bottom: 2px solid #b9000f;
-      padding: 1px 0;
+
+      @include g-font(16, 1);
     }
 
     //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
     .t0-b-headerCombi#{$variation2of2} &,
-    .t0-b-headerSingle#{$variation2of2} &{
+    .t0-b-headerSingle#{$variation2of2} & {
       color: #95010c;
-
       a {
         color: #95010c;
-
         &:hover {
           color: $hovercolor;
         }
@@ -59,40 +53,37 @@
 
     //サイト名中央に入ったときのみ中央寄せの見た目にする
     .t0-b-headerSingle#{$variation1of2} &,
-    .t0-b-headerSingle#{$variation2of2} &{
-      margin: 0 auto;
+    .t0-b-headerSingle#{$variation2of2} & {
       display: table;
+      margin: 0 auto;
     }
   }
 }
 
 @if $device == SP {
-
   .t0-b-headerUnit-contact-nav {
     $_block: &;
 
     display: table;
     margin-left: 2.5%;
+    font-weight: bold;
     line-height: 0;
     color: #fff;
-    font-weight: bold;
-
     a {
+      display: inline-table;
       color: #fff;
       text-decoration: none;
-      display: inline-table;
     }
 
     div {
       display: table-cell;
       padding: 0 6px 0 0;
       vertical-align: middle;
-
-      &:before {
-        content: "";
+      &::before {
         display: block;
         width: 24px;
         height: 24px;
+        content: "";
         background: url("../imgs/t0-b-navItem/1.png") no-repeat 0 50%;
         background-size: 24px 24px;
       }
@@ -100,17 +91,16 @@
 
     p {
       display: table-cell;
-      empty-cells: hide;
-      @include g-font(16, 1);
-      border-bottom: 2px solid #b9000f;
       padding: 1px 0;
+      empty-cells: hide;
+      border-bottom: 2px solid #b9000f;
+      @include g-font(16, 1);
     }
 
     //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
     .t0-b-headerCombi#{$variation2of2} &,
-    .t0-b-headerSingle#{$variation2of2} &{
+    .t0-b-headerSingle#{$variation2of2} & {
       color: #95010c;
-
       a {
         color: #95010c;
       }

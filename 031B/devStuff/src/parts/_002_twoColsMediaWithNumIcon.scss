@@ -1,71 +1,66 @@
 @if $device == PC {
-
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
 
     $_block: &;
     $_fontSizeDifference: 4;
     $_lineHeightType: 1;
-
     $_fontSizePx_caption: 16;
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-
     $_fontSizePx_numIcon: 30;
     $_fontSizePx_numIcon_s: $_fontSizePx_numIcon - $_fontSizeDifference;
     $_fontSizePx_numIcon_l: $_fontSizePx_numIcon + $_fontSizeDifference;
-
     $_textColor_hd: #513316;
     $_textColor_numIcon: #8b582c;
     $_textColor_nCaption: #b37037;
-
-    // Start Icon付
     &__numIcon {
       display: table;
       width: 100%;
       > div {
         display: table-cell;
-        vertical-align: middle;
         font-family: $tenorsans;
+        vertical-align: middle;
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 4px;
         color: $_textColor_nCaption;
-        padding: 0 0 4px 0;
       }
 
       &-h {
         @include g-font-layout($_fontSizePx_numIcon, $_lineHeightType, $layout);
-        color: $_textColor_numIcon
+        color: $_textColor_numIcon;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 4px;
         color: $_textColor_nCaption;
-        padding: 0 0 4px 0;
       }
 
       &-caption-upper + &-h {
         // 上補足有りの時2px小さくする為
         @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
         // 上補足有りの時2px小さくする為
         @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       &--size-1 {
         #{$_block}__numIcon-iconPlacer {
           width: 66px *.8;
         }
+
         #{$_block}__numIcon-icon {
-          background-size: 56px *.8;
           width: 56px *.8;
           height: 56px *.8;
-          &:before {
+          background-size: 56px *.8;
+          &::before {
             @include g-font(16, 0);
             padding-top: 25px;
           }
@@ -91,17 +86,16 @@
           @include g-font-layout($_fontSizePx_numIcon_s - 2, $_lineHeightType, $layout);
         }
       }
-      &--size-2 {
-        // size2 の場合（サイズ指定なしと同じ）
-      }
+
       &--size-3 {
         #{$_block}__numIcon-iconPlacer {
           width: 66px *1.2;
         }
+
         #{$_block}__numIcon-icon {
-          background-size: 56px *1.2;
           width: 56px *1.2;
           height: 56px *1.2;
+          background-size: 56px *1.2;
         }
 
         #{$_block}__numIcon-caption-upper {
@@ -134,6 +128,7 @@
             color: $g-hovercolor;
           }
         }
+
         #{$_block}__numIcon-h {
           &:hover {
             color: $g-hovercolor;
@@ -146,18 +141,20 @@
       width: 66px;
       text-align: left;
     }
+
     &__numIcon-bd {
-      background-image:
-      url("../imgs/frame/frame001/frame001_frame02_v1f2.png");
+      background-image: url("../imgs/frame/frame001/frame001_frame02_v1f2.png");
       background-repeat: repeat-x;
       background-position: left bottom;
       background-size: 6px 2px;
       &--align-l {
         text-align: left;
       }
+
       &--align-c {
         text-align: center;
       }
+
       &--align-r {
         text-align: right;
       }
@@ -165,11 +162,11 @@
 
     &__icon {
       display: inline-block;
-      vertical-align: middle;
       width: 56px;
       height: 56px;
-      background-position: 0 0;
+      vertical-align: middle;
       background-repeat: no-repeat;
+      background-position: 0 0;
       background-size: 56px;
 
       @mixin _iconStyles($type, $index) {
@@ -182,15 +179,15 @@
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
             @include _iconStyles($_type, $_i);
-            &:before {
-              content: "#{$_i}";
+            &::before {
               display: block;
+              padding-top: 32px;
               overflow: hidden;
               font-family: $tenorsans;
-              @include g-font(20, 0);
               color: #fff;
               text-align: center;
-              padding-top: 32px;
+              content: "#{$_i}";
+              @include g-font(20, 0);
             }
           }
         }
@@ -199,8 +196,8 @@
 
     // 特徴アイコン下の飾りと要素
     &__box {
-      padding: 2% 0 2% 70px;
       position: relative;
+      padding: 2% 0 2% 70px;
       > span {
         position: absolute;
         top: 0;
@@ -211,13 +208,13 @@
         background-repeat: repeat-y;
         background-position: left top;
         background-size: 8px 15px;
-
       }
+
       &:last-child {
         padding-bottom: 0;
       }
     }
-    // End Icon付
+
     & + div {
       // 最下部の枠があるとき
       margin-top: 2%;
@@ -229,20 +226,15 @@
     $_block: &;
     $_fontSizeDifference: 4;
     $_lineHeightType: 1;
-
     $_fontSizePx_caption: 16;
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-
     $_fontSizePx_numIcon: 30;
     $_fontSizePx_numIcon_s: $_fontSizePx_numIcon - $_fontSizeDifference;
     $_fontSizePx_numIcon_l: $_fontSizePx_numIcon + $_fontSizeDifference;
-
     $_textColor_hd: #513316;
     $_textColor_numIcon: #8b582c;
     $_textColor_nCaption: #986940;
-
-    // Start Icon付
     &__numIcon {
       display: table;
       width: 100%;
@@ -250,48 +242,49 @@
       min-height: 64px;
       > div {
         display: table-cell;
-        vertical-align: middle;
         font-family: $tenorsans;
+        vertical-align: middle;
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        color: $_textColor_nCaption;
         padding: 0 0 4px;
+        color: $_textColor_nCaption;
       }
 
       &-h {
         @include g-font-layout($_fontSizePx_numIcon, $_lineHeightType, $layout);
-        color: $_textColor_numIcon
+        color: $_textColor_numIcon;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 4px;
         color: $_textColor_nCaption;
-        padding: 0 0 4px 0;
       }
 
       &-caption-upper + &-h {
         // 上補足有りの時2px小さくする為
         @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
         // 上補足有りの時2px小さくする為
         @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       &--size-1 {
         #{$_block}__numIcon-iconPlacer {
           width: 70px *.8;
         }
+
         #{$_block}__numIcon-icon {
-          background-size: 60px *.8;
           width: 60px *.8;
           height: 60px *.8;
-          &:before {
+          background-size: 60px *.8;
+          &::before {
             @include g-font(16, 0);
             padding-top: 28px;
           }
@@ -317,17 +310,16 @@
           @include g-font-layout($_fontSizePx_numIcon_s - 2, $_lineHeightType, $layout);
         }
       }
-      &--size-2 {
-        // size2 の場合（サイズ指定なしと同じ）
-      }
+
       &--size-3 {
         #{$_block}__numIcon-iconPlacer {
           width: 70px *1.2;
         }
+
         #{$_block}__numIcon-icon {
-          background-size: 60px *1.2;
           width: 60px *1.2;
           height: 60px *1.2;
+          background-size: 60px *1.2;
         }
 
         #{$_block}__numIcon-caption-upper {
@@ -360,6 +352,7 @@
             color: $g-hovercolor;
           }
         }
+
         #{$_block}__numIcon-h {
           &:hover {
             color: $g-hovercolor;
@@ -372,41 +365,44 @@
       width: 70px;
       text-align: left;
     }
+
     &__numIcon-bd {
       position: relative;
-      border-bottom: 1px solid #abc74b;
       padding-right: 143px;
       background-image: url("../imgs/frame/frame004/frame004_frame01_v2f2.png");
       background-repeat: no-repeat;
       background-position: right bottom 8px;
       background-size: 143px 47px;
-
+      border-bottom: 1px solid #abc74b;
       &::before {
-        content: "";
         position: absolute;
-        border-bottom: 2px solid #cabb8c;
-        width: 100%;
-        left: 0;
         bottom: 2px;
+        left: 0;
+        width: 100%;
+        content: "";
+        border-bottom: 2px solid #cabb8c;
       }
 
       &--align-l {
         text-align: left;
       }
+
       &--align-c {
         text-align: center;
       }
+
       &--align-r {
         text-align: right;
       }
     }
+
     &__icon {
       display: inline-block;
-      vertical-align: middle;
       width: 60px;
       height: 60px;
-      background-position: 0 0;
+      vertical-align: middle;
       background-repeat: no-repeat;
+      background-position: 0 0;
       background-size: 60px;
 
       @mixin _iconStyles($type, $index) {
@@ -419,15 +415,15 @@
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
             @include _iconStyles($_type, $_i);
-            &:before {
-              content: "#{$_i}";
+            &::before {
               display: block;
+              padding-top: 34px;
               overflow: hidden;
               font-family: $tenorsans;
-              @include g-font(20, 0);
               color: #fff;
               text-align: center;
-              padding-top: 34px;
+              content: "#{$_i}";
+              @include g-font(20, 0);
             }
           }
         }
@@ -436,8 +432,8 @@
 
     // 特徴アイコン下の飾りと要素
     &__box {
-      padding: 2% 0 2% 75px;
       position: relative;
+      padding: 2% 0 2% 75px;
       > span {
         position: absolute;
         top: 0;
@@ -445,75 +441,68 @@
         left: 29px;
         width: 2px;
         background: #9cbd2c;
-        background: -moz-linear-gradient(top, #9cbd2c 0%, #cdde95 50%, #fffffe 100%);
-        background: -webkit-linear-gradient(top, #9cbd2c 0%,#cdde95 50%,#fffffe 100%);
-        background: linear-gradient(to bottom, #9cbd2c 0%,#cdde95 50%,#fffffe 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9cbd2c', endColorstr='#fffffe',GradientType=0 );
+        background: linear-gradient(to bottom, #9cbd2c 0%, #cdde95 50%, #fffffe 100%);
+        filter: progid:dximagetransform.microsoft.gradient(startColorstr='#9cbd2c', endColorstr='#fffffe', GradientType=0);
       }
+
       &:last-child {
         padding-bottom: 0;
       }
     }
-    // End Icon付
+
     & + div {
       // 最下部の枠があるとき
       margin-top: 2%;
     }
   }
-
-}// PC
-
+}
 
 @if $device == SP {
-
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
 
     $_block: &;
     $_lineHeightType: 1;
     $_fontSizePx_caption: 14;
     $_fontSizePx_numIcon: 18;
-
     $_textColor_hd: #513316;
     $_textColor_numIcon: #8b582c;
     $_textColor_nCaption: #b37037;
-
-    // Start Icon付
     &__numIcon {
       display: table;
       width: 100%;
       > div {
         display: table-cell;
-        vertical-align: middle;
         font-family: $tenorsans;
+        vertical-align: middle;
       }
 
       &-caption-upper {
         @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 4px;
         color: $_textColor_nCaption;
-        padding: 0 0 4px 0;
       }
 
       &-h {
         @include g-font($_fontSizePx_numIcon, $_lineHeightType);
-        color: $_textColor_numIcon
+        color: $_textColor_numIcon;
       }
 
       &-caption-lower {
         @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 4px;
         color: $_textColor_nCaption;
-        padding: 0 0 4px 0;
       }
 
       &-caption-upper + &-h {
         // 上補足有りの時2px小さくする為
         @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
         // 上補足有りの時2px小さくする為
         @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       &--align-l {
@@ -521,12 +510,14 @@
           margin-right: auto;
         }
       }
+
       &--align-c {
         > div {
           margin-right: auto;
           margin-left: auto;
         }
       }
+
       &--align-r {
         > div {
           margin-left: auto;
@@ -543,30 +534,32 @@
       width: 100px *.5;
       text-align: left;
     }
-    &__numIcon-bd {
-      background-image:
-      url("../imgs/frame/frame001/frame001_frame02_v1f2.png");
-    background-repeat: repeat-x;
-    background-position: left bottom;
-    background-size: 6px 2px;
 
+    &__numIcon-bd {
+      background-image: url("../imgs/frame/frame001/frame001_frame02_v1f2.png");
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-size: 6px 2px;
       &--align-l {
         text-align: left;
       }
+
       &--align-c {
         text-align: center;
       }
+
       &--align-r {
         text-align: right;
       }
     }
+
     &__icon {
       display: inline-block;
-      vertical-align: middle;
       width: 80px *.5;
       height: 80px *.5;
-      background-position: 0 0;
+      vertical-align: middle;
       background-repeat: no-repeat;
+      background-position: 0 0;
       background-size: 80px *.5;
 
       @mixin _iconStyles($type, $index) {
@@ -579,15 +572,15 @@
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
             @include _iconStyles($_type, $_i);
-            &:before {
-              content: "#{$_i}";
+            &::before {
               display: block;
+              padding-top: 42px *.5;
               overflow: hidden;
               font-family: $tenorsans;
-              @include g-font(16, 0);
               color: #fff;
               text-align: center;
-              padding-top: 42px *.5;
+              content: "#{$_i}";
+              @include g-font(16, 0);
             }
           }
         }
@@ -601,7 +594,7 @@
         padding-bottom: 0;
       }
     }
-    // End Icon付
+
     & + div {
       // 最下部の枠があるとき
       margin-top: 20px;
@@ -614,48 +607,45 @@
     $_lineHeightType: 1;
     $_fontSizePx_caption: 14;
     $_fontSizePx_numIcon: 18;
-
     $_textColor_hd: #513316;
     $_textColor_numIcon: #8b582c;
     $_textColor_nCaption: #986940;
-
-    // Start Icon付
     &__numIcon {
       display: table;
       width: 100%;
       > div {
         display: table-cell;
-        vertical-align: middle;
         font-family: $tenorsans;
+        vertical-align: middle;
       }
 
       &-caption-upper {
         @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 4px;
         color: $_textColor_nCaption;
-        padding: 0 0 4px 0;
       }
 
       &-h {
         @include g-font($_fontSizePx_numIcon, $_lineHeightType);
-        color: $_textColor_numIcon
+        color: $_textColor_numIcon;
       }
 
       &-caption-lower {
         @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 4px;
         color: $_textColor_nCaption;
-        padding: 0 0 4px 0;
       }
 
       &-caption-upper + &-h {
         // 上補足有りの時2px小さくする為
         @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
         // 上補足有りの時2px小さくする為
         @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
-        padding: 0 0 4px 0;
+        padding: 0 0 4px;
       }
 
       a {
@@ -668,36 +658,39 @@
       width: 100px *.5;
       text-align: left;
     }
+
     &__numIcon-bd {
       position: relative;
       border-bottom: 1px solid #abc74b;
-
       &::before {
-        content: "";
         position: absolute;
-        border-bottom: 2px solid #cabb8c;
-        width: 100%;
-        left: 0;
         bottom: 2px;
+        left: 0;
+        width: 100%;
+        content: "";
+        border-bottom: 2px solid #cabb8c;
       }
 
       &--align-l {
         text-align: left;
       }
+
       &--align-c {
         text-align: center;
       }
+
       &--align-r {
         text-align: right;
       }
     }
+
     &__icon {
       display: inline-block;
-      vertical-align: middle;
       width: 84px *.5;
       height: 84px *.5;
-      background-position: 0 0;
+      vertical-align: middle;
       background-repeat: no-repeat;
+      background-position: 0 0;
       background-size: 84px *.5;
 
       @mixin _iconStyles($type, $index) {
@@ -710,15 +703,15 @@
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
             @include _iconStyles($_type, $_i);
-            &:before {
-              content: "#{$_i}";
+            &::before {
               display: block;
+              padding-top: 46px *.5;
               overflow: hidden;
               font-family: $tenorsans;
-              @include g-font(16, 0);
               color: #fff;
               text-align: center;
-              padding-top: 46px *.5;
+              content: "#{$_i}";
+              @include g-font(16, 0);
             }
           }
         }
@@ -732,11 +725,10 @@
         padding-bottom: 0;
       }
     }
-    // End Icon付
+
     & + div {
       // 最下部の枠があるとき
       margin-top: 20px;
     }
   }
-
-}// SP
+}
