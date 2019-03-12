@@ -7,93 +7,202 @@
     display: block;
   }
 
-  .t0-b-frameOuter#{$variation1of11}2 {
+  .t0-b-frameOuter#{$variation1of11} {
 
-    $_fontSizePx_hd: 28;
-    $_fontSizePx_caption: 14;
+    $_block: &;
+    $_fontSizeDifference: 4;
     $_lineHeightType: 1;
+    $_fontSizePx_hd: 28;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_textColor_hd: #675f4f;
 
     &__hd {
+      font-family: $tenorsans;
       text-align: center;
       color: $_textColor_hd;
       padding-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+
       &-h {
-        text-align: center;
         h2 {
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
         }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
       }
+
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         padding: 0 0 5px 0;
       }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         padding: 5px 0 0 0;
       }
-    }
-    &__bd {
-      padding: 2.5% 2.5% 1%;
-      background: #fff;
-      border: 1px solid #d8c8b1;
+
+      &--size-1 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__ft {
       margin-top: 2%;
     }
+
   }
 
   .t0-b-frameOuter#{$variation2of11} {
 
-    $_fontSizePx_hd: 28;
-    $_fontSizePx_caption: 14;
+    $_block: &;
+    $_fontSizeDifference: 4;
     $_lineHeightType: 1;
+    $_fontSizePx_hd: 28;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
+    $_fontSizePx_caption: 14;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_textColor_hd: #675f4f;
 
+    padding: 2.5% 2.5% 1%;
+    background: #fff;
+    border: 1px solid #d8c8b1;
+
     &__hd {
+      font-family: $tenorsans;
       text-align: center;
       color: $_textColor_hd;
       padding-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+
       &-h {
-        text-align: center;
         h2 {
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
         }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
       }
+
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         padding: 0 0 5px 0;
       }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         padding: 5px 0 0 0;
       }
-    }
-    &__bd {
-      padding: 2.5% 2.5% 1%;
-      background: #fff;
-      border: 1px solid #d8c8b1;
+
+      &--size-1 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
+        }
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__ft {
@@ -112,10 +221,8 @@
     $_fontSizePx_caption: 16;
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-
-    $_fontSizePx_numIcon_s: $_fontSizePx_numIcon - $_fontSizeDifference;
-    $_fontSizePx_numIcon_l: $_fontSizePx_numIcon + $_fontSizeDifference;
     $_textColor_hd: #675f4f;
+    $_textColor_nCaption: #b37037;
 
     // サイド有無で値を変えたい為。017の値のまま引継いでいる
     padding: 4% 4% 1%;
@@ -128,13 +235,16 @@
     background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
     background-position: left top, right top, left bottom, left top;
     background-size: 5px 5px;
+
     &__hd {
-      position: relative;
-      padding: 7px 0;
       font-family: $tenorsans;
+      position: relative;
       text-align: center;
+      padding: 7px 0;
       background-color: #fffbeb;
-      &::before {
+      color: $_textColor_hd;
+
+      &:before {
         position: absolute;
         top: -5px;
         left: 0;
@@ -148,7 +258,7 @@
         background-size: 6px 2px;
       }
 
-      &::after {
+      &:after {
         position: absolute;
         bottom: -5px;
         left: 0;
@@ -162,54 +272,65 @@
         background-size: 6px 2px;
       }
 
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+
       &-h {
         h2 {
           display: inline-block;
-          color: $_textColor_hd;
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
         }
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px;
-        color: $_textColor_hd;
+        padding: 0 0 5px 0;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0;
-        color: $_textColor_hd;
+        padding: 5px 0 0 0;
       }
 
       &--size-1 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
       &--size-3 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
           }
         }
       }
@@ -225,17 +346,6 @@
       &--align-r {
         text-align: right;
       }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          color: $g-hovercolor;
-          h2 {
-            color: $g-hovercolor;
-          }
-        }
-      }
     }
 
     &__bd {
@@ -246,7 +356,7 @@
       padding: 26px 0 0;
     }
 
-    &__box {
+    &__row {
       padding-bottom: 2%;
       &:last-child {
         padding-bottom: 0;
@@ -270,33 +380,42 @@
     $_fontSizePx_caption: 16;
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-
-    $_fontSizePx_numIcon_s: $_fontSizePx_numIcon - $_fontSizeDifference;
-    $_fontSizePx_numIcon_l: $_fontSizePx_numIcon + $_fontSizeDifference;
     $_textColor_hd: #675f4f;
+    $_textColor_nCaption: #b37037;
 
     // サイド有無で値を変えたい為。017の値のまま引継いでいる
     padding: 4% 4% 1%;
     background-color: #fff;
     border: 1px solid #d4c7a0;
     border-radius: 11px;
+
     &__hd {
       position: relative;
       padding: 13px 0 25px;
       font-family: $tenorsans;
       text-align: center;
       border-bottom: 1px solid #efebdd;
-      &::after {
+      color: $_textColor_hd;
+
+      &:after {
         position: absolute;
         bottom: -7px;
-        display: block;
         width: 100%;
         height: 12px;
         content: "";
+        display: block;
         background-image: url("../imgs/frame/frame003/frame003_frame03_v2f2.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 88px 12px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
       }
 
       &-h {
@@ -306,11 +425,12 @@
           display: inline-block;
           padding: 0 116px;
           margin: 0 auto;
-          color: $_textColor_hd;
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-          &::before {
+
+          &:before {
             position: absolute;
             top: 50%;
+            transform: translateY(-50%);
             left: 0;
             display: inline-block;
             width: 100%;
@@ -320,12 +440,12 @@
             background-repeat: no-repeat;
             background-position: left top;
             background-size: 83px 43px;
-            transform: translateY(-50%);
           }
 
-          &::after {
+          &:after {
             position: absolute;
             top: 50%;
+            transform: translateY(-50%);
             right: 0;
             display: inline-block;
             width: 100%;
@@ -335,63 +455,69 @@
             background-repeat: no-repeat;
             background-position: right top;
             background-size: 83px 43px;
-            transform: translateY(-50%);
           }
         }
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px;
-        color: $_textColor_hd;
+        padding: 0 0 5px 0;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0;
-        color: $_textColor_hd;
+        padding: 5px 0 0 0;
       }
 
       &--size-1 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
       &--size-3 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
       &--align-l {
         text-align: left;
-        #{$_block}__hd-caption-upper, {
-          padding: 0 103px 10px;
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          padding: 8px 103px 0;
+          &-caption-upper {
+            padding: 0 103px 10px;
+          }
+
+          &-caption-lower {
+            padding: 8px 103px 0;
+          }
         }
       }
 
@@ -401,22 +527,14 @@
 
       &--align-r {
         text-align: right;
-        #{$_block}__hd-caption-upper, {
-          padding: 0 103px 10px;
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          padding: 8px 103px 0;
-        }
-      }
+          &-caption-upper {
+            padding: 0 103px 10px;
+          }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          color: $g-hovercolor;
-          h2 {
-            color: $g-hovercolor;
+          &-caption-lower {
+            padding: 8px 103px 0;
           }
         }
       }
@@ -430,11 +548,7 @@
       padding: 26px 0 0;
     }
 
-    &__numIcon-bd {
-      border-bottom: 4px dotted #6cf;
-    }
-
-    &__box {
+    &__row {
       padding-bottom: 2%;
       &:last-child {
         padding-bottom: 0;
@@ -465,22 +579,31 @@
     background-color: #fffdf7;
     border-top: 3px solid #ffe168;
     border-bottom: 2px solid #ffefaf;
+
     &__hd {
       padding: 12px 3.5%;
       font-family: $tenorsans;
       text-align: center;
       background-color: #fff6ba;
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px;
-        color: $_textColor;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
       }
 
       &-h {
         h2 {
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-          color: $_textColor;
         }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px;
+        color: $_textColor;
       }
 
       &-caption-lower {
@@ -490,33 +613,39 @@
       }
 
       &--size-1 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
       &--size-3 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
           }
         }
       }
@@ -532,17 +661,6 @@
       &--align-r {
         text-align: right;
       }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          color: $g-hovercolor;
-          h2 {
-            color: $g-hovercolor;
-          }
-        }
-      }
     }
 
     &__tp {
@@ -552,7 +670,6 @@
     &__hd + &__bd {
       padding: 30px 3.5% 0;
     }
-
     &__ft {
       // 最下部の枠があるとき
       margin-top: 2%;
@@ -578,28 +695,28 @@
     background-color: #fff;
     border: 2px solid #fed326;
     border-top: 0;
+
     &__hd {
       font-family: $tenorsans;
       text-align: center;
-      > div {
-        background-color: #fff;
-      }
+      color: $_textColor;
 
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 99px 5px;
-        // 大枠に敷かれている左右のborderを消す為border幅分マイナス
-        margin: 0 -2px;
-        color: $_textColor;
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
       }
 
       &-h {
         position: relative;
         padding: 0 3.5%;
-
-        // h2部分のデザインを実現する為の記述(borderを消す)
+        // h2に敷かれている左右のborderを消す為、borderのマイナスと背景色を追加
         margin: 0 -2px;
-        &::before {
+        background-color: #fff;
+
+        &:before {
           position: absolute;
           top: 50%;
           left: 0;
@@ -617,10 +734,10 @@
           min-height: 8px;
           padding: 0 52px;
           margin: 0 auto;
-          color: $_textColor;
           background-color: #fff;
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-          &::before {
+
+          &:before {
             position: absolute;
             top: 52%;
             left: 0;
@@ -635,7 +752,7 @@
             transform: translateY(-50%);
           }
 
-          &::after {
+          &:after {
             position: absolute;
             top: 52%;
             right: 0;
@@ -654,40 +771,53 @@
         }
       }
 
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 99px 5px;
+        // 大枠に敷かれている左右のborderを消す為、borderのマイナスと背景色を追加
+        margin: 0 -2px;
+        background-color: #fff
+      }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
         padding: 5px 99px 0;
-        color: $_textColor;
       }
 
       &--size-1 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
       &--size-3 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
           }
         }
       }
@@ -703,23 +833,11 @@
       &--align-r {
         text-align: right;
       }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          color: $g-hovercolor;
-          h2 {
-            color: $g-hovercolor;
-          }
-        }
-      }
     }
 
-    // hd-hがない時の指定
     &__tp {
-      padding: 3.5% 3.5% 0;
       margin: 0;
+      padding: 3.5% 3.5% 0;
       border-top: 2px solid #fed326;
     }
 
@@ -756,20 +874,30 @@
     background-color: #fff9e2;
     border: 1px solid #ece5c8;
     border-radius: 11px;
+
     &__hd {
       font-family: $tenorsans;
       text-align: center;
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px;
-        color: $_textColor;
+      color: $_textColor;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+          color: $g-hovercolor;
+        }
       }
 
       &-h {
         h2 {
           @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-          color: $_textColor;
         }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px;
+        color: $_textColor;
       }
 
       &-caption-lower {
@@ -779,33 +907,39 @@
       }
 
       &--size-1 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
           }
         }
       }
 
       &--size-3 {
-        #{$_block}__hd-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
-        }
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
 
-        #{$_block}__hd-h {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
           }
         }
       }
@@ -820,17 +954,6 @@
 
       &--align-r {
         text-align: right;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          color: $g-hovercolor;
-          h2 {
-            color: $g-hovercolor;
-          }
-        }
       }
     }
 
@@ -846,77 +969,34 @@
 
   .t0-b-frameOuter#{$variation8of11} {
 
+    $_block: &;
+    $_fontSizeDifference: 4;
     $_fontSizePx_hd: 28;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
     $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
-    $_fontSizePx: 26;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #fc0;
 
-    width: 100%;
     color: $g-textcolor;
+    padding: 30px;
+    background-color: #fff;
+    background-image:
+      url("../imgs/frame/frame006/frame006_frame01_v1_v2f1.png"),
+      url("../imgs/frame/frame006/frame006_frame02_v1_v2f1.png"),
+      url("../imgs/frame/frame006/frame006_frame03_v1_v2f1.png"),
+      url("../imgs/frame/frame006/frame006_frame04_v1_v2f1.png");
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, right top, left bottom, right bottom;
+    background-size: 68px 67px;
+    border: 1px solid $_borderColor;
+    border-radius: 11px;
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding-bottom: 10px;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-        }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__bd {
-      width: 100%;
-    }
-
-    &__col {
-      flex: 1 1 (100% / 2);
-      margin-left: 7%;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    &__box {
-      padding: 30px;
-      background-color: #fff;
-      background-image:
-        url("../imgs/frame/frame006/frame006_frame01_v1_v2f1.png"),
-        url("../imgs/frame/frame006/frame006_frame02_v1_v2f1.png"),
-        url("../imgs/frame/frame006/frame006_frame03_v1_v2f1.png"),
-        url("../imgs/frame/frame006/frame006_frame04_v1_v2f1.png");
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: left top, right top, left bottom, right bottom;
-      background-size: 68px 67px;
-      border: 1px solid $_borderColor;
-
-      border-radius: 11px;
-    }
-
-    &__hd-h {
+      font-family: $tenorsans;
       min-height: 32px;
       padding-bottom: 10px;
       margin-bottom: 20px;
@@ -925,113 +1005,113 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 1px solid #ffe68f;
-      > a {
-        color: $_textColor_hd;
+
+      a {
         text-decoration: none;
+        color: inherit;
         &:hover {
           color: $g-hovercolor;
         }
       }
 
-      h2 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0 0;
       }
 
       &--size-1 {
-        min-height: 29px;
-        h2 {
-          @include g-font-layout($_fontSizePx - 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
         }
       }
 
       &--size-3 {
-        min-height: 35px;
-        h2 {
-          @include g-font-layout($_fontSizePx + 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
       }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+
+    &__bd {
+      width: 100%;
     }
 
     &__ft {
       margin-top: 2%;
     }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
   }
 
   .t0-b-frameOuter#{$variation9of11} {
 
+    $_block: &;
+    $_fontSizeDifference: 4;
     $_fontSizePx_hd: 28;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
     $_fontSizePx_caption: 14;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
     $_fontSizePx: 26;
-    $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #e6e3db;
 
-    width: 100%;
     color: $g-textcolor;
+    padding: 20px;
+    background-color: #fff;
+    border: 5px solid $_borderColor;
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding-bottom: 10px;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-        }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__bd {
-      width: 100%;
-    }
-
-    &__col {
-      flex: 1 1 (100% / 2);
-      margin-left: 7%;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    &__box {
-      padding: 20px;
-      background-color: #fff;
-      border: 5px solid $_borderColor;
-    }
-
-    &__hd-h {
+      font-family: $tenorsans;
       min-height: 32px;
       padding-bottom: 10px;
       margin-bottom: 20px;
@@ -1040,146 +1120,146 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 2px solid #e6e3db;
-      > a {
-        color: $_textColor_hd;
+
+      a {
         text-decoration: none;
+        color: inherit;
         &:hover {
           color: $g-hovercolor;
         }
       }
 
-      h2 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0 0;
       }
 
       &--size-1 {
-        min-height: 29px;
-        h2 {
-          @include g-font-layout($_fontSizePx - 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
         }
       }
 
       &--size-3 {
-        min-height: 35px;
-        h2 {
-          @include g-font-layout($_fontSizePx + 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
       }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+
+    &__bd {
+      width: 100%;
     }
 
     &__ft {
       margin-top: 2%;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
     }
   }
 
   .t0-b-frameOuter#{$variation10of11} {
 
+    $_block: &;
+    $_fontSizeDifference: 4;
     $_fontSizePx_hd: 28;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
     $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_fontSizePx: 26;
     $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #e6e3db;
 
-    width: 100%;
     color: $g-textcolor;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 0 5px $_borderColor inset;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 30px;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame007/frame007_frame01_v3_v2f1.png"),
+        url("../imgs/frame/frame007/frame007_frame02_v3_v2f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left top, right top;
+      background-size: 30px 30px;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 30px;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame007/frame007_frame03_v3_v2f1.png"),
+        url("../imgs/frame/frame007/frame007_frame04_v3_v2f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left bottom, right bottom;
+      background-size: 30px 30px;
+    }
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding-bottom: 10px;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-        }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__bd {
-      width: 100%;
-    }
-
-    &__col {
-      flex: 1 1 (100% / 2);
-      margin-left: 7%;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    &__box {
-      position: relative;
-      padding: 20px;
-      background-color: #fff;
-
-      box-shadow: 0 0 0 5px $_borderColor inset;
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 30px;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame007/frame007_frame01_v3_v2f1.png"),
-          url("../imgs/frame/frame007/frame007_frame02_v3_v2f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left top, right top;
-        background-size: 30px 30px;
-      }
-
-      &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 30px;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame007/frame007_frame03_v3_v2f1.png"),
-          url("../imgs/frame/frame007/frame007_frame04_v3_v2f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left bottom, right bottom;
-        background-size: 30px 30px;
-      }
-    }
-
-    &__hd-h {
+      font-family: $tenorsans;
       min-height: 32px;
       padding-bottom: 10px;
       margin-bottom: 20px;
@@ -1188,149 +1268,147 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 2px solid #cec4aa;
-      box-shadow:
-        0 2px #fff,
-        0 3px #fed326;
-      > a {
-        color: $_textColor_hd;
+      box-shadow: 0 2px #fff, 0 3px #fed326;
+
+      a {
         text-decoration: none;
+        color: inherit;
         &:hover {
           color: $g-hovercolor;
         }
       }
 
-      h2 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0 0;
       }
 
       &--size-1 {
-        min-height: 29px;
-        h2 {
-          @include g-font-layout($_fontSizePx - 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
         }
       }
 
       &--size-3 {
-        min-height: 35px;
-        h2 {
-          @include g-font-layout($_fontSizePx + 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
       }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+
+    &__bd {
+      width: 100%;
     }
 
     &__ft {
       margin-top: 2%;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
     }
   }
 
   .t0-b-frameOuter#{$variation11of11} {
 
+    $_block: &;
+    $_fontSizeDifference: 4;
     $_fontSizePx_hd: 28;
+    $_fontSizePx_hd_s: $_fontSizePx_hd - $_fontSizeDifference;
+    $_fontSizePx_hd_l: $_fontSizePx_hd + $_fontSizeDifference;
     $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_fontSizePx: 26;
     $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #e6e3db;
 
-    width: 100%;
     color: $g-textcolor;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 0 5px $_borderColor inset;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 30px;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame008/frame008_frame01_v4_v5f1.png"),
+        url("../imgs/frame/frame008/frame008_frame02_v4_v5f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left top, right top;
+      background-size: 30px 30px;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 30px;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame008/frame008_frame03_v4_v5f1.png"),
+        url("../imgs/frame/frame008/frame008_frame04_v4_v5f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left bottom, right bottom;
+      background-size: 30px 30px;
+    }
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding-bottom: 10px;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
-        }
-        &--size-1 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd - 2, $_lineHeightType, $layout);
-          }
-        }
-        &--size-3 {
-          h2 {
-            @include g-font-layout($_fontSizePx_hd + 2, $_lineHeightType, $layout);
-          }
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__bd {
-      width: 100%;
-    }
-
-    &__col {
-      flex: 1 1 (100% / 2);
-      margin-left: 7%;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    &__box {
-      position: relative;
-      padding: 20px;
-      background-color: #fff;
-
-      box-shadow: 0 0 0 5px $_borderColor inset;
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 30px;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame008/frame008_frame01_v4_v5f1.png"),
-          url("../imgs/frame/frame008/frame008_frame02_v4_v5f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left top, right top;
-        background-size: 30px 30px;
-      }
-
-      &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 30px;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame008/frame008_frame03_v4_v5f1.png"),
-          url("../imgs/frame/frame008/frame008_frame04_v4_v5f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left bottom, right bottom;
-        background-size: 30px 30px;
-      }
-    }
-
-    &__hd-h {
+      font-family: $tenorsans;
       min-height: 32px;
       padding-bottom: 10px;
       margin-bottom: 20px;
@@ -1339,89 +1417,148 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 2px solid #cec4aa;
-      box-shadow:
-        0 2px #fff,
-        0 3px #80d3ee;
-      > a {
-        color: $_textColor_hd;
+      box-shadow: 0 2px #fff, 0 3px #80d3ee;
+
+      a {
         text-decoration: none;
+        color: inherit;
         &:hover {
           color: $g-hovercolor;
         }
       }
 
-      h2 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      &-h {
+        h2 {
+          @include g-font-layout($_fontSizePx_hd, $_lineHeightType, $layout);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        padding: 5px 0 0 0;
       }
 
       &--size-1 {
-        min-height: 29px;
-        h2 {
-          @include g-font-layout($_fontSizePx - 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_s, $_lineHeightType, $layout);
+            }
+          }
         }
       }
 
       &--size-3 {
-        min-height: 35px;
-        h2 {
-          @include g-font-layout($_fontSizePx + 2, $_lineHeightType, $layout);
+        #{$_block}__hd {
+
+          &-caption-upper {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-caption-lower {
+            @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          }
+
+          &-h {
+            h2 {
+              @include g-font-layout($_fontSizePx_hd_l, $_lineHeightType, $layout);
+            }
+          }
         }
       }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+
+    &__bd {
+      width: 100%;
     }
 
     &__ft {
       margin-top: 2%;
     }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
   }
-
 }
 
 @if $device == SP {
 
-  .t0-b-frameOuter#{$variation1of11}2 {
+  // frameOuterのclearfix
+  .frameOuter-clearfix.clearfix::after,
+  .frameOuter-clearfix .clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .t0-b-frameOuter#{$variation1of11} {
 
     $_fontSizePx_hd: 18;
     $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
 
-    margin: 0 -5px;
-
     &__hd {
+      font-family: $tenorsans;
       text-align: center;
       color: $_textColor_hd;
       padding: 5px 0;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       &-h {
-        text-align: center;
         h2 {
           @include g-font($_fontSizePx_hd, $_lineHeightType);
         }
       }
+
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         padding: 0 0 5px 0;
       }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         padding: 5px 0 0 0;
       }
-    }
-    &__bd {
-      padding: 20px 20px 10px;
-      background: #fff;
-      border: 1px solid #d8c8b1;
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__ft {
@@ -1437,30 +1574,48 @@
     $_textColor_hd: #675f4f;
 
     margin: 0 -5px;
+    padding: 20px 20px 10px;
+    background: #fff;
+    border: 1px solid #d8c8b1;
 
     &__hd {
+      font-family: $tenorsans;
       text-align: center;
       color: $_textColor_hd;
       padding: 5px 0;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       &-h {
-        text-align: center;
         h2 {
           @include g-font($_fontSizePx_hd, $_lineHeightType);
         }
       }
+
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         padding: 0 0 5px 0;
       }
+
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
         padding: 5px 0 0 0;
       }
-    }
-    &__bd {
-      padding: 20px 20px 10px;
-      background: #fff;
-      border: 1px solid #d8c8b1;
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__ft {
@@ -1474,7 +1629,7 @@
     $_lineHeightType: 1;
     $_fontSizePx_hd: 18;
     $_fontSizePx_caption: 14;
-
+    $_textColor_nCaption: #b37037;
     $_textColor_hd: #675f4f;
 
     // サイド有無で値を変えたい為。017の値のまま引継いでいる
@@ -1489,13 +1644,16 @@
     background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
     background-position: left top, right top, left bottom, left top;
     background-size: 5px 5px;
+
     &__hd {
       position: relative;
       padding: 7px 0;
       font-family: $tenorsans;
       text-align: center;
       background-color: #fffbeb;
-      &::before {
+      color: $_textColor_hd;
+
+      &:before {
         position: absolute;
         top: -5px;
         left: 0;
@@ -1509,7 +1667,7 @@
         background-size: 12px *.5 4px *.5;
       }
 
-      &::after {
+      &:after {
         position: absolute;
         bottom: -5px;
         left: 0;
@@ -1523,13 +1681,26 @@
         background-size: 12px *.5 4px *.5;
       }
 
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       &-h {
         h2 {
           display: inline-block;
-          color: $_textColor_hd;
-          text-align: center;
           @include g-font($_fontSizePx_hd, $_lineHeightType);
         }
+      }
+
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 0;
       }
 
       &--align-l {
@@ -1543,23 +1714,6 @@
       &--align-r {
         text-align: right;
       }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-    }
-
-    &__hd-caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 0 0 5px;
-      color: $_textColor_hd;
-    }
-
-    &__hd-caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 5px 0 0;
-      color: $_textColor_hd;
     }
 
     &__bd {
@@ -1570,7 +1724,7 @@
       padding: 26px 0 0;
     }
 
-    &__box {
+    &__row {
       padding-bottom: 2%;
       &:last-child {
         padding-bottom: 0;
@@ -1589,7 +1743,7 @@
     $_lineHeightType: 1;
     $_fontSizePx_hd: 18;
     $_fontSizePx_caption: 14;
-
+    $_textColor_nCaption: #b37037;
     $_textColor_hd: #675f4f;
 
     // サイド有無で値を変えたい為。017の値のまま引継いでいる
@@ -1598,13 +1752,16 @@
     background-color: #fff;
     border: 1px solid #d4c7a0;
     border-radius: 7px;
+
     &__hd {
       position: relative;
       padding: 13px *.5 0;
       font-family: $tenorsans;
       text-align: center;
+      color: $_textColor_hd;
       border-bottom: 1px solid #efebdd;
-      &::after {
+
+      &:after {
         position: absolute;
         bottom: -4px;
         display: block;
@@ -1617,15 +1774,20 @@
         background-size: 88px *.5 14px *.5;
       }
 
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       &-h {
         h2 {
           position: relative;
           display: inline-block;
           padding: 0 102px *.5;
           margin: 0 auto;
-          color: $_textColor_hd;
           @include g-font($_fontSizePx_hd, $_lineHeightType);
-          &::before {
+
+          &:before {
             position: absolute;
             top: 50%;
             left: 0;
@@ -1640,7 +1802,7 @@
             transform: translateY(-50%);
           }
 
-          &::after {
+          &:after {
             position: absolute;
             top: 50%;
             right: 0;
@@ -1657,14 +1819,27 @@
         }
       }
 
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 0;
+      }
+
       &--align-l {
         text-align: left;
-        #{$_block}__hd-caption-upper, {
-          padding: 0 103px*.5 10px*.5;
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          padding: 8px*.5 103px*.5;
+          &-caption-upper {
+            padding: 0 103px*.5 10px*.5;
+          }
+
+          &-caption-lower {
+            padding: 8px*.5 103px*.5;
+          }
         }
       }
 
@@ -1674,31 +1849,17 @@
 
       &--align-r {
         text-align: right;
-        #{$_block}__hd-caption-upper, {
-          padding: 0 103px*.5 10px*.5;
-        }
+        #{$_block}__hd {
 
-        #{$_block}__hd-caption-lower {
-          padding: 8px*.5 103px*.5 0;
+          &-caption-upper {
+            padding: 0 103px*.5 10px*.5;
+          }
+
+          &-caption-lower {
+            padding: 8px*.5 103px*.5 0;
+          }
         }
       }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-    }
-
-    &__hd-caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 0 0 5px;
-      color: $_textColor_hd;
-    }
-
-    &__hd-caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
-      padding: 5px 0 0;
-      color: $_textColor_hd;
     }
 
     &__bd {
@@ -1709,7 +1870,7 @@
       padding: 26px 0 0;
     }
 
-    &__box {
+    &__row {
       padding-bottom: 2%;
       &:last-child {
         padding-bottom: 0;
@@ -1727,7 +1888,7 @@
     $_block: &;
     $_lineHeightType: 1;
     $_fontSizePx_hd: 18;
-    // g-fontを使えない為px指定をつける
+    //  g-fontを 使えない為pxをつける
     $_fontSizePx_caption: 14px;
     $_textColor: #675f4f;
 
@@ -1737,33 +1898,35 @@
     background-color: #fffdf7;
     border-top: 3px solid #ffe168;
     border-bottom: 2px solid #ffefaf;
+
     &__hd {
-      padding: 12px 20px;
       font-family: $tenorsans;
       text-align: center;
+      padding: 12px 20px;
       background-color: #fff6ba;
-      &-caption-upper {
-        padding: 0 0 5px;
-        // line-heightがイレギュラーの為の指定
-        font-size: $_fontSizePx_caption;
-        line-height: 1.5;
+      color: $_textColor;
 
-        color: $_textColor;
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
       &-h {
         h2 {
           @include g-font($_fontSizePx_hd, $_lineHeightType);
-          color: $_textColor;
         }
       }
 
-      &-caption-lower {
-
-        padding: 5px 0 0;
-        // line-heightがイレギュラーの為の指定
+      &-caption-upper {
         font-size: $_fontSizePx_caption;
         line-height: 1.5;
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        font-size: $_fontSizePx_caption;
+        line-height: 1.5;
+        padding: 5px 0 0;
       }
 
       &--align-l {
@@ -1776,11 +1939,6 @@
 
       &--align-r {
         text-align: right;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
       }
     }
 
@@ -1803,49 +1961,36 @@
     $_block: &;
     $_lineHeightType: 1;
     $_fontSizePx_hd: 18;
-    // g-fontを使えない為px指定をつける
+    //  g-fontを 使えない為pxをつける
     $_fontSizePx_caption: 14px;
     $_textColor: #675f4f;
-    padding-bottom: 10px;
-    margin: 0 -5px;
 
     color: $_textColor;
-    text-align: center;
+    padding-bottom: 10px;
+    margin: 0 -5px;
     background-color: #fff;
     border-right: 1px solid #fed326;
     border-bottom: 1px solid #fed326;
     border-left: 1px solid #fed326;
-    &__hd-caption-upper {
-      padding: 0 30px *.5 5px;
-      // line-heightがイレギュラーの為の指定
-      font-size: $_fontSizePx_caption;
-      line-height: 1.5;
-
-      color: $_textColor;
-    }
 
     &__hd {
       font-family: $tenorsans;
+      color: $_textColor;
       text-align: center;
-      > div {
-        background-color: #fff;
-      }
 
-      &-caption-upper {
-        @include g-font($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 65px 5px;
-        // 大枠に敷かれている左右のborderを消す為border幅分マイナス
-        margin: 0 -1px;
-        color: $_textColor;
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
       &-h {
         position: relative;
         padding: 0 3.5%;
-
-        // h2部分のデザインを実現する為の記述(borderを消す)
+        // h2に敷かれている左右のborderを消す為、borderのマイナスと背景色を追加
         margin: 0 -1px;
-        &::before {
+        background-color: #fff;
+
+        &:before {
           position: absolute;
           top: 49.5%;
           left: 0;
@@ -1866,7 +2011,8 @@
           color: $_textColor;
           background-color: #fff;
           @include g-font($_fontSizePx_hd, $_lineHeightType);
-          &::before {
+
+          &:before {
             position: absolute;
             top: 52%;
             left: 0;
@@ -1881,7 +2027,7 @@
             transform: translateY(-50%);
           }
 
-          &::after {
+          &:after {
             position: absolute;
             top: 52%;
             right: 0;
@@ -1900,13 +2046,15 @@
         }
       }
 
+      &-caption-upper {
+        padding: 0 65px 5px;
+        // 大枠に敷かれている左右のborderを消す為、borderのマイナスと背景色を追加
+        margin: 0 -2px;
+        background-color: #fff
+      }
+
       &-caption-lower {
         padding: 5px 65px 0;
-        // line-heightがイレギュラーの為の指定
-        font-size: $_fontSizePx_caption;
-        line-height: 1.5;
-
-        color: $_textColor;
       }
 
       &--align-l {
@@ -1920,21 +2068,16 @@
       &--align-r {
         text-align: right;
       }
+    }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+    &__tp {
+      margin: 0;
+      border-top: 1px solid #fed326;
     }
 
     &__bd {
       padding: 15px 20px 0;
       text-align: left;
-    }
-    // hd-hがない時の指定
-    &__tp {
-      margin: 0;
-      border-top: 1px solid #fed326;
     }
 
     &__ft {
@@ -1957,26 +2100,31 @@
     background-color: #fff9e2;
     border: 1px solid #ece5c8;
     border-radius: 11px;
+
     &__hd {
       font-family: $tenorsans;
       text-align: center;
-      &-caption-upper {
-        @include g-font($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 0 5px;
-        color: $_textColor;
+      color: $_textColor;
+
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
       &-h {
         h2 {
           @include g-font($_fontSizePx_hd, $_lineHeightType);
-          color: $_textColor;
         }
+      }
+
+      &-caption-upper {
+        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
         @include g-font($_fontSizePx_caption, $_lineHeightType);
         padding: 5px 0 0;
-        color: $_textColor;
       }
 
       &--align-l {
@@ -1990,15 +2138,10 @@
       &--align-r {
         text-align: right;
       }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
     }
 
     &__hd + &__bd {
-      padding: 20px 0 0;
+      padding: 20px 0 0 0;
     }
 
     &__ft {
@@ -2012,59 +2155,26 @@
     $_fontSizePx_hd: 18;
     $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
     $_fontSizePx: 16;
-    $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #fc0;
-    margin: 0 -5px;
 
-    color: $g-textcolor;
+    color: $_textColor_hd;
+    margin: 0 -5px;
+    padding: 20px;
+    background-color: #fff;
+    background-image:
+      url("../imgs/frame/frame006/frame006_frame01_v1_v2f1.png"),
+      url("../imgs/frame/frame006/frame006_frame02_v1_v2f1.png"),
+      url("../imgs/frame/frame006/frame006_frame03_v1_v2f1.png"),
+      url("../imgs/frame/frame006/frame006_frame04_v1_v2f1.png");
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, right top, left bottom, right bottom;
+    background-size: 67px *.5 67px *.5;
+    border: 1px solid $_borderColor;
+    border-radius: 7px;
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding: 5px 0;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font($_fontSizePx_hd, $_lineHeightType);
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__col {
-      padding-bottom: 30px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
-    &__box {
-      padding: 20px;
-      background-color: #fff;
-      background-image:
-        url("../imgs/frame/frame006/frame006_frame01_v1_v2f1.png"),
-        url("../imgs/frame/frame006/frame006_frame02_v1_v2f1.png"),
-        url("../imgs/frame/frame006/frame006_frame03_v1_v2f1.png"),
-        url("../imgs/frame/frame006/frame006_frame04_v1_v2f1.png");
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: left top, right top, left bottom, right bottom;
-      background-size: 67px *.5 67px *.5;
-      border: 1px solid $_borderColor;
-
-      border-radius: 7px;
-    }
-
-    &__hd-h {
       min-height: 20px;
       padding: 5px 0;
       margin-bottom: 15px;
@@ -2073,30 +2183,43 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 1px solid #ffe68f;
-      > a {
-        color: $_textColor_hd;
+
+      a {
         text-decoration: none;
+        color: inherit;
       }
 
-      h2 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
     &__ft {
       margin-top: 20px;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
     }
   }
 
@@ -2104,50 +2227,19 @@
 
     $_fontSizePx_hd: 18;
     $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
     $_fontSizePx: 16;
     $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #e6e3db;
-    margin: 0 -5px;
 
     color: $g-textcolor;
+    margin: 0 -5px;
+    padding: 20px;
+    background-color: #fff;
+    border: 3px solid $_borderColor;
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding: 5px 0;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font($_fontSizePx_hd, $_lineHeightType);
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__col {
-      padding-bottom: 30px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
-    &__box {
-      padding: 20px;
-      background-color: #fff;
-      border: 3px solid $_borderColor;
-    }
-
-    &__hd-h {
+      font-family: $tenorsans;
       min-height: 20px;
       padding: 5px 0;
       margin-bottom: 15px;
@@ -2156,30 +2248,43 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 2px solid #e6e3db;
-      > a {
-        color: $_textColor_hd;
+
+      a {
         text-decoration: none;
+        color: inherit;
       }
 
-      h2 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
     &__ft {
       margin-top: 20px;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
     }
   }
 
@@ -2188,82 +2293,51 @@
     $_fontSizePx_hd: 18;
     $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
     $_fontSizePx: 16;
-    $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #e6e3db;
-    margin: 0 -5px;
 
     color: $g-textcolor;
+    margin: 0 -5px;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px $_borderColor inset;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 50px *.5;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame007/frame007_frame01_v3_v2f1.png"),
+        url("../imgs/frame/frame007/frame007_frame02_v3_v2f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left top, right top;
+      background-size: 50px *.5 50px *.5;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 50px *.5;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame007/frame007_frame03_v3_v2f1.png"),
+        url("../imgs/frame/frame007/frame007_frame04_v3_v2f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left bottom, right bottom;
+      background-size: 50px *.5 50px *.5;
+    }
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding: 5px 0;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font($_fontSizePx_hd, $_lineHeightType);
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__col {
-      margin-bottom: 30px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    &__box {
-      position: relative;
-      padding: 20px;
-      background-color: #fff;
-
-      box-shadow: 0 0 0 3px $_borderColor inset;
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 50px *.5;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame007/frame007_frame01_v3_v2f1.png"),
-          url("../imgs/frame/frame007/frame007_frame02_v3_v2f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left top, right top;
-        background-size: 50px *.5 50px *.5;
-      }
-
-      &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 50px *.5;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame007/frame007_frame03_v3_v2f1.png"),
-          url("../imgs/frame/frame007/frame007_frame04_v3_v2f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left bottom, right bottom;
-        background-size: 50px *.5 50px *.5;
-      }
-    }
-
-    &__hd-h {
+      font-family: $tenorsans;
       min-height: 20px;
       padding: 5px 0;
       margin-bottom: 15px;
@@ -2272,33 +2346,44 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 2px solid #cec4aa;
-      box-shadow:
-        0 2px #fff,
-        0 3px #fed326;
-      > a {
-        color: $_textColor_hd;
+      box-shadow: 0 2px #fff, 0 3px #fed326;
+
+      a {
         text-decoration: none;
+        color: inherit;
       }
 
-      h2 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
     &__ft {
       margin-top: 20px;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
     }
   }
 
@@ -2306,83 +2391,52 @@
 
     $_fontSizePx_hd: 18;
     $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-    $_textColor_hd: #675f4f;
-
     $_fontSizePx: 16;
     $_lineHeightType: 1;
     $_textColor_hd: #675f4f;
     $_borderColor: #e6e3db;
-    margin: 0 -5px;
 
     color: $g-textcolor;
+    margin: 0 -5px;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px $_borderColor inset;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 50px *.5;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame008/frame008_frame01_v4_v5f1.png"),
+        url("../imgs/frame/frame008/frame008_frame02_v4_v5f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left top, right top;
+      background-size: 50px *.5 50px *.5;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 50px *.5;
+      content: "";
+      background-image:
+        url("../imgs/frame/frame008/frame008_frame03_v4_v5f1.png"),
+        url("../imgs/frame/frame008/frame008_frame04_v4_v5f1.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: left bottom, right bottom;
+      background-size: 50px *.5 50px *.5;
+    }
 
     &__hd {
-      text-align: center;
-      color: $_textColor_hd;
-      padding: 5px 0;
-      &-h {
-        text-align: center;
-        h2 {
-          @include g-font($_fontSizePx_hd, $_lineHeightType);
-        }
-      }
-      &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 0 5px 0;
-      }
-      &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 5px 0 0 0;
-      }
-    }
-    &__col {
-      margin-bottom: 30px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    &__box {
-      position: relative;
-      padding: 20px;
-      background-color: #fff;
-
-      box-shadow: 0 0 0 3px $_borderColor inset;
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 50px *.5;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame008/frame008_frame01_v4_v5f1.png"),
-          url("../imgs/frame/frame008/frame008_frame02_v4_v5f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left top, right top;
-        background-size: 50px *.5 50px *.5;
-      }
-
-      &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 50px *.5;
-        content: "";
-        background-image:
-          url("../imgs/frame/frame008/frame008_frame03_v4_v5f1.png"),
-          url("../imgs/frame/frame008/frame008_frame04_v4_v5f1.png");
-        background-repeat: no-repeat, no-repeat;
-        background-position: left bottom, right bottom;
-        background-size: 50px *.5 50px *.5;
-      }
-    }
-
-    &__hd-h {
+      font-family: $tenorsans;
       min-height: 20px;
       padding: 5px 0;
       margin-bottom: 15px;
@@ -2391,34 +2445,44 @@
       color: $_textColor_hd;
       text-align: center;
       border-bottom: 2px solid #cec4aa;
-      box-shadow:
-        0 2px #fff,
-        0 3px #80d3ee;
-      > a {
-        color: $_textColor_hd;
+      box-shadow: 0 2px #fff, 0 3px #80d3ee;
+
+      a {
         text-decoration: none;
+        color: inherit;
       }
 
-      h2 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+      &-h {
+        h2 {
+          @include g-font($_fontSizePx_hd, $_lineHeightType);
+        }
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 0 0 5px 0;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
+        padding: 5px 0 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
     &__ft {
       margin-top: 20px;
     }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
   }
-
 }
