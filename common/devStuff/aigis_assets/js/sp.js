@@ -115,12 +115,12 @@ var rearrange_pname = {
                       };
 
 $(function(){
-  var site_name_tag = getSiteName();
-  var tel_tag = getTelNumber();
-  var menu_tag = getMainMenuAccordion();
+  // var site_name_tag = getSiteName();
+  // var tel_tag = getTelNumber();
+  // var menu_tag = getMainMenuAccordion();
   // replaceTopicPath();
-  createHead(site_name_tag, tel_tag, menu_tag);
-  createGnavAccordion();
+  // createHead(site_name_tag, tel_tag, menu_tag);
+  // createGnavAccordion();
   createSideMenuAccordion();
   rearrangeMod2col();
 
