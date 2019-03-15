@@ -113,7 +113,6 @@
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     padding: 2.5% 2.5% 1%;
-    margin-bottom: 2%;
     background: #fff;
     border: 2px solid #dcd5b7;
     &__hd {
@@ -210,7 +209,6 @@
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     padding: 2.5% 2.5% 1%;
-    margin-bottom: 2%;
     background: #fff;
     border: 1px solid #555;
     &__hd {
@@ -314,7 +312,6 @@
     border: 1px solid #695910;
     border-radius: 3px;
     box-shadow: #d8d7d0 0 0 6px 3px;
-    $_elementSpacing: 4px;
     &__hd {
       box-sizing: border-box;
       min-height: 58px;
@@ -360,19 +357,16 @@
 
       &-h {
         @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
-        position: relative;
         text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-        position: relative;
         padding-bottom: 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-        position: relative;
         padding-top: 5px;
       }
 
@@ -436,7 +430,7 @@
       }
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 2%;
     }
   }
@@ -468,9 +462,8 @@
       url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/2/bg8.png"),
       url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/2/bg9.png");
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x, repeat;
-    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top, left top;
+    background-position: left top, left bottom 0, right bottom 0, right top, left top, left bottom, right top, left top, left top;
     box-shadow: #d8d7d0 0 0 6px 3px;
-    $_elementSpacing: 4px;
     &__hd {
       padding: 10px;
       color: #555;
@@ -488,7 +481,6 @@
 
       &-h {
         @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
-        position: relative;
         h2 {
           display: inline-block;
           padding: 0 46px;
@@ -502,13 +494,11 @@
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-        position: relative;
         padding-bottom: 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-        position: relative;
         padding-top: 5px;
       }
 
@@ -572,7 +562,7 @@
       }
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 2%;
     }
   }
@@ -606,8 +596,8 @@
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-y, repeat-x, repeat-x, repeat;
     background-position:
       left top,
-      left bottom,
-      right bottom,
+      left bottom 0,
+      right bottom 0,
       right top,
       left top,
       right top,
@@ -615,11 +605,6 @@
       left top,
       left top;
     box-shadow: #d8d7d0 0 0 6px 3px;
-    $_elementSpacing: 4px;
-    * {
-      position: relative;
-    }
-
     &__hd {
       position: relative;
       padding: 0 10px 20px;
@@ -650,20 +635,24 @@
         }
       }
 
+      &-h,
+      &-caption-upper,
+      &-caption-lower {
+        position: relative;
+        z-index: 1;
+      }
+
       &-h {
         @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
-        position: relative;
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-        position: relative;
         padding-bottom: 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
-        position: relative;
         padding-top: 5px;
       }
 
@@ -727,7 +716,7 @@
       }
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 2%;
     }
   }
@@ -781,10 +770,6 @@
         background-size: 100%;
       }
 
-      * {
-        position: relative;
-      }
-
       a {
         color: inherit;
         text-decoration: none;
@@ -796,6 +781,7 @@
       &-h,
       &-caption-upper,
       &-caption-lower {
+        position: relative;
         z-index: 1;
       }
 
@@ -862,7 +848,7 @@
       padding-top: 30px;
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 2%;
     }
   }
@@ -964,7 +950,7 @@
       padding-top: 30px;
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 2%;
     }
   }
@@ -979,12 +965,9 @@
     $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
     $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-
     $_lineHeightType_h: 1;
     $_lineHeightType_caption: 1;
-    position: relative;
     padding: 4% 4% 1%;
-
     background-image:
       url("../imgs/t0-b-frameWithHCaption/3/bg.png"),
       url("../imgs/t0-b-frameWithHCaption/3/bg2.png"),
@@ -1016,39 +999,7 @@
       left top,
       left top;
     box-shadow: 2px 2px 5px #e4e3e1, -2px -2px 5px #e4e3e1;
-    > span {
-      position: absolute;
-      top: 19px;
-      right: 0;
-      bottom: 19px;
-      left: 0;
-      background-image: url("../imgs/t0-b-frameWithHCaption/3/bg5.png"), url("../imgs/t0-b-frameWithHCaption/3/bg7.png");
-      background-repeat: repeat-y, repeat-y;
-      background-position: left top, right top;
-      > span {
-        position: absolute;
-        top: -19px;
-        right: 30px;
-        bottom: -19px;
-        left: 34px;
-        background-image: url("../imgs/t0-b-frameWithHCaption/3/bg6.png"), url("../imgs/t0-b-frameWithHCaption/3/bg8.png");
-        background-repeat: repeat-x, repeat-x;
-        background-position: left bottom, left top;
-        > span {
-          position: absolute;
-          top: 19px;
-          right: 0;
-          bottom: 19px;
-          left: 0;
-          background-image: url("../imgs/t0-b-frameWithHCaption/3/bg9.png");
-          background-repeat: repeat;
-          background-position: left top;
-        }
-      }
-    }
-
     &__hd {
-      position: relative;
       text-align: center;
       a {
         color: inherit;
@@ -1145,15 +1096,11 @@
       }
     }
 
-    &__bd {
-      position: relative;
-    }
-
     &__hd + &__bd {
       padding-top: 30px;
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 2%;
     }
   }
@@ -1265,11 +1212,6 @@
       width: 100%;
     }
 
-    &__arrow {
-      display: table-cell;
-      width: 2%;
-    }
-
     &__ft {
       margin-top: 2%;
     }
@@ -1315,8 +1257,6 @@
       }
 
       &-h {
-        position: relative;
-        z-index: 2;
         color: #fff;
         background-color: #fff;
         background-image: url("../imgs/t0-b-articleDecoration/2/bg9.png"), url("../imgs/t0-b-articleDecoration/2/bg10.png");
@@ -1398,11 +1338,6 @@
 
     &__bd {
       width: 100%;
-    }
-
-    &__arrow {
-      display: table-cell;
-      width: 2%;
     }
 
     &__ft {
@@ -1521,11 +1456,6 @@
 
     &__bd {
       width: 100%;
-    }
-
-    &__arrow {
-      display: table-cell;
-      width: 2%;
     }
 
     &__ft {
@@ -1687,7 +1617,6 @@
     border: 1px solid #695910;
     border-radius: 3px;
     box-shadow: #d8d7d0 0 0 6px 3px;
-    $_elementSpacing: 4px;
     &__hd {
       box-sizing: border-box;
       min-height: 58px;
@@ -1730,19 +1659,16 @@
 
       &-h {
         @include g-font(18, 1);
-        position: relative;
         text-shadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
       }
 
       &-caption-upper {
         @include g-font(14, 1);
-        position: relative;
         padding-bottom: 5px;
       }
 
       &-caption-lower {
         @include g-font(14, 1);
-        position: relative;
         padding-top: 5px;
       }
 
@@ -1774,7 +1700,7 @@
       padding: 20px 0 0;
     }
 
-    &__ft { // 最下部の枠があったら
+    &__ft {
       margin-top: 20px;
     }
   }
@@ -1795,9 +1721,8 @@
       url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/2/bg8.png"),
       url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/2/bg9.png");
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x, repeat;
-    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top, left top;
+    background-position: left top, left bottom 0, right bottom 0, right top, left top, left bottom, right top, left top, left top;
     box-shadow: #d8d7d0 0 0 6px 3px;
-    $_elementSpacing: 4px;
     &__hd {
       padding: 10px;
       color: #555;
@@ -1812,7 +1737,6 @@
 
       &-h {
         @include g-font(18, 1);
-        position: relative;
         h2 {
           display: inline-block;
           padding: 0 46px;
@@ -1826,13 +1750,11 @@
 
       &-caption-upper {
         @include g-font(14, 1);
-        position: relative;
         padding-bottom: 5px;
       }
 
       &-caption-lower {
         @include g-font(14, 1);
-        position: relative;
         padding-top: 5px;
       }
 
@@ -1864,7 +1786,7 @@
       padding: 20px 0 0;
     }
 
-    &__ft { // 最下部の枠があったら
+    &__ft {
       margin-top: 20px;
     }
   }
@@ -1896,8 +1818,8 @@
       repeat;
     background-position:
       left top,
-      left bottom,
-      right bottom,
+      left bottom 0,
+      right bottom 0,
       right top,
       left top,
       right top,
@@ -1905,11 +1827,6 @@
       left top,
       left top;
     box-shadow: #d8d7d0 0 0 6px 3px;
-    $_elementSpacing: 4px;
-    * {
-      position: relative;
-    }
-
     &__hd {
       position: relative;
       padding: 0 10px 20px;
@@ -1937,20 +1854,24 @@
         text-decoration: none;
       }
 
+      &-h,
+      &-caption-upper,
+      &-caption-lower {
+        position: relative;
+        z-index: 1;
+      }
+
       &-h {
         @include g-font(18, 1);
-        position: relative;
       }
 
       &-caption-upper {
         @include g-font(14, 1);
-        position: relative;
         padding-bottom: 5px;
       }
 
       &-caption-lower {
         @include g-font(14, 1);
-        position: relative;
         padding-top: 5px;
       }
 
@@ -1982,7 +1903,7 @@
       padding: 20px 0 0;
     }
 
-    &__ft { // 最下部の枠があったら
+    &__ft {
       margin-top: 20px;
     }
   }
@@ -2011,13 +1932,16 @@
         background-position: left bottom;
       }
 
-      * {
-        position: relative;
-      }
-
       a {
         color: inherit;
         text-decoration: none;
+      }
+
+      &-h,
+      &-caption-upper,
+      &-caption-lower {
+        position: relative;
+        z-index: 1;
       }
 
       &-h {
@@ -2058,7 +1982,7 @@
       padding: 20px 0 0;
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 20px;
     }
   }
@@ -2120,7 +2044,7 @@
       padding: 20px 0 0;
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 20px;
     }
   }
@@ -2161,7 +2085,6 @@
       left top;
     box-shadow: 2px 2px 5px #e4e3e1, -2px -2px 5px #e4e3e1;
     &__hd {
-      position: relative;
       padding: 0 0 10px;
       text-align: center;
       a {
@@ -2212,7 +2135,6 @@
     }
 
     &__bd {
-      position: relative;
       padding: 0;
     }
 
@@ -2220,7 +2142,7 @@
       padding: 20px 0 0;
     }
 
-    &__ft { // 最下部の枠があるとき
+    &__ft {
       margin-top: 20px;
     }
   }
@@ -2280,10 +2202,6 @@
       }
     }
 
-    &__arrow {
-      height: 10px;
-    }
-
     &__ft {
       margin-top: 20px;
     }
@@ -2326,15 +2244,6 @@
       left top,
       right top;
     box-shadow: 2px 2px 2px #cfcecd, -2px -2px 2px #cfcecd, -2px 2px 2px #cfcecd, 2px -2px 2px #cfcecd;
-
-    /*
-      * 上部・下部に入れた要素がタップ出来ない不具合対応 #23
-      * HTML側に直接指定出来るクラスがouterHtmlしか無いので、box配下のdivを指定する
-      */
-    > div {
-      position: relative;
-    }
-
     &__hd {
       padding: 5px 0 10px;
       text-align: center;
@@ -2374,10 +2283,6 @@
       &--align-r {
         text-align: right;
       }
-    }
-
-    &__arrow {
-      height: 10px;
     }
 
     &__ft {
@@ -2447,10 +2352,6 @@
       &--align-r {
         text-align: right;
       }
-    }
-
-    &__arrow {
-      height: 10px;
     }
 
     &__ft {
