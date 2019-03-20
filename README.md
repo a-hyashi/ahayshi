@@ -132,13 +132,8 @@ _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットし
 http://localhost:3000
 を開いてください。
 
-クロスブラウザテストで他の端末から接続する場合は
-http://（PCのIP）:3000
-です。
-
-#### 参考
-MacのIPの調べ方  
-https://pc-karuma.net/mac-ip-address/
+クロスブラウザテストで他の端末から接続する場合は  
+`クロスブラウザチェック用のURL:`を開いてください
 
 <br>
 
@@ -241,9 +236,18 @@ $ docker-compose run base gulp update-sassdoc
 ```
 
 ### 動作が遅くなってきた
-Dockerを再起動するか、以下のコマンドを実行してください。
+いずれか、または全てを実行してください
+
+- Dockerの再起動
+
+- プロセスの停止
 ```sh
 $ docker-compose down
+```
+
+- コンテナの削除
+```sh
+$ docker container prune
 ```
 
 ### buddy-themeが更新された
@@ -285,7 +289,6 @@ html_templates_dirをACRE-theme内の対象テーマの部品があるフォル�
 
 ### 関連資料
 
-- [単体テスト仕様書マスタ](https://docs.google.com/spreadsheets/d/1SaKg4pTiquk32kw9qauzWWrDsZcNiGSL83G8yULXJIE/edit#gid=852993701)
 - [機能／デザイン仕様一覧](https://docs.google.com/spreadsheets/d/1hUg4X2BChH0Uke0HFLX1G4h9MBK__HNb5_TWQ4eL05Y/edit#gid=1396076322)
 
 <br>
@@ -331,12 +334,12 @@ buddy-themeの設定情報等を格納する
 
 #### function-design.json
 標準機能仕様、ブロック個別機能仕様を一覧で管理する情報
-- [取得スクリプト](https://script.google.com/a/wmshome.net/d/1yw1TXWMZCW3-n5IJzYfirvsKSqnuWVVPKZuNhecPf3nQkS6VsKdl8k8k/edit?usp=drive_web)
+- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1hUg4X2BChH0Uke0HFLX1G4h9MBK__HNb5_TWQ4eL05Y/edit#gid=1396076322)
+- 出力 > function-design.json
 
 #### parts-categories.json
 部品とCSSブロックのマッピング情報
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)
-- 単体テスト > make parts categories json
+- JSONを直接更新する
 
 <br>
 
@@ -349,16 +352,12 @@ dataJson, metaJsonのスキーマ情報
 
 #### buddy-parts-functions.json
 機能初期値、テスト値とブロックの対応状況の定義情報
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)
-- 単体テスト > make buddy parts functions json
+- JSONを直接更新する
 
 #### buddy-parts-design.json
-デザイン仕様を確認するための機能とマッピング  
-手動で作成
+デザイン仕様を確認するための機能とマッピング
+- JSONを直接更新する
 
 #### ブロック専用jsonファイル
 ブロック固有の事情で必要になるファイル
-手動で作成
-- breadcrumbs001.json
-- formTableAll.json
-- sideMenu001.json
+- JSONを直接更新する
