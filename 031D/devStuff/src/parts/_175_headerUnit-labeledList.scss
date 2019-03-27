@@ -1,0 +1,121 @@
+@if $device == PC {
+  .t0-b-headerUnit-labeledList {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_backgroundColor_hd: #e6e4df;
+    $_color_table_th_text: #333;
+    $_color_table_td_text: #666;
+    font-family: $tenorsans;
+
+    white-space: nowrap;
+    a {
+      display: block;
+      text-decoration: underline;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th {
+      padding: 0 10px 0 0;
+      color: $_color_table_th_text;
+      text-align: center;
+      vertical-align: top;
+      @include g-font($_fontSizePx, $_lineHeightType);
+      > div {
+        box-sizing: border-box;
+        display: inline-block;
+        min-width: 55px;
+        min-height: 20px;
+        padding: 2px 5px 1px;
+        background-color: $_backgroundColor_hd;
+        border-radius: 5px;
+        a {
+          color: $_color_table_th_text;
+        }
+      }
+    }
+
+    td {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      color: $_color_table_td_text;
+      text-align: left;
+      vertical-align: middle;
+      a {
+        color: $_color_table_td_text;
+      }
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      > table {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-labeledList {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_backgroundColor_hd: #e6e4df;
+    $_color_table_th_text: #333;
+    $_color_table_td_text: #666;
+    font-family: $tenorsans;
+
+    white-space: nowrap;
+    a {
+      display: block;
+      text-decoration: underline;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th {
+      padding: 0 10px *.8 0 0;
+      color: $_color_table_th_text;
+      text-align: center;
+      vertical-align: top;
+
+      @include g-font($_fontSizePx, $_lineHeightType);
+      > div {
+        box-sizing: border-box;
+        display: inline-block;
+        min-width: 55px;
+        min-height: 20px;
+        padding: 2px 5px 1px;
+        background-color: $_backgroundColor_hd;
+        border-radius: 5px;
+        a {
+          color: $_color_table_th_text;
+        }
+      }
+    }
+
+    td {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      color: $_color_table_td_text;
+      text-align: left;
+      vertical-align: middle;
+      a {
+        color: $_color_table_td_text;
+      }
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      > table {
+        margin: 0 auto;
+      }
+    }
+  }
+}
