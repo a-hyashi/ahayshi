@@ -1,19 +1,19 @@
 #!/bin/bash
 
-# コードが汚いのでわかる方はリファクタしてください
-
-# 引数がある場合は引数のテーマを出力
+#引数がallの場合は全テーマ実行
+#番号の場合は指定の番号のコンテナを実行
+#ない場合は1つ目のコンテナを実行
 if [ $1 ] ; then
-  ./set-theme.sh $1
-  docker-compose run base gulp build
-# ない場合は全テーマを出力
+  if [ $1 = "all" ] ; then
+    for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
+      ./set-themes.sh ${theme##*/}
+      docker-compose run web1 gulp build
+    done
+  else
+    for num in "$@" ; do
+      docker-compose run web$num gulp build
+    done
+  fi
 else
-  for theme in `find . -type d -regex "./*[0-9][0-9][0-9]"` ; do
-    ./set-theme.sh ${theme##*/}
-    docker-compose run base gulp build
-  done
-  for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]"` ; do
-    ./set-theme.sh ${theme##*/}
-    docker-compose run base gulp build
-  done
+  docker-compose run web1 gulp build
 fi
