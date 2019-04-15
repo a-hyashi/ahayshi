@@ -24,3 +24,5 @@ else
   docker-compose run web1 ./copy.sh
   docker-compose run web1 gulp update-parts --max_old_space_size=8192
 fi
+
+docker-compose down

@@ -23,3 +23,5 @@ else
   docker-compose run web1 gulp upload-2
   docker-compose run web1 gulp upload-3
 fi
+
+docker-compose down

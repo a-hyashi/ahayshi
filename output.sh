@@ -17,3 +17,5 @@ if [ $1 ] ; then
 else
   docker-compose run web1 gulp output
 fi
+
+docker-compose down
