@@ -13,7 +13,6 @@ if [ $1 ] ; then
     done
   else
     for num in "$@" ; do
-      docker-compose run web$num gulp stylelint
       docker-compose run web$num cp ../copy.sh ./copy.sh
       docker-compose run web$num ./copy.sh
       docker-compose run web$num gulp update-parts --max_old_space_size=8192
