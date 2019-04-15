@@ -176,7 +176,8 @@ _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットし
 ```
 
 が表示されたら
-http://localhost:ポート番号を開いてください  
+http://localhost:ポート番号  
+を開いてください  
 ポート番号は3000 + コンテナ番号です  
 **例:**コンテナ1の場合  
 http://localhost:3001  
