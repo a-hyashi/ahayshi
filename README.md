@@ -66,8 +66,8 @@ Macの上部にアイコンが表示されていればOK
 3. 以下のコマンドを実行
 ```sh
 $ cd （buddy-themeフォルダの場所）
-$ sed -e 's/theme-name/031/g' _docker-compose.yml > docker-compose.yml
-$ docker-compose run base npm install
+$ ./set-themes.sh 031
+$ docker-compose run web1 npm install
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
 
@@ -84,10 +84,32 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 
 <br>
 
+### テーマの設定
+
+```sh
+$ ./set-themes.sh (テーマ名)
+```
+
+テーマは複数設定することもでき、1から順にコンテナに割り当てられます  
+2〜3個を想定していますが、9つまで設定可能です  
+ただし多いほど処理に時間がかかるので、不要なテーマを含まないよう注意してください  
+```sh
+$ ./set-themes.sh 031 031A 031B
+```
+
+```
+コンテナ1：031
+コンテナ2：031A
+コンテナ3：031B
+テーマを設定しました
+```
+
+<br>
+
 ### テーマごとに一度だけ実行すること
 
 ```sh
-$ ./init.sh (テーマ名)
+$ ./init.sh
 ```
 
 指定したテーマフォルダ内に以下のファイルが作成されていればOKです。
@@ -99,6 +121,30 @@ $ ./init.sh (テーマ名)
 <br>
 
 ## 利用編
+### はじめに
+以下に記載する`./up.sh`以外のコマンドは、引数の指定ができます  
+並行して2つ以上のテーマを開発するための機能なので、1つのテーマのみ開発している場合は気にしなくて問題ありません
+
+```sh
+$ ./build.sh
+```
+コンテナ1で実行
+
+<br>
+
+```sh
+$ ./build.sh 2 3
+```
+コンテナ2と3で実行
+
+<br>
+
+```sh
+$ ./build.sh all
+```
+コンテナに関係なく全てのテーマで実行
+
+<br>
 
 ### 起動
 1. アプリのアイコンをクリックしDockerを起動  
@@ -107,7 +153,7 @@ Macの上部にアイコンが表示されていればOKです。
 2. 以下のコマンドを実行
 ```sh
 $ cd （buddy-themeフォルダの場所）
-$ ./up.sh (テーマ名)
+$ ./up.sh
 ```
 CSSの更新は自動で反映されます。
 
@@ -129,11 +175,18 @@ _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットし
 ```
 
 が表示されたら
-http://localhost:3000
-を開いてください。
+http://localhost:ポート番号を開いてください  
+ポート番号は3000 + コンテナ番号です  
+**例:**コンテナ1の場合  
+http://localhost:3001  
+
 
 クロスブラウザテストで他の端末から接続する場合は  
-`クロスブラウザチェック用のURL:`を開いてください
+`ターミナルに出力される外部URL + ポート番号`を開いてください  
+**例:**
+コンテナ1の場合  
+http://192.168.0.12:3001  
+
 
 <br>
 
@@ -144,13 +197,7 @@ Ctrl + C
 
 <br>
 
-### 本番用CSSの出力
-```sh
-$ ./build.sh (テーマ名)
-```
-`ACRE-theme/acre/themes/`内にCSSが出力されます。  
-テーマ名を指定しない場合は全テーマ出力されます。
-
+### CSSを出力
 ```sh
 $ ./build.sh
 ```
@@ -159,21 +206,22 @@ $ ./build.sh
 
 ### CSSを開発環境にアップロード
 ```sh
-$ ./upload.sh (テーマ名)
+$ ./upload.sh
 ```
 
 <br>
 
-### /buildの中身をACRE-themeにコピー
+### CSSをACRE-themeにコピー
 ```sh
-$ ./output.sh (テーマ名)
+$ ./output.sh
 ```
+`ACRE-theme/acre/themes/`内にCSSが出力されます。
 
 <br>
 
-### Stylelintで整形・コーディングスタイルのチェック
+### 整形・コーディングスタイルのチェック
 ```sh
-$ ./lint.sh (テーマ名)
+$ ./lint.sh
 ```
 コーディングルールに従ってscssファイルの中身が自動で整形されます。  
 自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
@@ -227,23 +275,18 @@ SASSの構文エラーです。
 
 ### JSON/HTMLを修正した
 ```sh
-$ ./update-parts.sh (テーマ名)
+$ ./update-parts.sh
 ```
 
 ### sassdocが更新された
 ```sh
-$ docker-compose run base gulp update-sassdoc
+$ docker-compose run web1 gulp update-sassdoc
 ```
 
 ### 動作が遅くなってきた
 いずれか、または全てを実行してください
 
 - Dockerの再起動
-
-- プロセスの停止
-```sh
-$ docker-compose down
-```
 
 - コンテナの削除
 ```sh
