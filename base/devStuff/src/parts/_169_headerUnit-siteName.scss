@@ -2,11 +2,10 @@
   .t0-b-headerUnit-siteName,
   .t0-b-headerUnit-siteTitle {
     $_block: &;
-    color: #fff;
 
     white-space: nowrap;
     a {
-      color: #fff;
+      color: inherit;
       text-decoration: none;
       &:hover {
         #{$_block}__bd-siteName,
@@ -83,13 +82,10 @@
 
   .t0-b-headerUnit-siteTitle2 {
     $_block: &;
-    display: table;
-    margin: 0 auto;
-    color: #fff;
 
     white-space: nowrap;
     a {
-      color: #fff;
+      color: inherit;
       text-decoration: none;
       &:hover {
         #{$_block}__bd-siteName,
@@ -105,17 +101,15 @@
 
     &__bd {
       display: table;
-      margin: 0 auto;
       > div {
-        display: table;
-        text-align: center;
+        display: table-cell;
+        text-align: left;
         vertical-align: middle;
       }
     }
 
     &__bd-logo {
-      padding-bottom: 10px;
-      margin: 0 auto;
+      padding-right: 10px;
       img {
         display: block;
         max-width: 160px;
@@ -130,6 +124,11 @@
 
     &__bd-siteName {
       @include g-font(32, 1);
+      font-weight: bold;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(28, 1);
       font-weight: bold;
     }
 
@@ -154,11 +153,13 @@
     }
 
     //ヘッダーセット（中央）に合わせた見た目にする
-    .t0-b-headerSingle &__bd {
+    .t0-b-headerSingle#{$variation1of2} &__bd,
+    .t0-b-headerSingle#{$variation2of2} &__bd, {
       display: table;
       margin: 0 auto;
     }
   }
+
 }
 
 @if $device == SP {
@@ -166,9 +167,8 @@
   .t0-b-headerUnit-siteTitle {
     $_block: &;
 
-    color: #fff;
     a {
-      color: #fff;
+      color: inherit;
       text-decoration: none;
     }
 
@@ -229,28 +229,23 @@
 
   .t0-b-headerUnit-siteTitle2 {
     $_block: &;
-    display: table;
-    margin: 0 auto;
 
-    color: #fff;
     a {
-      color: #fff;
+      color: inherit;
       text-decoration: none;
     }
 
     &__bd {
       display: table;
-      margin: 0 auto;
       > div {
-        display: table;
-        text-align: center;
+        display: table-cell;
+        text-align: left;
         vertical-align: middle;
       }
     }
 
     &__bd-logo {
-      padding-bottom: 10px;
-      margin: 0 auto;
+      padding-right: 10px;
       img {
         display: block;
         max-width: 160px;
@@ -264,13 +259,19 @@
     }
 
     &__bd-siteName {
-      @include g-font(28, 1);
+      @include g-font(32, 1);
+      font-weight: bold;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(24, 1);
       font-weight: bold;
     }
 
     &__ft {
       @include g-font(14, 1);
       padding-top: 5px;
+      text-align: left;
     }
 
     //ヘッダーセットのバリエーション２（背景色：白）に合わせた見た目にする
