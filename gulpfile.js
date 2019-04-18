@@ -400,6 +400,10 @@ gulp.task('upload-2', function () {
 gulp.task('upload-3', function () {
   upload_themes('-3');
 })
+// 画像をアップロード
+gulp.task('upload-images', function () {
+  upload_images();
+})
 
 function upload_themes(variation) {
   var theme = get_theme_name();
@@ -425,6 +429,22 @@ function sftp_each_themes(folder) {
       passphrase: ssh_config.password
     },
     remotePath: ('/mnt/efs/master/acre/themes/' + folder + '/')
+  }));
+}
+
+function upload_images() {
+  return gulp.src([
+    'build/theme_materials/**/*'
+  ])
+  .pipe(sftp({
+    // 内容はssh_config.jsonに記載
+    host: ssh_config.host_name,
+    user: ssh_config.user_name,
+    key:{
+      location: ssh_config.key_location,
+      passphrase: ssh_config.password
+    },
+    remotePath: ('/mnt/efs/master/acre/theme_materials/')
   }));
 }
 
