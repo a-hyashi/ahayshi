@@ -1,0 +1,631 @@
+@if $device == PC {
+  .t0-b-frameWithHCaptionNumIcon#{$variation1of2} {
+    $_block: &;
+    $_fontSizePx_hd-h: 28;
+    $_fontSizePx_hd-caption: 16;
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
+    $_fontSizePx_hd-h_l: $_fontSizePx_hd-h + $_fontSizeDifference;
+    $_fontSizePx_hd-caption_s: $_fontSizePx_hd-caption - $_fontSizeDifference;
+    $_fontSizePx_hd-caption_l: $_fontSizePx_hd-caption + $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference - 2;
+    $_lineHeightType_hd-h: 1;
+    $_lineHeightType_hd-caption: 1;
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    &__hd {
+      #{$_block}__hd-caption-upper {
+        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
+        padding: 0 0 5px;
+      }
+
+      #{$_block}__hd-caption-lower {
+        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
+        padding: 5px 0 0;
+      }
+
+      #{$_block}__hd-h h3 {
+        @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
+      }
+
+      a {
+        color: $textcolor;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      &--size-1 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-h h3 {
+          @include g-font-layout($_fontSizePx_hd-h_s, $_lineHeightType_hd-h, $layout);
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-h h3 {
+          @include g-font-layout($_fontSizePx_hd-h_l, $_lineHeightType_hd-h, $layout);
+        }
+      }
+    }
+
+    &__numIcon {
+      display: inline-block;
+      padding-bottom: 2%;
+      a {
+        color: $textcolor;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding-bottom: 2%;
+    }
+
+    &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
+      padding: 0 0 5px;
+    }
+
+    &__numIcon-h {
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
+      padding: 5px 0 0;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
+    }
+
+    &__icon {
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+
+    & + div { // 最下部の枠があるとき
+      margin-top: 2%;
+    }
+
+    &__numIcon--size-1 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__icon {
+      }
+    }
+
+    &__numIcon--size-3 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__icon {
+      }
+    }
+  }
+  .t0-b-frameWithHCaptionNumIcon#{$variation2of2} {
+    $_block: &;
+    $_fontSizePx_hd-h: 28;
+    $_fontSizePx_hd-caption: 16;
+    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_numIcon-caption: 16;
+    $_fontSizeDifference: 4;
+    $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
+    $_fontSizePx_hd-h_l: $_fontSizePx_hd-h + $_fontSizeDifference;
+    $_fontSizePx_hd-caption_s: $_fontSizePx_hd-caption - $_fontSizeDifference;
+    $_fontSizePx_hd-caption_l: $_fontSizePx_hd-caption + $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_s: $_fontSizePx_numIcon-h - $_fontSizeDifference;
+    $_fontSizePx_numIcon-h_l: $_fontSizePx_numIcon-h + $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_s: $_fontSizePx_numIcon-caption - $_fontSizeDifference;
+    $_fontSizePx_numIcon-caption_l: $_fontSizePx_numIcon-caption + $_fontSizeDifference - 2;
+    $_lineHeightType_hd-h: 1;
+    $_lineHeightType_hd-caption: 1;
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    &__hd {
+      #{$_block}__hd-caption-upper {
+        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
+        padding: 0 0 5px;
+      }
+
+      #{$_block}__hd-caption-lower {
+        @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
+        padding: 5px 0 0;
+      }
+
+      #{$_block}__hd-h h3 {
+        @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
+      }
+
+      a {
+        color: $textcolor;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      &--size-1 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_hd-caption_s, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-h h3 {
+          @include g-font-layout($_fontSizePx_hd-h_s, $_lineHeightType_hd-h, $layout);
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__hd-caption-upper {
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-caption-lower {
+          @include g-font-layout($_fontSizePx_hd-caption_l, $_lineHeightType_hd-caption, $layout);
+        }
+
+        #{$_block}__hd-h h3 {
+          @include g-font-layout($_fontSizePx_hd-h_l, $_lineHeightType_hd-h, $layout);
+        }
+      }
+    }
+
+    &__numIcon {
+      display: inline-block;
+      padding-bottom: 2%;
+      a {
+        color: $textcolor;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding-bottom: 2%;
+    }
+
+    &__iconPlacer {
+      padding: 0 15px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
+      padding: 0 0 5px;
+    }
+
+    &__numIcon-h {
+      @include g-font-layout($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h, $layout);
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font-layout($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption, $layout);
+      padding: 5px 0 0;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-layout($_fontSizePx_numIcon-h - 2, $_lineHeightType_numIcon-h, $layout);
+    }
+
+    &__icon {
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+
+    & + div { // 最下部の枠があるとき
+      margin-top: 2%;
+    }
+
+    &__numIcon--size-1 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_s, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout($_fontSizePx_numIcon-caption_s, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_s - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__icon {
+      }
+    }
+
+    &__numIcon--size-3 {
+      #{$_block}__numIcon-caption-upper {
+        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_l, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-lower {
+        @include g-font-layout($_fontSizePx_numIcon-caption_l, $_lineHeightType_numIcon-caption, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
+        @include g-font-layout($_fontSizePx_numIcon-h_l - 2, $_lineHeightType_numIcon-h, $layout);
+      }
+
+      #{$_block}__icon {
+      }
+    }
+  }
+
+}
+
+@if $device == SP {
+  .t0-b-frameWithHCaptionNumIcon#{$variation1of2} {
+    $_block: &;
+    $_fontSizePx_hd-h: 20;
+    $_fontSizePx_hd-caption: 14;
+    $_fontSizePx_numIcon-h: 20;
+    $_fontSizePx_numIcon-caption: 14;
+    $_lineHeightType_hd-h: 1;
+    $_lineHeightType_hd-caption: 1;
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin: 0 -5px;
+    padding: 20px 15px 10px;
+
+    &__hd {
+      h3 {
+        @include g-font($_fontSizePx_hd-h, $_lineHeightType_hd-h);
+      }
+      a {
+        color: $textcolor;
+        text-decoration: none;
+      }
+    }
+
+    &__hd-caption-upper {
+      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
+      padding: 5px 0 0;
+    }
+
+    &__numIcon {
+      display: inline-block;
+      a {
+        color: $textcolor;
+        text-decoration: none;
+      }
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+    }
+
+    &__iconPlacer {
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
+      padding: 0 0 5px;
+    }
+
+    &__numIcon-h {
+      @include g-font($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h);
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
+      padding: 5px 0 0;
+    }
+
+    &__icon {
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+
+    & + div { // 最下部の枠があるとき
+      margin-top: 20px;
+    }
+  }
+
+  .t0-b-frameWithHCaptionNumIcon#{$variation2of2} {
+    $_block: &;
+    $_fontSizePx_hd-h: 20;
+    $_fontSizePx_hd-caption: 14;
+    $_fontSizePx_numIcon-h: 20;
+    $_fontSizePx_numIcon-caption: 14;
+    $_lineHeightType_hd-h: 1;
+    $_lineHeightType_hd-caption: 1;
+    $_lineHeightType_numIcon-h: 1;
+    $_lineHeightType_numIcon-caption: 1;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    margin: 0 -5px;
+    padding: 20px 15px 10px;
+
+    &__hd {
+      h3 {
+        @include g-font($_fontSizePx_hd-h, $_lineHeightType_hd-h);
+      }
+      a {
+        color: $textcolor;
+        text-decoration: none;
+      }
+    }
+
+    &__hd-caption-upper {
+      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
+      padding: 5px 0 0;
+    }
+
+    &__numIcon {
+      display: inline-block;
+      a {
+        color: $textcolor;
+        text-decoration: none;
+      }
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+    }
+
+    &__iconPlacer {
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
+      padding: 0 0 5px;
+    }
+
+    &__numIcon-h {
+      @include g-font($_fontSizePx_numIcon-h, $_lineHeightType_numIcon-h);
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font($_fontSizePx_numIcon-caption, $_lineHeightType_numIcon-caption);
+      padding: 5px 0 0;
+    }
+
+    &__icon {
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+
+    & + div { // 最下部の枠があるとき
+      margin-top: 20px;
+    }
+  }
+}

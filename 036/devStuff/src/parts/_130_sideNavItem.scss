@@ -1,0 +1,49 @@
+@if $device == PC {
+  .t0-b-sideNavItem {
+    a {
+      display: block;
+      text-decoration: none;
+      a:hover & {
+          color: $hovercolor;
+      }
+    }
+
+    &__inner {
+      box-sizing: border-box;
+      display: table;
+      vertical-align: middle;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      > div {
+        @include g-font(16, 1);
+        display: table-cell;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideNavItem {
+    margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
+    a {
+      display: block;
+      text-decoration: none;
+    }
+
+    &__inner {
+      box-sizing: border-box;
+      display: table;
+      > span {
+        display: table-cell;
+      }
+
+      > div {
+        @include g-font(16, 1);
+        display: table-cell;
+      }
+    }
+  }
+}
