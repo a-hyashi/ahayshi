@@ -472,34 +472,14 @@
 @if $device == SP {
   .t0-b-formTable#{$variation1of2} {
     $_block: &;
-    $_color_th_bg: #d4e9ed;
+    $_color_th_bg: #bfe4de;
     $_color_td_bg: #fff;
-    $_color_table_border: #333;
+    $_color_table_border: #8e6e3b;
     $_color_error_typo: #da0000;
-    label {
-      direction: ltr;
-    }
+
     // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
+    [class^="t0-b-frameWithHCaption"] & {
       margin: 0 -15px;
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-    }
-
-    input[type="radio"] {
-      border-radius: 50%;
-    }
-
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
     }
 
     table, tbody, tr, th, td {
@@ -509,16 +489,19 @@
     table {
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
+      margin: 0;
     }
 
     th, td {
-      text-align: left;
-      vertical-align: middle;
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px;
     }
 
     th {
+      background: $_color_th_bg;
       @include g-font(14, 1);
       > div {
         display: table;
@@ -536,10 +519,9 @@
 
     .mod-formError {
       display: block;
-      padding: 10px 0 0;
       color: $_color_error_typo;
-
       @include g-font(14, 1);
+      padding: 10px 0 0;
     }
 
     &__td-caption {
@@ -560,6 +542,8 @@
       }
 
       select {
+        border: 1px solid #ccc;
+        background: none transparent;
         color: inherit;
       }
     }
@@ -587,8 +571,7 @@
         }
 
         > label {
-          position: relative;
-          top: 3px;
+          display: inline;
         }
       }
 
@@ -603,109 +586,311 @@
     .ex-vertical {
       li {
         display: list-item;
-        padding: 5px 10px 0 29px;
-        line-height: 25px;
-        text-indent: -29px;
+        padding: 5px 10px 0 18px;
       }
     }
 
     &__required {
+
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
+      width: 40px;
+      padding: 0 10px 0 0;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font(10, 1);
+        padding: 3px 5px 1px;
+        text-align: center;
+        margin-top: -8px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    &__button {
+      color: #fff;
+      max-width: 229px;
+      word-break: break-word;
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
+      padding: 8px 12px;
+      background: #efb7b8;
+      border-radius: 5px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      @include g-font(16, 1);
+    }
+
+    &__button2 {
+      color: #fff;
+      max-width: 113px;
+      margin-bottom: 5px;
+      word-break: break-word;
+      margin-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
+      padding: 8px 12px;
+      background: #89c6bc;
+      border-radius: 5px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      @include g-font(16, 1);
+    }
+
+    &__button3 {
+      color: #fff;
+      max-width: 229px;
+      margin-bottom: 5px;
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: none;
+      display: inline-block;
+      padding: 8px 12px;
+      background: #efb7b8;
+      border-radius: 5px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      @include g-font(16, 1);
+    }
+  }
+
+  .t0-b-formTable#{$variation2of2} {
+    $_block: &;
+    $_color_th_bg: #fcf6d9;
+    $_color_td_bg: #fff;
+    $_color_table_border: #b9a077;
+    $_color_error_typo: #da0000;
+
+    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+    [class^="t0-b-frameWithHCaption"] & {
+      margin: 0 -15px;
+    }
+
+    table, tbody, tr, th, td {
+      display: block;
+    }
+
+    table {
+      border-top: 1px solid #{$_color_table_border};
+      border-left: 1px solid #{$_color_table_border};
+      margin: 0;
+    }
+
+    th, td {
+      border-right: 1px solid #{$_color_table_border};
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px;
+    }
+
+    th {
+      background: $_color_th_bg;
+      @include g-font(14, 1);
+      > div {
+        display: table;
+        width: 100%;
+        direction: rtl;
+        > * {
+          display: table-cell;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+
+      @include g-font(14, 1);
+
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font(14, 1);
+      padding: 10px 0 0;
+    }
+
+    &__confirmer {
+      @include g-font(14, 2);
+    }
+
+    &__placer-singleInput {
+      input, select, textarea {
+        display: block;
+        width: 100%;
+      }
+
+      select {
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
+      }
+    }
+
+    &__placer-list {
+      ul {
+        margin: (-5px) -10px 0 0;
+      }
+
+      li {
+        padding: 5px 10px 0 18px;
+        text-indent: -18px;
+
+        @include g-font(14, 1);
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -0.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+        }
+      }
+
+      li#{$_block}__listBreak {
+        display: block;
+        height: 0;
+        padding: 0;
+      }
+    }
+
+    //&__placer-list--align-vertical: no style
+    .ex-vertical {
+      li {
+        display: list-item;
+        padding: 5px 10px 0 18px;
+      }
+    }
+
+    &__required {
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
 
       width: 40px;
       padding: 0 10px 0 0;
       vertical-align: middle;
       > span {
         display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font(10, 1);
         padding: 3px 5px 1px;
+        text-align: center;
         margin-top: -8px;
         margin-bottom: -10px;
         margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-        @include g-font(10, 1);
+        border-radius: 5px;
       }
     }
 
     &__button {
-      display: inline-block;
+      color: $textcolor;
       max-width: 229px;
-      padding: 8px 12px;
+      word-break: break-word;
+      margin-bottom: 5px;
       overflow: hidden;
       text-overflow: ellipsis;
-      word-break: break-word;
       border: none;
+      display: inline-block;
+      padding: 8px 12px;
+      background: #f0d85e;
+      border-radius: 10px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
       @include g-font(16, 1);
     }
 
     &__button2 {
-      display: inline-block;
-      width: 110px;
-      padding: 8px 12px;
-      margin-right: 10px;
-      text-overflow: ellipsis;
+      color: $textcolor;
+      max-width: 113px;
+      margin-bottom: 5px;
       word-break: break-word;
+      margin-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
       border: none;
+      display: inline-block;
+      padding: 8px 12px;
+      background: #f2e5a8;
+      border-radius: 10px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
       @include g-font(16, 1);
     }
 
     &__button3 {
-      display: inline-block;
-      width: 170px;
-      max-width: 220px;
-      padding: 8px 12px;
-      text-overflow: ellipsis;
+      color: $textcolor;
+      max-width: 229px;
+      margin-bottom: 5px;
       word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
       border: none;
+      display: inline-block;
+      padding: 8px 12px;
+      background: #f0d85e;
+      border-radius: 10px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
       @include g-font(16, 1);
     }
   }
 
   .t0-b-buttonPlacer {
-    margin: 0 -5px;
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-      > * {
-        display: block;
+    div + div {
+      .t0-b-formTable#{$variation2-1}__button3,
+      .t0-b-formTable#{$variation2-2}__button3 {
+        max-width: 113px;
       }
-    }
-
-    p {
-      @include g-font(12, 1);
-      padding: 15px 0 0;
-
-      text-align: center;
-      &::before,
-      &::after {
-        margin-top: 0;
-      }
-    }
-
-    input {
-      white-space: inherit;
     }
   }
 
   .t0-b-inputText {
-    box-sizing: border-box;
     width: 100%;
+    box-sizing: border-box;
     padding: .3em 6px;
-    border: 1px solid #ccc;
     @include g-font(12, 1);
   }
 
   .t0-b-textarea {
     box-sizing: border-box;
+    padding: .3em 6px;
     display: block;
     width: 100%;
     height: 100px;
-    padding: .3em 6px;
     resize: vertical;
-    border: 1px solid #ccc;
     @include g-font(12, 2);
   }
 }
