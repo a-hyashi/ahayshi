@@ -1,16 +1,12 @@
 @if $device == PC {
   .t0-b-formTable#{$variation1of2} {
     $_block: &;
-    $_color_th_typo: #333;
-    $_color_th_bg: #d4e9ed;
+    $_color_th_bg: #bfe4de;
     $_color_td_bg: #fff;
-    $_color_table_border: #333;
+    $_color_table_border: #8e6e3b;
     $_color_error_typo: #da0000;
-
     table {
       width: 100%;
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
     }
 
     table, x:-moz-any-link {
@@ -18,15 +14,16 @@
     }
 
     th, td {
-      padding: 10px 15px;
-      text-align: left;
+      border-bottom: 1px dotted #{$_color_table_border};
       vertical-align: middle;
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
+      text-align: left;
+      padding: 10px 15px;
     }
 
     th {
+      background: $_color_th_bg;
       @include g-font(14, 1);
+      border-right: 1px dotted #{$_color_table_border};
       > div {
         display: table;
         width: 100%;
@@ -37,16 +34,22 @@
     }
 
     td {
+      background: $_color_td_bg;
     }
 
     tr {
+      &:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
     }
 
     .mod-formError {
       display: block;
-      padding: 10px 0 0;
       color: $_color_error_typo;
       @include g-font(18, 1);
+      padding: 10px 0 0;
     }
 
     &__td-caption {
@@ -61,13 +64,12 @@
     &__placer-singleInput {
       input, select, textarea {
         display: block;
-        width: 100%;
       }
 
       select {
-        color: inherit;
-        background: none transparent;
         border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
       }
     }
 
@@ -78,21 +80,19 @@
       }
 
       li {
-
-        display: inline;
         padding: 5px 4px 0 0;
         text-indent: -18px;
-
         @include g-font(14, 1);
+        display: inline;
         > span {
-          display: inline-block;
           width: 18px;
           height: 1px;
+          display: inline-block;
           vertical-align: middle;
           input {
+            display: block;
             position: relative;
             top: -.6em;
-            display: block;
           }
 
           textarea {
@@ -112,8 +112,6 @@
       }
     }
 
-
-
     //&__placer-list--align-vertical: no style
     .ex-vertical {
       li {
@@ -123,19 +121,21 @@
     }
 
     &__required {
-
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
       width: 40px;
       vertical-align: middle;
       > span {
         display: block;
-        padding: 3px;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font(12, 1);
+        padding: 3px 5px;
+        text-align: center;
         margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-
-        @include g-font(12, 1);
+        border-radius: 5px;
       }
     }
 
@@ -144,9 +144,19 @@
       &:hover {
         opacity: .8;
       }
+      $_color_typo: #fff;
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
       display: inline-block;
+      padding: 10px 18px;
+      background: #f0a09f;
+      border-radius: 5px;
       border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
       @include g-font(16, 1);
     }
 
@@ -156,11 +166,21 @@
         opacity: .8;
       }
 
-      display: inline-block;
-      min-width: 90px;
+      $_color_typo: #fff;
+
+      margin-right: 20px;
       max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      display: inline-block;
+      padding: 10px 18px;
+      background: #89c6bc;
+      border-radius: 5px;
       border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
       @include g-font(16, 1);
     }
 
@@ -169,11 +189,17 @@
       &:hover {
         opacity: .8;
       }
-
-      display: inline-block;
+      $_color_typo: #fff;
       max-width: 266px;
       min-width: 90px;
+      color: $_color_typo;
+      display: inline-block;
+      padding: 10px 18px;
+      background: #f0a09f;
+      border-radius: 5px;
       border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
       @include g-font(16, 1);
     }
@@ -181,16 +207,15 @@
 
   .t0-b-formTable#{$variation2of2} {
     $_block: &;
-    $_color_th_typo: #333;
-    $_color_th_bg: #d4e9ed;
+    $_color_th_bg: #fcf6d9;
     $_color_td_bg: #fff;
-    $_color_table_border: #333;
+    $_color_table_border: #b9a077;
     $_color_error_typo: #da0000;
 
+    border-radius: 10px;
+    overflow: hidden;
     table {
       width: 100%;
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
     }
 
     table, x:-moz-any-link {
@@ -198,15 +223,16 @@
     }
 
     th, td {
-      padding: 10px 15px;
-      text-align: left;
-      vertical-align: middle;
-      border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
     }
 
     th {
+      background: $_color_th_bg;
       @include g-font(14, 1);
+      border-right: 1px solid #{$_color_table_border};
       > div {
         display: table;
         width: 100%;
@@ -217,20 +243,29 @@
     }
 
     td {
+      background: $_color_td_bg;
     }
 
     tr {
+      &:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
     }
 
     .mod-formError {
       display: block;
-      padding: 10px 0 0;
       color: $_color_error_typo;
+
       @include g-font(18, 1);
+
+      padding: 10px 0 0;
     }
 
     &__td-caption {
       @include g-font(14, 1);
+
       padding: 10px 0 0;
     }
 
@@ -241,13 +276,12 @@
     &__placer-singleInput {
       input, select, textarea {
         display: block;
-        width: 100%;
       }
 
       select {
-        color: inherit;
-        background: none transparent;
         border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
       }
     }
 
@@ -258,21 +292,21 @@
       }
 
       li {
-
-        display: inline;
         padding: 5px 4px 0 0;
         text-indent: -18px;
 
         @include g-font(14, 1);
+
+        display: inline;
         > span {
-          display: inline-block;
           width: 18px;
           height: 1px;
+          display: inline-block;
           vertical-align: middle;
           input {
+            display: block;
             position: relative;
             top: -.6em;
-            display: block;
           }
 
           textarea {
@@ -303,19 +337,24 @@
     }
 
     &__required {
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
 
       width: 40px;
       vertical-align: middle;
       > span {
         display: block;
-        padding: 3px;
+        color: $_color_typo;
+        background: $_color_bg;
+
+        @include g-font(12, 1);
+
+        padding: 3px 5px;
+        text-align: center;
         margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-
-        @include g-font(12, 1);
+        border-radius: 5px;
       }
     }
 
@@ -324,9 +363,18 @@
       &:hover {
         opacity: .8;
       }
+      color: $textcolor;
+      max-width: 266px;
+      min-width: 90px;
       display: inline-block;
+      padding: 10px 18px;
+      background: #f0d85e;
+      border-radius: 10px;
       border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
       @include g-font(16, 1);
     }
 
@@ -336,10 +384,17 @@
         opacity: .8;
       }
 
-      display: inline-block;
-      min-width: 90px;
+      color: $textcolor;
+      margin-right: 20px;
       max-width: 266px;
+      min-width: 90px;
+      display: inline-block;
+      padding: 10px 18px;
+      background: #f2e5a8;
+      border-radius: 10px;
       border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
       @include g-font(16, 1);
     }
@@ -350,11 +405,18 @@
         opacity: .8;
       }
 
-      display: inline-block;
+      color: $textcolor;
       max-width: 266px;
       min-width: 90px;
+      display: inline-block;
+      padding: 10px 18px;
+      background: #f0d85e;
+      border-radius: 10px;
       border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
+
       @include g-font(16, 1);
     }
   }
@@ -390,21 +452,19 @@
   }
 
   .t0-b-inputText {
-    box-sizing: border-box;
     width: 100%;
+    box-sizing: border-box;
     padding: .3em 6px;
-    border: 1px solid #ccc;
     @include g-font(12, 1);
   }
 
   .t0-b-textarea {
     box-sizing: border-box;
+    padding: .3em 6px;
     display: block;
     width: 100%;
     height: 100px;
-    padding: .3em 6px;
     resize: vertical;
-    border: 1px solid #ccc;
     @include g-font(12, 2);
   }
 }
