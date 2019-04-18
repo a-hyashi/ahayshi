@@ -1,33 +1,54 @@
 @if $device == PC {
-  .t0-b-lv3H#{$variation1of4} {
+  .t0-b-lv3H#{$variation1of2} {
     $_block: &;
-    $_fontSizePx: 24;
+    $_fontSizePx: 22;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    position: relative;
+    line-height: 0;
 
-    a {
-      color: $textcolor;
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor;
-      }
+    > div {
+      display: inline-block;
     }
 
     &__iconPlacer {
+      display: table-cell;
+      background: url("../imgs/t0-b-lv3H/1.png");
+      background-position: 0 50%;
+      background-repeat: no-repeat;
+      width: 46px;
+      height: 39px;
+      vertical-align: middle;
     }
 
     &__icon {
     }
 
     h3 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx, $_lineHeightType);
-        }
+      @if $layout == "N00" {
+        @include g-font($_fontSizePx + 4, $_lineHeightType);
+      } @else {
+        @include g-font($_fontSizePx, $_lineHeightType);
       }
+
+      text-align: left;
+      vertical-align: middle;
+      display: table-cell;
+    }
+
+    a {
+      text-decoration: none;
+      color: $textcolor;
+      display: table-cell;
+      text-align: left;
+      vertical-align: middle;
+
+      &:hover {
+        color: $hovercolor;
+      }
+    }
 
     &--size-1 {
       h3 {
@@ -46,7 +67,7 @@
         } @else {
           @include g-font($_fontSizePx_l, $_lineHeightType);
         }
-        }
+      }
     }
 
     &--align-l {
@@ -62,35 +83,63 @@
     }
   }
 
-  .t0-b-lv3H#{$variation2of4} {
+  .t0-b-lv3H#{$variation2of2} {
     $_block: &;
-    $_fontSizePx: 24;
+    $_fontSizePx: 22;
     $_lineHeightType: 1;
     $_fontSizeDifference: 4;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
 
+    margin: 0 -10px;
+    position: relative;
+    line-height: 0;
+    padding: 7px 23px 5px;
+    background-image: url("../imgs/t0-b-lv3H/2.png"), url("../imgs/t0-b-lv3H/3.png");
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 12px 100%, 12px 100%;
+    box-shadow: 0 7px 4px -4px #CAE9E4, 0 -4px 3px -3px #CAE9E4;
+
+    > span {
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      bottom: 0;
+      left: 12px;
+      right: 12px;
+      background-color: #f9decc;
+
+      > span {
+        position: absolute;
+        top: 2px;
+        bottom: 2px;
+        left: -9px;
+        right: -9px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+      }
+    }
+
+    h3 {
+      @if $layout == "N00" {
+        @include g-font($_fontSizePx + 4, $_lineHeightType);
+      } @else {
+        @include g-font($_fontSizePx, $_lineHeightType);
+      }
+
+      vertical-align: middle;
+      position: relative;
+    }
+
     a {
-      color: $textcolor;
       text-decoration: none;
+      color: $textcolor;
+
       &:hover {
         color: $hovercolor;
       }
     }
-
-    &__iconPlacer {
-    }
-
-    &__icon {
-    }
-
-    h3 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx, $_lineHeightType);
-        }
-      }
 
     &--size-1 {
       h3 {
@@ -109,133 +158,7 @@
         } @else {
           @include g-font($_fontSizePx_l, $_lineHeightType);
         }
-        }
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-  }
-
-  .t0-b-lv3H#{$variation3of4} {
-    $_block: &;
-    $_fontSizePx: 24;
-    $_lineHeightType: 1;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-
-    a {
-      color: $textcolor;
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor;
       }
-    }
-
-    &__iconPlacer {
-    }
-
-    &__icon {
-    }
-
-    h3 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx, $_lineHeightType);
-        }
-      }
-
-    &--size-1 {
-      h3 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_s + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
-        }
-      }
-    }
-
-    &--size-3 {
-      h3 {
-          @if $layout == "N00" {
-          @include g-font($_fontSizePx_l + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
-        }
-        }
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-  }
-
-  .t0-b-lv3H#{$variation4of4} {
-    $_block: &;
-    $_fontSizePx: 24;
-    $_lineHeightType: 1;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-
-    a {
-      color: $textcolor;
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor;
-      }
-    }
-
-    &__iconPlacer {
-    }
-
-    &__icon {
-    }
-
-    h3 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx, $_lineHeightType);
-        }
-      }
-
-    &--size-1 {
-      h3 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_s + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
-        }
-      }
-    }
-
-    &--size-3 {
-      h3 {
-          @if $layout == "N00" {
-          @include g-font($_fontSizePx_l + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
-        }
-        }
     }
 
     &--align-l {
@@ -253,12 +176,25 @@
 }
 
 @if $device == SP {
-  .t0-b-lv3H#{$variation1of4} {
+  .t0-b-lv3H#{$variation1of2} {
     $_block: &;
-    $_fontSizePx: 20;
+    $_fontSizePx: 18;
     $_lineHeightType: 1;
+    position: relative;
+    line-height: 0;
+
+    > div {
+      display: inline-block;
+    }
 
     &__iconPlacer {
+      display: table-cell;
+      background-image: url("../imgs/t0-b-lv3H/1.png");
+      background-position: 0 50%;
+      background-repeat: no-repeat;
+      width: 46px;
+      height: 39px;
+      vertical-align: middle;
     }
 
     &__icon {
@@ -266,11 +202,18 @@
 
     h3 {
       @include g-font($_fontSizePx, $_lineHeightType);
+
+      text-align: left;
+      vertical-align: middle;
+      display: table-cell;
     }
 
     a {
-      color: $textcolor;
       text-decoration: none;
+      color: $textcolor;
+      display: table-cell;
+      text-align: left;
+      vertical-align: middle;
     }
 
     &--align-l {
@@ -286,90 +229,55 @@
     }
   }
 
-  .t0-b-lv3H#{$variation2of4} {
+  .t0-b-lv3H#{$variation2of2} {
     $_block: &;
-    $_fontSizePx: 20;
+    $_fontSizePx: 18;
     $_lineHeightType: 1;
+    position: relative;
+    line-height: 0;
+    padding: 5px 23px;
+    background-image: url("../imgs/t0-b-lv3H/2.png"), url("../imgs/t0-b-lv3H/3.png");
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 12px 100%, 12px 100%;
+    box-shadow: 0 7px 4px -4px #CAE9E4, 0 -4px 3px -3px #CAE9E4;
+
+    > span {
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      bottom: 0;
+      left: 12px;
+      right: 12px;
+      background-color: #f9decc;
+
+      > span {
+        position: absolute;
+        top: 2px;
+        bottom: 2px;
+        left: -9px;
+        right: -9px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+      }
+    }
+
+    h3 {
+      @include g-font($_fontSizePx, $_lineHeightType);
+
+      vertical-align: middle;
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+      color: $textcolor;
+    }
 
     &__iconPlacer {
     }
 
     &__icon {
-    }
-
-    h3 {
-      @include g-font($_fontSizePx, $_lineHeightType);
-    }
-
-    a {
-      color: $textcolor;
-      text-decoration: none;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-  }
-
-  .t0-b-lv3H#{$variation3of4} {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-
-    &__iconPlacer {
-    }
-
-    &__icon {
-    }
-
-    h3 {
-      @include g-font($_fontSizePx, $_lineHeightType);
-    }
-
-    a {
-      color: $textcolor;
-      text-decoration: none;
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-  }
-
-  .t0-b-lv3H#{$variation4of4} {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-
-    &__iconPlacer {
-    }
-
-    &__icon {
-    }
-
-    h3 {
-      @include g-font($_fontSizePx, $_lineHeightType);
-    }
-
-    a {
-      color: $textcolor;
-      text-decoration: none;
     }
 
     &--align-l {

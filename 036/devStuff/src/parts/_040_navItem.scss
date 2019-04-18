@@ -1,7 +1,7 @@
 @if $device == PC {
   .t0-b-navItem {
     $_block: &;
-    $_fontSizePx: 16;
+    $_fontSizePx: 20;
     $_fontSizeDifference: 2;
     $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
@@ -9,92 +9,170 @@
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
     $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
     $_lineHeightType: 1;
-
-    display: table;
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 100%;
-    }
-
-    &--align-l {
-      margin: 0 auto 0 0;
-      text-align: left;
-    }
-
-    &--align-c {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    &--align-r {
-      margin: 0 0 0 auto;
-      text-align: right;
-    }
-
     > a {
+      display: table;
+      text-decoration: underline;
       box-sizing: border-box;
-      display: block;
-      color: inherit;
-      text-decoration: none;
-      #{$_block}__inner:hover {
-        > div {
-          color: $hovercolor;
+      color: #e36f94;
+
+      > div {
+        display: table;
+
+        > * {
+          display: table-cell;
+          vertical-align: middle;
         }
+
+        > span {
+          width: 20px;
+          height: 20px;
+          background-image: url("../imgs/t0-b-navItem/1.png");
+          background-position: 0 50%;
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+        }
+
+        > div {
+          padding: 0 0 0 5px;
+
+          @include g-font(16, 1);
+
+          font-weight: bold;
+
+          &:hover {
+            color: $hovercolor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    > div {
+      display: table;
+      color: #e36f94;
+      text-decoration: underline;
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      > span {
+        width: 20px;
+        height: 20px;
+        background-image: url("../imgs/t0-b-navItem/1.png");
+        background-position: 0 50%;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+      }
+
+      > div {
+        padding: 0 0 0 5px;
+
+        @include g-font(16, 1);
+
+        font-weight: bold;
       }
     }
 
     &__inner {
-      display: table;
-      width: 100%;
+    }
+
+    // size
+
+    &--size-1 > a > div,
+    &--size-1 > div {
       > span {
-        display: table-cell;
-
-        #{$_block}--size-1 & {
-        }
-
-        #{$_block}--size-2 & {
-        }
-
-        #{$_block}--size-3 & {
-        }
-
-        #{$_block}--size-4 & {
-        }
-
-        #{$_block}--size-5 & {
-        }
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
       }
 
       > div {
-        display: table-cell;
-        @include g-font($_fontSizePx, 1);
-        #{$_block}--size-1 & {
-          @include g-font($_fontSizePx_ss, $_lineHeightType);
-        }
+        padding: 0 0 0 5px;
 
-        #{$_block}--size-2 & {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
-        }
-
-        #{$_block}--size-3 & {
-          @include g-font($_fontSizePx_m, $_lineHeightType);
-        }
-
-        #{$_block}--size-4 & {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
-        }
-
-        #{$_block}--size-5 & {
-          @include g-font($_fontSizePx_ll, $_lineHeightType);
-        }
+        @include g-font($_fontSizePx_ss, $_lineHeightType);
       }
+    }
+
+    &--size-2 > a > div,
+    &--size-2 > div {
+      > span {
+        width: 22px;
+        height: 22px;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        padding: 0 0 0 6px;
+
+        @include g-font($_fontSizePx_s, $_lineHeightType);
+      }
+    }
+
+    &--size-3 > a > div,
+    &--size-3 > div {
+      > span {
+        width: 29px;
+        height: 29px;
+        background-size: 29px 29px;
+      }
+
+      > div {
+        padding: 0 0 0 7px;
+
+        @include g-font($_fontSizePx_m, $_lineHeightType);
+      }
+    }
+
+    &--size-4 > a > div,
+    &--size-4 > div {
+      > span {
+        width: 34px;
+        height: 34px;
+        background-size: 34px 34px;
+      }
+
+      > div {
+        padding: 0 0 0 8px;
+
+        @include g-font($_fontSizePx_l, $_lineHeightType);
+      }
+    }
+
+    &--size-5 > a > div,
+    &--size-5 > div {
+      > span {
+        width: 42px;
+        height: 42px;
+        background-size: 42px 42px;
+      }
+
+      > div {
+        padding: 0 0 0 9px;
+
+        @include g-font($_fontSizePx_ll, $_lineHeightType);
+      }
+    }
+
+    // align
+
+    &--align-l > a,
+    &--align-l > div {
+      margin: 0 auto 0 0;
+      text-align: left;
+    }
+
+    &--align-c > a,
+    &--align-c > div {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    &--align-r > a,
+    &--align-r > div {
+      margin: 0 0 0 auto;
+      text-align: right;
     }
   }
 
@@ -115,25 +193,66 @@
     $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
-
-    display: table;
-
-    a {
+    > a {
+      display: table;
+      margin: 0 auto;
       box-sizing: border-box;
-      color: inherit;
-      text-decoration: none;
+      color: #e36f94;
+
+      > div {
+        display: table;
+
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > span {
+          width: 20px;
+          height: 20px;
+          background-image: url("../imgs/t0-b-navItem/1.png");
+          background-position: 0 50%;
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+        }
+
+        > div {
+          padding: 0 0 0 5px;
+
+          @include g-font($_fontSizePx,$_lineHeightType);
+
+          font-weight: bold;
+          text-decoration: underline;
+        }
+      }
     }
 
-    #{$_block}__inner {
+    > div {
       display: table;
-      width: 100%;
-      > span {
+      margin: 0 auto;
+      color: #e36f94;
+
+      > * {
         display: table-cell;
+        vertical-align: middle;
+      }
+
+      > span {
+        width: 20px;
+        height: 20px;
+        background-image: url("../imgs/t0-b-navItem/1.png");
+          background-position: 0 50%;
+          background-repeat: no-repeat;
+        background-size: 20px 20px;
       }
 
       > div {
-        display: table-cell;
+        padding: 0 0 0 5px;
+
         @include g-font($_fontSizePx,$_lineHeightType);
+
+        font-weight: bold;
+        text-decoration: underline;
       }
     }
   }

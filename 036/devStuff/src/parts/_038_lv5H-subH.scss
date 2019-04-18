@@ -6,37 +6,15 @@
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
     $_lineHeightType: 1;
 
-    font-weight: bold;
-
     h5 {
+      font-weight: bold;
       @if $layout == "N00" {
-        @include g-font($_fontSizePx + 4, $_lineHeightType);
-      } @else {
-        @include g-font($_fontSizePx, $_lineHeightType);
-      }
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-
-    a {
+          @include g-font($_fontSizePx + 4, $_lineHeightType);
+        } @else {
+          @include g-font($_fontSizePx, $_lineHeightType);
+        }
       display: inline;
-      color: inherit;
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor;
-      }
     }
-
     &--size-1 {
       h5 {
         @if $layout == "N00" {
@@ -56,6 +34,28 @@
         }
       }
     }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      display: inline;
+      text-decoration: none;
+      color: $textcolor;
+
+      &:hover {
+        color: $hovercolor;
+      }
+    }
   }
 }
 
@@ -64,8 +64,9 @@
     $_fontSizePx: 16;
     $_lineHeightType: 1;
 
-    font-weight: bold;
     h5 {
+      font-weight: bold;
+
       @include g-font($_fontSizePx, $_lineHeightType);
 
       display: inline;
@@ -85,8 +86,8 @@
 
     a {
       display: inline;
-      color: inherit;
       text-decoration: none;
+      color: $textcolor;
     }
   }
 }

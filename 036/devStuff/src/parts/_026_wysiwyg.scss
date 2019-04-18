@@ -1,11 +1,5 @@
 @if $device == PC {
   .t0-b-wysiwyg {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
-    $_color_table_td_bg: #fff;
-    $_color_table_td_typo: $textcolor;
 
     th, td {
       > table:first-child {
@@ -28,12 +22,13 @@
         margin-top: 0;
       }
     }
-    a {
-      color: $textcolor;
-      &:hover {
-        color: $hovercolor;
-      }
-    }
+
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: $textcolor;
+    $_color_table_th_bg: #f9f4df;
+    $_color_table_td_bg: #fff;
+    $_color_table_td_typo: $textcolor;
 
     p {
       @include g-font(16, 2);
@@ -118,7 +113,7 @@
       th,
       td {
         @include g-font(14, 1);
-        padding: 10px 6px;
+        padding: 10px;
         text-align: left;
         vertical-align: middle;
         background-color: $_color_table_td_bg;
@@ -141,16 +136,8 @@
       }
 
       th {
-        color: #fff;
         background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $textcolor;
       }
     }
 
@@ -160,12 +147,7 @@
   }
 
   .t0-b-wysiwyg2 {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
-    $_color_table_td_bg: #fff;
-    $_color_table_td_typo: $textcolor;
+
     th, td {
       > table:first-child {
         margin-top: 0;
@@ -187,20 +169,22 @@
         margin-top: 0;
       }
     }
+
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: $textcolor;
+    $_color_table_th_bg: #f9f4df;
+    $_color_table_td_bg: #fff;
+    $_color_table_td_typo: $textcolor;
+
+    background-color: #fff;
     padding: 13px;
-    background-color: #f1f5f4;
-    a {
-      color: $textcolor;
-      &:hover {
-        color: $hovercolor;
-      }
-    }
+    border-radius: 10px;
 
     p {
       @include g-font(16, 2);
       margin-top: 1em;
     }
-
     > p:first-child {
       margin-top: 0;
     }
@@ -213,7 +197,6 @@
       ol {
         margin-top: $_elementSpacing;
       }
-
       li {
         @include g-font(16, 1);
         margin-top: $_elementSpacing;
@@ -221,9 +204,9 @@
         &:first-child {
           margin-top: 0;
         }
-
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before, &::after {
+        &::before,
+        &::after {
           display: none;
           float: left;
           width: 100%;
@@ -281,7 +264,7 @@
       th,
       td {
         @include g-font(14, 1);
-        padding: 10px 6px;
+        padding: 10px;
         text-align: left;
         vertical-align: middle;
         background-color: $_color_table_td_bg;
@@ -304,16 +287,8 @@
       }
 
       th {
-        color: #fff;
-        background-color: $_color_table_th_bg;
+        background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $textcolor;
       }
     }
 
@@ -324,7 +299,7 @@
 }
 
 @if $device == SP {
-  .t0-b-wysiwyg {
+  .t0-b-wysiwyg1 {
     th, td {
       > table:first-child {
         margin-top: 0;
@@ -349,8 +324,8 @@
 
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
+    $_color_table_border: $textcolor;
+    $_color_table_th_bg: #f9f4df;
     $_color_table_td_bg: #fff;
     $_color_table_td_typo: $textcolor;
     a {
@@ -367,7 +342,7 @@
     }
 
     ol {
-      padding: 0 0 0 2em;
+      padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
       ul,
@@ -408,9 +383,7 @@
 
       li {
         margin-top: $_elementSpacing;
-
         @include g-font(16, 1);
-
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
@@ -443,7 +416,7 @@
       th,
       td {
         @include g-font(14, 1);
-        padding: 3% 1%;
+        padding: 10px;
         text-align: left;
         vertical-align: middle;
         background: $_color_table_td_bg;
@@ -464,16 +437,8 @@
       }
 
       th {
-        color: #fff;
         background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $textcolor;
       }
     }
 
@@ -504,22 +469,24 @@
         margin-top: 0;
       }
     }
-    padding: 10px;
 
-    background-color: #f1f5f4;
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
+    $_color_table_border: $textcolor;
+    $_color_table_th_bg: #f9f4df;
     $_color_table_td_bg: #fff;
     $_color_table_td_typo: $textcolor;
+
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+
     a {
       color: $textcolor;
     }
 
     p {
       @include g-font(16, 2);
-
       margin-top: 1em;
     }
 
@@ -539,7 +506,6 @@
       li {
         @include g-font(16, 1);
         margin-top: $_elementSpacing;
-
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
@@ -569,8 +535,8 @@
       }
 
       li {
-        @include g-font(16, 1);
         margin-top: $_elementSpacing;
+        @include g-font(16, 1);
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
@@ -603,7 +569,7 @@
       th,
       td {
         @include g-font(14, 1);
-        padding: 3% 1%;
+        padding: 10px;
         text-align: left;
         vertical-align: middle;
         background: $_color_table_td_bg;
@@ -624,16 +590,8 @@
       }
 
       th {
-        color: #fff;
         background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $textcolor;
       }
     }
 

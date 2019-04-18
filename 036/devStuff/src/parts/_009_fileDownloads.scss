@@ -3,7 +3,7 @@
 
     $_block: &;
     $_fontSizePx: 16;
-    $_lineHeightType: 2;
+    $_lineHeightType: 1;
     $_lineHeightType_itemText: 1;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
@@ -16,13 +16,15 @@
     &__item {
       padding: #{$_itemSpacing} 0 0;
       @include cf;
+
+      &:first-child {
+        padding-top: 0;
+      }
     }
 
     a {
-      display: block;
-      float: left;
       color: $textcolor;
-      text-decoration: underline;
+
       &:hover {
         color: $hovercolor;
       }
@@ -38,11 +40,13 @@
     }
 
     &__itemIcon {
-      padding-right: 10px;
+      padding: 0 15px 0 0;
     }
 
     &__itemText {
       @include g-font($_fontSizePx, $_lineHeightType_itemText);
+      padding-top: 3px;
+
       #{$_block}--size-2 & {
         @include g-font($_fontSizePx + 4, $_lineHeightType_itemText);
       }
@@ -60,6 +64,8 @@
       }
     }
   }
+
+
 
   .b-downloadIcon {
     $_block: &;
@@ -79,11 +85,14 @@
     @include _icon("doc",1);
     @include _icon("xls",1);
     @include _icon("img",1);
+    @include _icon("reader",1);
+
     .t0-b-fileDownloads--size-2 & {
       @include _icon("pdf",1.25);
       @include _icon("doc",1.25);
       @include _icon("xls",1.25);
       @include _icon("img",1.25);
+      @include _icon("reader",1.25);
     }
 
     .t0-b-fileDownloads--size-3 & {
@@ -91,6 +100,7 @@
       @include _icon("doc",1.5);
       @include _icon("xls",1.5);
       @include _icon("img",1.5);
+      @include _icon("reader",1.5);
     }
 
     .t0-b-fileDownloads--size-4 & {
@@ -98,6 +108,7 @@
       @include _icon("doc",1.75);
       @include _icon("xls",1.75);
       @include _icon("img",1.75);
+      @include _icon("reader",1.75);
     }
 
     .t0-b-fileDownloads--size-5 & {
@@ -105,6 +116,7 @@
       @include _icon("doc",2);
       @include _icon("xls",2);
       @include _icon("img",2);
+      @include _icon("reader",2);
     }
     display: inline-block;
     vertical-align: middle;
@@ -119,12 +131,16 @@
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
 
     padding: #{$_blockSpacing} 0 0;
+
     &:first-child {
       padding-top: 0;
     }
 
     &__item {
       padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+
       // clearfix
       &::before,
       &::after {
@@ -142,10 +158,8 @@
     }
 
     a {
-      display: block;
-      float: left;
+      text-decoration: none;
       color: $textcolor;
-      text-decoration: underline;
     }
 
     &__itemSplit {
@@ -158,12 +172,13 @@
     }
 
     &__itemIcon {
-      padding-right: 8px;
+      padding: 0 10px 0 0;
     }
 
     &__itemText {
       @include g-font($_fontSizePx, $_lineHeightType);
       text-decoration: underline;
+      padding-top: 3px;
     }
   }
 
@@ -177,16 +192,17 @@
     @mixin _icon($file) {
       &--#{$file} {
         $_src: "b-downloadIcon/#{$file}.png";
-        width: 30px;
-        height: 30px;
+        width: 27px;
+        height: 28px;
         background-image: url("../imgs/#{$_src}");
         background-repeat: no-repeat;
-        background-size: 30px;
+        background-size: 27px 28px;
       }
     }
     @include _icon("pdf");
     @include _icon("doc");
     @include _icon("xls");
     @include _icon("img");
+    @include _icon("reader");
   }
 }
