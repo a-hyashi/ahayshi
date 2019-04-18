@@ -1,7 +1,7 @@
 @if $device == PC {
   .t0-b-frameWithHCaptionNumIcon#{$variation1of2} {
     $_block: &;
-    $_fontSizePx_hd-h: 28;
+    $_fontSizePx_hd-h: 24;
     $_fontSizePx_hd-caption: 16;
     $_fontSizePx_numIcon-h: 26;
     $_fontSizePx_numIcon-caption: 16;
@@ -20,7 +20,50 @@
     $_lineHeightType_numIcon-caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
 
+    margin-bottom: 20px;
+    padding: 20px 30px 25px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+    background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png");
+    background-color: #fafafa;
+    position: relative;
+
+    > span {
+      pointer-events: none;
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/1.png");
+      position: absolute;
+      top: 0;
+      bottom: 7px;
+      left: 5px;
+      right: 5px;
+      z-index: 1;
+    }
+
     &__hd {
+      position: relative;
+      padding: 12px;
+      text-align: center;
+      margin: 0 -10px 20px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg8.png");
+      background-color: #f7e6a1;
+
+      > span {
+        pointer-events: none;
+        background-repeat: repeat-x;
+        background-position: left center;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/1.png");
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 3px;
+        right: 3px;
+        z-index: 1;
+      }
+
       #{$_block}__hd-caption-upper {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
         padding: 0 0 5px;
@@ -33,6 +76,7 @@
 
       #{$_block}__hd-h h3 {
         @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
+        text-shadow: $textshadow2;
       }
 
       a {
@@ -41,6 +85,11 @@
         &:hover {
           color: $hovercolor;
         }
+      }
+
+      &__hd-h {
+        position: relative;
+        z-index: 2;
       }
 
       &--size-1 {
