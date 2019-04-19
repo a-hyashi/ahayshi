@@ -182,19 +182,19 @@ $ ./build.sh
 <br>
 
 ### 出力した内容を開発環境にアップロード
-`theme.css`と`theme_materials/`内の全てをアップロード
+`theme.css`と、`theme_materials/`配下全てをアップロード
 ```sh
 $ ./upload.sh
 ```
 <br>
 
-`theme.css`のみをアップロード
+`theme.css`をアップロード
 ```sh
 $ ./upload-css.sh
 ```
 <br>
 
-`theme_materials/`内をアップロード
+`theme_materials/`配下全てをアップロード
 ```sh
 $ ./upload-img.sh
 ```
@@ -209,7 +209,7 @@ SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materi
 ```sh
 $ ./output.sh
 ```
-`ACRE-theme/acre/themes/`内にCSSが出力されます。
+`ACRE-theme/acre/`内に、`themes/`と`theme_materials/`がコピーされます。
 
 <br>
 
