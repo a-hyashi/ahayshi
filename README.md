@@ -196,7 +196,7 @@ $ ./upload-css.sh
 
 `theme_materials/`内をアップロード
 ```sh
-$ ./upload-images.sh
+$ ./upload-img.sh
 ```
 ```
 SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materials/**
