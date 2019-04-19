@@ -32,26 +32,21 @@
         width: 100%;
         height: 34px;
         min-height: inherit;
+        text-align: center;
         li {
           display: table-cell;
           // 文字を全て消した時の対応
           min-width: 50px;
           text-align: center;
           vertical-align: middle;
+          height: 100%;
           a {
             display: block;
-            height: 100%;
-            // firefoxだとheight: 100%;だとうまく表示されない為
-            /* stylelint-disable */
-            @-moz-document url-prefix() {
-              height: 34px;
-            }
-            /* stylelint-enable */
+            color: $_textColor;
             div {
               // リンク有りの時天地中央にする為
               position: relative;
-              top: 50%;
-              transform: translateY(-50%);
+              display: inline-block;
               &::before,
               &::after {
                 position: absolute;
@@ -438,13 +433,13 @@
       margin: 0 auto;
       > ul {
         box-sizing: border-box;
-        display: table;
+        display: flex;
+        align-items: center;
         width: 100%;
-        height: 34px;
         min-height: inherit;
         li {
           position: relative;
-          display: table-cell;
+          flex-grow: 1;
           // 文字を全て消した時の対応
           min-width: 50px;
           text-align: center;
@@ -471,6 +466,12 @@
             content: "";
             background: $_borderColor;
             transform: translateY(-50%);
+          }
+
+          > span {
+            // Safariで空spanに高さが出てしまいテキストの位置がズレるため
+            position: absolute;
+            top: 0;
           }
 
           div {
@@ -549,8 +550,10 @@
     &--widthEqualized {
       > div {
         > ul {
-          // 幅均等にする為の指定
-          table-layout: fixed;
+          > li {
+            // 幅均等にする為の指定
+            flex: 1;
+          }
         }
       }
     }
@@ -589,26 +592,25 @@
         width: 100%;
         height: 34px;
         min-height: inherit;
+        text-align: center;
         li {
           display: table-cell;
           // 文字を全て消した時の対応
           min-width: 50px;
-          text-align: center;
+          height: 100%;
           vertical-align: middle;
+          > span {
+            // Safariで空spanに高さが出てしまいテキストの位置がズレるため
+            position: absolute;
+            top: 0;
+          }
+
           a {
             display: block;
-            height: 100%;
-            // firefoxだとheight: 100%;だとうまく表示されない為
-            /* stylelint-disable */
-            @-moz-document url-prefix() {
-              height: 34px;
-            }
-            /* stylelint-enable */
+            color: $_textColor;
             div {
-              // リンク有りの時天地中央にする為
               position: relative;
-              top: 50%;
-              transform: translateY(-50%);
+              display: inline-block;
               &::before,
               &::after {
                 position: absolute;
@@ -1146,37 +1148,49 @@
           min-width: 50px;
           text-align: center;
           vertical-align: middle;
-          &::before {
-            position: absolute;
-            top: 50%;
-            left: -6px;
-            width: 2px;
-            height: 50%;
-            content: "";
-            border-left: 2px dotted #e50101;
-            transform: translateY(-50%);
-          }
-
-          &:last-child {
-            &::after {
+          div {
+            position: relative;
+            // IEでテキストが2行になった時にborderの位置がズレるためdivに指定
+            &::before {
               position: absolute;
+              display: block;
               top: 50%;
-              right: -6px;
+              left: -6px;
               width: 2px;
-              height: 50%;
+              height: 40px;
               content: "";
               border-left: 2px dotted #e50101;
               transform: translateY(-50%);
+              // Safariでブラウザのデフォルトcssがあたるため指定
+              color: #e50101;
             }
-          }
 
-          div {
             > span {
               // アニメーションの為に文字を一番上に出す為
               position: relative;
               z-index: 1;
               display: inline-block;
               color: $_textColor;
+            }
+          }
+
+          &:last-child {
+            div {
+              position: relative;
+              // IEでテキストが2行になった時にborderの位置がズレるためdivに指定
+              &::after {
+                position: absolute;
+                display: block;
+                top: 50%;
+                right: -6px;
+                width: 2px;
+                height: 40px;
+                content: "";
+                border-left: 2px dotted #e50101;
+                transform: translateY(-50%);
+                // Safariでブラウザのデフォルトcssがあたるため指定
+                color: #e50101;
+              }
             }
           }
         }
@@ -1448,7 +1462,6 @@
         height: 30px;
         min-height: inherit;
         li {
-          position: relative;
           display: table-cell;
           // 文字を全て消した時の対応
           min-width: 50px;
@@ -1469,6 +1482,9 @@
     }
 
     .t0-b-headerMenu__item {
+      position: relative;
+      // IE11でhover装飾が途切れない様に
+      overflow: hidden;
       a {
         div {
           &::before,
@@ -1476,7 +1492,8 @@
             position: absolute;
             top: 0;
             width: 0;
-            height: 100%;
+            // IE11で装飾が途切れない様に
+            height: 300px;
             content: "";
             background: #f58f1f;
             opacity: .3;
@@ -1568,7 +1585,6 @@
         height: 30px;
         min-height: inherit;
         li {
-          position: relative;
           display: table-cell;
           // 文字を全て消した時の対応
           min-width: 50px;
@@ -1589,6 +1605,9 @@
     }
 
     .t0-b-headerMenu__item {
+      position: relative;
+      // IE11でhover装飾が途切れない様に
+      overflow: hidden;
       a {
         div {
           &::before,
@@ -1596,7 +1615,8 @@
             position: absolute;
             top: 0;
             width: 0;
-            height: 100%;
+            // IE11で装飾が途切れない様に
+            height: 300px;
             content: "";
             background: #15a4e2;
             opacity: .1;
@@ -2260,12 +2280,13 @@
           position: relative;
           display: inline-block;
           margin: 0 7px;
+          vertical-align: middle;
           &::before {
             position: absolute;
             top: 50%;
             left: -10px;
             width: 2px;
-            height: 50%;
+            height: 14px;
             content: "";
             border-left: 2px dotted #e50101;
             transform: translateY(-50%);
@@ -2277,7 +2298,7 @@
               top: 50%;
               right: -10px;
               width: 2px;
-              height: 50%;
+              height: 14px;
               content: "";
               border-left: 2px dotted #e50101;
               transform: translateY(-50%);
