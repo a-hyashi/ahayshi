@@ -1,10 +1,11 @@
 @if $device == PC {
   .t0-b-footerUnit-navList {
+
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #777;
-    $_color_table_th_bg: #c1dbe0;
-    $_color_table_td_typo: $textcolor;
+    $_color_table_border: #8e6e3b;
+    $_color_table_th_bg: #f9f4df;
+    $_color_table_td_typo: #8e6e3b;
 
     th, td {
       > table:first-child {
@@ -28,9 +29,9 @@
       }
     }
 
-    white-space: nowrap;
     a {
-      color: inherit;
+      color: $textcolor;
+
       &:hover {
         color: $hovercolor;
       }
@@ -38,6 +39,7 @@
 
     p {
       @include g-font(16, 2);
+
       margin-top: 1em;
     }
 
@@ -46,28 +48,29 @@
     }
 
     ol {
-      padding: 0 0 0 1.2em;
+      padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+
+      ul, ol {
         margin-top: $_elementSpacing;
       }
 
       li {
         @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+
         list-style-type: decimal;
+        margin-top: $_elementSpacing;
+
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &:before, &:after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -76,29 +79,84 @@
       margin-top: 0;
     }
 
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+
+      tr {
+        border-right: 1px solid $_color_table_border;
+
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+
+      th, td {
+        @include g-font(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+        background: #fff;
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th {
+        border-bottom: 1px solid $_color_table_border;
+        background: $_color_table_th_bg;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    white-space: nowrap;
+
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
     ul {
-      padding: 0 0 0 1.1em;
+      a {
+        text-decoration: none;
+      }
+
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
-        margin-top: $_elementSpacing;
+
+      ul, ol {
+        margin-top: 10px;
       }
 
       li {
         @include g-font(16, 1);
-        min-height: 20px;
+
         margin: 10px 0 0;
+        background: #{image-url("t0-b-footerUnit-navList/1.png")} 0 5px no-repeat;
+        padding: 0 0 0 14px;
+
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &:before, &:after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -108,75 +166,35 @@
     }
 
     table {
-      width: 100%;
-      margin-top: $_blockSpacing;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
-      td {
-        @include g-font(14, 1);
-        padding: 10px 6px;
-        text-align: left;
-        vertical-align: middle;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
-      }
-
-      ul,
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
-        }
-      }
-
       ul {
-        margin-left: 35px;
         li {
-          padding: 0;
+          background: #{image-url("t0-b-footerUnit-navList/1.png")} 0 3px no-repeat;
+          padding: 0 0 0 14px;
         }
       }
+    }
 
-      p {
-        @include g-font(14, 1);
-      }
-
+    table {
       th {
-        color: $textcolor;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: $textcolor;
-        }
+        background: #e1f3f0;
       }
 
-      td {
-        color: $textcolor;
-        a {
-          color: $textcolor;
-        }
+      th, td {
+        padding: 10px 5px;
       }
     }
 
-    > table:first-child {
-      margin-top: 0;
-    }
   }
 }
 
 @if $device == SP {
   .t0-b-footerUnit-navList {
+
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #777;
-    $_color_table_th_bg: #c1dbe0;
-    $_color_table_td_typo: $textcolor;
+    $_color_table_border: #5d3e0e;
+    $_color_table_th_bg: #f9f4df;
+    $_color_table_td_typo: #5d3e0e;
 
     th, td {
       > table:first-child {
@@ -338,5 +356,150 @@
     > table:first-child {
       margin-top: 0;
     }
+
+
+
+    a {
+      color: $textcolor;
+    }
+
+    p {
+      @include g-font(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      padding: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+
+      tr {
+        border-right: 1px solid $_color_table_border;
+
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+
+      th, td {
+        @include g-font(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        background: #fff;
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th {
+        border-bottom: 1px solid $_color_table_border;
+        background: $_color_table_th_bg;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    ul {
+      a {
+        text-decoration: none;
+      }
+
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font(16, 1);
+
+        margin: 10px 0 0;
+        background: #{image-url("t0-b-footerUnit-navList/1.png")} 0 5px no-repeat;
+        padding: 0 0 0 14px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &:before, &:after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      ul {
+        li {
+          background: #{image-url("t0-b-footerUnit-navList/1.png")} 0 3px no-repeat;
+          padding: 0 0 0 14px;
+        }
+      }
+      th {
+        background: #e1f3f0;
+      }
+    }
+
   }
 }
