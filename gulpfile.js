@@ -434,6 +434,7 @@ function sftp_each_themes(folder) {
 
 function upload_images() {
   return gulp.src([
+    // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
   ])
   .pipe(sftp({
