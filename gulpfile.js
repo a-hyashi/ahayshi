@@ -401,8 +401,8 @@ gulp.task('upload-3', function () {
   upload_themes('-3');
 })
 // 画像をアップロード
-gulp.task('upload-images', function () {
-  upload_images();
+gulp.task('upload-img', function () {
+  upload_img();
 })
 
 function upload_themes(variation) {
@@ -432,7 +432,7 @@ function sftp_each_themes(folder) {
   }));
 }
 
-function upload_images() {
+function upload_img() {
   return gulp.src([
     // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
