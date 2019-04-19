@@ -10,21 +10,18 @@ if [ $1 ] ; then
       docker-compose run web1 gulp upload
       docker-compose run web1 gulp upload-2
       docker-compose run web1 gulp upload-3
-      docker-compose run web1 gulp upload-images
     done
   else
     for num in "$@" ; do
       docker-compose run web$num gulp upload
       docker-compose run web$num gulp upload-2
       docker-compose run web$num gulp upload-3
-      docker-compose run web$num gulp upload-images
     done
   fi
 else
   docker-compose run web1 gulp upload
   docker-compose run web1 gulp upload-2
   docker-compose run web1 gulp upload-3
-  docker-compose run web1 gulp upload-images
 fi
 
 docker-compose down

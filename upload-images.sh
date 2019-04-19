@@ -7,23 +7,14 @@ if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme##*/}
-      docker-compose run web1 gulp upload
-      docker-compose run web1 gulp upload-2
-      docker-compose run web1 gulp upload-3
       docker-compose run web1 gulp upload-images
     done
   else
     for num in "$@" ; do
-      docker-compose run web$num gulp upload
-      docker-compose run web$num gulp upload-2
-      docker-compose run web$num gulp upload-3
       docker-compose run web$num gulp upload-images
     done
   fi
 else
-  docker-compose run web1 gulp upload
-  docker-compose run web1 gulp upload-2
-  docker-compose run web1 gulp upload-3
   docker-compose run web1 gulp upload-images
 fi
 
