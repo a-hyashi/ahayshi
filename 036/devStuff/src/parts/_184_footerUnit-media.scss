@@ -108,43 +108,97 @@
 
 @if $device == SP {
   .t0-b-footerUnit-media {
-    ul {
-      padding: 5px 10px;
-    }
+    $_block: &;
 
-    background: #fff;
-    box-sizing: border-box;
-    margin: 0 -15px;
-    text-align: center;
-    border: 1px solid #d0c46e;
-
-    .t0-b-footerMenu__item {
-      &:first-child {
-        margin-left: 0;
-      }
-
-      margin-left: 15px;
-      display: inline-block;
-
-      div {
-        text-align: center;
-        padding: 5px 0;
-
-        @include g-font-spacingKilled(12, 1);
-
-        text-decoration: underline;
-      }
-    }
+    margin: 0 auto;
+    color: $textcolor;
 
     a {
       color: $textcolor;
+      text-decoration: none;
     }
 
-    .state-em {
-      color: $hovercolor;
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
 
-      > a {
-        color: $hovercolor;
+      img {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      a {
+        display: block;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    &__nav {
+      display: table;
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 0 0 0 25px;
+      text-decoration: underline;
+
+      @include g-font(16, 1);
+
+      background: #{image-url("t0-b-navItem/9.png")} no-repeat 0 50%;
+
+      > div {
+        border-bottom: 1px solid #32a995;
+        display: inline-block;
       }
     }
   }
