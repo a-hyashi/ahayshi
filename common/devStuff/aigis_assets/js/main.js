@@ -6,6 +6,7 @@ window.onload = function () {
   var viewToggle = document.getElementById('view-toggle');
   var ratio_toggle = document.getElementById('ratio-toggle');
   var width_menu = document.getElementById('width-menu');
+  var spButton = document.getElementById('sp-button');
   var previewWidth = document.getElementById("previewWidth");
   var preview = document.getElementsByClassName("aigis-preview");
   var showWidthArea = document.getElementById("showWidthArea");
@@ -59,6 +60,11 @@ window.onload = function () {
     changePreviewAreaWidth(preview_width);
   }
 
+  spButton.onclick = function() {
+    var url = [location.protocol, '//', location.host, location.pathname].join('');
+    location.href = url + "?l=sp";
+  }
+
   function changeWidth() {
     showWidthArea.textContent = previewWidth.value;
     for (var i=0;i<preview.length;i++) {
@@ -84,7 +90,8 @@ window.onload = function () {
   }
   if(inputLayoutType==='sp'){
     theme.href = theme.getAttribute('href').replace(/pc-L25/,'sp');
-    toggle.classList.toggle('view-is-sp');
+    toggle.classList.add('device-is-sp');
+    changePreviewAreaWidth();
   }
 }
 
