@@ -14,7 +14,7 @@
     text-align: center;
 
     &__caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
       padding: 0 30px 5px;
     }
 
@@ -22,17 +22,11 @@
       padding: 2px;
 
       h4 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_bd + 4, $_lineHeightType_bd);
-        } @else {
-          @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
-        }
+        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+
         box-shadow: 0 0 2px #33a895;
-
         padding: 5px 30px;
-
         border-radius: 0 10px 0 10px;
-
         border: 1px solid #bea326;
         display: flex;
         justify-content: center;
@@ -51,49 +45,41 @@
     }
 
     &__caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
       padding: 5px 30px 0;
     }
 
     &--size-1 {
-        #{$_block}__caption-upper {
-          @include g-font($_fontSizePx_caption_s, $_lineHeightType_caption);
-        }
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+      }
 
-        #{$_block}__bd {
-          h4 {
-            @if $layout == "N00" {
-              @include g-font($_fontSizePx_bd_s + 4, $_lineHeightType_bd);
-            } @else {
-              @include g-font($_fontSizePx_bd_s, $_lineHeightType_bd);
-            }
-          }
-        }
-
-        #{$_block}__caption-lower {
-            @include g-font($_fontSizePx_caption_s, $_lineHeightType_caption);
+      #{$_block}__bd {
+        h4 {
+          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
         }
       }
 
-      &--size-3 {
-        #{$_block}__caption-upper {
-            @include g-font($_fontSizePx_caption_l, $_lineHeightType_caption);
-        }
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+      }
+    }
 
-        #{$_block}__bd {
-          h4 {
-            @if $layout == "N00" {
-              @include g-font($_fontSizePx_bd_l + 4, $_lineHeightType_bd);
-            } @else {
-              @include g-font($_fontSizePx_bd_l, $_lineHeightType_bd);
-            }
-          }
-        }
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+      }
 
-        #{$_block}__caption-lower {
-          @include g-font($_fontSizePx_caption_l, $_lineHeightType_caption);
+      #{$_block}__bd {
+        h4 {
+          @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
         }
       }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+      }
+    }
 
     &--align-l {
       text-align: left;
@@ -112,6 +98,7 @@
       color: $textcolor;
 
       &:hover {
+        color: $hovercolor;
         h4 {
           color: $hovercolor;
         }
@@ -135,7 +122,7 @@
     text-align: center;
 
     &__caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 0 30px 5px;
     }
@@ -144,11 +131,7 @@
       padding: 2px;
 
       h4 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_bd + 4, $_lineHeightType_bd);
-        } @else {
-          @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
-        }
+        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
         box-shadow: 0 0 2px #33a895;
 
         padding: 5px 30px;
@@ -171,48 +154,40 @@
     }
 
     &__caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 5px 30px 0;
     }
 
     &--size-1 {
       #{$_block}__caption-upper {
-        @include g-font($_fontSizePx_caption_s, $_lineHeightType_caption);
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
       }
 
       #{$_block}__bd {
         h4 {
-          @if $layout == "N00" {
-            @include g-font($_fontSizePx_bd_s + 4, $_lineHeightType_bd);
-          } @else {
-            @include g-font($_fontSizePx_bd_s, $_lineHeightType_bd);
-          }
+          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
         }
       }
 
       #{$_block}__caption-lower {
-          @include g-font($_fontSizePx_caption_s, $_lineHeightType_caption);
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
       }
     }
 
     &--size-3 {
       #{$_block}__caption-upper {
-          @include g-font($_fontSizePx_caption_l, $_lineHeightType_caption);
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
       }
 
       #{$_block}__bd {
         h4 {
-          @if $layout == "N00" {
-            @include g-font($_fontSizePx_bd_l + 4, $_lineHeightType_bd);
-          } @else {
-            @include g-font($_fontSizePx_bd_l, $_lineHeightType_bd);
-          }
+          @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
         }
       }
 
       #{$_block}__caption-lower {
-        @include g-font($_fontSizePx_caption_l, $_lineHeightType_caption);
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
       }
     }
 
@@ -233,6 +208,7 @@
       color: $textcolor;
 
       &:hover {
+        color: $hovercolor;
         h4 {
           color: $hovercolor;
         }
@@ -254,7 +230,7 @@
     text-align: center;
 
     &__caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 0 0 0;
     }
@@ -280,11 +256,7 @@
       }
 
       h4 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_bd + 4, $_lineHeightType_bd);
-        } @else {
-          @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
-        }
+        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
 
         color: $textcolor;
         display: inline-block;
@@ -313,48 +285,40 @@
     }
 
     &__caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
 
       padding: 6px 0 0;
     }
 
     &--size-1 {
-        #{$_block}__caption-upper {
-          @include g-font($_fontSizePx_caption_s, $_lineHeightType_caption);
-        }
-
-        #{$_block}__bd {
-          h4 {
-            @if $layout == "N00" {
-              @include g-font($_fontSizePx_bd_s + 4, $_lineHeightType_bd);
-            } @else {
-              @include g-font($_fontSizePx_bd_s, $_lineHeightType_bd);
-            }
-          }
-        }
-
-        #{$_block}__caption-lower {
-            @include g-font($_fontSizePx_caption_s, $_lineHeightType_caption);
-        }
-    }
-
-    &--size-3 {
       #{$_block}__caption-upper {
-          @include g-font($_fontSizePx_caption_l, $_lineHeightType_caption);
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
       }
 
       #{$_block}__bd {
         h4 {
-          @if $layout == "N00" {
-            @include g-font($_fontSizePx_bd_l + 4, $_lineHeightType_bd);
-          } @else {
-            @include g-font($_fontSizePx_bd_l, $_lineHeightType_bd);
-          }
+          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
         }
       }
 
       #{$_block}__caption-lower {
-        @include g-font($_fontSizePx_caption_l, $_lineHeightType_caption);
+        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font-layout($_fontSizePx_bd_l, $_lineHeightType_bd, $layout);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
       }
     }
 
@@ -421,6 +385,7 @@
       color: $textcolor;
 
       &:hover {
+        color: $hovercolor;
         h4 {
           color: $hovercolor;
         }
@@ -591,7 +556,6 @@
 
     &__caption-lower {
       @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
-
       padding: 3px 0 0 55px;
     }
 

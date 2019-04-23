@@ -11,7 +11,7 @@
     box-shadow: 0 2px 3px #A9D9D1, 1px 0 2px #A9D9D1, -1px -1px 2px #A9D9D1;
     border-radius: 26px;
     margin-bottom: 50px;
-    background-image: ("../imgs/t0-b-catchText/1/bg.png"), url("../imgs/t0-b-catchText/1/bg2.png"), url("../imgs/t0-b-catchText/1/bg3.png");
+    background-image: url("../imgs/t0-b-catchText/1/bg.png"), url("../imgs/t0-b-catchText/1/bg2.png"), url("../imgs/t0-b-catchText/1/bg3.png");
     background-repeat: no-repeat, no-repeat, repeat;
     background-position: left top, right top, right bottom;
     position: relative;
@@ -37,54 +37,33 @@
     }
 
     &__text-sub {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub - 4, $_lineHeightType_sub);
-      }
-      @include g-font(14, 1);
+      @include g-font-layout($_fontSizePx_sub - 4, $_lineHeightType_sub, $layout);
 
       padding: 0 0 15px 0;
       position: relative;
     }
 
     &__text-sub2 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub + 4, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      }
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
 
       padding: 0 0 25px 0;
       position: relative;
     }
 
     &__text-main {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_main + 4, $_lineHeightType_main);
-      } @else {
-        @include g-font($_fontSizePx_main, $_lineHeightType_main);
-      }
+      @include g-font-layout($_fontSizePx_main, $_lineHeightType_main, $layout);
       position: relative;
     }
 
     &__text-sub3 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub + 4, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      }
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
 
       padding: 25px 0 0 0;
       position: relative;
     }
 
     &__text-sub4 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub - 4, $_lineHeightType_sub);
-      }
+      @include g-font-layout($_fontSizePx_sub - 4, $_lineHeightType_sub, $layout);
 
       padding: 15px 0 0 0;
       position: relative;
@@ -113,66 +92,56 @@
     background-position: left top, left bottom, right bottom, right top;
     position: relative;
 
-    > span {
-      pointer-events: none;
-      background-repeat: repeat-y, repeat-y;
-      background-position: left top, right top;
-      background-image: url("../imgs/t0-b-catchText/2/bg5.png"), url("../imgs/t0-b-catchText/2/bg7.png");
-      position: absolute;
-      top: 51px;
-      bottom: 53px;
-      left: 0;
-      right: 0;
-
+    &__inner {
       > span {
-        background-repeat: repeat-x, repeat-x;
-        background-position: left bottom, left top;
-        background-image: url("../imgs/t0-b-catchText/2/bg6.png"), url("../imgs/t0-b-catchText/2/bg8.png");
+        pointer-events: none;
+        background-repeat: repeat-y, repeat-y;
+        background-position: left top, right top;
+        background-image: url("../imgs/t0-b-catchText/2/bg5.png"), url("../imgs/t0-b-catchText/2/bg7.png");
         position: absolute;
-        top: -51px;
-        bottom: -53px;
-        left: 64px;
-        right: 64px;
+        top: 51px;
+        bottom: 53px;
+        left: 0;
+        right: 0;
 
         > span {
-          background-color: #fff;
+          background-repeat: repeat-x, repeat-x;
+          background-position: left bottom, left top;
+          background-image: url("../imgs/t0-b-catchText/2/bg6.png"), url("../imgs/t0-b-catchText/2/bg8.png");
           position: absolute;
-          top: 51px;
-          bottom: 53px;
-          left: 0;
-          right: 0;
+          top: -51px;
+          bottom: -53px;
+          left: 64px;
+          right: 64px;
+
+          > span {
+            background-color: #fff;
+            position: absolute;
+            top: 51px;
+            bottom: 53px;
+            left: 0;
+            right: 0;
+          }
         }
       }
     }
 
     &__text-sub {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub - 4, $_lineHeightType_sub);
-      }
+      @include g-font-layout($_fontSizePx_sub - 4, $_lineHeightType_sub, $layout);
 
       padding: 0 0 15px 0;
       position: relative;
     }
 
     &__text-sub2 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub + 4, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      }
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
 
       padding: 0 0 15px 0;
       position: relative;
     }
 
     &__text-main {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_main + 4, $_lineHeightType_main);
-      } @else {
-        @include g-font($_fontSizePx_main, $_lineHeightType_main);
-      }
+      @include g-font-layout($_fontSizePx_main, $_lineHeightType_main, $layout);
 
       position: relative;
       padding: 15px 15px 20px;
@@ -182,22 +151,14 @@
     }
 
     &__text-sub3 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub + 4, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      }
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
 
       padding: 15px 0 0 0;
       position: relative;
     }
 
     &__text-sub4 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      } @else {
-        @include g-font($_fontSizePx_sub - 4, $_lineHeightType_sub);
-      }
+      @include g-font-layout($_fontSizePx_sub - 4, $_lineHeightType_sub, $layout);
 
       padding: 15px 0 0 0;
       position: relative;
@@ -218,7 +179,7 @@
     box-shadow: 0 2px 3px #A9D9D1, 1px 0 2px #A9D9D1, -1px -1px 2px #A9D9D1;
     border-radius: 26px;
     margin-bottom: 50px;
-    background-image: url("../imgs/t0-b-catchText/1/bg.png"), url("../imgs/t0-b-catchText/1/bg2.png"), url("t0-b-catchText/1/bg3.png");
+    background-image: url("../imgs/t0-b-catchText/1/bg.png"), url("../imgs/t0-b-catchText/1/bg2.png"), url("../imgs/t0-b-catchText/1/bg3.png");
     background-repeat: no-repeat, no-repeat, repeat;
     background-position: left top, right top, right bottom;
     position: relative;
@@ -264,6 +225,10 @@
       padding: 10px 0 0 0;
       position: relative;
     }
+
+    a {
+      color: $textcolor;
+    }
   }
 
   .t0-b-catchText#{$variation2of2} {
@@ -281,34 +246,36 @@
     background-position: left top, left bottom, right bottom, right top;
     position: relative;
 
-    > span {
-      pointer-events: none;
-      background-repeat: repeat-y, repeat-y;
-      background-position: left top, right top;
-      background-image: url("../imgs/t0-b-catchText/2/bg5.png"), url("../imgs/t0-b-catchText/2/bg7.png");
-      position: absolute;
-      top: 51px;
-      bottom: 53px;
-      left: 0;
-      right: 0;
-
+    &__inner {
       > span {
-        background-repeat: repeat-x, repeat-x;
-        background-position: left bottom, left top;
-        background-image: url("../imgs/t0-b-catchText/2/bg6.png"), url("../imgs/t0-b-catchText/2/bg8.png");
+        pointer-events: none;
+        background-repeat: repeat-y, repeat-y;
+        background-position: left top, right top;
+        background-image: url("../imgs/t0-b-catchText/2/bg5.png"), url("../imgs/t0-b-catchText/2/bg7.png");
         position: absolute;
-        top: -51px;
-        bottom: -53px;
-        left: 64px;
-        right: 64px;
+        top: 51px;
+        bottom: 53px;
+        left: 0;
+        right: 0;
 
         > span {
-          background-color: #fff;
+          background-repeat: repeat-x, repeat-x;
+          background-position: left bottom, left top;
+          background-image: url("../imgs/t0-b-catchText/2/bg6.png"), url("../imgs/t0-b-catchText/2/bg8.png");
           position: absolute;
-          top: 51px;
-          bottom: 53px;
-          left: 0;
-          right: 0;
+          top: -51px;
+          bottom: -53px;
+          left: 64px;
+          right: 64px;
+
+          > span {
+            background-color: #fff;
+            position: absolute;
+            top: 51px;
+            bottom: 53px;
+            left: 0;
+            right: 0;
+          }
         }
       }
     }
@@ -349,6 +316,10 @@
 
       padding: 10px 0 0 0;
       position: relative;
+    }
+
+    a {
+      color: $textcolor;
     }
   }
 }
