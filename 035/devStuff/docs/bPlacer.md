@@ -182,19 +182,15 @@
 |10.サイト名|footer|191_フッターサイト名|.t0-b-footerUnit-siteTitle||2%||15px|
 |10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName||2%||15px|
 |10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName|2|2%||35px|
-|11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation1of3}|8%||25px|
-|11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation2of3}|8%||25px|
-|11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation3of3}|8%||25px|
+|11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation1of2}|8%||25px|
+|11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation2of2}|8%||25px|
 |11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation1of3}|8%||25px|
 |11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation2of3}|8%||25px|
 |11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation3of3}|8%||25px|
-|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation1of4}|8%||25px|
-|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation2of4}|8%||25px|
-|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation3of4}|8%||25px|
-|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation4of4}|8%||25px|
-|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation1of3}|8%||25px|
-|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation2of3}|8%||25px|
-|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation3of3}|8%||25px|
+|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation1of2}|8%||25px|
+|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation2of2}|8%||25px|
+|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation1of2}|8%||25px|
+|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation2of2}|8%||25px|
 |11.枠|main|011_枠|.t0-b-frame||8%||25px|
 |11.枠|main|011_枠|.t0-b-frame|2|8%||45px|
 |11.枠|main|011_枠|.t0-b-frame|3|8%||45px|
@@ -213,9 +209,8 @@
 |11.枠|main|枠(流れ 左 → 右)×６(2)|.t0-b-flow6LeftToRightWithMidFrame||8%||25px|
 |11.枠|main|020_枠(流れ 左 → 右)×７|.t0-b-flow7LeftToRight||8%||25px|
 |11.枠|main|枠(流れ 左 → 右)×７(2)|.t0-b-flow7LeftToRightWithMidFrame||8%||25px|
-|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation1of3}|8%||45px|
-|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation2of3}|8%||45px|
-|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation3of3}|8%||45px|
+|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation1of2}|8%||45px|
+|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation2of2}|8%||45px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation1of3}|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation2of3}|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation3of3}|8%||25px|
@@ -224,6 +219,17 @@
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|2|0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|3|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle||0||0px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation1of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation2of11}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation3of11}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation4of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation5of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation6of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation7of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation8of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation9of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation10of11}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation11of11}|8%||45px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||25px|
