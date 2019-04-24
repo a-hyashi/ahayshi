@@ -31,26 +31,24 @@
         width: 100%;
         height: 34px;
         min-height: inherit;
+        text-align: center;
         li {
           display: table-cell;
+          vertical-align: middle;
           // 文字を全て消した時の対応
           min-width: 50px;
-          text-align: center;
-          vertical-align: middle;
+          height: 100%;
+          > span {
+            // Safariで空spanに高さが出てしまいテキストの位置がズレるため
+            position: absolute;
+            top: 0;
+          }
           a {
             display: block;
-            height: 100%;
-            // firefoxだとheight: 100%;だとうまく表示されない為
-            /* stylelint-disable */
-            @-moz-document url-prefix() {
-              height: 34px;
-            }
-            /* stylelint-enable */
+            color: $_textColor;
             div {
-              // リンク有りの時天地中央にする為
               position: relative;
-              top: 50%;
-              transform: translateY(-50%);
+              display: inline-block;
               &::before {
                 position: absolute;
                 bottom: -6px;
@@ -168,50 +166,41 @@
           min-width: 50px;
           text-align: center;
           vertical-align: middle;
-          a {
-            position: relative;
-            display: block;
-            height: 100%;
-            // firefoxだとheight: 100%;だとうまく表示されない為
-            /* stylelint-disable */
-            @-moz-document url-prefix() {
-              height: 30px;
-            }
-            /* stylelint-enable */
-            &::before {
-              position: absolute;
-              top: 0;
-              left: 0;
-              display: block;
-              width: 0;
-              height: 100%;
-              content: "";
-              background-color: $_bgHoverColor;
-            }
-
-            div {
-              // リンク有りの時天地中央にする為
-              position: relative;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-          }
-
-          &:hover {
-            a {
-              &::before {
-                width: 100%;
-              }
-
-              div {
-                color: $_textHoverColor;
-              }
-            }
-          }
-
           div {
             padding: 3px 0;
             color: $_textColor;
+          }
+        }
+      }
+    }
+
+    // Start アニメーション
+    .t0-b-footerMenu__item {
+      // hover後にテキストが前に出るように
+      position: relative;
+      z-index: 1;
+      // IE11でhover装飾が途切れない様に
+      overflow: hidden;
+      a {
+        div {
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 0;
+            // IE11でhover装飾が途切れない様に
+            height: 300px;
+            content: "";
+            background-color: $_bgHoverColor;
+            // hover後にテキストが前に出るように
+            z-index: -1;
+          }
+          &:hover {
+            color: $_textHoverColor;
+            &::before {
+              width: 100%;
+            }
           }
         }
       }
@@ -284,50 +273,41 @@
           min-width: 50px;
           text-align: center;
           vertical-align: middle;
-          a {
-            position: relative;
-            display: block;
-            height: 100%;
-            // firefoxだとheight: 100%;だとうまく表示されない為
-            /* stylelint-disable */
-            @-moz-document url-prefix() {
-              height: 30px;
-            }
-            /* stylelint-enable */
-            &::before {
-              position: absolute;
-              top: 0;
-              left: 0;
-              display: block;
-              width: 0;
-              height: 100%;
-              content: "";
-              background-color: $_bgHoverColor;
-            }
-
-            div {
-              // リンク有りの時天地中央にする為
-              position: relative;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-          }
-
-          &:hover {
-            a {
-              &::before {
-                width: 100%;
-              }
-
-              div {
-                color: $_textHoverColor;
-              }
-            }
-          }
-
           div {
             padding: 3px 0;
             color: $_textColor;
+          }
+        }
+      }
+    }
+
+    // Start アニメーション
+    .t0-b-footerMenu__item {
+      // hover後にテキストが前に出るように
+      position: relative;
+      z-index: 1;
+      // IE11でhover装飾が途切れないように
+      overflow: hidden;
+      a {
+        div {
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 0;
+            // IE11でhover装飾が途切れないように
+            height: 300px;
+            content: "";
+            background-color: $_bgHoverColor;
+            // hover後にテキストが前に出るように
+            z-index: -1;
+          }
+          &:hover {
+            color: $_textHoverColor;
+            &::before {
+              width: 100%;
+            }
           }
         }
       }
@@ -402,65 +382,8 @@
           min-width: 50px;
           text-align: center;
           vertical-align: middle;
-          &:first-child {
-            &::before {
-              position: absolute;
-              top: 50%;
-              left: 0;
-              width: 1px;
-              height: 18px;
-              content: "";
-              background: $_borderColor;
-              transform: translateY(-50%);
-            }
-          }
-
-          a {
-            position: relative;
-            display: block;
-            height: 100%;
-            // firefoxだとheight: 100%;だとうまく表示されない為
-            /* stylelint-disable */
-            @-moz-document url-prefix() {
-              height: 24px;
-            }
-            /* stylelint-enable */
-            &::before {
-              position: absolute;
-              top: 0;
-              left: 10px;
-              display: block;
-              width: 0;
-              height: 100%;
-              content: "";
-              background-color: $_bgHoverColor;
-            }
-
-            div {
-              // リンク有りの時天地中央にする為
-              position: relative;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-          }
-
-          &:hover {
-            a {
-              &::before {
-                top: 0;
-                width: calc(100% - 20px);
-                height: 100%;
-              }
-
-              div {
-                color: $_textHoverColor;
-              }
-            }
-          }
-
           div {
-            padding: 0 10px;
-            color: $_textColor;
+            position: relative;
             &::after {
               position: absolute;
               top: 50%;
@@ -472,7 +395,63 @@
               transform: translateY(-50%);
             }
           }
+          &:first-child {
+            div {
+              position: relative;
+              &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 1px;
+                height: 18px;
+                content: "";
+                background: $_borderColor;
+                transform: translateY(-50%);
+              }
+            }
+          }
         }
+      }
+    }
+
+    // Start アニメーション
+    .t0-b-footerMenu__item {
+      // IE11でhover装飾が途切れないように
+      overflow: hidden;
+      a {
+        display: block;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 10px;
+          display: block;
+          width: 0;
+          height: 100%;
+          content: "";
+          background-color: $_bgHoverColor;
+          // hover後にテキストが前に出るように
+          z-index: -1;
+        }
+      }
+
+      &:hover {
+        a {
+          overflow: hidden;
+          &::before {
+            top: 0;
+            width: calc(100% - 20px);
+            // IE11でhover装飾が途切れないように
+            height: 300px;
+          }
+          div {
+            color: $_textHoverColor;
+          }
+        }
+      }
+
+      div {
+        padding: 0 10px;
+        color: $_textColor;
       }
     }
 
@@ -542,26 +521,24 @@
         width: 100%;
         height: 34px;
         min-height: inherit;
+        text-align: center;
         li {
           display: table-cell;
           // 文字を全て消した時の対応
           min-width: 50px;
-          text-align: center;
           vertical-align: middle;
+          height: 100%;
+          > span {
+            // Safariで空spanに高さが出てしまいテキストの位置がズレるため
+            position: absolute;
+            top: 0;
+          }
           a {
             display: block;
-            height: 100%;
-            // firefoxだとheight: 100%;だとうまく表示されない為
-            /* stylelint-disable */
-            @-moz-document url-prefix() {
-              height: 34px;
-            }
-            /* stylelint-enable */
+            color: $_textColor;
             div {
-              // リンク有りの時天地中央にする為
               position: relative;
-              top: 50%;
-              transform: translateY(-50%);
+              display: inline-block;
               &::before {
                 position: absolute;
                 bottom: -6px;
@@ -675,6 +652,7 @@
         border-spacing: 10px;
         border-collapse: separate;
         li {
+          height: 100%;
           z-index: 2;
           display: table-cell;
           // 文字を全て消した時の対応
@@ -773,6 +751,7 @@
         min-height: inherit;
         border-spacing: 10px;
         li {
+          height: 100%;
           z-index: 2;
           display: table-cell;
           // 文字を全て消した時の対応
@@ -872,6 +851,7 @@
         min-height: inherit;
         border-spacing: 10px;
         li {
+          height: 100%;
           z-index: 2;
           display: table-cell;
           // 文字を全て消した時の対応
@@ -971,6 +951,7 @@
         min-height: inherit;
         border-spacing: 10px;
         li {
+          height: 100%;
           z-index: 2;
           display: table-cell;
           // 文字を全て消した時の対応
@@ -1078,35 +1059,45 @@
           min-width: 50px;
           text-align: center;
           vertical-align: middle;
-          &::before {
-            position: absolute;
-            top: 50%;
-            left: -6px;
-            width: 2px;
-            height: 60%;
-            content: "";
-            border-left: 2px dotted #ececec;
-            transform: translateY(-50%);
-          }
-
-          &:last-child {
-            &::after {
+          div {
+            position: relative;
+            // IE11でテキストが2行になった時にborderの位置がズレるためdivに指定
+            // アニメーションの為に文字を一番上に出す為
+            z-index: 1;
+            color: $_textColor;
+            &::before {
               position: absolute;
               top: 50%;
-              right: -6px;
+              left: -6px;
               width: 2px;
-              height: 60%;
+              height: 14px;
               content: "";
               border-left: 2px dotted #ececec;
               transform: translateY(-50%);
+              display: block;
+              // Safariでブラウザのデフォルトcssが当たるため指定
+              color: #ece5d7;
             }
           }
 
-          div {
-            // アニメーションの為に文字を一番上に出す為
-            z-index: 1;
-
-            color: $_textColor;
+          &:last-child {
+            div {
+              position: relative;
+              // IE11でテキストが2行になった時にborderの位置がズレるためdivに指定
+              &::after {
+                position: absolute;
+                top: 50%;
+                right: -6px;
+                width: 2px;
+                height: 14px;
+                content: "";
+                border-left: 2px dotted #ececec;
+                transform: translateY(-50%);
+                display: block;
+                // Safariでブラウザのデフォルトcssが当たるため指定
+                color: #ece5d7;
+              }
+            }
           }
         }
       }
@@ -1217,6 +1208,7 @@
         height: 30px;
         min-height: inherit;
         li {
+          height: 100%;
           position: relative;
           display: table-cell;
           // 文字を全て消した時の対応
@@ -1370,6 +1362,7 @@
         height: 30px;
         min-height: inherit;
         li {
+          height: 100%;
           position: relative;
           display: table-cell;
           // 文字を全て消した時の対応
@@ -1494,6 +1487,7 @@
         height: 30px;
         min-height: inherit;
         li {
+          height: 100%;
           position: relative;
           display: table-cell;
           // 文字を全て消した時の対応
@@ -2181,12 +2175,13 @@
           position: relative;
           display: inline-block;
           margin: 0 7px;
+          vertical-align: middle;
           &::before {
             position: absolute;
             top: 50%;
             left: -10px;
             width: 2px;
-            height: 50%;
+            height: 14px;
             content: "";
             border-left: 2px dotted #ececec;
             transform: translateY(-50%);
@@ -2198,7 +2193,7 @@
               top: 50%;
               right: -10px;
               width: 2px;
-              height: 50%;
+              height: 14px;
               content: "";
               border-left: 2px dotted #ececec;
               transform: translateY(-50%);

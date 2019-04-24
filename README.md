@@ -1,7 +1,7 @@
 # buddy-theme
-![Docker:18.09.1](https://img.shields.io/badge/Docker-18.09.1-blue.svg)
-![node:v9.8.0](https://img.shields.io/badge/node-v9.8.0-blue.svg)
-![npm:5.7.1](https://img.shields.io/badge/npm-5.7.1-blue.svg)
+![Docker:18.09.2](https://img.shields.io/badge/Docker-18.09.2-blue.svg)
+![node:v11.10.1](https://img.shields.io/badge/node-v11.10.1-blue.svg)
+![npm:6.9.0](https://img.shields.io/badge/npm-6.9.0-blue.svg)
 ![gulp:3.9.1](https://img.shields.io/badge/gulp-3.9.1-blue.svg)
 
 ## 概要
@@ -66,8 +66,8 @@ Macの上部にアイコンが表示されていればOK
 3. 以下のコマンドを実行
 ```sh
 $ cd （buddy-themeフォルダの場所）
-$ sed -e 's/theme-name/031/g' _docker-compose.yml > docker-compose.yml
-$ docker-compose run base npm install
+$ ./set-themes.sh 031
+$ docker-compose run web1 npm install
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
 
@@ -84,10 +84,32 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 
 <br>
 
+### テーマの設定
+
+```sh
+$ ./set-themes.sh (テーマ名)
+```
+
+テーマは複数設定することもでき、1から順にコンテナに割り当てられます。  
+2〜3個を想定していますが、9個まで設定可能です。  
+ただし多いほど処理に時間がかかるので、不要なテーマを含まないよう注意してください。  
+```sh
+$ ./set-themes.sh 031 031A 031B
+```
+
+```
+コンテナ1：031
+コンテナ2：031A
+コンテナ3：031B
+テーマを設定しました
+```
+
+<br>
+
 ### テーマごとに一度だけ実行すること
 
 ```sh
-$ ./init.sh (テーマ名)
+$ ./init.sh
 ```
 
 指定したテーマフォルダ内に以下のファイルが作成されていればOKです。
@@ -107,7 +129,7 @@ Macの上部にアイコンが表示されていればOKです。
 2. 以下のコマンドを実行
 ```sh
 $ cd （buddy-themeフォルダの場所）
-$ ./up.sh (テーマ名)
+$ ./up.sh
 ```
 CSSの更新は自動で反映されます。
 
@@ -129,16 +151,19 @@ _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットし
 ```
 
 が表示されたら
-http://localhost:3000
-を開いてください。
+http://localhost:ポート番号  
+を開いてください。  
+ポート番号は3000 + コンテナ番号です  
+**例:**コンテナ1の場合  
+http://localhost:3001  
 
-クロスブラウザテストで他の端末から接続する場合は
-http://（PCのIP）:3000
-です。
 
-#### 参考
-MacのIPの調べ方  
-https://pc-karuma.net/mac-ip-address/
+クロスブラウザテストで他の端末から接続する場合は  
+`ターミナルに出力される外部URL + ポート番号`を開いてください  
+**例:**
+コンテナ1の場合  
+http://192.168.0.12:3001  
+
 
 <br>
 
@@ -149,13 +174,7 @@ Ctrl + C
 
 <br>
 
-### 本番用CSSの出力
-```sh
-$ ./build.sh (テーマ名)
-```
-`ACRE-theme/acre/themes/`内にCSSが出力されます。  
-テーマ名を指定しない場合は全テーマ出力されます。
-
+### CSSを出力
 ```sh
 $ ./build.sh
 ```
@@ -164,21 +183,22 @@ $ ./build.sh
 
 ### CSSを開発環境にアップロード
 ```sh
-$ ./upload.sh (テーマ名)
+$ ./upload.sh
 ```
 
 <br>
 
-### /buildの中身をACRE-themeにコピー
+### CSSをACRE-themeにコピー
 ```sh
-$ ./output.sh (テーマ名)
+$ ./output.sh
 ```
+`ACRE-theme/acre/themes/`内にCSSが出力されます。
 
 <br>
 
-### Stylelintで整形・コーディングスタイルのチェック
+### 整形・コーディングスタイルのチェック
 ```sh
-$ ./lint.sh (テーマ名)
+$ ./lint.sh
 ```
 コーディングルールに従ってscssファイルの中身が自動で整形されます。  
 自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
@@ -212,6 +232,33 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
 stylelintのルール一覧  
 https://stylelint.io/user-guide/rules
 
+
+### 別コンテナでの実行
+上に記載した`./up.sh`以外のコマンドは、引数の指定ができます。  
+並行して2つ以上のテーマを開発するための機能なので、1つのテーマのみ開発している場合は気にしなくて問題ありません。
+
+**例:**buildの場合  
+```sh
+$ ./build.sh
+```
+引数を指定しない場合、コンテナ1で実行
+
+<br>
+
+```sh
+$ ./build.sh 2 3
+```
+番号を指定した場合、指定番号のコンテナで実行
+
+<br>
+
+```sh
+$ ./build.sh all
+```
+allを指定した場合、コンテナに関係なく全てのテーマで実行
+
+<br>
+
 <br>
 <br>
 
@@ -232,18 +279,22 @@ SASSの構文エラーです。
 
 ### JSON/HTMLを修正した
 ```sh
-$ ./update-parts.sh (テーマ名)
+$ ./update-parts.sh
 ```
 
 ### sassdocが更新された
 ```sh
-$ docker-compose run base gulp update-sassdoc
+$ docker-compose run web1 gulp update-sassdoc
 ```
 
 ### 動作が遅くなってきた
-Dockerを再起動するか、以下のコマンドを実行してください。
+いずれか、または全てを実行してください
+
+- Dockerの再起動
+
+- コンテナの削除
 ```sh
-$ docker-compose down
+$ docker container prune
 ```
 
 ### buddy-themeが更新された
@@ -285,7 +336,6 @@ html_templates_dirをACRE-theme内の対象テーマの部品があるフォル�
 
 ### 関連資料
 
-- [単体テスト仕様書マスタ](https://docs.google.com/spreadsheets/d/1SaKg4pTiquk32kw9qauzWWrDsZcNiGSL83G8yULXJIE/edit#gid=852993701)
 - [機能／デザイン仕様一覧](https://docs.google.com/spreadsheets/d/1hUg4X2BChH0Uke0HFLX1G4h9MBK__HNb5_TWQ4eL05Y/edit#gid=1396076322)
 
 <br>
@@ -331,12 +381,12 @@ buddy-themeの設定情報等を格納する
 
 #### function-design.json
 標準機能仕様、ブロック個別機能仕様を一覧で管理する情報
-- [取得スクリプト](https://script.google.com/a/wmshome.net/d/1yw1TXWMZCW3-n5IJzYfirvsKSqnuWVVPKZuNhecPf3nQkS6VsKdl8k8k/edit?usp=drive_web)
+- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1hUg4X2BChH0Uke0HFLX1G4h9MBK__HNb5_TWQ4eL05Y/edit#gid=1396076322)
+- 出力 > function-design.json
 
 #### parts-categories.json
 部品とCSSブロックのマッピング情報
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)
-- 単体テスト > make parts categories json
+- JSONを直接更新する
 
 <br>
 
@@ -349,16 +399,12 @@ dataJson, metaJsonのスキーマ情報
 
 #### buddy-parts-functions.json
 機能初期値、テスト値とブロックの対応状況の定義情報
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1kkHsXTtCFVtYcj0ZwbPDukPQkPrzJGrIrVOWGBUqeIg/edit#gid=0)
-- 単体テスト > make buddy parts functions json
+- JSONを直接更新する
 
 #### buddy-parts-design.json
-デザイン仕様を確認するための機能とマッピング  
-手動で作成
+デザイン仕様を確認するための機能とマッピング
+- JSONを直接更新する
 
 #### ブロック専用jsonファイル
 ブロック固有の事情で必要になるファイル
-手動で作成
-- breadcrumbs001.json
-- formTableAll.json
-- sideMenu001.json
+- JSONを直接更新する
