@@ -2,10 +2,54 @@
   .b-sideMenu#{$variation1of2} {
     $_block: ".b-sideMenu";
 
+    padding: 28px 0;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, left bottom, right bottom, right top;
+    background-image: url("../imgs/b-sideMenu/1/bg.png"), url("../imgs/b-sideMenu/1/bg2.png"), url("../imgs/b-sideMenu/1/bg3.png"), url("../imgs/b-sideMenu/1/bg4.png");
+    position: relative;
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
     a {
       text-decoration: none;
+      color: $textcolor;
       &:hover {
-        color: $hovercolor;
+        text-decoration: underline;
+      }
+    }
+
+    > span {
+      pointer-events: none;
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-image: url("../imgs/b-sideMenu/1/bg5.png"), url("../imgs/b-sideMenu/1/bg7.png");
+      position: absolute;
+      top: 25px;
+      bottom: 25px;
+      left: 0;
+      right: 0;
+
+      > span {
+        background-repeat: repeat-x, repeat-x;
+        background-position: left bottom, left top;
+        background-image: url("../imgs/b-sideMenu/1/bg6.png"), url("../imgs/b-sideMenu/1/bg8.png");
+        position: absolute;
+        top: -25px;
+        bottom: -25px;
+        left: 25px;
+        right: 25px;
+
+        > span {
+          background: #fff;
+          position: absolute;
+          top: 25px;
+          bottom: 25px;
+          left: 0;
+          right: 0;
+        }
       }
     }
 
@@ -19,6 +63,42 @@
 
     &__hd {
       @include g-font(20, 1);
+
+      font-weight: bold;
+      text-align: center;
+      padding: 13px 60px;
+      margin-bottom: 10px;
+      position: relative;
+      min-height: 24px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: 22px;
+        right: 22px;
+        top: 0;
+        bottom: 0;
+        background-repeat: repeat-x, repeat-x;
+        background-position: left top, left bottom;
+        background-image: url("../imgs/b-sideMenu/1/bg9.png"), url("../imgs/b-sideMenu/1/bg10.png");
+        z-index: 1;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: 13px;
+        right: 11px;
+        top: 0;
+        bottom: 0;
+        background-repeat: no-repeat, no-repeat;
+        background-position: left center, right center;
+        background-image: url("../imgs/b-sideMenu/1/bg11.png"), url("../imgs/b-sideMenu/1/bg12.png");
+        z-index: 1;
+      }
+
       a {
         &:hover {
           color: $hovercolor;
@@ -30,6 +110,8 @@
     &__bd {
       @include g-font(16, 1);
 
+      padding: 0 21px;
+
       //親要素
       > #{$_block}__list {
         > ul > #{$_block}__item {
@@ -37,11 +119,32 @@
             > div {
               > a > span,
               > span {
+                padding: 11px 0 11px 31px;
+                display: block;
+                background-image: url("../imgs/b-sideMenu/1/1.png");
+                background-position: 9px 13px;
+                background-repeat: no-repeat;
+                position: relative;
+
+                &:after {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  left: 2px;
+                  right: 2px;
+                  top: 0;
+                  bottom: 0;
+                  background-image: url("../imgs/b-sideMenu/1/4.png");
+                  background-position: left bottom;
+                  background-repeat: repeat-x;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
-                  color: $hovercolor;
+                  color: #dd6f93;
+                  text-decoration: underline;
                 }
               }
             }
@@ -53,11 +156,32 @@
             > div {
               > a > span,
               > span {
+                color: #dd6f93;
+                padding: 14px 0 14px 31px;
+                display: block;
+                background: none;
+                position: relative;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  left: 0;
+                  right: 0;
+                  top: 7px;
+                  bottom: 7px;
+                  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+                  background-position: 4px 9px, left top, left bottom, right bottom, right top;
+                  background-image: url("../imgs/b-sideMenu/1/5.png"), url("../imgs/b-sideMenu/1/6.png"), url("../imgs/b-sideMenu/1/7.png"), url("../imgs/b-sideMenu/1/8.png"), url("../imgs/b-sideMenu/1/9.png");
+                  background-color: #ffe1e1;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
-                  color: $hovercolor;
+                  color: #dd6f93;
+                  text-decoration: underline;
                 }
               }
             }
@@ -67,15 +191,30 @@
         //子要素
         > ul > li > #{$_block}__list > ul {
           > #{$_block}__item {
+              position: relative;
+
+            &:after {
+              content: "";
+              position: absolute;
+              pointer-events: none;
+              left: 2px;
+              right: 2px;
+              top: 0;
+              bottom: 0;
+              background-image: url("../imgs/b-sideMenu/1/4.png");
+              background-position: left bottom;
+              background-repeat: repeat-x;
+              z-index: 1;
+            }
             > div {
               > div {
                 > a > span,
                 > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
+                  padding: 10px 0 10px 29px;
+                  display: block;
+                  background-image: url("../imgs/b-sideMenu/1/2.png");
+                  background-position: 17px 15px;
+                  background-repeat: no-repeat;
                 }
               }
             }
@@ -86,17 +225,16 @@
               > div {
                 > a > span,
                 > span {
+                  color: #dd6f93;
                 }
 
                 > a > span {
                   &:hover {
+                    text-decoration: underline;
                   }
                 }
               }
             }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
           }
 
           //孫要素
@@ -106,11 +244,11 @@
                 > div {
                   > a > span,
                   > span {
-                  }
-
-                  > a > span {
-                    &:hover {
-                    }
+                    padding: 2px 0 10px 39px;
+                    display: block;
+                    background-image: url("../imgs/b-sideMenu/1/3.png");
+                    background-position: 29px 10px;
+                    background-repeat: no-repeat;
                   }
                 }
               }
@@ -120,10 +258,12 @@
                   > div {
                     > a > span,
                     > span {
+                      color: #dd6f93;
                     }
 
                     > a > span {
                       &:hover {
+                        text-decoration: underline;
                       }
                     }
                   }
@@ -151,10 +291,51 @@
   .b-sideMenu#{$variation2of2} {
     $_block: ".b-sideMenu";
 
+    padding: 28px 0 24px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, left bottom, right bottom, right top;
+    background-image: url("../imgs/b-sideMenu/2/bg.png"), url("../imgs/b-sideMenu/2/bg2.png"), url("../imgs/b-sideMenu/2/bg3.png"), url("../imgs/b-sideMenu/2/bg4.png");
+    position: relative;
+
     a {
       text-decoration: none;
-      &:hover {
-        color: $hovercolor;
+      color: $textcolor;
+    }
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    > span {
+      pointer-events: none;
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-image: url("../imgs/b-sideMenu/2/bg5.png"), url("../imgs/b-sideMenu/2/bg7.png");
+      position: absolute;
+      top: 22px;
+      bottom: 22px;
+      left: 0;
+      right: 0;
+
+      > span {
+        background-repeat: repeat-x, repeat-x;
+        background-position: left bottom, left top;
+        background-image: url("../imgs/b-sideMenu/2/bg6.png"), url("../imgs/b-sideMenu/2/bg8.png");
+        position: absolute;
+        top: -22px;
+        bottom: -22px;
+        left: 22px;
+        right: 22px;
+
+        > span {
+          background: #fff;
+          position: absolute;
+          top: 22px;
+          bottom: 22px;
+          left: 0;
+          right: 0;
+        }
       }
     }
 
@@ -168,16 +349,82 @@
 
     &__hd {
       @include g-font(20, 1);
+      font-weight: bold;
+      text-align: center;
+      padding: 18px 30px;
+      margin: 0 15px 5px;
+      color: #7c6600;
+      text-shadow: $textshadow2;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: left top, left bottom, right bottom, right top;
+      background-image: url("../imgs/b-sideMenu/2/hd/bg.png"), url("../imgs/b-sideMenu/2/hd/bg2.png"), url("../imgs/b-sideMenu/2/hd/bg3.png"), url("../imgs/b-sideMenu/2/hd/bg4.png");
+      position: relative;
+      min-height: 25px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: -5px;
+        right: -6px;
+        top: -7px;
+        bottom: 0;
+        z-index: 3;
+        background-image: url("../imgs/b-sideMenu/2/bg9.png"), url("../imgs/b-sideMenu/2/bg10.png");
+        background-repeat: no-repeat, no-repeat;
+        background-position: left top, right top;
+      }
+
+      > span {
+        pointer-events: none;
+        background-repeat: repeat-y, repeat-y;
+        background-position: left top, right top;
+        background-image: url("../imgs/b-sideMenu/2/hd/bg5.png"), url("../imgs/b-sideMenu/2/hd/bg7.png");
+        position: absolute;
+        top: 40px;
+        bottom: 21px;
+        left: 0;
+        right: 0;
+
+        > span {
+          background-repeat: repeat-x, repeat-x;
+          background-position: left bottom, left top;
+          background-image: url("../imgs/b-sideMenu/2/hd/bg6.png"), url("../imgs/b-sideMenu/2/hd/bg8.png");
+          position: absolute;
+          top: -40px;
+          bottom: -21px;
+          left: 37px;
+          right: 37px;
+
+          > span {
+            position: absolute;
+            background: #f9f4df;
+            top: 40px;
+            bottom: 21px;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+
       a {
+        color: #7c6600;
+        z-index: 4;
         &:hover {
           color: $hovercolor;
           text-decoration: none;
         }
       }
+
+      h4 {
+        z-index: 4;
+      }
     }
 
     &__bd {
       @include g-font(16, 1);
+
+      padding: 0 17px;
 
       //親要素
       > #{$_block}__list {
@@ -186,11 +433,46 @@
             > div {
               > a > span,
               > span {
+                padding: 15px 0 15px 31px;
+                display: block;
+                background-image: url("../imgs/b-sideMenu/2/1.png");
+                background-position: 8px 19px;
+                background-repeat: no-repeat;
+                position: relative;
+
+                &:after {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  left: 0;
+                  right: 0;
+                  top: 0;
+                  bottom: 0;
+                  background-image: url("../imgs/b-sideMenu/2/4.png");
+                  background-position: left bottom;
+                  background-repeat: repeat-x;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
-                  color: $hovercolor;
+                  > span {
+                    position: relative;
+                    display: inline-block;
+
+                    &:before {
+                      content: "";
+                      position: absolute;
+                      pointer-events: none;
+                      left: 0;
+                      right: 0;
+                      top: 9px;
+                      height: 10px;
+                      background: #d6f5f0;
+                      z-index: -1;
+                    }
+                  }
                 }
               }
             }
@@ -202,11 +484,41 @@
             > div {
               > a > span,
               > span {
+                color: #fff;
+                display: block;
+                background: none;
+                position: relative;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  border-radius: 5px;
+                  left: 0;
+                  right: 0;
+                  top: 7px;
+                  bottom: 7px;
+                  background-repeat: no-repeat;
+                  background-position: 8px 11px;
+                  background-image: url("../imgs/b-sideMenu/2/5.png");
+                  background-color: #e1d39e;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
-                  color: $hovercolor;
+                  color: #fff;
+
+                  > span {
+                    position: relative;
+                    text-decoration: underline;
+                    z-index: 2;
+
+                    &:before {
+                      background: none;
+                    }
+                }
                 }
               }
             }
@@ -216,14 +528,50 @@
         //子要素
         > ul > li > #{$_block}__list > ul {
           > #{$_block}__item {
+            position: relative;
+
+            &:after {
+              content: "";
+              position: absolute;
+              pointer-events: none;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              background-image: url("../imgs/b-sideMenu/2/4.png");
+              background-position: left bottom;
+              background-repeat: repeat-x;
+              z-index: 1;
+            }
             > div {
               > div {
                 > a > span,
                 > span {
+                  padding: 15px 0 15px 31px;
+                  display: block;
+                  background-image: url("../imgs/b-sideMenu/2/2.png");
+                  background-position: 15px 20px;
+                  background-repeat: no-repeat;
                 }
 
                 > a > span {
                   &:hover {
+                    > span {
+                    position: relative;
+                    display: inline-block;
+
+                    &:before {
+                      content: "";
+                      position: absolute;
+                      pointer-events: none;
+                      left: 0;
+                      right: 0;
+                      top: 9px;
+                      height: 10px;
+                      background: #d6f5f0;
+                      z-index: -1;
+                    }
+                  }
                   }
                 }
               }
@@ -235,17 +583,10 @@
               > div {
                 > a > span,
                 > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
+                  color: #69c7b7;
                 }
               }
             }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
           }
 
           //孫要素
@@ -255,10 +596,31 @@
                 > div {
                   > a > span,
                   > span {
+                    padding: 2px 0 12px 42px;
+                    display: block;
+                    background-image: url("../imgs/b-sideMenu/2/3.png");
+                    background-position: 33px 10px;
+                    background-repeat: no-repeat;
                   }
 
                   > a > span {
                     &:hover {
+                      > span {
+                        position: relative;
+                        display: inline-block;
+
+                        &:before {
+                          content: "";
+                          position: absolute;
+                          pointer-events: none;
+                          left: 0;
+                          right: 0;
+                          top: 9px;
+                          height: 10px;
+                          background: #d6f5f0;
+                          z-index: -1;
+                        }
+                      }
                     }
                   }
                 }
@@ -269,11 +631,7 @@
                   > div {
                     > a > span,
                     > span {
-                    }
-
-                    > a > span {
-                      &:hover {
-                      }
+                      color: #69c7b7;
                     }
                   }
                 }
@@ -301,8 +659,53 @@
     $_block: ".b-sideMenuHandle";
     a {
       text-decoration: none;
+      color: $textcolor;
+
       &:hover {
-        color: $hovercolor;
+        text-decoration: underline;
+      }
+    }
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    padding: 28px 0;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, left bottom, right bottom, right top;
+    background-image: url("../imgs/b-sideMenu/1/bg.png"), url("../imgs/b-sideMenu/1/bg2.png"), url("../imgs/b-sideMenu/1/bg3.png"), url("../imgs/b-sideMenu/1/bg4.png");
+    position: relative;
+
+    > span {
+      pointer-events: none;
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-image: url("../imgs/b-sideMenu/1/bg5.png"), url("../imgs/b-sideMenu/1/bg7.png");
+      position: absolute;
+      top: 25px;
+      bottom: 25px;
+      left: 0;
+      right: 0;
+
+      > span {
+        background-repeat: repeat-x, repeat-x;
+        background-position: left bottom, left top;
+        background-image: url("../imgs/b-sideMenu/1/bg6.png"), url("../imgs/b-sideMenu/1/bg8.png");
+        position: absolute;
+        top: -25px;
+        bottom: -25px;
+        left: 25px;
+        right: 25px;
+
+        > span {
+          background: #fff;
+          position: absolute;
+          top: 25px;
+          bottom: 25px;
+          left: 0;
+          right: 0;
+        }
       }
     }
 
@@ -316,15 +719,53 @@
 
     &__hd {
       @include g-font(20, 1);
+      font-weight: bold;
+      text-align: center;
+      padding: 13px 60px;
+      margin-bottom: 10px;
+      position: relative;
+      min-height: 24px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: 22px;
+        right: 22px;
+        top: 0;
+        bottom: 0;
+        background-repeat: repeat-x, repeat-x;
+        background-position: left top, left bottom;
+        background-image: url("../imgs/b-sideMenu/1/bg9.png"), url("../imgs/b-sideMenu/1/bg10.png");
+        z-index: 1;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: 13px;
+        right: 11px;
+        top: 0;
+        bottom: 0;
+        background-repeat: no-repeat, no-repeat;
+        background-position: left center, right center;
+        background-image: url("../imgs/b-sideMenu/1/bg11.png"), url("../imgs/b-sideMenu/1/bg12.png");
+        z-index: 1;
+      }
+
       a {
         &:hover {
           color: $hovercolor;
+          text-decoration: none;
         }
       }
     }
 
     &__bd {
       @include g-font(16, 1);
+
+      padding: 0 21px;
 
       //親要素
       > #{$_block}__list {
@@ -333,12 +774,32 @@
             > div {
               > a > span,
               > span {
+                padding: 11px 0 11px 31px;
+                display: block;
+                background-image: url("../imgs/b-sideMenu/1/1.png");
+                background-position: 9px 13px;
+                background-repeat: no-repeat;
+                position: relative;
 
+                &:after {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  left: 2px;
+                  right: 2px;
+                  top: 0;
+                  bottom: 0;
+                  background-image: url("../imgs/b-sideMenu/1/4.png");
+                  background-position: left bottom;
+                  background-repeat: repeat-x;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
-
+                  color: #dd6f93;
+                  text-decoration: underline;
                 }
               }
             }
@@ -350,11 +811,32 @@
             > div {
               > a > span,
               > span {
+                color: #dd6f93;
+                padding: 14px 0 14px 31px;
+                display: block;
+                background: none;
+                position: relative;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  left: 0;
+                  right: 0;
+                  top: 7px;
+                  bottom: 7px;
+                  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+                  background-position: 4px 9px, left top, left bottom, right bottom, right top;
+                  background-image: url("../imgs/b-sideMenu/1/5.png"), url("../imgs/b-sideMenu/1/6.png"), url("../imgs/b-sideMenu/1/7.png"), url("../imgs/b-sideMenu/1/8.png"), url("../imgs/b-sideMenu/1/9.png");
+                  background-color: #ffe1e1;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
-
+                  color: #dd6f93;
+                  text-decoration: underline;
                 }
               }
             }
@@ -364,16 +846,31 @@
         //子要素
         > ul > li > #{$_block}__list > ul {
           > #{$_block}__item {
+              position: relative;
+
+            &:after {
+              content: "";
+              position: absolute;
+              pointer-events: none;
+              left: 2px;
+              right: 2px;
+              top: 0;
+              bottom: 0;
+              background-image: url("../imgs/b-sideMenu/1/4.png");
+              background-position: left bottom;
+              background-repeat: repeat-x;
+              z-index: 1;
+            }
+
             > div {
               > div {
-
                 > a > span,
                 > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
+                  padding: 10px 0 10px 29px;
+                  display: block;
+                  background-image: url("../imgs/b-sideMenu/1/2.png");
+                  background-position: 17px 15px;
+                  background-repeat: no-repeat;
                 }
               }
             }
@@ -384,17 +881,16 @@
               > div {
                 > a > span,
                 > span {
+                  color: #dd6f93;
                 }
 
                 > a > span {
                   &:hover {
+                    text-decoration: underline;
                   }
                 }
               }
             }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
           }
 
           //孫要素
@@ -404,11 +900,11 @@
                 > div {
                   > a > span,
                   > span {
-                  }
-
-                  > a > span {
-                    &:hover {
-                    }
+                    padding: 2px 0 10px 39px;
+                    display: block;
+                    background-image: url("../imgs/b-sideMenu/1/3.png");
+                    background-position: 29px 10px;
+                    background-repeat: no-repeat;
                   }
                 }
               }
@@ -418,10 +914,10 @@
                   > div {
                     > a > span,
                     > span {
-                    }
+                      color: #dd6f93;
 
-                    > a > span {
                       &:hover {
+                        text-decoration: underline;
                       }
                     }
                   }
@@ -448,10 +944,52 @@
 
   .b-sideMenuHandle#{$variation2of2} {
     $_block: ".b-sideMenuHandle";
+
+    padding: 28px 0 24px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, left bottom, right bottom, right top;
+    background-image: url("../imgs/b-sideMenu/2/bg.png"), url("../imgs/b-sideMenu/2/bg2.png"), url("../imgs/b-sideMenu/2/bg3.png"), url("../imgs/b-sideMenu/2/bg4.png");
+    position: relative;
+
     a {
       text-decoration: none;
-      &:hover {
-        color: $hovercolor;
+      color: $textcolor;
+    }
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    > span {
+      pointer-events: none;
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-image: url("../imgs/b-sideMenu/2/bg5.png"), url("../imgs/b-sideMenu/2/bg7.png");
+      position: absolute;
+      top: 22px;
+      bottom: 22px;
+      left: 0;
+      right: 0;
+
+      > span {
+        background-repeat: repeat-x, repeat-x;
+        background-position: left bottom, left top;
+        background-image: url("../imgs/b-sideMenu/2/bg6.png"), url("../imgs/b-sideMenu/2/bg8.png");
+        position: absolute;
+        top: -22px;
+        bottom: -22px;
+        left: 22px;
+        right: 22px;
+
+        > span {
+          background: #fff;
+          position: absolute;
+          top: 22px;
+          bottom: 22px;
+          left: 0;
+          right: 0;
+        }
       }
     }
 
@@ -465,15 +1003,84 @@
 
     &__hd {
       @include g-font(20, 1);
+
+      font-weight: bold;
+      text-align: center;
+      padding: 18px 30px;
+      margin: 0 15px 5px;
+      color: #7c6600;
+      text-shadow: $textshadow2;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: left top, left bottom, right bottom, right top;
+      background-image: url("../imgs/b-sideMenu/2/hd/bg.png"), url("../imgs/b-sideMenu/2/hd/bg2.png"), url("../imgs/b-sideMenu/2/hd/bg3.png"), url("../imgs/b-sideMenu/2/hd/bg4.png");
+      position: relative;
+      min-height: 25px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: -5px;
+        right: -6px;
+        top: -7px;
+        bottom: 0;
+        z-index: 3;
+        background-image: url("../imgs/b-sideMenu/2/bg9.png"), url("../imgs/b-sideMenu/2/bg10.png");
+        background-repeat: no-repeat, no-repeat;
+        background-position: left top, right top;
+      }
+
+      > span {
+        pointer-events: none;
+        background-repeat: repeat-y, repeat-y;
+        background-position: left top, right top;
+        background-image: url("../imgs/b-sideMenu/2/hd/bg5.png"), url("../imgs/b-sideMenu/2/hd/bg7.png");
+        position: absolute;
+        top: 40px;
+        bottom: 21px;
+        left: 0;
+        right: 0;
+
+        > span {
+          background-repeat: repeat-x, repeat-x;
+          background-position: left bottom, left top;
+          background-image: url("../imgs/b-sideMenu/2/hd/bg6.png"), url("../imgs/b-sideMenu/2/hd/bg8.png");
+          position: absolute;
+          top: -40px;
+          bottom: -21px;
+          left: 37px;
+          right: 37px;
+
+          > span {
+            position: absolute;
+            background: #f9f4df;
+            top: 40px;
+            bottom: 21px;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+
       a {
+        color: #7c6600;
+        z-index: 4;
+
         &:hover {
           color: $hovercolor;
+          text-decoration: none;
         }
+      }
+
+      h4 {
+        z-index: 4;
       }
     }
 
     &__bd {
       @include g-font(16, 1);
+
+      padding: 0 17px;
 
       //親要素
       > #{$_block}__list {
@@ -482,12 +1089,46 @@
             > div {
               > a > span,
               > span {
+                padding: 15px 0 15px 31px;
+                display: block;
+                background-image: url("../imgs/b-sideMenu/2/1.png");
+                background-position: 8px 19px;
+                background-repeat: no-repeat;
+                position: relative;
 
+                &:after {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  left: 0;
+                  right: 0;
+                  top: 0;
+                  bottom: 0;
+                  background-image: url("../imgs/b-sideMenu/2/4.png");
+                  background-position: left bottom;
+                  background-repeat: repeat-x;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
+                    > div {
+                    position: relative;
+                    display: inline-block;
 
+                    &:before {
+                      content: "";
+                      position: absolute;
+                      pointer-events: none;
+                      left: 0;
+                      right: 0;
+                      top: 9px;
+                      height: 10px;
+                      background: #d6f5f0;
+                      z-index: -1;
+                    }
+                  }
                 }
               }
             }
@@ -499,11 +1140,42 @@
             > div {
               > a > span,
               > span {
+                color: #fff;
+                display: block;
+                background: none;
+                position: relative;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  pointer-events: none;
+                  border-radius: 5px;
+                  left: 0;
+                  right: 0;
+                  top: 7px;
+                  bottom: 7px;
+                  background-repeat: no-repeat;
+                  background-position: 8px 11px;
+                  background-image: url("../imgs/b-sideMenu/2/5.png");
+                  background-color: #e1d39e;
+                  z-index: 1;
+                }
               }
 
               > a > span {
                 &:hover {
+                  color: #fff;
+                  text-decoration: underline;
 
+                  > div {
+                    display: inline;
+                    position: relative;
+                    z-index: 2;
+
+                    &:before {
+                      background: none;
+                    }
+                  }
                 }
               }
             }
@@ -513,15 +1185,51 @@
         //子要素
         > ul > li > #{$_block}__list > ul {
           > #{$_block}__item {
+            position: relative;
+
+            &:after {
+              content: "";
+              position: absolute;
+              pointer-events: none;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              background-image: url("../imgs/b-sideMenu/2/4.png");
+              background-position: left bottom;
+              background-repeat: repeat-x;
+              z-index: 1;
+            }
+
             > div {
               > div {
-
                 > a > span,
                 > span {
+                  padding: 15px 0 15px 31px;
+                  display: block;
+                  background-image: url("../imgs/b-sideMenu/2/2.png");
+                  background-position: 15px 20px;
+                  background-repeat: no-repeat;
                 }
 
                 > a > span {
                   &:hover {
+                    > div {
+                      position: relative;
+                      display: inline-block;
+
+                      &:before {
+                        content: "";
+                        position: absolute;
+                        pointer-events: none;
+                        left: 0;
+                        right: 0;
+                        top: 9px;
+                        height: 10px;
+                        background: #d6f5f0;
+                        z-index: -1;
+                      }
+                    }
                   }
                 }
               }
@@ -533,17 +1241,10 @@
               > div {
                 > a > span,
                 > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
+                  color: #69c7b7;
                 }
               }
             }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
           }
 
           //孫要素
@@ -553,10 +1254,31 @@
                 > div {
                   > a > span,
                   > span {
+                    padding: 2px 0 12px 42px;
+                    display: block;
+                    background-image: url("../imgs/b-sideMenu/2/3.png");
+                    background-position: 33px 10px;
+                    background-repeat: no-repeat;
                   }
 
                   > a > span {
                     &:hover {
+                      > div {
+                        position: relative;
+                        display: inline-block;
+
+                        &:before {
+                          content: "";
+                          position: absolute;
+                          pointer-events: none;
+                          left: 0;
+                          right: 0;
+                          top: 9px;
+                          height: 10px;
+                          background: #d6f5f0;
+                          z-index: -1;
+                        }
+                      }
                     }
                   }
                 }
@@ -567,11 +1289,7 @@
                   > div {
                     > a > span,
                     > span {
-                    }
-
-                    > a > span {
-                      &:hover {
-                      }
+                      color: #69c7b7;
                     }
                   }
                 }
@@ -605,10 +1323,13 @@
 
     $_block: &;
 
-    box-sizing: border-box;
     width: 100%;
+    background: #fff;
+    border: 1px solid #b38f06;
+    box-sizing: border-box;
 
     @include g-font(14, 1);
+
     &__hd,
     &__bd {
       display: none;
@@ -646,36 +1367,64 @@
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #b38f06;
       }
 
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #b38f06;
+        color: #dd6f93;
       }
 
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
       }
 
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #dd6f93;
       }
 
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
       }
 
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #dd6f93;
       }
     }
   }
@@ -690,6 +1439,8 @@
 
     box-sizing: border-box;
     width: 100%;
+    background: #fff;
+    border: 1px solid #f0eede;
 
     @include g-font(14, 1);
     &__hd,
@@ -729,36 +1480,65 @@
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #f0eede;
       }
 
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #f0eede;
+        color: #69c7b7;
       }
 
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
       }
 
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #69c7b7;
       }
 
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
       }
 
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #69c7b7;
       }
     }
   }
@@ -773,8 +1553,11 @@
 
     box-sizing: border-box;
     width: 100%;
+    background: #fff;
+    border: 1px solid #b38f06;
 
     @include g-font(14, 1);
+
     &__hd,
     &__bd {
       display: none;
@@ -812,36 +1595,66 @@
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #b38f06;
       }
 
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #b38f06;
+        color: #dd6f93;
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #dd6f93;
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #dd6f93;
       }
     }
   }
@@ -856,6 +1669,8 @@
 
     box-sizing: border-box;
     width: 100%;
+    background: #fff;
+    border: 1px solid #b38f06;
 
     @include g-font(14, 1);
     &__hd,
@@ -895,36 +1710,65 @@
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #b38f06;
       }
 
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        border-top: 1px solid #b38f06;
+        color: #dd6f93;
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #dd6f93;
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
       }
 
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
+        background-image: url("../imgs/t0-b-navList/bg2.png");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        background-size: 21px 21px;
+        color: #dd6f93;
       }
     }
   }
