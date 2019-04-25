@@ -6,8 +6,8 @@
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation2of2}|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation1of2}|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation2of2}|2%||10px|
-|01.見出し|main|035_装飾見出し|.t0-b-lv4H|#{$variation1of4}|2%||10px|
-|01.見出し|main|035_装飾見出し|.t0-b-lv4H|#{$variation2of4}|2%||10px|
+|01.見出し|main|035_装飾見出し|.t0-b-lv4H|#{$variation1of2}|2%||10px|
+|01.見出し|main|035_装飾見出し|.t0-b-lv4H|#{$variation2of2}|2%||10px|
 |01.見出し|main|036_番号アイコン付き見出し|.t0-b-lv4H-numIcon|#{$variation1of2}|2%||10px|
 |01.見出し|main|036_番号アイコン付き見出し|.t0-b-lv4H-numIcon|#{$variation2of2}|2%||10px|
 |01.見出し|main|037_小見出し|.t0-b-lv5H|#{$variation1of2}|2%||10px|
@@ -24,9 +24,9 @@
 |01.見出し|main|052_用途別の装飾見出し(A)|.t0-b-lv4H-aIcon|#{$variation2of2}|1%||10px|
 |01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|#{$variation1of2}|2%||10px|
 |01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|#{$variation2of2}|2%||10px|
-|01.見出し|main|061_装飾見出し(大)|.t0-b-lv4HBig|#{$variation1of2}|2%||10px|
-|01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|#{$variation1of3}|4%||10px|
-|01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|#{$variation2of3}|4%||10px|
+|01.見出し|main|061_装飾見出し(大)|.t0-b-lv4HBig||2%||10px|
+|01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|#{$variation1of2}|4%||10px|
+|01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|#{$variation2of2}|4%||10px|
 |01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H||2%||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation1of2}|0||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation2of2}|0||10px|
@@ -51,12 +51,12 @@
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation2of2}|2%||15px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation3of3and4}|4%||20px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation4of3and4}|4%||20px|
-|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList|#{$variation1of3}|4%||20px|
-|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|#{$variation1of2}|4%||20px|
-|03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList|#{$variation1of2}|2%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList||4%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList||4%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList||2%||20px|
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList||4%||20px|
-|04.表|main|030_表|.t0-b-table|#{$variation1of2}|2%||15px|
-|04.表|side|143_サイドボックス表|.t0-b-sideBoxTable|#{$variation1of2}|4%||15px|
+|04.表|main|030_表|.t0-b-table||2%||15px|
+|04.表|side|143_サイドボックス表|.t0-b-sideBoxTable||4%||15px|
 |04.表|footer|193_フッター表|.t0-b-footerUnit-table||4%||15px|
 |04.表|header|210_ヘッダー表|.t0-b-headerUnit-table||2%||15px|
 |05.メディア|main|024_HTML|.t0-b-freeHtml||2%||15px|
@@ -113,8 +113,8 @@
 |06.ナビゲーション|side|130_サイド誘導リンク|.t0-b-sideNavItem||4%||35px|
 |06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|#{$variation2of2}|4%||35px|
-|06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation1of3}|4%||35px|
-|06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation2of3}|4%||35px|
+|06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation1of2}|4%||35px|
+|06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation2of2}|4%||35px|
 |06.ナビゲーション|side|133_サイドバナー|.t0-b-sideBanner||4%||35px|
 |06.ナビゲーション|side|147_サイドボックス誘導リンク|.t0-b-sideBoxNav||4%||20px|
 |06.ナビゲーション|side|148_サイドボックス誘導バナー|.t0-b-sideBoxNavB|#{$variation1of2}|4%||35px|
@@ -125,12 +125,12 @@
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav||4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|#{$variation1of2}|4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|#{$variation2of2}|4%||15px|
-|07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation1of3}|3%||30px|
-|07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation2of3}|3%||30px|
+|07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation1of2}|3%||30px|
+|07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation2of2}|3%||30px|
 |07.フォーム|main|120_フォーム|.t0-b-buttonPlacer||6%||30px|
-|08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation1of3}|8%||25px|
-|08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation2of3}|8%||25px|
-|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation1of3}|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation1of2}|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation2of2}|8%||25px|
+|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle||8%||25px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation1of3}|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation2of3}|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation3of3}|0||0px|
@@ -152,13 +152,13 @@
 |10.サイト名|header|177_ヘッダーサイト名（画像）|.t0-b-headerUnit-siteName||2%||15px|
 |10.サイト名|footer|191_フッターサイト名|.t0-b-footerUnit-siteTitle||2%||15px|
 |10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName||2%||15px|
-|11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon|#{$variation1of3}|8%||25px|
-|11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation1of3}|8%||25px|
-|11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation2of3}|8%||25px|
-|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation1of3}|8%||25px|
-|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation2of3}|8%||25px|
-|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation1of3}|8%||25px|
-|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation2of3}|8%||25px|
+|11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon||8%||25px|
+|11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation1of2}|8%||25px|
+|11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation2of2}|8%||25px|
+|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation1of2}|8%||25px|
+|11.枠|main|main  003_飾り枠（見出し+説明付）|.t0-b-frameWithHCaption|#{$variation2of2}|8%||25px|
+|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation1of2}|8%||25px|
+|11.枠|main|007_枠(サービス紹介 <文章+画像 ２列 回り込み>)|.t0-b-serviceSet|#{$variation2of2}|8%||25px|
 |11.枠|main|011_枠|.t0-b-frame||8%||25px|
 |11.枠|main|011_枠|.t0-b-frame|2|8%||45px|
 |11.枠|main|透明な枠|.t0-b-frameTransparency||8%||25px|
@@ -176,8 +176,8 @@
 |11.枠|main|枠(流れ 左 → 右)×６(2)|.t0-b-flow6LeftToRightWithMidFrame||8%||25px|
 |11.枠|main|020_枠(流れ 左 → 右)×７|.t0-b-flow7LeftToRight||8%||25px|
 |11.枠|main|枠(流れ 左 → 右)×７(2)|.t0-b-flow7LeftToRightWithMidFrame||8%||25px|
-|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation1of3}|8%||45px|
-|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation2of3}|8%||45px|
+|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation1of2}|8%||45px|
+|11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation2of2}|8%||45px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation1of3}|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation2of3}|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
@@ -189,7 +189,7 @@
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop||4%||20px|
 |12.その他|main|044_区切り線|.t0-b-line||4%||25px|
-|12.その他|main|047_料金表|.t0-b-priceTable|#{$variation1of2}|2%||15px|
+|12.その他|main|047_料金表|.t0-b-priceTable||2%||15px|
 |12.その他|main|055_矢印|.t0-b-arrow||1%||10px|
 |12.その他|main|065_Adobe Readerリンク|.t0-b-getAdobeReader||4%||20px|
 |12.その他|header|176_ヘッダーお問い合わせボックス|.t0-b-headerUnit-miniCol||2%||10px|
