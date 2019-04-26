@@ -69,18 +69,35 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #714f2d;
-    padding: 15px 20px;
+    position: relative;
+    padding: 15px 20px 12px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
     text-align: center;
     background-color: #efeadc;
-    border-top: 2px solid #cabb8c;
-    border-bottom: 2px solid #cabb8c;
-    box-shadow:
-      0 2px #fff inset,
-      0 -2px #fff inset;
+    background-clip: padding-box;
+    border-top: 4px solid rgba(255, 255, 255, 0);
+    border-bottom: 4px solid rgba(255, 255, 255, 0);
+    &::before {
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 100%;
+      content: "";
+      border-top: 2px solid #cabb8c;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      content: "";
+      border-bottom: 2px solid #cabb8c;
+    }
+
     a {
       display: block;
       // ここに設定しないと詳細度的にh1の文字色が反映されない
@@ -179,7 +196,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #8e6f40;
-    padding: 15px 20px;
+    padding: 15px 20px 12px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -205,7 +222,6 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-      min-height: 42px;
     }
 
     &__caption-lower {
@@ -233,7 +249,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #fff;
-    padding: 15px 20px;
+    padding: 15px 20px 12px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -261,7 +277,6 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-      min-height: 42px;
     }
 
     &__caption-lower {
@@ -289,7 +304,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #8e6f40;
-    padding: 25px 20px;
+    padding: 25px 20px 20px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -314,7 +329,6 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-      min-height: 42px;
     }
 
     &__caption-lower {
@@ -342,7 +356,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #714f2d;
-    padding: 25px 20px;
+    padding: 25px 20px 20px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -367,7 +381,6 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-      min-height: 42px;
     }
 
     &__caption-lower {
@@ -395,7 +408,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #714f2d;
-    padding: 25px 20px;
+    padding: 25px 20px 20px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -420,7 +433,6 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-      min-height: 42px;
     }
 
     &__caption-lower {
@@ -448,7 +460,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #714f2d;
-    padding: 25px 20px;
+    padding: 25px 20px 20px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -473,7 +485,238 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-      min-height: 42px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 0 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH10 {
+
+    $_fontSizePx_bd: 42;
+    $_fontSizePx_caption: 20;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #8e6f40;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      text-decoration: none;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 20px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      position: relative;
+      min-height: 52px;
+      padding: 0 20px 13px;
+      box-shadow: 0 -2px #009fa5 inset;
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 4px;
+        left: 0;
+        height: 4px;
+        content: "";
+        background-color: #009fa5;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 20px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH11 {
+
+    $_fontSizePx_bd: 34;
+    $_fontSizePx_caption: 18;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #8e6f40;
+    padding: 15px 20px 12px;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    border-top: 2px solid #009fa5;
+    border-bottom: 2px solid #009fa5;
+    a {
+      display: block;
+      // ここに設定しないと詳細度的にh1の文字色が反映されない
+      color: $_textColor;
+      text-decoration: none;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 0 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 0 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH12 {
+
+    $_fontSizePx_bd: 42;
+    $_fontSizePx_caption: 20;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #8e6f40;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      text-decoration: none;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 20px 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
+      position: relative;
+      min-height: 52px;
+      padding: 0 20px 13px;
+      box-shadow: 0 -2px #dd6f9f inset;
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 4px;
+        left: 0;
+        height: 4px;
+        content: "";
+        background-color: #dd6f9f;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 10px 20px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH13 {
+
+    $_fontSizePx_bd: 34;
+    $_fontSizePx_caption: 18;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #8e6f40;
+    padding: 15px 20px 12px;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    border-top: 2px solid #dd6f9f;
+    border-bottom: 2px solid #dd6f9f;
+    a {
+      display: block;
+      // ここに設定しないと詳細度的にh1の文字色が反映されない
+      color: $_textColor;
+      text-decoration: none;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      padding: 0 0 10px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
     }
 
     &__caption-lower {
@@ -521,16 +764,17 @@
     }
 
     // ここでのcolor設定NG(aタグで囲われている為)
+    // Safari（SP）で不要な縦線が出るため、下線にbox-shadow使わない
     &__bd {
       @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
       position: relative;
       min-height: 22px;
       padding: 0 10px 11px;
-      box-shadow: 0 -2px #cabb8c inset;
+      border-bottom: 2px solid #cabb8c;
       &::after {
         position: absolute;
         right: 0;
-        bottom: 4px;
+        bottom: 2px;
         left: 0;
         height: 4px;
         content: "";
@@ -563,18 +807,35 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #714f2d;
-    padding: 7px 10px;
+    position: relative;
+    padding: 15px 20px 12px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
     text-align: center;
     background-color: #efeadc;
-    border-top: 2px solid #cabb8c;
-    border-bottom: 2px solid #cabb8c;
-    box-shadow:
-      0 2px #fff inset,
-      0 -2px #fff inset;
+    background-clip: padding-box;
+    border-top: 4px solid rgba(255, 255, 255, 0);
+    border-bottom: 4px solid rgba(255, 255, 255, 0);
+    &::before {
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 100%;
+      content: "";
+      border-top: 2px solid #cabb8c;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      content: "";
+      border-bottom: 2px solid #cabb8c;
+    }
+
     a {
       display: block;
       color: $_textColor;
@@ -665,7 +926,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #8e6f40;
-    padding: 7px 10px;
+    padding: 8px 10px 7px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -715,7 +976,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #fff;
-    padding: 7px 10px;
+    padding: 8px 10px 7px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -767,7 +1028,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #8e6f40;
-    padding: 10px;
+    padding: 8px 10px 7px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -788,7 +1049,6 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
-      min-height: 22px;
     }
 
     &__caption-lower {
@@ -816,7 +1076,7 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #714f2d;
-    padding: 10px;
+    padding: 8px 10px 7px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
@@ -837,7 +1097,6 @@
     // ここでのcolor設定NG(aタグで囲われている為)
     &__bd {
       @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
-      min-height: 22px;
     }
 
     &__caption-lower {
@@ -865,13 +1124,171 @@
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
     $_textColor: #714f2d;
-    padding: 10px;
+    padding: 8px 10px 7px;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
     text-align: center;
     background-color: rgba(190, 236, 236, .4);
+    a {
+      display: block;
+      color: $_textColor;
+      text-decoration: none;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 0 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 0 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH9 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #714f2d;
+    padding: 8px 10px 7px;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    background-color: rgba(240, 212, 210, .4);
+    a {
+      display: block;
+      color: $_textColor;
+      text-decoration: none;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 0 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    &__bd {
+      @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 0 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH10 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #8e6f40;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      text-decoration: none;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 10px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    // Safari（SP）で不要な縦線が出るため、下線にbox-shadow使わない
+    &__bd {
+      @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
+      position: relative;
+      min-height: 22px;
+      padding: 0 10px 11px;
+      border-bottom: 2px solid #009fa5;
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 2px;
+        left: 0;
+        height: 4px;
+        content: "";
+        background-color: #009fa5;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 10px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH11 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #8e6f40;
+    padding: 8px 10px 7px;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    border-top: 2px solid #009fa5;
+    border-bottom: 2px solid #009fa5;
     a {
       display: block;
       color: $_textColor;
@@ -907,20 +1324,82 @@
     }
   }
 
-  .t0-b-lv1H-mainH9 {
+  .t0-b-lv1H-mainH12 {
 
     $_fontSizePx_bd: 18;
     $_fontSizePx_caption: 14;
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
-    $_textColor: #714f2d;
-    padding: 10px;
+    $_textColor: #8e6f40;
+    margin: 0 auto;
 
     font-family: $tenorsans;
     // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
     color: $_textColor;
     text-align: center;
-    background-color: rgba(240, 212, 210, .4);
+    a {
+      display: block;
+      color: $_textColor;
+      text-decoration: none;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 0 10px 5px;
+    }
+
+    // ここでのcolor設定NG(aタグで囲われている為)
+    // Safari（SP）で不要な縦線が出るため、下線にbox-shadow使わない
+    &__bd {
+      @include g-font($_fontSizePx_bd, $_lineHeightType_bd);
+      position: relative;
+      min-height: 22px;
+      padding: 0 10px 11px;
+      border-bottom: 2px solid #dd6f9f;
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 2px;
+        left: 0;
+        height: 4px;
+        content: "";
+        background-color: #dd6f9f;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      padding: 5px 10px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH13 {
+
+    $_fontSizePx_bd: 18;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType_bd: 1;
+    $_lineHeightType_caption: 1;
+    $_textColor: #8e6f40;
+    padding: 8px 10px 7px;
+
+    font-family: $tenorsans;
+    // ここで設定しないとaタグでブロックを囲っている場合文字色が反映されない。
+    color: $_textColor;
+    text-align: center;
+    border-top: 2px solid #dd6f9f;
+    border-bottom: 2px solid #dd6f9f;
     a {
       display: block;
       color: $_textColor;

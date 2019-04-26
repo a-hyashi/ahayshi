@@ -7,13 +7,8 @@
     $_lineHeightType: 1;
 
     font-weight: bold;
-
     h5 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx + 4, $_lineHeightType);
-      } @else {
-        @include g-font($_fontSizePx, $_lineHeightType);
-      }
+      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
     }
 
     &--align-l {
@@ -39,21 +34,13 @@
 
     &--size-1 {
       h5 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_s + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
-        }
+        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
     }
 
     &--size-3 {
       h5 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_l + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
-        }
+        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
     }
   }
