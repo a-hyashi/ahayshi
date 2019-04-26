@@ -22,6 +22,8 @@
     }
 
     a {
+      // text-decorationの指定が2重であるとWindowsのFirefoxで下線が太くなるので一度指定をリセットする。
+      text-decoration: none;
       color: $textcolor;
       &:hover {
         color: $hovercolor;
@@ -44,6 +46,7 @@
     &__itemText {
       @include g-font($_fontSizePx, $_lineHeightType_itemText);
       padding-top: 3px;
+      text-decoration: underline;
       #{$_block}--size-2 & {
         @include g-font($_fontSizePx + 4, $_lineHeightType_itemText);
       }
