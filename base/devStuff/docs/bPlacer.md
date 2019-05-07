@@ -46,7 +46,7 @@
 |03.リスト|main|027_ナビリスト|.t0-b-navList|2|4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|#{$variation3of1and3}|4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|4|4%||20px|
-|03.リスト|main|028_装飾された番号リスト|.t0-b-orderedList|#{$variation1of2}|1%||10px|
+|03.リスト|main|028_装飾された番号リスト|.t0-b-orderedList||1%||10px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation1of2}|2%||15px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation2of2}|2%||15px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|#{$variation3of3and4}|4%||20px|
@@ -98,8 +98,8 @@
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned||4%||35px|
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptionedDouble||2%||10px|
 |06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned||4%||35px|
-|06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg|#{$variation1of3}|4%||35px|
-|06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImgDouble|#{$variation1of3}|2%||10px|
+|06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg||4%||35px|
+|06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImgDouble||2%||10px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem|#{$variation1of2}|4%||25px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem|#{$variation2of2}|4%||25px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble|#{$variation1of2}|2%||25px|
@@ -178,8 +178,8 @@
 |11.枠|main|枠(流れ 左 → 右)×７(2)|.t0-b-flow7LeftToRightWithMidFrame||8%||25px|
 |11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation1of2}|8%||45px|
 |11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|#{$variation2of2}|8%||45px|
-|11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation1of3}|8%||25px|
-|11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation2of3}|8%||25px|
+|11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation1of2}|8%||25px|
+|11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation2of2}|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi||0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle||0||0px|
