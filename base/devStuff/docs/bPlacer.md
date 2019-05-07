@@ -41,7 +41,7 @@
 |02.テキスト|header|166_ヘッダテキスト|.t0-b-headerText||4%||10px|
 |02.テキスト|header|178_ヘッダーテキストセット|.t0-b-headerUnit-text||2%||10px|
 |02.テキスト|footer|194_フッターテキストセット|.t0-b-footerUnit-text||4%||10px|
-|02.テキスト|footer|197_フッターテキストセット（強調）|.t0-b-footerUnit-textStrong||2%||10px|
+|02.テキスト|footer|197_フッターテキストセット（強調）|.t0-b-footerUnit-textStrong||2%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|#{$variation1of1and3}|4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|2|4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|#{$variation3of1and3}|4%||20px|
@@ -150,8 +150,10 @@
 |10.サイト名|header|169_ヘッダーサイト名|.t0-b-headerUnit-siteTitle||2%||15px|
 |10.サイト名|header|169_ヘッダーサイト名|.t0-b-headerUnit-siteTitle|2|2%||15px|
 |10.サイト名|header|177_ヘッダーサイト名（画像）|.t0-b-headerUnit-siteName||2%||15px|
+|10.サイト名|header|177_ヘッダーサイト名（画像）|.t0-b-headerUnit-siteName|2|2%||20px|
 |10.サイト名|footer|191_フッターサイト名|.t0-b-footerUnit-siteTitle||2%||15px|
 |10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName||2%||15px|
+|10.サイト名|footer|192_フッターサイト名（画像）|.t0-b-footerUnit-siteName|2|2%||20px|
 |11.枠|main|001_枠(特徴<装飾>-2)|.t0-b-frameWithHCaptionNumIcon||8%||25px|
 |11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation1of2}|8%||25px|
 |11.枠|main|main  002_枠(特徴<画像>)|.t0-b-twoColsMediaWithNumIcon|#{$variation2of2}|8%||25px|
