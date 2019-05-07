@@ -1,12 +1,13 @@
 @if $device == PC {
   .t0-b-media {
-
+    $_block: &;
     $_fontSizePx_h: 16;
     $_fontSizePx_caption: 14;
     $_lineHeightType_h: 1;
     $_lineHeightType_caption: 1;
 
     margin: 0 auto;
+    color: $textcolor;
 
     // width variations
     &--width-l {
@@ -26,11 +27,7 @@
     }
 
     &__h-upper {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
+      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
 
       margin-bottom: 3%;
       font-weight: bold;
@@ -155,6 +152,11 @@
     $_lineHeightType_caption: 1;
 
     margin: 0 auto;
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
 
     // width variations
     &--width-l {
@@ -170,15 +172,15 @@
     }
 
     img {
+      box-sizing: border-box;
+      display: block;
       width: 100%;
+      height: auto;
+      border-radius: 50%;
     }
 
     &__h-upper {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
+      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
 
       margin-bottom: 3%;
       font-weight: bold;
@@ -192,6 +194,7 @@
       a {
         color: $g-baseFontColor;
         text-decoration: none;
+        display: block;
         &:hover {
           opacity: .8;
         }
@@ -207,12 +210,22 @@
       top: 0;
       right: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
-        padding: 10px 5px;
+        padding: 15px 5px 10px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
@@ -222,26 +235,37 @@
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
-        padding: 10px 5px;
+        padding: 10px 5px 15px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
 
     &__h-lower {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
+      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
 
       margin-top: 3%;
       font-weight: bold;
       text-align: center;
+
+      div {
+        display: inline-block;
+      }
+
       & + div {
         margin-top: 5%;
       }
@@ -303,6 +327,11 @@
     $_lineHeightType_caption: 1;
 
     margin: 0 auto;
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
 
     // width variations
     &--width-l {
@@ -318,15 +347,15 @@
     }
 
     img {
+      box-sizing: border-box;
+      display: block;
       width: 100%;
+      height: auto;
+      transition: .5s ease;
     }
 
     &__h-upper {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
+      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
 
       margin-bottom: 3%;
       font-weight: bold;
@@ -335,13 +364,18 @@
 
     &__media {
       position: relative;
-      line-height: 0;
+      overflow: hidden;
       text-align: center;
       a {
-        color: $g-baseFontColor;
+        display: block;
+        color: $textcolor;
         text-decoration: none;
+        transition: .5s ease;
         &:hover {
           opacity: .8;
+          img {
+            transform: scale(1.2);
+          }
         }
       }
 
@@ -355,6 +389,7 @@
       top: 0;
       right: 0;
       left: 0;
+      z-index: 1;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
@@ -381,11 +416,7 @@
     }
 
     &__h-lower {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
+      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
 
       margin-top: 3%;
       font-weight: bold;
@@ -482,6 +513,7 @@
 
     img {
       width: 100%;
+      box-sizing: border-box;
     }
 
     &__h-upper {
@@ -494,6 +526,7 @@
     &__media {
       position: relative;
       text-align: center;
+      line-height: 0;
       a {
         color: $g-baseFontColor;
         text-decoration: none;
@@ -585,6 +618,12 @@
     $_lineHeightType_caption: 1;
     margin: 0 auto;
 
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
     // width variations
     &--width-l {
       width: 100%;
@@ -600,6 +639,10 @@
 
     img {
       width: 100%;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      border-radius: 50%;
     }
 
     &__h-upper {
@@ -613,6 +656,7 @@
       position: relative;
       text-align: center;
       a {
+        display: block;
         color: $g-baseFontColor;
         text-decoration: none;
       }
@@ -626,24 +670,44 @@
       position: absolute;
       top: 0;
       right: 0;
+      bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
-        padding: 10px 5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 15px 5px 10px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
 
     &__textOnImage-lower {
       position: absolute;
+      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
-        padding: 10px 5px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 10px 5px 15px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
@@ -703,6 +767,12 @@
     $_lineHeightType_caption: 1;
     margin: 0 auto;
 
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
     // width variations
     &--width-l {
       width: 100%;
@@ -717,6 +787,8 @@
     }
 
     img {
+      box-sizing: border-box;
+      display: block;
       width: 100%;
     }
 

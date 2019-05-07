@@ -88,6 +88,7 @@
         display: block;
         width: 100%;
         height: auto;
+        border-radius: 50%;
       }
 
       a {
@@ -104,28 +105,50 @@
       position: absolute;
       top: 0;
       right: 0;
+      bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
-        padding: 10px 5px;
+        padding: 15px 5px 10px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
 
     &__textOnImage-lower {
       position: absolute;
+      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
-        padding: 10px 5px;
+        padding: 10px 5px 15px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
@@ -163,11 +186,13 @@
     margin: 0 auto;
     &__media {
       position: relative;
+      overflow: hidden;
       text-align: center;
       img {
         display: block;
         width: 100%;
         height: auto;
+        transition: .5s ease;
       }
 
       a {
@@ -176,6 +201,9 @@
         text-decoration: none;
         &:hover {
           opacity: .8;
+          img {
+            transform: scale(1.2);
+          }
         }
       }
     }
@@ -185,6 +213,7 @@
       top: 0;
       right: 0;
       left: 0;
+      z-index: 1;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
@@ -296,6 +325,7 @@
     &__nav {
       display: table;
       margin: 0 auto;
+      margin-top: 10px;
 
       @include g-font(16, 1);
       > div {
@@ -320,6 +350,7 @@
         width: 100%;
         height: auto;
         margin: 0 auto;
+        border-radius: 50%;
       }
     }
 
@@ -327,24 +358,44 @@
       position: absolute;
       top: 0;
       right: 0;
+      bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
-        padding: 10px 5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 15px 5px 10px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
 
     &__textOnImage-lower {
       position: absolute;
+      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
-        padding: 10px 5px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 10px 5px 15px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
@@ -364,6 +415,7 @@
     &__nav {
       display: table;
       margin: 0 auto;
+      margin-top: 10px;
 
       @include g-font(16, 1);
       > div {
@@ -432,6 +484,7 @@
     &__nav {
       display: table;
       margin: 0 auto;
+      margin-top: 10px;
 
       @include g-font(16, 1);
       > div {

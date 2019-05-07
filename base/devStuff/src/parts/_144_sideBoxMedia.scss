@@ -5,7 +5,9 @@
     margin: 0 auto;
     &__caption-upper {
       @include g-font(16, 1);
+      margin-bottom: 10px;
       text-align: center;
+      font-weight: bold;
     }
 
     &__main {
@@ -58,7 +60,9 @@
 
     &__caption-lower {
       @include g-font(16, 1);
+      margin-top: 10px;
       text-align: center;
+      font-weight: bold;
     }
 
     &__caption-upper,
@@ -109,6 +113,8 @@
     &__caption-upper {
       @include g-font(16, 1);
       text-align: center;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
 
     &__main {
@@ -116,8 +122,11 @@
       line-height: 0;
       text-align: center;
       img {
+        box-sizing: border-box;
         display: block;
         width: 100%;
+        margin: 0 auto;
+        border-radius: 50%;
       }
 
       a {
@@ -134,34 +143,58 @@
       top: 0;
       right: 0;
       left: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
-        padding: 10px 5px;
+        padding: 15px 5px 10px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
 
     &__textOnImage-lower {
       position: absolute;
+      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
         padding: 10px 5px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
 
     &__caption-lower {
       @include g-font(16, 1);
+      margin-top: 10px;
       text-align: center;
+      font-weight: bold;
     }
 
     &__caption-upper,
@@ -212,15 +245,21 @@
     &__caption-upper {
       @include g-font(16, 1);
       text-align: center;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
 
     &__main {
       position: relative;
       line-height: 0;
       text-align: center;
+      overflow: hidden;
       img {
+        box-sizing: border-box;
         display: block;
         width: 100%;
+        margin: 0 auto;
+        transition: .5s ease;
       }
 
       a {
@@ -228,6 +267,9 @@
         color: $g-baseFontColor;
         &:hover {
           opacity: .8;
+          img {
+            transform: scale(1.2);
+          }
         }
       }
     }
@@ -237,6 +279,7 @@
       top: 0;
       right: 0;
       left: 0;
+      z-index: 1;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
@@ -265,6 +308,8 @@
     &__caption-lower {
       @include g-font(16, 1);
       text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
     }
 
     &__caption-upper,
@@ -317,6 +362,7 @@
     &__caption-upper {
       @include g-font(16, 1);
       text-align: center;
+      margin-bottom: 10px;
     }
 
     &__main {
@@ -324,7 +370,10 @@
       line-height: 0;
       text-align: center;
       img {
+        box-sizing: border-box;
+        display: block;
         width: 100%;
+        margin: 0 auto;
       }
     }
 
@@ -357,6 +406,7 @@
     &__caption-lower {
       @include g-font(16, 1);
       text-align: center;
+      margin-top: 10px;
     }
 
     &__caption-upper,
@@ -403,6 +453,7 @@
     margin: 0 auto;
     &__caption-upper {
       @include g-font(16, 1);
+      margin-bottom: 10px;
       text-align: center;
     }
 
@@ -411,7 +462,11 @@
       line-height: 0;
       text-align: center;
       img {
+        box-sizing: border-box;
+        display: block;
         width: 100%;
+        margin: 0 auto;
+        border-radius: 50%;
       }
     }
 
@@ -419,24 +474,44 @@
       position: absolute;
       top: 0;
       right: 0;
+      bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
-        padding: 10px 5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 15px 5px 10px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
 
     &__textOnImage-lower {
       position: absolute;
+      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
         @include g-font(18,1);
         @include g-textOuterGlow;
-        padding: 10px 5px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 10px 5px 15px;
+        pointer-events: auto;
         background: rgba(255, 255, 255, .8);
       }
     }
@@ -444,6 +519,7 @@
     &__caption-lower {
       @include g-font(16, 1);
       text-align: center;
+      margin-top: 10px;
     }
 
     &__caption-upper,
@@ -491,6 +567,7 @@
     &__caption-upper {
       @include g-font(16, 1);
       text-align: center;
+      margin-bottom: 10px;
     }
 
     &__main {
@@ -498,7 +575,10 @@
       line-height: 0;
       text-align: center;
       img {
+        box-sizing: border-box;
+        display: block;
         width: 100%;
+        margin: 0 auto;
       }
     }
 
@@ -531,6 +611,7 @@
     &__caption-lower {
       @include g-font(16, 1);
       text-align: center;
+      margin-top: 10px;
     }
 
     &__caption-upper,
