@@ -1,21 +1,11 @@
 const gulp = require('gulp');
-const aigis = require('gulp-aigis');
-const sass = require('gulp-sass');
+const $ = require("gulp-load-plugins")();
 const runSequence = require('run-sequence');
-const sftp = require('gulp-sftp');
-const size = require('gulp-size');
-const imagemin = require('gulp-imagemin');
-const autoprefixer = require('gulp-autoprefixer');
-const gulpIf = require('gulp-if');
-const stylelint = require('gulp-stylelint');
-const rename = require('gulp-rename');
 const browserSync = require('browser-sync');
 const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs');
 const sassdoc = require('sassdoc');
-const sourcemaps = require('gulp-sourcemaps');
-const debug = require('gulp-debug');
 const merge = require('event-stream').merge;
 const make_html = require('./lib/make_html');
 const ssh_config = require('../ssh/ssh_config.json');
@@ -33,10 +23,10 @@ gulp.task('sass', (callback) => {
   merge(
     styleSources.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe(sourcemaps.init())
-      .pipe(sass())
-      .pipe(debug())
-      .pipe(sourcemaps.write())
+      .pipe($.sourcemaps.init())
+      .pipe($.sass())
+      .pipe($.debug())
+      .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/css'))
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
@@ -49,9 +39,9 @@ gulp.task('sass-build', () => {
   return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe(sass({outputStyle: 'compressed'}))
-      .pipe(debug())
-      .pipe(autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
+      .pipe($.sass({outputStyle: 'compressed'}))
+      .pipe($.debug())
+      .pipe($.autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
       .pipe(gulp.dest('devStuff/css'));
     })
   );
@@ -68,7 +58,7 @@ gulp.task('stylelint', () => {
 // ファイルを自動整形
 gulp.task('stylelint-fix', () => {
   return gulp.src('devStuff/src/parts/*.scss')
-    .pipe(stylelint({
+    .pipe($.stylelint({
       fix: true,
       failAfterError: false
     }))
@@ -78,7 +68,7 @@ gulp.task('stylelint-fix', () => {
 // fix時にチェックも入れると拾いきれない場合があるので分割している
 gulp.task('stylelint-check', () => {
   return gulp.src('devStuff/src/parts/*.scss')
-    .pipe(stylelint({
+    .pipe($.stylelint({
       failAfterError: false,
       reporters: [{formatter: 'string', console: true}]
     }));
@@ -90,7 +80,7 @@ gulp.task('aigis', () => {
     fs.mkdirSync('./devStuff/css');
   }
   return gulp.src('devStuff/aigis_config.yml')
-  .pipe(aigis());
+  .pipe($.aigis());
 });
 
 // webserver
@@ -141,9 +131,9 @@ const create_deploy_hush = (aVlues) => {
 
 const output_imgs = (aTheme) => {
   gulp.src('devStuff/src/imgs/**/*.+(jpg|jpeg|png|gif|svg)')
-  .pipe(size())
-  .pipe(imagemin())
-  .pipe(size())
+  .pipe($.size())
+  .pipe($.imagemin())
+  .pipe($.size())
   .pipe(gulp.dest('build/theme_materials/' + aTheme + '/imgs/'));
 }
 
@@ -160,13 +150,13 @@ const output_css = (aTheme, aValues) => {
 
 const output_rename_pc_css = (value, folder) => {
   gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
-  .pipe(rename('theme.css'))
+  .pipe($.rename('theme.css'))
   .pipe(gulp.dest('build/themes/' + folder + '/pc/'));
 }
 
 const output_rename_sp_css = (value, folder) => {
   gulp.src('devStuff/css/sp' + value.variation + '.css')
-  .pipe(rename('theme.css'))
+  .pipe($.rename('theme.css'))
   .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
 }
 
@@ -420,11 +410,11 @@ const sftp_each_themes = (folder) => {
   return gulp.src([
     'build/themes/' + folder + '/theme.css'
   ])
-  .pipe(sftp({
+  .pipe($.sftp({
     // 内容はssh_config.jsonに記載
     host: ssh_config.host_name,
     user: ssh_config.user_name,
-    key:{
+    key: {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
@@ -437,11 +427,11 @@ const upload_img = () => {
     // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
   ])
-  .pipe(sftp({
+  .pipe($.sftp({
     // 内容はssh_config.jsonに記載
     host: ssh_config.host_name,
     user: ssh_config.user_name,
-    key:{
+    key: {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
