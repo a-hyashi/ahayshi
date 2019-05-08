@@ -354,6 +354,12 @@ gulp.task('update-css', () => {
   ]);
 });
 
+gulp.task('update-imgs', () => {
+  return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
+  .pipe($.changed('./devStuff/styleguide/imgs/'))
+  .pipe(gulp.dest('./devStuff/styleguide/imgs/'));
+});
+
 gulp.task('update-parts', () => {
   return runSequence(
     'make-allparts-datajson',
@@ -451,11 +457,15 @@ gulp.task('output', () => {
   .pipe(gulp.dest('../../ACRE-theme/acre/'));
 });
 
-gulp.task('default', ['update-css'], () => {
+gulp.task('default', ['update-css', 'update-imgs'], () => {
   // ファイルが多いため部品のwatchはギブアップする
   gulp.watch(
     ['devStuff/src/**/*.s[ac]ss'],
     () => { runSequence('update-css') }
+  );
+  gulp.watch(
+    ['./devStuff/src/imgs/**/*'],
+    () => { runSequence('update-imgs') }
   );
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
