@@ -154,15 +154,13 @@ _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットし
 http://localhost:ポート番号  
 を開いてください。  
 ポート番号は3000 + コンテナ番号です  
-**例:**
-コンテナ1の場合  
+**例:** コンテナ1の場合  
 http://localhost:3001  
 
 
 クロスブラウザテストで他の端末から接続する場合は  
 `ターミナルに出力される外部URL + ポート番号`を開いてください  
-**例:**
-コンテナ1の場合  
+**例:** コンテナ1の場合  
 http://192.168.0.12:3001  
 
 
@@ -182,10 +180,27 @@ $ ./build.sh
 
 <br>
 
-### CSSを開発環境にアップロード
+### 出力した内容を開発環境にアップロード
+`theme.css`と、`theme_materials/`配下全てをアップロード
 ```sh
 $ ./upload.sh
 ```
+<br>
+
+`theme.css`をアップロード
+```sh
+$ ./upload-css.sh
+```
+<br>
+
+`theme_materials/`配下全てをアップロード
+```sh
+$ ./upload-img.sh
+```
+```
+SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materials/**
+```
+**※ 上記のエラーが出てもアップロードは正常に行われるので、無視してください**
 
 <br>
 
@@ -193,7 +208,7 @@ $ ./upload.sh
 ```sh
 $ ./output.sh
 ```
-`ACRE-theme/acre/themes/`内にCSSが出力されます。
+`ACRE-theme/acre/`内に、`themes/`と`theme_materials/`がコピーされます。
 
 <br>
 
@@ -207,16 +222,16 @@ $ ./lint.sh
 **※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意**  
 **※閉じ括弧などが足りないと不正な出力になってしまうので注意** 
 
-#### エラーの例
+#### エラーの例:
 ```sh
 devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
   2:51  ✖  Unexpected empty block               block-no-empty
  26:5   ⚠  Unexpected duplicate "#fff"          declaration-block-no-duplicate-properties
 ```
-「2行目で✖(エラー)です。ブロックの中身が空です。(ルール:`block-no-empty`)」  
+- 「2行目で✖(エラー)です。ブロックの中身が空です。(ルール:`block-no-empty`)」  
 → 空のブロックを削除してください。
 
-「26行目で⚠(警告)です。`#fff`が重複しています。(ルール:`declaration-block-no-duplicate-properties`)」  
+- 「26行目で⚠(警告)です。`#fff`が重複しています。(ルール:`declaration-block-no-duplicate-properties`)」  
 → 重複している項目を修正してください。
 
 <br>
@@ -224,22 +239,22 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
 エディタに拡張機能を入れておくとリアルタイムでエラーを発見できます。(推奨)
 - [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint) (VS code)
 - [Sublime​Linter-stylelint](https://packagecontrol.io/packages/SublimeLinter-stylelint) (Sublime Text)
-
 <br>
- 
+
 また、コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。
 
 #### 参考
 stylelintのルール一覧  
 https://stylelint.io/user-guide/rules
 
+<br>
+
 
 ### 別コンテナでの実行
 上に記載した`./up.sh`以外のコマンドは、引数の指定ができます。  
 並行して2つ以上のテーマを開発するための機能なので、1つのテーマのみ開発している場合は気にしなくて問題ありません。
 
-**例:**
-buildの場合  
+**例:** buildの場合  
 ```sh
 $ ./build.sh
 ```
@@ -260,7 +275,6 @@ $ ./build.sh all
 allを指定した場合、コンテナに関係なく全てのテーマで実行
 
 <br>
-
 <br>
 <br>
 
