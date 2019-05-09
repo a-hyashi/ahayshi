@@ -1,13 +1,10 @@
 @if $device == PC {
   .t0-b-headerUnit-siteName,
-  .t0-b-headerUnit-siteTitle,
-  .t0-b-headerUnit-siteTitle2 {
-    white-space: nowrap;
+  .t0-b-headerUnit-siteTitle {
 
     $_block: &;
-    &--has-width {
-      white-space: normal;
-    }
+
+    white-space: nowrap;
 
     &__bd {
       display: table;
@@ -17,14 +14,33 @@
         vertical-align: middle;
         text-align: left;
       }
-    }
 
-    &__bd-logo {
-      padding: 0 10px 0 0;
-      img {
-        display: block;
-        max-width: 125px;
-        height: 65px;
+      &-logo {
+        padding: 0 10px 0 0;
+        img {
+          display: block;
+          max-width: 125px;
+          height: 65px;
+        }
+      }
+
+      &-note {
+        @include g-font(16, 1);
+
+        margin: 0 0 5px;
+        padding: 0;
+        font-weight: normal;
+      }
+
+      &-siteName {
+        @include g-font(36, 1);
+
+        font-weight: bold;
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      }
+
+      &-note + &-siteName {
+        @include g-font(32, 1);
       }
     }
 
@@ -43,25 +59,6 @@
       }
     }
 
-    &__bd-note {
-      @include g-font(16, 1);
-
-      margin: 0 0 5px;
-      padding: 0;
-      font-weight: normal;
-    }
-
-    &__bd-siteName {
-      @include g-font(36, 1);
-
-      font-weight: bold;
-      font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-    }
-
-    &__bd-note + &__bd-siteName {
-      @include g-font(32, 1);
-    }
-
     &__ft {
       @include g-font(16, 1);
 
@@ -70,31 +67,80 @@
   }
 
   .t0-b-headerUnit-siteTitle2 {
+
+    $_block: &;
+
+    white-space: nowrap;
     margin: 0 auto;
     display: table;
-    &__bd > div {
-      display: table;
-      text-align: center;
+
+    &__bd {
+      font-weight: bold;
+      > div {
+        display: table;
+        text-align: center;
+      }
+
+      &-logo {
+        margin: 0 auto;
+        padding: 0;
+        img {
+          display: block;
+          max-width: 125px;
+          height: 65px;
+        }
+      }
+
+      &-textCol {
+        padding-top: 10px;
+      }
+
+      &-note {
+        @include g-font(16, 1);
+
+        margin: 0 0 5px;
+        padding: 0;
+        font-weight: normal;
+      }
+
+      &-siteName {
+        @include g-font(36, 1);
+
+        font-weight: bold;
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      }
+
+      &-note + &-siteName {
+        @include g-font(32, 1);
+      }
     }
 
-    &__bd-logo {
-      margin: 0 auto;
-      padding: 0;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $hovercolor;
+        }
+
+        img {
+          opacity: .8;
+        }
+      }
     }
 
-    &__bd-textCol {
-      padding-top: 10px;
+    &__ft {
+      @include g-font(16, 1);
+
+      padding: 10px 0 0;
     }
   }
 }
 
 @if $device == SP {
   .t0-b-headerUnit-siteName,
-  .t0-b-headerUnit-siteTitle,
-  .t0-b-headerUnit-siteTitle2 {
-    &--has-width {
-      white-space: normal;
-    }
+  .t0-b-headerUnit-siteTitle {
 
     &__bd {
       display: table;
@@ -103,14 +149,31 @@
         vertical-align: middle;
         text-align: left;
       }
-    }
 
-    &__bd-logo {
-      padding: 0 10px 0 0;
-      img {
-        display: block;
-        height: 40px;
-        max-width: 80px;
+      &-logo {
+        padding: 0 10px 0 0;
+        img {
+          display: block;
+          height: 40px;
+          max-width: 80px;
+        }
+      }
+
+      &-textCol {
+        @include g-font(14, 1);
+      }
+
+      &-note {
+        @include g-font(14, 1);
+
+        padding: 0 0 5px;
+      }
+
+      &-siteName {
+        @include g-font(18, 1);
+
+        font-weight: bold;
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
       }
     }
 
@@ -119,21 +182,58 @@
       text-decoration: none;
     }
 
-    &__bd-textCol {
-      @include g-font(14, 1);
-    }
-
-    &__bd-note {
+    &__ft {
       @include g-font(14, 1);
 
-      padding: 0 0 5px;
+      padding: 10px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+
+    margin: 0 auto;
+    display: table;
+
+    &__bd {
+      display: table;
+      > div {
+        display: table;
+        text-align: center;
+      }
+
+      &-logo {
+        margin: 0 auto;
+        padding: 0;
+        img {
+          display: block;
+          height: 40px;
+          max-width: 80px;
+        }
+      }
+
+      &-textCol {
+        @include g-font(14, 1);
+
+        padding-top: 10px;
+      }
+
+      &-note {
+        @include g-font(14, 1);
+
+        padding: 0 0 5px;
+      }
+
+      &-siteName {
+        @include g-font(18, 1);
+
+        font-weight: bold;
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      }
     }
 
-    &__bd-siteName {
-      @include g-font(18, 1);
-
-      font-weight: bold;
-      font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+    a {
+      color: $textcolor;
+      text-decoration: none;
     }
 
     &__ft {
@@ -146,24 +246,6 @@
   .t0-b-headerUnit-siteTitle {
     &__ft {
       text-align: left;
-    }
-  }
-
-  .t0-b-headerUnit-siteTitle2 {
-    margin: 0 auto;
-    display: table;
-    &__bd > div {
-      display: table;
-      text-align: center;
-    }
-
-    &__bd-logo {
-      margin: 0 auto;
-      padding: 0;
-    }
-
-    &__bd-textCol {
-      padding-top: 10px;
     }
   }
 }
