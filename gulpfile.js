@@ -463,10 +463,6 @@ gulp.task('default', ['update-css', 'update-imgs'], () => {
     ['devStuff/src/**/*.s[ac]ss'],
     () => { runSequence('update-css') }
   );
-  gulp.watch(
-    ['./devStuff/src/imgs/**/*'],
-    () => { runSequence('update-imgs') }
-  );
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
   gulp.watch(
