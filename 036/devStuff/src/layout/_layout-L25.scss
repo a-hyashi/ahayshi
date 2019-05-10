@@ -17,34 +17,27 @@ $areaSubWidth: 320px;
   margin-right: auto;
   margin-left: auto;
   *zoom: 1;
-  &::before,
-  &::after {
-    display: table;
-    content: '';
-  }
-
-  &::after {
-    clear: both;
-  }
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
 }
 
 .area-main {
   position: relative;
   z-index: 0;
   box-sizing: border-box;
-  float: right;
   width: $areaMainWidth;
   padding: 0 0 50px;
 }
 
 .area-sub {
-  position: relative;
-  z-index: 11;
   box-sizing: border-box;
-  float: left;
   width: $areaSubWidth;
   min-height: 100px;
   padding: 0 50px 50px 0;
+  position: relative;
+  //R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  z-index: 11;
 }
 
 .area-footer {
@@ -53,5 +46,8 @@ $areaSubWidth: 320px;
   z-index: 0;
   //フッター最上部のフッターメニューの背景が伸びないための指定
   padding-top: 1px;
-  background: $g-baseBackgroundColor;
+  background-image: url('../imgs/area-all/4.png'), url('../imgs/area-all/5.png');
+  background-position: left top, left top;
+  background-repeat: no-repeat, repeat-y;
+  background-size: 100% 96px, 100% 1px;
 }
