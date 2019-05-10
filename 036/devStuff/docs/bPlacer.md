@@ -255,6 +255,14 @@
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|2|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle||0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|2|0||0px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation1of8}|6%||20px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation2of8}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation3of8}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation4of8}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation5of8}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation6of8}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation7of8}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation8of8}|8%||45px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||25px|
