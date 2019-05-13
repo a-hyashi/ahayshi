@@ -1,31 +1,75 @@
 @if $device == PC {
   .t0-b-headerUnit-miniCol {
-    $_block: &;
+
     display: table;
     white-space: nowrap;
+    padding: 10px 20px 15px;
+    box-sizing: border-box;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, left bottom, right bottom, right top;
+    background-image: url("../imgs/t0-b-headerUnit-miniCol/bg.png"), url("../imgs/t0-b-headerUnit-miniCol/bg2.png"), url("../imgs/t0-b-headerUnit-miniCol/bg3.png"), url("../imgs/t0-b-headerUnit-miniCol/bg4.png");
+    position: relative;
+    * {
+      position: relative;
+      z-index: 2;
+    }
 
-    a {
-      color: inherit;
-      &:hover {
-        color: $hovercolor;
-      }
+    &::before {
+      content: "";
+      pointer-events: none;
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-image: url("../imgs/t0-b-headerUnit-miniCol/bg5.png"), url("../imgs/t0-b-headerUnit-miniCol/bg7.png");
+      position: absolute;
+      top: 22px;
+      bottom: 22px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      pointer-events: none;
+      background-repeat: repeat-x, repeat-x;
+      background-position: left bottom, left top;
+      background-image: url("../imgs/t0-b-headerUnit-miniCol/bg6.png"), url("../imgs/t0-b-headerUnit-miniCol/bg8.png");
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 22px;
+      right: 22px;
+      z-index: 1;
     }
 
     &__hd {
       display: table-row;
+      font-weight: bold;
+      background-color: #f9f1cd;
       > div {
         display: table-cell;
-        text-align: center;
+
         @include g-font(16, 1);
+
+        text-shadow: $textshadow2;
+        text-align: center;
+        background-repeat: no-repeat, no-repeat, repeat-x;
+        background-position: left center, right center, left bottom;
+        background-image: url("../imgs/t0-b-headerUnit-miniCol/2.png"), url("../imgs/t0-b-headerUnit-miniCol/3.png"), url("../imgs/t0-b-headerUnit-miniCol/1.png");
+        padding: 5px 50px 9px;
       }
     }
 
     &__bd {
       display: table-row;
+      background-color: #f9f1cd;
       > div {
         display: table-cell;
+
+        @include g-font(14, 1);
+
         text-align: center;
-        @include g-font(16, 1);
+        padding: 8px 10px 0;
       }
     }
   }
@@ -33,30 +77,75 @@
 
 @if $device == SP {
   .t0-b-headerUnit-miniCol {
-    $_block: &;
-    box-sizing: border-box;
-    display: table;
     width: 100%;
+    display: table;
+    padding: 10px 20px 15px;
+    box-sizing: border-box;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left top, left bottom, right bottom, right top;
+    background-image: url("../imgs/t0-b-headerUnit-miniCol/bg.png"), url("../imgs/t0-b-headerUnit-miniCol/bg2.png"), url("../imgs/t0-b-headerUnit-miniCol/bg3.png"), url("../imgs/t0-b-headerUnit-miniCol/bg4.png");
+    position: relative;
 
-    a {
-        color: inherit;
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      pointer-events: none;
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-image: url("../imgs/t0-b-headerUnit-miniCol/bg5.png"), url("../imgs/t0-b-headerUnit-miniCol/bg7.png");
+      position: absolute;
+      top: 22px;
+      bottom: 22px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      pointer-events: none;
+      background-repeat: repeat-x, repeat-x;
+      background-position: left bottom, left top;
+      background-image: url("../imgs/t0-b-headerUnit-miniCol/bg6.png"), url("../imgs/t0-b-headerUnit-miniCol/bg8.png");
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 22px;
+      right: 22px;
+      z-index: 1;
     }
 
     &__hd {
       display: table-row;
+      background-color: #f9f1cd;
       > div {
         display: table-cell;
-        text-align: center;
+
         @include g-font(16, 1);
+
+        text-shadow: $textshadow2;
+        text-align: center;
+        background-repeat: repeat-x;
+        background-position: left bottom;
+        background-image: url("../imgs/t0-b-headerUnit-miniCol/1.png");
+        padding: 5px 10px 9px;
       }
     }
 
     &__bd {
       display: table-row;
+      background-color: #f9f1cd;
       > div {
         display: table-cell;
-        text-align: center;
+
         @include g-font(16, 1);
+
+        text-align: center;
+        padding: 8px 10px 0;
       }
     }
   }
