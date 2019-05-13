@@ -1,48 +1,78 @@
 @if $device == PC {
   .t0-b-sideBoxIconText-tel {
     $_block: &;
-
+    color: #b38f06;
     > div {
       display: inline-block;
-      text-align: center;
       vertical-align: top;
+      text-align: center;
     }
 
     &__ruby {
       @include g-font(14, 1);
+      margin-bottom: 3px;
       text-align: right;
     }
 
     &__bd {
-      display: table;
-      align-items: center;
-      font-weight: bold;
-      line-height: 1;
+      @include g-font(32, 1);
+      margin-top: 7px;
       text-align: center;
-      @if $layout == 'L30' or $layout == 'R30' {
-        @include g-font(30, 1); // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
-      } @else {
-        @include g-font(26, 1); // L25かR25で番号が折り返さない最大サイズ
-      }
+      font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+      line-height: 1;
+    }
+
+    &__ruby + &__bd {
+      margin-top: 0;
     }
 
     &__icon {
-      display: inline-block;
-      width: 22px;
       margin-bottom: 0;
+      display: inline-block;
       vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      width: 34px;
+      span {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+
+      & + span {
+        display: inline;
+        margin-bottom: 0;
+        font-size: 80%;
+        vertical-align: top;
+      }
     }
 
-    &__tel {
+    #{$_block}__tel {
+      height: $_tel_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/tel.png");
+      background-size: ($_tel_wd / 1.81) ($_tel_hg / 1.81);
+      margin-top: -20px;
     }
 
-    &__fax {
+    #{$_block}__fax {
+      height: $_fax_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/fax.png");
+      background-size: ($_fax_wd / 1.81) ($_fax_hg / 1.81);
+      margin-top: -16px;
     }
 
-    &__free {
+    #{$_block}__free {
+      height: $_free_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/free.png");
+      background-size: ($_free_wd / 1.81) ($_free_hg / 1.81);
+      margin-top: -16px;
     }
 
-    &__cell {
+    #{$_block}__cell {
+      height: $_cell_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/cell.png");
+      background-size: ($_cell_wd / 1.81) ($_cell_hg / 1.81);
+      margin-top: -16px;
+      background-position: 6px 0;
     }
 
     &--align-l {
@@ -64,48 +94,73 @@
     $_block: &;
 
     width: 95%;
-    padding: 10px 0;
     margin: 0 auto;
-    word-break: break-all;
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
+    background: linear-gradient(#fff, #f6f6f6, #eee);
     border: 1px solid #ccc;
     border-radius: 8px;
-
+    padding: 10px;
+    word-break: break-all;
     a {
       text-decoration: none;
     }
 
-    &__ruby {
+    > div {
+      vertical-align: top;
       text-align: center;
+    }
+
+    &__ruby {
       @include g-font(12, 1);
+      text-align: center;
+      color: #555;
     }
 
     &__bd {
-      color: #f00;
+      @include g-font(14, 1);
       text-align: center;
-      @include g-font(22, 1);
+      color: #f00;
       > span {
         vertical-align: middle;
       }
     }
 
     &__icon {
-      display: inline-block;
       padding: 0 3px 0 0;
-      text-align: center;
+      background-repeat: no-repeat;
+      display: inline-block;
       vertical-align: top;
+      text-align: center;
     }
 
     &__tel {
+      width: $_tel_wd / 3.29;
+      height: $_tel_hg / 3.29;
+      background-image: url("../imgs/t0-b-iconText/tel.png");
+      background-size: ($_tel_wd / 3.29) ($_tel_hg / 3.29);
+      margin-top: 0;
     }
 
     &__fax {
+      width: $_fax_wd / 3.29;
+      height: $_fax_hg / 3.29;
+      background-image: url("../imgs/t0-b-iconText/fax.png");
+      background-size: ($_fax_wd / 3.29) ($_fax_hg / 3.29);
+      margin-top: -1px;
     }
 
     &__free {
+      width: $_free_wd / 3.29;
+      height: $_free_hg / 3.29;
+      background-image: url("../imgs/t0-b-iconText/free.png");
+      background-size: ($_free_wd / 3.29) ($_free_hg / 3.29);
+      margin-top: -1px;
     }
 
     &__cell {
+      width: $_cell_wd / 3.29;
+      height: $_cell_hg / 3.29;
+      background-image: url("../imgs/t0-b-iconText/cell.png");
+      background-size: ($_cell_wd / 3.29) ($_cell_hg / 3.29);
     }
   }
 }

@@ -38,7 +38,8 @@
 |01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|#{$variation1of3}|4%||10px|
 |01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|#{$variation2of3}|4%||10px|
 |01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|#{$variation3of3}|4%||10px|
-|01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H||2%||10px|
+|01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H|#{$variation1of2}|2%||10px|
+|01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H|#{$variation2of2}|2%||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation1of2}|0||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|#{$variation2of2}|0||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|3|0||10px|
