@@ -1,48 +1,62 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 28;
+    $_fontSizePx: 24;
     $_fontSizeDifference: 4;
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
     $_lineHeightType: 1;
 
+    position: relative;
+    background-image: url("../imgs/t0-b-lv2H-faqIcon/bg.png");
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    padding-bottom: 7px;
     > div {
       width: 100%;
+      display: table;
     }
 
     a {
+      position: relative;
+      display: table-cell;
       color: $textcolor;
       text-decoration: none;
       vertical-align: middle;
       &:hover {
         color: $hovercolor;
       }
+
+      #{$_block}__h {
+        display: block;
+      }
     }
 
     &__iconPlacer {
-    }
-
-    &__icon {
+      display: table-cell;
+      background-image: url("../imgs/t0-b-lv2H-faqIcon/1.png");
+      background-position: 1px 50%;
+      background-repeat: no-repeat;
+      width: 112px;
+      height: 33px;
+      vertical-align: middle;
     }
 
     &__h {
+      position: relative;
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      vertical-align: middle;
+      display: table-cell;
+      padding: 0 0 1px 10px;
     }
 
     &--size-1 {
-      #{$_block}__iconPlacer {
-      }
-
       #{$_block}__h {
         @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
       }
     }
 
     &--size-3 {
-      #{$_block}__iconPlacer {
-      }
-
       #{$_block}__h {
         @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
       }
@@ -65,20 +79,36 @@
 @if $device == SP {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 20;
+    $_fontSizePx: 18;
     $_lineHeightType: 1;
+    margin: 0 auto;
     position: relative;
-      > div {
+
+    background-image: url("../imgs/t0-b-lv2H-faqIcon/bg.png");
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    padding-bottom: 7px;
+    > div {
       display: table;
       width: 100%;
     }
 
     &__iconPlacer {
+      display: table-cell;
+      background: url("../imgs/t0-b-lv2H-faqIcon/1.png");
+      background-position: 1px 50%;
+      background-repeat: no-repeat;
+      width: 85px;
+      height: 25px;
+      background-size: 85px 25px;
+      vertical-align: middle;
     }
 
     a {
-      color: $textcolor;
+      position: relative;
       text-decoration: none;
+      color: $textcolor;
+      display: table-cell;
       vertical-align: middle;
       #{$_block}__h {
         display: block;
@@ -86,7 +116,11 @@
     }
 
     &__h {
+      position: relative;
       @include g-font($_fontSizePx, $_lineHeightType);
+      vertical-align: middle;
+      display: table-cell;
+      padding: 0 0 2px 8px;
     }
 
     &--align-l {

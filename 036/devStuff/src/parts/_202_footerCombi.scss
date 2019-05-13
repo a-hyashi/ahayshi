@@ -1,79 +1,44 @@
 @if $device == PC {
-  .t0-b-footerCombi#{$variation1of2} {
-    $_width_content: 1100px;
-
+  .t0-b-footerCombi {
+    $_width_content: 1060px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
     > div {
-      display: table;
       width: $_width_content;
-      padding: 30px 0 10px;
+      padding: 27px 0 10px;
       margin: 0 auto;
-    }
-
-    &__col1 {
-      display: table-cell;
-      vertical-align: top;
-    }
-
-    &__col2,
-    &__col3 {
-      display: table-cell;
-      padding-left: 30px;
-      vertical-align: top;
-    }
-  }
-
-  .t0-b-footerCombi#{$variation2of2} {
-    $_width_content: 1100px;
-
-    > div {
       display: table;
-      width: $_width_content;
-      padding: 30px 0 10px;
-      margin: 0 auto;
+      > div {
+        display: table-cell;
+        vertical-align: top;
+      }
     }
 
-    &__col1 {
-      display: table-cell;
-      vertical-align: top;
+    &__col2 {
+      padding-left: $_colSpacing;
     }
 
-    &__col2,
     &__col3 {
-      display: table-cell;
-      padding-left: 30px;
-      vertical-align: top;
+      padding-left: $_colSpacing;
     }
   }
 }
 
 @if $device == SP {
-  .t0-b-footerCombi#{$variation1of2} {
-    padding-top: 20px;
+  .t0-b-footerCombi {
+    margin: 0 -15px;
+    padding: 30px 15px;
 
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
     > div {
       width: 100%;
       margin: 0 auto;
+      > div {
+        vertical-align: top;
+      }
     }
 
-    &__col1,
-    &__col2,
-    &__col3 {
-      vertical-align: top;
-    }
-  }
-
-  .t0-b-footerCombi#{$variation2of2} {
-    padding-top: 20px;
-
-    > div {
+    &__col1 {
       width: 100%;
-      margin: 0 auto;
-    }
-
-    &__col1,
-    &__col2,
-    &__col3 {
-      vertical-align: top;
     }
   }
 }
