@@ -12,14 +12,18 @@
     > a {
       display: table;
       text-decoration: underline;
-      box-sizing: border-box;
       color: #e36f94;
+      #{$_block}__inner div:hover {
+        color: $hovercolor;
+        text-decoration: underline;
+      }
     }
 
     &__inner {
       display: inline-block;
       color: #e36f94;
       text-decoration: underline;
+      box-sizing: border-box;
       > * {
         display: table-cell;
         vertical-align: middle;
@@ -38,108 +42,80 @@
         padding: 0 0 0 5px;
         font-weight: bold;
       }
-
-      a & {
-        display: table;
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          background-image: url("../imgs/t0-b-navItem/1.png");
-          background-position: 0 50%;
-          background-repeat: no-repeat;
-        }
-
-        > div {
-          padding: 0 0 0 5px;
-          font-weight: bold;
-          &:hover {
-            color: $hovercolor;
-            text-decoration: underline;
-          }
-        }
-      }
     }
     // size
     &--size-1 {
-      > a > #{$_block}__inner,
-      > #{$_block}__inner {
+      #{$_block}__inner {
         span {
           width: 20px;
           height: 20px;
           background-size: 20px 20px;
         }
-      }
 
-      #{$_block}__inner > div {
-        padding: 0 0 0 5px;
-        @include g-font($_fontSizePx_ss, $_lineHeightType);
+        div {
+          padding: 0 0 0 5px;
+          @include g-font($_fontSizePx_ss, $_lineHeightType);
+        }
       }
     }
 
     &--size-2 {
-      > a > #{$_block}__inner,
-      > #{$_block}__inner {
+      #{$_block}__inner {
         span {
           width: 22px;
           height: 22px;
           background-size: 22px 22px;
         }
-      }
 
-      #{$_block}__inner > div {
-        padding: 0 0 0 6px;
-        @include g-font($_fontSizePx_s, $_lineHeightType);
+        div {
+          padding: 0 0 0 6px;
+          @include g-font($_fontSizePx_s, $_lineHeightType);
+        }
       }
     }
 
     &--size-3 {
-      > a > #{$_block}__inner,
-      > #{$_block}__inner {
+      #{$_block}__inner {
         span {
           width: 29px;
           height: 29px;
           background-size: 29px 29px;
         }
-      }
 
-      #{$_block}__inner > div {
-        padding: 0 0 0 7px;
-        @include g-font($_fontSizePx_m, $_lineHeightType);
+        div {
+          padding: 0 0 0 7px;
+          @include g-font($_fontSizePx_m, $_lineHeightType);
+        }
       }
     }
 
     &--size-4 {
-      > a > #{$_block}__inner,
-      > #{$_block}__inner {
+      #{$_block}__inner {
         span {
           width: 34px;
           height: 34px;
           background-size: 34px 34px;
         }
-      }
 
-      #{$_block}__inner > div {
-        padding: 0 0 0 8px;
-        @include g-font($_fontSizePx_l, $_lineHeightType);
+        #{$_block}__inner > div {
+          padding: 0 0 0 8px;
+          @include g-font($_fontSizePx_l, $_lineHeightType);
+        }
       }
     }
 
     &--size-5 {
-      > a > #{$_block}__inner,
-      > #{$_block}__inner {
+      #{$_block}__inner {
         span {
           width: 42px;
           height: 42px;
           background-size: 42px 42px;
         }
-      }
 
-      #{$_block}__inner > div {
-        padding: 0 0 0 9px;
-        @include g-font($_fontSizePx_ll, $_lineHeightType);
+        div {
+          padding: 0 0 0 9px;
+          @include g-font($_fontSizePx_ll, $_lineHeightType);
+        }
       }
     }
 
@@ -174,16 +150,11 @@
     $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
-    > a {
-      display: table;
-      margin: 0 auto;
-      box-sizing: border-box;
-      color: #e36f94;
-    }
 
     &__inner {
       display: table;
       margin: 0 auto;
+      box-sizing: border-box;
       color: #e36f94;
       > * {
         display: table-cell;
@@ -206,32 +177,6 @@
 
         font-weight: bold;
         text-decoration: underline;
-      }
-
-      a & {
-        display: table;
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          width: 20px;
-          height: 20px;
-          background-image: url("../imgs/t0-b-navItem/1.png");
-          background-position: 0 50%;
-          background-repeat: no-repeat;
-          background-size: 20px 20px;
-        }
-
-        > div {
-          padding: 0 0 0 5px;
-
-          @include g-font($_fontSizePx,$_lineHeightType);
-
-          font-weight: bold;
-          text-decoration: underline;
-        }
       }
     }
   }
