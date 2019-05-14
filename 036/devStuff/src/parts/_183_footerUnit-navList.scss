@@ -3,6 +3,7 @@
 
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    white-space: nowrap;
     $_color_table_border: #8e6e3b;
     $_color_table_th_bg: #f9f4df;
     $_color_table_td_typo: #8e6e3b;
@@ -75,52 +76,6 @@
       margin-top: 0;
     }
 
-    table {
-      width: 100%;
-      margin-top: $_blockSpacing;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th, td {
-        @include g-font(14, 1);
-
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
-        padding: 10px;
-        text-align: left;
-        vertical-align: middle;
-        background: #fff;
-      }
-
-      ul, ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
-        }
-      }
-
-      p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        border-bottom: 1px solid $_color_table_border;
-        background: $_color_table_th_bg;
-      }
-    }
-
-    > table:first-child {
-      margin-top: 0;
-    }
-
-    white-space: nowrap;
-
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     ul {
       a {
         text-decoration: none;
@@ -136,7 +91,9 @@
         @include g-font(16, 1);
 
         margin: 10px 0 0;
-        background: #{image-url("t0-b-footerUnit-navList/1.png")} 0 5px no-repeat;
+        background-image: url("../imgs/t0-b-footerUnit-navList/1.png");
+        background-position: 0 5px;
+        background-repeat: no-repeat;
         padding: 0 0 0 14px;
         &:first-child {
           margin-top: 0;
@@ -156,22 +113,57 @@
     }
 
     table {
-      ul {
-        li {
-          background: #{image-url("t0-b-footerUnit-navList/1.png")} 0 3px no-repeat;
-          padding: 0 0 0 14px;
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
         }
-      }
-    }
-
-    table {
-      th {
-        background: #e1f3f0;
       }
 
       th, td {
+        @include g-font(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
         padding: 10px 5px;
+        text-align: left;
+        vertical-align: middle;
       }
+
+      th {
+        border-bottom: 1px solid $_color_table_border;
+        background-color: #e1f3f0;
+      }
+
+      td {
+        background-color: #fff;
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      ul {
+        li {
+          background-image: url("../imgs/t0-b-footerUnit-navList/1.png");
+          background-position: 0 3px;
+          background-repeat: no-repeat;
+          padding: 0 0 0 14px;
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
     }
   }
 }
