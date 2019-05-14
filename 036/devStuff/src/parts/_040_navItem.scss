@@ -1,6 +1,6 @@
 @if $device == PC {
   .t0-b-navItem {
-    $_block: ".t0-b-navItem";
+    $_block: &;
     $_fontSizePx: 20;
     $_fontSizeDifference: 2;
     $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
@@ -14,31 +14,6 @@
       text-decoration: underline;
       box-sizing: border-box;
       color: #e36f94;
-      > #{$_block}__inner {
-        display: table;
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          width: 20px;
-          height: 20px;
-          background-image: url("../imgs/t0-b-navItem/1.png");
-          background-position: 0 50%;
-          background-repeat: no-repeat;
-          background-size: 20px 20px;
-        }
-
-        > div {
-          padding: 0 0 0 5px;
-          font-weight: bold;
-          &:hover {
-            color: $hovercolor;
-            text-decoration: underline;
-          }
-        }
-      }
     }
 
     &__inner {
@@ -62,6 +37,29 @@
       > div {
         padding: 0 0 0 5px;
         font-weight: bold;
+      }
+
+      a & {
+        display: table;
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > span {
+          background-image: url("../imgs/t0-b-navItem/1.png");
+          background-position: 0 50%;
+          background-repeat: no-repeat;
+        }
+
+        > div {
+          padding: 0 0 0 5px;
+          font-weight: bold;
+          &:hover {
+            color: $hovercolor;
+            text-decoration: underline;
+          }
+        }
       }
     }
     // size
@@ -173,7 +171,7 @@
 
 @if $device == SP {
   .t0-b-navItem {
-    $_block: ".t0-b-navItem";
+    $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
     > a {
@@ -181,31 +179,6 @@
       margin: 0 auto;
       box-sizing: border-box;
       color: #e36f94;
-      > #{$_block}__inner {
-        display: table;
-        > * {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > span {
-          width: 20px;
-          height: 20px;
-          background-image: url("../imgs/t0-b-navItem/1.png");
-          background-position: 0 50%;
-          background-repeat: no-repeat;
-          background-size: 20px 20px;
-        }
-
-        > div {
-          padding: 0 0 0 5px;
-
-          @include g-font($_fontSizePx,$_lineHeightType);
-
-          font-weight: bold;
-          text-decoration: underline;
-        }
-      }
     }
 
     &__inner {
@@ -233,6 +206,32 @@
 
         font-weight: bold;
         text-decoration: underline;
+      }
+
+      a & {
+        display: table;
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > span {
+          width: 20px;
+          height: 20px;
+          background-image: url("../imgs/t0-b-navItem/1.png");
+          background-position: 0 50%;
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+        }
+
+        > div {
+          padding: 0 0 0 5px;
+
+          @include g-font($_fontSizePx,$_lineHeightType);
+
+          font-weight: bold;
+          text-decoration: underline;
+        }
       }
     }
   }
