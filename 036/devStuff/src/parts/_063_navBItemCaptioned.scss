@@ -10,28 +10,13 @@
     > a {
       display: block;
       text-decoration: none;
-      box-sizing: border-box;
       color: $textcolor;
-      background-color: #ffd6d4;
-      box-shadow: 2px 0 2px #bedfd9, -1px -1px 1px #bedfd9, 0 3px 3px #bedfd9;
-      border-radius: 17px;
-      position: relative;
-      width: 100%;
       &:hover {
         opacity: .8;
       }
-
-      > div {
-        background: url("../imgs/t0-b-navItem/5.png");
-        background-position: 16px center;
-        background-repeat: no-repeat;
-        > div {
-          display: inline-block;
-        }
-      }
     }
 
-    > div {
+    &__inner {
       display: block;
       text-decoration: none;
       box-sizing: border-box;
@@ -62,8 +47,7 @@
     }
 
     &--size-1 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 15px 0 14px;
         background-size: 20px 20px;
       }
@@ -82,8 +66,7 @@
     }
 
     &--size-2 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 18px 0 17px;
         background-size: 25px 25px;
       }
@@ -102,8 +85,7 @@
     }
 
     &--size-3 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 20px 0 19px;
         background-size: 25px 25px;
       }
@@ -122,8 +104,7 @@
     }
 
     &--size-4 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 23px 0 22px;
         background-size: 30px 30px;
       }
@@ -142,8 +123,7 @@
     }
 
     &--size-5 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 26px 0 25px;
         background-size: 30px 30px;
       }
@@ -198,47 +178,13 @@
     > a {
       display: block;
       text-decoration: none;
-      box-sizing: border-box;
       color: $textcolor;
-      box-shadow: 2px 0 2px #bedfd9, -1px -1px 1px #bedfd9, 0 3px 3px #bedfd9;
-      border-radius: 12px;
-      border: 3px solid #fff;
-      position: relative;
-      z-index: 2;
-      width: 100%;
       &:hover {
         opacity: .8;
       }
-
-      > div {
-        background-image: url("../imgs/t0-b-navItem/6.png"), url("../imgs/t0-b-navItem/bg.png");
-        background-repeat: no-repeat, repeat;
-        background-position: 16px center, 0 0;
-        border-radius: 12px;
-        position: relative;
-        z-index: 2;
-        &::before {
-          content: "";
-          position: absolute;
-          pointer-events: none;
-          border-radius: 12px;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          background-image: url("../imgs/t0-b-navItem/bg2.png"), url("../imgs/t0-b-navItem/bg2.png");
-          background-repeat: repeat-x, repeat-x;
-          background-position: 0 4px, left 0 bottom 3px;
-          z-index: 1;
-        }
-
-        > div {
-          display: inline-block;
-        }
-      }
     }
 
-    > div {
+    &__inner {
       display: block;
       text-decoration: none;
       box-sizing: border-box;
@@ -289,8 +235,7 @@
     }
 
     &--size-1 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 15px 0 14px;
         background-size: 18px 22px, 13px 1px;
       }
@@ -309,8 +254,7 @@
     }
 
     &--size-2 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 18px 0 17px;
         background-size: 21px 26px, 14px 1px;
       }
@@ -329,8 +273,7 @@
     }
 
     &--size-3 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 20px 0 19px;
         background-size: 22px 28px, 16px 1px;
       }
@@ -349,8 +292,7 @@
     }
 
     &--size-4 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 23px 0 22px;
         background-size: 24px 31px, 19px 1px;
         &::before {
@@ -372,8 +314,7 @@
     }
 
     &--size-5 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         padding: 26px 0 25px;
         background-size: 25px 33px, 20px 1px;
         &::before {
@@ -447,18 +388,21 @@
     > a {
       text-decoration: none;
       color: $textcolor;
+    }
+
+    &__inner {
+      text-align: center;
+      width: 100% !important;
+      box-sizing: border-box;
+      min-height: 44px;
       > div {
-        text-align: center;
-        width: 100% !important;
+        padding: 12px 10px;
+        margin-right: 10%;
       }
     }
 
-    > div {
-      text-align: center;
-      width: 100% !important;
-    }
-
     &__caption {
+      @include g-font(14, 1);
       a {
         color: $textcolor;
         text-decoration: none;
@@ -466,29 +410,8 @@
     }
 
     &__main {
+      @include g-font(16, 1);
       font-weight: bold;
-    }
-
-    &--size-1,
-    &--size-2,
-    &--size-3,
-    &--size-4,
-    &--size-5 {
-      > a > div,
-      > div {
-        > div {
-          padding: 12px 10px;
-          margin-right: 10%;
-        }
-      }
-
-      #{$_block}__main {
-        @include g-font(16, 1);
-      }
-
-      #{$_block}__caption {
-        @include g-font(14, 1);
-      }
     }
   }
 
@@ -507,47 +430,29 @@
     > a {
       text-decoration: none;
       color: $textcolor;
+    }
+
+    &__inner {
+      text-align: center;
+      width: 100% !important;
+      box-sizing: border-box;
+      min-height: 44px;
       > div {
-        text-align: center;
-        width: 100% !important;
+        padding: 12px 10px;
+        margin-right: 10%;
       }
     }
 
-    > div {
-      text-align: center;
-      width: 100% !important;
-    }
-
     &__main {
+      @include g-font(16, 1);
       font-weight: bold;
     }
 
     &__caption {
+      @include g-font(14, 1);
       a {
         color: $textcolor;
         text-decoration: none;
-      }
-    }
-
-    &--size-1,
-    &--size-2,
-    &--size-3,
-    &--size-4,
-    &--size-5 {
-      > a > div,
-      > div {
-        > div {
-          padding: 12px 10px;
-          margin-right: 10%;
-        }
-      }
-
-      #{$_block}__main {
-        @include g-font(16, 1);
-      }
-
-      #{$_block}__caption {
-        @include g-font(14, 1);
       }
     }
   }
