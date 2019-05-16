@@ -20,21 +20,6 @@
     $_lineHeightType: 1;
 
     display: table;
-    &--align-l {
-      margin: 0 auto 0 0;
-      text-align: left;
-    }
-
-    &--align-c {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    &--align-r {
-      margin: 0 0 0 auto;
-      text-align: right;
-    }
-
     &__inner {
       box-sizing: border-box;
       display: table;
@@ -46,31 +31,6 @@
       > div {
         display: table-cell;
         vertical-align: middle;
-      }
-
-      #{$_block}--size-1 & {
-        > span {
-        }
-      }
-
-      #{$_block}--size-2 & {
-        > span {
-        }
-      }
-
-      #{$_block}--size-3 & {
-        > span {
-        }
-      }
-
-      #{$_block}--size-4 & {
-        > span {
-        }
-      }
-
-      #{$_block}--size-5 & {
-        > span {
-        }
       }
     }
 
@@ -92,53 +52,104 @@
       a:hover & {
         color: $hovercolor;
       }
-
-      #{$_block}--size-1 & {
-        @include g-font($_fontSizePx_main_ss, $_lineHeightType);
-      }
-
-      #{$_block}--size-2 & {
-        @include g-font($_fontSizePx_main_s, $_lineHeightType);
-      }
-
-      #{$_block}--size-3 & {
-        @include g-font($_fontSizePx_main_m, $_lineHeightType);
-      }
-
-      #{$_block}--size-4 & {
-        @include g-font($_fontSizePx_main_l, $_lineHeightType);
-      }
-
-      #{$_block}--size-5 & {
-        @include g-font($_fontSizePx_main_ll, $_lineHeightType);
-      }
     }
 
     &__caption {
       padding: 5px 0 0;
-      #{$_block}--size-1 & {
-        @include g-font($_fontSizePx_caption_ss, $_lineHeightType);
-      }
-
-      #{$_block}--size-2 & {
-        @include g-font($_fontSizePx_caption_s, $_lineHeightType);
-      }
-
-      #{$_block}--size-3 & {
-        @include g-font($_fontSizePx_caption_m, $_lineHeightType);
-      }
-
-      #{$_block}--size-4 & {
-        @include g-font($_fontSizePx_caption_l, $_lineHeightType);
-      }
-
-      #{$_block}--size-5 & {
-        @include g-font($_fontSizePx_caption_ll, $_lineHeightType);
-      }
-
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
       > a {
         color: inherit;
       }
+    }
+
+    &--size-1 {
+      #{$_block}__inner {
+        > span {
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_ss, $_lineHeightType);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_ss, $_lineHeightType);
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__inner {
+        > span {
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_s, $_lineHeightType);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_s, $_lineHeightType);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__inner {
+        > span {
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_m, $_lineHeightType);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_m, $_lineHeightType);
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__inner {
+        > span {
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_l, $_lineHeightType);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_l, $_lineHeightType);
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__inner {
+        > span {
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_ll, $_lineHeightType);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_ll, $_lineHeightType);
+      }
+    }
+
+    &--align-l {
+      margin: 0 auto 0 0;
+      text-align: left;
+    }
+
+    &--align-c {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    &--align-r {
+      margin: 0 0 0 auto;
+      text-align: right;
     }
   }
 

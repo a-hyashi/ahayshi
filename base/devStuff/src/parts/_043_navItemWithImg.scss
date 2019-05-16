@@ -3,6 +3,63 @@
     $_block: &;
     $_fontSizePx: 16;
     $_lineHeightType: 1;
+    > a {
+      display: block;
+      text-decoration: none;
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    &__inner {
+      box-sizing: border-box;
+      display: table;
+      width: 100%;
+      > span {
+        pointer-events: none;
+      }
+    }
+
+    &__img {
+      display: table-cell;
+      vertical-align: middle;
+      img {
+        display: block;
+        width: 75px;
+      }
+    }
+
+    &__text {
+      display: table-cell;
+      width: 100%;
+      vertical-align: middle;
+      text-align: left;
+      @include g-font(20, 1);
+    }
+
+    &--imgL {
+      #{$_block}__inner {
+        direction: ltr;
+      }
+
+      #{$_block}__img {
+      }
+
+      #{$_block}__text {
+      }
+    }
+    &--imgR {
+      #{$_block}__inner {
+        direction: rtl;
+      }
+
+      #{$_block}__img {
+      }
+
+      #{$_block}__text {
+      }
+    }
+
     &--align-l {
       margin: 0 auto 0 0;
     }
@@ -25,59 +82,6 @@
 
     &--width-s {
       width: 50%;
-    }
-
-    > a {
-      display: block;
-      text-decoration: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-
-    &__inner {
-      box-sizing: border-box;
-      display: table;
-      width: 100%;
-      > span {
-        pointer-events: none;
-      }
-
-      #{$_block}--imgL & {
-        direction: ltr;
-      }
-
-      #{$_block}--imgR & {
-        direction: rtl;
-      }
-    }
-
-    &__img {
-      display: table-cell;
-      vertical-align: middle;
-      img {
-        display: block;
-        width: 75px;
-      }
-
-      #{$_block}--imgL & {
-      }
-
-      #{$_block}--imgR & {
-      }
-    }
-
-    &__text {
-      display: table-cell;
-      width: 100%;
-      vertical-align: middle;
-      text-align: left;
-      @include g-font(20, 1);
-      #{$_block}--imgL & {
-      }
-
-      #{$_block}--imgR & {
-      }
     }
   }
 
@@ -150,6 +154,30 @@
 
       #{$_block}--imgR & {
         direction: ltr;
+      }
+    }
+
+    &--imgL {
+      #{$_block}__inner {
+        direction: ltr;
+      }
+
+      #{$_block}__img {
+      }
+
+      #{$_block}__text {
+      }
+    }
+
+    &--imgR {
+      #{$_block}__inner {
+        direction: rtl;
+      }
+
+      #{$_block}__img {
+      }
+
+      #{$_block}__text {
       }
     }
   }
