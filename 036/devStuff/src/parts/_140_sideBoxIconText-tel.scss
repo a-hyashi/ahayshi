@@ -10,45 +10,35 @@
 
     &__ruby {
       @include g-font(14, 1);
-      margin-bottom: 3px;
       text-align: right;
+      a {
+        color: inherit;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
     }
 
     &__bd {
       @if $layout == 'L30' or $layout == 'R30' {
         // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
-        @include g-font(38, 1);
+        @include g-font(36, 1);
       } @else {
         // L25かR25で番号が折り返さない最大サイズ
         @include g-font(32, 1);
       }
-      margin-top: 7px;
+      display: flex;
+      align-items: center;
       text-align: center;
       font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
-      line-height: 1;
-    }
-
-    &__ruby + &__bd {
-      margin-top: 0;
     }
 
     &__icon {
-      margin-bottom: 0;
-      display: inline-block;
-      vertical-align: middle;
       background-repeat: no-repeat;
-      background-position: 0 0;
+      background-position: 0 50%;
       width: 34px;
-      span {
-        display: inline-block;
-        margin-bottom: 5px;
-      }
-
       & + span {
-        display: inline;
-        margin-bottom: 0;
         font-size: 80%;
-        vertical-align: top;
       }
     }
 
@@ -56,28 +46,24 @@
       height: $_tel_hg / 1.81;
       background-image: url("../imgs/t0-b-iconText/tel.png");
       background-size: ($_tel_wd / 1.81) ($_tel_hg / 1.81);
-      margin-top: -20px;
     }
 
     #{$_block}__fax {
       height: $_fax_hg / 1.81;
       background-image: url("../imgs/t0-b-iconText/fax.png");
       background-size: ($_fax_wd / 1.81) ($_fax_hg / 1.81);
-      margin-top: -16px;
     }
 
     #{$_block}__free {
       height: $_free_hg / 1.81;
       background-image: url("../imgs/t0-b-iconText/free.png");
       background-size: ($_free_wd / 1.81) ($_free_hg / 1.81);
-      margin-top: -16px;
     }
 
     #{$_block}__cell {
       height: $_cell_hg / 1.81;
       background-image: url("../imgs/t0-b-iconText/cell.png");
       background-size: ($_cell_wd / 1.81) ($_cell_hg / 1.81);
-      margin-top: -16px;
       background-position: 6px 0;
     }
 
