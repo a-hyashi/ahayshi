@@ -2,12 +2,7 @@
   .t0-b-footerUnit-siteName,
   .t0-b-footerUnit-siteTitle {
     white-space: nowrap;
-
     $_block: &;
-    &--has-width {
-      white-space: normal;
-    }
-
     &__bd {
       display: table;
       font-weight: bold;
@@ -22,8 +17,8 @@
       padding: 0 10px 0 0;
       img {
         display: block;
-        max-width: 125px;
-        height: 65px;
+        max-width: 160px;
+        height: 45px;
       }
     }
 
@@ -55,6 +50,18 @@
 
       font-weight: bold;
       font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      // siteNameにfont-familyが指定してあるため、g-fontFamilyが効かない。書体変更機能を有効にするために、下記でg-fontFamilyを設定し直す
+      .g-fontFamily-gothic & {
+        font-family: $gothic;
+      }
+
+      .g-fontFamily-mincho & {
+        font-family: $mincho;
+      }
+
+      .g-fontFamily-marugo & {
+        font-family: $marugo;
+      }
     }
 
     &__bd-note + &__bd-siteName {
@@ -64,7 +71,7 @@
     &__ft {
       @include g-font(16, 1);
 
-      padding: 10px 0 0;
+      padding: 5px 0 0;
     }
   }
 }
@@ -72,10 +79,6 @@
 @if $device == SP {
   .t0-b-footerUnit-siteName,
   .t0-b-footerUnit-siteTitle {
-    &--has-width {
-      white-space: normal;
-    }
-
     &__bd {
       display: table;
       > div {
@@ -89,8 +92,8 @@
       padding: 0 10px 0 0;
       img {
         display: block;
-        height: 40px;
-        max-width: 80px;
+        height: 45px;
+        max-width: 160px;
       }
     }
 
@@ -110,16 +113,20 @@
     }
 
     &__bd-siteName {
-      @include g-font(18, 1);
+      @include g-font(28, 1);
 
       font-weight: bold;
       font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
     }
 
+    &__bd-note + &__bd-siteName {
+      @include g-font(24, 1);
+    }
+
     &__ft {
       @include g-font(14, 1);
 
-      padding: 10px 0 0;
+      padding: 5px 0 0;
     }
   }
 }

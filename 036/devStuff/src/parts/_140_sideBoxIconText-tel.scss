@@ -15,7 +15,13 @@
     }
 
     &__bd {
-      @include g-font(32, 1);
+      @if $layout == 'L30' or $layout == 'R30' {
+        // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+        @include g-font(38, 1);
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        @include g-font(32, 1);
+      }
       margin-top: 7px;
       text-align: center;
       font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
@@ -137,7 +143,6 @@
       height: $_tel_hg / 3.29;
       background-image: url("../imgs/t0-b-iconText/tel.png");
       background-size: ($_tel_wd / 3.29) ($_tel_hg / 3.29);
-      margin-top: 0;
     }
 
     &__fax {
