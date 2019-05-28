@@ -1,58 +1,61 @@
 @if $device == PC {
   .t0-b-navBItem2Captioned {
-
-    box-shadow: 1px 1px 2px #c4e6e0, -1px -1px 2px #c4e6e0;
-    background: #ffe1e1;
-    margin: 0 20px auto;
-    border-radius: 10px;
-    border: 2px solid #e4d56d;
-    position: relative;
-    text-align: center;
-    line-height: 0;
-    > div {
-      width: 100%;
-      text-align: center;
-      padding: 16px 0;
-    }
-
-    a {
-      color: $textcolor;
+    $_block: &;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    text-shadow: $textshadow3;
+    > a {
       text-decoration: none;
       display: block;
-      width: 100%;
-      padding: 16px 0;
       &:hover {
-        opacity: .5;
+        opacity: .8;
+        color: $textcolor;
       }
     }
 
     &__inner {
-    }
+      padding: 16px 50px;
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+      color: $textcolor;
+      box-shadow: 1px 1px 2px #c4e6e0, -1px -1px 2px #c4e6e0;
+      background-image: url("../imgs/t0-b-navItem/7.png");
+      background-position: right 12px top 50%;
+      background-repeat: no-repeat;
+      background-color: #ffd6d4;
+      border-radius: 10px;
+      position: relative;
+      text-align: center;
+      width: 100%;
+      border: 2px solid #e4d56d;
+      > div {
+        display: inline-block;
+      }
 
-    &__icon {
-      display: none;
-    }
-
-    &__text {
+      #{$_block}__icon {
+        display: none;
+      }
     }
 
     &__caption-upper {
       @include g-font(14, 1);
-      padding: 0 50px 9px;
+      padding: 0 0 9px;
+      // IE11のため打ち消しの形を取っています
+      text-shadow: none;
     }
 
     &__main {
       @include g-font(26, 1);
-      background-image: url("../imgs/t0-b-navItem/7.png");
-      background-repeat: no-repeat;
-      background-position: right 12px top 50%;
-      text-shadow: $textshadow;
-      padding: 0 50px;
     }
 
     &__caption-lower {
       @include g-font(14, 1);
-      padding: 9px 50px 0;
+      padding: 9px 0 0;
+      // IE11のため打ち消しの形を取っています
+      text-shadow: none;
     }
   }
 }
@@ -77,16 +80,10 @@
       margin: 0 auto;
     }
 
-    &__inner {
-    }
-
     &__text {
       text-align: center;
       margin-right: 10%;
       padding: 12px 10px;
-    }
-
-    &__icon {
     }
 
     &__caption-upper {

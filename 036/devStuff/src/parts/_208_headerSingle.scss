@@ -2,114 +2,105 @@
   .t0-b-headerSingle#{$variation1of2} {
     $_width_content: 1060px;
     $_colSpacing: #{$g-spacingBaseLength * 4}px;
-
     padding-top: 5px;
     box-sizing: border-box;
     min-height: 160px;
     background-image: url("../imgs/area-all/1.png"), url("../imgs/area-all/2.png");
     background-position: left center, right center;
     background-repeat: no-repeat, no-repeat;
-    &__hd {
-      > p {
-        width: $_width_content;
-        margin: 0 auto;
-
-        @include g-font(14, 1);
-      }
-    }
-
-    &__bd {
-      padding-bottom: 10px;
-      > div {
-        display: table;
-        width: $_width_content;
-        margin: 0 auto;
-        > div {
-          display: table-cell;
-          text-align: left;
-          vertical-align: top;
-          padding-top: $_colSpacing;
-        }
-      }
-    }
-
-    &__col1 {
-      width: 100%;
-    }
-
-    &__col2 {
-      padding-left: $_colSpacing;
-    }
-
-    &__col3 {
-      padding-left: $_colSpacing;
-    }
-  }
-
-  .t0-b-headerSingle#{$variation2of2} {
-    $_width_content: 1060px;
-    $_colSpacing: #{$g-spacingBaseLength * 4}px;
-
-    padding-top: 5px;
-    box-sizing: border-box;
-    &__hd {
-      > p {
-        width: $_width_content;
-        margin: 0 auto;
-
-        @include g-font(14, 1);
-      }
-    }
-
-    &__bd {
-      padding-bottom: 10px;
-      > div {
-        display: table;
-        width: $_width_content;
-        margin: 0 auto;
-        > div {
-          display: table-cell;
-          text-align: left;
-          vertical-align: top;
-          padding-top: $_colSpacing;
-        }
-      }
-    }
-
-    &__col1 {
-      width: 100%;
-    }
-
-    &__col2 {
-      padding-left: $_colSpacing;
-    }
-
-    &__col3 {
-      padding-left: $_colSpacing;
-    }
-  }
-
-  .t0-b-headerSingle#{$variation1of2},
-  .t0-b-headerSingle#{$variation2of2} {
-    $_width_content: 1060px;
     * {
       white-space: normal;
     }
 
     &__hd {
       text-align: center;
+      > p {
+        width: $_width_content;
+        margin: 0 auto;
+
+        @include g-font(14, 1);
+      }
     }
 
     &__bd {
+      padding-bottom: 10px;
       > div {
         display: block;
+        width: $_width_content;
+        margin: 0 auto;
         > div {
           max-width: $_width_content;
           margin: 0 auto;
           display: table;
           text-align: center;
+          vertical-align: top;
+          padding-top: $_colSpacing;
         }
       }
+
+      &__col1 {
+        width: 100%;
+      }
+    }
+
+    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerUnit-contact-tel,
+    .t0-b-headerUnit-contact-fax,
+    .t0-b-headerUnit-contact-nav,
+    .t0-b-headerUnit-miniCol,
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle__bd,
+    .t0-b-headerUnit-siteTitle2__bd,
+    .t0-b-headerUnit-labeledList table,
+    .t0-b-headerUnit-labeledList2 table {
+      margin: 0 auto;
+    }
+
+    //サイト名中央に入ったときのみ文字数分の幅をもち、中央寄せの見た目にする
+    .t0-b-headerUnit-contact-navB,
+    .t0-b-headerUnit-contact-navB2 {
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
+  }
+
+  .t0-b-headerSingle#{$variation2of2} {
+    $_width_content: 1060px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    * {
+      white-space: normal;
+    }
+
+    &__hd {
+      text-align: center;
+      > p {
+        width: $_width_content;
+        margin: 0 auto;
+      }
+    }
+
+    &__bd {
+      padding-bottom: 10px;
+      > div {
+        display: block;
+        width: $_width_content;
+        margin: 0 auto;
+        > div {
+          max-width: $_width_content;
+          margin: 0 auto;
+          display: table;
+          text-align: center;
+          vertical-align: top;
+          padding-top: $_colSpacing;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
     }
 
     //サイト名中央に入ったときのみ中央寄せの見た目にする
@@ -143,6 +134,10 @@
     padding-top: 5px;
     background-repeat: repeat-x;
     background-position: left top;
+    a {
+      color: $textcolor;
+    }
+
     &__hd {
       margin-bottom: 10px;
       text-align: center;
@@ -164,18 +159,6 @@
           vertical-align: middle;
         }
       }
-    }
-
-    &__col1 {
-      width: 100%;
-    }
-
-    &__col2 {
-      width: 100%;
-    }
-
-    &__col3 {
-      width: 100%;
     }
 
     &__col {

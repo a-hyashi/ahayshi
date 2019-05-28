@@ -30,9 +30,9 @@
         > li {
           display: table-cell;
           background-color: #e1f3f0;
-          background: url("../imgs/t0-b-headerMenu/1/3.png"), url("../imgs/t0-b-headerMenu/1/4.png");
-          background-repeat: repeat-x, no-repeat;
-          background-position: left top, right top;
+          background: url("../imgs/t0-b-headerMenu/1/4.png"), url("../imgs/t0-b-headerMenu/1/3.png");
+          background-repeat: no-repeat, repeat-x;
+          background-position: right top 50%, left top;
           vertical-align: middle;
           &:first-child {
             &::before {
@@ -91,7 +91,9 @@
           text-align: center;
           padding: 5px;
           transition: all 1s ease;
+          /* stylelint-disable */
           -webkit-transition: all 1s ease;
+          /* stylelint-enable */
           display: inline-table;
           &::before {
             content: "";
@@ -102,9 +104,9 @@
             top: 0;
             bottom: 0;
             transition: all 1s ease;
+            /* stylelint-disable */
             -webkit-transition: all 1s ease;
-
-            //background-color: #fff
+            /* stylelint-enable */
             z-index: -1;
           }
         }
@@ -166,7 +168,9 @@
           border-radius: 10px;
           background: #efebc6;
           transition: all 1s ease;
+          /* stylelint-disable */
           -webkit-transition: all 1s ease;
+          /* stylelint-enable */
           z-index: -1;
         }
 
@@ -270,7 +274,9 @@
       text-decoration: none;
       color: $textcolor;
       transition: all 1s ease;
+      /* stylelint-disable */
       -webkit-transition: all 1s ease;
+      /* stylelint-enable */
       &:hover {
         color: #fff;
       }
@@ -299,7 +305,9 @@
           color: #fff;
           text-shadow: (-1px) -1px #ff9898, 1px -1px #ff9898, -1px 1px #ff9898, 1px 1px #ff9898, (-1px) -2px #ff9898, 1px -2px #ff9898, -1px 2px #ff9898, 1px 2px #ff9898, (-2px) -1px #ff9898, 2px -1px #ff9898, -2px 1px #ff9898, 2px 1px #ff9898, (-2px) -2px 1px #ff9898, 2px -2px 1px #ff9898, -2px 2px 1px #ff9898, 2px 2px 1px #ff9898;
           transition: all 1s ease;
+          /* stylelint-disable */
           -webkit-transition: all 1s ease;
+          /* stylelint-enable */
         }
       }
 
@@ -347,7 +355,9 @@
           color: #fff;
           text-shadow: none;
           transition: all 1s ease;
+          /* stylelint-disable */
           -webkit-transition: all 1s ease;
+          /* stylelint-enable */
         }
       }
 
@@ -449,9 +459,6 @@
           &::after {
             background-color: #dfc12d;
           }
-
-          // &:after
-          //   display: none //強調と重なった際に、強調のスタイルを打ち消す
         }
       }
     }
@@ -537,8 +544,7 @@
 }
 
 @if $device == SP {
-  .t0-b-headerMenu#{$variation1of2},
-  .t0-b-headerMenu3 {
+  .t0-b-headerMenu#{$variation1of2} {
     margin: 0 -15px;
     text-align: center;
     background: #fff;
@@ -669,6 +675,73 @@
 
       a {
         color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .t0-b-headerMenu3 {
+    margin: 0 -15px;
+    text-align: center;
+    background: #fff;
+    @include g-font(12, 1);
+    ul {
+      padding: 5px 0;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    .t0-b-headerMenu__item {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      margin-left: 15px;
+      display: inline-block;
+      > div,
+      a > div {
+        color: #5d3e0e;
+        list-style: none;
+        padding: 5px 0;
+        text-decoration: underline;
+      }
+    }
+
+    a {
+      color: #5d3e0e;
+    }
+
+    .state-em {
+      > div,
+      a > div {
+        color: #5d3e0e;
+        font-weight: bold;
+      }
+
+      a {
+        color: #5d3e0e;
+      }
+    }
+
+    .state-current {
+      > div,
+      a > div {
+        padding: 5px;
+        &, &:hover {
+          background: #efebc6;
+          font-weight: normal;
+          color: #5d3e0e;
+        }
+      }
+
+      a {
+        color: #5d3e0e;
         text-decoration: none;
       }
     }

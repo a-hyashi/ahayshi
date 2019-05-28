@@ -21,29 +21,14 @@
 
     display: table;
     > a {
-      display: table;
       text-decoration: none;
-      box-sizing: border-box;
       color: $textcolor;
       &:hover {
         color: $hovercolor;
       }
-
-      > div {
-        display: table;
-        > * {
-          display: table-cell;
-          vertical-align: top;
-        }
-
-        > span {
-          width: 22px;
-          height: 22px;
-        }
-      }
     }
 
-    > div {
+    &__inner {
       display: table;
       box-sizing: border-box;
       > * {
@@ -59,17 +44,14 @@
 
     &--align-l {
       margin: 0 auto 0 0;
-      text-align: left;
     }
 
     &--align-c {
       margin: 0 auto;
-      text-align: center;
     }
 
     &--align-r {
       margin: 0 0 0 auto;
-      text-align: right;
     }
 
     &__main {
@@ -92,80 +74,10 @@
       a:hover & {
         color: $hovercolor;
       }
-
-      #{$_block}--size-1 & {
-        @include g-font($_fontSizePx_main_ss, $_lineHeightType);
-        min-height: 18px;
-        &::before {
-          background-size: 18px 18px;
-          left: -23px;
-          bottom: -2px;
-        }
-      }
-
-      #{$_block}--size-2 & {
-        @include g-font($_fontSizePx_main_s, $_lineHeightType);
-        min-height: 20px;
-        &::before {
-          background-size: 20px 20px;
-          left: -26px;
-          bottom: -2px;
-        }
-      }
-
-      #{$_block}--size-3 & {
-        @include g-font($_fontSizePx_main_m, $_lineHeightType);
-        min-height: 22px;
-        &::before {
-          background-size: 22px 22px;
-          left: -29px;
-          bottom: -2px;
-        }
-      }
-
-      #{$_block}--size-4 & {
-        @include g-font($_fontSizePx_main_l, $_lineHeightType);
-        min-height: 26px;
-        &::before {
-          background-size: 26px 26px;
-          left: -34px;
-          bottom: -2px;
-        }
-      }
-
-      #{$_block}--size-5 & {
-        @include g-font($_fontSizePx_main_ll, $_lineHeightType);
-        min-height: 32px;
-        &::before {
-          background-size: 32px 32px;
-          left: -41px;
-          bottom: -1px;
-        }
-      }
     }
 
     &__caption {
       padding: 5px 0 0;
-      #{$_block}--size-1 & {
-        @include g-font($_fontSizePx_caption_ss, $_lineHeightType);
-      }
-
-      #{$_block}--size-2 & {
-        @include g-font($_fontSizePx_caption_s, $_lineHeightType);
-      }
-
-      #{$_block}--size-3 & {
-        @include g-font($_fontSizePx_caption_m, $_lineHeightType);
-      }
-
-      #{$_block}--size-4 & {
-        @include g-font($_fontSizePx_caption_l, $_lineHeightType);
-      }
-
-      #{$_block}--size-5 & {
-        @include g-font($_fontSizePx_caption_ll, $_lineHeightType);
-      }
-
       > a {
         color: inherit;
         &:hover {
@@ -175,57 +87,122 @@
     }
 
     &--size-1 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         > span {
           width: 18px;
           height: 18px;
           padding-right: 5px;
         }
       }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_ss, $_lineHeightType);
+        min-height: 18px;
+        &::before {
+          background-size: 18px 18px;
+          left: -23px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_ss, $_lineHeightType);
+      }
     }
 
     &--size-2 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         > span {
           width: 20px;
           height: 20px;
           padding-right: 6px;
         }
       }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_s, $_lineHeightType);
+        min-height: 20px;
+        &::before {
+          background-size: 20px 20px;
+          left: -26px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_s, $_lineHeightType);
+      }
     }
 
     &--size-3 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         > span {
           width: 22px;
           height: 22px;
           padding-right: 7px;
         }
       }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_m, $_lineHeightType);
+        min-height: 22px;
+        &::before {
+          background-size: 22px 22px;
+          left: -29px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_m, $_lineHeightType);
+      }
     }
 
     &--size-4 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         > span {
           width: 26px;
           height: 26px;
           padding-right: 8px;
         }
       }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_l, $_lineHeightType);
+        min-height: 26px;
+        &::before {
+          background-size: 26px 26px;
+          left: -34px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_l, $_lineHeightType);
+      }
     }
 
     &--size-5 {
-      > a > div,
-      > div {
+      #{$_block}__inner {
         > span {
           width: 32px;
           height: 32px;
           padding-right: 9px;
         }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_ll, $_lineHeightType);
+        min-height: 32px;
+        &::before {
+          background-size: 32px 32px;
+          left: -41px;
+          bottom: -1px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_ll, $_lineHeightType);
       }
     }
   }
@@ -250,26 +227,11 @@
     $_lineHeightType: 1;
     > a {
       display: table;
-      margin: 0 auto;
       text-decoration: none;
-      box-sizing: border-box;
       color: $textcolor;
-      > div {
-        display: table;
-        > * {
-          display: table-cell;
-          vertical-align: top;
-        }
-
-        > span {
-          width: 18px;
-          height: 18px;
-          padding-right: 5px;
-        }
-      }
     }
 
-    > div {
+    &__inner {
       display: table;
       margin: 0 auto;
       box-sizing: border-box;
@@ -301,6 +263,7 @@
         background-position: 0 50%;
         background-repeat: no-repeat;
         background-size: 18px 18px;
+        min-height: 18px;
       }
     }
 

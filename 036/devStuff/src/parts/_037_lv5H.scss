@@ -6,7 +6,7 @@
     $_fontSizeDifference: 4;
     $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
     $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
-    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference + 2;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference - 2;
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
@@ -19,16 +19,13 @@
 
     &__bd {
       h5 {
-        @if $layout == "N00" {
-          @include g-font-layout($_fontSizePx_bd + 4, $_lineHeightType_bd, $layout);
-        } @else {
-          @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
-        }
+        @include g-font-layout($_fontSizePx_bd, $_lineHeightType_bd, $layout);
 
         background-image: url("../imgs/t0-b-lv5H/bg.png");
         background-position: 0 center;
         background-repeat: no-repeat;
         padding: 0 0 0 17px;
+        min-height: 17px;
       }
     }
 
@@ -45,16 +42,13 @@
 
       #{$_block}__bd {
         h5 {
-          @if $layout == "N00" {
-            @include g-font-layout($_fontSizePx_bd_s + 4, $_lineHeightType_bd, $layout);
-          } @else {
-            @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
-          }
+          @include g-font-layout($_fontSizePx_bd_s, $_lineHeightType_bd, $layout);
         }
       }
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        padding-top: 2px;
       }
     }
 
@@ -102,7 +96,7 @@
     $_fontSizeDifference: 4;
     $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference;
     $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference;
-    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference + 2;
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference - 2;
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
@@ -124,6 +118,7 @@
         background-repeat: no-repeat;
         background-position: 0 center;
         padding: 0 0 0 17px;
+        min-height: 17px;
       }
     }
 
@@ -207,6 +202,7 @@
         background-position: 0 center;
         background-repeat: no-repeat;
         padding: 0 0 0 17px;
+        min-height: 20px;
       }
     }
 
@@ -255,6 +251,7 @@
         background-position: 0 center;
         background-repeat: no-repeat;
         padding: 0 0 0 17px;
+        min-height: 20px;
       }
     }
 
