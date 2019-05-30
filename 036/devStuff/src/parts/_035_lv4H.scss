@@ -26,9 +26,6 @@
         padding: 5px 30px;
         border-radius: 0 10px;
         border: 1px solid #bea326;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
         box-sizing: border-box;
         min-height: 34px;
         background: url("../imgs/t0-b-lv4H/1.png"), url("../imgs/t0-b-lv4H/2.png");
@@ -131,9 +128,6 @@
         border-radius: 0 10px;
 
         border: 1px solid #bea326;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
         box-sizing: border-box;
         min-height: 34px;
         background: url("../imgs/t0-b-lv4H/3.png"), url("../imgs/t0-b-lv4H/4.png");
@@ -226,22 +220,36 @@
     }
 
     &__bd {
-      background-repeat: no-repeat, no-repeat;
-      background-position: left center, right center;
-      background-image: url("../imgs/t0-b-lv4H/7.png"), url("../imgs/t0-b-lv4H/8.png");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: left 68px center, left center, right 68px center, right center;
+      background-image: url("../imgs/t0-b-lv4H/5.png"), url("../imgs/t0-b-lv4H/7.png"), url("../imgs/t0-b-lv4H/6.png"), url("../imgs/t0-b-lv4H/8.png");
       position: relative;
       padding: 0 130px;
-      &::before {
+      display: flex;
+      align-items: center;
+      &::before,
+      &::after {
         content: "";
-        position: absolute;
-        pointer-events: none;
-        left: 65px;
-        right: 65px;
-        top: 0;
-        bottom: 0;
-        background-repeat: no-repeat, no-repeat, repeat-x;
-        background-position: left center, right center, left center;
-        background-image: url("../imgs/t0-b-lv4H/5.png"), url("../imgs/t0-b-lv4H/6.png"), url("../imgs/t0-b-lv4H/9.png");
+        display: block;
+        flex-grow: 1;
+        height: 36px;
+      }
+
+      &::before {
+        margin: 0 12px 0 -10px;
+        margin-right: 12px;
+        background-repeat: repeat-x;
+        background-position: left center;
+        background-image: url("../imgs/t0-b-lv4H/9.png");
+        z-index: -1;
+      }
+
+      &::after {
+        margin: 0 -10px 0 12px;
+        background-repeat: repeat-x;
+        background-position: right center;
+        background-image: url("../imgs/t0-b-lv4H/9.png");
+        z-index: -1;
       }
 
       h4 {
@@ -251,23 +259,36 @@
         display: inline-block;
         vertical-align: top;
         position: relative;
-        padding: 11px 20px 5px;
-        background-repeat: repeat-x;
-        background-position: left center;
-        background-image: url("../imgs/t0-b-lv4H/12.png");
+        padding: 11px 5px 5px;
+        max-width: 90%;
         min-height: 36px;
         box-sizing: border-box;
-        &::before {
+        &::before,
+        &::after {
           content: "";
+          width: 10px;
+          height: 20px;
+          display: block;
           position: absolute;
           pointer-events: none;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          background-repeat: no-repeat, no-repeat;
-          background-position: left center, right center;
-          background-image: url("../imgs/t0-b-lv4H/10.png"), url("../imgs/t0-b-lv4H/11.png");
+        }
+
+        &::before {
+          left: -15px;
+          top: 50%;
+          transform: translateY(-47%);
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-image: url("../imgs/t0-b-lv4H/10.png");
+        }
+
+        &::after {
+          right: -15px;
+          top: 50%;
+          transform: translateY(-47%);
+          background-repeat: no-repeat;
+          background-position: right center;
+          background-image: url("../imgs/t0-b-lv4H/11.png");
         }
       }
     }
@@ -314,21 +335,17 @@
       text-align: left;
       .t0-b-lv4H3__bd {
         padding: 0 130px 0 0;
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-image: url("../imgs/t0-b-lv4H/8.png");
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: left center, right 68px center, right center;
+        background-image: url("../imgs/t0-b-lv4H/5.png"), url("../imgs/t0-b-lv4H/6.png"), url("../imgs/t0-b-lv4H/8.png");
         &::before {
-          background-repeat: no-repeat, repeat-x;
-          background-position: right center, left center;
-          background-image: url("../imgs/t0-b-lv4H/6.png"), url("../imgs/t0-b-lv4H/9.png");
+          content: none;
         }
 
         h4 {
-          padding: 11px 25px 5px 75px;
+          padding: 11px 0 5px 75px;
           &::before {
-            background-repeat: no-repeat, no-repeat;
-            background-position: left center, right center;
-            background-image: url("../imgs/t0-b-lv4H/5.png"), url("../imgs/t0-b-lv4H/11.png");
+            content: none;
           }
         }
       }
@@ -342,21 +359,17 @@
       text-align: right;
       .t0-b-lv4H3__bd {
         padding: 0 0 0 130px;
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-image: url("../imgs/t0-b-lv4H/7.png");
-        &::before {
-          background-repeat: no-repeat, repeat-x;
-          background-position: left center, left center;
-          background-image: url("../imgs/t0-b-lv4H/5.png"), url("../imgs/t0-b-lv4H/9.png");
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: left 68px center, left center, right center;
+        background-image: url("../imgs/t0-b-lv4H/5.png"), url("../imgs/t0-b-lv4H/7.png"), url("../imgs/t0-b-lv4H/6.png");
+        &::after {
+          content: none;
         }
 
         h4 {
-          padding: 11px 75px 5px 25px;
-          &::before {
-            background-repeat: no-repeat, no-repeat;
-            background-position: right center, left center;
-            background-image: url("../imgs/t0-b-lv4H/6.png"), url("../imgs/t0-b-lv4H/10.png");
+          padding: 11px 75px 5px 5px;
+          &::after {
+            display: none;
           }
         }
       }
@@ -377,7 +390,7 @@
 
 @if $device == SP {
   .t0-b-lv4H {
-    $_fontSizePx_bd: 18;
+    $_fontSizePx_bd: 20;
     $_fontSizePx_caption: 14;
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
@@ -433,7 +446,7 @@
   }
 
   .t0-b-lv4H2 {
-    $_fontSizePx_bd: 18;
+    $_fontSizePx_bd: 20;
     $_fontSizePx_caption: 14;
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
@@ -493,7 +506,7 @@
   }
 
   .t0-b-lv4H3 {
-    $_fontSizePx_bd: 18;
+    $_fontSizePx_bd: 20;
     $_fontSizePx_caption: 14;
     $_lineHeightType_bd: 1;
     $_lineHeightType_caption: 1;
