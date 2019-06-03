@@ -73,9 +73,11 @@
         border: 1px solid #ccc;
         background: none transparent;
         color: inherit;
+        /* stylelint-disable */
         // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスを明示しないと効かない
         -webkit-appearance: none;
         -moz-appearance: none;
+        /* stylelint-enable */
         appearance: none;
         // IE
         &::-ms-expand {
@@ -104,13 +106,15 @@
       ul {
         padding-top: 5px;
         margin: (-5px) -10px 0 0;
+        display: flex;
+        align-items: inherit;
       }
 
       li {
-        padding: 5px 4px 0 0;
-        text-indent: -18px;
+        padding: 5px 10px 0 0;
         @include g-font(14, 1);
-        display: inline;
+        display: flex;
+        align-items: center;
         > span {
           width: 18px;
           height: 1px;
@@ -129,16 +133,15 @@
 
         > label {
           display: inline;
+          position: relative;
+          margin-left: 5px;
         }
       }
 
       &--align-vertical {
         ul {
           padding: 0;
-          li {
-            display: list-item;
-            padding: 5px 10px 0 18px;
-          }
+          display: block;
         }
       }
     }
@@ -233,7 +236,7 @@
 
     // 編集するボタン
     &__button-edit {
-        input {
+      input {
         &:hover {
           opacity: .8;
         }
@@ -350,9 +353,11 @@
         border: 1px solid #ccc;
         background: none transparent;
         color: inherit;
+        /* stylelint-disable */
         // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスを明示しないと効かない
         -webkit-appearance: none;
         -moz-appearance: none;
+        /* stylelint-enable */
         appearance: none;
         // IE
         &::-ms-expand {
@@ -381,15 +386,15 @@
       ul {
         padding-top: 5px;
         margin: (-5px) -10px 0 0;
+        display: flex;
+        align-items: inherit;
       }
 
       li {
-        padding: 5px 4px 0 0;
-        text-indent: -18px;
-
+        padding: 5px 10px 0 0;
         @include g-font(14, 1);
-
-        display: inline;
+        display: flex;
+        align-items: center;
         > span {
           width: 18px;
           height: 1px;
@@ -408,16 +413,15 @@
 
         > label {
           display: inline;
+          position: relative;
+          margin-left: 5px;
         }
       }
 
       &--align-vertical {
         ul {
           padding: 0;
-          li {
-            display: list-item;
-            padding: 5px 10px 0 18px;
-          }
+          display: block;
         }
       }
     }
@@ -562,7 +566,8 @@
     $_color_error_typo: #da0000;
 
     // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    [class^="t0-b-frameWithHCaption"] & {
+    .t0-b-frameOuter5 &,
+    .t0-b-frameOuter6 & {
       margin: 0 -15px;
     }
 
@@ -581,23 +586,26 @@
       border-bottom: 1px solid #{$_color_table_border};
       vertical-align: middle;
       text-align: left;
-      padding: 10px;
     }
 
     th {
       background: $_color_th_bg;
       @include g-font(14, 1);
+      min-height: 17px;
+      padding: 15px 15px 15px 10px;
       > div {
         display: table;
         direction: rtl;
         > * {
-          display: table-cell;
+          display: inline-block;
+          vertical-align: middle;
         }
       }
     }
 
     td {
       background: $_color_td_bg;
+      padding: 15px;
     }
 
     input[type="checkbox"],
@@ -620,7 +628,7 @@
 
     &__td-caption {
       @include g-font(14, 1);
-      padding: 10px 0 0;
+      padding: 15px 0 10px;
     }
 
     &__singleInput {
@@ -655,8 +663,10 @@
         border: 1px solid #ccc;
         background: none transparent;
         color: inherit;
+        /* stylelint-disable */
         // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスは明示しないと効かないようなので、意図的に記述
         -webkit-appearance: none;
+        /* stylelint-enable */
         appearance: none;
       }
     }
@@ -665,13 +675,15 @@
     &__checkboxList {
       ul {
         margin: 0 -10px 0 0;
+        display: flex;
+        align-items: center;
       }
 
       li {
         padding: 5px 10px 0 0;
-        display: inline;
+        display: flex;
+        align-items: center;
         @include g-font(14, 1);
-
         > span {
           display: inline-block;
           width: 18px;
@@ -687,17 +699,14 @@
         > label {
           display: inline;
           position: relative;
-          top: 1px;
+          margin-left: 5px;
         }
       }
 
       &--align-vertical {
         padding: 0;
-
-        li {
-          display: list-item;
-          padding: 5px 10px 0 18px;
-          text-indent: -18px;
+        ul {
+          display: block;
         }
       }
     }
@@ -712,11 +721,9 @@
         display: block;
         color: $_color_typo;
         background: $_color_bg;
-        @include g-font(10, 1);
-        padding: 3px 5px 1px;
+        @include g-font(12, 1);
+        padding: 4px 0;
         text-align: center;
-        margin-top: -8px;
-        margin-bottom: -10px;
         margin-left: 3px;
         border-radius: 5px;
       }
@@ -845,7 +852,8 @@
     $_color_error_typo: #da0000;
 
     // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    [class^="t0-b-frameWithHCaption"] & {
+    .t0-b-frameOuter5 &,
+    .t0-b-frameOuter6 & {
       margin: 0 -15px;
     }
 
@@ -864,23 +872,26 @@
       border-bottom: 1px solid #{$_color_table_border};
       vertical-align: middle;
       text-align: left;
-      padding: 10px;
     }
 
     th {
       background: $_color_th_bg;
       @include g-font(14, 1);
+      min-height: 17px;
+      padding: 15px 15px 15px 10px;
       > div {
         display: table;
         direction: rtl;
         > * {
-          display: table-cell;
+          display: inline-block;
+          vertical-align: middle;
         }
       }
     }
 
     td {
       background: $_color_td_bg;
+      padding: 15px;
     }
 
     input[type="checkbox"],
@@ -903,7 +914,7 @@
 
     &__td-caption {
       @include g-font(14, 1);
-      padding: 10px 0 0;
+      padding: 15px 0 10px;
     }
 
     &__singleInput {
@@ -936,8 +947,10 @@
         border: 1px solid #ccc;
         background: none transparent;
         color: inherit;
+        /* stylelint-disable */
         // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスは明示しないと効かないようなので、意図的に記述
         -webkit-appearance: none;
+        /* stylelint-enable */
         appearance: none;
       }
     }
@@ -946,10 +959,13 @@
     &__checkboxList {
       ul {
         margin: 0 -10px 0 0;
+        display: flex;
+        align-items: center;
       }
 
       li {
-        display: inline;
+        display: flex;
+        align-items: center;
         padding: 5px 10px 0 0;
         @include g-font(14, 1);
         > span {
@@ -967,17 +983,14 @@
         > label {
           display: inline;
           position: relative;
-          top: 1px;
+          margin-left: 5px;
         }
       }
 
       &--align-vertical {
         padding: 0;
-
-        li {
-          display: list-item;
-          padding: 5px 10px 0 18px;
-          text-indent: -18px;
+        ul {
+          display: block;
         }
       }
     }
@@ -988,16 +1001,13 @@
 
       width: 40px;
       padding: 0 10px 0 0;
-      vertical-align: middle;
       > span {
         display: block;
         color: $_color_typo;
         background: $_color_bg;
-        @include g-font(10, 1);
-        padding: 3px 5px 1px;
+        @include g-font(12, 1);
+        padding: 4px 0;
         text-align: center;
-        margin-top: -8px;
-        margin-bottom: -10px;
         margin-left: 3px;
         border-radius: 5px;
       }
