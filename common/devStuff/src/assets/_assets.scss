@@ -1,10 +1,4 @@
 /*
----
-name: bPlacer
-category:
-- assets
-- assets/グローバルクラス
----
 
 余白用class
 
@@ -14,21 +8,13 @@ category:
 
 */
 
-@for $_i from 1 through 12{
+@for $_i from 1 through 12 {
   .b-bPlacer-#{$_i}s {
     padding-bottom: #{$_i * 5}px;
   }
 }
 
-
-
 /*
----
-name: g-font-layout
-category:
-- assets
-- assets/mixin
----
 
 ```scss
 @mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25', $addPx: 4){
@@ -36,7 +22,7 @@ category:
     @include g-font($fontSizePx + $addPx, $lineHeightType);
   } @else {
     @include g-font($fontSizePx, $lineHeightType);
-  } 
+  }
 }
 ```
 
@@ -53,7 +39,6 @@ N00のレイアウトに対応したフォントサイズを返すg-fontの拡�
 - 概要: 基準となるフォントサイズ
 - Type: Number
 - Default value: -
-
 
 #### $lineHeightType
 
@@ -72,7 +57,6 @@ N00のレイアウトに対応したフォントサイズを返すg-fontの拡�
 - 概要: N00のときに加算するpx値
 - Type: Number
 - Default value: 4
-
 
 ### 使用例
 
@@ -95,28 +79,16 @@ N00のレイアウトに対応したフォントサイズを返すg-fontの拡�
 // g-font(34, 1)の結果と同じ
 ```
 
-
-
 */
-@mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25', $addPx: 4){
+@mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25', $addPx: 4) {
   @if $layout == "N00" {
     @include g-font($fontSizePx + $addPx, $lineHeightType);
   } @else {
     @include g-font($fontSizePx, $lineHeightType);
-  } 
+  }
 }
 
-
-
-
-
 /*
----
-name: g-textOuterGlow
-category:
-- assets
-- assets/mixin
----
 
 ```scss
 @mixin g-textOuterGlow($size: 1, $color: #fff, $blur-radius: 1px) {
@@ -177,7 +149,6 @@ photoshopでいうところの「光彩（外側）」を文字に追加するmi
 - Type: Number
 - Default value: 1
 
-
 #### $color
 
 - 概要: 光彩の色
@@ -189,8 +160,6 @@ photoshopでいうところの「光彩（外側）」を文字に追加するmi
 - 概要: 光彩のぼかしの半径
 - Type: String
 - Default value: '1px'
-
-
 
 ### 使用例
 
@@ -212,14 +181,11 @@ photoshopでいうところの「光彩（外側）」を文字に追加するmi
 }
 ```
 
-
 */
-
 
 @mixin g-textOuterGlow($size: 1, $color: #fff, $blur-radius: 1px) {
   @if  $size == 0 {
-    text-shadow:
-      0 0 $blur-radius $color;
+    text-shadow: 0 0 $blur-radius $color;
   } @else if $size == 1 {
     text-shadow:
       -1px -1px $blur-radius $color,
@@ -235,7 +201,7 @@ photoshopでいうところの「光彩（外側）」を文字に追加するmi
     text-shadow:
       -2px -2px $blur-radius $color,
       -2px -1px $blur-radius $color,
-      -2px 0px $blur-radius $color,
+      -2px 0 $blur-radius $color,
       -2px 1px $blur-radius $color,
       -2px 2px $blur-radius $color,
       -1px -2px $blur-radius $color,
@@ -255,7 +221,7 @@ photoshopでいうところの「光彩（外側）」を文字に追加するmi
       1px 2px $blur-radius $color,
       2px -2px $blur-radius $color,
       2px -1px $blur-radius $color,
-      2px 0px $blur-radius $color,
+      2px 0 $blur-radius $color,
       2px 1px $blur-radius $color,
       2px 2px $blur-radius $color;
   }

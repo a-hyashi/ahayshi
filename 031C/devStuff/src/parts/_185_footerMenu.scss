@@ -1,0 +1,2366 @@
+@if $device == PC {
+  .t0-b-footerMenu#{$variation1of2} {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #675f4f;
+    $_textHoverColor: #675f4f;
+    $_textStateEmColor: #ffba00;
+    $_textStateCurrentColor: #675f4f;
+    $_borderColor: #fc0;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 auto;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 34px;
+        min-height: inherit;
+        text-align: center;
+        li {
+          display: table-cell;
+          vertical-align: middle;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          height: 100%;
+          > span {
+            // Safariで空spanに高さが出てしまいテキストの位置がズレるため
+            position: absolute;
+            top: 0;
+          }
+
+          a {
+            display: block;
+            color: $_textColor;
+            div {
+              position: relative;
+              display: inline-block;
+              &::before {
+                position: absolute;
+                bottom: -6px;
+                display: block;
+                width: 0;
+                height: 4px;
+                content: "";
+                background: $_borderColor;
+              }
+            }
+
+            &:hover {
+              div {
+                color: $_textHoverColor;
+                &::before {
+                  width: 100%;
+                }
+              }
+            }
+          }
+
+          div {
+            display: inline-block;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      position: relative;
+      div {
+        color: $_textHoverColor;
+        &::before,
+        &::after {
+          position: absolute;
+          bottom: -6px;
+          display: block;
+          width: 100%;
+          height: 4px;
+          content: "";
+          background: $_borderColor;
+        }
+      }
+    }
+
+    .state-current.state-em {
+      position: relative;
+      div {
+        color: $_textHoverColor;
+        &::before,
+        &::after {
+          position: absolute;
+          bottom: -6px;
+          display: block;
+          width: 100%;
+          height: 4px;
+          content: "";
+          background: $_borderColor;
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu#{$variation2of2} {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_textHoverColor: #fff;
+    $_textStateEmColor: #fcff00;
+    $_textStateCurrentColor: #fff;
+    $_bgColor: #ffa632;
+    $_bgHoverColor: #ffc123;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+    background-color: $_bgColor;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 30px;
+        li {
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          div {
+            padding: 3px 0;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    // Start アニメーション
+    .t0-b-footerMenu__item {
+      // hover後にテキストが前に出るように
+      position: relative;
+      z-index: 1;
+      // IE11でhover装飾が途切れない様に
+      overflow: hidden;
+      a {
+        div {
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 0;
+            // IE11でhover装飾が途切れない様に
+            height: 300px;
+            content: "";
+            background-color: $_bgHoverColor;
+            // hover後にテキストが前に出るように
+            z-index: -1;
+          }
+
+          &:hover {
+            color: $_textHoverColor;
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      background-color: $_bgHoverColor;
+      div {
+        color: $_textHoverColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textHoverColor;
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu3 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_textHoverColor: #feffc8;
+    $_textStateEmColor: #fdff61;
+    $_textStateCurrentColor: #fff;
+    $_bgColor: #1fb4ff;
+    $_bgHoverColor: #28cbff;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+    background-color: $_bgColor;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 30px;
+        li {
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          div {
+            padding: 3px 0;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    // Start アニメーション
+    .t0-b-footerMenu__item {
+      // hover後にテキストが前に出るように
+      position: relative;
+      z-index: 1;
+      // IE11でhover装飾が途切れないように
+      overflow: hidden;
+      a {
+        div {
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 0;
+            // IE11でhover装飾が途切れないように
+            height: 300px;
+            content: "";
+            background-color: $_bgHoverColor;
+            // hover後にテキストが前に出るように
+            z-index: -1;
+          }
+
+          &:hover {
+            color: $_textHoverColor;
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      background-color: $_bgHoverColor;
+      div {
+        color: $_textHoverColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textHoverColor;
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu4 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #897453;
+    $_textHoverColor: #fff;
+    $_textStateEmColor: #c1a242;
+    $_textStateCurrentColor: #fed326;
+    $_bgHoverColor: #fed326;
+    $_borderColor: #c3baa7;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    padding: 20px 0 10px;
+    margin: 0 auto;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 18px;
+        min-height: inherit;
+        li {
+          position: relative;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          div {
+            position: relative;
+            &::after {
+              position: absolute;
+              top: 50%;
+              right: 0;
+              width: 1px;
+              height: 18px;
+              content: "";
+              background: $_borderColor;
+              transform: translateY(-50%);
+            }
+          }
+
+          &:first-child {
+            div {
+              position: relative;
+              &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 1px;
+                height: 18px;
+                content: "";
+                background: $_borderColor;
+                transform: translateY(-50%);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Start アニメーション
+    .t0-b-footerMenu__item {
+      // IE11でhover装飾が途切れないように
+      overflow: hidden;
+      a {
+        display: block;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 10px;
+          display: block;
+          width: 0;
+          height: 100%;
+          content: "";
+          background-color: $_bgHoverColor;
+          // hover後にテキストが前に出るように
+          z-index: -1;
+        }
+      }
+
+      &:hover {
+        a {
+          overflow: hidden;
+          &::before {
+            top: 0;
+            width: calc(100% - 20px);
+            // IE11でhover装飾が途切れないように
+            height: 300px;
+          }
+
+          div {
+            color: $_textHoverColor;
+          }
+        }
+      }
+
+      div {
+        padding: 0 10px;
+        color: $_textColor;
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateCurrentColor;
+      }
+    }
+
+    .state-current {
+      div {
+        padding: 3px 15px;
+        margin: 2px 20px;
+        color: $_textHoverColor;
+        background-color: $_bgHoverColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        padding: 3px 15px;
+        margin: 2px 20px;
+        color: $_textHoverColor;
+        background-color: $_bgHoverColor;
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu5 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #675f4f;
+    $_textHoverColor: #675f4f;
+    $_textStateEmColor: #00b8ff;
+    $_textStateCurrentColor: #675f4f;
+    $_borderColor: #00b8ff;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 auto;
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 34px;
+        min-height: inherit;
+        text-align: center;
+        li {
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          vertical-align: middle;
+          height: 100%;
+          > span {
+            // Safariで空spanに高さが出てしまいテキストの位置がズレるため
+            position: absolute;
+            top: 0;
+          }
+
+          a {
+            display: block;
+            color: $_textColor;
+            div {
+              position: relative;
+              display: inline-block;
+              &::before {
+                position: absolute;
+                bottom: -6px;
+                display: block;
+                width: 0;
+                height: 4px;
+                content: "";
+                background: $_borderColor;
+              }
+            }
+
+            &:hover {
+              div {
+                color: $_textHoverColor;
+                &::before {
+                  width: 100%;
+                }
+              }
+            }
+          }
+
+          div {
+            display: inline-block;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      position: relative;
+      div {
+        color: $_textHoverColor;
+        &::before,
+        &::after {
+          position: absolute;
+          bottom: -6px;
+          display: block;
+          width: 100%;
+          height: 4px;
+          content: "";
+          background: $_borderColor;
+        }
+      }
+    }
+
+    .state-current.state-em {
+      position: relative;
+      div {
+        color: $_textHoverColor;
+        &::before,
+        &::after {
+          position: absolute;
+          bottom: -6px;
+          display: block;
+          width: 100%;
+          height: 4px;
+          content: "";
+          background: $_borderColor;
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu6 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #d3a900;
+    $_textStateEmColor: #d3a900;
+    $_borderColor: #eed068;
+
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    background: #fff;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 34px;
+        min-height: inherit;
+        border-spacing: 10px;
+        border-collapse: separate;
+        li {
+          height: 100%;
+          z-index: 2;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            &:hover {
+              div {
+                color: #fff;
+                background: #fc0;
+              }
+            }
+          }
+
+          //リンクなし時の挙動用
+          div {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px 5px;
+            color: $_textColor;
+            transition: all .5s ease;
+            span {
+              //IEのときに長い文章が入ったときにテキストを折り返すように
+              -ms-flex: 0 0 100%; /* stylelint-disable-line */
+            }
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+      background: #fff9e2;
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: #fff9e2;
+        &:hover {
+          background: #fff9e2;
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu7 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #ff9000;
+    $_textStateEmColor: #ff9000;
+    $_borderColor: #f2be7b;
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    background: #fffdf4;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 34px;
+        min-height: inherit;
+        border-spacing: 10px;
+        li {
+          height: 100%;
+          z-index: 2;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            &:hover {
+              div {
+                color: #fff;
+                background: #ffa632;
+              }
+            }
+          }
+
+          //リンクなし時の挙動用
+          div {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px 5px;
+            color: $_textColor;
+            transition: all .5s ease;
+            span {
+              //IEのときに長い文章が入ったときにテキストを折り返すように
+              -ms-flex: 0 0 100%; /* stylelint-disable-line */
+            }
+          }
+        }
+      }
+    }
+
+    .state-em {
+      background: #fff5df;
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: lighten(#7c4429, 5%);
+        &:hover {
+          background: lighten(#7c4429, 5%);
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu8 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #d86f9d;
+    $_textStateEmColor: #d86f9d;
+    $_borderColor: #d5b9c5;
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    background: #fff6fb;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 34px;
+        min-height: inherit;
+        border-spacing: 10px;
+        li {
+          height: 100%;
+          z-index: 2;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            &:hover {
+              div {
+                color: #fff;
+                background: #fd9bc6;
+              }
+            }
+          }
+
+          //リンクなし時の挙動用
+          div {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px 5px;
+            color: $_textColor;
+            transition: all .5s ease;
+            span {
+              //IEのときに長い文章が入ったときにテキストを折り返すように
+              -ms-flex: 0 0 100%; /* stylelint-disable-line */ /* stylelint-disable-line */
+            }
+          }
+        }
+      }
+    }
+
+    .state-em {
+      background: #feeaf2;
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: #feeaf2;
+        &:hover {
+          background: #feeaf2;
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu9 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #8d7147;
+    $_textStateEmColor: #0086b9;
+    $_borderColor: #dad2c3;
+
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    background: #f5fcff;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 34px;
+        min-height: inherit;
+        border-spacing: 10px;
+        li {
+          height: 100%;
+          z-index: 2;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            &:hover {
+              div {
+                color: #fff;
+                background: #00b8ff;
+              }
+            }
+          }
+
+          //リンクなし時の挙動用
+          div {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px 5px;
+            color: $_textColor;
+            transition: all .5s ease;
+            span {
+              //IEのときに長い文章が入ったときにテキストを折り返すように
+              -ms-flex: 0 0 100%; /* stylelint-disable-line */
+            }
+          }
+        }
+      }
+    }
+
+    .state-em {
+      background: #daf5ff;
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: #daf5ff;
+        &:hover {
+          background: #daf5ff;
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu10 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #897453;
+    $_textStateEmColor: #82ad01;
+
+    position: relative;
+    width: 100%;
+    padding: 3px 0;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    border-top: 2px solid #dfd7be;
+    border-bottom: 2px solid #dfd7be;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 24px;
+        min-height: inherit;
+        border-spacing: 10px 0;
+        li {
+          position: relative;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          div {
+            position: relative;
+            // IE11でテキストが2行になった時にborderの位置がズレるためdivに指定
+            // アニメーションの為に文字を一番上に出す為
+            z-index: 1;
+            color: $_textColor;
+            &::before {
+              position: absolute;
+              top: 50%;
+              left: -6px;
+              width: 2px;
+              height: 60%;
+              content: "";
+              border-left: 2px dotted #ece7d8;
+              transform: translateY(-50%);
+              display: block;
+              // Safariでブラウザのデフォルトcssが当たるため指定
+              color: #ece7d8;
+            }
+          }
+
+          &:last-child {
+            div {
+              position: relative;
+              // IE11でテキストが2行になった時にborderの位置がズレるためdivに指定
+              &::after {
+                position: absolute;
+                top: 50%;
+                right: -6px;
+                width: 2px;
+                height: 14px;
+                content: "";
+                border-left: 2px dotted #ece7d8;
+                transform: translateY(-50%);
+                display: block;
+                // Safariでブラウザのデフォルトcssが当たるため指定
+                color: #ece7d8;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .t0-b-footerMenu__item {
+      div {
+        padding: 0 18px;
+      }
+
+      a {
+        display: block;
+        height: 100%;
+        div {
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          padding-top: 1px;
+          text-decoration: none;
+          border-radius: 2px;
+          transition: .75s;
+          &:hover {
+            box-shadow: #fff4a6 0 0 5px 50px inset;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+        transition: .75s;
+      }
+
+      a {
+        div {
+          &:hover {
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-current {
+      a {
+        div {
+          box-shadow: #fff9d2 0 0 10px 50px inset;
+          transition: .5s;
+          &:hover {
+            color: rgba(157, 148, 143, 1);
+            box-shadow: #fffce9 0 0 10px 50px inset;
+          }
+        }
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textColor;
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu11 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #897453;
+    $_textStateEmColor: #82ad01;
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    border-top: 1px solid #e6dfcb;
+    border-bottom: 1px solid #e6dfcb;
+
+    //safariのときにhover時、fontが細くなる処理の対策
+    -webkit-font-smoothing: subpixel-antialiased;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 30px;
+        min-height: inherit;
+        li {
+          height: 100%;
+          position: relative;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          div {
+            // アニメーションの為に文字を一番上に出す為
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 100%;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .t0-b-footerMenu__item {
+      div {
+        padding: 8px 18px;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        div {
+
+          transition: .5s;
+          &::before,
+          &::after {
+            position: absolute;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 0;
+            content: '';
+            background: #fff161;
+            opacity: .5;
+            transition: all .5s;
+          }
+
+          &::before {
+            top: 0;
+          }
+
+          &::after {
+            bottom: 0;
+          }
+
+          &:hover {
+            color: $_textColor;
+            &::before,
+            &::after {
+              height: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+        transition: all .5s;
+      }
+
+      a {
+        div {
+          &:hover {
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-current {
+      a {
+        div {
+          color: $_textColor;
+          &::before,
+          &::after {
+            height: 100%;
+            background: #fff590;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textColor;
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu12 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    background: #ffabcf;
+
+    //safariのときにhover時、fontが細くなる処理の対策
+    //Chromeに反映しないようにSafariのみに反映するように記述
+    _::-webkit-full-page-media, _:future, :root & {
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke: .5px;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 30px;
+        min-height: inherit;
+        li {
+          height: 100%;
+          position: relative;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          div {
+            // アニメーションの為に文字を一番上に出す為
+            position: relative;
+            z-index: 1;
+
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .t0-b-footerMenu__item {
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        div {
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          &::before,
+          &::after {
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            width: 0;
+            height: 100%;
+            content: '';
+            background: #ff7eb0;
+            opacity: .3;
+            transition: all .5s;
+          }
+
+          &::before {
+            left: 0;
+          }
+
+          &::after {
+            right: 0;
+          }
+
+          &:hover {
+            &::before,
+            &::after {
+              width: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .state-current {
+      a {
+        div {
+          &::before,
+          &::after {
+            width: 100%;
+            background: #ff8fbb;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerMenu13 {
+
+    $_widthContent: 1100px;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #816739;
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+
+    background: #ffef66;
+
+    //safariのときにhover時、fontが細くなる処理の対策
+
+    //Chromeに反映しないようにSafariのみに反映するように記述
+    _::-webkit-full-page-media, _:future, :root & {
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke: .5px;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    > div {
+      width: $_widthContent;
+      margin: 0 auto;
+      > ul {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        height: 30px;
+        min-height: inherit;
+        li {
+          height: 100%;
+          position: relative;
+          display: table-cell;
+          // 文字を全て消した時の対応
+          min-width: 50px;
+          text-align: center;
+          vertical-align: middle;
+          div {
+            // アニメーションの為に文字を一番上に出す為
+            position: relative;
+            z-index: 1;
+
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .t0-b-footerMenu__item {
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        div {
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          &::before,
+          &::after {
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            width: 0;
+            height: 100%;
+            content: "";
+            background: #ffd13d;
+            opacity: .1;
+            transition: all .5s;
+          }
+
+          &::before {
+            left: 0;
+          }
+
+          &::after {
+            right: 0;
+          }
+
+          &:hover {
+            &::before,
+            &::after {
+              width: 100%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .state-current {
+      a {
+        div {
+          &::before,
+          &::after {
+            width: 100%;
+            background: #ffde2d;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          // 幅均等にする為の指定
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerMenu#{$variation1of2} {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #675f4f;
+    $_textHoverColor: #675f4f;
+    $_textStateCurrentColor: #fc0;
+    $_borderColor: #ffae00;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: inline-block;
+          margin: 0 7px;
+          div {
+            padding: 5px 0;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateCurrentColor;
+      }
+    }
+
+    .state-current {
+      div {
+        color: $_textHoverColor;
+        border-bottom: 2px solid $_borderColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textHoverColor;
+        border-bottom: 2px solid $_borderColor;
+      }
+    }
+  }
+
+  .t0-b-footerMenu#{$variation2of2} {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_textHoverColor: #fff;
+    $_textStateCurrentColor: #fff;
+    $_bgColor: #ffa632;
+    $_bgHoverColor: #ffa632;
+    $_textStateEmColor: #fcff00;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    background-color: $_bgColor;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: inline-block;
+          margin: 0 7px;
+          div {
+            padding: 5px;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      background-color: $_bgHoverColor;
+      div {
+        color: $_textHoverColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textHoverColor;
+      }
+    }
+  }
+
+  .t0-b-footerMenu3 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_textHoverColor: #ff8a00;
+    $_textStateCurrentColor: #fff;
+    $_bgColor: #1fb4ff;
+    $_bgHoverColor: #1fb4ff;
+    $_textStateEmColor: #fcff00;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    background-color: $_bgColor;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: inline-block;
+          margin-left: 7px;
+          div {
+            padding: 5px;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      background-color: $_bgHoverColor;
+      div {
+        color: $_textHoverColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textHoverColor;
+      }
+    }
+  }
+
+  .t0-b-footerMenu4 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #897453;
+    $_textHoverColor: #897453;
+    $_textStateCurrentColor: #fed326;
+    $_bgHoverColor: #988776;
+    $_borderColor: #988776;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 5px 0;
+        letter-spacing: -.4em;
+        li {
+          display: inline-block;
+          margin: 0 7px;
+          letter-spacing: normal;
+          div {
+            padding: 5px;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateCurrentColor;
+      }
+    }
+
+    .state-current {
+      div {
+        color: $_textHoverColor;
+        background-color: $_bgHoverColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textHoverColor;
+      }
+    }
+  }
+
+  .t0-b-footerMenu5 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #675f4f;
+    $_textHoverColor: #675f4f;
+    $_textStateCurrentColor: #675f4f;
+    $_borderColor: #00b8ff;
+    $_textStateEmColor: #26a7d8;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: inline-block;
+          margin-left: 0 7px;
+          div {
+            padding: 5px 0;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      div {
+        color: $_textHoverColor;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: $_textHoverColor;
+      }
+    }
+  }
+
+  .t0-b-footerMenu6 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #d3a900;
+    $_textStateEmColor: #d3a900;
+    $_textStateCurrentColor: #fff;
+    $_borderColor: #eed068;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+
+    background: #fff;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 5px 3px;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            text-decoration: none;
+          }
+
+          div {
+            min-height: 14px;
+            padding: 5px;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+        background: #fff9e2;
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: #fff9e2;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: #fff;
+        background: #fff9e2;
+      }
+    }
+  }
+
+  .t0-b-footerMenu7 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #ff9000;
+    $_textStateEmColor: #ff9000;
+    $_textStateCurrentColor: #fff;
+    $_borderColor: #f2be7b;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+
+    background: #fffdf4;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 5px 3px;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            text-decoration: none;
+          }
+
+          div {
+            min-height: 14px;
+            padding: 5px;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+        background: #fff5df;
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: #fff5df;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: #fff;
+        background: #fff5df;
+      }
+    }
+  }
+
+  .t0-b-footerMenu8 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #d86f9d;
+    $_textStateEmColor: #d86f9d;
+    $_textStateCurrentColor: #fff;
+    $_borderColor: #d5b9c5;
+    $_backgroundColor: #f6973c;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+
+    background: #fff6fb;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 5px 3px;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            text-decoration: none;
+          }
+
+          div {
+            min-height: 14px;
+            padding: 5px;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+        background: #ffeff6;
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: #ffeff6;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: #fff;
+        background: #ffeff6;
+      }
+    }
+  }
+
+  .t0-b-footerMenu9 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #8d7147;
+    $_textStateEmColor: #0086b9;
+    $_textStateCurrentColor: #fff;
+    $_borderColor: #dad2c3;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+
+    background: #f5fcff;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding: 5px 0;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 5px 3px;
+          vertical-align: middle;
+          border: 1px solid $_borderColor;
+          a {
+            text-decoration: none;
+          }
+
+          div {
+            min-height: 14px;
+            padding: 5px;
+            color: $_textColor;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+        background: #daf5ff;
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: #daf5ff;
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        color: #fff;
+        background: #daf5ff;
+      }
+    }
+  }
+
+  .t0-b-footerMenu10 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #897453;
+    $_textStateEmColor: #82ad01;
+    $_bgColor: #fff9d2;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+
+    border-top: 2px solid #e5dbca;
+    border-bottom: 2px solid #e5dbca;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 4px 0;
+        li {
+          position: relative;
+          display: inline-block;
+          margin: 0 7px;
+          vertical-align: middle;
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            width: 2px;
+            height: 14px;
+            content: "";
+            border-left: 2px dotted #ece5d7;
+            transform: translateY(-50%);
+          }
+
+          &:last-child {
+            &::after {
+              position: absolute;
+              top: 50%;
+              right: -10px;
+              width: 2px;
+              height: 14px;
+              content: "";
+              border-left: 2px dotted #ece5d7;
+              transform: translateY(-50%);
+            }
+          }
+
+          div {
+            padding: 5px;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      background-color: $_bgColor;
+    }
+  }
+
+  .t0-b-footerMenu11 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #897453;
+    $_textStateEmColor: #82ad01;
+    $_bgColor: #e6dfcb;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+
+    border-top: 1px solid #e6dfcb;
+    border-bottom: 1px solid #e6dfcb;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        padding: 4px 0;
+        li {
+          position: relative;
+          display: inline-block;
+          div {
+            padding: 5px;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateEmColor;
+      }
+    }
+
+    .state-current {
+      background-color: $_bgColor;
+    }
+  }
+
+  .t0-b-footerMenu12 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    background: #ffabcf;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        li {
+          position: relative;
+          display: inline-block;
+          margin: 0 7px;
+          div {
+            padding: 5px;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-current {
+      background: #ffabcf;
+    }
+  }
+
+  .t0-b-footerMenu13 {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #816739;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    background: #ffef66;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+    @include g-font($_fontSizePx, $_lineHeightType);
+    div {
+      text-align: center;
+      ul {
+        width: 100%;
+        li {
+          position: relative;
+          display: inline-block;
+          margin: 0 7px;
+          div {
+            padding: 5px;
+            color: $_textColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .state-current {
+      background: #ffef66;
+    }
+  }
+}

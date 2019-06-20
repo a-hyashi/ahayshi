@@ -1,8 +1,6 @@
 @if $device == PC {
-
   .t0-b-sideBoxList#{$variation1of2} {
 
-    // Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -12,27 +10,30 @@
     $_color_table_td_bg: #f1efe8;
     $_color_table_th_text: #482e15;
     $_color_table_td_text: #7c5e42;
-
     hr {
-      margin-top: $_blockSpacing;
-      border: 0;
       height: 1px;
+      margin-top: $_blockSpacing;
       background: #999;
+      border: 0;
     }
+
     > hr {
       &:first-child {
         margin-top: 0;
       }
     }
+
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2em;
       margin-top: $_blockSpacing;
@@ -45,30 +46,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       margin-top: $_blockSpacing;
       font-size: $g-baseFontSize;
@@ -76,45 +81,51 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         min-height: 12.5px;
-        @include g-font(14, 1);
-        padding: 0 0 0 20px;
+        padding: 0 0 0 15px;
         margin: 5px 0 0 10px;
-        background: url("../imgs/list/list001/list001_ico01_v1_v1f1.png");
-        background-position: 0 .3em;
+        background: url("../imgs/list/list001/list001_ico01_v1_v1f1.svg");
         background-repeat: no-repeat;
+        background-position: 0 .3em;
         background-size: 8px;
+        @include g-font(14, 1);
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_elementSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border-color: transparent;
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -122,13 +133,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -136,12 +150,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -149,23 +165,22 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-    // End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
 
     color: $g-textcolor;
     text-align: left;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
@@ -180,7 +195,6 @@
 
   .t0-b-sideBoxList#{$variation2of2} {
 
-    // Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -190,27 +204,30 @@
     $_color_table_td_bg: #f1efe8;
     $_color_table_th_text: #482e15;
     $_color_table_td_text: #7c5e42;
-
     hr {
-      margin-top: $_blockSpacing;
-      border: 0;
       height: 1px;
+      margin-top: $_blockSpacing;
       background: #999;
+      border: 0;
     }
+
     > hr {
       &:first-child {
         margin-top: 0;
       }
     }
+
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
@@ -223,30 +240,34 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       margin-top: $_blockSpacing;
       font-size: $g-baseFontSize;
@@ -254,45 +275,51 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         min-height: 16px;
-        @include g-font(14, 1);
         padding: 0 0 0 20px;
         margin: 5px 0 0 10px;
-        background: url("../imgs/list/list004/list004_ico01_v2_v2f1.png");
-        background-position: 0 .3em;
+        background: url("../imgs/list/list002/list002_ico01_v2_v2f1.svg");
         background-repeat: no-repeat;
+        background-position: 0 .2em;
         background-size: 12px 9px;
+        @include g-font(14, 1);
         &:first-child {
           margin-top: 0;
         }
         // IEはlist-itemのpseudo elementにバグあり。その対応
         &::before,
         &::after {
-          width: 100%;
-          float: left;
           display: none;
+          float: left;
+          width: 100%;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_elementSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border-color: transparent;
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -300,13 +327,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -314,12 +344,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -327,41 +359,38 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-    // End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
 
     color: $g-textcolor;
     text-align: left;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
   }
-
-}// PC
+}
 
 @if $device == SP {
-
   .t0-b-sideBoxList#{$variation1of2} {
 
-// Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -371,27 +400,30 @@
     $_color_table_td_bg: #f1efe8;
     $_color_table_th_text: #482e15;
     $_color_table_td_text: #7c5e42;
-
     hr {
-      margin-top: $_blockSpacing;
-      border: 0;
       height: 1px;
+      margin-top: $_blockSpacing;
       background: #999;
+      border: 0;
     }
+
     > hr {
       &:first-child {
         margin-top: 0;
       }
     }
+
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       margin: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -400,20 +432,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       margin-top: $_blockSpacing;
       font-size: $g-baseFontSize;
@@ -421,39 +456,45 @@
       ol {
         margin-top: 5px;
       }
+
       li {
         min-height: 12.5px;
-        @include g-font(14, 1);
         padding: 0 0 0 28px *.5;
         margin: 18px *.5 0 0;
-        background: url("../imgs/list/list001/list001_ico01_v1_v1f1.png");
-        background-position: 0 .35em;
+        background: url("../imgs/list/list001/list001_ico01_v1_v1f1.svg");
         background-repeat: no-repeat;
+        background-position: 0 .3em;
         // 画像が円に見えるように実際の画像よりも1px大きな値を指定
         background-size: 14px *.5;
+        @include g-font(14, 1);
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_elementSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border-color: transparent;
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -461,13 +502,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -475,12 +519,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -488,23 +534,22 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-    // End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
 
     color: $g-textcolor;
     text-align: left;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
@@ -519,7 +564,6 @@
 
   .t0-b-sideBoxList#{$variation2of2} {
 
-    // Start リッチテキスト用指定 ==============
     @include g-rteTableReset;
     // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
@@ -529,27 +573,30 @@
     $_color_table_td_bg: #f1efe8;
     $_color_table_th_text: #482e15;
     $_color_table_td_text: #7c5e42;
-
     hr {
-      margin-top: $_blockSpacing;
-      border: 0;
       height: 1px;
+      margin-top: $_blockSpacing;
       background: #999;
+      border: 0;
     }
+
     > hr {
       &:first-child {
         margin-top: 0;
       }
     }
+
     p {
       @include g-font(14, 2);
       margin-top: 1em;
     }
+
     > p {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ol {
       margin: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
@@ -558,20 +605,23 @@
       ol {
         margin-top: $_elementSpacing;
       }
+
       li {
         @include g-font(14, 1);
-        list-style-type: decimal;
         margin-top: $_elementSpacing;
+        list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ol {
       &:first-child {
         margin-top: 0;
       }
     }
+
     ul {
       margin-top: $_blockSpacing;
       font-size: $g-baseFontSize;
@@ -579,38 +629,45 @@
       ol {
         margin-top: 5px;
       }
+
       li {
         min-height: 16px;
-        @include g-font(14, 1);
         padding: 0 0 0 42px *.5;
-        margin: 30px *.5 0 0;
-        background: url("../imgs/list/list004/list004_ico01_v2_v2f1.png");
-        background-position: 0 .3em;
+        margin: 10px 0 0;
+        background: url("../imgs/list/list002/list002_ico01_v2_v2f1.svg");
         background-repeat: no-repeat;
-        background-size: 30px *.5 21px *.5;
+
+        background-position: 0 .2em;
+        background-size: 30px *.5 20px *.5;
+        @include g-font(14, 1);
         &:first-child {
           margin-top: 0;
         }
       }
     }
+
     > ul {
       &:first-child {
         margin-top: 0;
       }
     }
+
     table {
       width: 100%;
       margin-top: $_elementSpacing;
       // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border-color: transparent;
+      border: transparent 1px solid;
       th,
       td {
         @include g-font(14, 1);
-        border-top: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
+        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
       }
+
       ul,
       ol {
         font-size: $g-baseFontSize;
@@ -618,13 +675,16 @@
           @include g-font(14, 1);
         }
       }
+
       p {
         @include g-font(14, 1);
       }
+
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
       }
+
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
@@ -632,12 +692,14 @@
           border-bottom: 1px solid $_color_table_border;
         }
       }
+
       tr {
+        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-top: 1px solid $_color_table_border;
         }
+
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
           > th,
           td {
             background-image: none;
@@ -645,33 +707,31 @@
         }
       }
     }
+
     > table {
       &:first-child {
         margin-top: 0;
       }
     }
-    // End リッチテキスト用指定==============
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
 
     color: $g-textcolor;
     text-align: left;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $g-textcolor;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
     }
+
     ul {
       li {
         @include g-font($_fontSizePx, $_lineHeightType);
       }
     }
-
   }
-
-}// SP
+}

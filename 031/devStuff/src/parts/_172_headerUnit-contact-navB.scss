@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .t0-b-headerUnit-contact-navB#{$variation1of2} {
 
     $_block: &;
@@ -8,13 +7,12 @@
     $_textColor: #fff;
     $_bgColor: #009fa5;
     $_bgHoverColor: #86d6d9;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -22,7 +20,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -31,41 +29,38 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-timing-function: ease;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB#{$variation2of2} {
@@ -75,14 +70,13 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #009fa5;
-    $_bgHoverColor: #86d6d9;
-
-    white-space: nowrap;
+    $_bgHoverColor: #d9f1f2;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -90,54 +84,51 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow002_size2_v2.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow002.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .2s;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB3 {
@@ -148,13 +139,12 @@
     $_textColor: #fff;
     $_bgColor: #c4b482;
     $_bgHoverColor: #ded3b0;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -162,7 +152,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -171,40 +161,38 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB4 {
@@ -215,13 +203,12 @@
     $_textColor: #fff;
     $_bgColor: #c4b482;
     $_bgHoverColor: #f6f2e5;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -229,55 +216,51 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow003_size2_v4.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow003.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-delay: .3s;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB5 {
@@ -288,13 +271,12 @@
     $_textColor: #fff;
     $_bgColor: #53d6de;
     $_bgHoverColor: #98e3e7;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -302,7 +284,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -311,40 +293,38 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB6 {
@@ -355,13 +335,12 @@
     $_textColor: #fff;
     $_bgColor: #53d6de;
     $_bgHoverColor: #e5feff;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -369,55 +348,51 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow004_size2_v6.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow004.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-delay: .3s;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB7 {
@@ -428,13 +403,12 @@
     $_textColor: #fff;
     $_bgColor: #dd6f9f;
     $_bgHoverColor: #f0abca;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -442,7 +416,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -451,40 +425,38 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB8 {
@@ -495,13 +467,12 @@
     $_textColor: #fff;
     $_bgColor: #dd6f9f;
     $_bgHoverColor: #ffe7f2;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
@@ -509,55 +480,51 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow005_size2_v8.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow005.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
 
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 17px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-delay: .3s;
         display: block;
         width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        height: 14px;
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB9 {
@@ -567,43 +534,39 @@
     $_lineHeightType: 1;
     $_textColor: #52271c;
     $_hoverColor: #fff;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
-
       #{$_block}__inner {
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_hoverColor;
-          border: 2px solid $_textColor;
           background-color: $_textColor;
+          border: 2px solid $_textColor;
         }
       }
     }
 
     &__inner {
-      padding: 3px 10px;
-      border: 2px solid $_textColor;
+      min-height: 17px;
+      padding: 4px 10px 3px;
       background-color: $_hoverColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
+      border: 2px solid $_textColor;
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
   .t0-b-headerUnit-contact-navB10 {
@@ -613,51 +576,214 @@
     $_lineHeightType: 1;
     $_textColor: #52271c;
     $_hoverColor: #fff;
-
-    white-space: nowrap;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
     color: $_textColor;
     text-align: center;
 
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
-
       #{$_block}__inner {
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_hoverColor;
-          border: 2px solid $_textColor;
           background-color: $_textColor;
+          border: 2px solid $_textColor;
         }
       }
     }
 
     &__inner {
-      padding: 3px 10px;
-      border-radius: 20px;
-      border: 2px solid $_textColor;
+      min-height: 17px;
+      padding: 4px 10px 3px;
       background-color: $_hoverColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
+      border: 2px solid $_textColor;
+      border-radius: 20px;
     }
 
-    // Start サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
     [class^='t0-b-headerSingle'] & {
+      display: table;
       width: auto;
       margin: 0 auto;
       white-space: normal;
-      display: table;
     }
-    // End サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
   }
 
-}// PC
+  .t0-b-headerUnit-contact-navB11 {
 
+    $_block: &;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #009fa5;
+    $_hoverColor: #fff;
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 17px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      display: table;
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
+  }
+
+  .t0-b-headerUnit-contact-navB12 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #009fa5;
+    $_hoverColor: #fff;
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 17px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+      border-radius: 20px;
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      display: table;
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
+  }
+
+  .t0-b-headerUnit-contact-navB13 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #dd6f9f;
+    $_hoverColor: #fff;
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 17px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      display: table;
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
+  }
+
+  .t0-b-headerUnit-contact-navB14 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #dd6f9f;
+    $_hoverColor: #fff;
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+
+    white-space: nowrap;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 17px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+      border-radius: 20px;
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^='t0-b-headerSingle'] & {
+      display: table;
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
+  }
+}
 
 @if $device == SP {
-
   .t0-b-headerUnit-contact-navB#{$variation1of2} {
 
     $_block: &;
@@ -665,41 +791,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #009fa5;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -710,42 +834,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #009fa5;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/Banner_arrow002_size4_v2.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -756,41 +878,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #c4b482;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -801,42 +921,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #c4b482;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/Banner_arrow003_size4_v4.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -847,41 +965,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #53d6de;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -892,42 +1008,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #53d6de;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -938,41 +1052,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #dd6f9f;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -983,42 +1095,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #dd6f9f;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -1029,21 +1139,20 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #52271c;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      min-height: 20px;
       padding: 24px *.5 10px;
       background-color: $_bgColor;
     }
@@ -1056,25 +1165,129 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #52271c;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      min-height: 20px;
       padding: 24px *.5 10px;
+      background-color: $_bgColor;
       border-radius: 30px;
+    }
+  }
+
+  .t0-b-headerUnit-contact-navB11 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #009fa5;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
       background-color: $_bgColor;
     }
   }
 
-}// SP
+  .t0-b-headerUnit-contact-navB12 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #009fa5;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+    }
+  }
+
+  .t0-b-headerUnit-contact-navB13 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #dd6f9f;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
+      background-color: $_bgColor;
+    }
+  }
+
+  .t0-b-headerUnit-contact-navB14 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #dd6f9f;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+    }
+  }
+}

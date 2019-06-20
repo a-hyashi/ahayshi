@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .t0-b-catchText#{$variation1of2} {
 
     $_fontSizePx_main: 26;
@@ -9,12 +8,20 @@
     $_textColor_main: #6f4217;
     $_textColor_sub: #dd6f9f;
 
-    text-align: center;
+    /* 全体の背景画像指定 */
+    position: relative;
+    z-index: 0;
 
+    text-align: center;
+    background: url('../imgs/text/text001/text001_frame09_v1f2.png');
+    background-repeat: repeat;
+    background-position: left top;
+    background-size: 18px 18px;
+    border-radius: 40px;
     a {
       display: block;
-      text-decoration: underline;
       color: $_textColor_sub;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
@@ -25,56 +32,49 @@
     }
 
     &__text-main {
-      //テキストには反映させず背景のみ透過させたかった為rgbaを使用
-      background-color: rgba(196,171,134,0.12);
-      @include g-font-layout($_fontSizePx_main, $_lineHeightType_main, $layout);
-      color: $_textColor_main;
+      min-height: 32px;
       padding: 6px 10px;
+      color: $_textColor_main;
+      //テキストには反映させず背景のみ透過させたかった為rgbaを使用
+      background-color: rgba(196, 171, 134, .12);
+      @include g-font-layout($_fontSizePx_main, $_lineHeightType_main, $layout);
       > p {
         opacity: none;
       }
+
       a {
         color: $_textColor_main;
       }
     }
 
-    &__text-sub{
+    &__text-sub {
       @include g-font-layout($_fontSizePx_sub - 2, $_lineHeightType_sub, $layout);
-      color: $_textColor_sub;
       padding: 0 0 10px;
-    }
-    &__text-sub2{
-      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       color: $_textColor_sub;
-      padding: 0 0 10px;
-    }
-    &__text-sub3{
-      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
-      color: $_textColor_sub;
-      padding: 10px 0 0;
-    }
-    &__text-sub4{
-      @include g-font-layout($_fontSizePx_sub - 2, $_lineHeightType_sub, $layout);
-      color: $_textColor_sub;
-      padding: 10px 0 0;
     }
 
-  /*=====
-  Start 枠
-  =====*/
-    /*全体の背景画像指定*/
-    position: relative;
-    z-index: 0;
-    border-radius: 40px;
-    background: url('../imgs/text/text001/text001_frame09_v1f2.png');
-    background-repeat: repeat;
-    background-position: left top;
-    background-size: 18px 18px;
-    /*topの横ライン*/
+    &__text-sub2 {
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
+      padding: 0 0 10px;
+      color: $_textColor_sub;
+    }
+
+    &__text-sub3 {
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
+      padding: 10px 0 0;
+      color: $_textColor_sub;
+    }
+
+    &__text-sub4 {
+      @include g-font-layout($_fontSizePx_sub - 2, $_lineHeightType_sub, $layout);
+      padding: 10px 0 0;
+      color: $_textColor_sub;
+    }
+    /* topの横ライン */
     &::before {
       position: absolute;
-      left: 20px;
       top: 0;
+      left: 20px;
       display: block;
       width: calc(100% - 40px);
       height: 6px;
@@ -85,11 +85,11 @@
       background-position: left top;
       background-size: 1px 6px;
     }
-    /*bottomの横ライン*/
+    /* bottomの横ライン */
     &::after {
       position: absolute;
-      left: 20px;
       bottom: 0;
+      left: 20px;
       display: block;
       width: calc(100% - 40px);
       height: 6px;
@@ -100,7 +100,7 @@
       background-position: left bottom;
       background-size: 1px 6px;
     }
-    /*四角の画像指定*/
+    /* 四角の画像指定 */
     &__inner {
       position: relative;
       z-index: 1;
@@ -109,10 +109,10 @@
         url('../imgs/text/text001/text001_frame03_v1f2.png'),
         url('../imgs/text/text001/text001_frame04_v1f2.png'),
         url('../imgs/text/text001/text001_frame06_v1f2.png');
-      background-repeat: no-repeat, no-repeat, no-repeat ,no-repeat;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
       background-position: left top, right top, left bottom, right bottom;
       background-size: 21px 21px, 21px 21px, 21px 21px, 21px 21px;
-      /*rightの縦ライン*/
+      /* rightの縦ライン */
       &::before {
         position: absolute;
         top: 20px;
@@ -127,7 +127,7 @@
         background-position: right top;
         background-size: 6px 1px;
       }
-      /*leftの縦ライン*/
+      /* leftの縦ライン */
       &::after {
         position: absolute;
         top: 20px;
@@ -142,7 +142,6 @@
         background-size: 6px 1px;
       }
     }
-    // End 枠
   }
 
   .t0-b-catchText#{$variation2of2} {
@@ -154,14 +153,16 @@
     $_textColor_main: #6f4217;
     $_textColor_sub: #b75500;
 
+    position: relative;
+    margin-bottom: 45px;
+
     text-align: center;
     border: 1px solid #e3ddd5;
     border-radius: 7px;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $_textColor_sub;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
@@ -169,70 +170,60 @@
 
     &__inner {
       padding: 25px;
+      background-color: #e5f8f6;
       border: 1px solid #fff;
       border-radius: 7px;
-      background-color: #e5f8f6;
     }
 
     &__text-main {
       @include g-font-layout($_fontSizePx_main, $_lineHeightType_main, $layout);
+      min-height: 32px;
       color: $_textColor_main;
       text-shadow:
-      -1px -1px #fff,
-      1px -1px #fff,
-      -1px 1px #fff,
-      1px 1px #fff,
-      -1px -2px #fff,
-      1px -2px #fff,
-      -1px 2px #fff,
-      1px 2px #fff,
-      -2px -1px #fff,
-      2px -1px #fff,
-      -2px 1px #fff,
-      2px 1px #fff,
-      -2px -2px 1px #fff,
-      2px -2px 1px #fff,
-      -2px 2px 1px #fff,
-      2px 2px 1px #fff;
-
+        1px 1px 0 #fff,
+        -1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px -1px 0 #fff,
+        0 1px 0 #fff,
+        0 -1px 0 #fff,
+        -1px 0 0 #fff,
+        1px 0 0 #fff;
       a {
         color: $_textColor_main;
       }
     }
 
-    &__text-sub{
+    &__text-sub {
       @include g-font-layout($_fontSizePx_sub - 2, $_lineHeightType_sub, $layout);
-      color: $_textColor_sub;
       padding: 0 0 10px;
-    }
-    &__text-sub2{
-      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       color: $_textColor_sub;
+    }
+
+    &__text-sub2 {
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       padding: 0 0 10px;
-    }
-    &__text-sub3{
-      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       color: $_textColor_sub;
+    }
+
+    &__text-sub3 {
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       padding: 10px 0 0;
+      color: $_textColor_sub;
     }
-    &__text-sub4{
+
+    &__text-sub4 {
       @include g-font-layout($_fontSizePx_sub - 2, $_lineHeightType_sub, $layout);
-      color: $_textColor_sub;
       padding: 10px 0 0;
+      color: $_textColor_sub;
     }
-    /*=====
-    吹出し
-    =====*/
-    position: relative;
-    margin-bottom: 45px;
 
     &::after {
-      content: "";
       position: absolute;
       right: 125px;
       bottom: -43px;
       width: 42px;
       height: 45px;
+      content: "";
       background: url('../imgs/text/text002/text002_frame01_v2f2.png');
       background-repeat: no-repeat;
       background-size: 42px 45px;
@@ -250,11 +241,10 @@
 
     text-align: center;
     border: 5px solid #fbeff0;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $_textColor_sub;
+      text-decoration: underline;
       &:hover {
         color: $g-hovercolor;
       }
@@ -262,45 +252,46 @@
 
     &__inner {
       padding: 20px;
-      border: 1px solid #ebe1dc;
       background-color: #fdf7f8;
+      border: 1px solid #ebe1dc;
     }
 
     &__text-main {
       @include g-font-layout($_fontSizePx_main, $_lineHeightType_main, $layout);
+      min-height: 32px;
       color: $_textColor_main;
       a {
         color: $_textColor_main;
       }
     }
 
-    &__text-sub{
+    &__text-sub {
       @include g-font-layout($_fontSizePx_sub - 2, $_lineHeightType_sub, $layout);
-      color: $_textColor_sub;
       padding: 0 0 10px;
-    }
-    &__text-sub2{
-      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       color: $_textColor_sub;
+    }
+
+    &__text-sub2 {
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       padding: 0 0 10px;
-    }
-    &__text-sub3{
-      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       color: $_textColor_sub;
+    }
+
+    &__text-sub3 {
+      @include g-font-layout($_fontSizePx_sub, $_lineHeightType_sub, $layout);
       padding: 10px 0 0;
+      color: $_textColor_sub;
     }
-    &__text-sub4{
+
+    &__text-sub4 {
       @include g-font-layout($_fontSizePx_sub - 2, $_lineHeightType_sub, $layout);
-      color: $_textColor_sub;
       padding: 10px 0 0;
+      color: $_textColor_sub;
     }
   }
-
-}// PC
-
+}
 
 @if $device == SP {
-
   .t0-b-catchText#{$variation1of2} {
 
     $_fontSizePx_main: 18;
@@ -310,12 +301,20 @@
     $_textColor_main: #6f4217;
     $_textColor_sub: #dd6f9f;
 
-    text-align: center;
+    /* 全体の背景画像指定 */
+    position: relative;
+    z-index: 0;
 
+    text-align: center;
+    background: url('../imgs/text/text001/text001_frame09_v1f2.png');
+    background-repeat: repeat;
+    background-position: left top;
+    background-size: 18px *.5 18px *.5;
+    border-radius: 40px *.5;
     a {
       display: block;
-      text-decoration: underline;
       color: $_textColor_sub;
+      text-decoration: underline;
     }
 
     &__inner {
@@ -323,55 +322,47 @@
     }
 
     &__text-main {
-      //テキストには反映させず背景のみ透過させたかった為rgbaを使用
-      background-color: rgba(196,171,134,0.12);
-      @include g-font($_fontSizePx_main, $_lineHeightType_main);
-      color: $_textColor_main;
+      min-height: 22px;
       padding: 10px;
+      color: $_textColor_main;
+      //テキストには反映させず背景のみ透過させたかった為rgbaを使用
+      background-color: rgba(196, 171, 134, .12);
+      @include g-font($_fontSizePx_main, $_lineHeightType_main);
       a {
         color: $_textColor_main;
       }
     }
 
-    &__text-sub{
+    &__text-sub {
       @include g-font($_fontSizePx_sub - 2, $_lineHeightType_sub);
-      color: $_textColor_sub;
       padding: 0 0 10px *.5;
-    }
-    &__text-sub2{
-      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       color: $_textColor_sub;
-      padding: 0 0 10px *.5;
-    }
-    &__text-sub3{
-      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
-      color: $_textColor_sub;
-      padding: 10px *.5 0 0;
-    }
-    &__text-sub4{
-      @include g-font($_fontSizePx_sub - 2, $_lineHeightType_sub);
-      color: $_textColor_sub;
-      padding: 10px *.5 0 0;
     }
 
-  /*=====
-  Start 枠
-  =====*/
-    /*全体の背景画像指定*/
-    position: relative;
-    z-index: 0;
-    border-radius: 40px *.5;
-    background: url('../imgs/text/text001/text001_frame09_v1f2.png');
-    background-repeat: repeat;
-    background-position: left top;
-    background-size: 18px *.5 18px *.5;
-    /*topの横ライン*/
+    &__text-sub2 {
+      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
+      padding: 0 0 10px *.5;
+      color: $_textColor_sub;
+    }
+
+    &__text-sub3 {
+      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
+      padding: 10px *.5 0 0;
+      color: $_textColor_sub;
+    }
+
+    &__text-sub4 {
+      @include g-font($_fontSizePx_sub - 2, $_lineHeightType_sub);
+      padding: 10px *.5 0 0;
+      color: $_textColor_sub;
+    }
+    /* topの横ライン */
     &::before {
       position: absolute;
-      left: 20px *.5;
       top: 0;
+      left: 20px *.5;
       display: block;
-      width: calc(100% - 40px *.5);
+      width: calc(100% - 40px * .5);
       height: 6px *.5;
 
       content: '';
@@ -380,13 +371,13 @@
       background-position: left top;
       background-size: 1px 6px *.5;
     }
-    /*bottomの横ライン*/
+    /* bottomの横ライン */
     &::after {
       position: absolute;
-      left: 20px *.5;
       bottom: 0;
+      left: 20px *.5;
       display: block;
-      width: calc(100% - 40px *.5);
+      width: calc(100% - 40px * .5);
       height: 6px *.5;
 
       content: '';
@@ -395,7 +386,7 @@
       background-position: left bottom;
       background-size: 1px 6px *.5;
     }
-    /*四角の画像指定*/
+    /* 四角の画像指定 */
     &__inner {
       position: relative;
       z-index: 1;
@@ -419,28 +410,28 @@
         21px *.5 21px *.5,
         21px *.5 21px *.5,
         21px *.5 21px *.5;
-      /*rightの縦ライン*/
+      /* rightの縦ライン */
       &::before {
         position: absolute;
         top: 20px *.5;
         right: 0;
         display: block;
         width: 6px *.5;
-        height: calc(100% - 40px *.5);
+        height: calc(100% - 40px * .5);
         content: '';
         background: url('../imgs/text/text001/text001_frame08_v1f2.png');
         background-repeat: repeat-y;
         background-position: right top;
         background-size: 6px *.5 1px;
       }
-      /*leftの縦ライン*/
+      /* leftの縦ライン */
       &::after {
         position: absolute;
         top: 20px *.5;
         left: 0;
         display: block;
         width: 6px *.5;
-        height: calc(100% - 40px *.5);
+        height: calc(100% - 40px * .5);
         content: '';
         background: url('../imgs/text/text001/text001_frame07_v1f2.png');
         background-repeat: repeat-y;
@@ -448,7 +439,6 @@
         background-size: 6px *.5 1px;
       }
     }
-    // End 枠
   }
 
   .t0-b-catchText#{$variation2of2} {
@@ -460,82 +450,74 @@
     $_textColor_main: #6f4217;
     $_textColor_sub: #b75500;
 
+    position: relative;
+    margin-bottom: 44px *.5;
+
     text-align: center;
     border: 1px solid #e3ddd5;
     border-radius: 7px;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $_textColor_sub;
+      text-decoration: underline;
     }
 
     &__inner {
       padding: 30px *.5 25px *.5;
+      background-color: #e5f8f6;
       border: 1px solid #fff;
       border-radius: 7px;
-      background-color: #e5f8f6;
     }
 
     &__text-main {
       @include g-font($_fontSizePx_main, $_lineHeightType_main);
+      min-height: 22px;
       color: $_textColor_main;
       text-shadow:
-      -1px -1px #fff,
-      1px -1px #fff,
-      -1px 1px #fff,
-      1px 1px #fff,
-      -1px -2px #fff,
-      1px -2px #fff,
-      -1px 2px #fff,
-      1px 2px #fff,
-      -2px -1px #fff,
-      2px -1px #fff,
-      -2px 1px #fff,
-      2px 1px #fff,
-      -2px -2px 1px #fff,
-      2px -2px 1px #fff,
-      -2px 2px 1px #fff,
-      2px 2px 1px #fff;
-
+        1px 1px 0 #fff,
+        -1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px -1px 0 #fff,
+        0 1px 0 #fff,
+        0 -1px 0 #fff,
+        -1px 0 0 #fff,
+        1px 0 0 #fff;
       a {
         color: $_textColor_main;
       }
     }
 
-    &__text-sub{
+    &__text-sub {
       @include g-font($_fontSizePx_sub - 2, $_lineHeightType_sub);
-      color: $_textColor_sub;
       padding: 0 0 10px *.5;
-    }
-    &__text-sub2{
-      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       color: $_textColor_sub;
+    }
+
+    &__text-sub2 {
+      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       padding: 0 0 10px *.5;
-    }
-    &__text-sub3{
-      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       color: $_textColor_sub;
+    }
+
+    &__text-sub3 {
+      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       padding: 10px *.5 0 0;
+      color: $_textColor_sub;
     }
-    &__text-sub4{
+
+    &__text-sub4 {
       @include g-font($_fontSizePx_sub - 2, $_lineHeightType_sub);
-      color: $_textColor_sub;
       padding: 10px *.5 0 0;
+      color: $_textColor_sub;
     }
-    /*=====
-    吹出し
-    =====*/
-    position: relative;
-    margin-bottom: 44px *.5;
 
     &::after {
-      content: "";
       position: absolute;
       right: 92px *.5;
       bottom: -42px *.5;
       width: 43px *.5;
       height: 44px *.5;
+      content: "";
       background: url('../imgs/text/text002/text002_frame01_v2f2.png');
       background-repeat: no-repeat;
       background-size: 43px *.5 44px *.5;
@@ -553,47 +535,49 @@
 
     text-align: center;
     border: 5px solid #fbeff0;
-
     a {
       display: block;
-      text-decoration: underline;
       color: $_textColor_sub;
+      text-decoration: underline;
     }
 
     &__inner {
       padding: 15px 19px 17px;
-      border: 1px solid #ebe1dc;
       background-color: #fdf7f8;
+      border: 1px solid #ebe1dc;
     }
 
     &__text-main {
       @include g-font($_fontSizePx_main, $_lineHeightType_main);
+      min-height: 22px;
       color: $_textColor_main;
       a {
         color: $_textColor_main;
       }
     }
 
-    &__text-sub{
+    &__text-sub {
       @include g-font($_fontSizePx_sub - 2, $_lineHeightType_sub);
-      color: $_textColor_sub;
       padding: 0 0 10px;
-    }
-    &__text-sub2{
-      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       color: $_textColor_sub;
+    }
+
+    &__text-sub2 {
+      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       padding: 0 0 10px;
-    }
-    &__text-sub3{
-      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       color: $_textColor_sub;
+    }
+
+    &__text-sub3 {
+      @include g-font($_fontSizePx_sub, $_lineHeightType_sub);
       padding: 10px 0 0;
+      color: $_textColor_sub;
     }
-    &__text-sub4{
+
+    &__text-sub4 {
       @include g-font($_fontSizePx_sub - 2, $_lineHeightType_sub);
-      color: $_textColor_sub;
       padding: 10px 0 0;
+      color: $_textColor_sub;
     }
   }
-
-}// SP
+}

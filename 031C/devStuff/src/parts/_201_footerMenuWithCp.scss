@@ -1,0 +1,143 @@
+@if $device == PC {
+  .t0-b-footerMenuWithCp {
+
+    $_fontSizePx: 12;
+    $_lineHeightType: 1;
+    $_textColor: #675f4f;
+    $_bgColor: #fff18f;
+    $_textStateCurrentColor: #a97417;
+
+    width: 100%;
+    margin: 0 auto;
+    font-family: $tenorsans;
+    color: $_textColor;
+    background-color: $_bgColor;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      color: $_textColor;
+      text-decoration: underline;
+      &:hover {
+        color: $g-hovercolor;
+      }
+    }
+
+    > div {
+      box-sizing: border-box;
+      display: table;
+      width: 1100px;
+      min-height: 34px;
+      padding: 8px 0;
+      margin: 0 auto;
+      // firefoxだとmin-height効かない為
+      /* stylelint-disable */
+      @-moz-document url-prefix() {
+        height: 34px;
+      }
+      /* stylelint-enable */
+    }
+
+    p {
+      display: table-cell;
+    }
+
+    &__menu {
+      display: table-cell;
+      ul {
+        text-align: right;
+        letter-spacing: -.4em;
+      }
+
+      li {
+        display: inline-block;
+        letter-spacing: normal;
+        a {
+          &:hover {
+            color: $g-hovercolor;
+            div {
+              color: $g-hovercolor;
+            }
+          }
+        }
+
+        div {
+          padding: 0 15px;
+          background: url("../imgs/menu/menu005/menu005_ico01_v1f2.svg");
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-size: 7px 10px;
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        font-weight: bold;
+        color: $_textStateCurrentColor;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerMenuWithCp {
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    $_textColor: #675f4f;
+    $_bgColor: #fff18f;
+    $_textStateCurrentColor: #a97417;
+    margin: 0 -15px;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    background-color: $_bgColor;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      color: $_textColor;
+      text-decoration: underline;
+    }
+
+    > div {
+      box-sizing: border-box;
+      display: block;
+      min-height: 55px;
+      padding: 5px 0;
+      margin: 0 auto;
+    }
+
+    p {
+      width: 100%;
+      margin: 0;
+      text-align: center;
+    }
+
+    &__menu {
+      width: 100%;
+      ul {
+        padding: 5px 10px;
+        text-align: center;
+        letter-spacing: -.4em;
+      }
+
+      li {
+        display: inline-block;
+        letter-spacing: normal;
+        a {
+          color: $_textColor;
+          text-decoration: underline;
+        }
+
+        div {
+          padding: 0 7px;
+          color: $_textColor;
+        }
+      }
+    }
+
+    .state-em {
+      div {
+        color: $_textStateCurrentColor;
+      }
+    }
+  }
+}

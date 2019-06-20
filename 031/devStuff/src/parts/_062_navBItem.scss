@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .t0-b-navBItem#{$variation1of2} {
 
     $_block: &;
@@ -19,7 +18,6 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -27,7 +25,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -36,114 +34,106 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
-      //Start 矢印アニメーション
+
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-timing-function: ease;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
       #{$_block}__inner {
         padding: 4px 19px 4px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 6px;
+        // 矢印アニメーション
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-2 {
-       @include g-font($_fontSizePx_s, $_lineHeightType);
-       #{$_block}__inner {
+      @include g-font($_fontSizePx_s, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 14px;
         padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        // 矢印アニメーション
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-3 {
       @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        min-height: 17px;
+        padding: 6px 19px 5px 29px;
+        // 矢印アニメーション
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-4 {
       @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 6px 19px 6px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        // 矢印アニメーション
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-5 {
       @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 7px 19px 7px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        // 矢印アニメーション
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -151,10 +141,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -173,13 +165,12 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #009fa5;
-    $_bgHoverColor: #86d6d9;
+    $_bgHoverColor: #d9f1f2;
 
     font-family: $tenorsans;
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -187,162 +178,102 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow002_size2_v2.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow002.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
+
       // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .2s;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow002_size1_v2.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
       #{$_block}__inner {
         padding: 2px 19px 2px 29px;
-        &:after {
-          width: 6px;
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
       }
     }
 
     &--size-2 {
-       @include g-font($_fontSizePx_s, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow002_size2_v2.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 3px 19px 3px 29px;
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
       }
     }
 
     &--size-3 {
-       @include g-font($_fontSizePx_m, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow002_size2_v2.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 3px 19px 3px 29px;
-        &:after {
+        min-height: 17px;
+        padding: 4px 19px 3px 29px;
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
       }
     }
 
     &--size-4 {
-       @include g-font($_fontSizePx_l, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow002_size3_v2.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 4px 19px 4px 29px;
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
       }
     }
 
     &--size-5 {
-       @include g-font($_fontSizePx_ll, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow002_size4_v2.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 5px 19px 5px 29px;
-        &:after {
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
       }
     }
@@ -350,9 +281,11 @@
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -360,10 +293,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -388,7 +323,6 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -396,7 +330,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -405,113 +339,106 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
-      // Start 矢印アニメーション
+
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
       #{$_block}__inner {
         padding: 4px 19px 4px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 6px;
+        // 矢印アニメーション
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-2 {
       @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        // 矢印アニメーション
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-3 {
       @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        min-height: 17px;
+        padding: 6px 19px 5px 29px;
+        // 矢印アニメーション
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-4 {
       @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 6px 19px 6px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        // 矢印アニメーション
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-5 {
       @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 7px 19px 7px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        // 矢印アニメーション
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -519,10 +446,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -547,7 +476,6 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -555,163 +483,102 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow003_size2_v4.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow003.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
-      // Start 矢印アニメーション
+
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-delay: .3s;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow003_size1_v4.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
       #{$_block}__inner {
         padding: 2px 19px 2px 29px;
-        &:after {
-          width: 6px;
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
       }
     }
 
     &--size-2 {
-       @include g-font($_fontSizePx_s, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow003_size2_v4.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 3px 19px 3px 29px;
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
       }
     }
 
     &--size-3 {
-       @include g-font($_fontSizePx_m, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow003_size2_v4.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 3px 19px 3px 29px;
-        &:after {
+        min-height: 17px;
+        padding: 4px 19px 3px 29px;
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
       }
     }
 
     &--size-4 {
-       @include g-font($_fontSizePx_l, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow003_size3_v4.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 4px 19px 4px 29px;
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
       }
     }
 
     &--size-5 {
-       @include g-font($_fontSizePx_ll, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow003_size4_v4.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 5px 19px 5px 29px;
-        &:after {
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
       }
     }
@@ -719,9 +586,11 @@
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -729,10 +598,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -757,7 +628,6 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -765,7 +635,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -774,113 +644,106 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
-      // Start 矢印アニメーション
+
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
       #{$_block}__inner {
         padding: 4px 19px 4px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 6px;
+        // 矢印アニメーション
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-2 {
       @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        // 矢印アニメーション
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-3 {
       @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        min-height: 17px;
+        padding: 6px 19px 5px 29px;
+        // 矢印アニメーション
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-4 {
       @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 6px 19px 6px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        // 矢印アニメーション
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-5 {
       @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 7px 19px 7px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        // 矢印アニメーション
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -888,10 +751,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -916,7 +781,6 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -924,163 +788,102 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow004_size2_v6.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow004.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
-      // Start 矢印アニメーション
+
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-delay: .3s;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow004_size1_v6.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
       #{$_block}__inner {
         padding: 2px 19px 2px 29px;
-        &:after {
-          width: 6px;
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
       }
     }
 
     &--size-2 {
-       @include g-font($_fontSizePx_s, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow004_size2_v6.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 3px 19px 3px 29px;
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
       }
     }
 
     &--size-3 {
-       @include g-font($_fontSizePx_m, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow004_size2_v6.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 3px 19px 3px 29px;
-        &:after {
+        min-height: 17px;
+        padding: 4px 19px 3px 29px;
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
       }
     }
 
     &--size-4 {
-       @include g-font($_fontSizePx_l, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow004_size3_v6.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 4px 19px 4px 29px;
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
       }
     }
 
     &--size-5 {
-       @include g-font($_fontSizePx_ll, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow004_size4_v6.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 5px 19px 5px 29px;
-        &:after {
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
       }
     }
@@ -1088,9 +891,11 @@
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -1098,10 +903,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -1126,7 +933,6 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -1134,7 +940,7 @@
         transition: background-color .5s ease;
         &:hover {
           background-color: $_bgHoverColor;
-          &:after {
+          &::after {
             // 矢印アニメーション
             left: 15px;
           }
@@ -1143,113 +949,106 @@
     }
 
     &__inner {
-      padding: 5px 19px 5px 29px;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
-      // Start 矢印アニメーション
+
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 6px 19px 5px 29px;
+      background-color: $_bgColor;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: .2s;
+        transition-timing-function: linear;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
       #{$_block}__inner {
         padding: 4px 19px 4px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 6px;
+        // 矢印アニメーション
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-2 {
       @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        // 矢印アニメーション
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-3 {
       @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 5px 19px 5px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        min-height: 17px;
+        padding: 6px 19px 5px 29px;
+        // 矢印アニメーション
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-4 {
       @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 6px 19px 6px 29px;
-        // Start 矢印アニメーション
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        // 矢印アニメーション
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--size-5 {
       @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 7px 19px 7px 29px;
-        // Start 矢印アニメーション
-        &:after {
+        // 矢印アニメーション
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
-        // End 矢印アニメーション
       }
     }
 
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -1257,10 +1056,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -1285,7 +1086,6 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
@@ -1293,163 +1093,102 @@
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_bgColor;
-          border: 2px solid $_bgColor;
           background-color: $_bgHoverColor;
-          &:after {
+          border: 2px solid $_bgColor;
+          &::after {
             // 矢印アニメーション
             left: 15px;
-            background-image: url("../imgs/common/navItem001/Banner_arrow005_size2_v8.png");
+            background-image: url("../imgs/common/navItem001/Banner_arrow005.svg");
           }
         }
       }
     }
 
     &__inner {
-      padding: 3px 19px 3px 29px;
-      border-radius: 20px;
-      border: 2px solid $_bgColor;
-      background-color: $_bgColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
-      
-      // Start 矢印アニメーション
+
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 12px;
+      padding: 4px 19px 3px 29px;
+      background-color: $_bgColor;
+      border: 2px solid $_bgColor;
+      border-radius: 20px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         left: 10px;
-        transition: .3s;
-        transition-delay: .3s;
         display: block;
-        width: 8px;
-        height: 12px;
-        background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 8px 12px;
+        background-size: 8px 14px;
+        transition: left .3s, background-image 0s ease .2s;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
 
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow005_size1_v8.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
       #{$_block}__inner {
         padding: 2px 19px 2px 29px;
-        &:after {
-          width: 6px;
+        &::after {
+          width: 5px;
           height: 8px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size1_v1.png");
-          background-size: 6px 8px;
+          background-size: 5px 8px;
         }
       }
     }
 
     &--size-2 {
-       @include g-font($_fontSizePx_s, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow005_size2_v8.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 3px 19px 3px 29px;
-        &:after {
-          width: 8px;
-          height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
-          background-size: 8px 14px;
+        &::after {
+          width: 7px;
+          height: 12px;
+          background-size: 7px 12px;
         }
       }
     }
 
     &--size-3 {
-       @include g-font($_fontSizePx_m, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow005_size2_v8.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 3px 19px 3px 29px;
-        &:after {
+        min-height: 17px;
+        padding: 4px 19px 3px 29px;
+        &::after {
           width: 8px;
           height: 14px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size2_v1.png");
           background-size: 8px 14px;
         }
       }
     }
 
     &--size-4 {
-       @include g-font($_fontSizePx_l, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow005_size3_v8.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 4px 19px 4px 29px;
-        &:after {
-          width: 10px;
-          height: 16px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size3_v1.png");
-          background-size: 10px 16px;
+        &::after {
+          width: 9px;
+          height: 15px;
+          background-size: 9px 15px;
         }
       }
     }
 
     &--size-5 {
-       @include g-font($_fontSizePx_ll, $_lineHeightType);
-      // Start 矢印アニメーション
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &:after {
-              background-image: url("../imgs/common/navItem001/Banner_arrow005_size4_v8.png");
-            }
-          }
-        }
-      }
-      // End 矢印アニメーション
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 5px 19px 5px 29px;
-        &:after {
+        &::after {
           width: 10px;
-          height: 18px;
-          background-image: url("../imgs/common/navItem001/Banner_arrow001_size4_v1.png");
-          background-size: 10px 18px;
+          height: 16px;
+          background-size: 10px 16px;
         }
       }
     }
@@ -1457,9 +1196,11 @@
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -1467,10 +1208,12 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
     &--align-r {
       margin-left: auto;
     }
@@ -1494,126 +1237,24 @@
     @include g-font($_fontSizePx_m, $_lineHeightType);
     color: $_textColor;
     text-align: center;
-
     a {
       display: block;
       color: $_textColor;
-
       #{$_block}__inner {
         transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
         &:hover {
           color: $_hoverColor;
-          border: 2px solid $_textColor;
           background-color: $_textColor;
+          border: 2px solid $_textColor;
         }
       }
     }
 
     &__inner {
-      padding: 3px 10px;
-      border: 2px solid $_textColor;
-      background-color: $_hoverColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
       min-height: 12px;
-    }
-
-    &--size-1 {
-      @include g-font($_fontSizePx_ss, $_lineHeightType);
-      #{$_block}__inner {
-        padding: 2px 10px;
-      }
-    }
-
-    &--size-2 {
-       @include g-font($_fontSizePx_s, $_lineHeightType);
-       #{$_block}__inner {
-         padding: 3px 10px;
-       }
-    }
-
-    &--size-3 {
-       @include g-font($_fontSizePx_m, $_lineHeightType);
-       #{$_block}__inner {
-         padding: 3px 10px;
-       }
-    }
-
-    &--size-4 {
-       @include g-font($_fontSizePx_l, $_lineHeightType);
-       #{$_block}__inner {
-         padding: 4px 10px;
-       }
-    }
-
-    &--size-5 {
-       @include g-font($_fontSizePx_ll, $_lineHeightType);
-       #{$_block}__inner {
-         padding: 5px 10px;
-       }
-    }
-
-    &--width-l {
-      width: 100%;
-    }
-    &--width-m {
-      width: 75%;
-    }
-    &--width-s {
-      width: 50%;
-    }
-
-    &--align-l {
-      margin-right: auto;
-    }
-    &--align-c {
-      margin-right: auto;
-      margin-left: auto;
-    }
-    &--align-r {
-      margin-left: auto;
-    }
-  }
-
-  .t0-b-navBItem10 {
-
-    $_block: &;
-    $_fontSizePx: 14;
-    $_fontSizeDifference: 2;
-    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_m: $_fontSizePx;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
-    $_lineHeightType: 1;
-    $_textColor: #52271c;
-    $_hoverColor: #fff;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx_m, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
-    a {
-      display: block;
-      color: $_textColor;
-
-      #{$_block}__inner {
-        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
-        &:hover {
-          color: $_hoverColor;
-          border: 2px solid $_textColor;
-          background-color: $_textColor;
-        }
-      }
-    }
-
-    &__inner {
-      padding: 3px 10px;
-      border-radius: 20px;
-      border: 2px solid $_textColor;
+      padding: 4px 10px 3px;
       background-color: $_hoverColor;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 12px;
+      border: 2px solid $_textColor;
     }
 
     &--size-1 {
@@ -1626,6 +1267,7 @@
     &--size-2 {
       @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 14px;
         padding: 3px 10px;
       }
     }
@@ -1633,13 +1275,15 @@
     &--size-3 {
       @include g-font($_fontSizePx_m, $_lineHeightType);
       #{$_block}__inner {
-        padding: 3px 10px;
+        min-height: 17px;
+        padding: 4px 10px 3px;
       }
     }
 
     &--size-4 {
       @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 20px;
         padding: 4px 10px;
       }
     }
@@ -1647,6 +1291,7 @@
     &--size-5 {
       @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
+        min-height: 22px;
         padding: 5px 10px;
       }
     }
@@ -1654,9 +1299,11 @@
     &--width-l {
       width: 100%;
     }
+
     &--width-m {
       width: 75%;
     }
+
     &--width-s {
       width: 50%;
     }
@@ -1664,10 +1311,530 @@
     &--align-l {
       margin-right: auto;
     }
+
     &--align-c {
       margin-right: auto;
       margin-left: auto;
     }
+
+    &--align-r {
+      margin-left: auto;
+    }
+  }
+
+  .t0-b-navBItem10 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_fontSizeDifference: 2;
+    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_m: $_fontSizePx;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
+    $_lineHeightType: 1;
+    $_textColor: #52271c;
+    $_hoverColor: #fff;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx_m, $_lineHeightType);
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 12px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+      border-radius: 20px;
+    }
+
+    &--size-1 {
+      @include g-font($_fontSizePx_ss, $_lineHeightType);
+      #{$_block}__inner {
+        padding: 2px 10px;
+      }
+    }
+
+    &--size-2 {
+      @include g-font($_fontSizePx_s, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 14px;
+        padding: 3px 10px;
+      }
+    }
+
+    &--size-3 {
+      @include g-font($_fontSizePx_m, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 17px;
+        padding: 4px 10px 3px;
+      }
+    }
+
+    &--size-4 {
+      @include g-font($_fontSizePx_l, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 20px;
+        padding: 4px 10px;
+      }
+    }
+
+    &--size-5 {
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 22px;
+        padding: 5px 10px;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      margin-right: auto;
+    }
+
+    &--align-c {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &--align-r {
+      margin-left: auto;
+    }
+  }
+
+  .t0-b-navBItem11 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_fontSizeDifference: 2;
+    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_m: $_fontSizePx;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
+    $_lineHeightType: 1;
+    $_textColor: #009fa5;
+    $_hoverColor: #fff;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx_m, $_lineHeightType);
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 12px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+    }
+
+    &--size-1 {
+      @include g-font($_fontSizePx_ss, $_lineHeightType);
+      #{$_block}__inner {
+        padding: 2px 10px;
+      }
+    }
+
+    &--size-2 {
+      @include g-font($_fontSizePx_s, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 14px;
+        padding: 3px 10px;
+      }
+    }
+
+    &--size-3 {
+      @include g-font($_fontSizePx_m, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 17px;
+        padding: 4px 10px 3px;
+      }
+    }
+
+    &--size-4 {
+      @include g-font($_fontSizePx_l, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 20px;
+        padding: 4px 10px;
+      }
+    }
+
+    &--size-5 {
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 22px;
+        padding: 5px 10px;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      margin-right: auto;
+    }
+
+    &--align-c {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &--align-r {
+      margin-left: auto;
+    }
+  }
+
+  .t0-b-navBItem12 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_fontSizeDifference: 2;
+    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_m: $_fontSizePx;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
+    $_lineHeightType: 1;
+    $_textColor: #009fa5;
+    $_hoverColor: #fff;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx_m, $_lineHeightType);
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 12px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+      border-radius: 20px;
+    }
+
+    &--size-1 {
+      @include g-font($_fontSizePx_ss, $_lineHeightType);
+      #{$_block}__inner {
+        padding: 2px 10px;
+      }
+    }
+
+    &--size-2 {
+      @include g-font($_fontSizePx_s, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 14px;
+        padding: 3px 10px;
+      }
+    }
+
+    &--size-3 {
+      @include g-font($_fontSizePx_m, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 17px;
+        padding: 4px 10px 3px;
+      }
+    }
+
+    &--size-4 {
+      @include g-font($_fontSizePx_l, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 20px;
+        padding: 4px 10px;
+      }
+    }
+
+    &--size-5 {
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 22px;
+        padding: 5px 10px;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      margin-right: auto;
+    }
+
+    &--align-c {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &--align-r {
+      margin-left: auto;
+    }
+  }
+
+  .t0-b-navBItem13 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_fontSizeDifference: 2;
+    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_m: $_fontSizePx;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
+    $_lineHeightType: 1;
+    $_textColor: #dd6f9f;
+    $_hoverColor: #fff;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx_m, $_lineHeightType);
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 12px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+    }
+
+    &--size-1 {
+      @include g-font($_fontSizePx_ss, $_lineHeightType);
+      #{$_block}__inner {
+        padding: 2px 10px;
+      }
+    }
+
+    &--size-2 {
+      @include g-font($_fontSizePx_s, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 14px;
+        padding: 3px 10px;
+      }
+    }
+
+    &--size-3 {
+      @include g-font($_fontSizePx_m, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 17px;
+        padding: 4px 10px 3px;
+      }
+    }
+
+    &--size-4 {
+      @include g-font($_fontSizePx_l, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 20px;
+        padding: 4px 10px;
+      }
+    }
+
+    &--size-5 {
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 22px;
+        padding: 5px 10px;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      margin-right: auto;
+    }
+
+    &--align-c {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &--align-r {
+      margin-left: auto;
+    }
+  }
+
+  .t0-b-navBItem14 {
+
+    $_block: &;
+    $_fontSizePx: 14;
+    $_fontSizeDifference: 2;
+    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
+    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
+    $_fontSizePx_m: $_fontSizePx;
+    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
+    $_lineHeightType: 1;
+    $_textColor: #dd6f9f;
+    $_hoverColor: #fff;
+
+    font-family: $tenorsans;
+    @include g-font($_fontSizePx_m, $_lineHeightType);
+    color: $_textColor;
+    text-align: center;
+    a {
+      display: block;
+      color: $_textColor;
+      #{$_block}__inner {
+        transition: color .3s ease .2s, background-color .3s ease .1s, border-color .3s ease .2s;
+        &:hover {
+          color: $_hoverColor;
+          background-color: $_textColor;
+          border: 2px solid $_textColor;
+        }
+      }
+    }
+
+    &__inner {
+      min-height: 12px;
+      padding: 4px 10px 3px;
+      background-color: $_hoverColor;
+      border: 2px solid $_textColor;
+      border-radius: 20px;
+    }
+
+    &--size-1 {
+      @include g-font($_fontSizePx_ss, $_lineHeightType);
+      #{$_block}__inner {
+        padding: 2px 10px;
+      }
+    }
+
+    &--size-2 {
+      @include g-font($_fontSizePx_s, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 14px;
+        padding: 3px 10px;
+      }
+    }
+
+    &--size-3 {
+      @include g-font($_fontSizePx_m, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 17px;
+        padding: 4px 10px 3px;
+      }
+    }
+
+    &--size-4 {
+      @include g-font($_fontSizePx_l, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 20px;
+        padding: 4px 10px;
+      }
+    }
+
+    &--size-5 {
+      @include g-font($_fontSizePx_ll, $_lineHeightType);
+      #{$_block}__inner {
+        min-height: 22px;
+        padding: 5px 10px;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      margin-right: auto;
+    }
+
+    &--align-c {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     &--align-r {
       margin-left: auto;
     }
@@ -1676,19 +1843,16 @@
   .t0-b-navBItemDouble {
     display: flex;
     &__layout {
-      padding-left: 4%;
       flex: 1 1 (100% / 2);
+      padding-left: 4%;
       &:first-child {
         padding-left: 0;
       }
     }
   }
-
-}// PC
-
+}
 
 @if $device == SP {
-
   .t0-b-navBItem#{$variation1of2} {
 
     $_block: &;
@@ -1696,41 +1860,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #009fa5;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -1741,42 +1903,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #009fa5;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -1787,41 +1947,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #c4b482;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -1832,42 +1990,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #c4b482;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -1878,41 +2034,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #53d6de;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -1923,42 +2077,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #53d6de;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-    
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -1969,41 +2121,39 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #dd6f9f;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-    
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      // 矢印アニメーション
+      position: relative;
+      min-height: 20px;
       padding: 12px 30px 12px 15px;
       background-color: $_bgColor;
-      // Start 矢印アニメーション
-      position: relative;
-      &:after {
-        content: "";
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -2014,42 +2164,40 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #dd6f9f;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-    
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
-      padding: 12px 30px 12px 15px;
-      border-radius:  30px;
-      background-color: $_bgColor;
-      // Start 矢印アニメーション
+      // 矢印アニメーション
       position: relative;
-      &:after {
-        content: "";
+      min-height: 20px;
+      padding: 12px 30px 12px 15px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+      &::after {
         position: absolute;
         top: 50%;
-        // 高さ不明の要素を天地の中央に配置
-        transform: translateY(-50%);
         right: 10px;
         display: block;
         width: 20px *.5;
         height: 30px *.5;
-        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001_v1_02.png");
+        content: "";
+        background-image: url("../imgs/common/navItem001/sp_Banner_arrow001.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px *.5 30px *.5;
+        // 高さ不明の要素を天地の中央に配置
+        transform: translateY(-50%);
       }
-      // End 矢印アニメーション
     }
   }
 
@@ -2060,21 +2208,20 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #52271c;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-    
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      min-height: 20px;
       padding: 24px *.5 10px;
       background-color: $_bgColor;
     }
@@ -2087,24 +2234,129 @@
     $_lineHeightType: 1;
     $_textColor: #fff;
     $_bgColor: #52271c;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
-    color: $_textColor;
-    text-align: center;
-    
     width: 95%;
     margin: 0 auto;
 
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
     a {
       display: block;
       color: $_textColor;
     }
 
     &__inner {
+      min-height: 20px;
       padding: 24px *.5 10px;
-      border-radius: 30px;
       background-color: $_bgColor;
+      border-radius: 30px;
+    }
+  }
+
+  .t0-b-navBItem11 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #009fa5;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
+      background-color: $_bgColor;
+    }
+  }
+
+  .t0-b-navBItem12 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #009fa5;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
+      background-color: $_bgColor;
+      border-radius: 30px;
+    }
+  }
+
+  .t0-b-navBItem13 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #dd6f9f;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
+      background-color: $_bgColor;
+    }
+  }
+
+  .t0-b-navBItem14 {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_textColor: #fff;
+    $_bgColor: #dd6f9f;
+    width: 95%;
+    margin: 0 auto;
+
+    font-family: $tenorsans;
+    color: $_textColor;
+    text-align: center;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      display: block;
+      color: $_textColor;
+    }
+
+    &__inner {
+      min-height: 20px;
+      padding: 24px *.5 10px;
+      background-color: $_bgColor;
+      border-radius: 30px;
     }
   }
 
@@ -2116,5 +2368,4 @@
       }
     }
   }
-
-}// SP
+}

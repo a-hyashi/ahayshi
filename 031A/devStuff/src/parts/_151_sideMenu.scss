@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .b-sideMenu#{$variation1of2} {
 
     $_block: &;
@@ -8,15 +7,14 @@
     $_lineHeightType: 1;
     $_textColor_hd: #000;
     $_textColor_item: #555;
-    $_textHoverColor: #770000;
+    $_textHoverColor: #700;
     $_textCurrentColor: #816739;
     $_bgColor: #e7e7e7;
     $_bgHoverColor: #e7e7e7;
     $_bgCurrentColor: #e7e7e7;
 
     font-family: $tenorsans;
-    border-top: 4px solid #770000;
-
+    border-top: 4px solid #700;
     a {
       text-decoration: none;
       h4 {
@@ -29,51 +27,55 @@
     label {
       display: none;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     &__hd {
       @include g-font($_fontSizePx_hd, $_lineHeightType);
-      text-align: center;
+      min-height: 25px;
       padding: 12px 10px;
+      text-align: center;
       background-color: #f3f3f3;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
+      border-left: 1px solid #e8e8e8;
       h4 {
         color: $_textColor_hd;
       }
     }
+
     &__bd {
       padding: 26px 10px;
       background-color: #fff;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
       border-bottom: 1px solid #e8e8e8;
-
+      border-left: 1px solid #e8e8e8;
       > .b-sideMenu__list {
         > ul {
           > .b-sideMenu__item {
-            // Start 親要素
             + .b-sideMenu__item {
               margin-top: 10px;
             }
+
             .b-sideMenu__item2 {
               @include g-font($_fontSizePx_item, $_lineHeightType);
               > div {
-                  span {
+                span {
                   > span {
                     display: block;
-                    color: $_textColor_item;
                     padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
                     // カラーをなくす為 初期値にする
                     background-color: transparent;
-                    background-image: url("../imgs/menu/menu001/menu001_ico01_v1f1.png");
+                    background-image: url("../imgs/menu/menu001/menu001_ico01_v1f1.svg");
                     background-repeat: no-repeat;
-                    background-size: 13px 13px;
                     background-position: 6px center;
+                    background-size: 13px 13px;
                   }
                 }
               }
+
               &:hover {
                 > div {
                   > a {
@@ -81,53 +83,45 @@
                     padding: 7px 0;
                     span {
                       > span {
-                        display: inline-block;
-                        color: $_textHoverColor;
-                        text-shadow:
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px 1px #fff,
-                        1px -1px 1px #fff,
-                        -1px 1px 1px #fff,
-                        1px 1px 1px #fff;
-                        padding: 0 8px 0 25px;
-                        // Start hoverのアンダーラインの要素
+                        // hoverのアンダーラインの要素
                         position: relative;
                         z-index: 0;
-                        &:before {
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
                           position: absolute;
-                          left: 24px;
                           bottom: -2px;
+                          left: 24px;
                           z-index: -1;
-                          content: '';
                           display: inline-block;
                           width: 0;
                           height: 8px;
+                          content: '';
                           background-color: $_bgHoverColor;
                         }
+
                         &:hover {
-                          &:before {
+                          &::before {
                             width: calc(100% - 24px);
                           }
                         }
-                        // End hoverのアンダーラインの要素
                       }
                     }
                   }
                 }
               }
             }
-            // Start current
+
             &.state-current {
               > .b-sideMenu__item2 {
                 > div {
@@ -138,6 +132,7 @@
                     }
                   }
                 }
+
                 &:hover {
                   > div {
                     background-color: #fff;
@@ -146,71 +141,61 @@
                       padding: 7px 0;
                       span {
                         > span {
-                          display: inline-block;
-                          color: $_textHoverColor;
-                          text-shadow:
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px 1px #fff,
-                          1px -1px 1px #fff,
-                          -1px 1px 1px #fff,
-                          1px 1px 1px #fff;
-                          padding: 0 8px 0 25px;
-                          // Start hoverのアンダーラインの要素
+                          // hoverのアンダーラインの要素
                           position: relative;
                           z-index: 0;
-                          &:before {
+                          display: inline-block;
+                          padding: 0 8px 0 25px;
+                          color: $_textHoverColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          &::before {
                             position: absolute;
-                            left: 24px;
                             bottom: -2px;
+                            left: 24px;
                             z-index: -1;
-                            content: '';
                             display: inline-block;
                             width: 0;
                             height: 8px;
+                            content: '';
                             background-color: $_bgHoverColor;
                           }
+
                           &:hover {
-                            &:before {
+                            &::before {
                               width: calc(100% - 24px);
                             }
                           }
-                          // End hoverのアンダーラインの要素
                         }
                       }
                     }
                   }
                 }
               }
-              // End .b-sideMenu__item2
             }
-            // End current・親要素
 
-            // Start 子・孫要素
             .b-sideMenu__list {
               .b-sideMenu__item {
                 .b-sideMenu__item2 {
                   > div {
-                      span {
+                    span {
                       > span {
                         padding: 7px 8px 7px 32px;
-                        background-image: url("../imgs/menu/menu001/menu001_ico02_v1f1.png");
+                        background-image: url("../imgs/menu/menu001/menu001_ico02_v1f1.svg");
                         background-repeat: no-repeat;
-                        background-size: 8px 2px;
                         background-position: 16px center;
+                        background-size: 8px 2px;
                       }
                     }
                   }
+
                   &:hover {
                     > div {
                       > a {
@@ -218,90 +203,75 @@
                         padding: 7px 0;
                         span {
                           > span {
-                            display: inline-block;
-                            color: $_textHoverColor;
-                            text-shadow:
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px 1px #fff,
-                            1px -1px 1px #fff,
-                            -1px 1px 1px #fff,
-                            1px 1px 1px #fff;
-                            padding: 0 8px 0 32px;
-                            // Start hoverのアンダーラインの要素
+                            // hoverのアンダーラインの要素
                             position: relative;
                             z-index: 0;
-                            &:before {
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
                               bottom: -2px;
                               width: 0;
                               background-color: $_bgHoverColor;
                             }
+
                             &:hover {
-                              &:before {
+                              &::before {
                                 left: 30px;
                                 width: calc(100% - 30px);
                               }
                             }
-                            // End hoverのアンダーラインの要素
                           }
                         }
                       }
                     }
                   }
                 }
-                // Start current
+
                 &.state-current {
                   > .b-sideMenu__item2 {
                     > div {
                       background-color: transparent;
                       span {
-                      > span {
-                        display: inline-block;
-                        color: $_textCurrentColor;
-                        text-shadow:
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px 1px #fff,
-                          1px -1px 1px #fff,
-                          -1px 1px 1px #fff,
-                          1px 1px 1px #fff;
-                          background-color: transparent;
+                        > span {
                           position: relative;
                           z-index: 0;
-                          &:before {
+                          display: inline-block;
+                          color: $_textCurrentColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          background-color: transparent;
+                          &::before {
                             position: absolute;
-                            left: 30px;
                             bottom: 5px;
+                            left: 30px;
                             z-index: -1;
-                            content: '';
                             display: inline-block;
                             width: calc(100% - 30px);
                             height: 8px;
+                            content: '';
                             background-color: $_bgCurrentColor;
                           }
                         }
                       }
                     }
+
                     &:hover {
                       > div {
                         > a {
@@ -309,69 +279,59 @@
                           padding: 7px 0;
                           span {
                             > span {
-                              display: inline-block;
-                              color: $_textHoverColor;
-                              text-shadow:
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px 1px #fff,
-                              1px -1px 1px #fff,
-                              -1px 1px 1px #fff,
-                              1px 1px 1px #fff;
-                              padding: 0 8px 0 32px;
-                              // Start hoverのアンダーラインの要素
+                              // hoverのアンダーラインの要素
                               position: relative;
                               z-index: 0;
-                              &:before {
+                              display: inline-block;
+                              padding: 0 8px 0 32px;
+                              color: $_textHoverColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
                                 bottom: -2px;
                                 width: 0;
                                 background-color: $_bgHoverColor;
                               }
+
                               &:hover {
-                                &:before {
+                                &::before {
                                   left: 30px;
                                   width: calc(100% - 30px);
                                 }
                               }
-                              // End hoverのアンダーラインの要素
                             }
                           }
                         }
                       }
                     }
                   }
-                  // End b-sideMenu__item2
                 }
-                // End current
 
-                // Start 孫要素
                 .b-sideMenu__list {
                   .b-sideMenu__item {
                     .b-sideMenu__item2 {
                       > div {
-                          span {
+                        span {
                           > span {
                             display: inline-block;
+                            padding: 4px 8px 4px 40px;
                             color: $_textColor_item;
                             text-shadow: none;
-                            padding: 4px 8px 4px 40px;
                             background-image: none;
-                            &:before {
+                            &::before {
                               content: none;
                             }
                           }
                         }
                       }
+
                       &:hover {
                         > div {
                           > a {
@@ -379,90 +339,75 @@
                             padding: 4px 0;
                             span {
                               > span {
-                                display: inline-block;
-                                color: $_textHoverColor;
-                                text-shadow:
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px 1px #fff,
-                                1px -1px 1px #fff,
-                                -1px 1px 1px #fff,
-                                1px 1px 1px #fff;
-                                padding: 0 8px 0 40px;
-                                // Start hoverのアンダーラインの要素
+                                // hoverのアンダーラインの要素
                                 position: relative;
                                 z-index: 0;
-                                &:before {
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
                                   position: absolute;
-                                  left: 38px;
                                   bottom: -2px;
+                                  left: 38px;
                                   z-index: -1;
-                                  content: '';
                                   display: inline-block;
                                   width: 0;
                                   height: 8px;
+                                  content: '';
                                   background-color: $_bgHoverColor;
                                 }
+
                                 &:hover {
-                                  &:before {
+                                  &::before {
                                     width: calc(100% - 38px);
                                   }
                                 }
-                                // End hoverのアンダーラインの要素
                               }
                             }
                           }
                         }
                       }
                     }
-                    // Start current
+
                     &.state-current {
                       > .b-sideMenu__item2 {
                         > div {
                           span {
-                          > span {
-                            color: $_textCurrentColor;
-                            text-shadow:
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px 1px #fff,
-                              1px -1px 1px #fff,
-                              -1px 1px 1px #fff,
-                              1px 1px 1px #fff;
-                              &:before {
+                            > span {
+                              color: $_textCurrentColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
                                 position: absolute;
-                                left: 38px;
                                 bottom: 2px;
+                                left: 38px;
                                 z-index: -1;
-                                content: '';
                                 display: inline-block;
                                 width: calc(100% - 38px);
                                 height: 8px;
+                                content: '';
                                 background-color: $_bgCurrentColor;
                               }
                             }
                           }
                         }
+
                         &:hover {
                           > div {
                             > a {
@@ -470,76 +415,62 @@
                               padding: 4px 0;
                               span {
                                 > span {
-                                  display: inline-block;
-                                  color: $_textHoverColor;
-                                  text-shadow:
-                                  -1px -1px #fff,
-                                  1px -1px #fff,
-                                  -1px 1px #fff,
-                                  1px 1px #fff,
-                                  -1px -1px #fff,
-                                  1px -1px #fff,
-                                  -1px 1px #fff,
-                                  1px 1px #fff,
-                                  -1px -1px #fff,
-                                  1px -1px #fff,
-                                  -1px 1px #fff,
-                                  1px 1px #fff,
-                                  -1px -1px 1px #fff,
-                                  1px -1px 1px #fff,
-                                  -1px 1px 1px #fff,
-                                  1px 1px 1px #fff;
-                                  padding: 0 8px 0 40px;
-                                  // Start hoverのアンダーラインの要素
+                                  // hoverのアンダーラインの要素
                                   position: relative;
                                   z-index: 0;
-                                  &:before {
+                                  display: inline-block;
+                                  padding: 0 8px 0 40px;
+                                  color: $_textHoverColor;
+                                  text-shadow:
+                                    1px 1px 0 #fff,
+                                    -1px -1px 0 #fff,
+                                    -1px 1px 0 #fff,
+                                    1px -1px 0 #fff,
+                                    0 1px 0 #fff,
+                                    0 -1px 0 #fff,
+                                    -1px 0 0 #fff,
+                                    1px 0 0 #fff;
+                                  &::before {
                                     position: absolute;
-                                    left: 38px;
                                     bottom: -2px;
+                                    left: 38px;
                                     z-index: -1;
-                                    content: '';
                                     display: inline-block;
                                     width: 0;
                                     height: 8px;
+                                    content: '';
                                     background-color: $_bgHoverColor;
                                   }
+
                                   &:hover {
-                                    &:before {
+                                    &::before {
                                       width: calc(100% - 38px);
                                     }
                                   }
-                                  // End hoverのアンダーラインの要素
                                 }
                               }
                             }
                           }
                         }
                       }
-                      // End b-sideMenu__item2
                     }
-                    // End current
                   }
                 }
-                // End 孫要素
               }
-              // End .b-sideMenu__item
             }
-            // End 子・孫要素
           }
-          // End .b-sideMenu__item
         }
-        // ul
       }
-      // End .b-sideMenu__list
     }
-    // End __bd
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
@@ -560,7 +491,6 @@
     $_bgCurrentColor: #e6e6e6;
 
     font-family: $tenorsans;
-
     a {
       text-decoration: none;
       h4 {
@@ -573,25 +503,29 @@
     label {
       display: none;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     &__hd {
       @include g-font($_fontSizePx_hd, $_lineHeightType);
-      text-align: center;
+      min-height: 25px;
       padding: 12px 10px;
+      text-align: center;
+      background-color: #fff;
       border-top: 2px solid #000;
       border-bottom: 2px solid #000;
       box-shadow:
-        0px -1px #fff inset,
-        0px -2px #666 inset,
-        0px 1px #fff inset,
-        0px 2px #666 inset;
-      background-color: #fff;
+        0 -1px #fff inset,
+        0 -2px #666 inset,
+        0 1px #fff inset,
+        0 2px #666 inset;
       h4 {
         color: $_textColor_hd;
       }
     }
+
     &__bd {
       padding: 26px 10px;
       background-color: #fff;
@@ -600,28 +534,29 @@
           border-bottom: 2px dotted #ede8db;
         }
       }
+
       .b-sideMenu__list {
         ul {
           .b-sideMenu__item {
-            // Start 親要素
             .b-sideMenu__item2 {
               @include g-font($_fontSizePx_item, $_lineHeightType);
-              color: $_textColor_item;
               padding: 2px 1px;
+              color: $_textColor_item;
               border-top: 2px dotted #ede8db;
               > div {
-                  span {
+                span {
                   > span {
                     display: block;
-                    color: $_textColor_item;
                     padding: 6px 7px 6px 23px;
-                    background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.png");
+                    color: $_textColor_item;
+                    background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
                     background-repeat: no-repeat;
-                    background-size: 10px 15px;
                     background-position: 6px center;
+                    background-size: 10px 15px;
                   }
                 }
               }
+
               &:hover {
                 > div {
                   > a {
@@ -631,17 +566,17 @@
                         display: block;
                         color: $_textHoverColor;
                         background-color: $_bgHoverColor;
-                        background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.png");
+                        background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
                         background-repeat: no-repeat;
-                        background-size: 10px 15px;
                         background-position: 6px center;
+                        background-size: 10px 15px;
                       }
                     }
                   }
                 }
               }
             }
-            // Start current
+
             &.state-current {
               > .b-sideMenu__item2 {
                 > div {
@@ -652,6 +587,7 @@
                     }
                   }
                 }
+
                 &:hover {
                   > div {
                     > a {
@@ -661,27 +597,24 @@
                           display: block;
                           color: $_textHoverColor;
                           background-color: $_bgHoverColor;
-                          background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.png");
+                          background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
                           background-repeat: no-repeat;
-                          background-size: 10px 15px;
                           background-position: 6px center;
+                          background-size: 10px 15px;
                         }
                       }
                     }
                   }
                 }
               }
-              // End .b-sideMenu__item2
             }
-            // End current・親要素
 
-            // Start 子・孫要素
             .b-sideMenu__list {
               .b-sideMenu__item {
                 .b-sideMenu__item2 {
                   > div {
                     background-color: transparent;
-                      span {
+                    span {
                       > span {
                         display: block;
                         padding: 6px 7px 6px 30px;
@@ -689,6 +622,7 @@
                       }
                     }
                   }
+
                   &:hover {
                     > div {
                       > a {
@@ -702,7 +636,7 @@
                     }
                   }
                 }
-                // Start current
+
                 &.state-current {
                   .b-sideMenu__item2 {
                     > div {
@@ -713,6 +647,7 @@
                         }
                       }
                     }
+
                     &:hover {
                       > div {
                         > a {
@@ -727,25 +662,23 @@
                       }
                     }
                   }
-                  // End b-sideMenu__item2
                 }
-                // End current
 
-                // Start 孫要素
                 .b-sideMenu__list {
                   .b-sideMenu__item {
                     .b-sideMenu__item2 {
                       > div {
-                          span {
+                        span {
                           > span {
                             display: block;
-                            text-shadow: none;
                             padding: 6px 7px 6px 40px;
+                            text-shadow: none;
                             background-color: transparent;
                             background-image: none;
                           }
                         }
                       }
+
                       &:hover {
                         > div {
                           > a {
@@ -753,8 +686,8 @@
                             span {
                               > span {
                                 display: block;
-                                color: $_textHoverColor;
                                 padding: 6px 7px 6px 40px;
+                                color: $_textHoverColor;
                                 background-color: $_bgHoverColor;
                               }
                             }
@@ -762,18 +695,19 @@
                         }
                       }
                     }
-                    // Start current
+
                     &.state-current {
                       .b-sideMenu__item2 {
                         > div {
                           background-color: $_bgCurrentColor;
                           span {
                             > span {
-                              color: $_textCurrentColor;
                               padding: 6px 8px 6px 40px;
+                              color: $_textCurrentColor;
                             }
                           }
                         }
+
                         &:hover {
                           > div {
                             > a {
@@ -781,8 +715,8 @@
                               span {
                                 > span {
                                   display: block;
-                                  color: $_textHoverColor;
                                   padding: 6px 7px 6px 40px;
+                                  color: $_textHoverColor;
                                   background-color: $_bgHoverColor;
                                 }
                               }
@@ -790,30 +724,24 @@
                           }
                         }
                       }
-                      // End b-sideMenu__item2
                     }
-                    // End current
                   }
                 }
-                // End 孫要素
               }
-              // End .b-sideMenu__item
             }
-            // End 子・孫要素
           }
-          // End .b-sideMenu__item
         }
-        // ul
       }
-      // End .b-sideMenu__list
     }
-    // End __bd
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
@@ -835,7 +763,6 @@
 
     font-family: $tenorsans;
     border-top: 4px solid #444;
-
     a {
       text-decoration: none;
       h4 {
@@ -848,57 +775,62 @@
     label {
       display: none;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     &__hd {
       @include g-font($_fontSizePx_hd, $_lineHeightType);
-      text-align: center;
+      min-height: 25px;
       padding: 12px 10px;
+      text-align: center;
       background-color: #f3f3f3;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
+      border-left: 1px solid #e8e8e8;
       h4 {
         color: $_textColor_hd;
       }
     }
+
     &__bd {
       padding: 26px 10px;
       background-color: #fefefd;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
       border-bottom: 1px solid #e8e8e8;
-
+      border-left: 1px solid #e8e8e8;
       > .b-sideMenu__list {
         > ul {
           > .b-sideMenu__item {
-            // Start 親要素
             + .b-sideMenu__item {
               margin-top: 10px;
             }
+
             .b-sideMenu__item2 {
               @include g-font($_fontSizePx_item, $_lineHeightType);
               color: $_textColor_item;
               > div {
-                  span {
+                span {
                   > span {
                     display: block;
-                    color: $_textColor_item;
                     padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
                     // カラーをなくす為 初期値にする
                     background-color: transparent;
-                    background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.png");
+                    background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.svg");
                     background-repeat: no-repeat;
-                    background-size: 13px 13px;
                     background-position: 6px center;
+                    background-size: 13px 13px;
                   }
                 }
+
                 > a {
                   > span {
                     color: $_textColor_item;
                   }
                 }
               }
+
               &:hover {
                 > div {
                   > a {
@@ -906,53 +838,45 @@
                     padding: 7px 0;
                     span {
                       > span {
-                        display: inline-block;
-                        color: $_textHoverColor;
-                        text-shadow:
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px 1px #fff,
-                        1px -1px 1px #fff,
-                        -1px 1px 1px #fff,
-                        1px 1px 1px #fff;
-                        padding: 0 8px 0 25px;
-                        // Start hoverのアンダーラインの要素
+                        // hoverのアンダーラインの要素
                         position: relative;
                         z-index: 0;
-                        &:before {
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
                           position: absolute;
-                          left: 24px;
                           bottom: -2px;
+                          left: 24px;
                           z-index: -1;
-                          content: '';
                           display: inline-block;
                           width: 0;
                           height: 8px;
+                          content: '';
                           background-color: $_bgHoverColor;
                         }
+
                         &:hover {
-                          &:before {
+                          &::before {
                             width: calc(100% - 24px);
                           }
                         }
-                        // End hoverのアンダーラインの要素
                       }
                     }
                   }
                 }
               }
             }
-            // Start current
+
             &.state-current {
               > .b-sideMenu__item2 {
                 > div {
@@ -960,27 +884,11 @@
                   span {
                     > span {
                       color: #fff;
-                      text-shadow:
-                        -1px -1px #555,
-                        1px -1px #555,
-                        -1px 1px #555,
-                        1px 1px #555,
-                        -1px -1px #555,
-                        1px -1px #555,
-                        -1px 1px #555,
-                        1px 1px #555,
-                        -1px -1px #555,
-                        1px -1px #555,
-                        -1px 1px #555,
-                        1px 1px #555,
-                        -1px -1px 1px #555,
-                        1px -1px 1px #555,
-                        -1px 1px 1px #555,
-                        1px 1px 1px #555;
-                        background-image: url("../imgs/menu/menu003/menu003_ico03_v4f1.png");
+                      background-image: url("../imgs/menu/menu003/menu003_ico03_v4f1.svg");
                     }
                   }
                 }
+
                 &:hover {
                   > div {
                     background-color: #fff;
@@ -989,72 +897,62 @@
                       padding: 7px 0;
                       span {
                         > span {
-                          display: inline-block;
-                          color: $_textHoverColor;
-                          text-shadow:
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px 1px #fff,
-                          1px -1px 1px #fff,
-                          -1px 1px 1px #fff,
-                          1px 1px 1px #fff;
-                          background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.png");
-                          padding: 0 8px 0 25px;
-                          // Start hoverのアンダーラインの要素
+                          // hoverのアンダーラインの要素
                           position: relative;
                           z-index: 0;
-                          &:before {
+                          display: inline-block;
+                          padding: 0 8px 0 25px;
+                          color: $_textHoverColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.svg");
+                          &::before {
                             position: absolute;
-                            left: 24px;
                             bottom: -2px;
+                            left: 24px;
                             z-index: -1;
-                            content: '';
                             display: inline-block;
                             width: 0;
                             height: 8px;
+                            content: '';
                             background-color: $_bgHoverColor;
                           }
+
                           &:hover {
-                            &:before {
+                            &::before {
                               width: calc(100% - 24px);
                             }
                           }
-                          // End hoverのアンダーラインの要素
                         }
                       }
                     }
                   }
                 }
               }
-              // End .b-sideMenu__item2
             }
-            // End current・親要素
 
-            // Start 子・孫要素
             .b-sideMenu__list {
               .b-sideMenu__item {
                 .b-sideMenu__item2 {
                   > div {
-                      span {
+                    span {
                       > span {
                         padding: 7px 8px 7px 32px;
-                        background-image: url("../imgs/menu/menu003/menu003_ico02_v4f1.png");
+                        background-image: url("../imgs/menu/menu003/menu003_ico02_v4f1.svg");
                         background-repeat: no-repeat;
-                        background-size: 8px 2px;
                         background-position: 16px center;
+                        background-size: 8px 2px;
                       }
                     }
                   }
+
                   &:hover {
                     > div {
                       > a {
@@ -1062,90 +960,75 @@
                         padding: 7px 0;
                         span {
                           > span {
-                            display: inline-block;
-                            color: $_textHoverColor;
-                            text-shadow:
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px 1px #fff,
-                            1px -1px 1px #fff,
-                            -1px 1px 1px #fff,
-                            1px 1px 1px #fff;
-                            padding: 0 8px 0 32px;
-                            // Start hoverのアンダーラインの要素
+                            // hoverのアンダーラインの要素
                             position: relative;
                             z-index: 0;
-                            &:before {
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
                               bottom: -2px;
                               width: 0;
                               background-color: $_bgHoverColor;
                             }
+
                             &:hover {
-                              &:before {
+                              &::before {
                                 left: 30px;
                                 width: calc(100% - 30px);
                               }
                             }
-                            // End hoverのアンダーラインの要素
                           }
                         }
                       }
                     }
                   }
                 }
-                // Start current
+
                 &.state-current {
                   .b-sideMenu__item2 {
                     > div {
                       background-color: transparent;
                       span {
-                      > span {
-                        display: inline-block;
-                        color: $_textCurrentColor;
-                        text-shadow:
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px #fff,
-                          1px -1px #fff,
-                          -1px 1px #fff,
-                          1px 1px #fff,
-                          -1px -1px 1px #fff,
-                          1px -1px 1px #fff,
-                          -1px 1px 1px #fff,
-                          1px 1px 1px #fff;
-                          padding: 7px 8px 7px 32px;
+                        > span {
                           position: relative;
                           z-index: 0;
-                          &:before {
+                          display: inline-block;
+                          padding: 7px 8px 7px 32px;
+                          color: $_textCurrentColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          &::before {
                             position: absolute;
-                            left: 30px;
                             bottom: 5px;
+                            left: 30px;
                             z-index: -1;
-                            content: '';
                             display: inline-block;
                             width: calc(100% - 30px);
                             height: 8px;
+                            content: '';
                             background-color: $_bgCurrentColor;
                           }
                         }
                       }
                     }
+
                     &:hover {
                       > div {
                         > a {
@@ -1153,69 +1036,59 @@
                           padding: 7px 0;
                           span {
                             > span {
-                              display: inline-block;
-                              color: $_textHoverColor;
-                              text-shadow:
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px 1px #fff,
-                              1px -1px 1px #fff,
-                              -1px 1px 1px #fff,
-                              1px 1px 1px #fff;
-                              padding: 0 8px 0 32px;
-                              // Start hoverのアンダーラインの要素
+                              // hoverのアンダーラインの要素
                               position: relative;
                               z-index: 0;
-                              &:before {
+                              display: inline-block;
+                              padding: 0 8px 0 32px;
+                              color: $_textHoverColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
                                 bottom: -2px;
                                 width: 0;
                                 background-color: $_bgHoverColor;
                               }
+
                               &:hover {
-                                &:before {
+                                &::before {
                                   left: 30px;
                                   width: calc(100% - 30px);
                                 }
                               }
-                              // End hoverのアンダーラインの要素
                             }
                           }
                         }
                       }
                     }
                   }
-                  // End b-sideMenu__item2
                 }
-                // End current
 
-                // Start 孫要素
                 .b-sideMenu__list {
                   .b-sideMenu__item {
                     .b-sideMenu__item2 {
                       > div {
-                          span {
+                        span {
                           > span {
                             display: inline-block;
+                            padding: 4px 8px 4px 40px;
                             color: $_textColor_item;
                             text-shadow: none;
-                            padding: 4px 8px 4px 40px;
                             background-image: none;
-                            &:before {
+                            &::before {
                               content: none;
                             }
                           }
                         }
                       }
+
                       &:hover {
                         > div {
                           > a {
@@ -1223,90 +1096,75 @@
                             padding: 4px 0;
                             span {
                               > span {
-                                display: inline-block;
-                                color: $_textHoverColor;
-                                text-shadow:
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px 1px #fff,
-                                1px -1px 1px #fff,
-                                -1px 1px 1px #fff,
-                                1px 1px 1px #fff;
-                                padding: 0 8px 0 40px;
-                                // Start hoverのアンダーラインの要素
+                                // hoverのアンダーラインの要素
                                 position: relative;
                                 z-index: 0;
-                                &:before {
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
                                   position: absolute;
-                                  left: 38px;
                                   bottom: -2px;
+                                  left: 38px;
                                   z-index: -1;
-                                  content: '';
                                   display: inline-block;
                                   width: 0;
                                   height: 8px;
+                                  content: '';
                                   background-color: $_bgHoverColor;
                                 }
+
                                 &:hover {
-                                  &:before {
+                                  &::before {
                                     width: calc(100% - 38px);
                                   }
                                 }
-                                // End hoverのアンダーラインの要素
                               }
                             }
                           }
                         }
                       }
                     }
-                    // Start current
+
                     &.state-current {
                       .b-sideMenu__item2 {
                         > div {
                           span {
-                          > span {
-                            color: $_textCurrentColor;
-                            text-shadow:
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px #fff,
-                              1px -1px #fff,
-                              -1px 1px #fff,
-                              1px 1px #fff,
-                              -1px -1px 1px #fff,
-                              1px -1px 1px #fff,
-                              -1px 1px 1px #fff,
-                              1px 1px 1px #fff;
-                              &:before {
+                            > span {
+                              color: $_textCurrentColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
                                 position: absolute;
-                                left: 38px;
                                 bottom: 2px;
+                                left: 38px;
                                 z-index: -1;
-                                content: '';
                                 display: inline-block;
                                 width: calc(100% - 38px);
                                 height: 8px;
+                                content: '';
                                 background-color: $_bgCurrentColor;
                               }
                             }
                           }
                         }
+
                         &:hover {
                           > div {
                             > a {
@@ -1314,76 +1172,62 @@
                               padding: 4px 0;
                               span {
                                 > span {
-                                  display: inline-block;
-                                  color: $_textHoverColor;
-                                  text-shadow:
-                                  -1px -1px #fff,
-                                  1px -1px #fff,
-                                  -1px 1px #fff,
-                                  1px 1px #fff,
-                                  -1px -1px #fff,
-                                  1px -1px #fff,
-                                  -1px 1px #fff,
-                                  1px 1px #fff,
-                                  -1px -1px #fff,
-                                  1px -1px #fff,
-                                  -1px 1px #fff,
-                                  1px 1px #fff,
-                                  -1px -1px 1px #fff,
-                                  1px -1px 1px #fff,
-                                  -1px 1px 1px #fff,
-                                  1px 1px 1px #fff;
-                                  padding: 0 8px 0 40px;
-                                  // Start hoverのアンダーラインの要素
+                                  // hoverのアンダーラインの要素
                                   position: relative;
                                   z-index: 0;
-                                  &:before {
+                                  display: inline-block;
+                                  padding: 0 8px 0 40px;
+                                  color: $_textHoverColor;
+                                  text-shadow:
+                                    1px 1px 0 #fff,
+                                    -1px -1px 0 #fff,
+                                    -1px 1px 0 #fff,
+                                    1px -1px 0 #fff,
+                                    0 1px 0 #fff,
+                                    0 -1px 0 #fff,
+                                    -1px 0 0 #fff,
+                                    1px 0 0 #fff;
+                                  &::before {
                                     position: absolute;
-                                    left: 38px;
                                     bottom: -2px;
+                                    left: 38px;
                                     z-index: -1;
-                                    content: '';
                                     display: inline-block;
                                     width: 0;
                                     height: 8px;
+                                    content: '';
                                     background-color: $_bgHoverColor;
                                   }
+
                                   &:hover {
-                                    &:before {
+                                    &::before {
                                       width: calc(100% - 38px);
                                     }
                                   }
-                                  // End hoverのアンダーラインの要素
                                 }
                               }
                             }
                           }
                         }
                       }
-                      // End b-sideMenu__item2
                     }
-                    // End current
                   }
                 }
-                // End 孫要素
               }
-              // End .b-sideMenu__item
             }
-            // End 子・孫要素
           }
-          // End .b-sideMenu__item
         }
-        // ul
       }
-      // End .b-sideMenu__list
     }
-    // End __bd
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
@@ -1397,14 +1241,13 @@
     $_lineHeightType: 1;
     $_textColor_hd: #000;
     $_textColor_item: #555;
-    $_textHoverColor: #770000;
+    $_textHoverColor: #700;
     $_bgColor: #e7e7e7;
     $_bgHoverColor: #e7e7e7;
     $_bgCurrentColor: #e7e7e7;
 
     font-family: $tenorsans;
-    border-top: 4px solid #770000;
-
+    border-top: 4px solid #700;
     a {
       text-decoration: none;
       h4 {
@@ -1417,30 +1260,34 @@
     label {
       display: none;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     &__hd {
       @include g-font($_fontSizePx_hd, $_lineHeightType);
-      text-align: center;
+      min-height: 25px;
       padding: 12px 10px;
+      text-align: center;
       background-color: #f3f3f3;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
+      border-left: 1px solid #e8e8e8;
       h4 {
         color: $_textColor_hd;
       }
     }
+
     &__bd {
       padding: 26px 10px;
       background-color: #fff;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
       border-bottom: 1px solid #e8e8e8;
-
+      border-left: 1px solid #e8e8e8;
       > .b-sideMenuHandle__list.sideMenuHandle1 {
         margin-top: 10px;
       }
+
       > span {
         & + .b-sideMenuHandle__list.sideMenuHandle1 {
           margin-top: 0;
@@ -1450,24 +1297,24 @@
       .b-sideMenuHandle__list {
         ul {
           .b-sideMenuHandle__item {
-            // Start 親要素
             .b-sideMenuHandle__item2 {
               @include g-font($_fontSizePx_item, $_lineHeightType);
               > div {
-                  span {
+                span {
                   > div {
                     display: block;
-                    color: $_textColor_item;
                     padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
                     // カラーをなくす為 初期値にする
                     background-color: transparent;
-                    background-image: url("../imgs/menu/menu001/menu001_ico01_v1f1.png");
+                    background-image: url("../imgs/menu/menu001/menu001_ico01_v1f1.svg");
                     background-repeat: no-repeat;
-                    background-size: 13px 13px;
                     background-position: 6px center;
+                    background-size: 13px 13px;
                   }
                 }
               }
+
               &:hover {
                 > div {
                   > a {
@@ -1475,69 +1322,60 @@
                     padding: 7px 0;
                     span {
                       > div {
-                        display: inline-block;
-                        color: $_textHoverColor;
-                        text-shadow:
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px 1px #fff,
-                        1px -1px 1px #fff,
-                        -1px 1px 1px #fff,
-                        1px 1px 1px #fff;
-                        padding: 0 8px 0 25px;
-                        // Start hoverのアンダーラインの要素
+                        // hoverのアンダーラインの要素
                         position: relative;
                         z-index: 0;
-                        &:before {
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
                           position: absolute;
-                          left: 24px;
                           bottom: -2px;
+                          left: 24px;
                           z-index: -1;
-                          content: '';
                           display: inline-block;
                           width: 0;
                           height: 8px;
+                          content: '';
                           background-color: $_bgHoverColor;
                         }
+
                         &:hover {
-                          &:before {
+                          &::before {
                             width: calc(100% - 24px);
                           }
                         }
-                        // End hoverのアンダーラインの要素
                       }
                     }
                   }
                 }
               }
             }
-            // End・親要素
 
-            // Start 子・孫要素
             .b-sideMenuHandle__list {
               .b-sideMenuHandle__item {
                 .b-sideMenuHandle__item2 {
                   > div {
-                      span {
+                    span {
                       > div {
                         padding: 7px 8px 7px 32px;
-                        background-image: url("../imgs/menu/menu001/menu001_ico02_v1f1.png");
+                        background-image: url("../imgs/menu/menu001/menu001_ico02_v1f1.svg");
                         background-repeat: no-repeat;
-                        background-size: 8px 2px;
                         background-position: 16px center;
+                        background-size: 8px 2px;
                       }
                     }
                   }
+
                   &:hover {
                     > div {
                       > a {
@@ -1545,41 +1383,33 @@
                         padding: 7px 0;
                         span {
                           > div {
-                            display: inline-block;
-                            color: $_textHoverColor;
-                            text-shadow:
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px 1px #fff,
-                            1px -1px 1px #fff,
-                            -1px 1px 1px #fff,
-                            1px 1px 1px #fff;
-                            padding: 0 8px 0 32px;
-                            // Start hoverのアンダーラインの要素
+                            // hoverのアンダーラインの要素
                             position: relative;
                             z-index: 0;
-                            &:before {
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
                               bottom: -2px;
                               width: 0;
                               background-color: $_bgHoverColor;
                             }
+
                             &:hover {
-                              &:before {
+                              &::before {
                                 left: 30px;
                                 width: calc(100% - 30px);
                               }
                             }
-                            // End hoverのアンダーラインの要素
                           }
                         }
                       }
@@ -1587,24 +1417,24 @@
                   }
                 }
 
-                // Start 孫要素
                 .b-sideMenuHandle__list {
                   .b-sideMenuHandle__item {
                     .b-sideMenuHandle__item2 {
                       > div {
-                          span {
+                        span {
                           > div {
                             display: inline-block;
+                            padding: 4px 8px 4px 40px;
                             color: $_textColor_item;
                             text-shadow: none;
-                            padding: 4px 8px 4px 40px;
                             background-image: none;
-                            &:before {
+                            &::before {
                               content: none;
                             }
                           }
                         }
                       }
+
                       &:hover {
                         > div {
                           > a {
@@ -1612,46 +1442,38 @@
                             padding: 4px 0;
                             span {
                               > div {
-                                display: inline-block;
-                                color: $_textHoverColor;
-                                text-shadow:
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px 1px #fff,
-                                1px -1px 1px #fff,
-                                -1px 1px 1px #fff,
-                                1px 1px 1px #fff;
-                                padding: 0 8px 0 40px;
-                                // Start hoverのアンダーラインの要素
+                                // hoverのアンダーラインの要素
                                 position: relative;
                                 z-index: 0;
-                                &:before {
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
                                   position: absolute;
-                                  left: 38px;
                                   bottom: -2px;
+                                  left: 38px;
                                   z-index: -1;
-                                  content: '';
                                   display: inline-block;
                                   width: 0;
                                   height: 8px;
+                                  content: '';
                                   background-color: $_bgHoverColor;
                                 }
+
                                 &:hover {
-                                  &:before {
+                                  &::before {
                                     width: calc(100% - 38px);
                                   }
                                 }
-                                // End hoverのアンダーラインの要素
                               }
                             }
                           }
@@ -1660,25 +1482,21 @@
                     }
                   }
                 }
-                // End 孫要素
               }
-              // End .b-sideMenuHandle__item
             }
-            // End 子・孫要素
           }
-          // End .b-sideMenu__item
         }
-        // ul
       }
-      // End .b-sideMenu__list
     }
-    // End __bd
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
@@ -1699,7 +1517,6 @@
     $_bgCurrentColor: #e6e6e6;
 
     font-family: $tenorsans;
-
     a {
       text-decoration: none;
       h4 {
@@ -1712,53 +1529,58 @@
     label {
       display: none;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     &__hd {
       @include g-font($_fontSizePx_hd, $_lineHeightType);
-      text-align: center;
+      min-height: 25px;
       padding: 12px 10px;
+      text-align: center;
+      background-color: #fff;
       border-top: 2px solid #000;
       border-bottom: 2px solid #000;
       box-shadow:
-        0px -1px #fff inset,
-        0px -2px #666 inset,
-        0px 1px #fff inset,
-        0px 2px #666 inset;
-      background-color: #fff;
+        0 -1px #fff inset,
+        0 -2px #666 inset,
+        0 1px #fff inset,
+        0 2px #666 inset;
       h4 {
         color: $_textColor_hd;
       }
     }
+
     &__bd {
       padding: 26px 10px;
       background-color: #fff;
       > .b-sideMenuHandle__list:last-child {
         border-bottom: 2px dotted #ede8db;
       }
+
       .b-sideMenuHandle__list {
         ul {
           .b-sideMenuHandle__item {
-            // Start 親要素
             .b-sideMenuHandle__item2 {
               @include g-font($_fontSizePx_item, $_lineHeightType);
-              color: $_textColor_item;
               padding: 2px 1px;
+              color: $_textColor_item;
               border-top: 2px dotted #ede8db;
               > div {
-                  span {
+                span {
                   > div {
                     display: block;
-                    color: $_textColor_item;
                     padding: 6px 7px 6px 23px;
-                    background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.png");
+                    color: $_textColor_item;
+                    background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
                     background-repeat: no-repeat;
-                    background-size: 10px 15px;
                     background-position: 6px center;
+                    background-size: 10px 15px;
                   }
                 }
               }
+
               &:hover {
                 > div {
                   > a {
@@ -1768,17 +1590,17 @@
                         display: block;
                         color: $_textHoverColor;
                         background-color: $_bgHoverColor;
-                        background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.png");
+                        background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
                         background-repeat: no-repeat;
-                        background-size: 10px 15px;
                         background-position: 6px center;
+                        background-size: 10px 15px;
                       }
                     }
                   }
                 }
               }
             }
-            // Start current
+
             &.state-current {
               .b-sideMenuHandle__item2 {
                 > div {
@@ -1788,6 +1610,7 @@
                     }
                   }
                 }
+
                 &:hover {
                   > div {
                     > a {
@@ -1795,11 +1618,11 @@
                       span {
                         > div {
                           display: block;
-                          color: $_textCurrentColor;
                           padding: 6px 7px 6px 23px;
+                          color: $_textCurrentColor;
                           background-color: $_bgColor;
-                          background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.png");
-                          &:before {
+                          background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
+                          &::before {
                             content: none;
                           }
                         }
@@ -1808,16 +1631,13 @@
                   }
                 }
               }
-              // End .b-sideMenuHandle__item2
             }
-            // End current・親要素
 
-            // Start 子・孫要素
             .b-sideMenuHandle__list {
               .b-sideMenuHandle__item {
                 .b-sideMenuHandle__item2 {
                   > div {
-                      span {
+                    span {
                       > div {
                         display: block;
                         padding: 6px 7px 6px 30px;
@@ -1825,6 +1645,7 @@
                       }
                     }
                   }
+
                   &:hover {
                     > div {
                       > a {
@@ -1838,7 +1659,7 @@
                     }
                   }
                 }
-                // Start current
+
                 &.state-current {
                   .b-sideMenuHandle__item2 {
                     > div {
@@ -1849,13 +1670,14 @@
                         }
                       }
                     }
+
                     &:hover {
                       > div {
                         > a {
                           span {
                             > div {
-                              color: $_textCurrentColor;
                               padding: 6px 7px 6px 30px;
+                              color: $_textCurrentColor;
                               background-color: $_bgCurrentColor;
                               background-image: none;
                             }
@@ -1864,25 +1686,23 @@
                       }
                     }
                   }
-                  // End b-sideMenuHandle__item2
                 }
-                // End current
 
-                // Start 孫要素
                 .b-sideMenuHandle__list {
                   .b-sideMenuHandle__item {
                     .b-sideMenuHandle__item2 {
                       > div {
-                          span {
+                        span {
                           > div {
                             display: block;
-                            text-shadow: none;
                             padding: 6px 7px 6px 40px;
+                            text-shadow: none;
                             background-color: transparent;
                             background-image: none;
                           }
                         }
                       }
+
                       &:hover {
                         > div {
                           > a {
@@ -1890,8 +1710,8 @@
                             span {
                               > div {
                                 display: block;
-                                color: $_textHoverColor;
                                 padding: 6px 7px 6px 40px;
+                                color: $_textHoverColor;
                                 background-color: $_bgHoverColor;
                               }
                             }
@@ -1899,25 +1719,26 @@
                         }
                       }
                     }
-                    // Start current
+
                     &.state-current {
                       .b-sideMenuHandle__item2 {
                         > div {
                           span {
                             > div {
-                              color: $_textCurrentColor;
                               padding: 6px 8px 6px 40px;
+                              color: $_textCurrentColor;
                               background-color: $_bgCurrentColor;
                             }
                           }
                         }
+
                         &:hover {
                           > div {
                             > a {
                               span {
                                 > div {
-                                  color: $_textCurrentColor;
                                   padding: 6px 7px 6px 40px;
+                                  color: $_textCurrentColor;
                                   background-color: $_bgCurrentColor;
                                   background-image: none;
                                 }
@@ -1926,30 +1747,24 @@
                           }
                         }
                       }
-                      // End b-sideMenuHandle__item2
                     }
-                    // End current
                   }
                 }
-                // End 孫要素
               }
-              // End .b-sideMenuHandle__item
             }
-            // End 子・孫要素
           }
-          // End .b-sideMenuHandle__item
         }
-        // ul
       }
-      // End .b-sideMenuHandle__list
     }
-    // End __bd
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
@@ -1971,7 +1786,6 @@
 
     font-family: $tenorsans;
     border-top: 4px solid #444;
-
     a {
       text-decoration: none;
       h4 {
@@ -1984,30 +1798,34 @@
     label {
       display: none;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     &__hd {
       @include g-font($_fontSizePx_hd, $_lineHeightType);
-      text-align: center;
+      min-height: 25px;
       padding: 12px 10px;
+      text-align: center;
       background-color: #f3f3f3;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
+      border-left: 1px solid #e8e8e8;
       h4 {
         color: $_textColor_hd;
       }
     }
+
     &__bd {
       padding: 26px 10px;
       background-color: #fefefd;
-      border-left: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
       border-bottom: 1px solid #e8e8e8;
-
+      border-left: 1px solid #e8e8e8;
       > .b-sideMenuHandle__list.sideMenuHandle1 {
         margin-top: 10px;
       }
+
       > span {
         & + .b-sideMenuHandle__list.sideMenuHandle1 {
           margin-top: 0;
@@ -2017,24 +1835,24 @@
       .b-sideMenuHandle__list {
         ul {
           .b-sideMenuHandle__item {
-            // Start 親要素
             .b-sideMenuHandle__item2 {
               @include g-font($_fontSizePx_item, $_lineHeightType);
               > div {
-                  span {
+                span {
                   > div {
                     display: block;
-                    color: $_textColor_item;
                     padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
                     // カラーをなくす為 初期値にする
                     background-color: transparent;
-                    background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.png");
+                    background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.svg");
                     background-repeat: no-repeat;
-                    background-size: 13px 13px;
                     background-position: 6px center;
+                    background-size: 13px 13px;
                   }
                 }
               }
+
               &:hover {
                 > div {
                   > a {
@@ -2042,69 +1860,60 @@
                     padding: 7px 0;
                     span {
                       > div {
-                        display: inline-block;
-                        color: $_textHoverColor;
-                        text-shadow:
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px #fff,
-                        1px -1px #fff,
-                        -1px 1px #fff,
-                        1px 1px #fff,
-                        -1px -1px 1px #fff,
-                        1px -1px 1px #fff,
-                        -1px 1px 1px #fff,
-                        1px 1px 1px #fff;
-                        padding: 0 8px 0 25px;
-                        // Start hoverのアンダーラインの要素
+                        // hoverのアンダーラインの要素
                         position: relative;
                         z-index: 0;
-                        &:before {
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
                           position: absolute;
-                          left: 24px;
                           bottom: -2px;
+                          left: 24px;
                           z-index: -1;
-                          content: '';
                           display: inline-block;
                           width: 0;
                           height: 8px;
+                          content: '';
                           background-color: $_bgHoverColor;
                         }
+
                         &:hover {
-                          &:before {
+                          &::before {
                             width: calc(100% - 24px);
                           }
                         }
-                        // End hoverのアンダーラインの要素
                       }
                     }
                   }
                 }
               }
             }
-            // End・親要素
 
-            // Start 子・孫要素
             .b-sideMenuHandle__list {
               .b-sideMenuHandle__item {
                 .b-sideMenuHandle__item2 {
                   > div {
-                      span {
+                    span {
                       > div {
                         padding: 7px 8px 7px 32px;
-                        background-image: url("../imgs/menu/menu003/menu003_ico02_v4f1.png");
+                        background-image: url("../imgs/menu/menu003/menu003_ico02_v4f1.svg");
                         background-repeat: no-repeat;
-                        background-size: 8px 2px;
                         background-position: 16px center;
+                        background-size: 8px 2px;
                       }
                     }
                   }
+
                   &:hover {
                     > div {
                       > a {
@@ -2112,41 +1921,33 @@
                         padding: 7px 0;
                         span {
                           > div {
-                            display: inline-block;
-                            color: $_textHoverColor;
-                            text-shadow:
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px #fff,
-                            1px -1px #fff,
-                            -1px 1px #fff,
-                            1px 1px #fff,
-                            -1px -1px 1px #fff,
-                            1px -1px 1px #fff,
-                            -1px 1px 1px #fff,
-                            1px 1px 1px #fff;
-                            padding: 0 8px 0 32px;
-                            // Start hoverのアンダーラインの要素
+                            // hoverのアンダーラインの要素
                             position: relative;
                             z-index: 0;
-                            &:before {
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
                               bottom: -2px;
                               width: 0;
                               background-color: $_bgHoverColor;
                             }
+
                             &:hover {
-                              &:before {
+                              &::before {
                                 left: 30px;
                                 width: calc(100% - 30px);
                               }
                             }
-                            // End hoverのアンダーラインの要素
                           }
                         }
                       }
@@ -2154,24 +1955,24 @@
                   }
                 }
 
-                // Start 孫要素
                 .b-sideMenuHandle__list {
                   .b-sideMenuHandle__item {
                     .b-sideMenuHandle__item2 {
                       > div {
-                          span {
+                        span {
                           > div {
                             display: inline-block;
+                            padding: 4px 8px 4px 40px;
                             color: $_textColor_item;
                             text-shadow: none;
-                            padding: 4px 8px 4px 40px;
                             background-image: none;
-                            &:before {
+                            &::before {
                               content: none;
                             }
                           }
                         }
                       }
+
                       &:hover {
                         > div {
                           > a {
@@ -2179,46 +1980,38 @@
                             padding: 4px 0;
                             span {
                               > div {
-                                display: inline-block;
-                                color: $_textHoverColor;
-                                text-shadow:
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px #fff,
-                                1px -1px #fff,
-                                -1px 1px #fff,
-                                1px 1px #fff,
-                                -1px -1px 1px #fff,
-                                1px -1px 1px #fff,
-                                -1px 1px 1px #fff,
-                                1px 1px 1px #fff;
-                                padding: 0 8px 0 40px;
-                                // Start hoverのアンダーラインの要素
+                                // hoverのアンダーラインの要素
                                 position: relative;
                                 z-index: 0;
-                                &:before {
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
                                   position: absolute;
-                                  left: 38px;
                                   bottom: -2px;
+                                  left: 38px;
                                   z-index: -1;
-                                  content: '';
                                   display: inline-block;
                                   width: 0;
                                   height: 8px;
+                                  content: '';
                                   background-color: $_bgHoverColor;
                                 }
+
                                 &:hover {
-                                  &:before {
+                                  &::before {
                                     width: calc(100% - 38px);
                                   }
                                 }
-                                // End hoverのアンダーラインの要素
                               }
                             }
                           }
@@ -2227,35 +2020,28 @@
                     }
                   }
                 }
-                // End 孫要素
               }
-              // End .b-sideMenuHandle__item
             }
-            // End 子・孫要素
           }
-          // End .b-sideMenu__item
         }
-        // ul
       }
-      // End .b-sideMenu__list
     }
-    // End __bd
+
     &__hd--align-l {
       text-align: left;
     }
+
     &__hd--align-c {
       text-align: center;
     }
+
     &__hd--align-r {
       text-align: right;
     }
   }
-
-}// PC
-
+}
 
 @if $device == SP {
-
   .b-sideMenu#{$variation1of2} {
 
     $_block: &;
@@ -2265,101 +2051,109 @@
     $_textCurrentColor: #816739;
     $_bgColor: #fff;
     $_bgCurrentColor: #eee7e7;
-
     a {
-      text-decoration: none;
       color: $_textColor_item;
+      text-decoration: none;
     }
+    box-sizing: border-box;
 
     width: 100%;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx_item, $_lineHeightType);
     color: $_textColor_item;
     background-color: $_bgColor;
-    box-sizing: border-box;
     border: 1px solid #e8e8e8;
-
+    @include g-font($_fontSizePx_item, $_lineHeightType);
     &__hd,
     &__bd {
       display: none;
     }
+
     label {
-      width: 98%;
       display: inline-block;
-      cursor: pointer;
+      width: 98%;
       padding: 10px 0 10px 2%;
+      cursor: pointer;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     label {
       background-color: $_bgColor;
       &::before {
-        content: "▶︎";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
       }
     }
+
     label.active {
       &::before {
-        content: "▼";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
       }
     }
+
     .b-sideMenu__list {
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
         color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
@@ -2376,100 +2170,108 @@
     $_textCurrentColor: #816739;
     $_bgColor: #fff;
     $_bgCurrentColor: #f5f5f5;
-
     a {
-      text-decoration: none;
       color: $_textColor_item;
+      text-decoration: none;
     }
+    box-sizing: border-box;
 
     width: 100%;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx_item, $_lineHeightType);
     color: $_textColor_item;
-    box-sizing: border-box;
     background-color: $_bgColor;
     border: 1px solid #e8e8e8;
-
+    @include g-font($_fontSizePx_item, $_lineHeightType);
     &__hd,
     &__bd {
       display: none;
     }
+
     label {
-      width: 98%;
       display: inline-block;
-      cursor: pointer;
+      width: 98%;
       padding: 10px 0 10px 2%;
+      cursor: pointer;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     label {
       &::before {
-        content: "▶︎";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
       }
     }
+
     label.active {
       &::before {
-        content: "▼";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
       }
     }
+
     .b-sideMenu__list {
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
@@ -2477,7 +2279,7 @@
     }
   }
 
-  .b-sideMenu3{
+  .b-sideMenu3 {
 
     $_block: &;
     $_fontSizePx_item: 14;
@@ -2486,101 +2288,108 @@
     $_textCurrentColor: #816739;
     $_bgColor: #fff;
     $_bgCurrentColor: #e5e5e5;
-
     a {
-      text-decoration: none;
       color: $_textColor_item;
+      text-decoration: none;
     }
+    box-sizing: border-box;
 
     width: 100%;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx_item, $_lineHeightType);
     color: $_textColor_item;
-    box-sizing: border-box;
     background-color: $_bgColor;
     border: 1px solid #e8e8e8;
-
-
+    @include g-font($_fontSizePx_item, $_lineHeightType);
     &__hd,
     &__bd {
       display: none;
     }
+
     label {
-      width: 98%;
       display: inline-block;
-      cursor: pointer;
+      width: 98%;
       padding: 10px 0 10px 2%;
+      cursor: pointer;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     label {
       &::before {
-        content: "▶︎";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
       }
     }
+
     label.active {
       &::before {
-        content: "▼";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
       }
     }
+
     .b-sideMenu__list {
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
       > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
@@ -2597,99 +2406,107 @@
     $_textCurrentColor: #816739;
     $_bgColor: #fff;
     $_bgCurrentColor: #eee7e7;
-
     a {
-      text-decoration: none;
       color: $_textColor_item;
+      text-decoration: none;
     }
+    box-sizing: border-box;
 
     width: 100%;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx_item, $_lineHeightType);
     color: $_textColor_item;
-    box-sizing: border-box;
     background-color: $_bgColor;
     border: 1px solid #e8e8e8;
-
+    @include g-font($_fontSizePx_item, $_lineHeightType);
     &__hd,
     &__bd {
       display: none;
     }
+
     label {
-      width: 98%;
       display: inline-block;
-      cursor: pointer;
+      width: 98%;
       padding: 10px 0 10px 2%;
+      cursor: pointer;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     label {
       &::before {
-        content: "▶︎";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
       }
     }
+
     label.active {
       &::before {
-        content: "▼";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
       }
     }
+
     .b-sideMenuHandle__list {
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
@@ -2706,100 +2523,108 @@
     $_textCurrentColor: #816739;
     $_bgColor: #fff;
     $_bgCurrentColor: #f5f5f5;
-
     a {
-      text-decoration: none;
       color: $_textColor_item;
+      text-decoration: none;
     }
+    box-sizing: border-box;
 
     width: 100%;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx_item, $_lineHeightType);
     color: $_textColor_item;
-    box-sizing: border-box;
     background-color: $_bgColor;
     border: 1px solid #e8e8e8;
-
+    @include g-font($_fontSizePx_item, $_lineHeightType);
     &__hd,
     &__bd {
       display: none;
     }
+
     label {
-      width: 98%;
       display: inline-block;
-      cursor: pointer;
+      width: 98%;
       padding: 10px 0 10px 2%;
+      cursor: pointer;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     label {
       &::before {
-        content: "▶︎";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
       }
     }
+
     label.active {
       &::before {
-        content: "▼";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
       }
     }
+
     .b-sideMenuHandle__list {
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
@@ -2807,7 +2632,7 @@
     }
   }
 
-  .b-sideMenuHandle3{
+  .b-sideMenuHandle3 {
 
     $_block: &;
     $_fontSizePx_item: 14;
@@ -2816,106 +2641,112 @@
     $_textCurrentColor: #816739;
     $_bgColor: #fff;
     $_bgCurrentColor: #e5e5e5;
-
     a {
-      text-decoration: none;
       color: $_textColor_item;
+      text-decoration: none;
     }
+    box-sizing: border-box;
 
     width: 100%;
     font-family: $tenorsans;
-    @include g-font($_fontSizePx_item, $_lineHeightType);
     color: $_textColor_item;
-    box-sizing: border-box;
     background-color: $_bgColor;
     border: 1px solid #e8e8e8;
-
-
+    @include g-font($_fontSizePx_item, $_lineHeightType);
     &__hd,
     &__bd {
       display: none;
     }
+
     label {
-      width: 98%;
       display: inline-block;
-      cursor: pointer;
+      width: 98%;
       padding: 10px 0 10px 2%;
+      cursor: pointer;
     }
+
     input[type="checkbox"].on-off {
       display: none;
     }
+
     label {
       &::before {
-        content: "▶︎";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
       }
     }
+
     label.active {
       &::before {
-        content: "▼";
         display: inline-block;
-        margin: 0 0.5em 0 0.2em;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
       }
     }
+
     .b-sideMenuHandle__list {
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 20px;
-        border-top: 1px solid #e8e8e8;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #e8e8e8;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 30px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
         display: block;
         padding: 10px 45px 10px 40px;
-        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.png") no-repeat 95% center;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
         background-size: 36px *.5 36px *.5;
       }
+
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
       > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
         display: block;
-        color: $_textCurrentColor;
         padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
         background-color: $_bgCurrentColor;
-        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.png");
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
         background-repeat: no-repeat;
         background-position: 95% center;
         background-size: 36px *.5 36px *.5;
       }
     }
   }
-
-}// SP
+}
