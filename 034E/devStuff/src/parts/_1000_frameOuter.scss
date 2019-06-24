@@ -1,10 +1,11 @@
 @if $device == PC {
 
   //frameOuterのclearfix
-  .frameOuter-clearfix.clearfix::after, .frameOuter-clearfix .clearfix::after {
+  .frameOuter-clearfix .clearfix::before,
+  .frameOuter-clearfix .clearfix::after {
     content: "";
     clear: both;
-    display: block;
+    display: table;
   }
 
   .t0-b-frameOuter#{$variation1of8} {
@@ -18,12 +19,10 @@
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_lineHeightType: 1;
     $_block: &;
-
     &__hd {
       text-align: center;
       color: $textcolor;
       padding-bottom: 10px;
-
       a {
         text-decoration: none;
         color: inherit;
@@ -40,17 +39,16 @@
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
+        padding: 5px 0 0;
       }
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -69,7 +67,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -119,12 +116,10 @@
     margin-bottom: 2%;
     padding: 3% 3% 1%;
     border: 6px double #dbdbdb;
-
     &__hd {
       text-align: center;
       color: inherit;
       padding-bottom: 10px;
-
       a {
         color: inherit;
         text-decoration: none;
@@ -141,17 +136,16 @@
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 0 0 5px 0;
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
-        padding: 5px 0 0 0;
+        padding: 5px 0 0;
       }
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -170,7 +164,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -226,7 +219,6 @@
       url("../imgs/t0-b-frameWithHCaptionNumIcon/1/2.png"),
       url("../imgs/t0-b-frameWithHCaptionNumIcon/1/1.png");
     background-color: #eaf1fa;
-
     &__hd {
       text-align: center;
       color: inherit;
@@ -238,7 +230,6 @@
         url("../imgs/t0-b-frameWithHCaptionNumIcon/1/4.png");
       padding-bottom: 15px;
       margin-bottom: 30px;
-
       a {
         text-decoration: none;
         color: inherit;
@@ -265,7 +256,6 @@
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -284,7 +274,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -333,17 +322,15 @@
 
     padding: 4.5% 4% 1%;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    border-top: 6px double #dddddd;
-    border-bottom: 6px double #dddddd;
-
+    border-top: 6px double #ddd;
+    border-bottom: 6px double #ddd;
     &__hd {
       text-align: center;
       color: #fff;
       background: #0d4291;
       border-bottom: 3px solid #95c1e7;
-      padding: 15px 15px;
+      padding: 15px;
       margin-bottom: 30px;
-
       a {
         color: #fff;
         text-decoration: none;
@@ -370,7 +357,6 @@
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -389,7 +375,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -440,8 +425,7 @@
     border: 4px solid #bbb;
     position: relative;
     z-index: 1;
-
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -462,7 +446,6 @@
       background-repeat: no-repeat, repeat-x;
       background-position: left bottom, left bottom;
       background-image: url("../imgs/t0-b-frameWithHCaption/1.png"), url("../imgs/t0-b-frameWithHCaption/2.png");
-
       a {
         text-decoration: none;
         color: inherit;
@@ -489,7 +472,6 @@
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -508,7 +490,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -554,7 +535,6 @@
     $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
     $_lineHeightType: 1;
     $_block: &;
-
     &__hd {
       padding: 20px;
       position: relative;
@@ -572,7 +552,6 @@
         url("../imgs/t0-b-frameWithHCaption/bg8.png");
       background-color: #043173;
       color: #fff;
-
       a {
         color: #fff;
         text-decoration: none;
@@ -599,7 +578,6 @@
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -618,7 +596,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -652,7 +629,7 @@
       padding: 20px 3.5% 1%;
       background: #f3f7fc;
       position: relative;
-      &:after {
+      &::after {
         content: "";
         position: absolute;
         pointer-events: none;
@@ -686,13 +663,11 @@
     background-repeat: repeat-x, repeat-x;
     background-position: left top, left bottom;
     background-image: url("../imgs/t0-b-articleDecoration/1/1.png"), url("../imgs/t0-b-articleDecoration/1/2.png");
-
     &__hd {
       text-align: center;
       color: inherit;
       padding-bottom: 10px;
       margin-bottom: 18px;
-
       a {
         text-decoration: none;
         color: inherit;
@@ -708,8 +683,7 @@
         padding: 0 0 7px 10px;
         position: relative;
         z-index: 1;
-
-        &:after {
+        &::after {
           content: "";
           position: absolute;
           left: 0;
@@ -737,7 +711,6 @@
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -756,7 +729,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -816,12 +788,10 @@
       url("../imgs/t0-b-articleDecoration/2/bg6.png"),
       url("../imgs/t0-b-articleDecoration/2/bg7.png"),
       url("../imgs/t0-b-articleDecoration/2/bg8.png");
-
     &__hd {
       text-align: center;
       color: inherit;
       padding-bottom: 20px;
-
       a {
         text-decoration: none;
         color: inherit;
@@ -851,7 +821,6 @@
 
       &--size-1 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
           }
@@ -870,7 +839,6 @@
 
       &--size-3 {
         #{$_block}__hd {
-
           &-caption-upper {
             @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
           }
@@ -904,17 +872,16 @@
       margin-top: 2%;
     }
   }
-
 }
 
 @if $device == SP {
 
-  // frameOuterのclearfix
-  .frameOuter-clearfix.clearfix::after,
+  //frameOuterのclearfix
+  .frameOuter-clearfix .clearfix::before,
   .frameOuter-clearfix .clearfix::after {
     content: "";
     clear: both;
-    display: block;
+    display: table;
   }
 
   .t0-b-frameOuter#{$variation1of8} {
@@ -922,12 +889,10 @@
     $_fontSizePx_hd: 20;
     $_fontSizePx_caption: 14;
     $_lineHeightType: 1;
-
     &__hd {
       text-align: center;
       color: inherit;
       padding: 5px 0;
-
       a {
         text-decoration: none;
         color: inherit;
@@ -941,12 +906,12 @@
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 0 5px 0;
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 5px 0 0 0;
+        padding: 5px 0 0;
       }
 
       &--align-l {
@@ -977,12 +942,10 @@
     border: 6px double #dbdbdb;
     margin: 0 -5px;
     margin-bottom: 20px;
-
     &__hd {
       text-align: center;
       color: inherit;
       padding: 0 0 10px;
-
       a {
         text-decoration: none;
         color: inherit;
@@ -996,12 +959,12 @@
 
       &-caption-upper {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 0 0 5px 0;
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSizePx_caption, $_lineHeightType);
-        padding: 5px 0 0 0;
+        padding: 5px 0 0;
       }
 
       &--align-l {
@@ -1038,7 +1001,6 @@
     background-color: #eaf1fa;
     padding: 26px 15px 10px;
     margin: 0 -5px;
-
     &__hd {
       color: inherit;
       text-align: center;
@@ -1051,7 +1013,6 @@
       padding-bottom: 10px;
       margin-bottom: 20px;
       margin-top: -2px;
-
       a {
         color: inherit;
         text-decoration: none;
@@ -1098,11 +1059,10 @@
     $_lineHeightType: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
 
-    border-top: 6px double #dddddd;
-    border-bottom: 6px double #dddddd;
+    border-top: 6px double #ddd;
+    border-bottom: 6px double #ddd;
     padding: 20px 15px 10px;
     margin: 0 -5px;
-
     &__hd {
       text-align: center;
       color: #fff;
@@ -1110,7 +1070,6 @@
       border-bottom: 3px solid #95c1e7;
       padding: 9px 15px;
       margin-bottom: 20px;
-
       a {
         color: #fff;
         text-decoration: none;
@@ -1161,8 +1120,7 @@
     border: 4px solid #bbb;
     position: relative;
     z-index: 1;
-
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -1184,7 +1142,6 @@
       background-repeat: no-repeat, repeat-x;
       background-position: left bottom, left bottom;
       background-image: url("../imgs/t0-b-frameWithHCaption/1.png"), url("../imgs/t0-b-frameWithHCaption/2.png");
-
       a {
         color: inherit;
         text-decoration: none;
@@ -1231,7 +1188,6 @@
     $_lineHeightType: 1;
 
     margin: 0 -5px;
-
     &__hd {
       padding: 16px 15px;
       position: relative;
@@ -1249,7 +1205,6 @@
         url("../imgs/t0-b-frameWithHCaption/bg8.png");
       background-color: #043173;
       color: #fff;
-
       a {
         color: #fff;
         text-decoration: none;
@@ -1288,7 +1243,7 @@
       padding: 14px;
       background: #f3f7fc;
       position: relative;
-      &:after {
+      &::after {
         content: "";
         position: absolute;
         pointer-events: none;
@@ -1317,12 +1272,10 @@
     background-repeat: repeat-x, repeat-x;
     background-position: left top, left bottom;
     background-image: url("../imgs/t0-b-articleDecoration/1/1.png"), url("../imgs/t0-b-articleDecoration/1/2.png");
-
     &__hd {
       color: inherit;
       text-align: center;
       margin-bottom: 16px;
-
       a {
         text-decoration: none;
         color: inherit;
@@ -1336,8 +1289,7 @@
         padding: 0 0 7px 7px;
         position: relative;
         z-index: 1;
-
-        &:after {
+        &::after {
           content: "";
           position: absolute;
           left: 0;
@@ -1389,7 +1341,7 @@
 
     margin: 0 -5px;
     background-color: #fff;
-    padding: 20px 17px 20px;
+    padding: 20px 17px;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
     background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
     background-image:
@@ -1401,13 +1353,11 @@
       url("../imgs/t0-b-articleDecoration/2/bg6.png"),
       url("../imgs/t0-b-articleDecoration/2/bg7.png"),
       url("../imgs/t0-b-articleDecoration/2/bg8.png");
-
     &__hd {
       padding: 0 0 5px;
       text-align: center;
       color: inherit;
       margin-bottom: 16px;
-
       a {
         color: inherit;
         text-decoration: none;
