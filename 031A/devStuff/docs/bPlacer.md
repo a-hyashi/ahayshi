@@ -271,6 +271,8 @@
 |06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|12|2%||15px|
 |06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|13|2%||15px|
 |06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|14|2%||15px|
+|06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|15|2%||15px|
+|06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|16|2%||15px|
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav||3%||15px|
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav|2|3%||15px|
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav|3|3%||15px|
