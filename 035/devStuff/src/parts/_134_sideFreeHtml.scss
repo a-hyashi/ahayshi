@@ -1,0 +1,40 @@
+@if $device == PC {
+  .t0-b-sideFreeHtml {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 1px;
+    text-align: center;
+    > div {
+      overflow: hidden;
+    }
+    //意図的にユニバーサルセレクタを使用
+    > * {
+      // HTML部品にスライド動画が挿入されたときに、スライド動画の持つスタイル属性 margin: 0 を打ち消して中央寄せにする #230
+      max-width: 100%;
+      // 挿入されたコードの一番上の要素の横幅を100%にする
+      margin: 0 auto !important;
+    }
+  }
+}// PC
+
+@if $device == SP {
+  .t0-b-sideFreeHtml {
+    text-align: center;
+    overflow: auto;
+    padding: 0 5px;
+    > div {
+      //意図的にユニバーサルセレクタを使用
+      > * {
+        // HTML部品にスライド動画が挿入されたときに、スライド動画の持つスタイル属性 margin: 0 を打ち消して中央寄せにする #230
+        margin: 0 auto !important;
+        // 挿入されたコードの一番上の要素の横幅を100%にする
+        max-width: 100% !important;
+      }
+    }
+
+    div {
+      color: #555;
+    }
+  }
+}// SP

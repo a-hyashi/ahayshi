@@ -1,0 +1,212 @@
+@if $device == PC {
+
+  //headerUnit-siteNameがお客さまに使われなくなった場合に消す
+  //headerUnit-siteName2が別要素としてあることで、headerUnit-siteNameのバリエーションが追加できなかったたため、headerUnit-siteTitleという別クラス名で定義し、バリエーション番号を末尾につけられるようにした。
+  //クラス名の統一性をとるため、メインエリアとフッターエリアのサイト名も同様の対応をしている。
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle {
+    white-space: nowrap;
+    color: #333;
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding-right: 10px;
+      img {
+        display: block;
+        height: 45px;
+        width: auto;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      &:hover {
+        color: #ee8100;
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding-bottom: 5px;
+    }
+
+    &__bd-siteName {
+      @include g-font(32, 1);
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(28, 1);
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding-top: 5px;
+    }
+
+    //ヘッダーセット（中央）に合わせた見た目にする
+    .t0-b-headerSingle#{$variation1of2} &__bd,
+    .t0-b-headerSingle#{$variation2of2} &__bd, {
+      margin: 0 auto;
+      display: table;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+    white-space: nowrap;
+    color: #333;
+    margin: 0 auto;
+    display: table;
+    &__bd {
+      display: table;
+      margin: 0 auto;
+      > div {
+        display: table;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+
+    &__bd-logo {
+      margin: 0 auto;
+      padding-bottom: 10px;
+      img {
+        display: block;
+        height: 45px;
+        width: auto;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      &:hover {
+        color: #ee8100;
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding-bottom: 5px;
+    }
+
+    &__bd-siteName {
+      @include g-font(32, 1);
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding-top: 5px;
+    }
+  }
+}// PC
+
+@if $device == SP {
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle {
+    color: #333;
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding-right: 10px;
+      img {
+        display: block;
+        height: 45px;
+        width: auto;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding-bottom: 5px;
+    }
+
+    &__bd-siteName {
+      @include g-font(32, 1);
+      font-weight: bold;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(28, 1);
+      font-weight: bold;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding-top: 5px;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+    margin: 0 auto;
+    display: table;
+    color: #333;
+    &__bd {
+      display: table;
+      margin: 0 auto;
+      > div {
+        display: table;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+
+    &__bd-logo {
+      margin: 0 auto;
+      padding-bottom: 10px;
+      img {
+        display: block;
+        height: 45px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding-bottom: 5px;
+    }
+
+    &__bd-siteName {
+      @include g-font(28, 1);
+      font-weight: bold;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding-top: 5px;
+    }
+  }
+}// SP

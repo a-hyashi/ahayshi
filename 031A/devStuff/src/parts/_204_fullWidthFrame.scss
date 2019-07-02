@@ -1,5 +1,4 @@
 @if $device == PC {
-
   .t0-b-fullWidthFrame,
   .t0-b-fullWidthFrame2,
   .t0-b-fullWidthFrame3,
@@ -58,8 +57,8 @@
   .t0-b-fullWidthFrame56,
   .t0-b-fullWidthFrame57,
   .t0-b-fullWidthFrame58 {
-    padding: 40px 1000px;
     position: relative;
+    padding: 40px 1000px;
     background-repeat: no-repeat;
     background-position: center center;
     @if $layout == "L25" {
@@ -67,8 +66,8 @@
     } @else if $layout == "L30" {
       margin: 0 -1000px 0 (-1000px - $areaSubWidth);
     } @else if $layout == "N00" {
-      margin: 0 (-1000px - $areaSubWidth / 2);
       padding: 40px (1000px + $areaSubWidth / 2);
+      margin: 0 (-1000px - $areaSubWidth / 2);
     } @else if $layout == "R25" {
       margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
     } @else if $layout == "R30" {
@@ -100,13 +99,13 @@
   .t0-b-fullWidthFrame56::before,
   .t0-b-fullWidthFrame57::before,
   .t0-b-fullWidthFrame58::before {
-    content: "";
     position: absolute;
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     z-index: -1;
+    content: "";
   }
 
   .t0-b-fullWidthFrame2,
@@ -153,26 +152,27 @@
 
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
-    padding: 75px 1035px;
     position: relative;
+    padding: 75px 1035px;
     &::before {
-      content: "";
       position: absolute;
-      pointer-events: none;
       top: 40px;
+      right: 1000px;
       bottom: 40px;
       left: 1000px;
-      right: 1000px;
+      pointer-events: none;
+      content: "";
       border-radius: 10px;
     }
+
     > * {
       position: relative;
     }
     @if $layout == "N00" {
       padding: 75px (1035px + $areaSubWidth / 2);
       &::before {
-        left: 1000 + $areaSubWidth / 2;
         right: 1000 + $areaSubWidth / 2;
+        left: 1000 + $areaSubWidth / 2;
       }
     }
   }
@@ -338,13 +338,11 @@
   }
 
   .area-main {
-    [data-part-type="fullWidth"] + :not([data-part-type="fullWidth"]){
+    [data-part-type="fullWidth"] + :not([data-part-type="fullWidth"]) {
       padding-top: 5%; // ぶち抜き部品の次にぶち抜きでない部品が来た場合は余白をあける
     }
   }
-
-}// PC
-
+}
 
 @if $device == SP {
   .t0-b-fullWidthFrame,
@@ -405,9 +403,9 @@
   .t0-b-fullWidthFrame56,
   .t0-b-fullWidthFrame57,
   .t0-b-fullWidthFrame58 {
-    margin: 0 -15px;
-    padding: 40px 15px 20px;
     position: relative;
+    padding: 40px 15px 20px;
+    margin: 0 -15px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: auto 100%;
@@ -437,28 +435,29 @@
   .t0-b-fullWidthFrame56::before,
   .t0-b-fullWidthFrame57::before,
   .t0-b-fullWidthFrame58::before {
-    content: "";
     position: absolute;
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     z-index: -1;
+    content: "";
   }
 
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
     padding: 40px 35px;
     &::before {
-      content: "";
       position: absolute;
-      pointer-events: none;
       top: 20px;
+      right: 20px;
       bottom: 20px;
       left: 20px;
-      right: 20px;
+      pointer-events: none;
+      content: "";
       border-radius: 10px;
     }
+
     > * {
       position: relative;
     }
@@ -625,10 +624,9 @@
   }
 
   .area-main {
-    [data-part-type="fullWidth"] + :not([data-part-type="fullWidth"]){
+    [data-part-type="fullWidth"] + :not([data-part-type="fullWidth"]) {
       // ぶち抜き部品の次にぶち抜きでない部品が来た場合は余白をあける
       padding-top: 30px;
     }
   }
-
-}// SP
+}
