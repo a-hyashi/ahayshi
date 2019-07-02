@@ -1,10 +1,11 @@
 @if $device == PC {
 
   //frameOuterのclearfix
-  .frameOuter-clearfix.clearfix::after, .frameOuter-clearfix .clearfix::after {
-    display: block;
-    clear: both;
+  .frameOuter-clearfix .clearfix::before,
+  .frameOuter-clearfix .clearfix::after {
     content: "";
+    clear: both;
+    display: table;
   }
 
   .t0-b-frameOuter#{$variation1of12} {
@@ -1511,6 +1512,14 @@
 }
 
 @if $device == SP {
+  //frameOuterのclearfix
+  .frameOuter-clearfix .clearfix::before,
+  .frameOuter-clearfix .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
   .t0-b-frameOuter#{$variation1of12} {
 
     $_fontSizePx_hd: 18;
