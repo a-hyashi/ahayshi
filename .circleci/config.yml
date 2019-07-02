@@ -1,0 +1,43 @@
+version: 2.1
+jobs:
+  lint:
+    docker:
+      - image: centos:centos7
+    steps:
+      # Dockerfileと同一の環境を構築する
+      - run: rpm -i https://rpm.nodesource.com/pub_11.x/el/7/x86_64/nodejs-11.10.1-1nodesource.x86_64.rpm
+      - run: npm install -g npm@6.9.0
+      - run: npm install -g gulp@3.9.1
+      - run: yum install -y make gcc*
+
+      # コードを落とす
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+
+      - checkout
+
+      - save_cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+
+      # あればキャッシュを使いnpm installする
+      - restore_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-npm-deps-{{ checksum "package.json" }}
+
+      # lintを実行する
+      - run: ./.circleci/lint.sh
+
+workflows:
+  version: 2
+  lint:
+    jobs:
+      - lint
