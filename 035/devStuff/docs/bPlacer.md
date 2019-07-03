@@ -113,6 +113,7 @@
 |05.メディア|main|213_画像×横２〜５|.t0-b-media4col||4%||15px|
 |05.メディア|main|213_画像×横２〜５|.t0-b-media5col||4%||15px|
 |06.ナビゲーション|main|040_誘導リンク|.t0-b-navItem||4%||25px|
+|06.ナビゲーション|main|040_誘導リンク|.t0-b-navItem|2|4%||25px|
 |06.ナビゲーション|main|040_誘導リンク|.t0-b-navItemDouble||2%||10px|
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned||4%||35px|
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptionedDouble||2%||10px|
