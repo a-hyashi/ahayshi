@@ -302,6 +302,9 @@
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|11|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|12|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|13|0||0px|
+|08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|14|1%||0px|
+|08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|15|1%||0px|
+|08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|16|1%||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|#{$variation1of2}|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|#{$variation2of2}|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|3|0||0px|
