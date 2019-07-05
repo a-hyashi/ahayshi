@@ -1,21 +1,11 @@
 const gulp = require('gulp');
-const aigis = require('gulp-aigis');
-const sass = require('gulp-sass');
+const $ = require("gulp-load-plugins")();
 const runSequence = require('run-sequence');
-const sftp = require('gulp-sftp');
-const size = require('gulp-size');
-const imagemin = require('gulp-imagemin');
-const autoprefixer = require('gulp-autoprefixer');
-const gulpIf = require('gulp-if');
-const stylelint = require('gulp-stylelint');
-const rename = require('gulp-rename');
 const browserSync = require('browser-sync');
 const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs');
 const sassdoc = require('sassdoc');
-const sourcemaps = require('gulp-sourcemaps');
-const debug = require('gulp-debug');
 const merge = require('event-stream').merge;
 const make_html = require('./lib/make_html');
 const ssh_config = require('../ssh/ssh_config.json');
@@ -24,7 +14,7 @@ const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
 const config = require('./gulp_config.json');
 
-gulp.task('sass', function(callback) {
+gulp.task('sass', (callback) => {
   styleSources = [
     'devStuff/src/**/pc-L25.s[ac]ss',
     'devStuff/src/**/pc-N00.s[ac]ss',
@@ -33,10 +23,10 @@ gulp.task('sass', function(callback) {
   merge(
     styleSources.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe(sourcemaps.init())
-      .pipe(sass())
-      .pipe(debug())
-      .pipe(sourcemaps.write())
+      .pipe($.sourcemaps.init())
+      .pipe($.sass())
+      .pipe($.debug())
+      .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/css'))
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
@@ -44,21 +34,21 @@ gulp.task('sass', function(callback) {
   callback()
 });
 
-gulp.task('sass-build', function() {
+gulp.task('sass-build', () => {
   styleSource = ['devStuff/src/**/*.s[ac]ss'];
   return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe(sass({outputStyle: 'compressed'}))
-      .pipe(debug())
-      .pipe(autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
+      .pipe($.sass({outputStyle: 'compressed'}))
+      .pipe($.debug())
+      .pipe($.autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
       .pipe(gulp.dest('devStuff/css'));
     })
   );
 });
 
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
-gulp.task('stylelint', function() {
+gulp.task('stylelint', () => {
   return runSequence(
     'stylelint-fix',
     'stylelint-check'
@@ -66,9 +56,9 @@ gulp.task('stylelint', function() {
 });
 
 // ファイルを自動整形
-gulp.task('stylelint-fix', function() {
+gulp.task('stylelint-fix', () => {
   return gulp.src('devStuff/src/parts/*.scss')
-    .pipe(stylelint({
+    .pipe($.stylelint({
       fix: true,
       failAfterError: false
     }))
@@ -76,25 +66,25 @@ gulp.task('stylelint-fix', function() {
 });
 
 // fix時にチェックも入れると拾いきれない場合があるので分割している
-gulp.task('stylelint-check', function() {
+gulp.task('stylelint-check', () => {
   return gulp.src('devStuff/src/parts/*.scss')
-    .pipe(stylelint({
+    .pipe($.stylelint({
       failAfterError: false,
       reporters: [{formatter: 'string', console: true}]
     }));
 });
 
 // styleguide
-gulp.task('aigis', function() {
+gulp.task('aigis', () => {
   if (!fs.existsSync('./devStuff/css')){
     fs.mkdirSync('./devStuff/css');
   }
   return gulp.src('devStuff/aigis_config.yml')
-  .pipe(aigis());
+  .pipe($.aigis());
 });
 
 // webserver
-gulp.task('server', function() {
+gulp.task('server', () => {
   return browserSync({
     server: {
       baseDir: './devStuff/styleguide',
@@ -108,18 +98,18 @@ gulp.task('server', function() {
 });
 
 // build tasks
-gulp.task('create-build',function() {
+gulp.task('create-build', () => {
   var theme = get_theme_name();
   var values = get_deploy_values();
   output_imgs(theme);
   output_css(theme, values);
 })
 
-function get_theme_name() {
+const get_theme_name = () => {
   return __dirname.split('/').pop();
 }
 
-function get_deploy_values() {
+const get_deploy_values = () => {
   var filelist = fs.readdirSync('devStuff/css/');
   var deployValues = [];
   for (var file of filelist) {
@@ -130,7 +120,7 @@ function get_deploy_values() {
   return deployValues;
 }
 
-function create_deploy_hush(aVlues) {
+const create_deploy_hush = (aVlues) => {
   var variation = aVlues[0].substring(2, 3);
   var ratio = aVlues[1].split('.')[0];
   return ({
@@ -139,15 +129,15 @@ function create_deploy_hush(aVlues) {
   });
 }
 
-function output_imgs(aTheme) {
+const output_imgs = (aTheme) => {
   gulp.src('devStuff/src/imgs/**/*.+(jpg|jpeg|png|gif|svg)')
-  .pipe(size())
-  .pipe(imagemin())
-  .pipe(size())
+  .pipe($.size())
+  .pipe($.imagemin())
+  .pipe($.size())
   .pipe(gulp.dest('build/theme_materials/' + aTheme + '/imgs/'));
 }
 
-function output_css(aTheme, aValues) {
+const output_css = (aTheme, aValues) => {
   for(var value of aValues) {
     var folder = aTheme + '-' + value.ratio;
     if(value.variation){
@@ -158,19 +148,19 @@ function output_css(aTheme, aValues) {
   }
 }
 
-function output_rename_pc_css(value, folder) {
+const output_rename_pc_css = (value, folder) => {
   gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
-  .pipe(rename('theme.css'))
+  .pipe($.rename('theme.css'))
   .pipe(gulp.dest('build/themes/' + folder + '/pc/'));
 }
 
-function output_rename_sp_css(value, folder) {
+const output_rename_sp_css = (value, folder) => {
   gulp.src('devStuff/css/sp' + value.variation + '.css')
-  .pipe(rename('theme.css'))
+  .pipe($.rename('theme.css'))
   .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
 }
 
-gulp.task('update-sassdoc', function(){
+gulp.task('update-sassdoc', () => {
   var options = {
     dest: './devStuff/sassdoc',
     verbose: true,
@@ -191,7 +181,7 @@ gulp.task('update-sassdoc', function(){
 });
 
 // gulp create-b-placer-doc
-gulp.task('create-b-placer-doc', function() {
+gulp.task('create-b-placer-doc', () => {
 
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
@@ -239,7 +229,7 @@ gulp.task('create-b-placer-doc', function() {
   return output_b_placer_doc(b_placers);
 });
 
-function b_placer_lines() {
+const b_placer_lines = () => {
   var b_placer_scss = fs.readFileSync('devStuff/src/config/_bPlacer.scss', 'utf8');
   return b_placer_scss.toString().split('\n');
 }
@@ -278,11 +268,11 @@ class BPlacerRecord {
   }
 }
 
-function to_td_line(arr) {
+const to_td_line = (arr) => {
   return '|' + arr.join('|') + '|';
 }
 
-function create_b_placer(b_placer_base, variation_match) {
+const create_b_placer = (b_placer_base, variation_match) => {
   // カテゴリー、エリア、名前は前にコメントで出てきた値を使う
   var b_placer = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base)), b_placer_base);
   b_placer.class_name = variation_match[1].trim();
@@ -292,16 +282,16 @@ function create_b_placer(b_placer_base, variation_match) {
   return b_placer;
 }
 
-function update_sp_value(b_placers, variation_match) {
+const update_sp_value = (b_placers, variation_match) => {
   // PCで作成したb_placerを探し、そのレコードにSPの値を設定する
-  var b_placer = b_placers.find(function(b) {
+  var b_placer = b_placers.find((b) => {
     variation = variation_match[3] ? variation_match[3].trim() : undefined;
     return b.class_name === variation_match[1].trim() && b.variation === variation;
   });
   b_placer.sp_value = variation_match[6].trim();
 }
 
-function output_b_placer_doc(b_placers) {
+const output_b_placer_doc = (b_placers) => {
   var th =
     [
       'カテゴリ',
@@ -315,28 +305,28 @@ function output_b_placer_doc(b_placers) {
     ];
 
   var table = [to_td_line(th), to_td_line('-'.repeat(th.length).split(''))];
-  b_placers.forEach(function(b_placer) {
+  b_placers.forEach((b_placer) => {
     table.push(b_placer.to_td_line());
   });
   fs.writeFileSync('devStuff/docs/bPlacer.md', (table.join('\n')));
 }
 
-gulp.task('delete-datajson', function() {
+gulp.task('delete-datajson', () => {
   return del(['./styleguide_assets/datajson/']);
 });
 
-gulp.task('make-allparts-datajson', ['delete-datajson'], function() {
+gulp.task('make-allparts-datajson', ['delete-datajson'], () => {
   return make_allDatajson.makeAllDatajsonFull(
     config.html_templates_dir,
     './styleguide_assets/datajson/'
   );
 });
 
-gulp.task('delete-html', function() {
+gulp.task('delete-html', () => {
   return del(['./styleguide_assets/html/']);
 });
 
-gulp.task('make-html', ['delete-html'], function() {
+gulp.task('make-html', ['delete-html'], () => {
   return make_html.makeHtml(
     './styleguide_assets/html/',
     './styleguide_assets/datajson/',
@@ -345,11 +335,11 @@ gulp.task('make-html', ['delete-html'], function() {
   );
 });
 
-gulp.task('delete-unittest', function() {
+gulp.task('delete-unittest', () => {
   return del(['./unittest/']);
 });
 
-gulp.task('make-aigis', ['delete-unittest'], function() {
+gulp.task('make-aigis', ['delete-unittest'], () => {
   return make_aigis.makeAigis(
     './styleguide_assets/html/',
     './unittest/',
@@ -357,14 +347,20 @@ gulp.task('make-aigis', ['delete-unittest'], function() {
   );
 });
 
-gulp.task('update-css', function() {
+gulp.task('update-css', () => {
   return runSequence([
     'sass',
     'create-b-placer-doc'
   ]);
 });
 
-gulp.task('update-parts', function() {
+gulp.task('update-imgs', () => {
+  return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
+  .pipe($.changed('./devStuff/styleguide/imgs/'))
+  .pipe(gulp.dest('./devStuff/styleguide/imgs/'));
+});
+
+gulp.task('update-parts', () => {
   return runSequence(
     'make-allparts-datajson',
     'make-html',
@@ -373,14 +369,14 @@ gulp.task('update-parts', function() {
   );
 });
 
-gulp.task('build', function() {
+gulp.task('build', () => {
   return runSequence(
     ['sass-build', 'create-b-placer-doc'],
     'create-build'
   );
 });
 
-gulp.task('output', function() {
+gulp.task('output', () => {
   return runSequence(
     'create-build'
   );
@@ -389,23 +385,23 @@ gulp.task('output', function() {
 // sftp upload
 // FTPサーバーにテーマフォルダのtheme.cssをアップロードする
 // 全部まとめてやると多すぎてエラーになるのでテーマの値違いで分割してある
-gulp.task('upload', function () {
+gulp.task('upload',  () => {
   upload_themes('');
 })
 // テーマの2番をアップロード
-gulp.task('upload-2', function () {
+gulp.task('upload-2',  () => {
   upload_themes('-2');
 })
 // テーマの3番をアップロード
-gulp.task('upload-3', function () {
+gulp.task('upload-3',  () => {
   upload_themes('-3');
 })
 // 画像をアップロード
-gulp.task('upload-img', function () {
+gulp.task('upload-img',  () => {
   upload_img();
 })
 
-function upload_themes(variation) {
+const upload_themes = (variation) => {
   var theme = get_theme_name();
   for(var ratio of ["L25", "L30", "N00", "R25", "R30"]) {
     for(var device of ["pc", "sp"]) {
@@ -416,15 +412,15 @@ function upload_themes(variation) {
 };
 
 // sftpでファイルがアップロードされる
-function sftp_each_themes(folder) {
+const sftp_each_themes = (folder) => {
   return gulp.src([
     'build/themes/' + folder + '/theme.css'
   ])
-  .pipe(sftp({
+  .pipe($.sftp({
     // 内容はssh_config.jsonに記載
     host: ssh_config.host_name,
     user: ssh_config.user_name,
-    key:{
+    key: {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
@@ -432,16 +428,16 @@ function sftp_each_themes(folder) {
   }));
 }
 
-function upload_img() {
+const upload_img = () => {
   return gulp.src([
     // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
   ])
-  .pipe(sftp({
+  .pipe($.sftp({
     // 内容はssh_config.jsonに記載
     host: ssh_config.host_name,
     user: ssh_config.user_name,
-    key:{
+    key: {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
@@ -450,7 +446,7 @@ function upload_img() {
 }
 
 // themesとtheme_materialsをACRE-Themeにコピー
-gulp.task('output', function() {
+gulp.task('output', () => {
   return gulp.src([
     'build/themes/**/*',
     'build/theme_materials/**/*'
@@ -461,17 +457,17 @@ gulp.task('output', function() {
   .pipe(gulp.dest('../../ACRE-theme/acre/'));
 });
 
-gulp.task('default', ['update-css'], function() {
+gulp.task('default', ['update-css', 'update-imgs'], () => {
   // ファイルが多いため部品のwatchはギブアップする
   gulp.watch(
     ['devStuff/src/**/*.s[ac]ss'],
-    function() { runSequence('update-css') }
+    () => { runSequence('update-css') }
   );
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
   gulp.watch(
     ['devStuff/styleguide/css/*.css'],
-    function() { browserSync.reload() }
+    () => { browserSync.reload() }
   );
   return runSequence(
     'server'
