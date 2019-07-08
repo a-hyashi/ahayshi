@@ -136,6 +136,8 @@
 |06.ナビゲーション|main|064_誘導バナー（上下補足付）|.t0-b-navBItem2Captioned|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|main|064_誘導バナー（上下補足付）|.t0-b-navBItem2Captioned|#{$variation2of2}|4%||35px|
 |06.ナビゲーション|side|130_サイド誘導リンク|.t0-b-sideNavItem||4%||35px|
+|06.ナビゲーション|side|130_サイド誘導リンク|.t0-b-sideNavItem|2|4%|||
+|06.ナビゲーション|side|130_サイド誘導リンク|.t0-b-sideNavItem|3|4%|||
 |06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|#{$variation2of2}|4%||35px|
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation1of3}|4%||35px|
