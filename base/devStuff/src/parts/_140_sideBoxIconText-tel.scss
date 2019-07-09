@@ -1,0 +1,116 @@
+@if $device == PC {
+  .t0-b-sideBoxIconText-tel {
+    $_block: &;
+    > div {
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    &__ruby {
+      @include g-font(14, 1);
+      text-align: right;
+    }
+
+    &__bd {
+      display: table;
+      align-items: center;
+      font-weight: bold;
+      line-height: 1;
+      text-align: center;
+      @if $layout == 'L30' or $layout == 'R30' {
+        @include g-font(30, 1); // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+      } @else {
+        @include g-font(26, 1); // L25かR25で番号が折り返さない最大サイズ
+      }
+    }
+
+    &__icon {
+      display: inline-block;
+      width: 22px;
+      margin-bottom: 0;
+      vertical-align: middle;
+      & + span {
+        display: inline;
+        // ヒラギノ・11桁で折り返さないギリギリのサイズ
+        font-size: 90%;
+        vertical-align: top;
+        padding-left: 5px;
+      }
+    }
+
+    &__tel {
+    }
+
+    &__fax {
+    }
+
+    &__free {
+    }
+
+    &__cell {
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideBoxIconText-tel {
+    $_block: &;
+
+    width: 95%;
+    padding: 10px 0;
+    margin: 0 auto;
+    word-break: break-all;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    a {
+      text-decoration: none;
+    }
+
+    &__ruby {
+      text-align: center;
+      @include g-font(12, 1);
+    }
+
+    &__bd {
+      color: #f00;
+      text-align: center;
+      @include g-font(22, 1);
+      > span {
+        vertical-align: middle;
+      }
+    }
+
+    &__icon {
+      display: inline-block;
+      padding: 0 3px 0 0;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    &__tel {
+    }
+
+    &__fax {
+    }
+
+    &__free {
+    }
+
+    &__cell {
+    }
+  }
+}
