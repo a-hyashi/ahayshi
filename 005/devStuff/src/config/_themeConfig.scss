@@ -1,0 +1,129 @@
+$g-baseFontSize: 14px;
+// 旧変数対応
+$baseFontSize: $g-baseFontSize;
+$g-baseFontColor: #393939;
+$g-baseBackgroundColor: #fff;
+$g-baseLinkColor: #555;
+$g-baseHoverColor: #45b1c7;
+
+$textcolor: $g-baseFontColor;
+$hovercolor: $g-baseHoverColor;
+$hovercolor2: #0b6577;
+$hovercolor3: #45b1c7;
+
+html {
+  font-size: $g-baseFontSize;
+}
+
+body.mod-body,
+div.mod-body {
+  font-family: $gothic;
+  font-size: $g-baseFontSize;
+  font-weight: 500;
+  color: $g-baseFontColor;
+  background-color: $g-baseBackgroundColor;
+}
+
+.mod-body {
+  button, input, optgroup, select, textarea {
+    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
+  }
+}
+
+a {
+  color: $g-baseLinkColor;
+  text-decoration: underline;
+}
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: $hovercolor;
+    }
+  }
+}
+.cms-admin-anchorFlag {
+  position: relative;
+  z-index: 10 !important;
+}
+
+// tel
+$_tel_wd: 40px;
+$_tel_hg: 40px;
+
+// fax
+$_fax_wd: 48px;
+$_fax_hg: 28px;
+
+// free
+$_free_wd: 52px;
+$_free_hg: 29px;
+
+// cell
+$_cell_wd: 23px;
+$_cell_hg: 40px;
+
+$g-spacingBaseLength: 5;
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+$fullWidthBgColor: #b4dde5;
+$fullWidthBgColor2: #fff8dd;
+$fullWidthBgColor3: #fee;
+$fullWidthBgColor4: #37a1b7;
+$fullWidthBgColor5: #fff;
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
+
+@if $device == PC {
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

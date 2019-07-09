@@ -1,0 +1,108 @@
+@if $device == PC {
+  .b-breadcrumbs {
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    text-align: right;
+    > div {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &__item {
+      display: inline-block;
+      &::before {
+        display: inline-block;
+      }
+
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--inMain {
+      margin: 0 0 15px;
+      > div {
+        width: 100%;
+      }
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+
+    &--align-c > div {
+      text-align: center;
+    }
+
+    &--align-r > div {
+      text-align: right;
+    }
+
+    a {
+      color: $textcolor;
+      text-decoration: none;
+      &:hover {
+        color: $hovercolor;
+        text-decoration: underline;
+      }
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+}
+
+@if $device == SP {
+  .b-breadcrumbs {
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    text-align: right;
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      @include g-font($_fontSizePx, $_lineHeightType);
+    }
+
+    &__item {
+      display: inline-block;
+      &::before {
+        display: inline-block;
+      }
+
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--inMain > div {
+      width: 100%;
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+
+    &--align-c > div {
+      text-align: center;
+    }
+
+    &--align-r > div {
+      text-align: right;
+    }
+
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+}
