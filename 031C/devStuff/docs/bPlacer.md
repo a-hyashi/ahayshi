@@ -318,6 +318,9 @@
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|11|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|12|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|13|0||0px|
+|08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|14|0||0px|
+|08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|15|0||0px|
+|08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|16|0||0px|
 |08.メニュー|footer|201_フッターメニュー（コピーライト付き）|.t0-b-footerMenuWithCp||0||0px|
 |09.電話番号・メールアドレス|main|045_電話番号|.t0-b-iconText-tel||4%||35px|
 |09.電話番号・メールアドレス|main|046_メールアドレス|.t0-b-iconText-mail||4%||35px|
