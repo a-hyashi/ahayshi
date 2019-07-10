@@ -1,0 +1,567 @@
+//doc
+// ---
+// title: 文字サイズ指定
+// name: mixins-01-font-01
+// category: Mixins
+// ---
+//
+// あとで書く
+
+@mixin g-font($fontSizePx, $lineHeightType: 0) {
+  @if $lineHeightType == 1 {
+    line-height: 1.25;
+  }
+
+  @if $lineHeightType == 2 {
+    line-height: 1.6;
+  }
+
+  @if $fontSizePx == 8 {
+    font-size: .571em !important;
+  }
+
+  @if $fontSizePx == 10 {
+    font-size: .714em !important;
+  }
+
+  @if $fontSizePx == 12 {
+    font-size: .857em !important;
+  }
+
+  @if $fontSizePx == 14 {
+    font-size: 1em !important;
+  }
+
+  @if $fontSizePx == 16 {
+    font-size: 1.143em !important;
+  }
+
+  @if $fontSizePx == 18 {
+    font-size: 1.286em !important;
+  }
+
+  @if $fontSizePx == 20 {
+    font-size: 1.429em !important;
+  }
+
+  @if $fontSizePx == 22 {
+    font-size: 1.571em !important;
+  }
+
+  @if $fontSizePx == 24 {
+    font-size: 1.714em !important;
+  }
+
+  @if $fontSizePx == 26 {
+    font-size: 1.857em !important;
+  }
+
+  @if $fontSizePx == 28 {
+    font-size: 2em !important;
+  }
+
+  @if $fontSizePx == 30 {
+    font-size: 2.143em !important;
+  }
+
+  @if $fontSizePx == 32 {
+    font-size: 2.286em !important;
+  }
+
+  @if $fontSizePx == 34 {
+    font-size: 2.429em !important;
+  }
+
+  @if $fontSizePx == 36 {
+    font-size: 2.571em !important;
+  }
+
+  @if $fontSizePx == 38 {
+    font-size: 2.714em !important;
+  }
+
+  @if $fontSizePx == 40 {
+    font-size: 2.857em !important;
+  }
+
+  @if $fontSizePx == 42 {
+    font-size: 3em !important;
+  }
+
+  @if $fontSizePx == 44 {
+    font-size: 3.143em !important;
+  }
+
+  @if $fontSizePx == 46 {
+    font-size: 3.286em !important;
+  }
+
+  @if $fontSizePx == 48 {
+    font-size: 3.429em !important;
+  }
+
+  @if $fontSizePx == 50 {
+    font-size: 3.571em !important;
+  }
+
+  @if $fontSizePx == 52 {
+    font-size: 3.714em !important;
+  }
+
+  @if $fontSizePx == 54 {
+    font-size: 3.857em !important;
+  }
+
+  @if $fontSizePx == 56 {
+    font-size: 4em !important;
+  }
+
+  @if $fontSizePx == 58 {
+    font-size: 4.143em !important;
+  }
+
+  @if $fontSizePx == 60 {
+    font-size: 4.286em !important;
+  }
+
+  @if $fontSizePx == 62 {
+    font-size: 4.429em !important;
+  }
+
+  @if $fontSizePx == 64 {
+    font-size: 4.571em !important;
+  }
+
+  @if $fontSizePx == 66 {
+    font-size: 4.714em !important;
+  }
+
+  @if $fontSizePx == 68 {
+    font-size: 4.857em !important;
+  }
+
+  @if $fontSizePx == 70 {
+    font-size: 5em !important;
+  }
+
+  @if $fontSizePx == 72 {
+    font-size: 5.143em !important;
+  }
+
+  @if $fontSizePx == 74 {
+    font-size: 5.286em !important;
+  }
+
+  @if $fontSizePx == 76 {
+    font-size: 5.429em !important;
+  }
+}
+
+@mixin g-font-killSpacing($position, $fontSizePx, $lineHeightType: 1) {
+  @if $position == top {
+    &::before {
+      content: "";
+      display: block;
+      height: 0;
+
+      @if $lineHeightType == 1 {
+        @if $fontSizePx < 14 {
+          margin-top: -.05em;
+        }
+        @else if $fontSizePx == 20 {
+          margin-top: -.175em;
+        }
+        @else if $fontSizePx == 22 {
+          margin-top: -.175em;
+        }
+        @else if $fontSizePx < 24 {
+          margin-top: -.08em;
+        }
+        @else {
+          margin-top: -.15em;
+        }
+      }
+
+      @if $lineHeightType == 2 {
+        margin-top: -.3em;
+      }
+    }
+  }
+
+  @if $position == bottom {
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+
+      @if $lineHeightType == 1 {
+        @if $fontSizePx == 12 {
+          margin-top: -.25em;
+        }
+        @else if $fontSizePx == 16 {
+          margin-top: -.25em;
+        }
+        @else {
+          margin-top: -.18em;
+        }
+      }
+
+      @if $lineHeightType == 2 {
+        @if $fontSizePx < 18 {
+          margin-top: -.4em;
+        }
+        @else {
+          margin-top: -.35em;
+        }
+      }
+    }
+  }
+}
+
+@mixin g-font-spacingKilled($fontSizePx, $lineHeightType: 1) {
+  @include g-font($fontSizePx, $lineHeightType);
+  @include g-font-killSpacing(top, $fontSizePx, $lineHeightType);
+  @include g-font-killSpacing(bottom, $fontSizePx, $lineHeightType);
+}
+
+//doc
+// ---
+// title: 行間殺し
+// name: mixins-01-font-02
+// category: Mixins
+// ---
+//
+// あとで書く
+
+@mixin g-linePadKiller-top($preset) {
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+
+    @if $preset == 1 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 2 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 3 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 4 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 5 {
+      margin-top: -.025em;
+    }
+
+    @if $preset == 6 {
+      margin-top: -.075em;
+    }
+
+    @if $preset == 7 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 8 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 9 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 10 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 11 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 12 {
+      margin-top: -.125em;
+    }
+
+    @if $preset == 13 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 14 {
+      margin-top: -.1em;
+    }
+  }
+}
+
+@mixin g-linePadKiller-bottom($preset) {
+  &::after {
+    content: "";
+    display: block;
+    height: 0;
+
+    @if $preset == 1 {
+      margin-top: -.25em;
+    }
+
+    @if $preset == 2 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 3 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 4 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 5 {
+      margin-top: -.125em;
+    }
+
+    @if $preset == 6 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 7 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 8 {
+      margin-top: -.175em;
+    }
+
+    @if $preset == 9 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 10 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 11 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 12 {
+      margin-top: -.225em;
+    }
+
+    @if $preset == 13 {
+      margin-top: -.175em;
+    }
+
+    @if $preset == 14 {
+      margin-top: -.175em;
+    }
+  }
+}
+
+//doc
+// ---
+// title: clearfix
+// name: mixins-02-misc-01
+// category: Mixins
+// ---
+//
+// あとで書く
+
+@mixin cf {
+  //*zoom: 1 //for IE7 and below
+  &::before, &::after {
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+//doc
+// ---
+// title: visuallyhidden
+// name: mixins-02-misc-02
+// category: Mixins
+// ---
+//
+// あとで書く
+
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+//doc
+// ---
+// title: 'レイアウト分割'
+// name: layoutSplitter
+// category: LayoutSplitter
+// ---
+//
+// 他の部品を内包できる部品。
+//
+// ## 構造
+//
+// [繰り返し] レイアウト領域（子部品挿入エリア）
+//
+// ## 備考
+//
+// ユーザーは2〜5の中からレイアウト分割数を選択できる
+// その分だけ`.t0-b-layoutSplitter__div`が繰り返される
+//
+// ```issues
+// 入る子部品の種類を制限する必要がありそうなので一通り部品が揃ったら決める必要あり
+// ```
+//
+// ## 基本形
+//
+// ```block_{"max-width":"Main"}
+// <div class="b-bPlacer-6s">
+//   <div class="
+//     t0-b-layoutSplitter
+//     t0-b-layoutSplitter--count-2
+//     t0-b-layoutSplitter--spacing-4s
+//   "><div>
+//     <div class="t0-b-layoutSplitter__div"><div>
+//
+//       <div style="border:3px solid red">★子部品が入る</div>
+//       <!-- ↑このdivは削除 -->
+//
+//     <!-- /t0-b-layoutSplitter__div --></div></div>
+//     <div class="t0-b-layoutSplitter__div"><div>
+//
+//       <div style="border:3px solid red">★子部品が入る</div>
+//       <!-- ↑このdivは削除 -->
+//
+//     <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <!-- /t0-b-layoutSplitter --></div></div>
+// <!-- /b-bPlacer-6s --></div>
+// ```
+//
+// ## レイアウト分割数
+//
+// レイアウト分割数は、`.t0-b-layoutSplitter`の要素のモディファイア`t0-b-layoutSplitter--count-[N]`にて指定する。
+// このモディファイアの指定は必須。
+//
+// `[N]`には、`2`〜`5`の値を取ることが出来、数値が示すカラムを再現する。
+// 指定したカラムの数分、以下の要素を中で繰り返す。
+//
+// ```html
+// <div class="t0-b-layoutSplitter__div"><div>
+//
+//   ここに子部品が入る
+//
+// <!-- /t0-b-layoutSplitter__div --></div></div>
+// ```
+//
+// 以下がレイアウト分割数を指定したサンプル。
+//
+// ```block_{"max-width":"Main"}
+// <div class="
+//   t0-b-layoutSplitter
+//   t0-b-layoutSplitter--count-3
+//   t0-b-layoutSplitter--spacing-4s
+// "><div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+// <!-- /t0-b-layoutSplitter --></div></div>
+// ```
+//
+// ```block_{"max-width":"Main"}
+// <div class="
+//   t0-b-layoutSplitter
+//   t0-b-layoutSplitter--count-4
+//   t0-b-layoutSplitter--spacing-4s
+// "><div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+// <!-- /t0-b-layoutSplitter --></div></div>
+// ```
+//
+// ```block_{"max-width":"Main"}
+// <div class="
+//   t0-b-layoutSplitter
+//   t0-b-layoutSplitter--count-5
+//   t0-b-layoutSplitter--spacing-4s
+// "><div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+//   <div class="t0-b-layoutSplitter__div"><div>
+//
+//     <div style="border:3px solid red">★子部品が入る</div>
+//     <!-- ↑このdivは削除 -->
+//
+//   <!-- /t0-b-layoutSplitter__div --></div></div>
+// <!-- /t0-b-layoutSplitter --></div></div>
+// ```
