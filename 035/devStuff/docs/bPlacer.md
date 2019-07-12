@@ -121,8 +121,8 @@
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned|3|4%||35px|
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptionedDouble||2%||10px|
 |06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned||4%||35px|
-|06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned|2|4%|||
-|06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned|3|4%|||
+|06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned|2|4%||35px|
+|06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned|3|4%||35px|
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg|#{$variation1of3}|4%||35px|
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg|#{$variation2of3}|4%||35px|
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg|#{$variation3of3}|4%||35px|
