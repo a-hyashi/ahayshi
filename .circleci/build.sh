@@ -6,6 +6,9 @@ git clone git@github.com:wmssystem/ACRE-theme.git ../ACRE-theme
 pips=()
 themes=()
 
+error_themes=()
+
+count=0
 for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
   cd ${theme##*/}
   cp ../copy.sh ./copy.sh
@@ -14,9 +17,22 @@ for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
   pips+=($!)
   themes+=( ${theme##*/} )
   cd ../
-done
 
-error_themes=()
+  count=$(( count + 1 ))
+  # 一括処理だとメモリが不足して以下のエラーが発生するため10件ずつ実行
+  # ./.circleci/build.sh: line 9:   999 Killed
+  if [ ${count} -eq 10 ] ; then
+    for ((i = 0; i < ${#pips[@]}; i++)) ; do
+      wait ${pips[$i]}
+      if [ $? -ne 0 ]; then
+        error_themes+=(${themes[$i]})
+      fi
+    done
+    count=0
+    pips=()
+    themes=()
+  fi
+done
 
 for ((i = 0; i < ${#pips[@]}; i++)) ; do
   wait ${pips[$i]}
