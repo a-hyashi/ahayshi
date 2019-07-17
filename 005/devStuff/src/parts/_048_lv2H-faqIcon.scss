@@ -1,50 +1,133 @@
 @if $device == PC {
-  .t0-b-lv2H-faqIcon {
+  .t0-b-lv2H-faqIcon#{$variation1of2} {
+    border: 1px solid #d8dde9;
+    border-radius: 10px;
+    position: relative;
+    padding: 13px 20px 13px 32px;
+    box-sizing: border-box;
+    color: #4d4d4d;
+
     $_block: &;
-    $_fontSizePx: 24;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_lineHeightType: 1;
+    > span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/t0-b-lv2H-faqIcon/1.png") no-repeat 6px 6px, url("../imgs/t0-b-lv2H-faqIcon/2.png") no-repeat right 6px bottom 6px;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
     > div {
+      display: table;
       width: 100%;
     }
 
+    &__iconPlacer {
+      display: table-cell;
+      background: url("../imgs/t0-b-lv2H-faqIcon/3.png") no-repeat 0 50%;
+      width: 67px;
+      height: 35px;
+      vertical-align: middle;
+    }
+
     a {
-      color: $textcolor;
+      position: relative;
       text-decoration: none;
+      color: #4d4d4d;
+      display: table-cell;
       vertical-align: middle;
       &:hover {
         color: $hovercolor;
       }
-    }
 
-    &__iconPlacer {
-    }
-
-    &__icon {
+      #{$_block}__h {
+        display: block;
+      }
     }
 
     &__h {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      position: relative;
+
+      @include g-font-spacingKilled(20, 2);
+
+      font-family: serif;
+      vertical-align: middle;
+      display: table-cell;
+      padding: 0 0 0 20px;
     }
 
-    &--size-1 {
-      #{$_block}__iconPlacer {
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv2H-faqIcon#{$variation2of2} {
+    background: #ebeef5;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bac2d6;
+    position: relative;
+    padding: 13px 20px;
+    box-sizing: border-box;
+
+    $_block: &;
+    > span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/t0-b-lv2H-faqIcon/4.png") no-repeat right 10px top 50%;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
+    > div {
+      display: table;
+      width: 100%;
+      color: #4d4d4d;
+    }
+
+    &__iconPlacer {
+      display: table-cell;
+      background: url("../imgs/t0-b-lv2H-faqIcon/5.png") no-repeat 0 50%;
+      width: 67px;
+      height: 35px;
+      vertical-align: middle;
+      text-align: left;
+      position: relative;
+    }
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: #4d4d4d;
+      display: table-cell;
+      vertical-align: middle;
+      &:hover {
+        color: #0e2753;
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        display: block;
       }
     }
 
-    &--size-3 {
-      #{$_block}__iconPlacer {
-      }
+    &__h {
+      position: relative;
 
-      #{$_block}__h {
-        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
-      }
+      @include g-font-spacingKilled(16, 2);
+
+      vertical-align: middle;
+      display: table-cell;
+      padding: 0 0 0 20px;
     }
 
     &--align-l {
@@ -62,25 +145,45 @@
 }
 
 @if $device == SP {
-  .t0-b-lv2H-faqIcon {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
+  .t0-b-lv2H-faqIcon#{$variation1of2} {
+    margin: 0 auto;
+    border: 1px solid #d8dde9;
+    border-radius: 10px;
     position: relative;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    color: #4d4d4d;
+
+    $_block: &;
+    > span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/t0-b-lv2H-faqIcon/1.png") no-repeat 3px 3px, url("../imgs/t0-b-lv2H-faqIcon/2.png") no-repeat right 3px bottom 3px;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
     > div {
       display: table;
       width: 100%;
     }
 
     &__iconPlacer {
-    }
-
-    &__icon {
+      display: table-cell;
+      background: url("../imgs/t0-b-lv2H-faqIcon/3.png") no-repeat 0 50%;
+      width: 50px;
+      height: 25px;
+      vertical-align: middle;
+      background-size: 100%;
     }
 
     a {
-      color: $textcolor;
+      position: relative;
       text-decoration: none;
+      color: #4d4d4d;
+      display: table-cell;
       vertical-align: middle;
       #{$_block}__h {
         display: block;
@@ -88,7 +191,87 @@
     }
 
     &__h {
-      @include g-font($_fontSizePx, $_lineHeightType);
+      position: relative;
+
+      @include g-font-spacingKilled(18, 1);
+
+      font-family: serif;
+      vertical-align: middle;
+      display: table-cell;
+      padding: 0 0 0 5px;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv2H-faqIcon#{$variation2of2} {
+    margin: 0 auto;
+    background: #ebeef5;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bac2d6;
+    position: relative;
+    padding: 8px 10px 10px;
+    box-sizing: border-box;
+
+    $_block: &;
+    > span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/t0-b-lv2H-faqIcon/4.png") no-repeat right 10px top 50%;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
+    > div {
+      display: table;
+      width: 100%;
+      > h2 {
+        color: #4d4d4d;
+      }
+    }
+
+    &__iconPlacer {
+      display: table-cell;
+      background: url("../imgs/t0-b-lv2H-faqIcon/5.png") no-repeat 0 50%;
+      width: 50px;
+      height: 25px;
+      background-size: 100%;
+      vertical-align: middle;
+      text-align: left;
+      position: relative;
+    }
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: #4d4d4d;
+      display: table-cell;
+      vertical-align: middle;
+      #{$_block}__h {
+        display: block;
+      }
+    }
+
+    &__h {
+      position: relative;
+
+      @include g-font-spacingKilled(18, 1);
+
+      vertical-align: middle;
+      display: table-cell;
+      padding: 0 0 0 5px;
     }
 
     &--align-l {

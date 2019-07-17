@@ -10,29 +10,20 @@
     }
 
     #{$_block}__item {
-      display: table;
       padding: #{$_itemSpacing} 0 0;
 
       @include cf;
       &:first-child {
         padding-top: 0;
       }
-
-      > a {
-        display: table-cell;
-      }
-
-      > p {
-        display: table-cell;
-        vertical-align: bottom;
-        @include g-font(16, 1);
-      }
     }
 
     a {
-      color: $textcolor;
+      text-decoration: none;
+      color: #0e2753;
       &:hover {
-        color: $hovercolor;
+        color: #4c8fc8;
+        text-decoration: underline;
       }
     }
 
@@ -46,32 +37,33 @@
     }
 
     #{$_block}__itemIcon {
-      padding: 0 10px 0 0;
+      padding: 0 15px 0 0;
     }
 
     #{$_block}__itemText {
-      @include g-font(16, 1);
+      @include g-font(14, 1);
+
+      font-weight: bold;
     }
   }
 
   .b-downloadIcon {
+    $_color_border: #aaa;
+
     @mixin _icon($file) {
       &--#{$file} {
         $_src: "../imgs/b-downloadIcon/#{$file}.png";
-        width: 30px;
-        height: 30px;
+
         background: url($_src) 0 0 no-repeat;
-        background-size: 30px;
+        width: 44px;
+        height: 48px;
       }
     }
 
     display: inline-block;
     vertical-align: middle;
+
     @include _icon("reader");
-  }
-  // safariで下線が付かない不具合のハック
-  _::-webkit-full-page-media, _:future, :root .t0-b-getAdobeReader__itemText {
-    text-decoration: underline;
   }
 }
 
@@ -93,20 +85,11 @@
       &:first-child {
         padding-top: 0;
       }
-
-      > a {
-        display: table-cell;
-      }
-
-      > p {
-        display: table-cell;
-        vertical-align: bottom;
-        @include g-font(16, 1);
-      }
     }
 
     a {
-      color: $textcolor;
+      text-decoration: none;
+      color: #0e2753;
     }
 
     #{$_block}__itemSplit {
@@ -119,24 +102,26 @@
     }
 
     #{$_block}__itemIcon {
-      padding: 0 8px 0 0;
+      padding: 0 10px 0 0;
     }
 
     #{$_block}__itemText {
       @include g-font(16, 1);
-      text-decoration: underline;
+
+      font-weight: bold;
     }
   }
 
   .b-downloadIcon {
+    $_color_border: #aaa;
+
     @mixin _icon($file) {
       &--#{$file} {
         $_src: "../imgs/b-downloadIcon/#{$file}.png";
-        width: 27px;
-        height: 30px;
 
         background: url($_src) 0 0 no-repeat;
-        background-size: 27px 28px;
+        width: 44px;
+        height: 48px;
       }
     }
 

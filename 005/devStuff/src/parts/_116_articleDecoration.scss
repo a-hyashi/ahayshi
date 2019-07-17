@@ -1,127 +1,199 @@
 @if $device == PC {
-  .t0-b-articleDecoration#{$variation1of2} {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    &__row {
-      display: flex;
-    }
-
-    &__col {
-      flex: 1 1 (100% / 2);
-      padding-left: 7%;
-      &:first-child {
-        padding-left: 0;
-      }
-    }
-
-    &__hd {
-    }
-
+  .t0-b-articleDecoration#{$variation1of3} {
     &__bd {
       display: table;
       width: 100%;
     }
 
     &__box {
+      display: table-cell;
+      width: 49%;
+      background: #fbfbf9;
+      box-shadow: 0 0 8px #ccc;
+      border-radius: 10px;
+      padding: 20px 20px 1px;
     }
 
     &__arrow {
+      display: table-cell;
+      width: 20px;
     }
 
     &__hd-h {
+      color: #0e2753;
+      background: #f1f2f4;
       position: relative;
-      // 回り込みなしに必要
-      overflow: hidden;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 2px #ccc;
       h4 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+        position: relative;
+        color: #0e2753;
+
+        @include g-font(16, 1);
+      }
+
+      > span {
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("../imgs/t0-b-articleDecoration/1.png") no-repeat 100% 0, url("../imgs/t0-b-articleDecoration/2.png") no-repeat 0 0;
+        > span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: url("../imgs/t0-b-articleDecoration/3.png") no-repeat 100% 100%, url("../imgs/t0-b-articleDecoration/4.png") no-repeat 0% 100%;
+        }
       }
 
       a {
-        color: $textcolor;
+        color: #0e2753;
         text-decoration: none;
+        position: relative;
         &:hover {
           h4 {
             color: $hovercolor;
           }
         }
       }
-
-      #{$_block}--align-l {
-        text-align: left;
-      }
-
-      #{$_block}--align-c {
-        text-align: center;
-      }
-
-      #{$_block}--align-r {
-        text-align: right;
-      }
-
-      &--size-1 {
-        h4 {
-          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
-        }
-      }
-
-      &--size-3 {
-        h4 {
-          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
-        }
-      }
     }
 
-    &__ft {
-      margin-top: 2%;
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
     }
   }
 
-  .t0-b-articleDecoration#{$variation2of2} {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    &__row {
-      display: flex;
-    }
-
-    &__col {
-      flex: 1 1 (100% / 2);
-      padding-left: 7%;
-      &:first-child {
-        padding-left: 0;
-      }
-    }
-
-    &__hd {
-    }
-
+  .t0-b-articleDecoration#{$variation2of3} {
     &__bd {
       display: table;
       width: 100%;
     }
 
     &__box {
+      display: table-cell;
+      width: 49%;
+      background: #fff;
+      box-shadow: 0 0 5px #ccc;
+      border-radius: 10px;
+      padding: 20px 20px 1px;
     }
 
     &__arrow {
+      display: table-cell;
+      width: 20px;
     }
 
     &__hd-h {
-      // 回り込みなしに必要
-      overflow: hidden;
+      color: #4d4d4d;
+      background: #d5d2ac;
+      position: relative;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 2px #ccc;
+      border-radius: 0 8px;
       h4 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+        position: relative;
+        color: #4d4d4d;
+
+        @include g-font(16, 1);
+      }
+
+      > span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("../imgs/t0-b-articleDecoration/5.png") no-repeat 100% 0;
+        pointer-events: none;
       }
 
       a {
-        color: $textcolor;
+        color: #4d4d4d;
+        text-decoration: none;
+        position: relative;
+        &:hover {
+          h4 {
+            color: $hovercolor;
+          }
+        }
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-articleDecoration#{$variation3of3} {
+    &__bd {
+      display: table;
+      width: 100%;
+    }
+
+    &__box {
+      display: table-cell;
+      width: 49%;
+      border: 1px solid #748fc0;
+      border-radius: 10px;
+      padding: 20px 20px 1px;
+      background: #fbfbf9;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 20px;
+    }
+
+    &__hd-h {
+      color: #fff;
+      background: #153861;
+      position: relative;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 2px #ccc;
+      border-radius: 0 8px;
+      h4 {
+        position: relative;
+        color: #fff;
+
+        @include g-font(16, 1);
+      }
+
+      > span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("../imgs/t0-b-articleDecoration/6.png") no-repeat 100% 0;
+        pointer-events: none;
+      }
+
+      a {
+        position: relative;
+        color: #fff;
         text-decoration: none;
         &:hover {
           h4 {
@@ -129,140 +201,228 @@
           }
         }
       }
-
-      #{$_block}--align-l {
-        text-align: left;
-      }
-
-      #{$_block}--align-c {
-        text-align: center;
-      }
-
-      #{$_block}--align-r {
-        text-align: right;
-      }
-
-      &--size-1 {
-        h4 {
-          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
-        }
-      }
-
-      &--size-3 {
-        h4 {
-          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
-        }
-      }
     }
 
-    &__ft {
-      margin-top: 2%;
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
     }
   }
 }
 
 @if $device == SP {
-  .t0-b-articleDecoration#{$variation1of2} {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-
+  .t0-b-articleDecoration#{$variation1of3} {
     margin: 0 -5px;
-    &__col {
-      padding-bottom: 30px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
     &__hd {
+      padding: 0 20px 8px;
     }
 
-    &__bd &__arrow {
+    &__arrow {
+      height: 20px;
     }
 
     &__box {
+      background: #fbfbf9;
+      box-shadow: 0 0 8px #ccc;
+      border-radius: 10px;
+      padding: 20px 20px 10px;
     }
 
     &__hd-h {
-      // 回り込みなしに必要
-      overflow: hidden;
+      color: #0e2753;
+      background: #f1f2f4;
+      position: relative;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 2px #ccc;
       h4 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+        position: relative;
+        color: #0e2753;
+
+        @include g-font(16, 1);
+      }
+
+      > span {
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("../imgs/t0-b-articleDecoration/1.png") no-repeat 100% 0, url("../imgs/t0-b-articleDecoration/2.png") no-repeat 0 0;
+        > span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: url("../imgs/t0-b-articleDecoration/3.png") no-repeat 100% 100%, url("../imgs/t0-b-articleDecoration/4.png") no-repeat 0% 100%;
+        }
       }
 
       a {
-        color: $textcolor;
+        color: #0e2753;
         text-decoration: none;
-      }
-
-      #{$_block}--align-l {
-        text-align: left;
-      }
-
-      #{$_block}--align-c {
-        text-align: center;
-      }
-
-      #{$_block}--align-r {
-        text-align: right;
+        position: relative;
       }
     }
 
-    &__ft {
-      margin-top: 2%;
+    &__arrow {
+      display: table-cell;
+      width: 20px;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
     }
   }
 
-  .t0-b-articleDecoration#{$variation2of2} {
-    $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-
+  .t0-b-articleDecoration#{$variation2of3} {
     margin: 0 -5px;
-    &__col {
-      padding-bottom: 30px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
     &__hd {
+      padding: 0 20px 5px;
     }
 
-    &__bd &__arrow {
+    &__arrow {
+      height: 20px;
     }
 
     &__box {
+      background: #fff;
+      box-shadow: 0 0 5px #ccc;
+      border-radius: 10px;
+      padding: 20px 20px 10px;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 20px;
     }
 
     &__hd-h {
-      // 回り込みなしに必要
-      overflow: hidden;
+      color: #4d4d4d;
+      background: #d5d2ac;
+      position: relative;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 2px #ccc;
+      border-radius: 0 8px;
       h4 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+        position: relative;
+        color: #4d4d4d;
+
+        @include g-font(16, 1);
+      }
+
+      > span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("../imgs/t0-b-articleDecoration/5.png") no-repeat 100% 0;
+        pointer-events: none;
       }
 
       a {
-        color: $textcolor;
+        color: #4d4d4d;
         text-decoration: none;
-      }
-
-      #{$_block}--align-l {
-        text-align: left;
-      }
-
-      #{$_block}--align-c {
-        text-align: center;
-      }
-
-      #{$_block}--align-r {
-        text-align: right;
+        position: relative;
       }
     }
 
-    &__ft {
-      margin-top: 2%;
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-articleDecoration#{$variation3of3} {
+    margin: 0 -5px;
+    &__hd {
+      padding: 0 20px;
+    }
+
+    &__arrow {
+      height: 20px;
+    }
+
+    &__box {
+      border: 1px solid #748fc0;
+      border-radius: 10px;
+      padding: 20px 20px 10px;
+      background: #fbfbf9;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 20px;
+    }
+
+    &__hd-h {
+      color: #fff;
+      background: #153861;
+      position: relative;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 2px #ccc;
+      border-radius: 0 8px;
+      h4 {
+        position: relative;
+        color: #fff;
+
+        @include g-font(16, 1);
+      }
+
+      > span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("../imgs/t0-b-articleDecoration/6.png") no-repeat 100% 0;
+        pointer-events: none;
+      }
+
+      a {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
     }
   }
 }

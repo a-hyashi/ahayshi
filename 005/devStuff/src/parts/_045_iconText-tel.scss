@@ -1,55 +1,48 @@
 @if $device == PC {
   .t0-b-iconText-tel {
     $_block: &;
-    $_lineHeightType: 1;
-
     display: table;
-    p {
-      @include g-font(16, 2);
-      padding-bottom: 10px;
-    }
-
-    &__ruby {
-      text-align: right;
-      a {
-        color: inherit;
-        &:hover {
-          color: $hovercolor;
+    a {
+      &:hover {
+        img {
+          opacity: .8;
         }
       }
     }
 
+    p {
+      @include g-font(14, 1);
+
+      padding-bottom: 5px;
+    }
+
+    &__ruby {
+      text-align: right;
+      color: #0e2753;
+    }
+
     &__bd {
-      display: table;
-      font-weight: bold;
       text-align: center;
+      color: #0e2753;
+      display: inline-block;
     }
 
     &__icon {
-      display: table-cell;
+      display: inline-block;
       vertical-align: middle;
-      vertical-align: top;
       background-repeat: no-repeat;
-      background-position: left 0;
+      background-position: left top;
     }
 
     &__wrap {
       display: table-cell;
       vertical-align: middle;
-      p {
-        > a {
-          color: inherit;
-          &:hover {
-            color: $hovercolor;
-          }
-        }
-      }
     }
 
     &__media {
+      padding: 0 10px 0 0;
       display: table-cell;
       vertical-align: middle;
-      padding: 0 10px 0 0;
       img {
         display: block;
         width: 60px;
@@ -57,14 +50,7 @@
       }
     }
 
-    a {
-      > img {
-        &:hover {
-          opacity: .8;
-        }
-      }
-    }
-
+    // aligns
     &--align-l {
       margin: 0 auto 0 0;
       text-align: left;
@@ -83,37 +69,61 @@
     // icon sizes
     &--size-1 {
       p {
-        @include g-font(12, 1);
+        @include g-font(10, 1);
+
+        padding-bottom: 5px;
       }
 
       #{$_block}__ruby {
-        @include g-font(12, 1);
+        @include g-font(10, 1);
       }
 
       #{$_block}__bd {
         @include g-font(22, 1);
+
         line-height: 1;
+        #{$_block}__icon + span {
+          font-size: 80%;
+          vertical-align: middle;
+        }
       }
 
       #{$_block}__icon {
+        margin: 0 4px 0 0;
       }
 
       #{$_block}__tel {
+        width: 20px;
+        height: 16px;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
       }
 
       #{$_block}__fax {
+        width: 21px;
+        height: 18px;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
       }
 
       #{$_block}__free {
+        width: 25px;
+        height: 14px;
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+        margin-top: 1px;
       }
 
       #{$_block}__cell {
+        width: 8px;
+        height: 18px;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        margin-top: -2px;
       }
     }
 
     &--size-2 {
       p {
         @include g-font(12, 1);
+
+        padding-bottom: 5px;
       }
 
       #{$_block}__ruby {
@@ -121,23 +131,44 @@
       }
 
       #{$_block}__bd {
-        @include g-font(24, 1);
+        @include g-font(26, 1);
+
         line-height: 1;
+        #{$_block}__icon + span {
+          font-size: 80%;
+          vertical-align: middle;
+        }
       }
 
       #{$_block}__icon {
+        margin: 0 6px 0 0;
       }
 
       #{$_block}__tel {
+        width: 26px;
+        height: 21px;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/2.png");
+        background-size: 26px 21px;
       }
 
       #{$_block}__fax {
+        width: 28px;
+        height: 23px;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/2.png");
       }
 
       #{$_block}__free {
+        width: 31px;
+        height: 18px;
+        background-image: url("../imgs/t0-b-iconText/icons/free/2.png");
+        margin-top: 1px;
       }
 
       #{$_block}__cell {
+        width: 12px;
+        height: 24px;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/2.png");
+        margin-top: -4px;
       }
     }
 
@@ -151,23 +182,45 @@
       }
 
       #{$_block}__bd {
-        @include g-font(34, 1);
+        @include g-font(36, 1);
+
         line-height: 1;
+        #{$_block}__icon + span {
+          font-size: 80%;
+          vertical-align: middle;
+        }
       }
 
       #{$_block}__icon {
+        margin: 0 8px 0 0;
       }
 
       #{$_block}__tel {
+        width: 32px;
+        height: 26px;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/3.png");
       }
 
       #{$_block}__fax {
+        width: 38px;
+        height: 32px;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/3.png");
+        margin-top: -3px;
+        background-size: 38px 32px;
       }
 
       #{$_block}__free {
+        width: 37px;
+        height: 21px;
+        background-image: url("../imgs/t0-b-iconText/icons/free/3.png");
+        margin-top: 4px;
       }
 
       #{$_block}__cell {
+        width: 15px;
+        height: 31px;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/3.png");
+        margin-top: -5px;
       }
     }
 
@@ -181,61 +234,100 @@
       }
 
       #{$_block}__bd {
-        @include g-font(40, 1);
+        @include g-font(44, 1);
+
         line-height: 1;
+        #{$_block}__icon + span {
+          font-size: 80%;
+          vertical-align: middle;
+        }
       }
 
       #{$_block}__icon {
+        margin: 0 10px 0 0;
       }
 
       #{$_block}__tel {
+        width: 38px;
+        height: 30px;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/4.png");
+        background-size: 38px 30px;
+        margin-top: 1px;
       }
 
       #{$_block}__fax {
+        width: 40px;
+        height: 33px;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/4.png");
+        margin-top: 1px;
+        background-size: 40px 33px;
       }
 
       #{$_block}__free {
+        width: 41px;
+        height: 23px;
+        background-image: url("../imgs/t0-b-iconText/icons/free/4.png");
+        margin-top: 7px;
       }
 
       #{$_block}__cell {
+        width: 16px;
+        height: 33px;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/4.png");
+        background-size: 16px 33px;
+        margin-top: -1px;
       }
     }
 
     &--size-5 {
       p {
-        @include g-font(16, 1);
+        @include g-font(18, 1);
       }
 
       #{$_block}__ruby {
-        @include g-font(16, 1);
+        @include g-font(18, 1);
       }
 
       #{$_block}__bd {
-        @include g-font(46, 1);
+        @include g-font(50, 1);
+
         line-height: 1;
+        #{$_block}__icon + span {
+          font-size: 80%;
+          vertical-align: middle;
+        }
       }
 
       #{$_block}__icon {
+        margin: 0 10px 0 0;
       }
 
       #{$_block}__tel {
-        // width: $_tel_wd;
-        // height: $_tel_hg;
+        width: 44px;
+        height: 35px;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/4.png");
       }
 
       #{$_block}__fax {
-        // width: $_fax_wd;
-        // height: $_fax_hg;
+        width: 42px;
+        height: 35px;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/4.png");
+        margin-top: 1px;
       }
 
       #{$_block}__free {
-        // width: $_free_wd;
-        // height: $_free_hg;
+        width: 51px;
+        height: 29px;
+        background-image: url("../imgs/t0-b-iconText/icons/free/5.png");
+        margin-top: 6px;
       }
 
       #{$_block}__cell {
-        // width: $_cell_wd;
-        // height: $_cell_hg;
+        width: 17px;
+        height: 36px;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/4.png");
+        background-size: 17px 36px;
+        margin-top: -1px;
       }
     }
   }
@@ -245,23 +337,22 @@
   .t0-b-iconText-tel {
     text-align: center;
     p {
-      @include g-font(16, 1);
-      padding-bottom: 10px;
+      font-weight: bold;
+
+      @include g-font-spacingKilled(16, 1);
+
+      padding-bottom: 15px;
     }
 
     a[href^=tel] {
-      box-sizing: border-box;
-      display: block;
       width: 95%;
-      padding: 10px;
       margin: 0 auto;
-      word-break: break-all;
       background: linear-gradient(#fff, #f6f6f6, #eee);
       border: 1px solid #ccc;
       border-radius: 8px;
-    }
-
-    &__media {
+      padding: 10px 0;
+      word-break: break-all;
+      display: block;
     }
 
     img {
@@ -269,36 +360,60 @@
     }
 
     &__ruby {
-      @include g-font(12, 1);
-      color: #555;
+      color: #4d4d4d;
     }
 
     &__bd {
-      @include g-font(22, 1);
       color: #f00;
       > span {
         vertical-align: middle;
       }
-
-      > span:last-child {
-        word-wrap: break-word;
-      }
     }
 
     &__icon {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &__ruby {
+      @include g-font(12, 1);
+    }
+
+    &__bd {
+      @include g-font(14, 1);
+    }
+
+    &__icon {
+      padding: 0 3px 0 0;
+      background-repeat: no-repeat;
     }
 
     &__tel {
+      width: 20px;
+      height: 16px;
+      background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+      margin-top: -3px;
     }
 
     &__fax {
-
+      width: 21px;
+      height: 18px;
+      background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+      margin-top: 0;
     }
 
     &__free {
+      width: 21px;
+      height: 18px;
+      background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+      margin-top: 3px;
     }
 
     &__cell {
+      width: 8px;
+      height: 18px;
+      background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+      margin-top: -3px;
     }
   }
 }

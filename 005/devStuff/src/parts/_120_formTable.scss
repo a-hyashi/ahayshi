@@ -1,31 +1,30 @@
 @if $device == PC {
-  .t0-b-formTable#{$variation1of2} {
+  .t0-b-formTable#{$variation1of3} {
     $_block: &;
-    $_color_th_typo: #333;
-    $_color_th_bg: #d4e9ed;
+    $_color_th_typo: #4d4d4d;
+    $_color_th_bg: #f3f3f3;
     $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
+    $_color_table_border: #d6d6d6;
+    $_color_error_typo: #e01e27;
     table {
-      width: 100%;
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
-    }
-
-    table, x:-moz-any-link {
-      border-collapse: initial;
+      width: 100%;
     }
 
     th, td {
-      padding: 10px 15px;
-      text-align: left;
-      vertical-align: middle;
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
     }
 
     th {
-      @include g-font(14, 1);
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+
+      @include g-font-spacingKilled(14, 1);
       > div {
         display: table;
         width: 100%;
@@ -36,62 +35,57 @@
     }
 
     td {
-    }
-
-    tr {
+      background: $_color_td_bg;
     }
 
     .mod-formError {
       display: block;
-      padding: 10px 0 0;
       color: $_color_error_typo;
-      @include g-font(18, 1);
+
+      @include g-font-spacingKilled(16, 1);
+
+      font-weight: bold;
+      padding: 10px 0 0;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font-spacingKilled(12, 1);
+
       padding: 10px 0 0;
     }
 
     &__confirmer {
-      @include g-font(14, 2);
+      @include g-font-spacingKilled(14, 2);
     }
 
     &__placer-singleInput {
       input, select, textarea {
         display: block;
-        width: 100%;
-      }
-
-      select {
-        color: inherit;
-        background: none transparent;
-        border: 1px solid #ccc;
       }
     }
 
     &__placer-list {
       ul {
-        padding-top: 5px;
         margin: (-5px) -10px 0 0;
+        padding-top: 5px;
       }
 
       li {
-
-        display: inline;
         padding: 5px 4px 0 0;
         text-indent: -18px;
 
         @include g-font(14, 1);
+
+        display: inline;
         > span {
-          display: inline-block;
           width: 18px;
           height: 1px;
+          display: inline-block;
           vertical-align: middle;
           input {
+            display: block;
             position: relative;
             top: -.6em;
-            display: block;
           }
 
           textarea {
@@ -111,7 +105,6 @@
       }
     }
 
-    //&__placer-list--align-vertical: no style
     .ex-vertical {
       li {
         display: list-item;
@@ -120,89 +113,120 @@
     }
 
     &__required {
+      $_color_typo: #fff;
+      $_color_bg: #b7151d;
 
       width: 40px;
       vertical-align: middle;
       > span {
         display: block;
-        padding: 3px;
+        color: $_color_typo;
+        background: $_color_bg;
+
+        @include g-font-spacingKilled(12, 1);
+
+        padding: 4px 5px;
+        text-align: center;
         margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-
-        @include g-font(12, 1);
       }
     }
 
-    //確認ボタン
     &__button {
       &:hover {
         opacity: .8;
       }
-      width: 266px;
+
+      $_color_border: #0f3574;
+      $_color_typo: #fff;
+
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
       display: inline-block;
-      border: none;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #5a7cb5 0%, #0f3574 100%);
+      border-radius: 10px;
+      box-shadow: 2px 5px 5px #ededed, -2px 5px 5px #ededed;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(14, 1);
     }
 
-    // 編集ボタン
     &__button2 {
       &:hover {
         opacity: .8;
       }
 
-      display: inline-block;
-      min-width: 90px;
+      $_color_border: #cfcda8;
+      $_color_typo: #4d4d4d;
+
+      margin-right: 60px;
       max-width: 266px;
-      border: none;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
+      border-radius: 10px;
+      display: inline-block;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #eceae1 0%, #d1ccaa 100%);
+      box-shadow: 2px 5px 5px #ededed, -2px 5px 5px #ededed;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(14, 1);
     }
 
-    // 送信ボタン
     &__button3 {
       &:hover {
         opacity: .8;
       }
 
+      $_color_border: #0f3574;
+      $_color_typo: #fff;
+
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
       display: inline-block;
-      width: 266px;
-      border: none;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #5a7cb5 0%, #0f3574 100%);
+      border-radius: 10px;
+      box-shadow: 2px 5px 5px #ededed, -2px 5px 5px #ededed;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(14, 1);
     }
   }
 
-  .t0-b-formTable#{$variation2of2} {
+  .t0-b-formTable#{$variation2of3} {
     $_block: &;
-    $_color_th_typo: #333;
-    $_color_th_bg: #d4e9ed;
+    $_color_th_typo: #4d4d4d;
+    $_color_th_bg: #e2e5eb;
     $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
+    $_color_table_border: #d6d6d6;
+    $_color_error_typo: #e01e27;
     table {
-      width: 100%;
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
-    }
-
-    table, x:-moz-any-link {
-      border-collapse: initial;
+      width: 100%;
     }
 
     th, td {
-      padding: 10px 15px;
-      text-align: left;
-      vertical-align: middle;
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
     }
 
     th {
-      @include g-font(14, 1);
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+
+      @include g-font-spacingKilled(14, 1);
       > div {
         display: table;
         width: 100%;
@@ -213,66 +237,57 @@
     }
 
     td {
-    }
-
-    tr {
+      background: $_color_td_bg;
     }
 
     .mod-formError {
       display: block;
-      padding: 10px 0 0;
       color: $_color_error_typo;
-      @include g-font(18, 1);
+
+      @include g-font-spacingKilled(16, 1);
+
+      font-weight: bold;
+      padding: 10px 0 0;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font-spacingKilled(12, 1);
+
       padding: 10px 0 0;
     }
 
     &__confirmer {
-      @include g-font(14, 2);
+      @include g-font-spacingKilled(14, 2);
     }
 
     &__placer-singleInput {
       input, select, textarea {
         display: block;
-        width: 100%;
-      }
-
-      select {
-        color: inherit;
-        background: none transparent;
-        border: 1px solid #ccc;
       }
     }
 
     &__placer-list {
       ul {
-        padding-top: 5px;
         margin: (-5px) -10px 0 0;
+        padding-top: 5px;
       }
 
       li {
-
-        display: inline;
         padding: 5px 4px 0 0;
         text-indent: -18px;
 
         @include g-font(14, 1);
+
+        display: inline;
         > span {
-          display: inline-block;
           width: 18px;
           height: 1px;
+          display: inline-block;
           vertical-align: middle;
           input {
+            display: block;
             position: relative;
             top: -.6em;
-            display: block;
-          }
-
-          textarea {
-            border: 1px solid #cbcbcb;
           }
         }
 
@@ -288,7 +303,6 @@
       }
     }
 
-    //&__placer-list--align-vertical: no style
     .ex-vertical {
       li {
         display: list-item;
@@ -297,59 +311,287 @@
     }
 
     &__required {
+      $_color_typo: #fff;
+      $_color_bg: #b7151d;
 
       width: 40px;
       vertical-align: middle;
       > span {
         display: block;
-        padding: 3px;
+        color: $_color_typo;
+        background: $_color_bg;
+
+        @include g-font-spacingKilled(12, 1);
+
+        padding: 4px 5px;
+        text-align: center;
         margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-
-        @include g-font(12, 1);
       }
     }
 
-    //確認ボタン
     &__button {
       &:hover {
         opacity: .8;
       }
-      width: 266px;
+
+      $_color_border: #acab88;
+      $_color_typo: #4d4d4d;
+
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
       display: inline-block;
-      border: none;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #f6f5dd 0%, #acab88 100%);
+      border-radius: 10px;
+      box-shadow: 2px 5px 5px #ededed, -2px 5px 5px #ededed;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(14, 1);
     }
 
-    // 編集ボタン
     &__button2 {
       &:hover {
         opacity: .8;
       }
 
-      display: inline-block;
-      min-width: 90px;
+      $_color_border: #ccc;
+      $_color_typo: #4d4d4d;
+
+      margin-right: 60px;
       max-width: 266px;
-      border: none;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
+      border-radius: 10px;
+      display: inline-block;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #f1f1f1 0%, #d6d6d6 100%);
+      box-shadow: 2px 5px 5px #ededed, -2px 5px 5px #ededed;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(14, 1);
     }
 
-    // 送信ボタン
     &__button3 {
       &:hover {
         opacity: .8;
       }
 
+      $_color_border: #acab88;
+      $_color_typo: #4d4d4d;
+
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
       display: inline-block;
-      width: 266px;
-      border: none;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #f6f5dd 0%, #acab88 100%);
+      border-radius: 10px;
+      box-shadow: 2px 5px 5px #ededed, -2px 5px 5px #ededed;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(14, 1);
+    }
+  }
+
+  .t0-b-formTable#{$variation3of3} {
+    $_block: &;
+    $_color_th_typo: #4d4d4d;
+    $_color_th_bg: #f2f4f6;
+    $_color_td_bg: #fff;
+    $_color_table_border: #d6d6d6;
+    $_color_error_typo: #e01e27;
+    table {
+      border-top: 1px solid #{$_color_table_border};
+      border-left: 1px solid #{$_color_table_border};
+      width: 100%;
+    }
+
+    th, td {
+      border-right: 1px solid #{$_color_table_border};
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
+    }
+
+    th {
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        display: table;
+        width: 100%;
+        > * {
+          display: table-cell;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+
+      @include g-font-spacingKilled(16, 1);
+
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font-spacingKilled(12, 1);
+
+      padding: 10px 0 0;
+    }
+
+    &__confirmer {
+      @include g-font-spacingKilled(14, 2);
+    }
+
+    &__placer-singleInput {
+      input, select, textarea {
+        display: block;
+      }
+    }
+
+    &__placer-list {
+      ul {
+        margin: (-5px) -10px 0 0;
+        padding-top: 5px;
+      }
+
+      li {
+        padding: 5px 4px 0 0;
+        text-indent: -18px;
+
+        @include g-font(14, 1);
+
+        display: inline;
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+        }
+      }
+
+      li#{$_block}__listBreak {
+        display: block;
+        height: 0;
+        padding: 0;
+      }
+    }
+
+    .ex-vertical {
+      li {
+        display: list-item;
+        padding: 5px 10px 0 18px;
+      }
+    }
+
+    &__required {
+      $_color_typo: #fff;
+      $_color_bg: #b7151d;
+
+      width: 40px;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: #b7151d;
+
+        @include g-font-spacingKilled(12, 1);
+
+        padding: 4px 5px;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+      }
+    }
+
+    .t0-b-formTable__required > span {
+      background: #b7151d;
+    }
+
+    &__button {
+      &:hover {
+        opacity: .8;
+      }
+
+      $_color_border: #b44141;
+      $_color_typo: #fff;
+
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #da6d6d 0%, #d23939 100%);
+      appearance: none;
+
+      @include g-font-spacingKilled(14, 1);
+    }
+
+    &__button2 {
+      &:hover {
+        opacity: .8;
+      }
+
+      $_color_border: #ccc;
+      $_color_typo: #4d4d4d;
+
+      margin-right: 60px;
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #f1f1f1 0%, #d6d6d6 100%);
+      appearance: none;
+
+      @include g-font-spacingKilled(14, 1);
+    }
+
+    &__button3 {
+      &:hover {
+        opacity: .8;
+      }
+
+      $_color_border: #b44141;
+      $_color_typo: #fff;
+
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 10px 30px;
+      background: linear-gradient(to bottom, #da6d6d 0%, #d23939 100%);
+      appearance: none;
+
+      @include g-font-spacingKilled(14, 1);
     }
   }
 
@@ -404,38 +646,13 @@
 }
 
 @if $device == SP {
-  .t0-b-formTable#{$variation1of2} {
+  .t0-b-formTable#{$variation1of3} {
     $_block: &;
-    $_color_th_bg: #d4e9ed;
+    $_color_th_typo: #4d4d4d;
+    $_color_th_bg: #f3f3f3;
     $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
-    label {
-      direction: ltr;
-    }
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-    }
-
-    input[type="radio"] {
-      border-radius: 50%;
-    }
-
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
-    }
-
+    $_color_table_border: #d6d6d6;
+    $_color_error_typo: #e01e27;
     table, tbody, tr, th, td {
       display: block;
     }
@@ -443,17 +660,22 @@
     table {
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
+      margin: 0;
     }
 
     th, td {
-      text-align: left;
-      vertical-align: middle;
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px;
     }
 
     th {
-      @include g-font(14, 1);
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+
+      @include g-font-spacingKilled(14, 1);
       > div {
         display: table;
         width: 100%;
@@ -470,31 +692,28 @@
 
     .mod-formError {
       display: block;
-      padding: 10px 0 0;
       color: $_color_error_typo;
 
-      @include g-font(14, 1);
+      @include g-font-spacingKilled(14, 1);
+
+      font-weight: bold;
+      padding: 10px 0 0;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font-spacingKilled(14, 1);
+
       padding: 10px 0 0;
     }
 
     &__confirmer {
-      @include g-font(14, 2);
+      @include g-font-spacingKilled(14, 2);
     }
 
     &__placer-singleInput {
-      input,
-      select,
-      textarea {
+      input, select, textarea {
         display: block;
         width: 100%;
-      }
-
-      select {
-        color: inherit;
       }
     }
 
@@ -504,25 +723,25 @@
       }
 
       li {
-        padding: 5px 10px 0 18px;
+        padding: 5px 4px 0 0;
         text-indent: -18px;
+        display: inline;
 
         @include g-font(14, 1);
         > span {
-          display: inline-block;
           width: 18px;
           height: 1px;
+          display: inline-block;
           vertical-align: middle;
           input {
+            display: block;
             position: relative;
             top: -.6em;
-            display: block;
           }
         }
 
         > label {
-          position: relative;
-          top: 3px;
+          display: inline;
         }
       }
 
@@ -533,102 +752,112 @@
       }
     }
 
-    //&__placer-list--align-vertical: no style
     .ex-vertical {
       li {
         display: list-item;
-        padding: 5px 10px 0 29px;
-        line-height: 25px;
-        text-indent: -29px;
+        padding: 5px 10px 0 18px;
       }
     }
 
     &__required {
+      $_color_typo: #fff;
+      $_color_bg: #b7151d;
 
       width: 40px;
       padding: 0 10px 0 0;
       vertical-align: middle;
       > span {
         display: block;
-        padding: 3px 5px 1px;
-        margin-top: -8px;
+        color: $_color_typo;
+        background: $_color_bg;
+
+        @include g-font-spacingKilled(10, 1);
+
+        padding: 4px 5px;
+        text-align: center;
+        margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-        @include g-font(10, 1);
       }
     }
 
     &__button {
-      display: inline-block;
-      width: 229px;
-      padding: 8px 12px;
+      $_color_border: #0f3574;
+      $_color_typo: #fff;
+
+      color: #fff;
+      max-width: 229px;
+      word-break: break-word;
+      margin-bottom: 5px;
       overflow: hidden;
       text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #5a7cb5 0%, #0f3574 100%);
+      border-radius: 10px;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(16, 1);
     }
 
     &__button2 {
-      display: inline-block;
-      width: 110px;
-      padding: 8px 12px;
-      margin-right: 10px;
-      text-overflow: ellipsis;
+      $_color_border: #cfcda8;
+      $_color_typo: #4d4d4d;
+
+      max-width: 113px;
+      margin-bottom: 5px;
       word-break: break-word;
-      border: none;
+      margin-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4d4d4d;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #eceae1 0%, #d1ccaa 100%);
+      border-radius: 10px;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(16, 1);
     }
 
     &__button3 {
-      display: inline-block;
-      width: 170px;
-      max-width: 220px;
-      padding: 8px 12px;
-      text-overflow: ellipsis;
+      $_color_border: #0f3574;
+      $_color_typo: #fff;
+
+      max-width: 229px;
+      margin-bottom: 5px;
       word-break: break-word;
-      border: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #fff;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #5a7cb5 0%, #0f3574 100%);
+      border-radius: 10px;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(16, 1);
     }
   }
 
-  .t0-b-formTable#{$variation2of2} {
+  .t0-b-buttonPlacer {
+    div + div {
+      .t0-b-formTable#{$variation1of3}__button3 {
+        max-width: 113px;
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation2of3} {
     $_block: &;
-    $_color_th_bg: #d4e9ed;
+    $_color_th_typo: #4d4d4d;
+    $_color_th_bg: #e2e5eb;
     $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
-    label {
-      direction: ltr;
-    }
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-    .t0-b-frameWithHCaption#{$variation1of3} &,
-    .t0-b-frameWithHCaption#{$variation2of3} & {
-      margin: 0 -15px;
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-    }
-
-    input[type="radio"] {
-      border-radius: 50%;
-    }
-
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
-    }
-
+    $_color_table_border: #d6d6d6;
+    $_color_error_typo: #e01e27;
     table, tbody, tr, th, td {
       display: block;
     }
@@ -636,17 +865,22 @@
     table {
       border-top: 1px solid #{$_color_table_border};
       border-left: 1px solid #{$_color_table_border};
+      margin: 0;
     }
 
     th, td {
-      text-align: left;
-      vertical-align: middle;
       border-right: 1px solid #{$_color_table_border};
       border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px;
     }
 
     th {
-      @include g-font(14, 1);
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+
+      @include g-font-spacingKilled(14, 1);
       > div {
         display: table;
         width: 100%;
@@ -663,31 +897,28 @@
 
     .mod-formError {
       display: block;
-      padding: 10px 0 0;
       color: $_color_error_typo;
 
-      @include g-font(14, 1);
+      @include g-font-spacingKilled(14, 1);
+
+      font-weight: bold;
+      padding: 10px 0 0;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font-spacingKilled(14, 1);
+
       padding: 10px 0 0;
     }
 
     &__confirmer {
-      @include g-font(14, 2);
+      @include g-font-spacingKilled(14, 2);
     }
 
     &__placer-singleInput {
-      input,
-      select,
-      textarea {
+      input, select, textarea {
         display: block;
         width: 100%;
-      }
-
-      select {
-        color: inherit;
       }
     }
 
@@ -697,25 +928,25 @@
       }
 
       li {
-        padding: 5px 10px 0 18px;
+        padding: 5px 4px 0 0;
         text-indent: -18px;
+        display: inline;
 
         @include g-font(14, 1);
         > span {
-          display: inline-block;
           width: 18px;
           height: 1px;
+          display: inline-block;
           vertical-align: middle;
           input {
+            display: block;
             position: relative;
             top: -.6em;
-            display: block;
           }
         }
 
         > label {
-          position: relative;
-          top: 3px;
+          display: inline;
         }
       }
 
@@ -726,67 +957,312 @@
       }
     }
 
-    //&__placer-list--align-vertical: no style
     .ex-vertical {
       li {
         display: list-item;
-        padding: 5px 10px 0 29px;
-        line-height: 25px;
-        text-indent: -29px;
+        padding: 5px 10px 0 18px;
       }
     }
 
     &__required {
+      $_color_typo: #fff;
+      $_color_bg: #b7151d;
 
       width: 40px;
       padding: 0 10px 0 0;
       vertical-align: middle;
       > span {
         display: block;
-        padding: 3px 5px 1px;
-        margin-top: -8px;
+        color: $_color_typo;
+        background: $_color_bg;
+
+        @include g-font-spacingKilled(10, 1);
+
+        padding: 4px 5px;
+        text-align: center;
+        margin-top: -10px;
         margin-bottom: -10px;
         margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-        @include g-font(10, 1);
       }
     }
 
+    .t0-b-formTable__required > span {
+      background: #b7151d;
+    }
+
     &__button {
-      display: inline-block;
+      $_color_border: #acab88;
+      $_color_typo: #4d4d4d;
+
+      color: #4d4d4d;
       max-width: 229px;
-      padding: 8px 12px;
+      word-break: break-word;
+      margin-bottom: 5px;
       overflow: hidden;
       text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #f6f5dd 0%, #acab88 100%);
+      border-radius: 10px;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(16, 1);
     }
 
     &__button2 {
-      display: inline-block;
-      width: 110px;
-      padding: 8px 12px;
-      margin-right: 10px;
-      text-overflow: ellipsis;
+      $_color_border: #ccc;
+      $_color_typo: #4d4d4d;
+
+      max-width: 113px;
+      margin-bottom: 5px;
       word-break: break-word;
-      border: none;
+      margin-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4d4d4d;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #f1f1f1 0%, #d6d6d6 100%);
+      border-radius: 10px;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(16, 1);
     }
 
     &__button3 {
-      display: inline-block;
-      width: 170px;
-      max-width: 220px;
-      padding: 8px 12px;
-      text-overflow: ellipsis;
+      $_color_border: #acab88;
+      $_color_typo: #4d4d4d;
+
+      max-width: 229px;
+      margin-bottom: 5px;
       word-break: break-word;
-      border: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4d4d4d;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #f6f5dd 0%, #acab88 100%);
+      border-radius: 10px;
       appearance: none;
-      @include g-font(16, 1);
+
+      @include g-font-spacingKilled(16, 1);
+    }
+  }
+
+  .t0-b-buttonPlacer {
+    div + div {
+      .t0-b-formTable#{$variation2of3}__button3 {
+        max-width: 113px;
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation3of3} {
+    $_block: &;
+    $_color_th_typo: #4d4d4d;
+    $_color_th_bg: #f2f4f6;
+    $_color_td_bg: #fff;
+    $_color_table_border: #d6d6d6;
+    $_color_error_typo: #e01e27;
+    table, tbody, tr, th, td {
+      display: block;
+    }
+
+    table {
+      border-top: 1px solid #{$_color_table_border};
+      border-left: 1px solid #{$_color_table_border};
+      margin: 0;
+    }
+
+    th, td {
+      border-right: 1px solid #{$_color_table_border};
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px;
+    }
+
+    th {
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        display: table;
+        width: 100%;
+        direction: rtl;
+        > * {
+          display: table-cell;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+
+      @include g-font-spacingKilled(14, 1);
+
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font-spacingKilled(14, 1);
+
+      padding: 10px 0 0;
+    }
+
+    &__confirmer {
+      @include g-font-spacingKilled(14, 2);
+    }
+
+    &__placer-singleInput {
+      input, select, textarea {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &__placer-list {
+      ul {
+        margin: (-5px) -10px 0 0;
+      }
+
+      li {
+        padding: 5px 4px 0 0;
+        text-indent: -18px;
+        display: inline;
+
+        @include g-font(14, 1);
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+        }
+      }
+
+      li#{$_block}__listBreak {
+        display: block;
+        height: 0;
+        padding: 0;
+      }
+    }
+
+    .ex-vertical {
+      li {
+        display: list-item;
+        padding: 5px 10px 0 18px;
+      }
+    }
+
+    &__required {
+      $_color_typo: #fff;
+      $_color_bg: #b7151d;
+
+      width: 40px;
+      padding: 0 10px 0 0;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+
+        @include g-font-spacingKilled(10, 1);
+
+        padding: 4px 5px;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+      }
+    }
+
+    .t0-b-formTable__required > span {
+      background: #b7151d;
+    }
+
+    &__button {
+      $_color_border: #b44141;
+      $_color_typo: #fff;
+
+      color: #fff;
+      max-width: 229px;
+      word-break: break-word;
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #da6d6d 0%, #d23939 100%);
+      appearance: none;
+
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button2 {
+      $_color_border: #ccc;
+      $_color_typo: #4d4d4d;
+
+      max-width: 113px;
+      margin-bottom: 5px;
+      word-break: break-word;
+      margin-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4d4d4d;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #f1f1f1 0%, #d6d6d6 100%);
+      appearance: none;
+
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button3 {
+      $_color_border: #b44141;
+      $_color_typo: #fff;
+
+      max-width: 229px;
+      margin-bottom: 5px;
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #fff;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 8px 12px;
+      background: linear-gradient(to bottom, #da6d6d 0%, #d23939 100%);
+      appearance: none;
+
+      @include g-font-spacingKilled(16, 1);
+    }
+  }
+
+  .t0-b-buttonPlacer {
+    div + div {
+      .t0-b-formTable#{$variation3of3}__button3 {
+        max-width: 113px;
+      }
     }
   }
 

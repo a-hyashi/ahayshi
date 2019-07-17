@@ -1,99 +1,149 @@
 @if $device == PC {
   .t0-b-navItem {
-    $_block: &;
-    $_fontSizePx: 16;
-    $_fontSizeDifference: 2;
-    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_m: $_fontSizePx;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
-    $_lineHeightType: 1;
-
-    display: table;
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 100%;
-    }
-
-    &--align-l {
-      margin: 0 auto 0 0;
-      text-align: left;
-    }
-
-    &--align-c {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    &--align-r {
-      margin: 0 0 0 auto;
-      text-align: right;
-    }
-
     > a {
-      box-sizing: border-box;
-      display: block;
-      color: inherit;
+      display: table;
       text-decoration: none;
-      #{$_block}__inner:hover {
+      box-sizing: border-box;
+      color: #0e2753;
+      > div {
+        display: table;
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > span {
+          width: 16px;
+          height: 16px;
+          background: url("../imgs/t0-b-navItem/10.png") no-repeat 0 50%;
+        }
+
         > div {
-          color: $hovercolor;
+          @include g-font(16, 1);
+
+          text-decoration: underline;
+          &:hover {
+            color: #4c8fc8;
+            text-decoration: underline;
+          }
         }
       }
     }
 
-    &__inner {
+    > div {
       display: table;
-      width: 100%;
-      > span {
+      color: #0e2753;
+      text-decoration: underline;
+      > * {
         display: table-cell;
-        #{$_block}--size-1 & {
-        }
+        vertical-align: middle;
+      }
 
-        #{$_block}--size-2 & {
-        }
-
-        #{$_block}--size-3 & {
-        }
-
-        #{$_block}--size-4 & {
-        }
-
-        #{$_block}--size-5 & {
-        }
+      > span {
+        width: 16px;
+        height: 16px;
+        background: url("../imgs/t0-b-navItem/10.png") no-repeat 0 50%;
       }
 
       > div {
-        display: table-cell;
-        @include g-font($_fontSizePx, 1);
-        #{$_block}--size-1 & {
-          @include g-font($_fontSizePx_ss, $_lineHeightType);
-        }
-
-        #{$_block}--size-2 & {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
-        }
-
-        #{$_block}--size-3 & {
-          @include g-font($_fontSizePx_m, $_lineHeightType);
-        }
-
-        #{$_block}--size-4 & {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
-        }
-
-        #{$_block}--size-5 & {
-          @include g-font($_fontSizePx_ll, $_lineHeightType);
-        }
+        @include g-font(16, 1);
       }
+    }
+
+    // size
+    &--size-1 > a > div,
+    &--size-1 > div {
+      > span {
+        width: 10px;
+        height: 10px;
+        background: url("../imgs/t0-b-navItem/10.png") no-repeat 0 50%;
+        background-size: 10px 10px;
+      }
+
+      > div {
+        padding: 0 0 0 8px;
+
+        @include g-font(12, 1);
+      }
+    }
+
+    &--size-2 > a > div,
+    &--size-2 > div {
+      > span {
+        width: 12px;
+        height: 12px;
+        background: url("../imgs/t0-b-navItem/10.png") no-repeat 0 50%;
+        background-size: 12px 12px;
+      }
+
+      > div {
+        padding: 0 0 0 10px;
+
+        @include g-font(14, 1);
+      }
+    }
+
+    &--size-3 > a > div,
+    &--size-3 > div {
+      > span {
+        width: 16px;
+        height: 16px;
+        background: url("../imgs/t0-b-navItem/10.png") no-repeat 0 50%;
+      }
+
+      > div {
+        padding: 0 0 0 12px;
+
+        @include g-font(16, 1);
+      }
+    }
+
+    &--size-4 > a > div,
+    &--size-4 > div {
+      > span {
+        width: 18px;
+        height: 18px;
+        background: url("../imgs/t0-b-navItem/14.png") no-repeat 0 50%;
+        background-size: 18px 18px;
+      }
+
+      > div {
+        padding: 0 0 0 12px;
+
+        @include g-font(18, 1);
+      }
+    }
+
+    &--size-5 > a > div,
+    &--size-5 > div {
+      > span {
+        width: 22px;
+        height: 22px;
+        background: url("../imgs/t0-b-navItem/14.png") no-repeat 0 50%;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        padding: 0 0 0 12px;
+
+        @include g-font(22, 1);
+      }
+    }
+
+    // align
+    &--align-l > a,
+    &--align-l > div {
+      margin: 0 auto 0 0;
+    }
+
+    &--align-c > a,
+    &--align-c > div {
+      margin: 0 auto;
+    }
+
+    &--align-r > a,
+    &--align-r > div {
+      margin: 0 0 0 auto;
     }
   }
 
@@ -111,27 +161,54 @@
 
 @if $device == SP {
   .t0-b-navItem {
-    $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
-
-    display: table;
-    a {
+    > a {
+      display: table;
+      text-decoration: underline;
       box-sizing: border-box;
-      color: inherit;
-      text-decoration: none;
+      color: #0e2753;
+      margin: 0 auto;
+      > div {
+        display: table;
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > span {
+          width: 16px;
+          height: 16px;
+          background: url("../imgs/t0-b-navItem/10.png") no-repeat 0 50%;
+        }
+
+        > div {
+          @include g-font(16, 1);
+
+          text-decoration: underline;
+          padding: 0 0 0 8px;
+        }
+      }
     }
 
-    #{$_block}__inner {
+    > div {
       display: table;
-      width: 100%;
-      > span {
+      color: #0e2753;
+      text-decoration: underline;
+      margin: 0 auto;
+      > * {
         display: table-cell;
+        vertical-align: middle;
+      }
+
+      > span {
+        width: 16px;
+        height: 16px;
+        background: url("../imgs/t0-b-navItem/10.png") no-repeat 0 50%;
       }
 
       > div {
-        display: table-cell;
-        @include g-font($_fontSizePx,$_lineHeightType);
+        @include g-font(16, 1);
+
+        padding: 0 0 0 8px;
       }
     }
   }
