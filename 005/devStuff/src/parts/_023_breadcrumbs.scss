@@ -1,18 +1,25 @@
 @if $device == PC {
   .b-breadcrumbs {
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
     text-align: right;
     > div {
-      @include g-font($_fontSizePx, $_lineHeightType);
       width: 100%;
       margin: 0 auto;
+      @include g-font-spacingKilled(14, 1);
     }
 
     &__item {
       display: inline-block;
+      margin: 5px 0 0;
+      white-space: nowrap;
       &::before {
+        content: " ";
         display: inline-block;
+        margin: (-1px) 5px 0;
+        vertical-align: middle;
+        height: 12px;
+        line-height: 0;
+        background: url("../imgs/b-breadcrumbs/1.png") no-repeat left center;
+        width: 13px;
       }
 
       &:first-child {
@@ -22,11 +29,13 @@
       }
     }
 
-    &--inMain {
-      margin: 0 0 15px;
-      > div {
-        width: 100%;
-      }
+    &--inHeader > div {
+      margin-bottom: 5px;
+      width: 980px;
+    }
+
+    &--inMain > div {
+      width: 100%;
     }
 
     &--align-l > div {
@@ -42,10 +51,10 @@
     }
 
     a {
-      color: $textcolor;
       text-decoration: none;
+      color: #4d4d4d;
       &:hover {
-        color: $hovercolor;
+        color: #4d4d4d;
         text-decoration: underline;
       }
     }
@@ -58,19 +67,29 @@
 
 @if $device == SP {
   .b-breadcrumbs {
-    $_fontSizePx: 14;
-    $_lineHeightType: 1;
     text-align: right;
     > div {
       width: 100%;
       margin: 0 auto;
-      @include g-font($_fontSizePx, $_lineHeightType);
+      @include g-font-spacingKilled(14, 1);
     }
 
     &__item {
       display: inline-block;
+      margin: 5px 0 0;
+      em {
+        font-style: inherit;
+      }
+
       &::before {
+        content: " ";
         display: inline-block;
+        margin: (-1px) 5px 0;
+        vertical-align: middle;
+        height: 12px;
+        line-height: 0;
+        background: url("../imgs/b-breadcrumbs/1.png") no-repeat left center;
+        width: 13px;
       }
 
       &:first-child {
@@ -78,6 +97,10 @@
           display: none;
         }
       }
+    }
+
+    &--inHeader > div {
+      width: 100%;
     }
 
     &--inMain > div {
