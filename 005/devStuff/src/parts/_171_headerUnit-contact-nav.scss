@@ -1,29 +1,43 @@
 @if $device == PC {
   .t0-b-headerUnit-contact-nav {
-    $_block: &;
-    display: table;
     white-space: nowrap;
+    display: table;
+    line-height: 0;
     a {
       text-decoration: none;
+      display: inline-table;
       &:hover {
-        color: $hovercolor;
+        p {
+          color: $hovercolor;
+        }
       }
     }
 
     div {
       display: table-cell;
+      padding: 0 10px 0 0;
       vertical-align: middle;
+      &::before {
+        content: "";
+        display: block;
+        width: 13px;
+        height: 13px;
+        background: url("../imgs/t0-b-navItem/18.png") no-repeat 0 50%;
+      }
     }
 
     p {
       display: table-cell;
-      empty-cells: hide;
-      @include g-font(16, 1);
+
+      @include g-font(12, 1);
+
+      text-decoration: underline;
+      color: #0e2753;
     }
 
     //サイト名中央に入ったときのみ中央寄せの見た目にする
-    .t0-b-headerSingle#{$variation1of2} &,
-    .t0-b-headerSingle#{$variation2of2} & {
+    .t0-b-headerSingle &,
+    .t0-b-headerSingle1 & {
       display: table;
       margin: 0 auto;
     }
@@ -32,26 +46,34 @@
 
 @if $device == SP {
   .t0-b-headerUnit-contact-nav {
-    $_block: &;
-
     display: table;
-    margin-left: 2.5%;
-    font-weight: bold;
+    margin: 0 auto;
     line-height: 0;
     a {
-      display: inline-table;
       text-decoration: none;
+      display: inline-table;
     }
 
     div {
       display: table-cell;
+      padding: 0 10px 0 0;
       vertical-align: middle;
+      &::before {
+        content: "";
+        display: block;
+        width: 13px;
+        height: 13px;
+        background: url("../imgs/t0-b-navItem/18.png") no-repeat 0 50%;
+      }
     }
 
     p {
       display: table-cell;
-      empty-cells: hide;
+
       @include g-font(16, 1);
+
+      text-decoration: underline;
+      color: #0e2753;
     }
   }
 }
