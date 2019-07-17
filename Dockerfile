@@ -7,4 +7,4 @@ RUN node -v
 RUN npm install -g npm@6.9.0
 RUN npm -v
 RUN npm install -g gulp@3.9.1
-RUN yum install -y make gcc*
+RUN yum install -y git make gcc*
