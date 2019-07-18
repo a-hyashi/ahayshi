@@ -3,8 +3,8 @@
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|#{$variation1of3}|2%||10px|
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|#{$variation2of3}|2%||10px|
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|#{$variation3of3}|2%||10px|
-|01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H4-mainH||2%|||
-|01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H5-mainH||2%|||
+|01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|4|2%|||
+|01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|5|2%|||
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation1of3}|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation2of3}|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation3of3}|2%||10px|
