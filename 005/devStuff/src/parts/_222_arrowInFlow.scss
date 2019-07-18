@@ -1,0 +1,41 @@
+@if $device == PC {
+  .t0-b-arrowInFlow {
+    height: 31px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../imgs/t0-b-flowLeftToRight/bg.png");
+    background-size: 100% auto;
+    width: 100%;
+    max-width: 18px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+  }
+
+  @for $i from 1 through 10 {
+    .ex-arrowInFlow-topSpacingTweak-up-#{$i}s {
+      .t0-b-arrowInFlow {
+        top: 50% - $i * 5%;
+      }
+    }
+
+    .ex-arrowInFlow-topSpacingTweak-down-#{$i}s {
+      .t0-b-arrowInFlow {
+        top: 50% + $i * 5%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-arrowInFlow {
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../imgs/t0-b-flowLeftToRight/bg.png");
+    background-size: auto 35px;
+    transform: rotate(90deg);
+  }
+}

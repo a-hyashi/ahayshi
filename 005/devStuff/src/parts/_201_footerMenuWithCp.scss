@@ -1,26 +1,24 @@
 @if $device == PC {
   .t0-b-footerMenuWithCp {
     width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    color: $textcolor;
-    text-align: center;
+    color: #fff;
+    background: #0e2753;
     > div {
+      background: #0e2753;
+      min-height: 20px;
       display: table;
       width: 100%;
-      width: 1100px;
+      width: 980px;
+      padding: 10px 0;
       margin: 0 auto;
     }
 
     p {
       display: table-cell;
-      @include g-font(14, 1);
-      a {
-        color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
+
+      @include g-font-spacingKilled(12, 1);
+
+      padding: 0 0 0 13px;
     }
 
     &__menu {
@@ -31,69 +29,57 @@
 
       li {
         display: inline-block;
-        padding: 0 13px;
-        color: $textcolor;
-        text-decoration: none;
-        @include g-font(14, 1);
-        &:nth-child(2) {
-          background: none;
-        }
-      }
+        color: #fff;
 
-      a {
-        color: $textcolor;
+        @include g-font-spacingKilled(12, 1);
+
         text-decoration: none;
+        padding: 0 13px;
+        background: url("../imgs/b-sideMenu/8.png") 0 no-repeat;
         &:hover {
           text-decoration: underline;
         }
       }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
     }
 
     .state-em {
-      color: $hovercolor;
-      a {
-        color: $hovercolor;
-      }
+      font-weight: bold;
     }
   }
 }
 
 @if $device == SP {
   .t0-b-footerMenuWithCp {
+    @include g-font-spacingKilled(12, 1);
 
-    @include g-font(12, 1);
+    color: #fff;
     margin: 0 -15px;
     text-align: center;
     > div {
+      background: #0e2753;
       display: table;
       width: 100%;
-      p {
-        > a {
-          color: $textcolor;
-        }
-      }
     }
 
     p {
-      box-sizing: border-box;
       display: inline-block;
+      text-align: center;
       width: 100%;
       padding: 0 0 5px;
-      color: $textcolor;
-      text-align: center;
-      > a {
-        color: $textcolor;
-      }
-    }
-
-    .state-em {
-      color: $hovercolor;
+      background: #0e2753;
+      color: #fff;
+      box-sizing: border-box;
     }
 
     &__menu {
       display: table-header-group;
       a {
-        color: $textcolor;
+        color: #fff;
         text-decoration: underline;
       }
 
@@ -105,12 +91,20 @@
         &:first-child {
           margin-left: 0;
         }
-        display: inline-block;
-        padding: 5px 0;
+
         margin-left: 15px;
-        color: $textcolor;
+        display: inline-block;
         text-align: left;
+        padding: 5px 0;
+        color: #fff;
         text-decoration: underline;
+      }
+    }
+
+    .state-em {
+      font-weight: bold;
+      > a {
+        font-weight: bold;
       }
     }
   }
