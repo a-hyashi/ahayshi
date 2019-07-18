@@ -1,55 +1,76 @@
 @if $device == PC {
   .b-breadcrumbs {
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
     text-align: right;
+  
     > div {
-      @include g-font($_fontSizePx, $_lineHeightType);
       width: 100%;
       margin: 0 auto;
+  
+      @include g-font-spacingKilled(16, 1);
+  
+      > div {
+        margin: (-5px) 0 0 -10px;
+      }
     }
-
+  
     &__item {
       display: inline-block;
-      &::before {
+      margin: 5px 0 0 10px;
+      white-space: nowrap;
+  
+      &:before {
+        content: "";
         display: inline-block;
+        margin: (-3px) 5px 0 0;
+        vertical-align: middle;
+        line-height: 0;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% 100%;
+        background-image: url("../imgs/header/1/7.png");
+        width: 7px;
+        height: 10px;
       }
-
+  
       &:first-child {
-        &::before {
-          display: none;
+        &:before {
+          background-image: url("../imgs/header/1/7.png");
+          width: 0;
+          height: 0;
         }
       }
     }
-
-    &--inMain {
-      margin: 0 0 15px;
-      > div {
-        width: 100%;
-      }
+  
+    &--inHeader > div {
+      margin-bottom: 5px;
+      width: 1020px;
     }
-
+  
+    &--inMain > div {
+      width: 100%;
+    }
+  
     &--align-l > div {
       text-align: left;
     }
-
+  
     &--align-c > div {
       text-align: center;
     }
-
+  
     &--align-r > div {
       text-align: right;
     }
-
+  
     a {
-      color: $textcolor;
       text-decoration: none;
+  
       &:hover {
-        color: $hovercolor;
+        //color: $hovercolor
         text-decoration: underline;
       }
     }
-
+  
     em {
       font-style: normal;
     }
@@ -58,49 +79,73 @@
 
 @if $device == SP {
   .b-breadcrumbs {
-    $_fontSizePx: 14;
-    $_lineHeightType: 1;
     text-align: right;
+  
     > div {
       width: 100%;
       margin: 0 auto;
-      @include g-font($_fontSizePx, $_lineHeightType);
+  
+      @include g-font-spacingKilled(14, 1);
+  
+      > div {
+        margin: (-5px) 0 0 -10px;
+      }
     }
-
+  
     &__item {
       display: inline-block;
-      &::before {
+      margin: 5px 0 0 10px;
+  
+      &:before {
+        content: "";
         display: inline-block;
+        margin: (-3px) 5px 0 0;
+        vertical-align: middle;
+        line-height: 0;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% 100%;
+        background-image: url("../imgs/header/1/7.png");
+        width: 7px;
+        height: 10px;
       }
-
+  
       &:first-child {
-        &::before {
-          display: none;
+        &:before {
+          background-image: url("../imgs/header/1/7.png");
+          width: 0;
+          height: 0;
         }
       }
     }
-
+  
+    &--inHeader > div {
+      margin-bottom: 5px;
+  
+      //width: 960px
+   
+    }
+  
     &--inMain > div {
       width: 100%;
     }
-
+  
     &--align-l > div {
       text-align: left;
     }
-
+  
     &--align-c > div {
       text-align: center;
     }
-
+  
     &--align-r > div {
       text-align: right;
     }
-
+  
     a {
-      color: $textcolor;
       text-decoration: none;
     }
-
+  
     em {
       font-style: normal;
     }
