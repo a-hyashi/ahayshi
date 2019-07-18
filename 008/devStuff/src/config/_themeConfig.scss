@@ -8,6 +8,7 @@ $baseFontSize: $g-baseFontSize;
 $textcolor: #664b3a;
 $hovercolor: #b74249;
 $hovercolor2: #e47c01;
+$hovercolor3: #e47c01;
 
 $g-baseFontColor: #393939;
 $g-baseBackgroundColor: #fff;
@@ -17,6 +18,18 @@ $g-baseHoverColor: #45b1c7;
 $g-linkHoverColor1: #ffd7d7;
 $g-linkHoverColor2: #bf003a;
 
+$fullWidthBgColor: #b4dde5;
+$fullWidthBgColor2: #fff8dd;
+$fullWidthBgColor3: #fee;
+$fullWidthBgColor4: #37a1b7;
+$fullWidthBgColor5: #fff;
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
 
 html {
   font-size: $g-baseFontSize;
@@ -24,17 +37,9 @@ html {
 
 body.mod-body,
 div.mod-body {
-  font-family: $gothic;
-  font-size: $g-baseFontSize;
-  font-weight: 500;
-  color: $g-baseFontColor;
-  background-color: $g-baseBackgroundColor;
-}
-
-.mod-body {
-  button, input, optgroup, select, textarea {
-    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
-  }
+  font-size: $baseFontSize;
+  font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: $g-baseLinkColor;
 }
 
 a {
@@ -42,35 +47,10 @@ a {
   text-decoration: underline;
 }
 
-@if $device == PC {
-  a {
-    &:hover {
-      color: $hovercolor;
-    }
-  }
-}
 .cms-admin-anchorFlag {
   position: relative;
   z-index: 10 !important;
 }
-
-// tel
-$_tel_wd: 40px;
-$_tel_hg: 40px;
-
-// fax
-$_fax_wd: 48px;
-$_fax_hg: 28px;
-
-// free
-$_free_wd: 52px;
-$_free_hg: 29px;
-
-// cell
-$_cell_wd: 23px;
-$_cell_hg: 40px;
-
-$g-spacingBaseLength: 5;
 
 @mixin cf {
   &::before,
@@ -108,20 +88,12 @@ $g-spacingBaseLength: 5;
   }
 }
 
-$fullWidthBgColor: #b4dde5;
-$fullWidthBgColor2: #fff8dd;
-$fullWidthBgColor3: #fee;
-$fullWidthBgColor4: #37a1b7;
-$fullWidthBgColor5: #fff;
-
-$frameSpacingPC-l: 50px;
-$frameSpacingPC-m: 25px;
-$frameSpacingPC-s: 10px;
-$frameSpacingSP-l: 50px;
-$frameSpacingSP-m: 25px;
-$frameSpacingSP-s: 10px;
-
 @if $device == PC {
+  a {
+    &:hover {
+      color: $hovercolor;
+    }
+  }
   .cms-partsConfig-width-m {
     width: 75%;
     margin-right: auto;
@@ -133,4 +105,23 @@ $frameSpacingSP-s: 10px;
     margin-right: auto;
     margin-left: auto;
   }
+}
+
+@if $device == SP {
+  // tel
+  $_tel_wd: 45px;
+  $_tel_hg: 37px;
+
+  // fax
+  $_fax_wd: 47px;
+  $_fax_hg: 31px;
+
+  // free
+  $_free_wd: 55px;
+  $_free_hg: 31px;
+
+  // cell
+  $_cell_wd: 22px;
+  $_cell_hg: 38px;
+
 }
