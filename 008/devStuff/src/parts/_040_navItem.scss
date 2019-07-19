@@ -1,146 +1,252 @@
 @if $device == PC {
   .t0-b-navItem {
-    $_block: &;
-    $_fontSizePx: 16;
-    $_fontSizeDifference: 2;
-    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_m: $_fontSizePx;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
-    $_lineHeightType: 1;
-
     display: table;
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 100%;
-    }
-
-    &--align-l {
-      margin: 0 auto 0 0;
-      text-align: left;
-    }
-
-    &--align-c {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    &--align-r {
-      margin: 0 0 0 auto;
-      text-align: right;
-    }
-
+    color: #966338;
+  
     > a {
-      box-sizing: border-box;
+      color: #966338;
       display: block;
-      color: inherit;
       text-decoration: none;
-      #{$_block}__inner:hover {
+      box-sizing: border-box;
+  
+      &:hover {
+        > div > div {
+          color: $hovercolor2;
+        }
+      }
+  
+      > div {
+        display: table;
+        width: 100%;
+  
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+  
+        > span {
+          background: url("../imgs/t0-b-navItem/3.png") no-repeat left center;
+          width: 27px;
+          height: 20px;
+        }
+  
         > div {
-          color: $hovercolor;
+          display: inline-block;
+  
+          @include g-font-spacingKilled(18, 1);
+  
+          padding-bottom: 3px;
+          border-bottom: 1px solid #da8700;
         }
       }
     }
-
-    &__inner {
+  
+    > div {
       display: table;
       width: 100%;
-      > span {
+  
+      > * {
         display: table-cell;
-        #{$_block}--size-1 & {
-        }
-
-        #{$_block}--size-2 & {
-        }
-
-        #{$_block}--size-3 & {
-        }
-
-        #{$_block}--size-4 & {
-        }
-
-        #{$_block}--size-5 & {
-        }
+        vertical-align: middle;
       }
-
+  
+      > span {
+        background: url("../imgs/t0-b-navItem/3.png") no-repeat left center;
+        width: 27px;
+        height: 20px;
+      }
+  
       > div {
-        display: table-cell;
-        @include g-font($_fontSizePx, 1);
-        #{$_block}--size-1 & {
-          @include g-font($_fontSizePx_ss, $_lineHeightType);
-        }
-
-        #{$_block}--size-2 & {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
-        }
-
-        #{$_block}--size-3 & {
-          @include g-font($_fontSizePx_m, $_lineHeightType);
-        }
-
-        #{$_block}--size-4 & {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
-        }
-
-        #{$_block}--size-5 & {
-          @include g-font($_fontSizePx_ll, $_lineHeightType);
-        }
+        display: inline-block;
+  
+        @include g-font-spacingKilled(18, 1);
+  
+        padding-bottom: 3px;
+        border-bottom: 1px solid #da8700;
       }
     }
-  }
-
-  .t0-b-navItemDouble {
-    display: flex;
-    &__layout {
-      flex: 1 1 (100% / 2);
-      padding-left: 4%;
-      &:first-child {
-        padding-left: 0;
+  
+    // size
+  
+    &--size-1 > a > div,
+    &--size-1 > div {
+      > span {
+        background: url("../imgs/navItem/1/1.png") no-repeat left center;
+        background-size: 16px 16px;
+        width: 23px;
+        height: 16px;
       }
+  
+      > div {
+        padding-bottom: 2px;
+  
+        @include g-font-spacingKilled(14, 1);
+      }
+    }
+  
+    &--size-2 > a > div,
+    &--size-2 > div {
+      > span {
+        background: url("../imgs/navItem/1/1.png") no-repeat left center;
+        background-size: 18px 18px;
+        width: 25px;
+        height: 18px;
+      }
+  
+      > div {
+        padding-bottom: 3px;
+  
+        @include g-font-spacingKilled(16, 1);
+      }
+    }
+  
+    &--size-3 > a > div,
+    &--size-3 > div {
+      > span {
+        background: url("../imgs/navItem/1/12.png") no-repeat left center;
+        width: 27px;
+        height: 20px;
+      }
+  
+      > div {
+        padding-bottom: 3px;
+  
+        @include g-font-spacingKilled(18, 1);
+      }
+    }
+  
+    &--size-4 > a > div,
+    &--size-4 > div {
+      > span {
+        background: url("../imgs/navItem/1/1.png") no-repeat left center;
+        background-size: 22px 22px;
+        width: 29px;
+        height: 22px;
+      }
+  
+      > div {
+        padding-bottom: 2px;
+  
+        @include g-font-spacingKilled(20, 1);
+      }
+    }
+  
+    &--size-5 > a > div,
+    &--size-5 > div {
+      > span {
+        background: url("../imgs/navItem/1/1.png") no-repeat left center;
+        width: 31px;
+        height: 24px;
+      }
+  
+      > div {
+        padding-bottom: 2px;
+  
+        @include g-font-spacingKilled(22, 1);
+  
+        margin-bottom: -1px;
+      }
+    }
+  
+    // align
+  
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+  
+    &--align-c {
+      margin: 0 auto;
+    }
+  
+    &--align-r {
+      margin: 0 0 0 auto;
     }
   }
 }
 
 @if $device == SP {
   .t0-b-navItem {
-    $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
-
     display: table;
-    a {
-      box-sizing: border-box;
-      color: inherit;
+    color: #966338;
+    margin: 0 auto;
+  
+    > a {
+      color: #966338;
+      display: block;
       text-decoration: none;
+      box-sizing: border-box;
+  
+      > div {
+        display: table;
+        width: 100%;
+  
+        > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
+  
+        > span {
+          background: url("../imgs/t0-b-navItem/3.png") no-repeat left center;
+          width: 27px;
+          height: 20px;
+        }
+  
+        > div {
+          display: inline-block;
+  
+          @include g-font(16, 1);
+  
+          text-decoration: underline;
+          padding-bottom: 3px;
+        }
+      }
     }
-
-    #{$_block}__inner {
+  
+    > div {
       display: table;
       width: 100%;
-      > span {
+  
+      > * {
         display: table-cell;
+        vertical-align: middle;
       }
-
+  
+      > span {
+        background: url("../imgs/t0-b-navItem/3.png") no-repeat left center;
+        width: 27px;
+        height: 20px;
+      }
+  
       > div {
-        display: table-cell;
-        @include g-font($_fontSizePx,$_lineHeightType);
+        display: inline-block;
+  
+        @include g-font(16, 1);
+  
+        text-decoration: underline;
+        padding-bottom: 3px;
       }
     }
-  }
-
-  .t0-b-navItemDouble {
-    &__layout {
-      padding-bottom: 10px;
-      &:last-child {
-        padding-bottom: 0;
+  
+    // size
+  
+    &--size-1 > a > div,
+    &--size-2 > a > div,
+    &--size-3 > a > div,
+    &--size-4 > a > div,
+    &--size-5 > a > div,
+    &--size-1 > div,
+    &--size-2 > div,
+    &--size-3 > div,
+    &--size-4 > div,
+    &--size-5 > div {
+      > span {
+        background: url("../imgs/navItem/1/12.png") no-repeat left center;
+        width: 27px;
+        height: 20px;
+      }
+  
+      > div {
+        @include g-font-spacingKilled(16, 1);
       }
     }
   }
