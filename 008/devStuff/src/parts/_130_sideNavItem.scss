@@ -1,25 +1,81 @@
 @if $device == PC {
   .t0-b-sideNavItem {
-    a {
+    > a {
       display: block;
-      text-decoration: none;
-      a:hover & {
+  
+      //text-decoration: none
+      box-sizing: border-box;
+      color: #54361d;
+      text-decoration-color: #890619;
+  
+      &:hover {
+        //text-decoration: underline
         color: $hovercolor;
+        text-decoration-color: $hovercolor;
+      }
+  
+      > div {
+        display: table;
+        width: 100%;
+  
+        > * {
+          display: table-cell;
+        }
+  
+        > span {
+          padding: 10px;
+  
+          @include g-font-spacingKilled(12, 1);
+  
+          background-image: url("../imgs/navItem/1/3.png");
+          background-repeat: no-repeat;
+          background-position: right center;
+        }
+  
+        > div {
+          width: 100%;
+  
+          @include g-font-spacingKilled(16, 1);
+  
+          padding: 2px 0 0 8px;
+  
+          &:hover {
+            //text-decoration: underline
+            color: $hovercolor;
+            text-decoration-color: $hovercolor;
+          }
+        }
       }
     }
-
-    &__inner {
-      box-sizing: border-box;
+  
+    > div {
       display: table;
-      vertical-align: middle;
-      > span {
+      width: 100%;
+      box-sizing: border-box;
+      color: #54361d;
+      text-decoration: underline;
+      text-decoration-color: #890619;
+  
+      > * {
         display: table-cell;
-        vertical-align: middle;
       }
-
+  
+      > span {
+        padding: 10px;
+  
+        @include g-font-spacingKilled(12, 1);
+  
+        background-image: url("../imgs/navItem/1/3.png");
+        background-repeat: no-repeat;
+        background-position: right center;
+      }
+  
       > div {
-        @include g-font(16, 1);
-        display: table-cell;
+        width: 100%;
+  
+        @include g-font-spacingKilled(16, 1);
+  
+        padding: 2px 0 0 8px;
       }
     }
   }
@@ -27,23 +83,18 @@
 
 @if $device == SP {
   .t0-b-sideNavItem {
-    margin-left: 2.5%; // バナー要素（横幅95%）と左端を揃える
+    @include g-font-spacingKilled(16, 1);
+  
+    margin: 0 auto;
+    padding: 0 0 0 28px;
+    display: table;
+    color: #54361d;
+    background: url("../imgs/navItem/1/3.png") no-repeat left center;
+    text-decoration: underline;
+    min-height: 20px;
+  
     a {
-      display: block;
-      text-decoration: none;
-    }
-
-    &__inner {
-      box-sizing: border-box;
-      display: table;
-      > span {
-        display: table-cell;
-      }
-
-      > div {
-        @include g-font(16, 1);
-        display: table-cell;
-      }
+      color: #54361d;
     }
   }
 }
