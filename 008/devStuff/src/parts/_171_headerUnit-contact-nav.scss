@@ -1,57 +1,67 @@
 @if $device == PC {
   .t0-b-headerUnit-contact-nav {
-    $_block: &;
-    display: table;
     white-space: nowrap;
+    display: table;
+    color: #966338;
+  
     a {
+      display: table;
+      color: #966338;
       text-decoration: none;
+  
       &:hover {
-        color: $hovercolor;
+        color: #890619;
       }
     }
-
-    div {
+  
+    > a > *,
+    > * {
       display: table-cell;
       vertical-align: middle;
     }
-
-    p {
-      display: table-cell;
-      empty-cells: hide;
-      @include g-font(16, 1);
+  
+    div {
+      padding: 0 4px 0 0;
+  
+      &:before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url("../imgs/navItem/1/3.png");
+      }
     }
-
-    //サイト名中央に入ったときのみ中央寄せの見た目にする
-    .t0-b-headerSingle#{$variation1of2} &,
-    .t0-b-headerSingle#{$variation2of2} & {
-      display: table;
-      margin: 0 auto;
+  
+    p {
+      @include g-font-spacingKilled(14, 1);
+  
+      display: inline-block;
+      padding: 0 0 2px;
+      width: 100%;
+      vertical-align: middle;
+      border-bottom: 1px solid #890619;
     }
   }
 }
 
 @if $device == SP {
   .t0-b-headerUnit-contact-nav {
-    $_block: &;
-
     display: table;
-    margin-left: 2.5%;
-    font-weight: bold;
-    line-height: 0;
+    color: #333;
+    margin: 0 auto;
+  
     a {
-      display: inline-table;
       text-decoration: none;
+      color: #333;
     }
-
-    div {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
+  
     p {
-      display: table-cell;
-      empty-cells: hide;
-      @include g-font(16, 1);
+      @include g-font-spacingKilled(16, 1);
+  
+      background: url("../imgs/navItem/1/3.png") no-repeat left center;
+      padding: 0 0 0 25px;
+      vertical-align: middle;
+      text-decoration: underline;
     }
   }
 }

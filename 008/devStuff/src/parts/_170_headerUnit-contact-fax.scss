@@ -1,53 +1,57 @@
 @if $device == PC {
   .t0-b-headerUnit-contact-fax {
-    $_block: &;
-
     display: table;
-    min-width: 150px;
     white-space: nowrap;
+  
     > div {
       display: table-cell;
       vertical-align: middle;
-    }
-
-    > p {
-      display: table-cell;
-      vertical-align: middle;
-      @include g-font(18, 1);
-      > a {
-        color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
+      background-repeat: no-repeat;
+      background-image: url("../imgs/header/1/8.png");
+      width: 32px;
+      height: 32px;
+  
+      > div {
+        color: #fff;
+        background: #555;
+  
+        @include g-font-spacingKilled(12, 1);
+  
+        padding: 6px;
+        border-radius: 3px;
       }
     }
-
-    //サイト名中央に入ったときのみ中央寄せの見た目にする
-    .t0-b-headerSingle#{$variation1of2} &,
-    .t0-b-headerSingle#{$variation2of2} & {
-      margin: 0 auto;
+  
+    > span {
+      display: table-cell;
+      padding: 10px 0 6px 5px;
+  
+      @include g-font-spacingKilled(14, 1);
+  
+      font-weight: bold;
     }
   }
 }
 
 @if $device == SP {
   .t0-b-headerUnit-contact-fax {
-    $_block: &;
-    display: table;
+    min-height: 20px;
     margin: 0 auto;
-    white-space: nowrap;
+    display: table;
+  
     > div {
       display: table-cell;
       vertical-align: middle;
+      background-repeat: no-repeat;
+      background-image: url("../imgs/header/1/8.png");
+      width: 32px;
     }
-
-    > p {
+  
+    p {
       display: table-cell;
-      vertical-align: middle;
-      @include g-font(16, 1);
-      > a {
-        color: inherit;
-      }
+      padding: 2px 0 0px 5px;
+  
+      @include g-font-spacingKilled(16, 1);
     }
   }
 }
