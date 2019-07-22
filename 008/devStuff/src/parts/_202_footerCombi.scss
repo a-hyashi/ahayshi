@@ -1,39 +1,53 @@
 @if $device == PC {
   .t0-b-footerCombi {
-    $_width_content: 1100px;
+    $_width_content: 1020px;
+    $_colSpacing: #{$g-spacingBaseLength * 4}px;
+  
+    padding-bottom: 20px;
+    background-repeat: no-repeat, no-repeat, repeat-x, repeat;
+    background-position: 0 0, 100% 0, 0 0, 0 0;
+  
     > div {
-      display: table;
       width: $_width_content;
-      padding: 30px 0 10px;
       margin: 0 auto;
+      display: table;
+      padding-top: 42px;
+  
+      > div {
+        display: table-cell;
+        vertical-align: top;
+      }
     }
-
-    &__col1 {
-      display: table-cell;
-      vertical-align: top;
+  
+    &__col2 {
+      padding-left: $_colSpacing;
     }
-
-    &__col2,
+  
     &__col3 {
-      display: table-cell;
-      padding-left: 30px;
-      vertical-align: top;
+      padding-left: $_colSpacing;
     }
   }
 }
 
 @if $device == SP {
   .t0-b-footerCombi {
-    padding-top: 20px;
+    margin: 10px -15px 0;
+  
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+  
+    padding: 0 20px;
+  
     > div {
       width: 100%;
       margin: 0 auto;
+  
+      > div {
+        vertical-align: top;
+      }
     }
-
-    &__col1,
-    &__col2,
-    &__col3 {
-      vertical-align: top;
+  
+    &__col1 {
+      width: 100%;
     }
   }
 }

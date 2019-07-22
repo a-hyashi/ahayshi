@@ -1,197 +1,274 @@
 @if $device == PC {
   .t0-b-footerUnit-contact {
     $_block: &;
+  
     > div {
       display: table-cell;
       vertical-align: middle;
     }
-
+  
     &__media {
       padding: 0 10px 0 0;
+  
       img {
         display: block;
         width: 60px;
         height: auto;
       }
     }
-
+  
     a {
       > img {
         &:hover {
-          opacity: .8;
+          opacity: 0.8;
         }
       }
     }
-
+  
     &__bd {
       white-space: nowrap;
       vertical-align: bottom;
+      font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     }
-
+  
     &__bd > div {
       margin-top: 5px;
+  
       &:first-child {
         margin-top: 0;
       }
     }
-
+  
     &__note {
-      a {
-        color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
+      @include g-font-spacingKilled(18, 1);
+  
+      color: #664b3a;
     }
-
-    &__iconText {
-    }
-
+  
     &__iconTextBase {
       font-weight: bold;
+      color: #890619;
+      margin-bottom: -9px;
+  
+      @include g-font-spacingKilled(38, 1);
+  
       #{$_block}__tel + span,
       #{$_block}__fax + span,
       #{$_block}__free + span,
       #{$_block}__cell + span {
         font-size: 80%;
       }
-
+  
       > span {
-        display: inline-block;
-        padding-bottom: 4px;
         vertical-align: top;
         background-repeat: no-repeat;
         background-position: center 0;
+        background-size: 100% 100%;
+        display: inline-block;
       }
-
+  
       #{$_block}__tel,
       #{$_block}__fax,
       #{$_block}__free,
       #{$_block}__cell {
         vertical-align: baseline;
       }
-
-      #{$_block}__tel + span,
-      #{$_block}__fax + span,
-      #{$_block}__free + span,
-      #{$_block}__cell + span {
-        padding-bottom: 0;
-      }
     }
-
+  
     &__iconTextRuby {
+      font-weight: bold;
       text-align: right;
-      a {
-        color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
+  
+      @include g-font-spacingKilled(14, 1);
+  
+      color: #890619;
     }
-
+  
     &--size-1 {
       #{$_block}__note {
-        @include g-font(12, 1);
+        @include g-font-spacingKilled(12, 1);
       }
-
+  
       #{$_block}__iconTextBase {
-        @include g-font(28, 1);
+        @include g-font-spacingKilled(26, 1);
+  
+        #{$_block}__tel {
+          margin-right: 5px;
+          width: $_tel_wd / 2.4;
+          height: $_tel_hg / 2.4;
+          background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+          background-size: ($_tel_wd / 2.4) ($_tel_hg / 2.4);
+          padding-bottom: 7px;
+        }
+  
+        #{$_block}__fax {
+          margin-right: 5px;
+          width: $_fax_wd / 2.4;
+          height: $_fax_hg / 2.4;
+          background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+          background-size: ($_fax_wd / 2.4) ($_fax_hg / 2.4);
+          padding-bottom: 7px;
+        }
+  
+        #{$_block}__free {
+          margin-right: 5px;
+          width: $_free_wd / 2.4;
+          height: $_free_hg / 2.4;
+          background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+          background-size: ($_free_wd / 2.4) ($_free_hg / 2.4);
+          padding-bottom: 7px;
+        }
+  
+        #{$_block}__cell {
+          margin-right: 5px;
+          width: $_cell_wd / 2.4;
+          height: $_cell_hg / 2.4;
+          background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+          background-size: ($_cell_wd / 2.4) ($_cell_hg / 2.4);
+          padding-bottom: 6px;
+        }
       }
-
-      #{$_block}__tel {
-      }
-
-      #{$_block}__fax {
-      }
-
-      #{$_block}__free {
-      }
-
-      #{$_block}__cell {
-      }
-
+  
       #{$_block}__iconTextRuby {
-        @include g-font(10, 1);
+        @include g-font-spacingKilled(12, 1);
       }
     }
-
+  
     &--size-2 {
-      #{$_block}__note {
-        @include g-font(14, 1);
-      }
-
       #{$_block}__iconTextBase {
-        @include g-font(36, 1);
-
-        line-height: 1;
+        @include g-font-spacingKilled(38, 1);
+  
+        #{$_block}__tel {
+          margin-right: 6px;
+          width: $_tel_wd / 1.6;
+          height: $_tel_hg / 1.6;
+          background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+          background-size: ($_tel_wd / 1.6) ($_tel_hg / 1.6);
+          padding-bottom: 8px;
+        }
+  
+        #{$_block}__fax {
+          margin-right: 6px;
+          width: $_fax_wd / 1.6;
+          height: $_fax_hg / 1.6;
+          background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+          background-size: ($_fax_wd / 1.6) ($_fax_hg / 1.6);
+          padding-bottom: 8px;
+        }
+  
+        #{$_block}__free {
+          margin-right: 6px;
+          width: $_free_wd / 1.6;
+          height: $_free_hg / 1.6;
+          background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+          background-size: ($_free_wd / 1.6) ($_free_hg / 1.6);
+          padding-bottom: 8px;
+        }
+  
+        #{$_block}__cell {
+          margin-right: 6px;
+          width: $_cell_wd / 1.6;
+          height: $_cell_hg / 1.6;
+          background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+          background-size: ($_cell_wd / 1.6) ($_cell_hg / 1.6);
+          padding-bottom: 7px;
+        }
       }
-
-      #{$_block}__tel {
-      }
-
-      #{$_block}__fax {
-      }
-
-      #{$_block}__free {
-      }
-
-      #{$_block}__cell {
-      }
-
+  
       #{$_block}__iconTextRuby {
-        @include g-font(12, 1);
+        @include g-font-spacingKilled(16, 1);
       }
     }
-
+  
     &--size-3 {
-      #{$_block}__note {
-        @include g-font(16, 1);
-      }
-
       #{$_block}__iconTextBase {
-        @include g-font(42, 1);
+        @include g-font-spacingKilled(50, 1);
+  
+        #{$_block}__tel {
+          margin-right: 7px;
+          width: $_tel_wd / 1.2;
+          height: $_tel_hg / 1.2;
+          background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+          background-size: ($_tel_wd / 1.2) ($_tel_hg / 1.2);
+          padding-bottom: 12px;
+        }
+  
+        #{$_block}__fax {
+          margin-right: 7px;
+          width: $_fax_wd / 1.2;
+          height: $_fax_hg / 1.2;
+          background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+          background-size: ($_fax_wd / 1.2) ($_fax_hg / 1.2);
+          padding-bottom: 12px;
+        }
+  
+        #{$_block}__free {
+          margin-right: 7px;
+          width: $_free_wd / 1.2;
+          height: $_free_hg / 1.2;
+          background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+          background-size: ($_free_wd / 1.2) ($_free_hg / 1.2);
+          padding-bottom: 12px;
+        }
+  
+        #{$_block}__cell {
+          margin-right: 7px;
+          width: $_cell_wd / 1.2;
+          height: $_cell_hg / 1.2;
+          background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+          background-size: ($_cell_wd / 1.2) ($_cell_hg / 1.2);
+          padding-bottom: 11px;
+        }
       }
-
-      #{$_block}__tel {
-      }
-
-      #{$_block}__fax {
-      }
-
-      #{$_block}__free {
-      }
-
-      #{$_block}__cell {
-      }
-
+  
       #{$_block}__iconTextRuby {
-        @include g-font(14, 1);
+        @include g-font-spacingKilled(20, 1);
       }
     }
-
+  
     &--size-4 {
-      #{$_block}__note {
-        @include g-font(18, 1);
-      }
-
       #{$_block}__iconTextBase {
-        @include g-font(50, 1);
+        @include g-font-spacingKilled(62, 1);
+  
+        #{$_block}__tel {
+          margin-right: 8px;
+          width: $_tel_wd;
+          height: $_tel_hg;
+          background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+          background-size: $_tel_wd $_tel_hg;
+          padding-bottom: 14px;
+        }
+  
+        #{$_block}__fax {
+          margin-right: 8px;
+          width: $_fax_wd;
+          height: $_fax_hg;
+          background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+          background-size: $_fax_wd $_fax_hg;
+          padding-bottom: 14px;
+        }
+  
+        #{$_block}__free {
+          margin-right: 8px;
+          width: $_free_wd;
+          height: $_free_hg;
+          background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+          background-size: $_free_wd $_free_hg;
+          padding-bottom: 14px;
+        }
+  
+        #{$_block}__cell {
+          width: $_cell_wd;
+          height: $_cell_hg;
+          margin-right: 8px;
+          background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+          background-size: $_cell_wd $_cell_hg;
+          padding-bottom: 13px;
+        }
       }
-
-      #{$_block}__tel {
-      }
-
-      #{$_block}__fax {
-      }
-
-      #{$_block}__free {
-      }
-
-      #{$_block}__cell {
-      }
-
+  
       #{$_block}__iconTextRuby {
-        @include g-font(16, 1);
+        @include g-font-spacingKilled(24, 1);
       }
     }
   }
@@ -201,65 +278,103 @@
   .t0-b-footerUnit-contact {
     width: 95%;
     margin: 0 auto;
+  
     $_block: &;
+  
     &__media {
-      display: block;
       text-align: center;
+      vertical-align: bottom;
+      display: block;
+  
       img {
         width: 25%;
       }
     }
-
+  
     &__note {
-      @include g-font(14, 1);
+      @include g-font-spacingKilled(14, 1);
+  
       margin-top: 10px;
       text-align: center;
-      color: #333;
     }
-
+  
     &__iconText {
-      width: 100%;
-      padding: 10px 0;
       margin-top: 10px;
-      word-break: break-all;
-      background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
+      width: 100%;
+      background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5, #f6f6f6), to(#eee)) left top repeat;
       border: 1px solid #ccc;
       border-radius: 8px;
+      padding: 10px 0 10px;
+      word-break: break-all;
     }
-
+  
     &__iconTextBase {
-      @include g-font(22, 1);
-      display: table;
-      margin: 0 auto;
-      color: #f00;
+      @include g-font(14, 1);
+  
       text-align: center;
+      color: #ff0000;
+  
       span {
-        display: inline-block;
         vertical-align: middle;
+  
+        //width: 20px
+        //height: 12px
         background-repeat: no-repeat;
         background-position: center 0;
+        display: inline-block;
       }
     }
-
-    &__iconTextRuby {
-      @include g-font(12, 1);
-      text-align: center;
-    }
-
-    &__icon {
-      background-repeat: no-repeat;
-    }
-
-    &__tel {
-    }
-
-    &__fax {
-    }
-
-    &__free {
-    }
-
-    &__cell {
+  
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      #{$_block}__iconTextRuby {
+        @include g-font(12, 1);
+  
+        text-align: center;
+      }
+  
+      #{$_block}__tel {
+        width: $_tel_wd / 2.5;
+        height: $_tel_hg / 2.5;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+        margin-top: -2px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-right: 3px;
+      }
+  
+      #{$_block}__fax {
+        width: $_fax_wd / 2.5;
+        height: $_fax_hg / 2.5;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+        margin-top: -1px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-right: 3px;
+      }
+  
+      #{$_block}__free {
+        width: $_free_wd / 2.5;
+        height: $_free_hg / 2.5;
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+        margin-top: -2px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-right: 3px;
+      }
+  
+      #{$_block}__cell {
+        width: $_cell_wd / 2.5;
+        height: $_cell_hg / 2.5;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        margin-top: -3px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-right: 3px;
+      }
     }
   }
 }
