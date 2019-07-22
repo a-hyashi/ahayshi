@@ -93,6 +93,29 @@
       width: 64.3%;
     }
   }
+
+  @if $layout == "N00" {
+    //2列部品の右列の幅変更記述 N00のみ違う比率で実装する
+    .t0-b-flow2LeftToRight,
+    .t0-b-flow2LeftToRight2 {
+      $_block: &;
+      &--colW-l &__box {
+        width: 22.2%;
+      }
+
+      &--colW-l &__box ~ &__box {
+        width: 70.7%;
+      }
+
+      &--colW-m &__box {
+        width: 30.7%;
+      }
+
+      &--colW-m &__box ~ &__box {
+        width: 63.5%;
+      }
+    }
+  }
 }
 
 @if $device == SP {

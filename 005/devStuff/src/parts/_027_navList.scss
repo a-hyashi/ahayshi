@@ -1,11 +1,11 @@
 @if $device == PC {
   .t0-b-navList#{$variation1of1and3} {
+    @include g-rteTableReset;
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #b9c3ca;
     $_color_table_th_bg: #ddd;
     $_color_table_td_typo: #4d4d4d;
-    @include g-rteTableReset;
     color: #4d4d4d;
     a {
       color: #4d4d4d;
@@ -38,25 +38,23 @@
       margin: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: $_elementSpacing;
       }
 
       li {
         @include g-font-spacingKilled(14, 1);
-        margin-top: $_elementSpacing;
         list-style-type: decimal;
+        margin-top: $_elementSpacing;
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -68,8 +66,7 @@
     ul {
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: 10px;
       }
 
@@ -84,11 +81,10 @@
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -100,13 +96,8 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
-      th,
-      td {
+      th, td {
         @include g-font-spacingKilled(14, 1);
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
-        border-style: none;
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 10px;
@@ -115,14 +106,7 @@
         background: #fff;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font-spacingKilled(14, 1);
-        }
-      }
-
-      ul {
+      ul, ol {
         font-size: $baseFontSize;
         li {
           @include g-font-spacingKilled(14, 1);
@@ -151,12 +135,13 @@
   }
 
   .t0-b-navList2 {
+    @include g-rteTableReset;
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #b9c3ca;
     $_color_table_th_bg: #ddd;
     $_color_table_td_typo: #4d4d4d;
-    @include g-rteTableReset;
+
     color: #4d4d4d;
     a {
       color: #4d4d4d;
@@ -189,25 +174,24 @@
       margin: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: $_elementSpacing;
       }
 
       li {
         @include g-font-spacingKilled(14, 1);
-        margin-top: $_elementSpacing;
+
         list-style-type: decimal;
+        margin-top: $_elementSpacing;
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -219,8 +203,7 @@
     ul {
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: 20px;
       }
 
@@ -230,16 +213,16 @@
         margin: 20px 0 0;
         background: url("../imgs/t0-b-navList/navList-1.png") 0 -.05em no-repeat;
         padding: 0 0 0 35px;
+        color: #0e2753;
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -251,13 +234,8 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
-      th,
-      td {
+      th, td {
         @include g-font-spacingKilled(14, 1);
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
-        border-style: none;
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 10px;
@@ -266,14 +244,7 @@
         background: #fff;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font-spacingKilled(14, 1);
-        }
-      }
-
-      ul {
+      ul, ol {
         font-size: $baseFontSize;
         li {
           @include g-font-spacingKilled(14, 1);
@@ -307,7 +278,6 @@
     $_color_table_border: #b9c3ca;
     $_color_table_th_bg: #ddd;
     $_color_table_td_typo: #4d4d4d;
-    @include g-rteTableReset;
     color: #4d4d4d;
     a {
       color: #4d4d4d;
@@ -340,25 +310,24 @@
       margin: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: $_elementSpacing;
       }
 
       li {
         @include g-font-spacingKilled(14, 1);
-        margin-top: $_elementSpacing;
+
         list-style-type: decimal;
+        margin-top: $_elementSpacing;
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -370,8 +339,7 @@
     ul {
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: 10px;
       }
 
@@ -386,11 +354,10 @@
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -402,13 +369,8 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
-      th,
-      td {
+      th, td {
         @include g-font-spacingKilled(14, 1);
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
-        border-style: none;
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 10px;
@@ -417,14 +379,7 @@
         background: #fff;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font-spacingKilled(14, 1);
-        }
-      }
-
-      ul {
+      ul, ol {
         font-size: $baseFontSize;
         li {
           @include g-font-spacingKilled(14, 1);
@@ -455,12 +410,12 @@
 
 @if $device == SP {
   .t0-b-navList#{$variation1of1and3} {
+    @include g-rteTableReset;
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #b9c3ca;
     $_color_table_th_bg: #ddd;
     $_color_table_td_typo: #4d4d4d;
-    @include g-rteTableReset;
     color: #4d4d4d;
     a {
       color: #4d4d4d;
@@ -490,26 +445,23 @@
       margin: 0 0 0 2em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: $_elementSpacing;
       }
 
       li {
         @include g-font-spacingKilled(16, 1);
-        margin-top: $_elementSpacing;
-
         list-style-type: decimal;
+        margin-top: $_elementSpacing;
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -521,9 +473,8 @@
     ul {
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
-        margin-top: 10px;
+      ul, ol {
+        margin-top: $_elementSpacing;
       }
 
       li {
@@ -537,11 +488,10 @@
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -553,18 +503,14 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
       tr {
         border-right: 1px solid $_color_table_border;
         border-bottom: 1px solid $_color_table_border;
       }
 
-      th,
-      td {
+      th, td {
         @include g-font-spacingKilled(14, 1);
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
-        border-style: none;
+
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 3% 1%;
@@ -573,14 +519,7 @@
         background: #fff;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font-spacingKilled(14, 1);
-        }
-      }
-
-      ul {
+      ul, ol {
         font-size: $baseFontSize;
         li {
           @include g-font-spacingKilled(14, 1);
@@ -588,7 +527,7 @@
       }
 
       p {
-        @include g-font(14, 1);
+        @include g-font-spacingKilled(14, 1);
       }
 
       th {
@@ -604,12 +543,13 @@
   }
 
   .t0-b-navList2 {
+    @include g-rteTableReset;
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #b9c3ca;
     $_color_table_th_bg: #ddd;
     $_color_table_td_typo: #4d4d4d;
-    @include g-rteTableReset;
+
     color: #4d4d4d;
     a {
       color: #4d4d4d;
@@ -628,6 +568,7 @@
 
     p {
       @include g-font-spacingKilled(16, 2);
+
       margin-top: 1em;
     }
 
@@ -639,26 +580,24 @@
       margin: 0 0 0 2em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: $_elementSpacing;
       }
 
       li {
         @include g-font-spacingKilled(16, 1);
-        margin-top: $_elementSpacing;
 
         list-style-type: decimal;
+        margin-top: $_elementSpacing;
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -670,8 +609,7 @@
     ul {
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: 20px;
       }
 
@@ -687,11 +625,10 @@
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -703,18 +640,14 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
       tr {
         border-right: 1px solid $_color_table_border;
         border-bottom: 1px solid $_color_table_border;
       }
 
-      th,
-      td {
+      th, td {
         @include g-font-spacingKilled(14, 1);
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
-        border-style: none;
+
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 3% 1%;
@@ -723,14 +656,7 @@
         background: #fff;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font-spacingKilled(14, 1);
-        }
-      }
-
-      ul {
+      ul, ol {
         font-size: $baseFontSize;
         li {
           @include g-font-spacingKilled(14, 1);
@@ -738,7 +664,7 @@
       }
 
       p {
-        @include g-font(14, 1);
+        @include g-font-spacingKilled(14, 1);
       }
 
       th {
@@ -754,12 +680,12 @@
   }
 
   .t0-b-navList#{$variation3of1and3} {
+    @include g-rteTableReset;
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #b9c3ca;
     $_color_table_th_bg: #ddd;
     $_color_table_td_typo: #4d4d4d;
-    @include g-rteTableReset;
     color: #4d4d4d;
     a {
       color: #4d4d4d;
@@ -789,26 +715,23 @@
       margin: 0 0 0 2em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: $_elementSpacing;
       }
 
       li {
         @include g-font-spacingKilled(16, 1);
-        margin-top: $_elementSpacing;
-
         list-style-type: decimal;
+        margin-top: $_elementSpacing;
         &:first-child {
           margin-top: 0;
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -820,8 +743,7 @@
     ul {
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-      ul,
-      ol {
+      ul, ol {
         margin-top: 10px;
       }
 
@@ -836,11 +758,10 @@
         }
 
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
+        &::before, &::after {
           width: 100%;
+          float: left;
+          display: none;
         }
       }
     }
@@ -852,18 +773,13 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
-      border: transparent 1px solid;
       tr {
         border-right: 1px solid $_color_table_border;
         border-bottom: 1px solid $_color_table_border;
       }
 
-      th,
-      td {
+      th, td {
         @include g-font-spacingKilled(14, 1);
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
-        border-style: none;
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 3% 1%;
@@ -872,14 +788,7 @@
         background: #fff;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font-spacingKilled(14, 1);
-        }
-      }
-
-      ul {
+      ul, ol {
         font-size: $baseFontSize;
         li {
           @include g-font-spacingKilled(14, 1);
@@ -887,7 +796,7 @@
       }
 
       p {
-        @include g-font(14, 1);
+        @include g-font-spacingKilled(14, 1);
       }
 
       th {
