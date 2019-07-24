@@ -7,155 +7,145 @@
     $_color_table_border: #946d4b;
     $_color_table_th_bg: #fd9d92;
     $_color_table_td_typo: #fff;
- 
     hr {
       margin-top: $_blockSpacing;
       border: 0;
       height: 1px;
       background: #999;
     }
-  
+
     > hr:first-child {
       margin-top: 0;
     }
-  
+
     p {
       @include g-font-spacingKilled(16, 2);
-  
+
       margin-top: 1em;
     }
-  
+
     > p:first-child {
       margin-top: 0;
     }
-  
+
     ol {
       margin: 0 0 0 2em;
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
-  
       ul, ol {
         margin-top: $_elementSpacing;
       }
-  
+
       li {
         @include g-font-spacingKilled(16, 1);
-  
+
         list-style-type: decimal;
         margin-top: $_elementSpacing;
-  
         &:first-child {
           margin-top: 0;
         }
-  
+
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &:before, &:after {
+        &::before, &::after {
           width: 100%;
           float: left;
           display: none;
         }
       }
     }
-  
+
     > ol:first-child {
       margin-top: 0;
     }
-  
+
     ul {
       margin-top: $_blockSpacing;
       font-size: $baseFontSize;
       margin-left: 10px;
-  
       ul, ol {
         margin-top: 10px;
       }
-  
+
       li {
         @include g-font-spacingKilled(16, 1);
-  
-        margin: 10px 0 0 0;
+
+        margin: 10px 0 0;
         padding: 0 0 0 12px;
-        background: #{image-url("side/1/1.png")} no-repeat 0 0.4em;
-  
+        background: #{image-url("side/1/1.png")} no-repeat 0 .4em;
         &:first-child {
           margin-top: 0;
         }
-  
+
         // IEはlist-itemのpseudo elementにバグあり。その対応
-        &:before, &:after {
+        &::before, &::after {
           width: 100%;
           float: left;
           display: none;
         }
       }
     }
-  
+
     > ul:first-child {
       margin-top: 0;
     }
-  
+
     table {
       width: 100%;
       margin-top: $_elementSpacing;
-  
       th, td {
         @include g-font-spacingKilled(14, 2);
-  
+
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 7px 5px;
         text-align: left;
         vertical-align: middle;
       }
-  
+
       ul, ol {
         font-size: $baseFontSize;
-  
         li {
           @include g-font-spacingKilled(14, 1);
         }
       }
-  
+
       p {
         @include g-font-spacingKilled(14, 1);
       }
-  
+
       tr {
         border-right: 1px solid $_color_table_border;
         border-bottom: 1px solid $_color_table_border;
       }
-  
+
       th {
         color: $_color_table_td_typo;
         background: #ffa69c;
-  
         * {
           color: $_color_table_td_typo;
         }
-  
+
         td * {
           color: #555;
         }
       }
-  
+
       td {
         background: #fff;
-  
         * {
           color: #555;
         }
-  
+
         th * {
           color: $_color_table_td_typo;
         }
       }
     }
-  
+
     > table:first-child {
       margin-top: 0;
     }
   }
-
 }
 
 @if $device == SP {
