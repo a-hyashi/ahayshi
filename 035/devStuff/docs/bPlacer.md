@@ -9,6 +9,9 @@
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation1of3}|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation2of3}|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|#{$variation3of3}|2%||10px|
+|01.見出し|main|033_大見出し|.t0-b-lv2H|4|2%||10px|
+|01.見出し|main|033_大見出し|.t0-b-lv2H|5|2%||10px|
+|01.見出し|main|033_大見出し|.t0-b-lv2H|6|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation1of3}|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation2of3}|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation3of3}|2%||10px|
