@@ -285,7 +285,6 @@
   }
 
   .t0-b-lv2H4 {
-
     // ブロック名の格納変数
     $_block: &;
     // 標準フォントサイズ
@@ -299,35 +298,32 @@
     // 大きいフォントサイズ（標準より4px大きい値）
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
     display: inline-block;
-
     min-height: 60px;
-    > span {
+    position: relative;
+    &::before {
+      content: "";
       position: absolute;
-      top: 13px;
-      bottom: 14px;
+      top: 0;
       left: 0;
       right: 0;
-      display: inline-block;
-      > span {
-        background-size: 25px;
-        background-repeat: repeat-x, repeat-x;
-        background-position: left bottom, left top;
-        background-image: url("../imgs/t0-b-lv2H/4/bg.png"), url("../imgs/t0-b-lv2H/4/bg.png");
-        padding-left: 10px;
-        position: absolute;
-        display: inline-block;
-        top: -10px;
-        bottom: 3px;
-        left: 53px;
-        right: 53px;
-        &::before {
-          content: "";
-          position: absolute;
-          height: 1px;
-          bottom: -4px;
-          width: 100%;
-        }
-      }
+      height: 13px;
+      background-image: url("../imgs/t0-b-lv2H/4/bg.png");
+      background-size: 25px;
+      background-repeat: space;
+      background-position: top;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 13px;
+      background-image: url("../imgs/t0-b-lv2H/4/bg.png");
+      background-size: 25px;
+      background-repeat: space;
+      background-position: bottom;
     }
 
     // size指定が無い時に適用されるh2
@@ -388,44 +384,47 @@
     $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
     // 大きいフォントサイズ（標準より4px大きい値）
     $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-
+    display: inline-block;
     position: relative;
     margin: 0 auto;
     color: #333;
-    min-height: 60px;
+    min-height: 54px;
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("../imgs/t0-b-lv2H/5/bg.png");
+      background-repeat: no-repeat;
+      height: 50px;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+    }
+
     > span {
       background-repeat: no-repeat;
-      background-position: left center, right center, left top, right top;
-      background-image: url("../imgs/t0-b-lv2H/5/bg.png");
+      background-position: left bottom, right bottom;
+      background-image: url("../imgs/t0-b-lv2H/5/bg2.png"), url("../imgs/t0-b-lv2H/5/bg4.png");
       position: absolute;
-      top: 13px;
+      height: 10px;
       bottom: 2px;
       left: 0;
       right: 0;
       > span {
-        background-repeat: repeat-x, no-repeat;
-        background-position: left bottom, right bottom;
-        background-image: url("../imgs/t0-b-lv2H/5/bg2.png"), url("../imgs/t0-b-lv2H/5/bg3.png");
+        background-repeat: repeat-x;
+        background-position: bottom;
+        background-image: url("../imgs/t0-b-lv2H/5/bg3.png");
         position: absolute;
-        top: -10px;
-        bottom: 11px;
-        left: 53px;
-        right: 53px;
-        > span {
-          position: absolute;
-          top: 13px;
-          bottom: 14px;
-          left: 0;
-          right: 0;
-        }
+        height: 10px;
+        bottom: 2px;
+        left: 44px;
+        right: 44px;
       }
     }
 
     // size指定が無い時に適用されるh2
     h2 {
       @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-      padding: 24px 58px;
-      position: relative;
+      padding: 12px 58px;
     }
 
     // リンク設定がある場合（h2, RTEの場合はブロック内の要素）
