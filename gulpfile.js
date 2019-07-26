@@ -8,7 +8,6 @@ const fs = require('fs-extra');
 const sassdoc = require('sassdoc');
 const merge = require('event-stream').merge;
 const make_html = require('./lib/make_html');
-const ssh_config = require('../ssh/ssh_config.json');
 const make_datajson = require('./lib/make_datajson');
 const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
@@ -413,6 +412,7 @@ const upload_themes = (variation) => {
 
 // sftpでファイルがアップロードされる
 const sftp_each_themes = (folder) => {
+  const ssh_config = require('../ssh/ssh_config.json');
   return gulp.src([
     'build/themes/' + folder + '/theme.css'
   ])
