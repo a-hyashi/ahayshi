@@ -429,6 +429,7 @@ const sftp_each_themes = (folder) => {
 }
 
 const upload_img = () => {
+  const ssh_config = require('../ssh/ssh_config.json');
   return gulp.src([
     // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
