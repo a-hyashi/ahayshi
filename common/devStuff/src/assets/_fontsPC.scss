@@ -1,14 +1,11 @@
 /*
-
 PCフォントファミリー用変数
 font-familyは以下の変数を使用する
 テーマのフォントで設定が上書きされないようにimportantをつけている
-
 */
 $gothic: "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "Meiryo", メイリオ, "ＭＳ Ｐゴシック", sans-serif;
 $mincho: "游明朝", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
 $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
-
 .g-fontFamily {
   &-gothic {
     font-family: $gothic !important;
@@ -24,14 +21,12 @@ $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothic
 }
 
 /*
-
 PCフォント用mixin
 font-sizeとline-heightの組み合わせを指定する
-
 */
-
 @mixin g-font($fontSizePx, $lineHeightType) {
   // 2行にならないことを加味しながら使用
+  /* stylelint-disable */
   @if $lineHeightType == 0 {line-height: 1;}
   @if $lineHeightType == 1 {line-height: 1.25;}
   @if $lineHeightType == 2 {line-height: 1.6;}
@@ -70,4 +65,5 @@ font-sizeとline-heightの組み合わせを指定する
   @if $fontSizePx == 72 {font-size: 5.143rem;}
   @if $fontSizePx == 74 {font-size: 5.286rem;}
   @if $fontSizePx == 76 {font-size: 5.429rem;}
+  /* stylelint-enable */
 }

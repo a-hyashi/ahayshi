@@ -1,11 +1,8 @@
 /*
-
 余白用class
 数字×5pxの下余白を部品・要素に与える
 テーマバージョンアップ後の新テーマ（031以降）では使用しない
-
 */
-
 @for $_i from 1 through 12 {
   .b-bPlacer-#{$_i}s {
     padding-bottom: #{$_i * 5}px;
@@ -13,13 +10,10 @@
 }
 
 /*
-
 N00のレイアウトに対応したフォントサイズを返すg-fontの拡張mixin
 レイアウト文字列に'N00'が入ったときには、基準フォントサイズにaddPx（デフォルト4px）を加算したフォント指定を生成する。
 'N00'以外では基準フォントサイズのままを返す。
-
 */
-
 @mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25', $addPx: 4) {
   @if $layout == "N00" {
     @include g-font($fontSizePx + $addPx, $lineHeightType);
@@ -29,12 +23,9 @@ N00のレイアウトに対応したフォントサイズを返すg-fontの拡�
 }
 
 /*
-
 photoshopでいうところの「光彩（外側）」を文字に追加するmixin。
 引数指定がない場合は、サイズ1,#fff,ぼかしの半径1pxの光彩になる。
-
 */
-
 @mixin g-textOuterGlow($size: 1, $color: #fff, $blur-radius: 1px) {
   @if  $size == 0 {
     text-shadow: 0 0 $blur-radius $color;
