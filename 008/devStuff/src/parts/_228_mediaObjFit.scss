@@ -1,5 +1,32 @@
 @if $device == PC {
+  .t0-b-mediaObjFit {
+    $_block: &;
+
+    //100%だとFirefoxで崩れるので対策
+    height: 100.1%;
+    &--img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      font-family: "object-fit: cover;";
+    }
+
+    a {
+      #{$_block}--img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
 }
 
 @if $device == SP {
+  .t0-b-mediaObjFit {
+    &--img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
+  }
 }
