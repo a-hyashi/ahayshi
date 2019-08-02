@@ -137,8 +137,10 @@
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImgDouble|#{$variation3of3}|2%||10px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem|#{$variation1of2}|4%||25px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem|#{$variation2of2}|4%||25px|
+|06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem|3|4%||25px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble|#{$variation1of2}|2%||25px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble|#{$variation2of2}|2%||25px|
+|06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble|3|2%||25px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|#{$variation2of2}|4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptionedDouble|#{$variation1of2}|2%||10px|
@@ -150,6 +152,7 @@
 |06.ナビゲーション|side|130_サイド誘導リンク|.t0-b-sideNavItem|3|4%||35px|
 |06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|#{$variation2of2}|4%||35px|
+|06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|3|4%||35px|
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation1of3}|4%||35px|
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation2of3}|4%||35px|
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|#{$variation3of3}|4%||35px|
@@ -161,9 +164,11 @@
 |06.ナビゲーション|header|171_ヘッダー誘導リンク|.t0-b-headerUnit-contact-nav||2%||15px|
 |06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|#{$variation1of2}|2%||15px|
 |06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|#{$variation2of2}|2%||15px|
+|06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|3|2%||15px|
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav||4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|#{$variation1of2}|4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|#{$variation2of2}|4%||15px|
+|06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|3|4%||15px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation1of3}|3%||30px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation2of3}|3%||30px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable|#{$variation3of3}|3%||30px|
