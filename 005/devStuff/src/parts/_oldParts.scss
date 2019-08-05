@@ -1,5 +1,74 @@
 // 旧部品のCSSを移行しています
 @if $device == PC {
+  .b-icon-hMarker {
+    @mixin _iconStyles($file) {
+      $_src: "../imgs/b-icon-hMarker/#{$file}.png";
+
+      background-image: url($_src);
+    }
+
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+
+    @for $_i from 1 through 8 {
+      &--#{$_i} {
+        @include _iconStyles($_i);
+      }
+    }
+  }
+
+  .t0-b-lv3H-icon {
+    padding: 0 0 10px 30px;
+    position: relative;
+    text-indent: -30px;
+
+    @include g-font(16, 1);
+    @include g-font-killSpacing("bottom", 16, 1);
+    &__iconPlacer {
+      display: inline-block;
+      vertical-align: middle;
+      width: 30px;
+      height: 24px;
+      margin: (-12px) 0 -12px;
+      position: relative;
+      top: -.1em;
+      > * {
+        display: block;
+      }
+    }
+
+    &__bd {
+      display: inline;
+      h3 {
+        display: inline;
+        font-weight: bold;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4d4d4d;
+      &:hover {
+        color: #4c8fc8;
+      }
+    }
+  }
+
   .t0-b-footerGNav {
     $_width_content: 960px;
 
@@ -359,6 +428,107 @@
 }
 
 @if $device == SP {
+  .sg-codeOutput__widthFull {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__widthHeaderUnit {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__widthAuto {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthFull {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthMain {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthSub {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthAuto {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .b-icon-hMarker {
+    @mixin _iconStyles($file) {
+      $_src: "b-icon-hMarker/#{$file}.png";
+
+      background-image: #{image-url($_src)};
+    }
+
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+
+    @for $_i from 1 through 8 {
+      &--#{$_i} {
+        @include _iconStyles($_i);
+      }
+    }
+  }
+
+  .t0-b-lv3H-icon {
+    padding: 0 0 10px 30px;
+    position: relative;
+    text-indent: -30px;
+
+    @include g-font(18, 1);
+    @include g-font-killSpacing("bottom", 16, 1);
+    &__iconPlacer {
+      display: inline-block;
+      vertical-align: middle;
+      width: 30px;
+      height: 24px;
+      margin: (-12px) 0 -12px;
+      position: relative;
+      top: -.1em;
+      > * {
+        display: block;
+      }
+    }
+
+    &__bd {
+      display: inline;
+      h3 {
+        display: inline;
+        font-weight: bold;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4d4d4d;
+    }
+  }
+
   .t0-b-footerGNav {
     color: #fff;
     background: #333;
