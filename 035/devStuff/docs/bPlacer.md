@@ -184,6 +184,7 @@
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation3of3}|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|#{$variation1of2}|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|#{$variation2of2}|0||0px|
+|08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|3|0||0px|
 |08.メニュー|footer|201_フッターメニュー（コピーライト付き）|.t0-b-footerMenuWithCp||0||px|
 |09.電話番号・メールアドレス|main|045_電話番号|.t0-b-iconText-tel||4%||20px|
 |09.電話番号・メールアドレス|main|046_メールアドレス|.t0-b-iconText-mail||4%||35px|
