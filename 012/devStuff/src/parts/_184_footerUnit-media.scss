@@ -1,0 +1,200 @@
+@if $device == PC {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      border: 1px solid #a4a4a3;
+      box-sizing: border-box;
+      img,
+      > * {
+        border-radius: 1px;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      a {
+        color: #594c46;
+        text-decoration: none;
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+        border-top-left-radius: 1px;
+        border-top-right-radius: 1px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+        border-bottom-left-radius: 1px;
+        border-bottom-right-radius: 1px;
+      }
+    }
+
+    &__nav {
+      text-indent: -20px;
+      padding: 10px 0 0 20px;
+
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        > a {
+          padding: 0 2px 2px 10px;
+          text-decoration: none;
+          background-image: url("../imgs/t0-b-footerUnit-media/bg.png"), url("../imgs/t0-b-footerUnit-media/bg3.png");
+          background-repeat: no-repeat, repeat-x;
+          background-position: 3px 6px, left bottom;
+          &:hover {
+            color: #009fe8;
+            background-image: url("../imgs/t0-b-footerUnit-media/bg2.png"), url("../imgs/t0-b-footerUnit-media/bg5.png");
+            background-repeat: no-repeat, repeat-x;
+            background-position: 3px 6px, left bottom;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-media {
+    $_block: &;
+
+    margin: 0 auto;
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      border: 1px solid #a4a4a3;
+      border-radius: 1px;
+      a {
+        color: #594c46;
+        text-decoration: none;
+        display: block;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      padding: 10px 0 0;
+
+      @include g-font-spacingKilled(16, 1);
+
+      text-align: center;
+      > div {
+        > a {
+          padding: 0 2px 2px 10px;
+          text-decoration: none;
+          background-image: url("../imgs/t0-b-footerUnit-media/bg.png"), url("../imgs/t0-b-footerUnit-media/bg3.png");
+          background-repeat: no-repeat, repeat-x;
+          background-position: 3px 6px, left bottom;
+        }
+      }
+    }
+  }
+}

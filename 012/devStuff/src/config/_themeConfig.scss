@@ -1,0 +1,154 @@
+$g-baseFontSize: 14px;
+// 旧変数対応
+$baseFontSize: $g-baseFontSize;
+$g-baseFontColor: #594c46;
+$g-baseBackgroundColor: #fff;
+$g-baseLinkColor: #594c46;
+$g-baseHoverColor: #86766e;
+
+$textcolor: $g-baseFontColor;
+$hovercolor: $g-baseHoverColor;
+
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 10;
+body.mod-body,
+div.mod-body {
+  font-weight: 500;
+  font-size: $baseFontSize;
+  font-family: "ヒラギノ丸ゴ Pro W4", "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック体", "Yu Goth  ic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: #594c46;
+  background-image: url("../imgs/area-all/bg.png");
+}
+
+a {
+  color: $g-baseLinkColor;
+}
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: $hovercolor;
+    }
+  }
+}
+.cms-admin-anchorFlag {
+  position: relative;
+  z-index: 10 !important;
+}
+
+// tel
+$_tel_wd: 40px;
+$_tel_hg: 40px;
+
+// fax
+$_fax_wd: 48px;
+$_fax_hg: 28px;
+
+// free
+$_free_wd: 52px;
+$_free_hg: 29px;
+
+// cell
+$_cell_wd: 23px;
+$_cell_hg: 40px;
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+$fullWidthBgColor: #d9f5f6;
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
+
+@if $device == PC {
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .sg-codeOutput__widthFull {
+    width: 1400px;
+  }
+
+  .sg-codeOutput__widthHeaderUnit {
+    width: 200px;
+  }
+
+  .sg-codeOutput__widthAuto {
+    width: auto;
+  }
+
+  .sg-codeOutput__maxWidthFull {
+    max-width: 1400px;
+  }
+
+  .sg-codeOutput__maxWidthMain {
+    max-width: 1000px;
+  }
+
+  .sg-codeOutput__maxWidthSub {
+    max-width: 290px;
+  }
+
+  .sg-codeOutput__maxWidthAuto {
+    max-width: auto;
+  }
+
+  @if $device == SP {
+    $baseFontSize: 14px;
+    body.mod-body,
+    div.mod-body {
+      font-size: $baseFontSize;
+      font-family: "ヒラギノ丸ゴ Pro W4", "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+      color: #594c46;
+    }
+
+    a {
+      color: #594c46;
+    }
+  }
+}
