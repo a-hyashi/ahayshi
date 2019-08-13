@@ -1,35 +1,7 @@
 @if $device == PC {
   .t0-b-footerUnit-navList {
     @include g-rteTableReset;
-    a {
-      text-decoration: underline;
-    }
-
-    ul, ol {
-      a {
-        text-decoration: none;
-      }
-    }
-
-    ul {
-      margin-left: 15px;
-      font-size: $baseFontSize;
-      ul, ol {
-        margin-top: 10px;
-      }
-
-      li {
-        @include g-font-spacingKilled(16, 1);
-
-        margin: 10px 0 0;
-        background: url("../imgs/t0-b-footerUnit-navList/bg.png") 0 6px no-repeat;
-        padding: 0 0 0 18px;
-      }
-
-      li:first-child {
-        margin-top: 0;
-      }
-    }
+    color: #594c46;
 
     $_blockSpacing: #{$g-spacingBaseLength * 6}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
@@ -37,43 +9,19 @@
     $_color_table_border: #f9dbe1;
     $_color_table_th_bg: #fceef4;
     $_color_table_td_typo: #594c46;
-    table {
+
+    margin-left: 5px;
+    img {
       width: 100%;
-      margin-top: 15px;
-      tr {
-        border: 2px solid $_color_table_border;
-      }
-
-      th, td {
-        @include g-font-spacingKilled(14, 1);
-
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
-        padding: 8px 3%;
-        text-align: left;
-        vertical-align: middle;
-        &:first-child {
-          color: $_color_table_td_typo;
-          background: $_color_table_th_bg;
-          border-top: 1px solid #fff;
-          border-right: 2px solid $_color_table_border;
-        }
-      }
-
-      ul, ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font-spacingKilled(14, 1);
-        }
-      }
-
-      p {
-        @include g-font-spacingKilled(14, 1);
-      }
     }
 
-    > table:first-child {
-      margin-top: 0;
+    a {
+      text-decoration: underline;
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
     }
 
     hr {
@@ -97,23 +45,25 @@
       margin-top: 0;
     }
 
-    img {
-      width: 100%;
+    ul, ol {
+      a {
+        text-decoration: none;
+      }
     }
 
     ol {
       margin: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
+      margin-top: 10px;
       font-size: $baseFontSize;
       ul, ol {
-        margin-top: $_elementSpacing;
+        margin-top: 10px;
       }
 
       li {
         @include g-font-spacingKilled(16, 1);
 
         list-style-type: decimal;
-        margin-top: $_elementSpacing;
+        margin-top: 10px;
         &:first-child {
           margin-top: 0;
         }
@@ -129,6 +79,96 @@
 
     > ol:first-child {
       margin-top: 0;
+    }
+
+    > ol {
+      margin-top: 15px;
+    }
+
+    ul {
+      margin-top: 10px;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        margin: 10px 0 0;
+        background: url("../imgs/t0-b-footerUnit-navList/bg.png") 0 5px no-repeat;
+        padding: 0 0 0 18px;
+        min-width: 200px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ul {
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 15px;
+      tbody {
+        border: 2px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 10px 5px;
+        text-align: left;
+        vertical-align: middle;
+        background: #fff;
+        &:first-child {
+          color: $_color_table_td_typo;
+          background: $_color_table_th_bg;
+          border-top: 1px solid #fff;
+          border-right: 2px solid $_color_table_border;
+        }
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: $_color_table_th_bg;
+        border-top: 1px solid #fff;
+        border-right: 2px solid $_color_table_border;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    &--has-width {
+      white-space: normal;
     }
   }
 
