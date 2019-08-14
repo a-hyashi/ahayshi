@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const $ = require("gulp-load-plugins")();
 const runSequence = require('run-sequence');
 const browserSync = require('browser-sync');
-const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs-extra');
 const sassdoc = require('sassdoc');
