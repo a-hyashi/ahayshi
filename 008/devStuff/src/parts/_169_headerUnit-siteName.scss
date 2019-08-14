@@ -1,13 +1,14 @@
 @if $device == PC {
   //headerUnit-siteNameがお客さまに使われなくなった場合に消す
-  //headerUnit-siteName2が別要素としてあることで、headerUnit-siteNameのバリエーションが追加できなかったたため、headerUnit-siteTitleという別クラス名で定義し、バリエーション番号を末尾につけられるようにした。
-  //クラス名の統一性をとるため、メインエリアとフッターエリアのサイト名も同様の対応をしている。
+//headerUnit-siteName2が別要素としてあることで、headerUnit-siteNameのバリエーションが追加できなかったたため、headerUnit-siteTitleという別クラス名で定義し、バリエーション番号を末尾につけられるようにした。
+//クラス名の統一性をとるため、メインエリアとフッターエリアのサイト名も同様の対応をしている。
   .t0-b-headerUnit-siteName,
   .t0-b-headerUnit-siteTitle,
   .t0-b-headerUnit-siteTitle2 {
     white-space: nowrap;
 
     $_block: &;
+
     &--has-width {
       white-space: normal;
     }
@@ -24,6 +25,7 @@
 
     &__bd-logo {
       padding: 0 10px 0 0;
+
       img {
         display: block;
         height: 70px;
@@ -34,6 +36,7 @@
     a {
       color: #890619;
       text-decoration: none;
+
       &:hover {
         #{$_block}__bd-siteName,
         #{$_block}__bd-note {
@@ -41,7 +44,7 @@
         }
 
         img {
-          opacity: .8;
+          opacity: 0.8;
         }
       }
     }
@@ -79,6 +82,7 @@
   .t0-b-headerUnit-siteTitle2 {
     margin: 0 auto;
     display: table;
+
     &__bd > div {
       display: table;
       text-align: center;
@@ -93,6 +97,51 @@
       padding-top: 10px;
     }
   }
+
+  .t0-b-headerUnit-siteName2 {
+    $_block: &;
+
+    &__bd {
+      img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-width: 300px;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+
+      img {
+        display: block;
+        height: 40px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      color: #890619;
+      text-decoration: none;
+
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $hovercolor;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &__ft {
+      @include g-font-spacingKilled(14, 2);
+      padding: 10px 0 0;
+    }
+  }
+
 }
 
 @if $device == SP {
@@ -105,6 +154,7 @@
 
     &__bd {
       display: table;
+
       > div {
         display: table-cell;
         vertical-align: middle;
@@ -114,6 +164,7 @@
 
     &__bd-logo {
       padding: 0 10px 0 0;
+
       img {
         display: block;
         height: 40px;
@@ -164,6 +215,7 @@
   .t0-b-headerUnit-siteTitle2 {
     margin: 0 auto;
     display: table;
+
     &__bd > div {
       display: table;
       text-align: center;
@@ -176,6 +228,21 @@
 
     &__bd-textCol {
       padding-top: 10px;
+    }
+  }
+
+  .t0-b-headerUnit-siteName2 {
+    &__bd {
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &__ft {
+      @include g-font-spacingKilled(14, 2);
+
+      padding: 10px 0 0;
     }
   }
 }
