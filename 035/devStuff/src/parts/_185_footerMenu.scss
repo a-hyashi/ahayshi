@@ -201,13 +201,13 @@
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left top, left bottom, right bottom, right top;
     background-image: url("../imgs/t0-b-footerMenu/3/bg.png"), url("../imgs/t0-b-footerMenu/3/bg2.png"), url("../imgs/t0-b-footerMenu/3/bg3.png"), url("../imgs/t0-b-footerMenu/3/bg4.png");
-    background-size: 10.6px 10.6px, 10.6px 10.6px, 10.6px 10.6px, 10.6px 10.6px;
+    background-size: 11px, 11px, 11px, 11px;
     position: relative;
     > span {
       background-repeat: repeat-y, repeat-y;
       background-position: left top, right top;
       background-image: url("../imgs/t0-b-footerMenu/3/bg5.png"), url("../imgs/t0-b-footerMenu/3/bg7.png");
-      background-size: 10.6px 23px, 10.6px 23px;
+      background-size: 11px 23px, 11px 23px;
       position: absolute;
       top: 10px;
       bottom: 10px;
@@ -217,7 +217,7 @@
         background-repeat: repeat-x, repeat-x;
         background-position: left bottom, left top;
         background-image: url("../imgs/t0-b-footerMenu/3/bg6.png"), url("../imgs/t0-b-footerMenu/3/bg8.png");
-        background-size: auto 10.6px, auto 10.6px;
+        background-size: auto 11px, auto 11px;
         position: absolute;
         top: -10px;
         bottom: -10px;
@@ -228,8 +228,8 @@
           background-position: left top;
           background-image: url("../imgs/t0-b-footerMenu/3/bg9.png");
           position: absolute;
-          top: 10px;
-          bottom: 10px;
+          top: 3px;
+          bottom: 3px;
           left: 0;
           right: 0;
         }
@@ -243,7 +243,7 @@
       > ul {
         display: table;
         width: 100%;
-        padding-top: 19px;
+        padding-top: 12px;
         padding-bottom: 7px;
       }
     }
@@ -258,7 +258,7 @@
 
     .t0-b-footerMenu__item {
       display: table-cell;
-      border-left: 1px solid #333;
+      border-left: 1px solid #fff;
       vertical-align: middle;
       &:first-child {
         border-left: 0;
@@ -268,17 +268,25 @@
       div {
         text-align: center;
         padding: 2px 5px;
-        color: #333;
+        color: #fff;
         @include g-font(14, 1);
       }
     }
 
     a {
-      color: #333;
+      color: #fff;
       text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
+    }
+
+    a:hover::after {
+      content: "";
+      background-image: url("../imgs/t0-b-footerMenu/3/bg10.png");
+      background-repeat: repeat-x;
+      position: absolute;
+      bottom: -3px;
+      left: 25px;
+      right: 25px;
+      height: 10px;
     }
 
     .state-em {
@@ -291,7 +299,8 @@
       }
     }
   }
-}// PC
+}
+// PC
 
 @if $device == SP {
   .t0-b-footerMenu#{$variation1of2} {
@@ -373,6 +382,48 @@
 
       a {
         color: #7d9f0a;
+      }
+    }
+  }
+
+  .t0-b-footerMenu3 {
+    ul {
+      padding: 5px 10px;
+    }
+
+    width: auto;
+    background-color: #5b3912;
+    border: 1px solid #987042;
+    margin: 0 -15px;
+    text-align: center;
+    .t0-b-footerMenu__item {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      margin-left: 15px;
+      display: inline-block;
+      div {
+        text-align: center;
+        padding: 5px 0;
+        color: #fff;
+        @include g-font(12, 1);
+        text-decoration: underline;
+      }
+    }
+
+    a {
+      color: #fff;
+    }
+
+    .state-em {
+      div {
+        color: #aeb404;
+        font-weight: bold;
+      }
+
+      a {
+        color: #aeb404;
       }
     }
   }
