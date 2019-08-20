@@ -449,6 +449,35 @@
   .ex-align-b {
     vertical-align: bottom !important;
   }
+
+  @for $_i from 1 through 12 {
+    .b-topSpacingKiller-#{$_i}s {
+      margin-top: #{-1 * $_i * $g-spacingBaseLength}px;
+      height: 0;
+    }
+  }
+
+  // 上の余白調整
+  @for $_i from 1 through 10 {
+    .ex-topSpacingTweak-up-#{$_i}s {
+      margin-top: #{-1 * $_i * $g-spacingBaseLength}px;
+    }
+
+    .ex-topSpacingTweak-down-#{$_i}s {
+      margin-top: #{$_i * $g-spacingBaseLength}px;
+    }
+  }
+
+  // 左の余白調整
+  @for $_i from 1 through 10 {
+    .ex-leftSpacingTweak-narrow-#{$_i}s {
+      margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
+    }
+
+    .ex-leftSpacingTweak-spread-#{$_i}s {
+      margin-left: #{$_i * $g-leftSpacingBaseLength}px;
+    }
+  }
 }
 
 @if $device == SP {
@@ -905,5 +934,26 @@
 
   .ex-align-b {
     vertical-align: bottom !important;
+  }
+
+  // bPlacer
+  // SPのみ、0sと1sの値を10pxにする
+
+  @for $_i from 0 through 1 {
+    .b-bPlacer-#{$_i}s {
+      padding-bottom: 10px;
+    }
+  }
+
+  @for $_i from 2 through 6 {
+    .b-bPlacer-#{$_i}s {
+      padding-bottom: #{$_i * $g-spacingBaseLength}px;
+    }
+  }
+
+  @for $_i from 7 through 12 {
+    .b-bPlacer-#{$_i}s {
+      padding-bottom: 30px;
+    }
   }
 }
