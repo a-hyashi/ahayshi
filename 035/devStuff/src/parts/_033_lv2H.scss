@@ -403,8 +403,8 @@
 
     > span {
       height: 10px;
-      left: 44px;
-      right: 44px;
+      left: 0;
+      right: 0;
       background-repeat: no-repeat;
       background-position: left bottom, right bottom;
       background-image: url("../imgs/t0-b-lv2H/5/bg2.png"), url("../imgs/t0-b-lv2H/5/bg4.png");
@@ -723,10 +723,10 @@
     $_fontSizePx: 20;
     // lineHeightType
     $_lineHeightType: 1;
-    display: inline-block;
+    display: table;
+    margin: 0 auto;
     min-height: 60px;
     position: relative;
-    margin-left: 0;
     &::before {
       content: "";
       position: absolute;
@@ -737,7 +737,6 @@
       background-image: url("../imgs/t0-b-lv2H/4/bg.png");
       background-size: 25px;
       background-repeat: space;
-      background-position: top;
     }
 
     &::after {
@@ -750,13 +749,12 @@
       background-image: url("../imgs/t0-b-lv2H/4/bg.png");
       background-size: 25px;
       background-repeat: space;
-      background-position: bottom;
     }
 
     // 見出しに適用されるCSS
     h2 {
       @include g-font($_fontSizePx, $_lineHeightType);
-      padding: 17px 0;
+      padding: 20px 55px;
       position: relative;
     }
 
@@ -767,15 +765,21 @@
     }
 
     &--align-l {
-      text-align: left;
+      margin-left: 0;
+      h2 {
+        padding: 18px 10px 18px 0;
+      }
     }
 
     &--align-c {
-      text-align: center;
+      margin: 0　auto;
     }
 
     &--align-r {
-      text-align: right;
+      margin-right: 0;
+      h2 {
+        padding: 18px 0 18px 10px;
+      }
     }
   }
 
@@ -786,20 +790,19 @@
     $_fontSizePx: 20;
     // lineHeightType
     $_lineHeightType: 1;
-    display: inline-block;
+    display: table;
     position: relative;
     margin: 0 auto;
     color: #333;
     min-height: 48px;
-    &::before {
+    &__icon {
       content: "";
       position: absolute;
       background-image: url("../imgs/t0-b-lv2H/5/bg.png");
       background-repeat: no-repeat;
       height: 50px;
       bottom: 2px;
-      left: 0;
-      right: 0;
+      width: 50px;
     }
 
     > span {
@@ -808,7 +811,7 @@
       background-image: url("../imgs/t0-b-lv2H/5/bg2.png"), url("../imgs/t0-b-lv2H/5/bg4.png");
       position: absolute;
       height: 10px;
-      bottom: 2px;
+      bottom: 3px;
       left: 0;
       right: 0;
       > span {
@@ -836,15 +839,15 @@
     }
 
     &--align-l {
-      text-align: left;
+      margin-left: 0;
     }
 
     &--align-c {
-      text-align: center;
+      margin: 0　auto;
     }
 
     &--align-r {
-      text-align: right;
+      margin-right: 0;
     }
   }
 
@@ -856,7 +859,7 @@
     // lineHeightType
     $_lineHeightType: 1;
 
-    margin: 0 auto;
+    text-align: center;
     position: relative;
     color: #333;
     min-height: 65px;
@@ -864,7 +867,7 @@
     // 見出しに適用されるCSS
     h2 {
       @include g-font($_fontSizePx, $_lineHeightType);
-      padding: 24px 30px;
+      padding: 20px 55px;
       position: relative;
     }
 

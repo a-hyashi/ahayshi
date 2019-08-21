@@ -260,15 +260,19 @@
       display: table-cell;
       border-left: 1px solid #fff;
       vertical-align: middle;
+      //borderをつけるため//
+      position: relative;
       &:first-child {
         border-left: 0;
       }
 
-      position: relative;
       div {
         text-align: center;
         padding: 2px 5px;
         color: #fff;
+        display: table;
+        margin: 0 auto;
+        position: relative;
         @include g-font(14, 1);
       }
     }
@@ -276,17 +280,19 @@
     a {
       color: #fff;
       text-decoration: none;
-    }
-
-    a:hover::after {
-      content: "";
-      background-image: url("../imgs/t0-b-footerMenu/3/bg10.png");
-      background-repeat: repeat-x;
-      position: absolute;
-      bottom: -3px;
-      left: 25px;
-      right: 25px;
-      height: 10px;
+      &:hover {
+        div::after {
+          content: "";
+          background-image: url("../imgs/t0-b-footerMenu/3/bg10.png");
+          background-size: 10px;
+          background-repeat: repeat-x;
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          right: 0;
+          height: 10px;
+        }
+      }
     }
 
     .state-em {
