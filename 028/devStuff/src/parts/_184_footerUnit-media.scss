@@ -1,0 +1,197 @@
+@if $device == PC {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    a {
+      text-decoration: none;
+    }
+
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      a {
+        display: block;
+        color: $textcolor;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__nav {
+      margin-top: 10px;
+      padding-left: 27px;
+      background: url("../imgs/navItem/1/31.png") no-repeat 0 center;
+      color: $textcolor;
+
+      @include g-font-spacingKilled(16, 1);
+      a {
+        display: block;
+      }
+
+      > div {
+        display: inline-block;
+        background-image: url("../imgs/footer/1/4.png");
+        background-repeat: repeat-x;
+        background-position: 0 100%;
+        padding: 0 2px 3px;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-media {
+    margin: 0 auto;
+
+    $_block: &;
+    a {
+      text-decoration: none;
+    }
+
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      margin: 0 auto;
+      a {
+        display: block;
+        color: $textcolor;
+      }
+
+      img {
+        width: 100%;
+        box-sizing: border-box;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      margin: 0 auto;
+      margin-top: 10px;
+      padding-left: 27px;
+      background: url("../imgs/navItem/1/31.png") no-repeat 0 center;
+      color: $textcolor;
+
+      @include g-font-spacingKilled(16, 1);
+
+      display: table;
+      padding-bottom: 2px;
+      a {
+        display: block;
+      }
+
+      > div {
+        display: inline-block;
+        background-image: url("../imgs/footer/1/4.png");
+        background-repeat: repeat-x;
+        background-position: 0 100%;
+        padding: 0 2px 3px;
+      }
+    }
+  }
+}
