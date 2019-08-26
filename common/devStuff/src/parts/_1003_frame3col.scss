@@ -4,9 +4,7 @@
       display: flex;
     }
 
-    &__col1,
-    &__col2,
-    &__col3 {
+    &__colBasis {
       flex-basis: 100%;
     }
 
@@ -53,11 +51,18 @@
 }
 
 @if $device == SP {
-  .t0-b-frame3col {
-    &__row {
-      padding-bottom: 15px;
-      &:last-child {
-        padding-bottom: 0;
+  div[class^="t0-b-frame3col__box-"] {
+    .t0-b-frame3col {
+      &__colBasis {
+        padding-bottom: 15px;
+      }
+    }
+
+    :last-child {
+      .t0-b-frame3col {
+        &__colBasis {
+          padding-bottom: 0;
+        }
       }
     }
   }
