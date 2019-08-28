@@ -6,7 +6,7 @@
 if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
-      ./set-themes.sh ${theme##*/}
+      ./set-theme.sh ${theme##*/}
       docker-compose run web1 gulp update-parts --max_old_space_size=8192
     done
   else
