@@ -8,6 +8,7 @@
     background-repeat: no-repeat;
     background-position: right center;
     > a {
+      position: relative;
       display: block;
       box-sizing: border-box;
       padding: 0;
@@ -17,9 +18,23 @@
       background-color: #240d0d;
       border-radius: 3px;
       border: 2px solid #453103;
+      overflow: hidden;
       &:hover {
         opacity: .8;
         color: $hovercolor;
+      }
+
+      &::before {
+        position: absolute;
+        pointer-events: none;
+        display: block;
+        width: 120px;
+        content: "";
+        top: -50px;
+        bottom: -50px;
+        left: -40px;
+        box-shadow: inset 0 0 14px 24px #240d0d;
+        z-index: 1;
       }
 
       > div {
@@ -64,6 +79,20 @@
       position: relative;
       border-radius: 3px;
       border: 2px solid #453103;
+      overflow: hidden;
+      &::before {
+        position: absolute;
+        pointer-events: none;
+        display: block;
+        width: 120px;
+        content: "";
+        top: -50px;
+        bottom: -50px;
+        left: -40px;
+        box-shadow: inset 0 0 14px 24px #240d0d;
+        z-index: 1;
+      }
+
       &::after {
         content: "";
         background-repeat: no-repeat;
@@ -98,16 +127,6 @@
         display: block;
         width: 70px;
       }
-
-      &::after {
-        position: absolute;
-        pointer-events: none;
-        display: block;
-        content: "";
-        top: -50px;
-        bottom: -50px;
-        box-shadow: inset 0 0 14px 24px #240d0d;
-      }
     }
 
     &__text {
@@ -124,7 +143,6 @@
 
       #{$_block}__text {
         padding-right: 25px;
-        position: relative;
         text-align: right;
         &::before {
           content: "";
@@ -163,6 +181,14 @@
       }
     }
 
+    &--imgR > a,
+    &--imgR > div {
+      &::before {
+        left: auto;
+        right: -40px;
+      }
+    }
+
     &--imgR > a > div,
     &--imgR > div {
       &::after {
@@ -172,7 +198,6 @@
 
       #{$_block}__text {
         padding-left: 25px;
-        position: relative;
         &::before {
           content: "";
           display: block;
@@ -259,7 +284,6 @@
       > div {
         display: table;
         width: 100%;
-        position: relative;
         > span {
           pointer-events: none;
         }
@@ -330,7 +354,6 @@
         background: url("../imgs/main/2/7.png");
         background-repeat: repeat-y;
         background-position: 100% 100%;
-        position: relative;
         text-align: right;
         &::before {
           content: "";
@@ -378,7 +401,6 @@
         background: url("../imgs/main/2/7-2.png");
         background-repeat: repeat-y;
         background-position: 0 100%;
-        position: relative;
         &::before {
           content: "";
           display: block;
