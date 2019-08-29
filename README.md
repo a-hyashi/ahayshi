@@ -204,13 +204,6 @@ SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materi
 
 <br>
 
-### CSSをACRE-themeにコピー
-```sh
-$ ./output.sh
-```
-`ACRE-theme/acre/`内に、`themes/`と`theme_materials/`がコピーされます。
-
-<br>
 
 ### 整形・コーディングスタイルのチェック
 ```sh
@@ -273,6 +266,15 @@ $ ./build.sh 2 3
 $ ./build.sh all
 ```
 allを指定した場合、コンテナに関係なく全てのテーマで実行
+
+<br>
+
+### ACRE-themeへの出力
+
+masterブランチへマージすると自動でcircleCIのジョブが登録されます。  
+承認するまで実行されないので、circleCIの画面からWorkflowsを承認してください。  
+しばらくすると、ACRE-themeにブランチが作成されます。  
+ブランチ名に実行日時が入っているので、対象のブランチをマージしてください。
 
 <br>
 <br>
@@ -349,6 +351,7 @@ html_templates_dirをACRE-theme内の対象テーマの部品があるフォル�
 `_docker-compose.yml`を複製して使うようにしているので、このファイルを変更してください。
 
 <br>
+
 
 ### 関連資料
 
