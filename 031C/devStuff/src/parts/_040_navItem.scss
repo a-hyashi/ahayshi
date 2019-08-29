@@ -993,7 +993,7 @@
     $_textColor: #52271c;
 
     // .ex-imageFloatと.t0-b-twoColsMediaの組み合わせの中で、ホバーアニメーションで上に移動した分文字が見切れるため、移動する分の余白を持たせておく
-    padding-top: 4px;
+    padding-top: 7px;
     // ホバーアニメーションで右に移動する分の余白を持たせておく
     padding-right: 10px;
     // 下線がbPlacerの余白の中に入り込まないための余白
@@ -1010,30 +1010,20 @@
         &:hover {
           > div {
             position: relative;
-            top: -4px;
+            top: -9px;
             color: #905a4c;
           }
 
-          &::before,
-          &::after {
+          &::before {
+            content: "";
             position: absolute;
-            bottom: -2px;
             left: 10px;
             display: inline-block;
             width: 100%;
-            content: "";
-          }
-
-          &::before {
             height: 100%;
-            background-image: url("../imgs/common/navItem002/Link_arrow008_size5_v7.png");
+            background-image: url("../imgs/common/navItem002/Link_arrow008.svg");
             background-repeat: no-repeat;
             background-position: right bottom;
-          }
-
-          &::after {
-            height: 2px;
-            background-color: #a5c747;
           }
         }
       }
@@ -1043,35 +1033,24 @@
       position: relative;
       box-sizing: border-box;
       display: inline-block;
-      padding: 0 26px 0 10px;
+      padding: 0 28px 0 8px;
       > div {
         position: relative;
-        top: -2px;
-        transition: .3s;
-      }
-
-      &::before,
-      &::after {
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        display: inline-block;
-        width: 100%;
-        content: "";
+        top: -7px;
         transition: .3s;
       }
 
       &::before {
+        content: "";
+        transition: .3s;
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        width: 100%;
         height: 100%;
-        background-image: url("../imgs/common/navItem002/Link_arrow007_size5_v7.png");
+        background-image: url("../imgs/common/navItem002/Link_arrow007.svg");
         background-repeat: no-repeat;
         background-position: right bottom;
-        background-size: 130px 14px;
-      }
-
-      &::after {
-        height: 2px;
-        background-color: #52271c;
       }
 
       > div {
@@ -1083,18 +1062,18 @@
     &--size-1 {
       @include g-font($_fontSizePx_ss, $_lineHeightType);
       #{$_block}__inner {
-        padding: 0 22px 0 10px;
+        padding: 0 24px 0 8px;
         &::before {
-          background-image: url("../imgs/common/navItem002/Link_arrow007_size1_v7.png");
-          background-size: 105px 10px;
+          background-image: url("../imgs/common/navItem002/Link_arrow007_02.svg");
         }
       }
 
       a {
         #{$_block}__inner {
           &:hover {
+            padding: 0 24px 0 8px;
             &::before {
-              background-image: url("../imgs/common/navItem002/Link_arrow008_size1_v7.png");
+              background-image: url("../imgs/common/navItem002/Link_arrow008_02.svg");
             }
           }
         }
@@ -1104,10 +1083,9 @@
     &--size-2 {
       @include g-font($_fontSizePx_s, $_lineHeightType);
       #{$_block}__inner {
-        padding: 0 24px 0 10px;
+        padding: 0 26px 0 8px;
         &::before {
-          background-image: url("../imgs/common/navItem002/Link_arrow007_size2_v7.png");
-          background-size: 115px 12px;
+          background-image: url("../imgs/common/navItem002/Link_arrow007_01.svg");
         }
       }
 
@@ -1115,28 +1093,7 @@
         #{$_block}__inner {
           &:hover {
             &::before {
-              background-image: url("../imgs/common/navItem002/Link_arrow008_size2_v7.png");
-            }
-          }
-        }
-      }
-    }
-
-    &--size-3 {
-      @include g-font($_fontSizePx_m, $_lineHeightType);
-      #{$_block}__inner {
-        padding: 0 26px 0 10px;
-        &::before {
-          background-image: url("../imgs/common/navItem002/Link_arrow007_size3_v7.png");
-          background-size: 130px 14px;
-        }
-      }
-
-      a {
-        #{$_block}__inner {
-          &:hover {
-            &::before {
-              background-image: url("../imgs/common/navItem002/Link_arrow008_size3_v7.png");
+              background-image: url("../imgs/common/navItem002/Link_arrow008_01.svg");
             }
           }
         }
@@ -1146,10 +1103,9 @@
     &--size-4 {
       @include g-font($_fontSizePx_l, $_lineHeightType);
       #{$_block}__inner {
-        padding: 0 28px 0 10px;
+        padding: 0 30px 0 8px;
         &::before {
-          background-image: url("../imgs/common/navItem002/Link_arrow007_size4_v7.png");
-          background-size: 145px 17px;
+          background-image: url("../imgs/common/navItem002/Link_arrow007.svg");
         }
       }
 
@@ -1157,7 +1113,7 @@
         #{$_block}__inner {
           &:hover {
             &::before {
-              background-image: url("../imgs/common/navItem002/Link_arrow008_size4_v7.png");
+              background-image: url("../imgs/common/navItem002/Link_arrow008.svg");
             }
           }
         }
@@ -1167,10 +1123,9 @@
     &--size-5 {
       @include g-font($_fontSizePx_ll, $_lineHeightType);
       #{$_block}__inner {
-        padding: 0 30px 0 10px;
+        padding: 0 32px 0 8px;
         &::before {
-          background-image: url("../imgs/common/navItem002/Link_arrow007_size5_v7.png");
-          background-size: 159px 20px;
+          background-image: url("../imgs/common/navItem002/Link_arrow007.svg");
         }
       }
 
@@ -1178,7 +1133,7 @@
         #{$_block}__inner {
           &:hover {
             &::before {
-              background-image: url("../imgs/common/navItem002/Link_arrow008_size5_v7.png");
+              background-image: url("../imgs/common/navItem002/Link_arrow008.svg");
             }
           }
         }
@@ -1566,29 +1521,19 @@
       position: relative;
       display: inline-block;
       // 文字が空でも矢印装飾が欠けないようにするためのmin-height
-      min-height: 8px;
-      padding: 0 46px *.5 4px 22px *.5;
-      &::before,
-      &::after {
+      min-height: 21px;
+      padding: 0 28px 5px 8px;
+      &::before {
+        content: "";
         position: absolute;
         bottom: 0;
         left: 0;
         display: inline-block;
         width: 100%;
-        content: "";
-      }
-
-      &::before {
         height: 100%;
-        background-image: url("../imgs/common/navItem002/Link_arrow007_size3_v7.png");
+        background-image: url("../imgs/common/navItem002/Link_arrow007.svg");
         background-repeat: no-repeat;
         background-position: right bottom;
-        background-size: 240px *.5 26px *.5;
-      }
-
-      &::after {
-        height: 2px;
-        background-color: #52271c;
       }
     }
 
