@@ -1,0 +1,97 @@
+@if $device == PC {
+  .t0-b-iconText-mail {
+    $_block: &;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &__bd {
+      color: $textcolor;
+      font-weight: bold;
+    }
+
+    a {
+      display: table-cell;
+      text-align: left;
+      color: #6e1200;
+      padding-bottom: 1px;
+      &:hover {
+        color: $hovercolor2;
+      }
+    }
+
+    &__icon {
+      display: table-cell;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    &--size-1 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(16, 1);
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+      }
+
+      #{$_block}__icon {
+        width: 32px;
+        height: 16px;
+        margin: 0 4px 0 0;
+        background: url("../imgs/Icons/1.png") no-repeat 0 center;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-iconText-mail {
+    text-align: center;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &__bd {
+      color: $textcolor;
+      font-weight: bold;
+
+      @include g-font-spacingKilled(16, 1);
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+    }
+
+    a {
+      display: table-cell;
+      color: #6e1200;
+      padding-bottom: 1px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: table-cell;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 16px;
+      margin: 0 4px 0 0;
+      background: url("../imgs/Icons/1.png") no-repeat 0 center;
+    }
+  }
+}
