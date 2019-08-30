@@ -6,17 +6,39 @@ $g-baseBackgroundColor: #fff;
 $g-baseHoverColor: #4c8fc8;
 $textcolor: $g-baseFontColor;
 $hovercolor: $g-baseHoverColor;
-body.mod-body,
-div.mod-body {
-  font-weight: 500;
-  font-size: $baseFontSize;
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
-  color: #4d4d4d;
-}
 
-.cms-admin-anchorFlag {
-  position: relative;
-  z-index: 10 !important;
+@if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+    font-size: $baseFontSize;
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    color: #4d4d4d;
+  }
+
+  .cms-admin-anchorFlag {
+    position: relative;
+    z-index: 10 !important;
+  }
+
+  a {
+    color: inherit;
+    &:hover {
+      color: $hovercolor;
+    }
+  }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 $g-spacingBaseLength: 5;
@@ -70,27 +92,6 @@ $frameSpacingPC-s: 10px;
 $frameSpacingSP-l: 50px;
 $frameSpacingSP-m: 25px;
 $frameSpacingSP-s: 10px;
-
-@if $device == PC {
-  a {
-    color: inherit;
-    &:hover {
-      color: $hovercolor;
-    }
-  }
-
-  .cms-partsConfig-width-m {
-    width: 75%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .cms-partsConfig-width-s {
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
 
 @if $device == SP {
   $baseFontSize: 14px;
