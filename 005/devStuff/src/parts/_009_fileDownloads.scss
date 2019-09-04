@@ -1,0 +1,134 @@
+@if $device == PC {
+  .t0-b-fileDownloads {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #0e2753;
+      &:hover {
+        color: #4c8fc8;
+        text-decoration: underline;
+      }
+    }
+
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    #{$_block}__itemIcon {
+      padding: 0 15px 0 0;
+    }
+
+    #{$_block}__itemText {
+      @include g-font(14, 1);
+
+      font-weight: bold;
+    }
+  }
+
+  .b-downloadIcon {
+    $_block: &;
+    @mixin _icon($file,$mag) {
+      &--#{$file} {
+        $_src: "b-downloadIcon/#{$file}.png";
+        width: 44px*$mag;
+        height: 48px*$mag;
+        background-image: url("../imgs/#{$_src}");
+        background-repeat: no-repeat;
+        background-size: 44px*$mag 48px*$mag;
+      }
+    }
+    @include _icon("pdf",1);
+    @include _icon("doc",1);
+    @include _icon("xls",1);
+    @include _icon("img",1);
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@if $device == SP {
+  .t0-b-fileDownloads {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #0e2753;
+    }
+
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    #{$_block}__itemIcon {
+      padding: 0 10px 0 0;
+    }
+
+    #{$_block}__itemText {
+      @include g-font(16, 1);
+      font-weight: bold;
+    }
+  }
+
+  .b-downloadIcon {
+    @mixin _icon($file) {
+      &--#{$file} {
+        $_src: "b-downloadIcon/#{$file}.png";
+
+        background: url("../imgs/#{$_src}") 0 0 no-repeat;
+        width: 44px;
+        height: 48px;
+      }
+    }
+
+    display: inline-block;
+    vertical-align: middle;
+
+    @include _icon("pdf");
+    @include _icon("doc");
+    @include _icon("xls");
+    @include _icon("img");
+  }
+}
