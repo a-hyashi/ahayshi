@@ -6,7 +6,7 @@
 if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
-      ./set-theme.sh ${theme##*/}
+      ./set-themes.sh ${theme##*/}
       docker-compose run web1 gulp output
     done
   else
