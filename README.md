@@ -67,7 +67,7 @@ Macの上部にアイコンが表示されていればOK
 ```sh
 $ cd （buddy-themeフォルダの場所）
 $ ./set-themes.sh 031
-$ docker-compose run web1 npm install
+$ docker-compose run web1 npm ci
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
 
