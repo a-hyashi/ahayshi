@@ -17,11 +17,11 @@ $g-baseHoverColor: #45b1c7;
 $g-linkHoverColor1: #ffd7d7;
 $g-linkHoverColor2: #bf003a;
 
-$fullWidthBgColor: #b4dde5;
-$fullWidthBgColor2: #fff8dd;
-$fullWidthBgColor3: #fee;
-$fullWidthBgColor4: #37a1b7;
-$fullWidthBgColor5: #fff;
+$fullWidthBgColor: rgba(#fbf5e9, .5);
+$fullWidthBgColor2: rgba(#f9efe3, .5);
+$fullWidthBgColor3: rgba(#ffebeb, .5);
+$fullWidthBgColor4: rgba(#d4c4b9, .5);
+$fullWidthBgColor5: transparent;
 
 $frameSpacingPC-l: 50px;
 $frameSpacingPC-m: 25px;
@@ -46,17 +46,12 @@ $_free_hg: 31px;
 $_cell_wd: 22px;
 $_cell_hg: 38px;
 
-html {
-  font-size: $g-baseFontSize;
-}
-
 body.mod-body,
 div.mod-body {
   font-size: $baseFontSize;
   font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
   color: $g-baseLinkColor;
 }
-
 a {
   color: $g-baseLinkColor;
   text-decoration: underline;
@@ -104,6 +99,10 @@ a {
 }
 
 @if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+  }
   a {
     &:hover {
       color: $hovercolor;
@@ -119,11 +118,5 @@ a {
     width: 50%;
     margin-right: auto;
     margin-left: auto;
-  }
-}
-
-@if $device == SP {
-  span {
-    font-size: inherit !important;
   }
 }
