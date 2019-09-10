@@ -66,8 +66,8 @@ Macの上部にアイコンが表示されていればOK
 3. 以下のコマンドを実行
 ```sh
 $ cd （buddy-themeフォルダの場所）
-$ ./set-theme.sh 031
-$ docker-compose run web1 npm install
+$ ./set-themes.sh 031
+$ docker-compose run web1 npm ci
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
 
@@ -87,14 +87,14 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 ### テーマの設定
 
 ```sh
-$ ./set-theme.sh (テーマ名)
+$ ./set-themes.sh (テーマ名)
 ```
 
 テーマは複数設定することもでき、1から順にコンテナに割り当てられます。  
 2〜3個を想定していますが、9個まで設定可能です。  
 ただし多いほど処理に時間がかかるので、不要なテーマを含まないよう注意してください。  
 ```sh
-$ ./set-theme.sh 031 031A 031B
+$ ./set-themes.sh 031 031A 031B
 ```
 
 ```
