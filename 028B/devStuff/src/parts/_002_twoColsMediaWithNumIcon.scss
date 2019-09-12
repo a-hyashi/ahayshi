@@ -1,0 +1,896 @@
+@if $device == PC {
+  .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
+    $_block: &;
+
+    margin-bottom: 20px;
+    &__hd {
+      a {
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+    }
+
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    &__numIcon {
+      a {
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-bd {
+      width: 100%;
+      padding-left: 9px;
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(16, 1);
+
+      padding: 0 0 #{$_elementSpacing};
+      padding-left: 8px;
+      padding-right: 90px;
+    }
+
+    &__numIcon-h {
+      @include g-font-spacingKilled(26, 1);
+
+      font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      padding-bottom: 13px;
+      border-bottom: dashed 0 #555;
+      padding-left: 8px;
+      padding-right: 90px;
+      background-repeat: repeat-x;
+      background-position: 10px 100%;
+      background-size: 5px 4px;
+      background-image: url("../imgs/waku/1/4-2.png");
+      position: relative;
+      &::before {
+        content: "";
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% 100%;
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        background-image: url("../imgs/waku/1/4-3.png");
+        width: 86px;
+        height: 36px !important;
+        bottom: -10px;
+        right: 4px;
+      }
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(16, 1);
+
+      padding: #{$_elementSpacing} 0 0;
+      padding-left: 8px;
+      padding-right: 90px;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+
+    &__box {
+      padding: 25px 0 0 57px;
+      position: relative;
+      > span {
+        top: 15px;
+        bottom: 35px;
+        left: 28px;
+        width: 3px;
+        background-image: url("../imgs/waku/1/4-1.png");
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 3px 100%;
+        position: absolute;
+        pointer-events: none;
+      }
+    }
+
+    &__icon {
+      width: 59px;
+      height: 59px;
+      background-image: url("../imgs/Icons/pc/1-1.png");
+      background-repeat: no-repeat;
+      display: inline-block;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @for $i from 0 through 10 {
+        &--concept-#{$i} {
+          background-position: (-59px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--houshin-#{$i} {
+          background-position: (-118px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--kodawari-#{$i} {
+          background-position: (-177px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--merit-#{$i} {
+          background-position: (-236px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--oyakusoku-#{$i} {
+          background-position: (-295px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--point-#{$i} {
+          background-position: (-354px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--riyu-#{$i} {
+          background-position: (-413px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho-#{$i} {
+          background-position: (-531px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho2-#{$i} {
+          background-position: (-590px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tsuyomi-#{$i} {
+          background-position: (-649px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--step-#{$i} {
+          background-position: (-472px) 0;
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #fff;
+            font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+            font-weight: 400;
+            text-indent: 0;
+            text-align: center;
+            padding-top: 25px;
+
+            @include g-font-spacingKilled(20, 0);
+
+            text-shadow: (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #fff;
+          font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+          font-weight: 400;
+          text-indent: 0;
+          text-align: center;
+          padding-top: 25px;
+
+          @include g-font-spacingKilled(20, 0);
+
+          text-shadow: (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600;
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
+    $_block: &;
+
+    margin-bottom: 20px;
+
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    &__numIcon {
+      a {
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      display: table;
+      padding: 0;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-bd {
+      width: 100%;
+      padding-left: 14px;
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(16, 1);
+
+      padding: 0 0 #{$_elementSpacing} 8px;
+    }
+
+    &__numIcon-h {
+      @include g-font-spacingKilled(26, 1);
+
+      font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      padding-left: 8px;
+      padding-bottom: 12px;
+      border-bottom: #644907 solid 1px;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(16, 1);
+
+      padding: #{$_elementSpacing} 0 5px 8px;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-spacingKilled(24, 1);
+    }
+
+    &__box {
+      padding: 20px 0 0 57px;
+      position: relative;
+      > span {
+        top: 15px;
+        bottom: 35px;
+        left: 23px;
+        width: 5px;
+        background-image: url("../imgs/waku/2/2.png");
+        background-repeat: repeat-y;
+        background-position: 0 0;
+        background-size: 5px 5px;
+        position: absolute;
+        pointer-events: none;
+      }
+    }
+
+    &__icon {
+      width: 52px;
+      height: 62px;
+      background-image: url("../imgs/Icons/pc/1-2.png");
+      background-repeat: no-repeat;
+      display: inline-block;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      background-position: 0 0;
+
+      @for $i from 0 through 10 {
+        &--concept-#{$i} {
+          background-position: (-52px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--houshin-#{$i} {
+          background-position: (-104px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--kodawari-#{$i} {
+          background-position: (-156px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--merit-#{$i} {
+          background-position: (-208px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--oyakusoku-#{$i} {
+          background-position: (-260px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--point-#{$i} {
+          background-position: (-312px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--riyu-#{$i} {
+          background-position: (-364px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho-#{$i} {
+          background-position: (-468px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho2-#{$i} {
+          background-position: (-520px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tsuyomi-#{$i} {
+          background-position: (-572px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--step-#{$i} {
+          background-position: (-416px) 0;
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #fff;
+            text-indent: 0;
+            font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+            font-weight: 400;
+            text-align: center;
+            padding-top: 25px;
+
+            @include g-font-spacingKilled(20, 0);
+
+            text-shadow: (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #fff;
+          text-indent: 0;
+          font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+          font-weight: 400;
+          text-align: center;
+          padding-top: 25px;
+
+          @include g-font-spacingKilled(20, 0);
+
+          text-shadow: (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907;
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
+    $_block: &;
+
+    margin-bottom: 20px;
+
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    > * {
+      vertical-align: middle;
+    }
+
+    &__numIcon {
+      padding-bottom: 14px;
+      display: table;
+      a {
+        text-decoration: none;
+      }
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-bd {
+      width: 100%;
+      padding-left: 9px;
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(14, 1);
+
+      padding: 0 0 6px;
+      padding-left: 10px;
+      padding-right: 90px;
+    }
+
+    &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+
+      font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      padding-bottom: 11px;
+      border-bottom: dashed 0 #555;
+      padding-left: 10px;
+      padding-right: 90px;
+      background-repeat: repeat-x;
+      background-position: 10px 100%;
+      background-size: 5px 4px;
+      background-image: url("../imgs/waku/1/4-2.png");
+      position: relative;
+      &::before {
+        content: "";
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% 100%;
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        background-image: url("../imgs/waku/1/4-3.png");
+        width: 86px;
+        height: 36px !important;
+        bottom: -10px;
+        right: 4px;
+      }
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(14, 1);
+
+      padding: #{$_elementSpacing} 0;
+      padding-left: 10px;
+      padding-right: 90px;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+    }
+
+    &__box {
+      padding: 10px 0 0 50px;
+      position: relative;
+      > span {
+        top: 15px;
+        bottom: 35px;
+        left: 23px;
+        width: 3px;
+        background-image: url("../imgs/waku/1/4-1.png");
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 3px 100%;
+        position: absolute;
+        pointer-events: none;
+      }
+    }
+
+    &__icon {
+      width: 50px;
+      height: 50px;
+      background-image: url("../imgs/Icons/sp/1-1.png");
+      background-repeat: no-repeat;
+      display: inline-block;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      vertical-align: middle;
+
+      @for $i from 0 through 10 {
+        &--concept-#{$i} {
+          background-position: (-50px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--houshin-#{$i} {
+          background-position: (-100px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--kodawari-#{$i} {
+          background-position: (-150px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--merit-#{$i} {
+          background-position: (-200px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--oyakusoku-#{$i} {
+          background-position: (-250px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--point-#{$i} {
+          background-position: (-300px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--riyu-#{$i} {
+          background-position: (-350px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho-#{$i} {
+          background-position: (-450px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho2-#{$i} {
+          background-position: (-500px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tsuyomi-#{$i} {
+          background-position: (-550px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--step-#{$i} {
+          background-position: (-400px) 0;
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #fff;
+            text-indent: 0;
+            font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+            font-weight: 400;
+            text-align: center;
+            padding-top: 20px;
+
+            @include g-font-spacingKilled(20, 0);
+
+            text-shadow: (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600;
+          }
+        }
+
+        &__icon--#{$_type}-10 {
+          &::before {
+            content: "10";
+            display: block;
+            color: #fff;
+            text-indent: 0;
+            font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+            font-weight: 400;
+            text-align: center;
+            padding-top: 20px;
+
+            @include g-font-spacingKilled(20, 0);
+
+            text-shadow: (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600, (-1px) -1px 1px #1d4600, 1px -1px 1px #1d4600, -1px 1px 1px #1d4600, 1px 1px 1px #1d4600;
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
+    $_block: &;
+
+    margin-bottom: 20px;
+
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    > * {
+      vertical-align: middle;
+    }
+
+    &__numIcon {
+      a {
+        text-decoration: none;
+      }
+
+      display: table;
+      padding: 0;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-bd {
+      width: 100%;
+      padding-left: 9px;
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font-spacingKilled(14, 1);
+
+      padding: 0 0 6px 5px;
+    }
+
+    &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+
+      font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      padding-left: 5px;
+      padding-bottom: 8px;
+      border-bottom: #644907 solid 1px;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font-spacingKilled(14, 1);
+
+      padding: #{$_elementSpacing} 0 5px 5px;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font-spacingKilled(18, 1);
+    }
+
+    &__box {
+      padding: 10px 0 0 50px;
+      position: relative;
+      > span {
+        top: 15px;
+        bottom: 35px;
+        left: 19px;
+        width: 5px;
+        background-image: url("../imgs/waku/2/2.png");
+        background-repeat: repeat-y;
+        background-position: 0 0;
+        background-size: 5px 5px;
+        position: absolute;
+        pointer-events: none;
+      }
+    }
+
+    &__icon {
+      width: 43px;
+      height: 50px;
+      background-image: url("../imgs/Icons/sp/1-2.png");
+      background-repeat: no-repeat;
+      display: inline-block;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+      vertical-align: middle;
+
+      @for $i from 0 through 10 {
+        &--concept-#{$i} {
+          background-position: (-43px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--houshin-#{$i} {
+          background-position: (-86px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--kodawari-#{$i} {
+          background-position: (-129px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--merit-#{$i} {
+          background-position: (-172px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--oyakusoku-#{$i} {
+          background-position: (-215px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--point-#{$i} {
+          background-position: (-258px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--riyu-#{$i} {
+          background-position: (-301px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho-#{$i} {
+          background-position: (-387px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tokucho2-#{$i} {
+          background-position: (-430px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--tsuyomi-#{$i} {
+          background-position: (-473px) 0;
+        }
+      }
+
+      @for $i from 0 through 10 {
+        &--step-#{$i} {
+          background-position: (-344px) 0;
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #fff;
+            text-indent: 0;
+            font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+            font-weight: 400;
+            text-align: center;
+            padding-top: 20px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-shadow: (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907;
+          }
+        }
+
+        &__icon--#{$_type}-10 {
+          &::before {
+            content: "10";
+            display: block;
+            color: #fff;
+            text-indent: 0;
+            font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+            font-weight: 400;
+            text-align: center;
+            padding-top: 20px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-shadow: (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907, (-1px) -1px 1px #644907, 1px -1px 1px #644907, -1px 1px 1px #644907, 1px 1px 1px #644907;
+          }
+        }
+      }
+    }
+    &__numIcon-bd--align-l {
+      text-align: left;
+    }
+
+    &__numIcon-bd--align-c {
+      text-align: center;
+    }
+
+    &__numIcon-bd--align-r {
+      text-align: right;
+    }
+  }
+}

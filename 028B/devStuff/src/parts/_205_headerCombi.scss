@@ -1,0 +1,136 @@
+@if $device == PC {
+  .t0-b-headerCombi,
+  .t0-b-headerCombi1 {
+    $_width_content: 1000px;
+    $_color_hd_typo: $textcolor;
+    $_color_hd_bg: #666;
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+
+    background: url("../imgs/header/1/10-1.png") repeat-x left top;
+    position: relative;
+    padding-bottom: 15px;
+    * {
+      position: relative;
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      display: block;
+      position: absolute;
+      pointer-events: none;
+      background-image: url("../imgs/header/1/10-2.png");
+      width: 152px;
+      height: 236px;
+      top: 0;
+      left: 0;
+    }
+
+    &::before {
+      content: "";
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      display: block;
+      position: absolute;
+      pointer-events: none;
+      background-image: url("../imgs/header/1/10-3.png");
+      width: 153px;
+      height: 217px;
+      top: 0;
+      right: 0;
+    }
+
+    &__hd {
+      color: $_color_hd_typo;
+      padding: 10px 0;
+      font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      > p {
+        width: $_width_content;
+        margin: 0 auto;
+
+        @include g-font-spacingKilled(14, 1);
+      }
+    }
+
+    &__bd {
+      > div {
+        display: table;
+        width: $_width_content;
+        margin: 0 auto;
+        font-family: YuMincho, "游明朝", "メイリオ", "Meiryo", serif;
+        font-weight: 400;
+        > div {
+          display: table-cell;
+          text-align: left;
+          vertical-align: top;
+          padding-top: 20px;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
+    }
+
+    &__col2 {
+      padding: $_colSpacing;
+      padding-top: 20px;
+      padding-bottom: 0;
+    }
+
+    &__col3 {
+      padding-left: $_colSpacing;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerCombi,
+  .t0-b-headerCombi1 {
+    margin: 0 -15px;
+
+    $_color_hd_typo: #fff;
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+
+    padding-top: 5px;
+    color: $textcolor;
+    &__hd {
+      padding: 5px;
+      margin-bottom: 10px;
+      color: $textcolor;
+      > p {
+        width: 100%;
+        margin: 0 auto;
+
+        @include g-font-spacingKilled(14, 1);
+      }
+    }
+
+    &__bd {
+      padding: 0 15px;
+      > div {
+        width: 100%;
+        margin: 0 auto;
+        > div {
+          text-align: left;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
+    }
+
+    &__col2 {
+      width: 100%;
+    }
+
+    &__col3 {
+      width: 100%;
+    }
+  }
+}
