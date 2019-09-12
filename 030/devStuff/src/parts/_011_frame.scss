@@ -1,21 +1,49 @@
 @if $device == PC {
-  .t0-b-frame2 {
-    &__bd {
-      padding: 2.5% 2.5% 1%;
-      margin-bottom: 2%;
-      background: #fff;
-      border: 1px solid #cfdbdf;
-    }
-
-    &__ft {
-      margin-top: 2%;
-    }
-  }
-
   .t0-b-frameTransparency {
     min-height: 30px;
+  
+    &__hd {
+      padding-bottom: 15px;
+    }
+  
     &__bd {
-      padding: 0;
+      padding: 0 #{3 * $g-leftSpacingBaseLength}px;
+    }
+  }
+  
+  .t0-b-frame {
+    &__hd {
+      padding-bottom: 15px;
+    }
+    &__bd {
+      padding: 0 #{3 * $g-leftSpacingBaseLength}px;
+    }
+  }
+  
+  .t0-b-frame2 {
+    margin-bottom: 20px;
+  
+    &__bd {
+      padding: 32px 32px 10px;
+      background: url("../imgs/t0-b-frame/bg.png") no-repeat left top, url("../imgs/t0-b-frame/bg.png") no-repeat left bottom;
+      background-size: 100% 1px;
+      position: relative;
+  
+      > span {
+        position: absolute;
+        pointer-events: none;
+        top: 2px;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        background: radial-gradient(ellipse farthest-side at top, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.85) 70%), url("../imgs/t0-b-footerMenu/bg.png") repeat left top;
+        z-index: 0;
+      }
+  
+      > * {
+        position: relative;
+        z-index: 1;
+      }
     }
   }
 }
@@ -23,17 +51,28 @@
 @if $device == SP {
   .t0-b-frame2 {
     margin: 0 -5px;
-    &__hd {
-    }
-
+    margin-bottom: 20px;
     &__bd {
       padding: 20px 20px 10px;
-      background: #fff;
-      border: 1px solid #cfdbdf;
-    }
-
-    &__ft {
-      margin-top: 20px;
+      background: url("../imgs/t0-b-frame/bg.png") no-repeat left top, url("../imgs/t0-b-frame/bg.png") no-repeat left bottom;
+      background-size: 100% 1px;
+      position: relative;
+  
+      > span {
+        position: absolute;
+        pointer-events: none;
+        top: 2px;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        background: radial-gradient(ellipse farthest-side at top, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.85) 70%), url("../imgs/t0-b-frame/bg4.png") no-repeat center top;
+        background-size: 100% auto;
+        z-index: 0;
+      }
+      > * {
+        position: relative;
+        z-index: 1;
+      }
     }
   }
 }
