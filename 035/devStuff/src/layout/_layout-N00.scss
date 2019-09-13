@@ -1,7 +1,6 @@
 $areaContainerWidth: 1062px;
 $areaMainWidth: 1062px;
 $areaSubWidth: 320px;
-
 .area-all {
   margin: 0 auto;
   word-break: break-all;
@@ -18,7 +17,6 @@ $areaSubWidth: 320px;
   margin-right: auto;
   padding-top: 20px;
   *zoom: 1;
-
   &::before,
   &::after {
     content: '';
@@ -30,13 +28,15 @@ $areaSubWidth: 320px;
   }
 }
 
-
 .area-main {
   box-sizing: border-box;
   padding: 0 0 50px;
   margin: 0 auto;
   min-height: 100px;
   width: $areaMainWidth;
+  //デフォルトの背景より上にユーザー側が選択した画像を表示させる為、重ね順を規定
+  position: relative;
+  z-index: 0;
 }
 
 .area-sub {
@@ -48,4 +48,7 @@ $areaSubWidth: 320px;
   background-repeat: repeat-x, repeat;
   background-position: left top, left top;
   padding: 25px 0 0;
+  //デフォルトの背景より上にユーザー側が選択した画像を表示させる為、重ね順を規定
+  position: relative;
+  z-index: 0;
 }
