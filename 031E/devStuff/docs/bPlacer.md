@@ -27,6 +27,7 @@
 |01.見出し|main|033_大見出し|.t0-b-lv2H|12|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|13|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|14|2%||10px|
+|01.見出し|main|033_大見出し|.t0-b-lv2H|15|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation1of2}|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|#{$variation2of2}|2%||10px|
 |01.見出し|main|034_中見出し|.t0-b-lv3H|3|2%||10px|
@@ -174,6 +175,9 @@
 |06.ナビゲーション|main|040_誘導リンク|.t0-b-navItemDouble||2%||10px|
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned||4%||35px|
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned|2|4%||35px|
+|06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned|3|4%||35px|
+|06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned|4|4%||35px|
+|06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptioned|5|4%||35px|
 |06.ナビゲーション|main|041_誘導リンク（補足付）|.t0-b-navItemCaptionedDouble||2%||10px|
 |06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned||4%||35px|
 |06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned|2|4%||35px|
@@ -201,6 +205,9 @@
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble||2%||25px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|#{$variation2of2}|4%||35px|
+|06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|3|4%||35px|
+|06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|4|4%||35px|
+|06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|5|4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptionedDouble||2%||10px|
 |06.ナビゲーション|main|064_誘導バナー（上下補足付）|.t0-b-navBItem2Captioned|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|main|064_誘導バナー（上下補足付）|.t0-b-navBItem2Captioned|#{$variation2of2}|4%||35px|
