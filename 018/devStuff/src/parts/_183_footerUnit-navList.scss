@@ -1,0 +1,395 @@
+@if $device == PC {
+  .t0-b-footerUnit-navList {
+    @include g-rteTableReset;
+    color: #fff;
+    a {
+      text-decoration: underline;
+      color: #fff;
+      &:hover {
+        color: #d4d1ca;
+      }
+    }
+
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #818181;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #fff;
+
+    white-space: nowrap;
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(14, 2);
+
+      margin-top: 1em;
+      font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ul, ol {
+      a {
+        text-decoration: none;
+      }
+    }
+
+    ol {
+      margin: 0 0 0 25px;
+      margin-top: 10px;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: decimal;
+        margin-top: 10px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > ol {
+      margin-top: 15px;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-left: 15px;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        color: #fff;
+        margin: 10px 0 0;
+        background: url("../imgs/t0-b-footerUnit-navList/bg.png") 0 .32em no-repeat;
+        padding: 0 0 0 18px;
+        min-width: 200px;
+        box-sizing: border-box;
+        a {
+          color: #fff;
+          &:hover {
+            color: #d4d1ca;
+          }
+        }
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ul {
+      margin-top: 15px;
+    }
+
+    table {
+      background-image: url("../imgs/t0-b-footerUnit-table/bg.png"), url("../imgs/t0-b-footerUnit-table/bg2.png"), url("../imgs/t0-b-footerUnit-table/bg3.png");
+      background-repeat: no-repeat, repeat-x, repeat;
+      background-position: 10px top, left top, left top;
+      width: 100%;
+      margin-top: 15px;
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 10px;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+
+        font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      }
+
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      th {
+        color: $_color_table_td_typo;
+      }
+
+      td {
+        color: $_color_table_td_typo;
+        background-color: #000;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    &--has-width {
+      white-space: normal;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-footerUnit-navList--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-navList {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #818181;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #fff;
+
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ul, ol {
+      a {
+        text-decoration: none;
+      }
+    }
+
+    ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      //margin: 0 0 0 15px
+      margin-top: $_blockSpacing;
+      margin-left: 15px;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 15px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        margin: 15px 0 0;
+        background: url("../imgs/t0-b-footerUnit-navList/bg.png") 0 -.05em no-repeat;
+        background-position: 0 5px;
+        padding: 0 0 0 18px;
+        color: #fff;
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+
+      // kill the first item's margin
+      li:first-child {
+        margin-top: 0;
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      background-image: url("../imgs/t0-b-footerUnit-table/bg.png"), url("../imgs/t0-b-footerUnit-table/bg2.png"), url("../imgs/t0-b-footerUnit-table/bg3.png");
+      background-repeat: no-repeat, repeat-x, repeat;
+      background-position: 10px top, left top, left top;
+      width: 100%;
+      margin-top: 15px;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 10px;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+      }
+
+      td {
+        color: $_color_table_td_typo;
+        background-color: #000;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    &--has-width {
+      white-space: normal;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+}

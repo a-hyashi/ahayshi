@@ -1,0 +1,372 @@
+@if $device == PC {
+  .t0-b-sideBoxList {
+    @include g-rteTableReset;
+    color: #f2ede2;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #818181;
+    $_color_table_th_bg: #431831;
+    $_color_table_td_typo: #f2ede2;
+    img {
+      width: 100%;
+    }
+
+    a {
+      color: #f2ede2;
+      text-decoration: underline;
+      &:hover {
+        color: #d4d1ca;
+      }
+
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(14, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      margin: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      margin-top: $_blockSpacing;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(14, 1);
+
+        margin: 10px 0 0 10px;
+        padding: 0 0 0 20px;
+        background: url("../imgs/t0-b-sideBoxList/bg.png") no-repeat 0 .23em;
+        color: #fff;
+        a {
+          color: #fff;
+        }
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_elementSpacing;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 7px 5px;
+        text-align: left;
+        vertical-align: middle;
+        background-color: rgba(255, 255, 255, .2);
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      th {
+        background: -moz-linear-gradient(top, #431831 60%, #854163);
+        background: -webkit-linear-gradient(top, #431831 60%, #854163);
+        background: -ms-linear-gradient(top, #431831 60%, #854163);
+        background: linear-gradient(to bottom, #431831 60%, #854163);
+      }
+
+      tr:first-child {
+        th:first-child {
+          background: #431831;
+        }
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-sideBoxList--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideBoxList {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #818181;
+    $_color_table_th_bg: #431831;
+    $_color_table_td_typo: #f2ede2;
+
+    color: $_color_table_td_typo;
+    a {
+      color: #f2ede2;
+      text-decoration: underline;
+    }
+
+    ul {
+      //margin: 0 0 0 2.5em
+      margin-top: $_blockSpacing;
+      margin-left: 5px;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        margin: 10px 0 0;
+        padding: 0 0 0 20px;
+        background: url("../imgs/t0-b-sideBoxList/bg.png") no-repeat 0 .35em;
+        color: #fff;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+        color: #fff;
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_elementSpacing;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        background-color: rgba(255, 255, 255, .2);
+      }
+
+      ul, ol {
+        font-size: $baseFontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: -moz-linear-gradient(top, #431831 60%, #854163);
+        background: -webkit-linear-gradient(top, #431831 60%, #854163);
+        background: -ms-linear-gradient(top, #431831 60%, #854163);
+        background: linear-gradient(to bottom, #431831 60%, #854163);
+      }
+
+      tr:first-child {
+        th:first-child {
+          background: #431831;
+        }
+      }
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    ol {
+      //margin: 0 0 0 2.5em
+      margin-top: $_blockSpacing;
+      margin-left: 25px;
+      font-size: $baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEはlist-itemのpseudo elementにバグあり。その対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+  }
+}
