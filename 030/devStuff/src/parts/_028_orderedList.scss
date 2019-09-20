@@ -1,23 +1,42 @@
 @if $device == PC {
   .t0-b-orderedList {
+    $_block: &;
+
+    padding-bottom: 5px;
     li {
+      background: url("../imgs/t0-b-orderedList/bg.png") no-repeat 0 0;
+      padding: 0;
       display: table;
+  
+      > #{$_block}__num {
+        @include g-font(22, 1);
+  
+        font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+        font-weight: bold;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        padding: 3px 0 0 0;
+        color: #fff;
+        text-align: center;
+        display: table-cell;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+  
+      #{$_block}__text {
+        @include g-font(18, 1);
+  
+        padding: 6px 0 0 15px;
+        display: table-cell;
+        vertical-align: top;
+        color: #fff;
+      }
     }
-
-    &__num {
-      display: table-cell;
-      text-align: center;
-      @include g-font(20, 1);
-    }
-
-    &__text {
-      @include g-font(16, 1);
-      display: table-cell;
-      vertical-align: top;
-    }
-
+  
     a {
-      color: inherit;
+      color: #fff;
+  
       &:hover {
         color: $hovercolor;
       }
@@ -27,26 +46,37 @@
 
 @if $device == SP {
   .t0-b-orderedList {
+    $_block: &;
+
+    padding-bottom: 2px;
     li {
+      background: url("../imgs/t0-b-orderedList/bg.png") no-repeat 0 0;
+      padding: 0;
       display: table;
-    }
-
-    &__num {
-      box-sizing: border-box;
-      display: table-cell;
-      text-align: center;
-      vertical-align: top;
-      @include g-font(20, 1);
-    }
-
-    &__text {
-      @include g-font(16, 1);
-      display: table-cell;
-      vertical-align: top;
-    }
-
-    a {
-      color: inherit;
+  
+      > #{$_block}__num {
+        @include g-font(22, 1);
+  
+        font-family: $mincho;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        padding: 2px 0 0 0;
+        color: #fff;
+        text-align: center;
+        display: table-cell;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+  
+      #{$_block}__text {
+        @include g-font(16, 1);
+  
+        padding: 6px 0 0 15px;
+        display: table-cell;
+        vertical-align: top;
+        color: #fff;
+      }
     }
   }
 }
