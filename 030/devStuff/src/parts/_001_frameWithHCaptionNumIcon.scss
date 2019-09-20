@@ -2,15 +2,14 @@
   .t0-b-frameWithHCaptionNumIcon#{$variation1of2} {
     $_block: &;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-  
+
     margin: 0 0 20px;
     padding: 40px 32px 15px;
-    background: radial-gradient(rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.85) 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg5.png") repeat left top;
+    background: radial-gradient(rgba(0, 0, 0, .05) 0, rgba(0, 0, 0, .85) 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg5.png") repeat left top;
     border: 1px solid #393939;
     border-radius: 5px;
     position: relative;
-  
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -21,7 +20,7 @@
       z-index: 0;
       background: url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg.png") no-repeat left top, url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg2.png") no-repeat right 3px top, url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg3.png") no-repeat left bottom 1px, url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg4.png") no-repeat right 3px bottom 1px;
     }
-  
+
     > span {
       position: absolute;
       pointer-events: none;
@@ -32,7 +31,6 @@
       z-index: 0;
       box-shadow: 0 0 24px 0 #555, 0 0 24px 0 #555 inset;
       border-radius: 26px;
-  
       > span {
         position: absolute;
         pointer-events: none;
@@ -42,7 +40,6 @@
         right: 15px;
         border-top: 1px solid #393939;
         border-bottom: 1px solid #393939;
-  
         > span {
           position: absolute;
           pointer-events: none;
@@ -55,11 +52,11 @@
         }
       }
     }
-  
+
     a {
       text-decoration: none;
     }
-  
+
     &__hd {
       padding: 0 20px 15px;
       background: url("../imgs/t0-b-twoColsMediaWithNumIcon/bg2.png") center bottom, url("../imgs/t0-b-twoColsMediaWithNumIcon/bg.png") right 3px bottom 5px;
@@ -69,45 +66,42 @@
       text-shadow: $textshadow;
       font-family: $mincho;
       position: relative;
-  
       h3 {
         @include g-font(28, 1);
       }
-  
+
       a {
         color: #fff;
         text-decoration: none;
-  
         &:hover {
           color: $hovercolor;
         }
       }
     }
-  
+
     &__hd-h {
       position: relative;
       z-index: 2;
     }
-  
+
     &__hd-caption-upper {
       @include g-font(14, 1);
-  
+
       padding: 0 0 5px;
     }
-  
+
     &__hd-caption-lower {
       @include g-font(14, 1);
-  
+
       padding: 5px 0 0;
     }
-  
+
     &__bd {
       padding: 28px 0;
-  
       > .b-bPlacer-7s {
         margin-bottom: -10px;
       }
-  
+
       a {
         &:hover {
           h4 {
@@ -116,66 +110,64 @@
         }
       }
     }
-  
+
     &__numIcon {
       padding-left: 10px;
       font-family: $mincho;
       display: inline-block;
-  
       > * {
         display: table-cell;
         vertical-align: middle;
       }
     }
-  
+
     &__box {
       padding: 10px 0 0 93px;
     }
-  
+
     &__iconPlacer {
       padding: 0 20px 0 0;
-  
       > * {
         display: block;
       }
     }
-  
+
     &__numIcon-caption-upper {
       @include g-font(16, 1);
-  
+
       padding: 0 0 5px;
       color: #e4a24f;
     }
-  
+
     &__numIcon-h {
       @include g-font(24, 1);
-  
+
       color: #fff;
     }
-  
+
     &__numIcon-caption-lower {
       @include g-font(16, 1);
-  
+
       padding: 5px 0 0;
       color: #e4a24f;
     }
-  
+
     &__numIcon-caption-upper + &__numIcon-h {
       @include g-font(22, 1);
     }
-  
+
     &__numIcon-caption-upper + a > &__numIcon-h {
       @include g-font(22, 1);
     }
-  
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
         background-image: url($_src);
       }
-  
+
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
       background-size: 68px 67px;
       background-position: 0 0;
       background-repeat: no-repeat;
@@ -185,7 +177,7 @@
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
-  
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -194,13 +186,13 @@
         }
       }
     }
-  
+
     $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
     @each $_type in $_types {
       @for $_i from 1 through 9 {
         &__icon--#{$_type}-#{$_i} {
-          &:before {
+          &::before {
             content: "#{$_i}";
             display: block;
             color: #fff;
@@ -211,9 +203,8 @@
           }
         }
       }
-
       &__icon--#{$_type}-10 {
-        &:before {
+        &::before {
           content: "10";
           display: block;
           color: #fff;
@@ -224,32 +215,31 @@
         }
       }
     }
-  
     &__hd--align-l {
       text-align: left;
     }
-  
+
     &__hd--align-c {
       text-align: center;
     }
-  
+
     &__hd--align-r {
       text-align: right;
     }
-  
+
     &__numIcon--align {
       width: 100%;
       line-height: 0;
     }
-  
+
     &__numIcon--align-l {
       text-align: left;
     }
-  
+
     &__numIcon--align-c {
       text-align: center;
     }
-  
+
     &__numIcon--align-r {
       text-align: right;
     }
@@ -271,8 +261,7 @@
     padding: 0;
     background-position: left top, right top;
     position: relative;
-  
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -285,7 +274,7 @@
       background: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg7.png") no-repeat center top, url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg9.png") no-repeat center bottom;
       z-index: 3;
     }
-  
+
     > span {
       position: absolute;
       pointer-events: none;
@@ -294,9 +283,8 @@
       left: 8px;
       right: 8px;
       z-index: 0;
-      background: radial-gradient(rgba(0, 0, 0, 0.05) 0, #000 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png");
+      background: radial-gradient(rgba(0, 0, 0, .05) 0, #000 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png");
       border-radius: 12px;
-  
       > span {
         position: absolute;
         pointer-events: none;
@@ -306,7 +294,6 @@
         right: 122px;
         border-top: 1px solid #654d32;
         border-bottom: 1px solid #654d32;
-  
         > span {
           position: absolute;
           pointer-events: none;
@@ -319,7 +306,7 @@
         }
       }
     }
-  
+
     &__hd {
       position: relative;
       padding: 30px 55px 20px;
@@ -329,13 +316,12 @@
       text-align: center;
       text-shadow: $textshadow;
       font-family: $mincho;
-  
       * {
         position: relative;
         z-index: 2;
       }
-  
-      &:before {
+
+      &::before {
         content: "";
         position: absolute;
         pointer-events: none;
@@ -347,7 +333,7 @@
         min-height: 118px;
         z-index: 1;
       }
-  
+
       > span {
         position: absolute;
         pointer-events: none;
@@ -355,61 +341,58 @@
         bottom: 1px;
         left: 30px;
         right: 30px;
-        background: linear-gradient(left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg6.png") repeat left top;
+        background: linear-gradient(left, rgba(0, 0, 0, .9), rgba(0, 0, 0, .1), rgba(0, 0, 0, .9)), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg6.png") repeat left top;
         z-index: 0;
       }
-  
+
       h3 {
         @include g-font(28, 1);
       }
-  
+
       a {
         color: #fff;
         text-decoration: none;
-  
         &:hover {
           color: $hovercolor;
         }
       }
     }
-  
+
     &__hd-h {
       position: relative;
       z-index: 2;
     }
-  
+
     &__hd-caption-upper {
       @include g-font(14, 1);
-  
+
       padding: 0 0 5px;
     }
-  
+
     &__hd-caption-lower {
       @include g-font(14, 1);
-  
+
       padding: 5px 0 0;
     }
-  
+
     &__bd {
       padding: 60px 37px 30px;
       position: relative;
       background: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg2.png") no-repeat left top, url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg3.png") no-repeat right top;
-  
       > .b-bPlacer-7s {
         margin-bottom: -10px;
       }
-  
+
       a {
         text-decoration: none;
-  
         &:hover {
           h4 {
             color: $hovercolor;
           }
         }
       }
-  
-      &:before {
+
+      &::before {
         content: "";
         position: absolute;
         pointer-events: none;
@@ -417,11 +400,11 @@
         bottom: 0;
         left: 10px;
         right: 10px;
-  
+
         //background: radial-gradient(rgba(0,0,0,0.05) 0,#000 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png")
         z-index: 0;
       }
-  
+
       > span {
         position: absolute;
         pointer-events: none;
@@ -431,7 +414,6 @@
         right: 0;
         background: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg4.png") no-repeat left bottom, url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg5.png") no-repeat right bottom;
         z-index: 1;
-  
         > span {
           position: absolute;
           pointer-events: none;
@@ -442,71 +424,69 @@
         }
       }
     }
-  
+
     &__hd + &__bd {
       padding-top: 30px;
       background: none;
     }
-  
+
     &__numIcon {
       display: inline-block;
       color: #fff;
       font-family: $mincho;
-  
       > * {
         display: table-cell;
         vertical-align: middle;
       }
     }
-  
+
     &__box {
       padding: 10px 25px 0 88px;
     }
-  
+
     &__iconPlacer {
       padding: 0 10px 0 0;
-  
       > * {
         display: block;
       }
     }
-  
+
     &__numIcon-caption-upper {
       @include g-font(18, 1);
-  
+
       padding: 0 0 5px;
       color: #c8a57d;
     }
-  
+
     &__numIcon-h {
       @include g-font(26, 1);
-  
+
       color: #fff;
     }
-  
+
     &__numIcon-caption-lower {
       @include g-font(18, 1);
-  
+
       padding: 5px 0 0;
       color: #c8a57d;
     }
-  
+
     &__numIcon-caption-upper + &__numIcon-h {
       @include g-font(24, 1);
     }
-  
+
     &__numIcon-caption-upper + a > &__numIcon-h {
       @include g-font(24, 1);
     }
-  
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "t0-b-lv4H-numIcon2__icon/#{$type}/bg.png";
         background-image: url($_src);
       }
-  
+
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
       background-size: 74px 74px;
       background-position: 0 0;
       background-repeat: no-repeat;
@@ -516,7 +496,7 @@
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
-  
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -525,86 +505,82 @@
         }
       }
     }
-  
+
     $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
     @each $_type in $_types {
       @for $_i from 1 through 9 {
         &__icon--#{$_type}-#{$_i} {
-          &:before {
+          &::before {
             content: "#{$_i}";
             display: block;
             color: #fff;
             text-indent: 32px;
             padding-top: 48px;
-  
+
             @include g-font-spacingKilled(18, 0);
-  
+
             text-align: left;
           }
         }
       }
-  
       &__icon--#{$_type}-10 {
-        &:before {
+        &::before {
           content: "10";
           display: block;
           color: #fff;
           text-indent: 27px;
           padding-top: 48px;
-  
+
           @include g-font-spacingKilled(18, 0);
-  
+
           text-align: left;
         }
       }
     }
-  
     &__hd--align-l {
       text-align: left;
     }
-  
+
     &__hd--align-c {
       text-align: center;
     }
-  
+
     &__hd--align-r {
       text-align: right;
     }
-  
+
     &__numIcon--align {
       width: 100%;
       line-height: 0;
     }
-  
+
     &__numIcon--align-l {
       text-align: left;
     }
-  
+
     &__numIcon--align-c {
       text-align: center;
     }
-  
+
     &__numIcon--align-r {
       text-align: right;
     }
   }
-
 }
 
 @if $device == SP {
   .t0-b-frameWithHCaptionNumIcon#{$variation1of2} {
     $_block: &;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-  
+
     margin: 0 -5px 20px;
     padding: 30px 25px 15px;
-    background: radial-gradient(rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.85) 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg5.png") repeat left top;
+    background: radial-gradient(rgba(0, 0, 0, .05) 0, rgba(0, 0, 0, .85) 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg5.png") repeat left top;
     border: 1px solid #393939;
     border-radius: 5px;
     position: relative;
-  
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -615,7 +591,7 @@
       z-index: 0;
       background: url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg.png") no-repeat left top, url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg2.png") no-repeat right 3px top, url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg3.png") no-repeat left bottom 1px, url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg4.png") no-repeat right 3px bottom 1px;
     }
-  
+
     > span {
       position: absolute;
       pointer-events: none;
@@ -626,7 +602,6 @@
       z-index: 0;
       box-shadow: 0 0 24px 0 #555, 0 0 24px 0 #555 inset;
       border-radius: 26px;
-  
       > span {
         position: absolute;
         pointer-events: none;
@@ -636,7 +611,6 @@
         right: 15px;
         border-top: 1px solid #393939;
         border-bottom: 1px solid #393939;
-  
         > span {
           position: absolute;
           pointer-events: none;
@@ -649,7 +623,7 @@
         }
       }
     }
-  
+
     &__hd {
       padding: 0 20px 15px;
       background: url("../imgs/t0-b-twoColsMediaWithNumIcon/bg2.png") center bottom, url("../imgs/t0-b-twoColsMediaWithNumIcon/bg.png") right 3px bottom 5px;
@@ -659,98 +633,94 @@
       text-shadow: $textshadow;
       font-family: $mincho;
       position: relative;
-  
       h3 {
         @include g-font(18, 1);
       }
-  
+
       a {
         color: #fff;
         text-decoration: none;
       }
     }
-  
+
     &__hd-h {
       position: relative;
       z-index: 2;
     }
-  
+
     &__hd-caption-upper {
       @include g-font(14, 1);
-  
+
       padding: 0 0 5px;
     }
-  
+
     &__hd-caption-lower {
       @include g-font(14, 1);
-  
+
       padding: 5px 0 0;
     }
-  
+
     &__bd {
       padding: 28px 0 0;
-  
       > .b-bPlacer-7s {
         margin-bottom: -10px;
       }
     }
-  
+
     &__numIcon {
       //padding-left: 10px
       font-family: $mincho;
       display: inline-block;
-  
       a {
         color: #fff;
         text-decoration: none;
       }
-  
+
       > * {
         display: table-cell;
         vertical-align: middle;
       }
     }
-  
+
     &__box {
       padding: 10px 0 0;
     }
-  
+
     &__iconPlacer {
       padding: 0 20px 0 0;
-  
       > * {
         display: block;
       }
     }
-  
+
     &__numIcon-caption-upper {
       @include g-font(14, 1);
-  
+
       padding: 0 0 5px;
       color: #e4a24f;
     }
-  
+
     &__numIcon-h {
       @include g-font(18, 1);
-  
+
       color: #fff;
     }
-  
+
     &__numIcon-caption-lower {
       @include g-font(14, 1);
-  
+
       padding: 5px 0 0;
       color: #e4a24f;
     }
-  
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
         background-image: url($_src);
       }
-  
+
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
       background-size: 50px 50px;
       background-position: 0 0;
       background-repeat: no-repeat;
@@ -760,7 +730,7 @@
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
-  
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -769,66 +739,64 @@
         }
       }
     }
-  
+
     $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
     @each $_type in $_types {
       @for $_i from 1 through 9 {
         &__icon--#{$_type}-#{$_i} {
-          &:before {
+          &::before {
             content: "#{$_i}";
             display: block;
             color: #fff;
             text-indent: 20px;
             padding-top: 33px;
-  
+
             @include g-font-spacingKilled(18, 0);
-  
+
             text-align: left;
           }
         }
       }
-  
       &__icon--#{$_type}-10 {
-        &:before {
+        &::before {
           content: "10";
           display: block;
           color: #fff;
           text-indent: 13px;
           padding-top: 33px;
-  
+
           @include g-font-spacingKilled(18, 0);
-  
+
           text-align: left;
         }
       }
     }
-  
     &__hd--align-l {
       text-align: left;
     }
-  
+
     &__hd--align-c {
       text-align: center;
     }
-  
+
     &__hd--align-r {
       text-align: right;
     }
-  
+
     &__numIcon--align {
       width: 100%;
       line-height: 0;
     }
-  
+
     &__numIcon--align-l {
       text-align: left;
     }
-  
+
     &__numIcon--align-c {
       text-align: center;
     }
-  
+
     &__numIcon--align-r {
       text-align: right;
     }
@@ -837,15 +805,14 @@
   .t0-b-frameWithHCaptionNumIcon#{$variation2of2} {
     $_block: &;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-  
+
     margin: 0 -5px 20px;
     padding: 0;
-  
+
     //background: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg2.png") no-repeat, url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg3.png") no-repeat
     background-position: left top, right top;
     position: relative;
-  
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -858,7 +825,7 @@
       background: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg7.png") no-repeat center top, url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg9.png") no-repeat center bottom;
       z-index: 3;
     }
-  
+
     > span {
       position: absolute;
       pointer-events: none;
@@ -867,9 +834,8 @@
       left: 8px;
       right: 8px;
       z-index: 0;
-      background: radial-gradient(rgba(0, 0, 0, 0.05) 0, #000 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png");
+      background: radial-gradient(rgba(0, 0, 0, .05) 0, #000 100%), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png");
       border-radius: 12px;
-  
       > span {
         position: absolute;
         pointer-events: none;
@@ -891,7 +857,7 @@
         }
       }
     }
-  
+
     &__hd {
       position: relative;
       padding: 30px 25px 20px;
@@ -901,13 +867,12 @@
       text-align: center;
       text-shadow: $textshadow;
       font-family: $mincho;
-  
       * {
         position: relative;
         z-index: 2;
       }
-  
-      &:before {
+
+      &::before {
         content: "";
         position: absolute;
         pointer-events: none;
@@ -920,7 +885,7 @@
         min-height: 59px;
         z-index: 1;
       }
-  
+
       > span {
         position: absolute;
         pointer-events: none;
@@ -928,57 +893,55 @@
         bottom: 1px;
         left: 30px;
         right: 30px;
-        background: linear-gradient(left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg6.png") repeat left top;
+        background: linear-gradient(left, rgba(0, 0, 0, .9), rgba(0, 0, 0, .1), rgba(0, 0, 0, .9)), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg6.png") repeat left top;
         z-index: 0;
       }
-  
+
       h3 {
         @include g-font(18, 1);
       }
-  
+
       a {
         color: #fff;
         text-decoration: none;
       }
     }
-  
+
     &__hd-h {
       position: relative;
       z-index: 2;
     }
-  
+
     &__hd-caption-upper {
       @include g-font(14, 1);
-  
+
       padding: 0 0 5px;
     }
-  
+
     &__hd-caption-lower {
       @include g-font(14, 1);
-  
+
       padding: 5px 0 0;
     }
-  
+
     &__bd {
       padding: 60px 20px 30px;
       position: relative;
       background: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg2.png") no-repeat left top, url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg3.png") no-repeat right top;
-  
       > .b-bPlacer-7s {
         margin-bottom: -10px;
       }
-  
+
       a {
         text-decoration: none;
-  
         &:hover {
           h4 {
             color: $hovercolor;
           }
         }
       }
-  
-      &:before {
+
+      &::before {
         content: "";
         position: absolute;
         pointer-events: none;
@@ -988,7 +951,7 @@
         right: 10px;
         z-index: 0;
       }
-  
+
       > span {
         position: absolute;
         pointer-events: none;
@@ -999,7 +962,6 @@
         background: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg4.png") no-repeat left bottom, url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg5.png") no-repeat right bottom;
         background-size: 60px 59px;
         z-index: 1;
-  
         > span {
           position: absolute;
           pointer-events: none;
@@ -1010,63 +972,61 @@
         }
       }
     }
-  
+
     &__hd + &__bd {
       padding-top: 30px;
       background: none;
     }
-  
+
     &__numIcon {
       display: inline-block;
       color: #fff;
       font-family: $mincho;
-  
       > * {
         display: table-cell;
         vertical-align: middle;
       }
     }
-  
+
     &__box {
       padding: 10px 0 0;
     }
-  
+
     &__iconPlacer {
       padding: 0 10px 0 0;
-  
       > * {
         display: block;
       }
     }
-  
+
     &__numIcon-caption-upper {
       @include g-font(14, 1);
-  
+
       padding: 0 0 5px;
       color: #c8a57d;
     }
-  
+
     &__numIcon-h {
       @include g-font(18, 1);
-  
+
       color: #fff;
     }
-  
+
     &__numIcon-caption-lower {
       @include g-font(14, 1);
-  
+
       padding: 5px 0 0;
       color: #c8a57d;
     }
-  
+
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "t0-b-lv4H-numIcon2__icon/#{$type}/bg.png";
         background-image: url($_src);
       }
-  
+
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
       background-size: 50px 50px;
       background-position: 0 0;
       background-repeat: no-repeat;
@@ -1076,7 +1036,7 @@
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
-  
+
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -1085,69 +1045,66 @@
         }
       }
     }
-  
+
     $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-  
+
     @each $_type in $_types {
       @for $_i from 1 through 9 {
         &__icon--#{$_type}-#{$_i} {
-          &:before {
+          &::before {
             content: "#{$_i}";
             display: block;
             color: #fff;
             text-indent: 20px;
             padding-top: 33px;
-  
+
             @include g-font-spacingKilled(18, 0);
-  
+
             text-align: left;
           }
         }
       }
-  
       &__icon--#{$_type}-10 {
-        &:before {
+        &::before {
           content: "10";
           display: block;
           color: #fff;
           text-indent: 14px;
           padding-top: 33px;
-  
+
           @include g-font-spacingKilled(18, 0);
-  
+
           text-align: left;
         }
       }
     }
-  
     &__hd--align-l {
       text-align: left;
     }
-  
+
     &__hd--align-c {
       text-align: center;
     }
-  
+
     &__hd--align-r {
       text-align: right;
     }
-  
+
     &__numIcon--align {
       width: 100%;
       line-height: 0;
     }
-  
+
     &__numIcon--align-l {
       text-align: left;
     }
-  
+
     &__numIcon--align-c {
       text-align: center;
     }
-  
+
     &__numIcon--align-r {
       text-align: right;
     }
   }
-
 }
