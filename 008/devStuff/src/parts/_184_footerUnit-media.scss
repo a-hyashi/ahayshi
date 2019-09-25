@@ -1,0 +1,190 @@
+@if $device == PC {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      border: 1px solid #cfbda1;
+      img {
+        width: 100%;
+        display: block;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      a {
+        color: $textcolor;
+        text-decoration: none;
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__nav {
+      @include g-font-spacingKilled(14, 1);
+
+      margin: 10px 0 0;
+      padding: 5px 0 0 25px;
+      min-height: 20px;
+      background: url("../imgs/navItem/1/3.png") no-repeat left center;
+      display: table;
+      color: #966338;
+      a {
+        color: #966338;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+
+      div {
+        margin-top: 1px;
+        border-bottom: 1px solid #890619;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-media {
+    $_block: &;
+
+    margin: 0 auto;
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      border: 1px solid #cfbda1;
+      img {
+        width: 100%;
+        display: block;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      a {
+        color: $textcolor;
+        text-decoration: none;
+        display: block;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      @include g-font-spacingKilled(14, 1);
+
+      margin: 10px auto 0;
+      padding: 5px 0 0 25px;
+      min-height: 20px;
+      background: url("../imgs/navItem/1/3.png") no-repeat left center;
+      color: #966338;
+      text-decoration: underline;
+      display: table;
+      a {
+        color: #966338;
+        text-decoration: underline;
+      }
+    }
+  }
+}
