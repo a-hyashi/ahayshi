@@ -205,6 +205,9 @@
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble||2%||25px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|#{$variation2of2}|4%||35px|
+|06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|3|4%||35px|
+|06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|4|4%||35px|
+|06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|5|4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptionedDouble||2%||10px|
 |06.ナビゲーション|main|064_誘導バナー（上下補足付）|.t0-b-navBItem2Captioned|#{$variation1of2}|4%||35px|
 |06.ナビゲーション|main|064_誘導バナー（上下補足付）|.t0-b-navBItem2Captioned|#{$variation2of2}|4%||35px|
@@ -371,6 +374,7 @@
 |11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|4|8%||45px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation1of2}|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation2of2}|8%||25px|
+|11.枠|side|155_サイドボックス|.t0-b-sideBox|3|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|2|0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|3|0||0px|

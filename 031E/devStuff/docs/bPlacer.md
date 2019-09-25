@@ -295,6 +295,7 @@
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation1of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation2of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|3|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|4|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation1of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation2of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|3|8%||25px|
@@ -376,6 +377,7 @@
 |11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|4|8%||45px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation1of2}|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|#{$variation2of2}|8%||25px|
+|11.枠|side|155_サイドボックス|.t0-b-sideBox|3|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|2|0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|3|0||0px|
