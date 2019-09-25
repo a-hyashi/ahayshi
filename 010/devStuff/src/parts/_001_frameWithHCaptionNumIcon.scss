@@ -1,0 +1,1523 @@
+@if $device == PC {
+  .t0-b-frameWithHCaptionNumIcon#{$variation1of3} {
+    $_block: &;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    margin-bottom: 20px;
+    &__hd {
+      margin: 0 15px;
+      padding: 15px 70px;
+      background: url("../imgs/t0-b-lv1H-mainH/bg10.png") repeat left top;
+      color: #372914;
+      position: relative;
+      text-align: center;
+      text-shadow: (-1px) -1px #ddd, 1px -1px #ddd, -1px 1px #ddd, 1px 1px #ddd;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: 5px;
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
+        background-image: url("../imgs/t0-b-lv1H-mainH/bg.png"), url("../imgs/t0-b-lv1H-mainH/bg2.png"), linear-gradient(top, rgba(255, 255, 255, .1), rgba(58, 58, 58, .2)), url("../imgs/t0-b-lv1H-mainH/bg3.png");
+        background-repeat: repeat-y, repeat-y, no-repeat, repeat;
+        background-position: left top, right top, left top, left top;
+      }
+
+      * {
+        position: relative;
+      }
+
+      > span {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg4.png");
+        background-repeat: no-repeat;
+        background-position: 6px 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+        > span {
+          position: absolute;
+          top: 11px;
+          bottom: 11px;
+          left: 6px;
+          right: 6px;
+          border-left: 1px solid #581e12;
+          border-right: 1px solid #581e12;
+          > span {
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: 4px;
+            right: 4px;
+            border-top: 1px solid #581e12;
+            border-bottom: 1px solid #581e12;
+          }
+        }
+      }
+
+      h3 {
+        @include g-font(26, 1);
+
+        color: #372914;
+        font-weight: bold;
+      }
+
+      a {
+        color: #372914;
+        text-decoration: none;
+        &:hover {
+          h3 {
+            color: $hovercolor;
+          }
+        }
+      }
+    }
+
+    &__bd {
+      margin: 0 1px;
+      padding: 40px 20px 10px;
+      background: #fff;
+      position: relative;
+      box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+      > * {
+        position: relative;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 6px;
+        right: 6px;
+        background: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg5.png") repeat left top, linear-gradient(#e2e2d2, #f7f6f0, #e2e2d2);
+      }
+    }
+
+    &__hd + &__bd {
+      margin-top: -30px;
+      padding-top: 60px;
+    }
+
+    &__hd-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+    }
+
+    &__numIcon {
+      display: inline-block;
+      a {
+        text-decoration: none;
+        &:hover {
+          #{$_block}__numIcon-h {
+            color: $hovercolor2;
+          }
+        }
+      }
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding: 20px 0 10px 75px;
+      position: relative;
+    }
+
+    &__iconPlacer {
+      padding: 0 15px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+      color: #382b2b;
+    }
+
+    &__numIcon-h {
+      @include g-font(26, 1);
+
+      color: #833625;
+      font-weight: bold;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+      color: #382b2b;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font(24, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font(24, 1);
+    }
+
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-frameWithHCaptionNumIcon__icon/icons/1/#{$type}.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 60px 60px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #91804d, -1px 1px 2px #91804d;
+            text-indent: 23px;
+            padding-top: 43px;
+
+            @include g-font-spacingKilled(22, 0);
+
+            text-align: initial;
+            text-align: left\0;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #fff;
+          font-weight: bold;
+          text-shadow: 1px 1px 2px #91804d, -1px 1px 2px #91804d;
+          text-indent: 15px;
+          padding-top: 43px;
+
+          @include g-font-spacingKilled(22, 0);
+
+          text-align: initial;
+          text-align: left\0;
+        }
+      }
+    }
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      padding: 15px 0 0;
+      border-top: 1px solid #833625;
+      line-height: 0;
+      color: #382b2b;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #fff;
+      }
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-frameWithHCaptionNumIcon#{$variation2of3} {
+    $_block: &;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+    &__hd {
+      border: 1px solid #581e12;
+      background: linear-gradient(rgba(255, 255, 255, .2), rgba(231, 226, 218, .8)), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg6.png") repeat left top;
+      color: #372914;
+      padding: 15px 20px;
+      text-align: center;
+      position: relative;
+      > span {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg4.png");
+        background-repeat: no-repeat;
+        background-position: 2px 2px, right 2px top 2px, left 2px bottom 2px, right 2px bottom 2px;
+        > span {
+          position: absolute;
+          top: 6px;
+          bottom: 6px;
+          left: 1px;
+          right: 1px;
+          border-left: 1px solid #581e12;
+          border-right: 1px solid #581e12;
+          > span {
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: 4px;
+            right: 4px;
+            border-top: 1px solid #581e12;
+            border-bottom: 1px solid #581e12;
+          }
+        }
+      }
+
+      h3 {
+        @include g-font(26, 1);
+
+        font-weight: bold;
+        position: relative;
+        z-index: 1;
+      }
+
+      a {
+        color: #372914;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+    }
+
+    &__hd-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+    }
+
+    &__bd {
+      padding: 35px 20px 10px;
+      border: 1px solid #4c1a0f;
+      background: #fafafa;
+    }
+
+    &__hd + &__bd {
+      padding: 35px 20px 10px;
+    }
+
+    &__numIcon {
+      a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+          #{$_block}__numIcon-h {
+            color: $hovercolor2;
+          }
+        }
+      }
+
+      display: inline-block;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding: 20px 0 10px 75px;
+    }
+
+    &__iconPlacer {
+      padding: 0 15px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+      color: #382b2b;
+    }
+
+    &__numIcon-h {
+      @include g-font(26, 1);
+
+      color: #833625;
+      font-weight: bold;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+      color: #382b2b;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font(24, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font(24, 1);
+    }
+
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-frameWithHCaptionNumIcon__icon/icons/2/#{$type}.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 60px 60px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #571d1b;
+            font-weight: bold;
+            text-indent: 23px;
+            padding-top: 43px;
+
+            @include g-font-spacingKilled(22, 0);
+
+            text-align: initial;
+            text-align: left\0;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #571d1b;
+          font-weight: bold;
+          text-indent: 15px;
+          padding-top: 43px;
+
+          @include g-font-spacingKilled(22, 0);
+
+          text-align: initial;
+          text-align: left\0;
+        }
+      }
+    }
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      padding: 15px 0 0;
+      border-top: 1px solid #833625;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-frameWithHCaptionNumIcon#{$variation3of3} {
+    $_block: &;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+    &__hd {
+      background: linear-gradient(rgba(255, 255, 255, .1), rgba(33, 18, 18, .3)), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg7.png") repeat left top;
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      > span {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border: 1px solid #581e12;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg4.png");
+        background-repeat: no-repeat;
+        background-position: 2px 2px, right 2px top 2px, left 2px bottom 2px, right 2px bottom 2px;
+        > span {
+          position: absolute;
+          top: 6px;
+          bottom: 6px;
+          left: 1px;
+          right: 1px;
+          border-left: 1px solid #581e12;
+          border-right: 1px solid #581e12;
+          > span {
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: 4px;
+            right: 4px;
+            border-top: 1px solid #581e12;
+            border-bottom: 1px solid #581e12;
+          }
+        }
+      }
+
+      h3 {
+        @include g-font(26, 1);
+
+        font-weight: bold;
+        position: relative;
+        z-index: 1;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+    }
+
+    &__hd-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+    }
+
+    &__bd {
+      margin: 0;
+      padding: 30px 20px 10px;
+      background: #fff;
+      position: relative;
+      box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+      > * {
+        position: relative;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 6px;
+        right: 6px;
+        background: linear-gradient(rgba(226, 226, 210, .5), rgba(247, 246, 240, .5), rgba(226, 226, 210, .5)), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg8.png") repeat left top;
+      }
+    }
+
+    &__hd + &__bd {
+      margin: (-6px) 0 0;
+      padding-top: 36px 20px 10px;
+    }
+
+    &__numIcon {
+      a {
+        color: #333;
+        text-decoration: none;
+        &:hover {
+          #{$_block}__numIcon-h {
+            color: $hovercolor2;
+          }
+        }
+      }
+
+      display: inline-block;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding: 20px 0 10px 75px;
+    }
+
+    &__iconPlacer {
+      padding: 0 15px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+      color: #382b2b;
+    }
+
+    &__numIcon-h {
+      @include g-font(26, 1);
+
+      color: #333;
+      font-weight: bold;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+      color: #382b2b;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font(24, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font(24, 1);
+    }
+
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-frameWithHCaptionNumIcon__icon/icons/2/#{$type}.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 60px 60px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #571d1b;
+            font-weight: bold;
+            text-indent: 23px;
+            padding-top: 43px;
+
+            @include g-font-spacingKilled(22, 0);
+
+            text-align: initial;
+            text-align: left\0;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #571d1b;
+          font-weight: bold;
+          text-indent: 15px;
+          padding-top: 43px;
+
+          @include g-font-spacingKilled(22, 0);
+
+          text-align: initial;
+          text-align: left\0;
+        }
+      }
+    }
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      padding: 15px 0 0;
+      border-top: 1px solid #833625;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-frameWithHCaptionNumIcon#{$variation1of3} {
+    margin: 0 -5px;
+
+    $_block: &;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    margin-bottom: 20px;
+    &__hd {
+      margin: 0 15px;
+      padding: 15px 70px;
+      background: url("../imgs/t0-b-lv1H-mainH/bg10.png") repeat left top;
+      color: #372914;
+      position: relative;
+      text-align: center;
+      text-shadow: (-1px) -1px #ddd, 1px -1px #ddd, -1px 1px #ddd, 1px 1px #ddd;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: 5px;
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
+        background-image: url("../imgs/t0-b-lv1H-mainH/bg.png"), url("../imgs/t0-b-lv1H-mainH/bg2.png"), linear-gradient(top, rgba(255, 255, 255, .1), rgba(58, 58, 58, .2)), url("../imgs/t0-b-lv1H-mainH/bg3.png");
+        background-repeat: repeat-y, repeat-y, no-repeat, repeat;
+        background-position: left top, right top, left top, left top;
+      }
+
+      * {
+        position: relative;
+      }
+
+      > span {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg4.png");
+        background-repeat: no-repeat;
+        background-position: 6px 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+        > span {
+          position: absolute;
+          top: 11px;
+          bottom: 11px;
+          left: 6px;
+          right: 6px;
+          border-left: 1px solid #581e12;
+          border-right: 1px solid #581e12;
+          > span {
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: 4px;
+            right: 4px;
+            border-top: 1px solid #581e12;
+            border-bottom: 1px solid #581e12;
+          }
+        }
+      }
+
+      h3 {
+        @include g-font(18, 1);
+
+        color: #372914;
+        font-weight: bold;
+      }
+
+      a {
+        color: #372914;
+        text-decoration: none;
+      }
+    }
+
+    &__bd {
+      margin: 0 1px;
+      padding: 40px 20px 10px;
+      background: #fff;
+      position: relative;
+      box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+      > * {
+        position: relative;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 6px;
+        right: 6px;
+        background: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg5.png") repeat left top, linear-gradient(#e2e2d2, #f7f6f0, #e2e2d2);
+      }
+    }
+
+    &__hd + &__bd {
+      margin-top: -30px;
+      padding-top: 60px;
+    }
+
+    &__hd-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+    }
+
+    &__numIcon {
+      display: inline-block;
+      a {
+        text-decoration: none;
+      }
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding: 20px 0 0;
+      position: relative;
+    }
+
+    &__iconPlacer {
+      padding: 0 15px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+      color: #382b2b;
+    }
+
+    &__numIcon-h {
+      @include g-font(18, 1);
+
+      color: #833625;
+      font-weight: bold;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+      color: #382b2b;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font(18, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font(18, 1);
+    }
+
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-frameWithHCaptionNumIcon__icon/icons/1/#{$type}.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 50px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 51px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #91804d, -1px 1px 2px #91804d;
+            text-indent: 19px;
+            padding-top: 36px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-align: initial;
+          }
+        }
+
+        &__icon--#{$_type}-10 {
+          &::before {
+            content: "10";
+            display: block;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #91804d, -1px 1px 2px #91804d;
+            text-indent: 12px;
+            padding-top: 36px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-align: initial;
+          }
+        }
+      }
+    }
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      padding: 15px 0 0;
+      border-top: 1px solid #833625;
+      line-height: 0;
+      color: #382b2b;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #fff;
+      }
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-frameWithHCaptionNumIcon#{$variation2of3} {
+    margin: 0 -5px;
+
+    $_block: &;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+    &__hd {
+      border: 1px solid #581e12;
+      background: linear-gradient(rgba(255, 255, 255, .2), rgba(231, 226, 218, .8)), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg6.png") repeat left top;
+      color: #372914;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+      > span {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg4.png");
+        background-repeat: no-repeat;
+        background-position: 2px 2px, right 2px top 2px, left 2px bottom 2px, right 2px bottom 2px;
+        > span {
+          position: absolute;
+          top: 6px;
+          bottom: 6px;
+          left: 1px;
+          right: 1px;
+          border-left: 1px solid #581e12;
+          border-right: 1px solid #581e12;
+          > span {
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: 4px;
+            right: 4px;
+            border-top: 1px solid #581e12;
+            border-bottom: 1px solid #581e12;
+          }
+        }
+      }
+
+      h3 {
+        @include g-font(18, 1);
+
+        font-weight: bold;
+      }
+
+      a {
+        color: #372914;
+        text-decoration: none;
+      }
+    }
+
+    &__hd-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+    }
+
+    &__bd {
+      padding: 20px 20px 10px;
+      border: 1px solid #4c1a0f;
+    }
+
+    &__numIcon {
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      display: inline-block;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding: 20px 0 0;
+    }
+
+    &__iconPlacer {
+      padding: 0 15px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+      color: #382b2b;
+    }
+
+    &__numIcon-h {
+      @include g-font(18, 1);
+
+      color: #833625;
+      font-weight: bold;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+      color: #382b2b;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font(18, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font(18, 1);
+    }
+
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-frameWithHCaptionNumIcon__icon/icons/2/#{$type}.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 50px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 51px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #571d1b;
+            font-weight: bold;
+            text-indent: 19px;
+            padding-top: 36px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-align: initial;
+          }
+        }
+
+        &__icon--#{$_type}-10 {
+          &::before {
+            content: "10";
+            display: block;
+            color: #571d1b;
+            font-weight: bold;
+            text-indent: 12px;
+            padding-top: 36px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-align: initial;
+          }
+        }
+      }
+    }
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      padding: 15px 0 0;
+      border-top: 1px solid #833625;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-frameWithHCaptionNumIcon#{$variation3of3} {
+    margin: 0 -5px;
+
+    $_block: &;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+    &__hd {
+      background: linear-gradient(rgba(255, 255, 255, .2), rgba(33, 18, 18, .3)), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg7.png") repeat left top;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      > span {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border: 1px solid #581e12;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg4.png");
+        background-repeat: no-repeat;
+        background-position: 2px 2px, right 2px top 2px, left 2px bottom 2px, right 2px bottom 2px;
+        > span {
+          position: absolute;
+          top: 6px;
+          bottom: 6px;
+          left: 1px;
+          right: 1px;
+          border-left: 1px solid #581e12;
+          border-right: 1px solid #581e12;
+          > span {
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: 4px;
+            right: 4px;
+            border-top: 1px solid #581e12;
+            border-bottom: 1px solid #581e12;
+          }
+        }
+      }
+
+      h3 {
+        @include g-font(18, 1);
+
+        font-weight: bold;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+
+    &__hd-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+    }
+
+    &__hd-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+    }
+
+    &__bd {
+      margin: 0;
+      padding: 30px 20px 10px;
+      background: #fff;
+      position: relative;
+      box-shadow: 1px 1px 2px 1px #e2e2d2, -1px 1px 2px 1px #e2e2d2, 1px -1px 2px 1px #e2e2d2, -1px -1px 2px 1px #e2e2d2;
+      > * {
+        position: relative;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 6px;
+        right: 6px;
+        background: linear-gradient(rgba(226, 226, 210, .5), rgba(247, 246, 240, .5), rgba(226, 226, 210, .5)), url("../imgs/t0-b-frameWithHCaptionNumIcon__icon/bg8.png") repeat left top;
+      }
+    }
+
+    &__hd + &__bd {
+      margin: (-6px) 0 0;
+      padding-top: 36px 20px 10px;
+    }
+
+    &__numIcon {
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      display: inline-block;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__box {
+      padding: 20px 0 0;
+    }
+
+    &__iconPlacer {
+      padding: 0 15px 0 0;
+      > * {
+        display: block;
+      }
+    }
+
+    &__numIcon-caption-upper {
+      @include g-font(14, 1);
+
+      padding: 0 0 5px;
+      color: #382b2b;
+    }
+
+    &__numIcon-h {
+      @include g-font(18, 1);
+
+      color: #333;
+      font-weight: bold;
+    }
+
+    &__numIcon-caption-lower {
+      @include g-font(14, 1);
+
+      padding: 5px 0 0;
+      color: #382b2b;
+    }
+
+    &__numIcon-caption-upper + &__numIcon-h {
+      @include g-font(18, 1);
+    }
+
+    &__numIcon-caption-upper + a > &__numIcon-h {
+      @include g-font(18, 1);
+    }
+
+    &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-frameWithHCaptionNumIcon__icon/icons/2/#{$type}.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 50px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 51px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
+    }
+
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #571d1b;
+            font-weight: bold;
+            text-indent: 19px;
+            padding-top: 36px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-align: initial;
+          }
+        }
+
+        &__icon--#{$_type}-10 {
+          &::before {
+            content: "10";
+            display: block;
+            color: #571d1b;
+            font-weight: bold;
+            text-indent: 12px;
+            padding-top: 36px;
+
+            @include g-font-spacingKilled(18, 0);
+
+            text-align: initial;
+          }
+        }
+      }
+    }
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+
+    &__numIcon--align {
+      width: 100%;
+      padding: 15px 0 0;
+      border-top: 1px solid #833625;
+      line-height: 0;
+    }
+
+    &__numIcon--align-l {
+      text-align: left;
+    }
+
+    &__numIcon--align-c {
+      text-align: center;
+    }
+
+    &__numIcon--align-r {
+      text-align: right;
+    }
+  }
+}

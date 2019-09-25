@@ -1,0 +1,113 @@
+@if $device == PC {
+  .t0-b-flow2LeftToRight {
+    width: 100%;
+    &__hd {
+      padding-bottom: 15px;
+    }
+
+    &__bd {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 2%;
+      text-align: center;
+      font-size: 2em;
+      color: #333;
+      vertical-align: middle;
+    }
+  }
+
+  .t0-b-flow2LeftToRight2 {
+    width: 100%;
+    &__bd {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      height: 100%;
+    }
+
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+      height: 100%;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 42px;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    &__arrow-inner {
+      display: inline-block;
+      height: 31px;
+      background: url("../imgs/t0-b-arrow/bg2.png") no-repeat 50% 40%;
+      width: 100%;
+      margin-top: -5px;
+    }
+  }
+
+  //2列部品の右列の幅変更記述
+  .t0-b-flow2LeftToRight,
+  .t0-b-flow2LeftToRight2 {
+    $_block: &;
+    &--colW-l &__box {
+      width: 22.1%;
+    }
+
+    &--colW-l &__box ~ &__box {
+      width: 72.7%;
+    }
+
+    &--colW-m &__box {
+      width: 30.5%;
+    }
+
+    &--colW-m &__box ~ &__box {
+      width: 64.3%;
+    }
+  }
+
+  @if $layout == "N00" {
+    //2列部品の右列の幅変更記述 N00のみ違う比率で実装する
+    .t0-b-flow2LeftToRight,
+    .t0-b-flow2LeftToRight2 {
+      $_block: &;
+      &--colW-l &__box {
+        width: 22.2%;
+      }
+
+      &--colW-l &__box ~ &__box {
+        width: 70.7%;
+      }
+
+      &--colW-m &__box {
+        width: 30.7%;
+      }
+
+      &--colW-m &__box ~ &__box {
+        width: 63.5%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-flow2LeftToRight {
+    width: 100%;
+  }
+
+  .t0-b-flow2LeftToRight2 {
+    width: 100%;
+  }
+}
