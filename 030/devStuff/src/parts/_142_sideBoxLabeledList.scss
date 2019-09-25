@@ -1,36 +1,63 @@
 @if $device == PC {
   .t0-b-sideBoxLabeledList {
     $_spacing_item: #{$g-spacingBaseLength * 3}px;
+    $_spacing_title: #{$g-spacingBaseLength * 2}px;
+  
     &__item {
       padding-top: $_spacing_item;
+  
       &:first-child {
         padding-top: 0;
       }
     }
-
+  
     &__item-hd {
-      > div {
-        display: inline-block;
-        text-align: center;
-        @include g-font(14, 1);
+      margin: 0 12px $_spacing_title 0;
+      position: relative;
+      display: table;
+      background-color: #5c0000;
+  
+      &:before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        bottom: 0;
+        right: -12px;
+        display: block;
+        width: 12px;
+        height: 100%;
+        background: url("../imgs/t0-b-sideBoxLabeledList/bg.png") no-repeat right center;
+        background-size: 12px 100%;
       }
-
-      a {
-        color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
+  
+      > span {
+        position: absolute;
+        pointer-events: none;
+        top: 2px;
+        bottom: 2px;
+        left: 0;
+        right: -8px;
+        border-top: 1px solid #96441c;
+        border-bottom: 1px solid #96441c;
+        box-sizing: border-box;
+      }
+  
+      > div {
+        @include g-font-spacingKilled(14, 1);
+  
+        padding: 7px 7px 6px;
+        color: #fff;
+        display: inline-block;
+        position: relative;
       }
     }
-
+  
     &__item-bd {
-      @include g-font(16, 1);
-      a {
-        color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
+      @include g-font-spacingKilled(14, 1);
+  
+      padding: 0 0 0 2px;
+      line-height: 1.5;
     }
   }
 }
@@ -38,27 +65,62 @@
 @if $device == SP {
   .t0-b-sideBoxLabeledList {
     $_spacing_item: #{$g-spacingBaseLength * 3}px;
-    a {
-      color: inherit;
-    }
-
+    $_spacing_title: #{$g-spacingBaseLength * 2}px;
+  
     &__item {
       padding-top: $_spacing_item;
+  
       &:first-child {
         padding-top: 0;
       }
     }
-
+  
     &__item-hd {
+      margin: 0 12px $_spacing_title 0;
+      position: relative;
+      display: table;
+      background-color: #5c0000;
+  
+      &:before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        bottom: 0;
+        right: -12px;
+        display: block;
+        width: 12px;
+        height: 100%;
+        background: url("../imgs/t0-b-sideBoxLabeledList/bg.png") no-repeat right center;
+        background-size: 12px 100%;
+      }
+  
+      > span {
+        position: absolute;
+        pointer-events: none;
+        top: 2px;
+        bottom: 2px;
+        left: 0;
+        right: -8px;
+        border-top: 1px solid #96441c;
+        border-bottom: 1px solid #96441c;
+        box-sizing: border-box;
+      }
+  
       > div {
+        @include g-font-spacingKilled(16, 1);
+  
+        padding: 7px 7px 9px;
+        color: #fff;
         display: inline-block;
-        text-align: center;
-        @include g-font(16, 1);
+        position: relative;
       }
     }
-
+  
     &__item-bd {
-      @include g-font(16, 1);
+      @include g-font-spacingKilled(16, 1);
+  
+      padding: 0 0 0 2px;
     }
   }
 }
