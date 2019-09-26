@@ -1,0 +1,122 @@
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 5;
+
+$g-baseFontSize: 14px;
+// 旧変数対応
+$baseFontSize: $g-baseFontSize;
+
+$textcolor: #664b3a;
+$hovercolor: #b74249;
+$hovercolor2: #e47c01;
+
+$g-baseFontColor: #393939;
+$g-baseBackgroundColor: #fff;
+$g-baseLinkColor: #555;
+$g-baseHoverColor: #45b1c7;
+
+$g-linkHoverColor1: #ffd7d7;
+$g-linkHoverColor2: #bf003a;
+
+$fullWidthBgColor: rgba(#fbf5e9, .5);
+$fullWidthBgColor2: rgba(#f9efe3, .5);
+$fullWidthBgColor3: rgba(#ffebeb, .5);
+$fullWidthBgColor4: rgba(#d4c4b9, .5);
+$fullWidthBgColor5: transparent;
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
+
+// tel
+$_tel_wd: 45px;
+$_tel_hg: 37px;
+
+// fax
+$_fax_wd: 47px;
+$_fax_hg: 31px;
+
+// free
+$_free_wd: 55px;
+$_free_hg: 31px;
+
+// cell
+$_cell_wd: 22px;
+$_cell_hg: 38px;
+
+body.mod-body,
+div.mod-body {
+  font-size: $baseFontSize;
+  font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: $g-baseLinkColor;
+}
+a {
+  color: $g-baseLinkColor;
+  text-decoration: underline;
+}
+
+.cms-admin-anchorFlag {
+  position: relative;
+  z-index: 10 !important;
+}
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+  }
+  a {
+    &:hover {
+      color: $hovercolor;
+    }
+  }
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
