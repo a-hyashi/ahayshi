@@ -71,8 +71,8 @@
 |01.見出し|main|052_用途別の装飾見出し(A)|.t0-b-lv4H-aIcon|#{$variation2of2}|2%||10px|
 |01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|#{$variation1of2}|2%||10px|
 |01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|#{$variation2of2}|2%||10px|
-|01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|3|2%|||
-|01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|4|2%|||
+|01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|3|2%||10px|
+|01.見出し|main|053_番号アイコン(数字のみ)付き見出し|.t0-b-lv4H-num2Icon|4|2%||10px|
 |01.見出し|main|061_装飾見出し(大)|.t0-b-lv4HBig|#{$variation1of2}|2%||10px|
 |01.見出し|main|061_装飾見出し(大)|.t0-b-lv4HBig|#{$variation2of2}|2%||10px|
 |01.見出し|main|061_装飾見出し(大)|.t0-b-lv4HBig|3|2%||10px|
