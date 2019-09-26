@@ -1,7 +1,7 @@
 @if $device == PC {
   .t0-b-footerMenuWithCp {
     @include g-font(14, 1);
-  
+
     width: 100%;
     background-color: transparent;
     box-sizing: border-box;
@@ -10,8 +10,7 @@
     text-align: center;
     padding: 10px 0;
     position: relative;
-  
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -22,37 +21,35 @@
       height: 1px;
       background: linear-gradient(left, #000, #666, #000);
     }
-  
+
     > div {
       display: table;
       width: 100%;
       width: 1080px;
       margin: 0 auto;
     }
-  
+
     p {
       display: table-cell;
-  
+
       @include g-font(12, 1);
     }
-  
+
     &__menu {
       display: table-cell;
-  
       ul {
         text-align: right;
       }
-  
+
       li {
         @include g-font(12, 1);
-  
+
         display: inline-block;
         color: #999;
         text-decoration: none;
         padding: 0 11px;
         position: relative;
-  
-        &:before {
+        &::before {
           content: "";
           position: absolute;
           pointer-events: none;
@@ -63,30 +60,28 @@
           background: url("../imgs/b-breadcrumbs/bg.png") no-repeat left center;
           background-size: 6px 9px;
         }
-  
+
         &:first-child {
-          &:before {
+          &::before {
             display: none;
           }
         }
       }
-  
+
       a {
         color: #999;
         text-decoration: none;
         position: relative;
         z-index: 3;
-  
         &:hover {
           text-decoration: underline;
         }
       }
     }
-  
+
     .state-em {
       color: #999;
       font-weight: bold;
-  
       a {
         color: #999;
       }
@@ -97,7 +92,7 @@
 @if $device == SP {
   .t0-b-footerMenuWithCp {
     @include g-font-spacingKilled(12, 1);
-  
+
     margin: 0 -15px;
     background: #000;
     border-top: 1px solid #313131;
@@ -105,16 +100,15 @@
     color: #999;
     text-align: center;
     font-family: $mincho;
-  
-    &:before, &:after {
+    &::before, &::after {
       display: none;
     }
-  
+
     > div {
       display: table;
       width: 100%;
     }
-  
+
     p {
       display: inline-block;
       text-align: center;
@@ -122,28 +116,27 @@
       padding: 0 0 5px;
       box-sizing: border-box;
     }
-  
+
     .state-em {
       font-weight: bold;
     }
-  
+
     &__menu {
       display: table-header-group;
-  
       a {
         color: #999;
         text-decoration: underline;
       }
-  
+
       ul {
         padding: 5px 10px;
       }
-  
+
       li {
         &:first-child {
           margin-left: 0;
         }
-  
+
         margin-left: 15px;
         display: inline-block;
         text-align: left;

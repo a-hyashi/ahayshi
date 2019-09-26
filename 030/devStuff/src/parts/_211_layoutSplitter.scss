@@ -1,8 +1,6 @@
 @if $device == PC {
-
   .t0-b-layoutSplitter {
     $_block: &;
-
     > div {
       display: table;
       table-layout: fixed;
@@ -15,7 +13,6 @@
     }
 
     // --count-*
-
     &--count-1 &__div {
       width: 100%;
     }
@@ -41,38 +38,32 @@
     @for $_i from 1 through 10 {
       &--spacing-#{$_i}s {
         margin-left: #{-1 * $_i * $g-spacingBaseLength}px;
-
         #{$_block}__div > div {
           padding-left: #{$_i * $g-spacingBaseLength}px;
         }
       }
     }
   }
-
 }
 
 @if $device == SP {
-
   .t0-b-layoutSplitter {
     $_block: &;
-  
     > div {
       width: 100%;
-  
       > div:first-child {
         > div {
           padding-top: 0;
         }
       }
     }
-  
+
     // --spacing-*s
-  
+
     @for $_i from 1 through 10 {
       &--spacing-#{$_i}s {
-        margin-top: 0;1 
-  
-        #{$_block}__div {
+        margin-top: 0;
+        1 #{$_block}__div {
           > div {
             padding-top: 10px;
           }
