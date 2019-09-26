@@ -1,161 +1,173 @@
 @if $device == PC {
-  .t0-b-headerMedia#{$variation1of3} {
+  .t0-b-headerMedia,
+  .t0-b-headerMedia2 {
+    line-height: 0;
 
+    > div > div > * {
+      line-height: 1.5;
+    }
+  }
+
+  .t0-b-headerMedia#{$variation1of2},
+  .t0-b-headerMedia#{$variation2of2}, {
+    margin: 0 auto;
+  
+    a > div,
+    > div {
+      display: inline-block;
+  
+      > div {
+        > * {
+          margin: 0 auto !important;
+        }
+      }
+    }
+  
+    a {
+      &:hover {
+        opacity: 0.8\0;
+      }
+  
+      position: relative;
+      z-index: 3;
+      text-decoration: none;
+  
+      img {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .t0-b-headerMedia#{$variation1of2} {
     width: 100%;
-    min-width: 1100px;
+    min-width: 1116px;
     max-width: 1400px;
-    margin: 0 auto;
-    line-height: 0;
-    a {
-      display: block;
-      img {
-        &:hover {
-          opacity: .8;
-        }
-      }
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    div > a,
+    text-align: center;
+  
+    > a > div,
     > div {
-      position: relative;
       width: 100%;
-      margin: 0 auto;
-      text-align: center;
+      position: relative;
+      overflow: hidden;
+  
       > div {
         position: relative;
         margin: 0 auto !important;
-        > * {
-          width: 100%;
-          margin: 0 auto !important;
-          line-height: 1.5;
-        }
+      }
+  
+      * {
+        width: 100%;
+      }
+  
+      > span {
+        position: absolute;
+        pointer-events: none;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        height: 50px;
+        box-shadow: 0 -20px 75px 40px #000;
+        z-index: 0;
       }
     }
   }
 
-  .t0-b-headerMedia#{$variation2of3} {
-    width: 100%;
-    margin: 0 auto;
-    line-height: 0;
-    a {
-      display: block;
-      img {
-        &:hover {
-          opacity: .8;
-        }
-      }
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    div > a,
+  .t0-b-headerMedia#{$variation2of2} {
+    $_width_content: 1080px;
+  
+    width: $_width_content;
+  
+    a > div,
     > div {
+      display: inline-block;
       position: relative;
-      width: 1100px;
-      margin: 0 auto;
-      text-align: center;
+      width: 100%;
+  
       > div {
         position: relative;
+        width: 100%;
+        box-sizing: border-box;
         margin: 0 auto !important;
+  
         > * {
           width: 100%;
-          margin: 0 auto !important;
-          line-height: 1.5;
         }
+      }
+  
+      img {
+        width: 100%;
       }
     }
   }
 
-  .t0-b-headerMedia#{$variation3of3} {
-
-    width: 100%;
-    margin: 0 auto;
-    line-height: 0;
-    a {
-      display: block;
-      img {
-        &:hover {
-          opacity: .8;
-        }
-      }
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    div > a,
-    > div {
-      position: relative;
-      width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-      > div {
-        position: relative;
-        margin: 0 auto !important;
-        > * {
-          width: 100%;
-          margin: 0 auto !important;
-          line-height: 1.5;
-        }
-      }
-    }
-  }
 }
 
 @if $device == SP {
-  .t0-b-headerMedia#{$variation1of3},
-  .t0-b-headerMedia#{$variation2of3},
-  .t0-b-headerMedia#{$variation3of3} {
+  .t0-b-headerMedia,
+  .t0-b-headerMedia2 {
+    line-height: 0;
+
+    > div > div > * {
+      line-height: 1.5;
+    }
+  }
+
+  .t0-b-headerMedia#{$variation1of2},
+  .t0-b-headerMedia#{$variation2of2} {
+    text-align: center;
     margin: 0 -15px;
     overflow: auto;
-    line-height: 0;
-    text-align: center;
-    div > a,
+  
+    a > div,
     > div {
       width: 100%;
       margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+  
       > div {
-        width: auto;
-        max-height: 240px;
+        margin: 0 20px;
         overflow: auto;
-        // Youtubeのレスポンシブ対応
-        iframe,
-        object,
-        embed {
-          max-width: 100%;
-          max-height: 240px;
-        }
-
+        width: auto;
+  
         > * {
+          overflow: auto;
           max-width: 100% !important;
           margin: 0 auto !important;
-          overflow: auto;
-          line-height: 1.5;
         }
       }
+  
+      > span {
+        position: absolute;
+        pointer-events: none;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        height: 40px;
+        box-shadow: 0 -20px 55px 20px #000;
+        z-index: 0;
+      }
     }
-
+  
     a {
       display: block;
     }
-
+  
     img {
       display: block;
       width: 100%;
       height: auto;
+    }
+  }
+
+  .t0-b-headerMedia#{$variation2of2} {
+    a > div,
+    > div {
+      > span {
+        display: none;
+      }
     }
   }
 }
