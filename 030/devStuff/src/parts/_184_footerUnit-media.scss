@@ -1,270 +1,105 @@
 @if $device == PC {
   .t0-b-footerUnit-media {
-    margin: 0 auto;
+    $_block: &;
+  
+    color: $textcolor;
+  
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+  
     &__media {
-      position: relative;
+      line-height: 0;
       text-align: center;
+      position: relative;
+  
       img {
-        display: block;
         width: 100%;
         height: auto;
       }
-
+  
       a {
         display: block;
-        color: $g-baseFontColor;
-        text-decoration: none;
+        color: $textcolor;
+  
         &:hover {
-          opacity: .8;
+          opacity: 0.8;
         }
       }
     }
-
+  
     &__textOnImage-upper {
       position: absolute;
       top: 0;
-      right: 0;
       left: 0;
+      right: 0;
+  
       p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+  
+        padding: 10px 5px;
+        background: rgba(0, 0, 0, 0.8);
+  
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
       }
     }
-
+  
     &__textOnImage-lower {
       position: absolute;
-      right: 0;
       bottom: 0;
       left: 0;
+      right: 0;
+  
       p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+  
+        padding: 10px 5px;
+        background: rgba(0, 0, 0, 0.8);
+  
         // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
         max-height: 66px;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
       }
     }
-
+  
     &__nav {
-      @include g-font(16, 1);
-      margin-top: 10px;
-      > div {
-        display: inline-block;
-      }
-
+      color: #fff;
+  
       a {
-        color: inherit;
-        text-decoration: none;
+        color: #fff;
+  
         &:hover {
           color: $hovercolor;
         }
       }
-    }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-  }
-
-  .t0-b-footerUnit-media2 {
-    margin: 0 auto;
-    &__media {
-      position: relative;
-      text-align: center;
-      img {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 50%;
-      }
-
-      a {
-        display: block;
-        color: $g-baseFontColor;
-        text-decoration: none;
-        &:hover {
-          opacity: .8;
-        }
-      }
-    }
-
-    &__textOnImage-upper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      border-radius: 50%;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
-        max-height: 66px;
-        padding: 15px 5px 10px;
-        pointer-events: auto;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &__textOnImage-lower {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      border-radius: 50%;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
-        max-height: 66px;
-        padding: 10px 5px 15px;
-        pointer-events: auto;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &__nav {
+  
       @include g-font(16, 1);
+  
       margin-top: 10px;
-      > div {
-        display: inline-block;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
+      padding: 0 0 0 20px;
+      background: url("../imgs/t0-b-navItem/bg.png") no-repeat left center;
+      text-decoration: underline;
     }
-
+  
     &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-  }
-
-  .t0-b-footerUnit-media3 {
-    margin: 0 auto;
-    &__media {
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      img {
-        display: block;
+      #{$_block}__media {
         width: 100%;
-        height: auto;
-        transition: .5s ease;
-      }
-
-      a {
-        display: block;
-        color: $g-baseFontColor;
-        text-decoration: none;
-        &:hover {
-          opacity: .8;
-          img {
-            transform: scale(1.2);
-          }
-        }
       }
     }
-
-    &__textOnImage-upper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
-        max-height: 66px;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &__textOnImage-lower {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
-        max-height: 66px;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &__nav {
-      @include g-font(16, 1);
-      margin-top: 10px;
-      > div {
-        display: inline-block;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
-    }
-
-    &--width-l {
-      width: 100%;
-    }
-
+  
     &--width-m {
-      width: 75%;
+      #{$_block}__media {
+        width: 75%;
+      }
     }
-
+  
     &--width-s {
-      width: 50%;
+      #{$_block}__media {
+        width: 50%;
+      }
     }
   }
 }
@@ -272,229 +107,96 @@
 @if $device == SP {
   .t0-b-footerUnit-media {
     margin: 0 auto;
+  
+    $_block: &;
+  
+    color: $textcolor;
+  
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+  
     &__media {
-      position: relative;
+      line-height: 0;
       text-align: center;
+      position: relative;
+      margin: 0 auto;
+  
       img {
-        box-sizing: border-box;
-        display: block;
         width: 100%;
         height: auto;
-        margin: 0 auto;
+      }
+  
+      a {
+        display: block;
+        color: $textcolor;
       }
     }
-
+  
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+  
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+  
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+  
     &__textOnImage-upper {
       position: absolute;
       top: 0;
-      right: 0;
       left: 0;
+      right: 0;
+  
       p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+  
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba(0, 0, 0, 0.8);
       }
     }
-
+  
     &__textOnImage-lower {
       position: absolute;
-      right: 0;
       bottom: 0;
       left: 0;
+      right: 0;
+  
       p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+  
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba(0, 0, 0, 0.8);
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-
+  
     &__nav {
+      color: #fff;
+  
+      a {
+        color: #fff;
+      }
+  
+      @include g-font(16, 1);
+  
       display: table;
       margin: 0 auto;
       margin-top: 10px;
-
-      @include g-font(16, 1);
-      > div {
-        display: inline-block;
-        padding: 1px 0;
-      }
-
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-
-  .t0-b-footerUnit-media2 {
-    margin: 0 auto;
-    &__media {
-      position: relative;
-      text-align: center;
-      img {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-        border-radius: 50%;
-      }
-    }
-
-    &__textOnImage-upper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 50%;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        padding: 15px 5px 10px;
-        pointer-events: auto;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &__textOnImage-lower {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 50%;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        padding: 10px 5px 15px;
-        pointer-events: auto;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-
-    &__nav {
-      display: table;
-      margin: 0 auto;
-      margin-top: 10px;
-
-      @include g-font(16, 1);
-      > div {
-        display: inline-block;
-        padding: 1px 0;
-      }
-
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-
-  .t0-b-footerUnit-media3 {
-    margin: 0 auto;
-    &__media {
-      position: relative;
-      text-align: center;
-      img {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-      }
-    }
-
-    &__textOnImage-upper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &__textOnImage-lower {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      p {
-        @include g-font(18,1);
-        @include g-textOuterGlow;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
-      }
-    }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-
-    &__nav {
-      display: table;
-      margin: 0 auto;
-      margin-top: 10px;
-
-      @include g-font(16, 1);
-      > div {
-        display: inline-block;
-        padding: 1px 0;
-      }
-
-      a {
-        text-decoration: none;
-      }
+      padding: 0 0 0 20px;
+      background: url("../imgs/t0-b-navItem/bg.png") no-repeat left center;
+      text-decoration: underline;
     }
   }
 }

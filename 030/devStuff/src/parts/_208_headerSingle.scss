@@ -1,71 +1,110 @@
 @if $device == PC {
-  .t0-b-headerSingle {
-    $_width_content: 1100px;
+  .t0-b-headerSingle,
+  .t0-b-headerSingle1 {
+    $_width_content: 1060px;
     $_colSpacing: #{$g-spacingBaseLength * 4}px;
-    box-sizing: border-box;
-
+  
+    min-height: 160px;
     padding-top: 5px;
+    border-top: 3px solid #b19368;
+    box-sizing: border-box;
+    background-position: left center, right center;
+    background-repeat: no-repeat, no-repeat;
+  
     * {
       white-space: normal;
     }
-
     &__hd {
       text-align: center;
       > p {
         width: $_width_content;
         margin: 0 auto;
-        @include g-font(16, 1);
-      }
-
-      a {
-        &:hover {
-          color: $hovercolor;
-        }
+  
+        @include g-font(14, 1);
       }
     }
-
+  
     &__bd {
       padding-bottom: 10px;
+  
       > div {
         display: block;
         width: $_width_content;
         margin: 0 auto;
+  
         > div {
-          display: table;
           max-width: $_width_content;
-          padding-top: $_colSpacing;
           margin: 0 auto;
+          display: table;
           text-align: center;
           vertical-align: top;
+          padding-top: $_colSpacing;
         }
       }
+    }
+  
+    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerUnit-contact-tel,
+    .t0-b-headerUnit-contact-fax,
+    .t0-b-headerUnit-contact-nav,
+    .t0-b-headerUnit-miniCol,
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle__bd,
+    .t0-b-headerUnit-siteTitle2__bd,
+    .t0-b-headerUnit-labeledList table,
+    .t0-b-headerUnit-labeledList2 table {
+      margin: 0 auto;
+      display: table;
+    }
+
+    //サイト名中央に入ったときのみ文字数分の幅をもち、中央寄せの見た目にする
+    .t0-b-headerUnit-contact-navB,
+    .t0-b-headerUnit-contact-navB2 {
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
+    &__col1 {
+      width: 100%;
+    }
+  
+    &__col2 {
+      padding-left: $_colSpacing;
+    }
+  
+    &__col3 {
+      padding-left: $_colSpacing;
     }
   }
 }
 
 @if $device == SP {
-  .t0-b-headerSingle {
+  .t0-b-headerSingle,
+  .t0-b-headerSingle1 {
     $_colSpacing: #{$g-spacingBaseLength * 3}px;
-    padding: 20px 15px 0;
-    margin: 0 -15px;
-
+  
+    padding-top: 5px;
     background-repeat: repeat-x;
     background-position: left top;
+  
     &__hd {
-      margin-bottom: 10px;
       text-align: center;
+      margin-bottom: 10px;
+  
       > p {
         width: 100%;
         margin: 0 auto;
-        @include g-font(14, 1);
+  
+        @include g-font-spacingKilled(14, 1);
       }
     }
-
+  
     &__bd {
       > div {
         display: block;
         width: 100%;
         margin: 0 auto;
+  
         > div {
           text-align: center;
           vertical-align: middle;
@@ -73,7 +112,27 @@
       }
     }
 
+     //▽サイト名中央に入ったときのみ中央寄せの見た目にする
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle2__bd,
+    .t0-b-headerUnit-labeledList table,
+    .t0-b-headerUnit-labeledList2 table {
+      margin: 0 auto;
+    }
+    
     &__col {
+      width: 100%;
+    }
+
+    &__col1 {
+      width: 100%;
+    }
+  
+    &__col2 {
+      width: 100%;
+    }
+  
+    &__col3 {
       width: 100%;
     }
   }
