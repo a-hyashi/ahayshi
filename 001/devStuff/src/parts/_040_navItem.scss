@@ -1,0 +1,192 @@
+@if $device == PC {
+  .t0-b-navItem {
+    display: flex;
+    > a {
+      display: block;
+      box-sizing: border-box;
+      color: #52400a;
+      text-decoration: none;
+      > div > div {
+        &:hover {
+          color: #aea928;
+        }
+      }
+    }
+
+    div {
+      display: table;
+      box-sizing: border-box;
+      color: #52400a;
+      text-decoration: none;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      > div {
+        color: #52400a;
+
+        @include g-font(16, 1);
+
+        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // size
+    &--size-1 {
+      div {
+        > div {
+          padding: 0 0 0 4px;
+
+          @include g-font(12, 1);
+        }
+      }
+    }
+
+    &--size-2 {
+      div {
+        > div {
+          padding: 0 0 0 6px;
+
+          @include g-font(14, 1);
+        }
+      }
+    }
+
+    &--size-3 {
+      div {
+        > div {
+          padding: 0 0 0 6px;
+
+          @include g-font(16, 1);
+        }
+      }
+    }
+
+    &--size-4 {
+      div {
+        > div {
+          padding: 0 0 0 8px;
+
+          @include g-font(18, 1);
+        }
+      }
+    }
+
+    &--size-5 {
+      div {
+        > div {
+          padding: 0 0 0 8px;
+
+          @include g-font(22, 1);
+        }
+      }
+    }
+
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      > div > span, a > div > span {
+        &::before {
+          content: "→";
+          display: table-cell;
+          color: #aea928;
+        }
+      }
+    }
+
+    // align
+    &--align-l > a,
+    &--align-l > div {
+      margin: 0 auto 0 0;
+    }
+
+    &--align-c > a,
+    &--align-c > div {
+      margin: 0 auto;
+    }
+
+    &--align-r > a,
+    &--align-r > div {
+      margin: 0 0 0 auto;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-navItem {
+    display: table;
+    margin: 0 auto;
+    > a {
+      display: block;
+      box-sizing: border-box;
+      color: #52400a;
+      text-decoration: none;
+      > div > span {
+        &::before {
+          content: "→";
+          display: block;
+          line-height: 1;
+          padding: 2px 0 0;
+          color: #aea928;
+
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+    }
+
+    div {
+      display: block;
+      box-sizing: border-box;
+
+      @include g-font-spacingKilled(14, 1);
+
+      color: #52400a;
+      text-decoration: none;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      > div {
+        color: #52400a;
+
+        @include g-font-spacingKilled(14, 1);
+
+        text-decoration: underline;
+      }
+    }
+
+    > div > span {
+      &::before {
+        content: "→";
+        display: block;
+        line-height: 1;
+        padding: 2px 0 0;
+        color: #aea928;
+
+        @include g-font-spacingKilled(14, 1);
+      }
+    }
+
+    &--size-1 > a > div,
+    &--size-2 > a > div,
+    &--size-3 > a > div,
+    &--size-4 > a > div,
+    &--size-5 > a > div,
+    &--size-1 > div,
+    &--size-2 > div,
+    &--size-3 > div,
+    &--size-4 > div,
+    &--size-5 > div {
+      > div {
+        padding: 0 0 0 5px;
+      }
+    }
+  }
+}

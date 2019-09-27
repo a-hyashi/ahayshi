@@ -1,0 +1,157 @@
+@if $device == PC {
+  .t0-b-iconText-mail {
+    background: #f7f1bb;
+    border-radius: 13px;
+    a {
+      text-decoration: none;
+      color: #382b2b;
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    $_block: &;
+
+    display: table;
+    > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 5px 9px;
+    }
+
+    &__bd {
+      text-align: center;
+      > a {
+        display: table-cell;
+      }
+    }
+
+    &__icon {
+      display: table-cell;
+      text-align: left;
+      background: url("../imgs/t0-b-iconText-mail/1.png") no-repeat 0 center;
+      width: 16px;
+      height: 12px;
+      padding: 0 8px 0 0;
+    }
+
+    // aligns
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+
+    &--align-c {
+      margin: 0 auto;
+    }
+
+    &--align-r {
+      margin: 0 0 0 auto;
+    }
+
+    // icon sizes
+    &--size-1 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(14);
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(20, 1);
+      }
+
+      #{$_block}__icon {
+        margin: (-4px) 8px 0 0;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(30, 1);
+      }
+
+      #{$_block}__icon {
+        margin: (-8px) 10px 0 0;
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(40, 1);
+      }
+
+      #{$_block}__icon {
+        margin: (-10px) 12px 0 0;
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(50, 1);
+      }
+
+      #{$_block}__icon {
+        margin: (-12px) 12px 0 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-iconText-mail {
+    display: table;
+    margin: 0 auto;
+    padding: 10px 0;
+    word-break: break-all;
+    color: #382b2b;
+    a {
+      text-decoration: none;
+      color: #382b2b;
+      word-wrap: break-word;
+    }
+
+    > div {
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__bd {
+      text-align: left;
+      padding-left: 25px;
+      position: relative;
+
+      @include g-font(16, 1);
+      span {
+        background-repeat: no-repeat;
+      }
+
+      &::before {
+        content: "";
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 16px 12px;
+        display: block;
+        position: absolute;
+        background-image: url("../imgs/t0-b-iconText-mail/1.png");
+        width: 16px;
+        padding: 6px;
+        top: 50%;
+        left: 5px;
+        margin-top: -6px;
+      }
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    img {
+      width: 20px;
+      height: 12px;
+      margin-right: 4px;
+    }
+  }
+}
