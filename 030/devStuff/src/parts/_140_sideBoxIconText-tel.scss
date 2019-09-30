@@ -1,44 +1,35 @@
 @if $device == PC {
   .t0-b-sideBoxIconText-tel {
     $_block: &;
+
+    color: #c5b799;
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+    text-align: left;
     > div {
       display: inline-block;
-      text-align: center;
       vertical-align: top;
+      text-align: center;
     }
 
     &__ruby {
-      @include g-font(14, 1);
       text-align: right;
     }
 
     &__bd {
-      display: table;
-      align-items: center;
-      font-weight: bold;
-      line-height: 1;
       text-align: center;
-      @if $layout == 'L30' or $layout == 'R30' {
-        @include g-font(30, 1); // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
-      } @else {
-        @include g-font(26, 1); // L25かR25で番号が折り返さない最大サイズ
-      }
+      font-family: $mincho;
     }
 
     &__icon {
       display: inline-block;
-      width: 22px;
-      margin-bottom: 0;
       vertical-align: middle;
-      & + span {
-        display: inline;
-        // ヒラギノ・11桁で折り返さないギリギリのサイズ
-        font-size: 90%;
-        vertical-align: top;
-        padding-left: 5px;
-      }
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 34px;
+      margin-right: 10px;
     }
 
+    // aligns
     &--align-l {
       text-align: left;
     }
@@ -50,33 +41,101 @@
     &--align-r {
       text-align: right;
     }
+
+    // icon sizes
+    #{$_block}__bd {
+      margin-top: 7px;
+      span {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+
+      #{$_block}__icon {
+        margin-bottom: 0;
+      }
+
+      #{$_block}__icon + span {
+        display: inline;
+        margin-bottom: 0;
+      }
+    }
+
+    #{$_block}__ruby + #{$_block}__bd {
+      margin-top: 0;
+    }
+
+    &--size-1 {
+      #{$_block}__ruby {
+        @include g-font-spacingKilled(14, 1);
+
+        margin-bottom: 3px;
+      }
+
+      #{$_block}__bd {
+        @include g-font-spacingKilled(30, 1);
+
+        line-height: 1;
+        #{$_block}__icon + span {
+          font-size: 80%;
+          vertical-align: top;
+        }
+      }
+
+      #{$_block}__tel {
+        height: $_tel_hg / 1.81;
+        background-image: url("../imgs/t0-b-iconText/tel.png");
+        background-size: ($_tel_wd / 1.81) ($_tel_hg / 1.81);
+        margin-top: -20px;
+      }
+
+      #{$_block}__fax {
+        height: $_fax_hg / 1.81;
+        background-image: url("../imgs/t0-b-iconText/fax.png");
+        background-size: ($_fax_wd / 1.81) ($_fax_hg / 1.81);
+        margin-top: -16px;
+      }
+
+      #{$_block}__free {
+        height: $_free_hg / 1.81;
+        background-image: url("../imgs/t0-b-iconText/free.png");
+        background-size: ($_free_wd / 1.81) ($_free_hg / 1.81);
+        margin-top: -16px;
+      }
+
+      #{$_block}__cell {
+        height: $_cell_hg / 1.81;
+        background-image: url("../imgs/t0-b-iconText/cell.png");
+        background-size: ($_cell_wd / 1.81) ($_cell_hg / 1.81);
+        margin-top: -16px;
+      }
+    }
   }
 }
 
 @if $device == SP {
   .t0-b-sideBoxIconText-tel {
-    $_block: &;
-
     width: 95%;
-    padding: 10px 0;
     margin: 0 auto;
-    word-break: break-all;
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
     border: 1px solid #ccc;
     border-radius: 8px;
-    a {
-      text-decoration: none;
+    padding: 10px 0;
+    word-break: break-all;
+
+    $_block: &;
+    > div {
+      vertical-align: top;
+      text-align: center;
     }
 
     &__ruby {
       text-align: center;
-      @include g-font(12, 1);
+      color: #555;
     }
 
     &__bd {
-      color: #f00;
       text-align: center;
-      @include g-font(22, 1);
+      color: #f00;
       > span {
         vertical-align: middle;
       }
@@ -84,9 +143,58 @@
 
     &__icon {
       display: inline-block;
-      padding: 0 3px 0 0;
-      text-align: center;
       vertical-align: top;
+      text-align: center;
+    }
+
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      #{$_block}__ruby {
+        @include g-font(12, 1);
+      }
+
+      #{$_block}__bd {
+        @include g-font(14, 1);
+      }
+
+      #{$_block}__icon {
+        padding: 0 3px 0 0;
+        background-repeat: no-repeat;
+      }
+
+      #{$_block}__tel {
+        width: $_tel_wd / 3.29;
+        height: $_tel_hg / 3.29;
+        background-image: url("../imgs/t0-b-iconText/tel.png");
+        background-size: ($_tel_wd / 3.29) ($_tel_hg / 3.29);
+        margin-top: 0;
+      }
+
+      #{$_block}__fax {
+        width: $_fax_wd / 3.29;
+        height: $_fax_hg / 3.29;
+        background-image: url("../imgs/t0-b-iconText/fax.png");
+        background-size: ($_fax_wd / 3.29) ($_fax_hg / 3.29);
+        margin-top: -1px;
+      }
+
+      #{$_block}__free {
+        width: $_free_wd / 3.29;
+        height: $_free_hg / 3.29;
+        background-image: url("../imgs/t0-b-iconText/free.png");
+        background-size: ($_free_wd / 3.29) ($_free_hg / 3.29);
+        margin-top: -1px;
+      }
+
+      #{$_block}__cell {
+        width: $_cell_wd / 3.29;
+        height: $_cell_hg / 3.29;
+        background-image: url("../imgs/t0-b-iconText/cell.png");
+        background-size: ($_cell_wd / 3.29) ($_cell_hg / 3.29);
+      }
     }
   }
 }
