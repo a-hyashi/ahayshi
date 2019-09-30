@@ -297,6 +297,7 @@
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation1of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|#{$variation2of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|3|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|4|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation1of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation2of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|3|8%||25px|

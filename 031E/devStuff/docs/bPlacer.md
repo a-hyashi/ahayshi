@@ -301,6 +301,7 @@
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation1of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|#{$variation2of2}|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|3|8%||25px|
+|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|4|8%||25px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation1of2}|1%||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|#{$variation2of2}|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|3|0||0px|
