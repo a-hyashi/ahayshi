@@ -333,6 +333,8 @@
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|15|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|16|0||0px|
 |08.メニュー|footer|201_フッターメニュー（コピーライト付き）|.t0-b-footerMenuWithCp||0||0px|
+|08.メニュー|footer|201_フッターメニュー（コピーライト付き）|.t0-b-footerMenuWithCp|2|0||0px|
+|08.メニュー|footer|201_フッターメニュー（コピーライト付き）|.t0-b-footerMenuWithCp|3|0||0px|
 |09.電話番号・メールアドレス|main|045_電話番号|.t0-b-iconText-tel||4%||35px|
 |09.電話番号・メールアドレス|main|046_メールアドレス|.t0-b-iconText-mail||4%||35px|
 |09.電話番号・メールアドレス|side|140_サイドボックス電話番号|.t0-b-sideBoxIconText-tel||4%||35px|
