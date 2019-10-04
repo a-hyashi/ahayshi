@@ -2326,14 +2326,16 @@
     $_fontSizePx_hd: 20;
     $_fontSizePx_item: 14;
     $_lineHeightType: 1;
-    $_lineHeightType: 1;
     $_textColor_hd: #333;
     $_textColor_item: #666;
     $_textHoverColor: #fff;
     $_textCurrentColor: #666;
-    $_bgColor: #f7f7f7;
-    $_bgHoverColor: #005ebe;
-    $_bgCurrentColor: #f7f7f7;
+    $_bgColor: #f0f0f0;
+    $_bgHoverColor: #aaa;
+    $_bgCurrentColor: #f0f0f0;
+    $_borderColor: #e4e4e4;
+
+    border: 3px solid $_borderColor;
 
     font-family: $tenorsans;
     a {
@@ -2356,26 +2358,24 @@
     &__hd {
       @include g-font($_fontSizePx_hd, $_lineHeightType);
       min-height: 25px;
-      padding: 12px 10px;
+      padding: 13px 15px 0;
       text-align: center;
       background-color: #fff;
-      border-top: 2px solid #005ebe;
-      border-bottom: 2px solid #005ebe;
-      box-shadow:
-        0 -1px #fff inset,
-        0 -2px #005ebe inset,
-        0 1px #fff inset,
-        0 2px #005ebe inset;
       h4 {
         color: $_textColor_hd;
+        padding-bottom: 5px;
+        border-bottom: 2px solid $_borderColor;
+        min-height: 30px;
       }
     }
 
     &__bd {
-      padding: 26px 10px;
+      padding: 26px 15px;
       background-color: #fff;
-      > .b-sideMenuHandle__list:last-child {
-        border-bottom: 2px dotted #d5d7d9;
+      > .b-sideMenuHandle__list {
+        > ul {
+          border-bottom: 2px dotted $_borderColor;
+        }
       }
 
       .b-sideMenuHandle__list {
@@ -2385,17 +2385,18 @@
               @include g-font($_fontSizePx_item, $_lineHeightType);
               padding: 2px 1px;
               color: $_textColor_item;
-              border-top: 2px dotted #d5d7d9;
+              border-top: 2px dotted $_borderColor;
               > div {
                 span {
-                  > div {
+                  > span {
+                    transition: background-color .5s;
                     display: block;
                     padding: 6px 7px 5px 23px;
                     color: $_textColor_item;
-                    background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
+                    background-image: url("../imgs/menu/menu002/menu004_ico01.svg");
                     background-repeat: no-repeat;
                     background-position: 6px center;
-                    background-size: 9px 14px;
+                    background-size: 7.2px 12.2px;
                   }
                 }
               }
@@ -2405,14 +2406,14 @@
                   > a {
                     display: block;
                     span {
-                      > div {
+                      > span {
                         display: block;
                         color: $_textHoverColor;
                         background-color: $_bgHoverColor;
                         background-image: url("../imgs/menu/menu002/menu002_ico02_v4f1.svg");
                         background-repeat: no-repeat;
                         background-position: 6px center;
-                        background-size: 9px 14px;
+                        background-size: 7.2px 12.2px;
                       }
                     }
                   }
@@ -2421,29 +2422,24 @@
             }
 
             &.state-current {
-              .b-sideMenuHandle__item2 {
+              > .b-sideMenuHandle__item2 {
                 > div {
-                  span {
-                    > span {
-                      background-color: $_bgColor;
-                    }
-                  }
+                  background-color: $_bgColor;
                 }
 
                 &:hover {
                   > div {
                     > a {
-                      padding: 0;
+                      display: block;
                       span {
-                        > div {
+                        > span {
                           display: block;
-                          padding: 6px 7px 5px 23px;
-                          color: $_textCurrentColor;
-                          background-color: $_bgColor;
-                          background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
-                          &::before {
-                            content: none;
-                          }
+                          color: $_textHoverColor;
+                          background-color: $_bgHoverColor;
+                          background-image: url("../imgs/menu/menu002/menu002_ico02_v4f1.svg");
+                          background-repeat: no-repeat;
+                          background-position: 6px center;
+                          background-size: 7.2px 12.2px;
                         }
                       }
                     }
@@ -2456,8 +2452,9 @@
               .b-sideMenuHandle__item {
                 .b-sideMenuHandle__item2 {
                   > div {
+                    background-color: transparent;
                     span {
-                      > div {
+                      > span {
                         display: block;
                         padding: 6px 7px 6px 30px;
                         background-image: none;
@@ -2469,7 +2466,7 @@
                     > div {
                       > a {
                         span {
-                          > div {
+                          > span {
                             color: $_textHoverColor;
                             background-color: $_bgHoverColor;
                           }
@@ -2482,10 +2479,10 @@
                 &.state-current {
                   .b-sideMenuHandle__item2 {
                     > div {
+                      background-color: $_bgCurrentColor;
                       span {
-                        > div {
+                        > span {
                           color: $_textCurrentColor;
-                          background-color: $_bgCurrentColor;
                         }
                       }
                     }
@@ -2494,10 +2491,9 @@
                       > div {
                         > a {
                           span {
-                            > div {
-                              padding: 6px 7px 6px 30px;
-                              color: $_textCurrentColor;
-                              background-color: $_bgCurrentColor;
+                            > span {
+                              color: $_textHoverColor;
+                              background-color: $_bgHoverColor;
                               background-image: none;
                             }
                           }
@@ -2512,7 +2508,7 @@
                     .b-sideMenuHandle__item2 {
                       > div {
                         span {
-                          > div {
+                          > span {
                             display: block;
                             padding: 6px 7px 6px 40px;
                             text-shadow: none;
@@ -2527,7 +2523,7 @@
                           > a {
                             display: block;
                             span {
-                              > div {
+                              > span {
                                 display: block;
                                 padding: 6px 7px 6px 40px;
                                 color: $_textHoverColor;
@@ -2542,11 +2538,11 @@
                     &.state-current {
                       .b-sideMenuHandle__item2 {
                         > div {
+                          background-color: $_bgCurrentColor;
                           span {
-                            > div {
+                            > span {
                               padding: 6px 8px 6px 40px;
                               color: $_textCurrentColor;
-                              background-color: $_bgCurrentColor;
                             }
                           }
                         }
@@ -2554,12 +2550,13 @@
                         &:hover {
                           > div {
                             > a {
+                              display: block;
                               span {
-                                > div {
+                                > span {
+                                  display: block;
                                   padding: 6px 7px 6px 40px;
-                                  color: $_textCurrentColor;
-                                  background-color: $_bgCurrentColor;
-                                  background-image: none;
+                                  color: $_textHoverColor;
+                                  background-color: $_bgHoverColor;
                                 }
                               }
                             }
