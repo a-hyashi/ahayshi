@@ -1,0 +1,126 @@
+@if $device == PC {
+  .t0-b-mediaCols {
+    &__col1 {
+      width: 40%;
+
+      // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      padding-top: 3px;
+      box-sizing: border-box;
+
+      //管理画面で画像列をクリックできるようにz-indexをつけている
+      z-index: 10;
+      position: relative;
+    }
+
+    &__col2 {
+      overflow: hidden;
+    }
+
+    &--imgR {
+      [class^=t0-b-mediaCols__col1] {
+        float: right;
+        padding-left: 4%;
+        padding-right: 0;
+      }
+    }
+
+    &--imgL {
+      [class^=t0-b-mediaCols__col1] {
+        float: left;
+        padding-right: 4%;
+        padding-left: 0%;
+      }
+    }
+
+    &--colW {
+      &-l {
+        [class^=t0-b-mediaCols__col1] {
+          width: 50%;
+        }
+      }
+
+      &-m {
+        [class^=t0-b-mediaCols__col1] {
+          width: 40%;
+        }
+      }
+
+      &-s {
+        [class^=t0-b-mediaCols__col1] {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  .ex-imageFloat.t0-b-mediaCols {
+    [class^=t0-b-mediaCols__col2] {
+      overflow: visible;
+      [class*=-bPlacer] {
+        // 画像列が大きくなると文章列が崩れる対策でセレクタの詳細度を高めている
+        > div {
+          overflow: hidden;
+        }
+
+        // 文章が回り込むために必要
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-mediaCols {
+    padding-bottom: 10px;
+    [class^=t0-b-mediaCols__col1] {
+      width: 40%;
+      float: right;
+      padding-right: 0;
+      padding-left: 10px;
+
+      // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      padding-top: 3px;
+    }
+
+    [class^=t0-b-mediaCols__col2] {
+      overflow: visible;
+      [class*=-bPlacer] {
+        // 画像列が大きくなると文章列が崩れるのでセレクタの詳細度を高めている
+        > div {
+          overflow: hidden;
+        }
+
+        // 文章が回り込むために必要
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul, ol {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+
+    &--imgL {
+      [class^=t0-b-mediaCols__col1] {
+        width: 40%;
+        float: left;
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+
+    &.ex-spLayout__vertical {
+      [class^=t0-b-mediaCols__col1] {
+        // 「列の大きさ」調整機能の「自分で選択」で数値指定した場合、HTML内にstyle属性としてuserEditWidthが出力されるため例外で!importantをつけている
+        width: 100% !important;
+        float: none;
+        padding: 0;
+      }
+    }
+  }
+}
