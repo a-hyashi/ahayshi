@@ -1,0 +1,2766 @@
+@if $device == PC {
+  .b-sideMenu#{$variation1of2} {
+
+    $_block: &;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_hd: #333;
+    $_textColor_item: #666;
+    $_textHoverColor: #4092ff;
+    $_CurrentColor: #006eff;
+    $_bgColor: #fff;
+    $_bgHoverColor: #e8f6fa;
+    $_bgCurrentColor: #f1f9fb;
+
+    font-family: $tenorsans;
+    border-top: 4px solid #92d0ff;
+    a {
+      text-decoration: none;
+      h4 {
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font($_fontSizePx_hd, $_lineHeightType);
+      min-height: 25px;
+      padding: 12px 10px;
+      text-align: center;
+      background-color: #e8f6fa;
+      border-right: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      h4 {
+        color: $_textColor_hd;
+      }
+    }
+
+    &__bd {
+      padding: 26px 10px;
+      background-color: $_bgColor;
+      border-right: 1px solid #ebe9e5;
+      border-bottom: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      > .b-sideMenu__list {
+        > ul {
+          > .b-sideMenu__item {
+            + .b-sideMenu__item {
+              margin-top: 10px;
+            }
+
+            .b-sideMenu__item2 {
+              @include g-font($_fontSizePx_item, $_lineHeightType);
+              > div {
+                span {
+                  > span {
+                    display: block;
+                    padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
+                    // カラーをなくす為 初期値にする
+                    background-color: transparent;
+                    background-image: url("../imgs/menu/menu001/menu001_ico01_v1f1.svg");
+                    background-repeat: no-repeat;
+                    background-position: 6px center;
+                    background-size: 13px 13px;
+                  }
+                }
+              }
+
+              &:hover {
+                > div {
+                  > a {
+                    display: block;
+                    padding: 7px 0;
+                    span {
+                      > span {
+                        // hoverのアンダーラインの要素
+                        position: relative;
+                        z-index: 0;
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
+                          position: absolute;
+                          bottom: -2px;
+                          left: 24px;
+                          z-index: -1;
+                          display: inline-block;
+                          width: 0;
+                          height: 8px;
+                          content: '';
+                          background-color: $_bgHoverColor;
+                        }
+
+                        &:hover {
+                          &::before {
+                            width: calc(100% - 24px);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            &.state-current {
+              > .b-sideMenu__item2 {
+                > div {
+                  background-color: $_bgCurrentColor;
+                  span {
+                    > span {
+                      color: $_textHoverColor;
+                      text-shadow:
+                        1px 1px 0 #fff,
+                        -1px -1px 0 #fff,
+                        -1px 1px 0 #fff,
+                        1px -1px 0 #fff,
+                        0 1px 0 #fff,
+                        0 -1px 0 #fff,
+                        -1px 0 0 #fff,
+                        1px 0 0 #fff;
+                    }
+                  }
+                }
+
+                &:hover {
+                  > div {
+                    background-color: transparent;
+                    > a {
+                      display: block;
+                      padding: 7px 0;
+                      span {
+                        > span {
+                          // hoverのアンダーラインの要素
+                          position: relative;
+                          z-index: 0;
+                          display: inline-block;
+                          padding: 0 8px 0 25px;
+                          color: $_textHoverColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          &::before {
+                            position: absolute;
+                            bottom: -2px;
+                            left: 24px;
+                            z-index: -1;
+                            display: inline-block;
+                            width: 0;
+                            height: 8px;
+                            content: '';
+                            background-color: $_bgHoverColor;
+                          }
+
+                          &:hover {
+                            &::before {
+                              width: calc(100% - 24px);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .b-sideMenu__list {
+              .b-sideMenu__item {
+                .b-sideMenu__item2 {
+                  > div {
+                    span {
+                      > span {
+                        padding: 7px 8px 7px 32px;
+                        background-image: url("../imgs/menu/menu001/menu001_ico02_v1f1.svg");
+                        background-repeat: no-repeat;
+                        background-position: 16px center;
+                        background-size: 8px 2px;
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    > div {
+                      > a {
+                        display: block;
+                        padding: 7px 0;
+                        span {
+                          > span {
+                            // hoverのアンダーラインの要素
+                            position: relative;
+                            z-index: 0;
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
+                              bottom: -2px;
+                              width: 0;
+                              background-color: $_bgHoverColor;
+                            }
+
+                            &:hover {
+                              &::before {
+                                left: 30px;
+                                width: calc(100% - 30px);
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                &.state-current {
+                  > .b-sideMenu__item2 {
+                    > div {
+                      background-color: transparent;
+                      span {
+                        > span {
+                          position: relative;
+                          z-index: 0;
+                          display: inline-block;
+                          color: $_textHoverColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          background-color: transparent;
+                          &::before {
+                            position: absolute;
+                            bottom: 5px;
+                            left: 30px;
+                            z-index: -1;
+                            display: inline-block;
+                            width: calc(100% - 30px);
+                            height: 8px;
+                            content: '';
+                            background-color: $_bgCurrentColor;
+                          }
+                        }
+                      }
+                    }
+
+                    &:hover {
+                      > div {
+                        > a {
+                          display: block;
+                          padding: 7px 0;
+                          span {
+                            > span {
+                              // hoverのアンダーラインの要素
+                              position: relative;
+                              z-index: 0;
+                              display: inline-block;
+                              padding: 0 8px 0 32px;
+                              color: $_textHoverColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
+                                bottom: -2px;
+                                width: 0;
+                                background-color: $_bgHoverColor;
+                              }
+
+                              &:hover {
+                                &::before {
+                                  left: 30px;
+                                  width: calc(100% - 30px);
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .b-sideMenu__list {
+                  .b-sideMenu__item {
+                    .b-sideMenu__item2 {
+                      > div {
+                        span {
+                          > span {
+                            display: inline-block;
+                            padding: 4px 8px 4px 40px;
+                            color: $_textColor_item;
+                            text-shadow: none;
+                            background-image: none;
+                            &::before {
+                              content: none;
+                            }
+                          }
+                        }
+                      }
+
+                      &:hover {
+                        > div {
+                          > a {
+                            display: block;
+                            padding: 4px 0;
+                            span {
+                              > span {
+                                // hoverのアンダーラインの要素
+                                position: relative;
+                                z-index: 0;
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
+                                  position: absolute;
+                                  bottom: -2px;
+                                  left: 38px;
+                                  z-index: -1;
+                                  display: inline-block;
+                                  width: 0;
+                                  height: 8px;
+                                  content: '';
+                                  background-color: $_bgHoverColor;
+                                }
+
+                                &:hover {
+                                  &::before {
+                                    width: calc(100% - 38px);
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    &.state-current {
+                      > .b-sideMenu__item2 {
+                        > div {
+                          span {
+                            > span {
+                              color: $_textHoverColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
+                                position: absolute;
+                                bottom: 2px;
+                                left: 38px;
+                                z-index: -1;
+                                display: inline-block;
+                                width: calc(100% - 38px);
+                                height: 8px;
+                                content: '';
+                                background-color: $_bgCurrentColor;
+                              }
+                            }
+                          }
+                        }
+
+                        &:hover {
+                          > div {
+                            > a {
+                              display: block;
+                              padding: 4px 0;
+                              span {
+                                > span {
+                                  // hoverのアンダーラインの要素
+                                  position: relative;
+                                  z-index: 0;
+                                  display: inline-block;
+                                  padding: 0 8px 0 40px;
+                                  color: $_textHoverColor;
+                                  text-shadow:
+                                    1px 1px 0 #fff,
+                                    -1px -1px 0 #fff,
+                                    -1px 1px 0 #fff,
+                                    1px -1px 0 #fff,
+                                    0 1px 0 #fff,
+                                    0 -1px 0 #fff,
+                                    -1px 0 0 #fff,
+                                    1px 0 0 #fff;
+                                  &::before {
+                                    position: absolute;
+                                    bottom: -2px;
+                                    left: 38px;
+                                    z-index: -1;
+                                    display: inline-block;
+                                    width: 0;
+                                    height: 8px;
+                                    content: '';
+                                    background-color: $_bgHoverColor;
+                                  }
+
+                                  &:hover {
+                                    &::before {
+                                      width: calc(100% - 38px);
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+
+  .b-sideMenu#{$variation2of2} {
+
+    $_block: &;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_hd: #333;
+    $_textColor_item: #666;
+    $_textHoverColor: #fff;
+    $_textCurrentColor: #666;
+    $_bgColor: #f7f7f7;
+    $_bgHoverColor: #005ebe;
+    $_bgCurrentColor: #f7f7f7;
+
+    font-family: $tenorsans;
+    a {
+      text-decoration: none;
+      h4 {
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font($_fontSizePx_hd, $_lineHeightType);
+      min-height: 25px;
+      padding: 12px 10px;
+      text-align: center;
+      background-color: #fff;
+      border-top: 2px solid #005ebe;
+      border-bottom: 2px solid #005ebe;
+      box-shadow:
+        0 -1px #fff inset,
+        0 -2px #005ebe inset,
+        0 1px #fff inset,
+        0 2px #005ebe inset;
+      h4 {
+        color: $_textColor_hd;
+      }
+    }
+
+    &__bd {
+      padding: 26px 10px;
+      background-color: #fff;
+      > .b-sideMenu__list {
+        > ul {
+          border-bottom: 2px dotted #d5d7d9;
+        }
+      }
+
+      .b-sideMenu__list {
+        ul {
+          .b-sideMenu__item {
+            .b-sideMenu__item2 {
+              @include g-font($_fontSizePx_item, $_lineHeightType);
+              padding: 2px 1px;
+              color: $_textColor_item;
+              border-top: 2px dotted #d5d7d9;
+              > div {
+                span {
+                  > span {
+                    display: block;
+                    padding: 6px 7px 5px 23px;
+                    color: $_textColor_item;
+                    background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
+                    background-repeat: no-repeat;
+                    background-position: 6px center;
+                    background-size: 9px 14px;
+                  }
+                }
+              }
+
+              &:hover {
+                > div {
+                  > a {
+                    display: block;
+                    span {
+                      > span {
+                        display: block;
+                        color: $_textHoverColor;
+                        background-color: $_bgHoverColor;
+                        background-image: url("../imgs/menu/menu002/menu002_ico02_v4f1.svg");
+                        background-repeat: no-repeat;
+                        background-position: 6px center;
+                        background-size: 9px 14px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            &.state-current {
+              > .b-sideMenu__item2 {
+                > div {
+                  background-color: $_bgColor;
+                }
+
+                &:hover {
+                  > div {
+                    > a {
+                      display: block;
+                      span {
+                        > span {
+                          display: block;
+                          color: $_textHoverColor;
+                          background-color: $_bgHoverColor;
+                          background-image: url("../imgs/menu/menu002/menu002_ico02_v4f1.svg");
+                          background-repeat: no-repeat;
+                          background-position: 6px center;
+                          background-size: 9px 14px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .b-sideMenu__list {
+              .b-sideMenu__item {
+                .b-sideMenu__item2 {
+                  > div {
+                    background-color: transparent;
+                    span {
+                      > span {
+                        display: block;
+                        padding: 6px 7px 6px 30px;
+                        background-image: none;
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    > div {
+                      > a {
+                        span {
+                          > span {
+                            color: $_textHoverColor;
+                            background-color: $_bgHoverColor;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                &.state-current {
+                  .b-sideMenu__item2 {
+                    > div {
+                      background-color: $_bgCurrentColor;
+                      span {
+                        > span {
+                          color: $_textCurrentColor;
+                        }
+                      }
+                    }
+
+                    &:hover {
+                      > div {
+                        > a {
+                          span {
+                            > span {
+                              color: $_textHoverColor;
+                              background-color: $_bgHoverColor;
+                              background-image: none;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .b-sideMenu__list {
+                  .b-sideMenu__item {
+                    .b-sideMenu__item2 {
+                      > div {
+                        span {
+                          > span {
+                            display: block;
+                            padding: 6px 7px 6px 40px;
+                            text-shadow: none;
+                            background-color: transparent;
+                            background-image: none;
+                          }
+                        }
+                      }
+
+                      &:hover {
+                        > div {
+                          > a {
+                            display: block;
+                            span {
+                              > span {
+                                display: block;
+                                padding: 6px 7px 6px 40px;
+                                color: $_textHoverColor;
+                                background-color: $_bgHoverColor;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    &.state-current {
+                      .b-sideMenu__item2 {
+                        > div {
+                          background-color: $_bgCurrentColor;
+                          span {
+                            > span {
+                              padding: 6px 8px 6px 40px;
+                              color: $_textCurrentColor;
+                            }
+                          }
+                        }
+
+                        &:hover {
+                          > div {
+                            > a {
+                              display: block;
+                              span {
+                                > span {
+                                  display: block;
+                                  padding: 6px 7px 6px 40px;
+                                  color: $_textHoverColor;
+                                  background-color: $_bgHoverColor;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+
+  .b-sideMenu3 {
+
+    $_block: &;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_hd: #333;
+    $_textColor_item: #666;
+    $_textHoverColor: #005fdc;
+    $_bgColor: #fff;
+    $_bgHoverColor: #ebf1f8;
+    $_bgCurrentColor: #ebf1f8;
+
+    font-family: $tenorsans;
+    border-top: 4px solid #0047a5;
+    a {
+      text-decoration: none;
+      h4 {
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font($_fontSizePx_hd, $_lineHeightType);
+      min-height: 25px;
+      padding: 12px 10px;
+      text-align: center;
+      background-color: #ebf1f8;
+      border-right: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      h4 {
+        color: $_textColor_hd;
+      }
+    }
+
+    &__bd {
+      padding: 26px 10px;
+      background-color: $_bgColor;
+      border-right: 1px solid #ebe9e5;
+      border-bottom: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      > .b-sideMenu__list {
+        > ul {
+          > .b-sideMenu__item {
+            + .b-sideMenu__item {
+              margin-top: 10px;
+            }
+
+            .b-sideMenu__item2 {
+              @include g-font($_fontSizePx_item, $_lineHeightType);
+              color: $_textColor_item;
+              > div {
+                span {
+                  > span {
+                    display: block;
+                    padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
+                    // カラーをなくす為 初期値にする
+                    background-color: transparent;
+                    background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.svg");
+                    background-repeat: no-repeat;
+                    background-position: 6px center;
+                    background-size: 13px 13px;
+                  }
+                }
+
+                > a {
+                  > span {
+                    color: $_textColor_item;
+                  }
+                }
+              }
+
+              &:hover {
+                > div {
+                  > a {
+                    display: block;
+                    padding: 7px 0;
+                    span {
+                      > span {
+                        // hoverのアンダーラインの要素
+                        position: relative;
+                        z-index: 0;
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
+                          position: absolute;
+                          bottom: -2px;
+                          left: 24px;
+                          z-index: -1;
+                          display: inline-block;
+                          width: 0;
+                          height: 8px;
+                          content: '';
+                          background-color: $_bgHoverColor;
+                        }
+
+                        &:hover {
+                          &::before {
+                            width: calc(100% - 24px);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            &.state-current {
+              > .b-sideMenu__item2 {
+                > div {
+                  background-color: $_bgCurrentColor;
+                  span {
+                    > span {
+                      color: $_textHoverColor;
+                      text-shadow:
+                        1px 1px 0 #fff,
+                        -1px -1px 0 #fff,
+                        -1px 1px 0 #fff,
+                        1px -1px 0 #fff,
+                        0 1px 0 #fff,
+                        0 -1px 0 #fff,
+                        -1px 0 0 #fff,
+                        1px 0 0 #fff;
+                      background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.svg");
+                    }
+                  }
+                }
+
+                &:hover {
+                  > div {
+                    background-color: transparent;
+                    > a {
+                      display: block;
+                      padding: 7px 0;
+                      span {
+                        > span {
+                          // hoverのアンダーラインの要素
+                          position: relative;
+                          z-index: 0;
+                          display: inline-block;
+                          padding: 0 8px 0 25px;
+                          color: $_textHoverColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.svg");
+                          &::before {
+                            position: absolute;
+                            bottom: -2px;
+                            left: 24px;
+                            z-index: -1;
+                            display: inline-block;
+                            width: 0;
+                            height: 8px;
+                            content: '';
+                            background-color: $_bgHoverColor;
+                          }
+
+                          &:hover {
+                            &::before {
+                              width: calc(100% - 24px);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .b-sideMenu__list {
+              .b-sideMenu__item {
+                .b-sideMenu__item2 {
+                  > div {
+                    span {
+                      > span {
+                        padding: 7px 8px 7px 32px;
+                        background-image: url("../imgs/menu/menu003/menu003_ico02_v4f1.svg");
+                        background-repeat: no-repeat;
+                        background-position: 16px center;
+                        background-size: 8px 2px;
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    > div {
+                      > a {
+                        display: block;
+                        padding: 7px 0;
+                        span {
+                          > span {
+                            // hoverのアンダーラインの要素
+                            position: relative;
+                            z-index: 0;
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
+                              bottom: -2px;
+                              width: 0;
+                              background-color: $_bgHoverColor;
+                            }
+
+                            &:hover {
+                              &::before {
+                                left: 30px;
+                                width: calc(100% - 30px);
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                &.state-current {
+                  .b-sideMenu__item2 {
+                    > div {
+                      background-color: transparent;
+                      span {
+                        > span {
+                          position: relative;
+                          z-index: 0;
+                          display: inline-block;
+                          padding: 7px 8px 7px 32px;
+                          color: $_textHoverColor;
+                          text-shadow:
+                            1px 1px 0 #fff,
+                            -1px -1px 0 #fff,
+                            -1px 1px 0 #fff,
+                            1px -1px 0 #fff,
+                            0 1px 0 #fff,
+                            0 -1px 0 #fff,
+                            -1px 0 0 #fff,
+                            1px 0 0 #fff;
+                          &::before {
+                            position: absolute;
+                            bottom: 5px;
+                            left: 30px;
+                            z-index: -1;
+                            display: inline-block;
+                            width: calc(100% - 30px);
+                            height: 8px;
+                            content: '';
+                            background-color: $_bgCurrentColor;
+                          }
+                        }
+                      }
+                    }
+
+                    &:hover {
+                      > div {
+                        > a {
+                          display: block;
+                          padding: 7px 0;
+                          span {
+                            > span {
+                              // hoverのアンダーラインの要素
+                              position: relative;
+                              z-index: 0;
+                              display: inline-block;
+                              padding: 0 8px 0 32px;
+                              color: $_textHoverColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
+                                bottom: -2px;
+                                width: 0;
+                                background-color: $_bgHoverColor;
+                              }
+
+                              &:hover {
+                                &::before {
+                                  left: 30px;
+                                  width: calc(100% - 30px);
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .b-sideMenu__list {
+                  .b-sideMenu__item {
+                    .b-sideMenu__item2 {
+                      > div {
+                        span {
+                          > span {
+                            display: inline-block;
+                            padding: 4px 8px 4px 40px;
+                            color: $_textColor_item;
+                            text-shadow: none;
+                            background-image: none;
+                            &::before {
+                              content: none;
+                            }
+                          }
+                        }
+                      }
+
+                      &:hover {
+                        > div {
+                          > a {
+                            display: block;
+                            padding: 4px 0;
+                            span {
+                              > span {
+                                // hoverのアンダーラインの要素
+                                position: relative;
+                                z-index: 0;
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
+                                  position: absolute;
+                                  bottom: -2px;
+                                  left: 38px;
+                                  z-index: -1;
+                                  display: inline-block;
+                                  width: 0;
+                                  height: 8px;
+                                  content: '';
+                                  background-color: $_bgHoverColor;
+                                }
+
+                                &:hover {
+                                  &::before {
+                                    width: calc(100% - 38px);
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    &.state-current {
+                      .b-sideMenu__item2 {
+                        > div {
+                          span {
+                            > span {
+                              color: $_textHoverColor;
+                              text-shadow:
+                                1px 1px 0 #fff,
+                                -1px -1px 0 #fff,
+                                -1px 1px 0 #fff,
+                                1px -1px 0 #fff,
+                                0 1px 0 #fff,
+                                0 -1px 0 #fff,
+                                -1px 0 0 #fff,
+                                1px 0 0 #fff;
+                              &::before {
+                                position: absolute;
+                                bottom: 2px;
+                                left: 38px;
+                                z-index: -1;
+                                display: inline-block;
+                                width: calc(100% - 38px);
+                                height: 8px;
+                                content: '';
+                                background-color: $_bgCurrentColor;
+                              }
+                            }
+                          }
+                        }
+
+                        &:hover {
+                          > div {
+                            > a {
+                              display: block;
+                              padding: 4px 0;
+                              span {
+                                > span {
+                                  // hoverのアンダーラインの要素
+                                  position: relative;
+                                  z-index: 0;
+                                  display: inline-block;
+                                  padding: 0 8px 0 40px;
+                                  color: $_textHoverColor;
+                                  text-shadow:
+                                    1px 1px 0 #fff,
+                                    -1px -1px 0 #fff,
+                                    -1px 1px 0 #fff,
+                                    1px -1px 0 #fff,
+                                    0 1px 0 #fff,
+                                    0 -1px 0 #fff,
+                                    -1px 0 0 #fff,
+                                    1px 0 0 #fff;
+                                  &::before {
+                                    position: absolute;
+                                    bottom: -2px;
+                                    left: 38px;
+                                    z-index: -1;
+                                    display: inline-block;
+                                    width: 0;
+                                    height: 8px;
+                                    content: '';
+                                    background-color: $_bgHoverColor;
+                                  }
+
+                                  &:hover {
+                                    &::before {
+                                      width: calc(100% - 38px);
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+
+  .b-sideMenuHandle#{$variation1of2} {
+
+    $_block: &;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_hd: #333;
+    $_textColor_item: #666;
+    $_textHoverColor: #4092ff;
+    $_textCurrentColor: #006eff;
+    $_bgColor: #fff;
+    $_bgHoverColor: #e8f6fa;
+    $_bgCurrentColor: #f1f9fb;
+
+    font-family: $tenorsans;
+    border-top: 4px solid #92d0ff;
+    a {
+      text-decoration: none;
+      h4 {
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font($_fontSizePx_hd, $_lineHeightType);
+      min-height: 25px;
+      padding: 12px 10px;
+      text-align: center;
+      background-color: #e8f6fa;
+      border-right: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      h4 {
+        color: $_textColor_hd;
+      }
+    }
+
+    &__bd {
+      padding: 26px 10px;
+      background-color: #fff;
+      border-right: 1px solid #ebe9e5;
+      border-bottom: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      > .b-sideMenuHandle__list.sideMenuHandle1 {
+        margin-top: 10px;
+      }
+
+      > span {
+        & + .b-sideMenuHandle__list.sideMenuHandle1 {
+          margin-top: 0;
+        }
+      }
+
+      .b-sideMenuHandle__list {
+        ul {
+          .b-sideMenuHandle__item {
+            .b-sideMenuHandle__item2 {
+              @include g-font($_fontSizePx_item, $_lineHeightType);
+              > div {
+                span {
+                  > div {
+                    display: block;
+                    padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
+                    // カラーをなくす為 初期値にする
+                    background-color: transparent;
+                    background-image: url("../imgs/menu/menu001/menu001_ico01_v1f1.svg");
+                    background-repeat: no-repeat;
+                    background-position: 6px center;
+                    background-size: 13px 13px;
+                  }
+                }
+              }
+
+              &:hover {
+                > div {
+                  > a {
+                    display: block;
+                    padding: 7px 0;
+                    span {
+                      > div {
+                        // hoverのアンダーラインの要素
+                        position: relative;
+                        z-index: 0;
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
+                          position: absolute;
+                          bottom: -2px;
+                          left: 24px;
+                          z-index: -1;
+                          display: inline-block;
+                          width: 0;
+                          height: 8px;
+                          content: '';
+                          background-color: $_bgHoverColor;
+                        }
+
+                        &:hover {
+                          &::before {
+                            width: calc(100% - 24px);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .b-sideMenuHandle__list {
+              .b-sideMenuHandle__item {
+                .b-sideMenuHandle__item2 {
+                  > div {
+                    span {
+                      > div {
+                        padding: 7px 8px 7px 32px;
+                        background-image: url("../imgs/menu/menu001/menu001_ico02_v1f1.svg");
+                        background-repeat: no-repeat;
+                        background-position: 16px center;
+                        background-size: 8px 2px;
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    > div {
+                      > a {
+                        display: block;
+                        padding: 7px 0;
+                        span {
+                          > div {
+                            // hoverのアンダーラインの要素
+                            position: relative;
+                            z-index: 0;
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
+                              bottom: -2px;
+                              width: 0;
+                              background-color: $_bgHoverColor;
+                            }
+
+                            &:hover {
+                              &::before {
+                                left: 30px;
+                                width: calc(100% - 30px);
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .b-sideMenuHandle__list {
+                  .b-sideMenuHandle__item {
+                    .b-sideMenuHandle__item2 {
+                      > div {
+                        span {
+                          > div {
+                            display: inline-block;
+                            padding: 4px 8px 4px 40px;
+                            color: $_textColor_item;
+                            text-shadow: none;
+                            background-image: none;
+                            &::before {
+                              content: none;
+                            }
+                          }
+                        }
+                      }
+
+                      &:hover {
+                        > div {
+                          > a {
+                            display: block;
+                            padding: 4px 0;
+                            span {
+                              > div {
+                                // hoverのアンダーラインの要素
+                                position: relative;
+                                z-index: 0;
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
+                                  position: absolute;
+                                  bottom: -2px;
+                                  left: 38px;
+                                  z-index: -1;
+                                  display: inline-block;
+                                  width: 0;
+                                  height: 8px;
+                                  content: '';
+                                  background-color: $_bgHoverColor;
+                                }
+
+                                &:hover {
+                                  &::before {
+                                    width: calc(100% - 38px);
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+
+  .b-sideMenuHandle#{$variation2of2} {
+
+    $_block: &;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_lineHeightType: 1;
+    $_textColor_hd: #333;
+    $_textColor_item: #666;
+    $_textHoverColor: #fff;
+    $_textCurrentColor: #666;
+    $_bgColor: #f7f7f7;
+    $_bgHoverColor: #005ebe;
+    $_bgCurrentColor: #f7f7f7;
+
+    font-family: $tenorsans;
+    a {
+      text-decoration: none;
+      h4 {
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font($_fontSizePx_hd, $_lineHeightType);
+      min-height: 25px;
+      padding: 12px 10px;
+      text-align: center;
+      background-color: #fff;
+      border-top: 2px solid #005ebe;
+      border-bottom: 2px solid #005ebe;
+      box-shadow:
+        0 -1px #fff inset,
+        0 -2px #005ebe inset,
+        0 1px #fff inset,
+        0 2px #005ebe inset;
+      h4 {
+        color: $_textColor_hd;
+      }
+    }
+
+    &__bd {
+      padding: 26px 10px;
+      background-color: #fff;
+      > .b-sideMenuHandle__list:last-child {
+        border-bottom: 2px dotted #d5d7d9;
+      }
+
+      .b-sideMenuHandle__list {
+        ul {
+          .b-sideMenuHandle__item {
+            .b-sideMenuHandle__item2 {
+              @include g-font($_fontSizePx_item, $_lineHeightType);
+              padding: 2px 1px;
+              color: $_textColor_item;
+              border-top: 2px dotted #d5d7d9;
+              > div {
+                span {
+                  > div {
+                    display: block;
+                    padding: 6px 7px 5px 23px;
+                    color: $_textColor_item;
+                    background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
+                    background-repeat: no-repeat;
+                    background-position: 6px center;
+                    background-size: 9px 14px;
+                  }
+                }
+              }
+
+              &:hover {
+                > div {
+                  > a {
+                    display: block;
+                    span {
+                      > div {
+                        display: block;
+                        color: $_textHoverColor;
+                        background-color: $_bgHoverColor;
+                        background-image: url("../imgs/menu/menu002/menu002_ico02_v4f1.svg");
+                        background-repeat: no-repeat;
+                        background-position: 6px center;
+                        background-size: 9px 14px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            &.state-current {
+              .b-sideMenuHandle__item2 {
+                > div {
+                  span {
+                    > span {
+                      background-color: $_bgColor;
+                    }
+                  }
+                }
+
+                &:hover {
+                  > div {
+                    > a {
+                      padding: 0;
+                      span {
+                        > div {
+                          display: block;
+                          padding: 6px 7px 5px 23px;
+                          color: $_textCurrentColor;
+                          background-color: $_bgColor;
+                          background-image: url("../imgs/menu/menu002/menu002_ico01_v4f1.svg");
+                          &::before {
+                            content: none;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .b-sideMenuHandle__list {
+              .b-sideMenuHandle__item {
+                .b-sideMenuHandle__item2 {
+                  > div {
+                    span {
+                      > div {
+                        display: block;
+                        padding: 6px 7px 6px 30px;
+                        background-image: none;
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    > div {
+                      > a {
+                        span {
+                          > div {
+                            color: $_textHoverColor;
+                            background-color: $_bgHoverColor;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                &.state-current {
+                  .b-sideMenuHandle__item2 {
+                    > div {
+                      span {
+                        > div {
+                          color: $_textCurrentColor;
+                          background-color: $_bgCurrentColor;
+                        }
+                      }
+                    }
+
+                    &:hover {
+                      > div {
+                        > a {
+                          span {
+                            > div {
+                              padding: 6px 7px 6px 30px;
+                              color: $_textCurrentColor;
+                              background-color: $_bgCurrentColor;
+                              background-image: none;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .b-sideMenuHandle__list {
+                  .b-sideMenuHandle__item {
+                    .b-sideMenuHandle__item2 {
+                      > div {
+                        span {
+                          > div {
+                            display: block;
+                            padding: 6px 7px 6px 40px;
+                            text-shadow: none;
+                            background-color: transparent;
+                            background-image: none;
+                          }
+                        }
+                      }
+
+                      &:hover {
+                        > div {
+                          > a {
+                            display: block;
+                            span {
+                              > div {
+                                display: block;
+                                padding: 6px 7px 6px 40px;
+                                color: $_textHoverColor;
+                                background-color: $_bgHoverColor;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    &.state-current {
+                      .b-sideMenuHandle__item2 {
+                        > div {
+                          span {
+                            > div {
+                              padding: 6px 8px 6px 40px;
+                              color: $_textCurrentColor;
+                              background-color: $_bgCurrentColor;
+                            }
+                          }
+                        }
+
+                        &:hover {
+                          > div {
+                            > a {
+                              span {
+                                > div {
+                                  padding: 6px 7px 6px 40px;
+                                  color: $_textCurrentColor;
+                                  background-color: $_bgCurrentColor;
+                                  background-image: none;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+
+  .b-sideMenuHandle3 {
+
+    $_block: &;
+    $_fontSizePx_hd: 20;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_hd: #333;
+    $_textColor_item: #666;
+    $_textHoverColor: #005fdc;
+    $_textCurrentColor: #004081;
+    $_bgColor: #fdfefe;
+    $_bgHoverColor: #ebf1f8;
+    $_bgCurrentColor: #ebf1f8;
+
+    font-family: $tenorsans;
+    border-top: 4px solid #0047a5;
+    a {
+      text-decoration: none;
+      h4 {
+        &:hover {
+          color: $g-hovercolor;
+        }
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font($_fontSizePx_hd, $_lineHeightType);
+      min-height: 25px;
+      padding: 12px 10px;
+      text-align: center;
+      background-color: #ebf1f8;
+      border-right: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      h4 {
+        color: $_textColor_hd;
+      }
+    }
+
+    &__bd {
+      padding: 26px 10px;
+      background-color: #fff;
+      border-right: 1px solid #ebe9e5;
+      border-bottom: 1px solid #ebe9e5;
+      border-left: 1px solid #ebe9e5;
+      > .b-sideMenuHandle__list.sideMenuHandle1 {
+        margin-top: 10px;
+      }
+
+      > span {
+        & + .b-sideMenuHandle__list.sideMenuHandle1 {
+          margin-top: 0;
+        }
+      }
+
+      .b-sideMenuHandle__list {
+        ul {
+          .b-sideMenuHandle__item {
+            .b-sideMenuHandle__item2 {
+              @include g-font($_fontSizePx_item, $_lineHeightType);
+              > div {
+                span {
+                  > div {
+                    display: block;
+                    padding: 7px 8px 7px 25px;
+                    color: $_textColor_item;
+                    // カラーをなくす為 初期値にする
+                    background-color: transparent;
+                    background-image: url("../imgs/menu/menu003/menu003_ico01_v4f1.svg");
+                    background-repeat: no-repeat;
+                    background-position: 6px center;
+                    background-size: 13px 13px;
+                  }
+                }
+              }
+
+              &:hover {
+                > div {
+                  > a {
+                    display: block;
+                    padding: 7px 0;
+                    span {
+                      > div {
+                        // hoverのアンダーラインの要素
+                        position: relative;
+                        z-index: 0;
+                        display: inline-block;
+                        padding: 0 8px 0 25px;
+                        color: $_textHoverColor;
+                        text-shadow:
+                          1px 1px 0 #fff,
+                          -1px -1px 0 #fff,
+                          -1px 1px 0 #fff,
+                          1px -1px 0 #fff,
+                          0 1px 0 #fff,
+                          0 -1px 0 #fff,
+                          -1px 0 0 #fff,
+                          1px 0 0 #fff;
+                        &::before {
+                          position: absolute;
+                          bottom: -2px;
+                          left: 24px;
+                          z-index: -1;
+                          display: inline-block;
+                          width: 0;
+                          height: 8px;
+                          content: '';
+                          background-color: $_bgHoverColor;
+                        }
+
+                        &:hover {
+                          &::before {
+                            width: calc(100% - 24px);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .b-sideMenuHandle__list {
+              .b-sideMenuHandle__item {
+                .b-sideMenuHandle__item2 {
+                  > div {
+                    span {
+                      > div {
+                        padding: 7px 8px 7px 32px;
+                        background-image: url("../imgs/menu/menu003/menu003_ico02_v4f1.svg");
+                        background-repeat: no-repeat;
+                        background-position: 16px center;
+                        background-size: 8px 2px;
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    > div {
+                      > a {
+                        display: block;
+                        padding: 7px 0;
+                        span {
+                          > div {
+                            // hoverのアンダーラインの要素
+                            position: relative;
+                            z-index: 0;
+                            display: inline-block;
+                            padding: 0 8px 0 32px;
+                            color: $_textHoverColor;
+                            text-shadow:
+                              1px 1px 0 #fff,
+                              -1px -1px 0 #fff,
+                              -1px 1px 0 #fff,
+                              1px -1px 0 #fff,
+                              0 1px 0 #fff,
+                              0 -1px 0 #fff,
+                              -1px 0 0 #fff,
+                              1px 0 0 #fff;
+                            &::before {
+                              bottom: -2px;
+                              width: 0;
+                              background-color: $_bgHoverColor;
+                            }
+
+                            &:hover {
+                              &::before {
+                                left: 30px;
+                                width: calc(100% - 30px);
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .b-sideMenuHandle__list {
+                  .b-sideMenuHandle__item {
+                    .b-sideMenuHandle__item2 {
+                      > div {
+                        span {
+                          > div {
+                            display: inline-block;
+                            padding: 4px 8px 4px 40px;
+                            color: $_textColor_item;
+                            text-shadow: none;
+                            background-image: none;
+                            &::before {
+                              content: none;
+                            }
+                          }
+                        }
+                      }
+
+                      &:hover {
+                        > div {
+                          > a {
+                            display: block;
+                            padding: 4px 0;
+                            span {
+                              > div {
+                                // hoverのアンダーラインの要素
+                                position: relative;
+                                z-index: 0;
+                                display: inline-block;
+                                padding: 0 8px 0 40px;
+                                color: $_textHoverColor;
+                                text-shadow:
+                                  1px 1px 0 #fff,
+                                  -1px -1px 0 #fff,
+                                  -1px 1px 0 #fff,
+                                  1px -1px 0 #fff,
+                                  0 1px 0 #fff,
+                                  0 -1px 0 #fff,
+                                  -1px 0 0 #fff,
+                                  1px 0 0 #fff;
+                                &::before {
+                                  position: absolute;
+                                  bottom: -2px;
+                                  left: 38px;
+                                  z-index: -1;
+                                  display: inline-block;
+                                  width: 0;
+                                  height: 8px;
+                                  content: '';
+                                  background-color: $_bgHoverColor;
+                                }
+
+                                &:hover {
+                                  &::before {
+                                    width: calc(100% - 38px);
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+}
+
+@if $device == SP {
+  .b-sideMenu#{$variation1of2} {
+
+    $_block: &;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_item: #666;
+    $_textCurrentColor: #006eff;
+    $_bgColor: #fff;
+    $_bgCurrentColor: #f1f9fb;
+    a {
+      color: $_textColor_item;
+      text-decoration: none;
+    }
+    box-sizing: border-box;
+
+    width: 100%;
+    font-family: $tenorsans;
+    color: $_textColor_item;
+    background-color: $_bgColor;
+    border: 1px solid #ebe9e5;
+    @include g-font($_fontSizePx_item, $_lineHeightType);
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      background-color: $_bgColor;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+    }
+
+    label.active {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
+      }
+    }
+
+    .b-sideMenu__list {
+      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+    }
+  }
+
+  .b-sideMenu#{$variation2of2} {
+
+    $_block: &;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_item: #666;
+    $_textCurrentColor: #333;
+    $_bgColor: #fff;
+    $_bgCurrentColor: #f7f7f7;
+    a {
+      color: $_textColor_item;
+      text-decoration: none;
+    }
+    box-sizing: border-box;
+
+    width: 100%;
+    font-family: $tenorsans;
+    color: $_textColor_item;
+    background-color: $_bgColor;
+    border: 1px solid #ebe9e5;
+    @include g-font($_fontSizePx_item, $_lineHeightType);
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+    }
+
+    label.active {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
+      }
+    }
+
+    .b-sideMenu__list {
+      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+    }
+  }
+
+  .b-sideMenu3 {
+
+    $_block: &;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_item: #666;
+    $_textCurrentColor: #004081;
+    $_bgColor: #fff;
+    $_bgCurrentColor: #ebf1f8;
+    a {
+      color: $_textColor_item;
+      text-decoration: none;
+    }
+    box-sizing: border-box;
+
+    width: 100%;
+    font-family: $tenorsans;
+    color: $_textColor_item;
+    background-color: $_bgColor;
+    border: 1px solid #ebe9e5;
+    @include g-font($_fontSizePx_item, $_lineHeightType);
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+    }
+
+    label.active {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
+      }
+    }
+
+    .b-sideMenu__list {
+      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
+      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+    }
+  }
+
+  .b-sideMenuHandle#{$variation1of2} {
+
+    $_block: &;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_item: #666;
+    $_textCurrentColor: #006eff;
+    $_bgColor: #fff;
+    $_bgCurrentColor: #f1f9fb;
+    a {
+      color: $_textColor_item;
+      text-decoration: none;
+    }
+    box-sizing: border-box;
+
+    width: 100%;
+    font-family: $tenorsans;
+    color: $_textColor_item;
+    background-color: $_bgColor;
+    border: 1px solid #ebe9e5;
+    @include g-font($_fontSizePx_item, $_lineHeightType);
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+    }
+
+    label.active {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
+      }
+    }
+
+    .b-sideMenuHandle__list {
+      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_07.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+    }
+  }
+
+  .b-sideMenuHandle#{$variation2of2} {
+
+    $_block: &;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_item: #666;
+    $_textCurrentColor: #333;
+    $_bgColor: #fff;
+    $_bgCurrentColor: #f7f7f7;
+    a {
+      color: $_textColor_item;
+      text-decoration: none;
+    }
+    box-sizing: border-box;
+
+    width: 100%;
+    font-family: $tenorsans;
+    color: $_textColor_item;
+    background-color: $_bgColor;
+    border: 1px solid #ebe9e5;
+    @include g-font($_fontSizePx_item, $_lineHeightType);
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+    }
+
+    label.active {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
+      }
+    }
+
+    .b-sideMenuHandle__list {
+      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_08.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+    }
+  }
+
+  .b-sideMenuHandle3 {
+
+    $_block: &;
+    $_fontSizePx_item: 14;
+    $_lineHeightType: 1;
+    $_textColor_item: #666;
+    $_textCurrentColor: #004081;
+    $_bgColor: #fff;
+    $_bgCurrentColor: #ebf1f8;
+    a {
+      color: $_textColor_item;
+      text-decoration: none;
+    }
+    box-sizing: border-box;
+
+    width: 100%;
+    font-family: $tenorsans;
+    color: $_textColor_item;
+    background-color: $_bgColor;
+    border: 1px solid #ebe9e5;
+    @include g-font($_fontSizePx_item, $_lineHeightType);
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+    }
+
+    label.active {
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▼";
+      }
+    }
+
+    .b-sideMenuHandle__list {
+      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 20px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+        border-top: 1px solid #ebe9e5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 30px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        background: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg") no-repeat 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
+      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
+        display: block;
+        padding: 10px 45px 10px 40px;
+        color: $_textCurrentColor;
+        background-color: $_bgCurrentColor;
+        background-image: url("../imgs/menu/menu004/sp_menu004_ico01_09.svg");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 36px *.5 36px *.5;
+      }
+    }
+  }
+}

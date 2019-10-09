@@ -1,0 +1,183 @@
+@if $device == PC {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      a {
+        text-decoration: none;
+        display: block;
+        color: #4d4d4d;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__nav {
+      margin-top: 10px;
+      padding: 0 0 0 10px;
+      color: #0e2753;
+      text-decoration: underline;
+
+      @include g-font(14, 1);
+
+      background: url("../imgs/b-sideMenu/2.png") no-repeat 0 center;
+      a {
+        color: #0e2753;
+        text-decoration: underline;
+        &:hover {
+          color: $hovercolor;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-media {
+    $_block: &;
+
+    margin: 0 auto;
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      a {
+        display: block;
+        color: #4d4d4d;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      display: table;
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 0 0 0 10px;
+      color: #0e2753;
+      text-decoration: underline;
+
+      @include g-font(16, 1);
+
+      background: url("../imgs/b-sideMenu/2.png") no-repeat 0 center;
+      a {
+        color: #0e2753;
+        text-decoration: underline;
+      }
+    }
+  }
+}
