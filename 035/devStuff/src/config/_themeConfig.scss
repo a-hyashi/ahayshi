@@ -2,14 +2,11 @@ $g-baseFontSize: 14px;
 $baseFontSize: 14px;
 $g-baseTextColor: #555;
 $g-baseHoverColor: #ee8100;
-
-$g-textcolor: #555;
-$g-hovercolor: #ee8100;
-$g-hovercolor2: #734e31;
-
+$g-textColor: #555;
+$g-hoverColor: #ee8100;
+$g-hoverColor2: #734e31;
 $_lineHeightType: 1;
 $_fontSizeDifference: 4;
-
 html {
   font-size: $g-baseFontSize;
   $baseFontSize: 14px;
@@ -47,32 +44,29 @@ a {
     font-size: inherit !important;
   }
 }
-
-.cms-admin-anchorFlag{
-  z-index: 10!important;
+.cms-admin-anchorFlag {
+  z-index: 10 !important;
   position: relative;
 }
 // これはadmin.cssに移行するべき
-
 $g-spacingBaseLength: 5;
 $g-leftSpacingBaseLength: 6;
-
 @if $device == PC {
-  // 上の余白調整
   @for $_i from 1 through 10 {
     .ex-topSpacingTweak-up-#{$_i}s {
       margin-top: #{-1% * $_i};
     }
+
     .ex-topSpacingTweak-down-#{$_i}s {
       margin-top: #{1% * $_i};
     }
   }
 
-  // 左の余白調整
   @for $_i from 1 through 10 {
     .ex-leftSpacingTweak-narrow-#{$_i}s {
       margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
     }
+
     .ex-leftSpacingTweak-spread-#{$_i}s {
       margin-left: #{$_i * $g-leftSpacingBaseLength}px;
     }
@@ -80,58 +74,58 @@ $g-leftSpacingBaseLength: 6;
 }
 
 @mixin cf {
-  &:before,
-  &:after {
+  &::before, &::after {
     content: "";
     display: table;
   }
-  &:after {
+
+  &::after {
     clear: both;
   }
 }
-
 
 @mixin g-rteTableReset() {
   th, td {
     > table:first-child {
       margin-top: 0;
     }
+
     > ul:first-child {
       margin-top: 0;
     }
+
     > ol:first-child {
       margin-top: 0;
     }
+
     > p:first-child {
       margin-top: 0;
     }
+
     > hr:first-child {
       margin-top: 0;
     }
   }
 }
 
-$fullWidthBgColor: rgba(146, 138, 76, 0.1);
-$fullWidthBgColor2: rgba(226, 156, 43, 0.2);
-$fullWidthBgColor3: rgba(103, 71, 32, 0.35);
-$fullWidthBgColor4: rgba(97, 130, 0, 0.75);
+$fullWidthBgColor: rgba(146, 138, 76, .1);
+$fullWidthBgColor2: rgba(226, 156, 43, .2);
+$fullWidthBgColor3: rgba(103, 71, 32, .35);
+$fullWidthBgColor4: rgba(97, 130, 0, .75);
 $fullWidthBgColor5: transparent;
-
-
 $frameSpacingPC-l: 50px;
 $frameSpacingPC-m: 25px;
 $frameSpacingPC-s: 10px;
-
 $frameSpacingSP-l: 50px;
 $frameSpacingSP-m: 25px;
 $frameSpacingSP-s: 10px;
-
 @if $device == PC {
   .cms-partsConfig-width-m {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
+
   .cms-partsConfig-width-s {
     width: 50%;
     margin-left: auto;
