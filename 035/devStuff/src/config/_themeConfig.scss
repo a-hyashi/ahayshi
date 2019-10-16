@@ -1,28 +1,23 @@
 $g-baseFontSize: 14px;
-$baseFontSize: 14px;
-$g-baseTextColor: #555;
-$g-baseHoverColor: #ee8100;
-$g-textColor: #555;
-$g-hoverColor: #ee8100;
-$g-hoverColor2: #734e31;
 $_lineHeightType: 1;
 $_fontSizeDifference: 4;
+$g-leftSpacingBaseLength: 6;
+$g-spacingBaseLength: 5;
 html {
   font-size: $g-baseFontSize;
-  $baseFontSize: 14px;
 }
 
 body.mod-body,
 div.mod-body {
   font-weight: 500;
   font-size: $g-baseFontSize;
-  font-family: $gothic;
+  font-family: $font-gothic;
   color: $g-baseTextColor;
 }
 
 .mod-body {
   button, input, optgroup, select, textarea {
-    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
+    font-family: $font-gothic; // normalize.cssによるフォントファミリーの指定を上書き
   }
 }
 
@@ -37,39 +32,23 @@ a {
       color: $g-baseHoverColor;
     }
   }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @if $device == SP {
   span {
     font-size: inherit !important;
-  }
-}
-.cms-admin-anchorFlag {
-  z-index: 10 !important;
-  position: relative;
-}
-// これはadmin.cssに移行するべき
-$g-spacingBaseLength: 5;
-$g-leftSpacingBaseLength: 6;
-@if $device == PC {
-  @for $_i from 1 through 10 {
-    .ex-topSpacingTweak-up-#{$_i}s {
-      margin-top: #{-1% * $_i};
-    }
-
-    .ex-topSpacingTweak-down-#{$_i}s {
-      margin-top: #{1% * $_i};
-    }
-  }
-
-  @for $_i from 1 through 10 {
-    .ex-leftSpacingTweak-narrow-#{$_i}s {
-      margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
-    }
-
-    .ex-leftSpacingTweak-spread-#{$_i}s {
-      margin-left: #{$_i * $g-leftSpacingBaseLength}px;
-    }
   }
 }
 
@@ -105,30 +84,5 @@ $g-leftSpacingBaseLength: 6;
     > hr:first-child {
       margin-top: 0;
     }
-  }
-}
-
-$fullWidthBgColor: rgba(146, 138, 76, .1);
-$fullWidthBgColor2: rgba(226, 156, 43, .2);
-$fullWidthBgColor3: rgba(103, 71, 32, .35);
-$fullWidthBgColor4: rgba(97, 130, 0, .75);
-$fullWidthBgColor5: transparent;
-$frameSpacingPC-l: 50px;
-$frameSpacingPC-m: 25px;
-$frameSpacingPC-s: 10px;
-$frameSpacingSP-l: 50px;
-$frameSpacingSP-m: 25px;
-$frameSpacingSP-s: 10px;
-@if $device == PC {
-  .cms-partsConfig-width-m {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cms-partsConfig-width-s {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
