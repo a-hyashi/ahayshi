@@ -104,7 +104,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: 0;
     content: "";
   }
 
@@ -131,12 +131,25 @@
 
     &::after {
       background-image: url("../imgs/area-all/bg.png");
+      z-index: 0;
     }
   }
 
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
     background-color: $fullWidthBgColor5;
+  }
+  .area-main {
+    [data-part-type="fullWidth"] + [data-part-type="fullWidth"] {
+      > div {
+        > div {
+          z-index: 5;
+        }
+      }
+    }
+    .outerHtml {
+      z-index: 1;
+    }
   }
 }// PC
 
