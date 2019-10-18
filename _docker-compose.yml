@@ -1,9 +1,11 @@
-web#{num}:
-  build: .
-  volumes:
-    - .:/buddy-theme:cached
-    - ../ACRE-theme/:/ACRE-theme:cached
-  working_dir: /buddy-theme/#{theme-name}/
-  ports:
-    - "#{port-num}:3000"
-  command: "gulp"
+version: '3'
+services:
+  web#{num}:
+    build: .
+    volumes:
+      - .:/buddy-theme:cached
+      - ../ACRE-theme/:/ACRE-theme:cached
+    working_dir: /buddy-theme/#{theme-name}/
+    ports:
+      - "#{port-num}:3000"
+    command: "gulp"

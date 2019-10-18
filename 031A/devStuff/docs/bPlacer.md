@@ -379,6 +379,17 @@
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|3|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|4|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|5|0||0px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation1of11}|6%||20px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation2of11}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation3of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation4of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation5of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation6of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation7of11}|8%||25px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation8of11}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation9of11}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation10of11}|8%||45px|
+|11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation11of11}|8%||45px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||20px|
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
