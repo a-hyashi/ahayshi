@@ -8,10 +8,6 @@
     @include g-rteTableReset;
     color: $g-baseFontColor;
     white-space: nowrap;
-    a {
-      color: inherit;
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -31,18 +27,12 @@
       }
 
       li {
+        @include bugFix_IE_list-item;
         @include g-font($g-baseFontSize, 1);
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -61,18 +51,12 @@
       }
 
       li {
+        @include bugFix_IE_list-item;
         @include g-font($g-baseFontSize, 1);
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -118,16 +102,10 @@
         color: $g-baseFontColor;
         background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
-        a {
-          color: $g-baseFontColor;
-        }
       }
 
       td {
         color: $g-baseFontColor;
-        a {
-          color: $g-baseFontColor;
-        }
       }
     }
 
@@ -146,10 +124,6 @@
     $_color_table_td_bg: #fff;
     @include g-rteTableReset;
     color: $g-baseFontColor;
-    a {
-      color: inherit;
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -169,18 +143,12 @@
       }
 
       li {
+        @include bugFix_IE_list-item;
         @include g-font(16, 1);
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -199,18 +167,12 @@
       }
 
       li {
+        @include bugFix_IE_list-item;
         @include g-font(16, 1);
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -255,17 +217,11 @@
         color: $g-baseFontColor;
         background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
-        a {
-          color: $g-baseFontColor;
-        }
       }
 
       td {
         background-color: $_color_table_td_bg;
         color: $g-baseFontColor;
-        a {
-          color: $g-baseFontColor;
-        }
       }
     }
 

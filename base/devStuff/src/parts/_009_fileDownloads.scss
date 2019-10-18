@@ -13,14 +13,13 @@
     }
 
     &__item {
-      padding: #{$_itemSpacing} 0 0;
       @include cf;
+      padding: #{$_itemSpacing} 0 0;
     }
 
     a {
       display: block;
       float: left;
-      color: $g-baseFontColor;
       text-decoration: underline;
     }
 
@@ -60,6 +59,10 @@
   .b-downloadIcon {
     $_block: &;
     $_color_border: #aaa;
+    @include _icon("doc",1);
+    @include _icon("img",1);
+    @include _icon("pdf",1);
+    @include _icon("xls",1);
     @mixin _icon($file, $mag) {
       &--#{$file} {
         $_src: "b-downloadIcon/#{$file}.png";
@@ -70,39 +73,35 @@
         background-size: 30px * $mag;
       }
     }
-    @include _icon("pdf",1);
-    @include _icon("doc",1);
-    @include _icon("xls",1);
-    @include _icon("img",1);
+    display: inline-block;
+    vertical-align: middle;
     .t0-b-fileDownloads--size-2 & {
-      @include _icon("pdf",1.25);
       @include _icon("doc",1.25);
-      @include _icon("xls",1.25);
       @include _icon("img",1.25);
+      @include _icon("pdf",1.25);
+      @include _icon("xls",1.25);
     }
 
     .t0-b-fileDownloads--size-3 & {
-      @include _icon("pdf",1.5);
       @include _icon("doc",1.5);
-      @include _icon("xls",1.5);
       @include _icon("img",1.5);
+      @include _icon("pdf",1.5);
+      @include _icon("xls",1.5);
     }
 
     .t0-b-fileDownloads--size-4 & {
-      @include _icon("pdf",1.75);
       @include _icon("doc",1.75);
-      @include _icon("xls",1.75);
       @include _icon("img",1.75);
+      @include _icon("pdf",1.75);
+      @include _icon("xls",1.75);
     }
 
     .t0-b-fileDownloads--size-5 & {
-      @include _icon("pdf",2);
       @include _icon("doc",2);
-      @include _icon("xls",2);
       @include _icon("img",2);
+      @include _icon("pdf",2);
+      @include _icon("xls",2);
     }
-    display: inline-block;
-    vertical-align: middle;
   }
 }
 
@@ -118,8 +117,8 @@
     }
 
     &__item {
-      padding: #{$_itemSpacing} 0 0;
       @include cf;
+      padding: #{$_itemSpacing} 0 0;
       &:first-child {
         padding-top: 0;
       }
@@ -128,7 +127,6 @@
     a {
       display: block;
       float: left;
-      color: $g-baseFontColor;
       text-decoration: underline;
     }
 
@@ -153,8 +151,10 @@
 
   .b-downloadIcon {
     $_color_border: #aaa;
-    display: inline-block;
-    vertical-align: middle;
+    @include _icon("doc");
+    @include _icon("img");
+    @include _icon("pdf");
+    @include _icon("xls");
     @mixin _icon($file) {
       &--#{$file} {
         $_src: "b-downloadIcon/#{$file}.png";
@@ -165,9 +165,7 @@
         background-size: 30px;
       }
     }
-    @include _icon("pdf");
-    @include _icon("doc");
-    @include _icon("xls");
-    @include _icon("img");
+    display: inline-block;
+    vertical-align: middle;
   }
 }

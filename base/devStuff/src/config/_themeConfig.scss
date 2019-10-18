@@ -28,7 +28,7 @@ div.mod-body {
 }
 
 a {
-  color: $g-baseLinkColor;
+  color: $g-baseFontColor;
   text-decoration: none;
 }
 
@@ -53,7 +53,8 @@ a {
 }
 
 @mixin cf {
-  &::before, &::after {
+  &::before,
+  &::after {
     display: table;
     content: "";
   }
@@ -65,24 +66,24 @@ a {
 
 @mixin g-rteTableReset() {
   th, td {
-    > table:first-child {
-      margin-top: 0;
+    > table,
+    > ul,
+    > ol,
+    > p,
+    > hr {
+      &:first-child {
+        margin-top: 0;
+      }
     }
+  }
+}
 
-    > ul:first-child {
-      margin-top: 0;
-    }
-
-    > ol:first-child {
-      margin-top: 0;
-    }
-
-    > p:first-child {
-      margin-top: 0;
-    }
-
-    > hr:first-child {
-      margin-top: 0;
-    }
+@mixin bugFix_IE_list-item {
+  &::before,
+  &::after {
+    // IEのlist-item疑似要素のバグ対応
+    display: none;
+    float: left;
+    width: 100%;
   }
 }
