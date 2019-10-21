@@ -1,4 +1,5 @@
 @if $device == PC {
+  
   .t0-b-fullWidthFrame,
   .t0-b-fullWidthFrame2,
   .t0-b-fullWidthFrame3,
@@ -25,6 +26,7 @@
     } @else if $layout == "R30" {
       margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
     }
+
   }
 
   .t0-b-fullWidthFrame2,
@@ -87,6 +89,17 @@
     &__bd {
       width: 100%;
     }
+
+    // Start テキストががbg下に隠れてしまわないようにするための対処
+    z-index: 1;
+    &__hd.outerHtml {
+      z-index: 2;
+    }
+    &__bd + .outerHtml {
+      z-index: 2;
+    }
+    // End テキストががbg下に隠れてしまわないようにするための対処
+
   }
 
   .t0-b-fullWidthFrame::before,
@@ -140,20 +153,7 @@
     background-color: $fullWidthBgColor5;
   }
 
-  .area-main {
-    [data-part-type="fullWidth"] + [data-part-type="fullWidth"] {
-      > div {
-        > div {
-          z-index: 2;
-        }
-      }
-    }
-
-    .outerHtml {
-      z-index: 1;
-    }
-  }
-}// PC
+} // PC
 
 @if $device == SP {
   .t0-b-fullWidthFrame,
@@ -209,6 +209,16 @@
     * {
       position: relative;
     }
+
+    // Start テキストががbg下に隠れてしまわないようにするための対処
+    z-index: 1;
+    &__hd.outerHtml {
+      z-index: 2;
+    }
+    &__bd + .outerHtml {
+      z-index: 2;
+    }
+    // End テキストががbg下に隠れてしまわないようにするための対処
   }
 
   .t0-b-fullWidthFrame::before,
@@ -243,17 +253,5 @@
     background-color: $fullWidthBgColor5;
   }
 
-  .area-main {
-    [data-part-type="fullWidth"] + [data-part-type="fullWidth"] {
-      > div {
-        > div {
-          z-index: 2;
-        }
-      }
-    }
 
-    .outerHtml {
-      z-index: 1;
-    }
-  }
 }// SP
