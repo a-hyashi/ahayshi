@@ -1,13 +1,12 @@
 @if $device == PC {
   .t0-b-navItem {
     $_block: &;
-    $_fontPx: 16;
-    $_fontPxDiff: 2;
-    $_fontPx_ss: $_fontPx - $_fontPxDiff - 2;
-    $_fontPx_s: $_fontPx - $_fontPxDiff;
-    $_fontPx_l: $_fontPx + $_fontPxDiff;
-    $_fontPx_ll: $_fontPx + $_fontPxDiff + 2;
-    $_lineHeight: 1;
+    $_fontSize: 16;
+    $_fontSizeDiff: 2;
+    $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
     display: table;
     &--width-l {
       width: 100%;
@@ -68,26 +67,26 @@
       }
 
       > div {
-        @include g-font($_fontPx, 1);
+        @include g-font($_fontSize, 1);
         display: table-cell;
         #{$_block}--size-1 & {
-          @include g-font($_fontPx_ss, $_lineHeight);
+          @include g-font($_fontSize_ss, 1);
         }
 
         #{$_block}--size-2 & {
-          @include g-font($_fontPx_s, $_lineHeight);
+          @include g-font($_fontSize_s, 1);
         }
 
         #{$_block}--size-3 & {
-          @include g-font($_fontPx, $_lineHeight);
+          @include g-font($_fontSize, 1);
         }
 
         #{$_block}--size-4 & {
-          @include g-font($_fontPx_l, $_lineHeight);
+          @include g-font($_fontSize_l, 1);
         }
 
         #{$_block}--size-5 & {
-          @include g-font($_fontPx_ll, $_lineHeight);
+          @include g-font($_fontSize_ll, 1);
         }
       }
     }
@@ -108,8 +107,7 @@
 @if $device == SP {
   .t0-b-navItem {
     $_block: &;
-    $_fontPx: 16;
-    $_lineHeight: 1;
+    $_fontSize: 16;
     display: table;
     a {
       box-sizing: border-box;
@@ -124,7 +122,7 @@
       }
 
       > div {
-        @include g-font($_fontPx, $_lineHeight);
+        @include g-font($_fontSize, 1);
         display: table-cell;
       }
     }

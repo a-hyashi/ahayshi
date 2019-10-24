@@ -1,61 +1,60 @@
 @if $device == PC {
   .t0-b-lv4HBig {
     $_block: &;
-    $_fontPx_bd: 28;
-    $_fontPx_caption: 16;
-    $_fontPxDiff: 4;
-    $_fontPx_bd_s: $_fontPx_bd - $_fontPxDiff;
-    $_fontPx_bd_l: $_fontPx_bd + $_fontPxDiff;
-    $_fontPx_caption_s: $_fontPx_caption - $_fontPxDiff + 2;
-    $_fontPx_caption_l: $_fontPx_caption + $_fontPxDiff - 2;
-    $_lineHeight: 1;
+    $_fontSize_bd: 28;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff + 2;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
     &__box {
       //
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontPx_caption, $_lineHeight, $layout);
+      @include g-font-layout($_fontSize_caption, 1, $layout);
     }
 
     &__bd {
       h4 {
-        @include g-font-layout($_fontPx_bd, $_lineHeight, $layout);
+        @include g-font-layout($_fontSize_bd, 1, $layout);
       }
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontPx_caption, $_lineHeight, $layout);
+      @include g-font-layout($_fontSize_caption, 1, $layout);
     }
 
     &--size-1 {
       #{$_block}__caption-upper {
-        @include g-font-layout($_fontPx_caption_s, $_lineHeight, $layout);
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
       #{$_block}__bd {
         h4 {
-          @include g-font-layout($_fontPx_bd_s, $_lineHeight, $layout);
+          @include g-font-layout($_fontSize_bd_s, 1, $layout);
         }
       }
 
       #{$_block}__caption-lower {
-        @include g-font-layout($_fontPx_caption_s, $_lineHeight, $layout);
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
     }
 
     &--size-3 {
       #{$_block}__caption-upper {
-        @include g-font-layout($_fontPx_caption_l, $_lineHeight, $layout);
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
       #{$_block}__bd {
         h4 {
-          @include g-font-layout($_fontPx_bd_l, $_lineHeight, $layout);
+          @include g-font-layout($_fontSize_bd_l, 1, $layout);
         }
       }
 
       #{$_block}__caption-lower {
-        @include g-font-layout($_fontPx_caption_l, $_lineHeight, $layout);
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
     }
 
@@ -75,25 +74,24 @@
 
 @if $device == SP {
   .t0-b-lv4HBig {
-    $_fontPx_bd: 20;
-    $_fontPx_caption: 14;
-    $_lineHeight: 1;
+    $_fontSize_bd: 20;
+    $_fontSize_caption: 14;
     &__box {
       //
     }
 
     &__caption-upper {
-      @include g-font($_fontPx_caption, $_lineHeight);
+      @include g-font($_fontSize_caption, 1);
     }
 
     &__bd {
       h4 {
-        @include g-font($_fontPx_bd, $_lineHeight);
+        @include g-font($_fontSize_bd, 1);
       }
     }
 
     &__caption-lower {
-      @include g-font($_fontPx_caption, $_lineHeight);
+      @include g-font($_fontSize_caption, 1);
     }
 
     &--align-l {
