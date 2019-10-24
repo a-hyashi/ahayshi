@@ -12,6 +12,7 @@
     padding: 40px 1000px;
     position: relative;
     background-position: center center;
+
     @if $layout == "L25" {
       margin: 0 -1000px 0 (-1000px - $areaSubWidth);
     } @else if $layout == "L30" {
@@ -31,6 +32,7 @@
   .t0-b-fullWidthFrame6,
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame10 {
+
     @if $layout == "L25" {
       margin-left: -1000px;
     } @else if $layout == "L30" {
@@ -45,6 +47,7 @@
     &__hd,
     &__bd,
     &__ft {
+
       @if $layout == "N00" {
         width: $areaMainWidth - $areaSubWidth;
       } @else {
@@ -55,21 +58,6 @@
 
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
-    padding: 75px 1035px;
-    &::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      top: 40px;
-      bottom: 40px;
-      left: 1000px;
-      right: 1000px;
-      border-radius: 10px;
-    }
-
-    * {
-      position: relative;
-    }
 
     @if $layout == "N00" {
       padding: 75px (1035px + $areaSubWidth / 2);
@@ -78,11 +66,28 @@
         right: 1000 + $areaSubWidth / 2;
       }
     }
+    * {
+      position: relative;
+    }
 
     // 子要素が親要素についている幅からはみ出てしまうため
     &__hd,
     &__bd {
       width: 100%;
+    }
+
+    padding: 75px 1035px;
+    background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
+    &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 40px;
+      bottom: 40px;
+      left: 1000px;
+      right: 1000px;
+      border-radius: 10px;
+      background-image: url("../imgs/area-all/bg.png");
     }
   }
 
@@ -92,8 +97,6 @@
   .t0-b-fullWidthFrame4::before,
   .t0-b-fullWidthFrame5::before,
   .t0-b-fullWidthFrame6::before,
-  .t0-b-fullWidthFrame7::before,
-  .t0-b-fullWidthFrame8::before,
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
     position: absolute;
@@ -118,17 +121,6 @@
   .t0-b-fullWidthFrame5::before,
   .t0-b-fullWidthFrame6::before {
     background-image: url("../imgs/t0-b-fullWidthFrame/bg3.png");
-  }
-
-  .t0-b-fullWidthFrame7,
-  .t0-b-fullWidthFrame8 {
-    &::before {
-      background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
-    }
-
-    &::after {
-      background-image: url("../imgs/area-all/bg.png");
-    }
   }
 
   .t0-b-fullWidthFrame9::before,
@@ -161,8 +153,6 @@
   .t0-b-fullWidthFrame4::before,
   .t0-b-fullWidthFrame5::before,
   .t0-b-fullWidthFrame6::before,
-  .t0-b-fullWidthFrame7::before,
-  .t0-b-fullWidthFrame8::before,
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
     position: absolute;
@@ -170,27 +160,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: 0;
     content: "";
-  }
-
-  .t0-b-fullWidthFrame7,
-  .t0-b-fullWidthFrame8 {
-    padding: 40px 35px;
-    &::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      top: 20px;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      border-radius: 10px;
-    }
-
-    * {
-      position: relative;
-    }
   }
 
   .t0-b-fullWidthFrame::before,
@@ -208,19 +179,29 @@
     background-image: url("../imgs/t0-b-fullWidthFrame/bg3.png");
   }
 
-  .t0-b-fullWidthFrame7,
-  .t0-b-fullWidthFrame8 {
-    &::before {
-      background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
-    }
-
-    &::after {
-      background-image: url("../imgs/area-all/bg.png");
-    }
-  }
-
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
     background-color: $fullWidthBgColor5;
+  }
+
+  .t0-b-fullWidthFrame7,
+  .t0-b-fullWidthFrame8 {
+    * {
+      position: relative;
+    }
+
+    padding: 40px 35px;
+    background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
+    &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 20px;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      border-radius: 10px;
+      background-image: url("../imgs/area-all/bg.png");
+    }
   }
 }
