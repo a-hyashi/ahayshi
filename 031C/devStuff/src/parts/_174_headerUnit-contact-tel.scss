@@ -3,25 +3,25 @@
     $_block: &;
     $_lineHeight: 1;
     $_textColor: #ed7573;
-    $_fontPx_ruby: 16;
-    $_fontPxDiff_ruby: 2;
-    $_fontPx_ruby_s: $_fontPx_ruby - $_fontPxDiff_ruby;
-    $_fontPx_ruby_m: $_fontPx_ruby;
-    $_fontPx_ruby_l: $_fontPx_ruby + $_fontPxDiff_ruby;
-    $_fontPx_ruby_ll: $_fontPx_ruby + $_fontPxDiff_ruby * 2;
-    $_fontPx_bd: 42;
-    $_fontPxDiff_bd: 6;
-    $_fontPx_bd_s: $_fontPx_bd - $_fontPxDiff_bd;
-    $_fontPx_bd_m: $_fontPx_bd;
-    $_fontPx_bd_l: $_fontPx_bd + $_fontPxDiff_bd;
-    $_fontPx_bd_ll: $_fontPx_bd + $_fontPxDiff_bd * 2;
+    $_fontSize_ruby: 16;
+    $_fontSizeDiff_ruby: 2;
+    $_fontSize_ruby_s: $_fontSize_ruby - $_fontSizeDiff_ruby;
+    $_fontSize_ruby_m: $_fontSize_ruby;
+    $_fontSize_ruby_l: $_fontSize_ruby + $_fontSizeDiff_ruby;
+    $_fontSize_ruby_ll: $_fontSize_ruby + $_fontSizeDiff_ruby * 2;
+    $_fontSize_bd: 42;
+    $_fontSizeDiff_bd: 6;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff_bd;
+    $_fontSize_bd_m: $_fontSize_bd;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff_bd;
+    $_fontSize_bd_ll: $_fontSize_bd + $_fontSizeDiff_bd * 2;
     // 横幅が内容の量によって変化し、番号とルビの右端が揃うように
     display: inline-block;
     font-family: $tenorSans;
     color: $_textColor;
     white-space: nowrap;
     &__ruby {
-      @include g-font($_fontPx_ruby_m, $_lineHeight);
+      @include g-font($_fontSize_ruby_m, $_lineHeight);
       text-align: right;
       a {
         color: $_textColor;
@@ -34,7 +34,7 @@
     &__bd {
       display: table;
       font-family: $tenorSans;
-      @include g-font($_fontPx_bd_m, $_lineHeight);
+      @include g-font($_fontSize_bd_m, $_lineHeight);
       > span {
         display: table-cell;
         vertical-align: middle;
@@ -63,11 +63,11 @@
 
     &--size-1 {
       #{$_block}__ruby {
-        @include g-font($_fontPx_ruby_s, $_lineHeight);
+        @include g-font($_fontSize_ruby_s, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontPx_bd_s, $_lineHeight);
+        @include g-font($_fontSize_bd_s, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -101,11 +101,11 @@
 
     &--size-2 {
       #{$_block}__ruby {
-        @include g-font($_fontPx_ruby_m, $_lineHeight);
+        @include g-font($_fontSize_ruby_m, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontPx_bd_m, $_lineHeight);
+        @include g-font($_fontSize_bd_m, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -139,11 +139,11 @@
 
     &--size-3 {
       #{$_block}__ruby {
-        @include g-font($_fontPx_ruby_l, $_lineHeight);
+        @include g-font($_fontSize_ruby_l, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontPx_bd_l, $_lineHeight);
+        @include g-font($_fontSize_bd_l, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -177,11 +177,11 @@
 
     &--size-4 {
       #{$_block}__ruby {
-        @include g-font($_fontPx_ruby_ll, $_lineHeight);
+        @include g-font($_fontSize_ruby_ll, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontPx_bd_ll, $_lineHeight);
+        @include g-font($_fontSize_bd_ll, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -226,8 +226,8 @@
     $_block: &;
     $_lineHeight: 1;
     $_textColor: #ed7573;
-    $_fontPx_ruby: 12;
-    $_fontPx_bd: 22;
+    $_fontSize_ruby: 12;
+    $_fontSize_bd: 22;
     box-sizing: border-box;
     width: 95%;
     padding: 10px;
@@ -239,7 +239,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     &__ruby {
-      @include g-font($_fontPx_ruby, $_lineHeight);
+      @include g-font($_fontSize_ruby, $_lineHeight);
       text-align: center;
       a {
         color: $_textColor;
@@ -251,7 +251,7 @@
       margin: 0 auto;
       font-family: $tenorSans;
       color: #f00;
-      @include g-font($_fontPx_bd, $_lineHeight);
+      @include g-font($_fontSize_bd, $_lineHeight);
       > span {
         display: table-cell;
         vertical-align: middle;
