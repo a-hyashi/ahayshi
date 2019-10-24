@@ -1,9 +1,9 @@
-@mixin g-font($fontSize, $lineHeightType: 0) {
-  @if $lineHeightType == 1 {
+@mixin g-font($fontSize, $lineHeight: 0) {
+  @if $lineHeight == 1 {
     line-height: 1.25;
   }
 
-  @if $lineHeightType == 2 {
+  @if $lineHeight == 2 {
     line-height: 1.6;
   }
 
@@ -148,31 +148,27 @@
   }
 }
 
-@mixin g-font-killSpacing($position, $fontSize, $lineHeightType: 1) {
+@mixin g-font-killSpacing($position, $fontSize, $lineHeight: 1) {
   @if $position == top {
     &::before {
-      content: "";
       display: block;
       height: 0;
-      @if $lineHeightType == 1 {
+      content: "";
+      @if $lineHeight == 1 {
         @if $fontSize < 14 {
           margin-top: -.05em;
-        }
-        @else if $fontSize == 20 {
+        } @else if $fontSize == 20 {
           margin-top: -.175em;
-        }
-        @else if $fontSize == 22 {
+        } @else if $fontSize == 22 {
           margin-top: -.175em;
-        }
-        @else if $fontSize < 24 {
+        } @else if $fontSize < 24 {
           margin-top: -.08em;
-        }
-        @else {
+        } @else {
           margin-top: -.15em;
         }
       }
 
-      @if $lineHeightType == 2 {
+      @if $lineHeight == 2 {
         margin-top: -.3em;
       }
     }
@@ -180,26 +176,23 @@
 
   @if $position == bottom {
     &::after {
-      content: "";
       display: block;
       height: 0;
-      @if $lineHeightType == 1 {
+      content: "";
+      @if $lineHeight == 1 {
         @if $fontSize == 12 {
           margin-top: -.25em;
-        }
-        @else if $fontSize == 16 {
+        } @else if $fontSize == 16 {
           margin-top: -.25em;
-        }
-        @else {
+        } @else {
           margin-top: -.18em;
         }
       }
 
-      @if $lineHeightType == 2 {
+      @if $lineHeight == 2 {
         @if $fontSize < 18 {
           margin-top: -.4em;
-        }
-        @else {
+        } @else {
           margin-top: -.35em;
         }
       }
@@ -207,17 +200,17 @@
   }
 }
 
-@mixin g-font-spacingKilled($fontSize, $lineHeightType: 1) {
-  @include g-font($fontSize, $lineHeightType);
-  @include g-font-killSpacing(top, $fontSize, $lineHeightType);
-  @include g-font-killSpacing(bottom, $fontSize, $lineHeightType);
+@mixin g-font-spacingKilled($fontSize, $lineHeight: 1) {
+  @include g-font($fontSize, $lineHeight);
+  @include g-font-killSpacing(top, $fontSize, $lineHeight);
+  @include g-font-killSpacing(bottom, $fontSize, $lineHeight);
 }
 
 @mixin g-linePadKiller-top($preset) {
   &::before {
-    content: "";
     display: block;
     height: 0;
+    content: "";
     @if $preset == 1 {
       margin-top: -.15em;
     }
@@ -278,9 +271,9 @@
 
 @mixin g-linePadKiller-bottom($preset) {
   &::after {
-    content: "";
     display: block;
     height: 0;
+    content: "";
     @if $preset == 1 {
       margin-top: -.25em;
     }
@@ -340,9 +333,10 @@
 }
 
 @mixin cf {
-  &::before, &::after {
-    content: "";
+  &::before,
+  &::after {
     display: table;
+    content: "";
   }
 
   &::after {
@@ -351,12 +345,12 @@
 }
 
 @mixin visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
   position: absolute;
   width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }

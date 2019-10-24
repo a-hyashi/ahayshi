@@ -2,13 +2,13 @@
   .t0-b-mediaCols {
     $_block: &;
     &__img {
+      position: relative;
+      // 管理画面で画像列をクリックできるようにz-indexをつけている
+      z-index: 10;
+      box-sizing: border-box;
       width: 40%;
       // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
       padding-top: 3px;
-      box-sizing: border-box;
-      // 管理画面で画像列をクリックできるようにz-indexをつけている
-      z-index: 10;
-      position: relative;
     }
 
     &__col {
@@ -18,8 +18,8 @@
     &--imgR {
       #{$_block}__img {
         float: right;
-        padding-left: 4%;
         padding-right: 0;
+        padding-left: 4%;
       }
     }
 
@@ -56,7 +56,7 @@
     .t0-b-mediaCols__col,
     .t0-b-mediaCols__colHead {
       overflow: visible;
-      [class*=-bPlacer] {
+      [class*="-bPlacer"] {
         // 画像列が大きくなると文章列が崩れるのでセレクタの詳細度を高めている
         > div {
           overflow: hidden;
@@ -65,7 +65,8 @@
         // 文章が回り込むために必要
         > .t0-b-wysiwyg {
           overflow: visible;
-          ul, ol {
+          ul,
+          ol {
             overflow: hidden;
           }
         }
@@ -91,14 +92,15 @@
     #{$_block}__col,
     #{$_block}__colHead {
       overflow: visible;
-      [class*=-bPlacer] {
+      [class*="-bPlacer"] {
         > div {
           overflow: hidden;
         }
         // 文章が回り込むために必要
         > .t0-b-wysiwyg {
           overflow: visible;
-          ul, ol {
+          ul,
+          ol {
             overflow: hidden;
           }
         }
@@ -116,16 +118,16 @@
     &--imgL {
       #{$_block}__img {
         float: left;
-        padding-left: 0;
         padding-right: 10px;
+        padding-left: 0;
       }
     }
 
     &.ex-spLayout__vertical {
       #{$_block}__img {
+        float: none;
         // 「列の大きさ」調整機能の「自分で選択」で数値指定した場合、HTML内にstyle属性としてuserEditWidthが出力されるため例外で!importantをつけている
         width: 100% !important;
-        float: none;
         padding: 0;
       }
     }
