@@ -2,11 +2,11 @@
 @if $device == PC {
   .t0-b-articleDecoration {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontPx: 20;
+    $_lineHeight: 1;
+    $_fontPxDiff: 4;
+    $_fontPx_s: $_fontPx - $_fontPxDiff;
+    $_fontPx_l: $_fontPx + $_fontPxDiff;
     &__row {
       display: flex;
     }
@@ -29,7 +29,7 @@
       // 回り込みなしに必要
       overflow: hidden;
       h4 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+        @include g-font-layout($_fontPx, $_lineHeight, $layout);
       }
 
       #{$_block}--align-l {
@@ -46,13 +46,13 @@
 
       &--size-1 {
         h4 {
-          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontPx_s, $_lineHeight, $layout);
         }
       }
 
       &--size-3 {
         h4 {
-          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontPx_l, $_lineHeight, $layout);
         }
       }
     }
@@ -66,8 +66,8 @@
 @if $device == SP {
   .t0-b-articleDecoration {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
+    $_fontPx: 20;
+    $_lineHeight: 1;
     margin: 0 -5px;
     &__col {
       padding-bottom: 30px;
@@ -84,7 +84,7 @@
       // 回り込みなしに必要
       overflow: hidden;
       h4 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+        @include g-font($_fontPx, $_lineHeight);
       }
 
       #{$_block}--align-l {

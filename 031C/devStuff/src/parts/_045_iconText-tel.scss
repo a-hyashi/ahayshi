@@ -1,31 +1,31 @@
 @if $device == PC {
   .t0-b-iconText-tel {
     $_block: &;
-    $_lineHeightType: 1;
+    $_lineHeight: 1;
     $_textColor: #ed7573;
     $_textColor_highlight: #675f4f;
-    $_fontSizePx: 14;
-    $_fontSizeDifference: 2;
-    // fontSizePx_ss が10pxでは小さすぎるため、-2pxは追加せずfontSizePx_sと同じ値にする
-    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_m: $_fontSizePx;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
-    $_fontSizePx_ruby: 16;
-    $_fontSizeDifference_ruby: 2;
-    $_fontSizePx_ruby_ss: $_fontSizePx_ruby - $_fontSizeDifference_ruby - 2;
-    $_fontSizePx_ruby_s: $_fontSizePx_ruby - $_fontSizeDifference_ruby;
-    $_fontSizePx_ruby_m: $_fontSizePx_ruby;
-    $_fontSizePx_ruby_l: $_fontSizePx_ruby + $_fontSizeDifference_ruby;
-    $_fontSizePx_ruby_ll: $_fontSizePx_ruby + $_fontSizeDifference_ruby + 2;
-    $_fontSizePx_bd: 36;
-    $_fontSizeDifference_bd: 6;
-    $_fontSizePx_bd_ss: $_fontSizePx_bd - $_fontSizeDifference_bd - 6;
-    $_fontSizePx_bd_s: $_fontSizePx_bd - $_fontSizeDifference_bd;
-    $_fontSizePx_bd_m: $_fontSizePx_bd;
-    $_fontSizePx_bd_l: $_fontSizePx_bd + $_fontSizeDifference_bd;
-    $_fontSizePx_bd_ll: $_fontSizePx_bd + $_fontSizeDifference_bd + 6;
+    $_fontPx: 14;
+    $_fontPxDiff: 2;
+    // fontPx_ss が10pxでは小さすぎるため、-2pxは追加せずfontPx_sと同じ値にする
+    $_fontPx_ss: $_fontPx - $_fontPxDiff;
+    $_fontPx_s: $_fontPx - $_fontPxDiff;
+    $_fontPx_m: $_fontPx;
+    $_fontPx_l: $_fontPx + $_fontPxDiff;
+    $_fontPx_ll: $_fontPx + $_fontPxDiff + 2;
+    $_fontPx_ruby: 16;
+    $_fontPxDiff_ruby: 2;
+    $_fontPx_ruby_ss: $_fontPx_ruby - $_fontPxDiff_ruby - 2;
+    $_fontPx_ruby_s: $_fontPx_ruby - $_fontPxDiff_ruby;
+    $_fontPx_ruby_m: $_fontPx_ruby;
+    $_fontPx_ruby_l: $_fontPx_ruby + $_fontPxDiff_ruby;
+    $_fontPx_ruby_ll: $_fontPx_ruby + $_fontPxDiff_ruby + 2;
+    $_fontPx_bd: 36;
+    $_fontPxDiff_bd: 6;
+    $_fontPx_bd_ss: $_fontPx_bd - $_fontPxDiff_bd - 6;
+    $_fontPx_bd_s: $_fontPx_bd - $_fontPxDiff_bd;
+    $_fontPx_bd_m: $_fontPx_bd;
+    $_fontPx_bd_l: $_fontPx_bd + $_fontPxDiff_bd;
+    $_fontPx_bd_ll: $_fontPx_bd + $_fontPxDiff_bd + 6;
     display: table;
     color: $_textColor;
     &__media {
@@ -57,7 +57,7 @@
       font-family: $tenorSans;
       font-weight: bold;
       color: $_textColor_highlight;
-      @include g-font($_fontSizePx_m, $_lineHeightType);
+      @include g-font($_fontPx_m, $_lineHeight);
       a {
         color: $_textColor_highlight;
         text-decoration: underline;
@@ -68,7 +68,7 @@
     }
 
     &__ruby {
-      @include g-font($_fontSizePx_ruby_m, $_lineHeightType);
+      @include g-font($_fontPx_ruby_m, $_lineHeight);
       text-align: right;
       a {
         color: $_textColor;
@@ -79,7 +79,7 @@
     &__bd {
       display: table;
       font-family: $tenorSans;
-      @include g-font($_fontSizePx_bd_m, $_lineHeightType);
+      @include g-font($_fontPx_bd_m, $_lineHeight);
       > span {
         display: table-cell;
         vertical-align: middle;
@@ -94,15 +94,15 @@
 
     &--size-1 {
       p {
-        @include g-font($_fontSizePx_ss, $_lineHeightType);
+        @include g-font($_fontPx_ss, $_lineHeight);
       }
 
       #{$_block}__ruby {
-        @include g-font($_fontSizePx_ruby_ss, $_lineHeightType);
+        @include g-font($_fontPx_ruby_ss, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontSizePx_bd_ss, $_lineHeightType);
+        @include g-font($_fontPx_bd_ss, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -136,15 +136,15 @@
 
     &--size-2 {
       p {
-        @include g-font($_fontSizePx_s, $_lineHeightType);
+        @include g-font($_fontPx_s, $_lineHeight);
       }
 
       #{$_block}__ruby {
-        @include g-font($_fontSizePx_ruby_s, $_lineHeightType);
+        @include g-font($_fontPx_ruby_s, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontSizePx_bd_s, $_lineHeightType);
+        @include g-font($_fontPx_bd_s, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -186,15 +186,15 @@
 
     &--size-3 {
       p {
-        @include g-font($_fontSizePx_m, $_lineHeightType);
+        @include g-font($_fontPx_m, $_lineHeight);
       }
 
       #{$_block}__ruby {
-        @include g-font($_fontSizePx_ruby_m, $_lineHeightType);
+        @include g-font($_fontPx_ruby_m, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontSizePx_bd_m, $_lineHeightType);
+        @include g-font($_fontPx_bd_m, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -236,15 +236,15 @@
 
     &--size-4 {
       p {
-        @include g-font($_fontSizePx_l, $_lineHeightType);
+        @include g-font($_fontPx_l, $_lineHeight);
       }
 
       #{$_block}__ruby {
-        @include g-font($_fontSizePx_ruby_l, $_lineHeightType);
+        @include g-font($_fontPx_ruby_l, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontSizePx_bd_l, $_lineHeightType);
+        @include g-font($_fontPx_bd_l, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -286,15 +286,15 @@
 
     &--size-5 {
       p {
-        @include g-font($_fontSizePx_ll, $_lineHeightType);
+        @include g-font($_fontPx_ll, $_lineHeight);
       }
 
       #{$_block}__ruby {
-        @include g-font($_fontSizePx_ruby_ll, $_lineHeightType);
+        @include g-font($_fontPx_ruby_ll, $_lineHeight);
       }
 
       #{$_block}__bd {
-        @include g-font($_fontSizePx_bd_ll, $_lineHeightType);
+        @include g-font($_fontPx_bd_ll, $_lineHeight);
       }
 
       #{$_block}__tel {
@@ -351,10 +351,10 @@
 
 @if $device == SP {
   .t0-b-iconText-tel {
-    $_fontSizePx: 16;
-    $_fontSizePx_ruby: 12;
-    $_fontSizePx_bd: 22;
-    $_lineHeightType: 1;
+    $_fontPx: 16;
+    $_fontPx_ruby: 12;
+    $_fontPx_bd: 22;
+    $_lineHeight: 1;
     $_textColor: #ed7573;
     $_textColor_highlight: #675f4f;
     color: $_textColor;
@@ -383,7 +383,7 @@
     }
 
     p {
-      @include g-font($_fontSizePx, $_lineHeightType);
+      @include g-font($_fontPx, $_lineHeight);
       padding-bottom: 10px;
       color: $_textColor_highlight;
       a {
@@ -393,7 +393,7 @@
     }
 
     &__ruby {
-      @include g-font($_fontSizePx_ruby, $_lineHeightType);
+      @include g-font($_fontPx_ruby, $_lineHeight);
       a {
         color: $_textColor;
         text-decoration: underline;
@@ -401,7 +401,7 @@
     }
 
     &__bd {
-      @include g-font($_fontSizePx_bd, $_lineHeightType);
+      @include g-font($_fontPx_bd, $_lineHeight);
       display: table;
       margin: 0 auto;
       color: #f00;

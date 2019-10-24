@@ -1,13 +1,13 @@
 @if $device == PC {
   .t0-b-navItem {
     $_block: &;
-    $_fontSizePx: 16;
-    $_fontSizeDifference: 2;
-    $_fontSizePx_ss: $_fontSizePx - $_fontSizeDifference - 2;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_fontSizePx_ll: $_fontSizePx + $_fontSizeDifference + 2;
-    $_lineHeightType: 1;
+    $_fontPx: 16;
+    $_fontPxDiff: 2;
+    $_fontPx_ss: $_fontPx - $_fontPxDiff - 2;
+    $_fontPx_s: $_fontPx - $_fontPxDiff;
+    $_fontPx_l: $_fontPx + $_fontPxDiff;
+    $_fontPx_ll: $_fontPx + $_fontPxDiff + 2;
+    $_lineHeight: 1;
     display: table;
     &--width-l {
       width: 100%;
@@ -68,26 +68,26 @@
       }
 
       > div {
-        @include g-font($_fontSizePx, 1);
+        @include g-font($_fontPx, 1);
         display: table-cell;
         #{$_block}--size-1 & {
-          @include g-font($_fontSizePx_ss, $_lineHeightType);
+          @include g-font($_fontPx_ss, $_lineHeight);
         }
 
         #{$_block}--size-2 & {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
+          @include g-font($_fontPx_s, $_lineHeight);
         }
 
         #{$_block}--size-3 & {
-          @include g-font($_fontSizePx, $_lineHeightType);
+          @include g-font($_fontPx, $_lineHeight);
         }
 
         #{$_block}--size-4 & {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
+          @include g-font($_fontPx_l, $_lineHeight);
         }
 
         #{$_block}--size-5 & {
-          @include g-font($_fontSizePx_ll, $_lineHeightType);
+          @include g-font($_fontPx_ll, $_lineHeight);
         }
       }
     }
@@ -108,8 +108,8 @@
 @if $device == SP {
   .t0-b-navItem {
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontPx: 16;
+    $_lineHeight: 1;
     display: table;
     a {
       box-sizing: border-box;
@@ -124,7 +124,7 @@
       }
 
       > div {
-        @include g-font($_fontSizePx, $_lineHeightType);
+        @include g-font($_fontPx, $_lineHeight);
         display: table-cell;
       }
     }
