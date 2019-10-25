@@ -7,7 +7,7 @@
 ## 概要
 1. ACRE-themeのコンパイル前のソースコード管理
 2. CSSの単体テスト
-3. SASSのコンパイル  
+3. SASSのコンパイル
 のためのリポジトリです。
 
 <br>
@@ -16,7 +16,7 @@
 ## 準備編
 
 ### 構築する環境
-以下の環境になっていればスタイルガイドを起動できます。手順はこの環境を構築するための操作です。  
+以下の環境になっていればスタイルガイドを起動できます。手順はこの環境を構築するための操作です。
 もしツールが動かなかったりエラーが表示される場合は、以下の環境が整っていることを確認してください。
 
 1. Mac内でDockerが起動している
@@ -57,10 +57,10 @@ buddy-theme
 ### 全体で一度だけ実行すること
 
 #### Dockerとnpmのインストール
-1. アカウントを作成し、Dockerをインストール  
+1. アカウントを作成し、Dockerをインストール
 https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 
-2. アプリのアイコンをクリックしDockerを起動する  
+2. アプリのアイコンをクリックしDockerを起動する
 Macの上部にアイコンが表示されていればOK
 
 3. 以下のコマンドを実行
@@ -90,9 +90,9 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 $ ./set-themes.sh (テーマ名)
 ```
 
-テーマは複数設定することもでき、1から順にコンテナに割り当てられます。  
-2〜3個を想定していますが、9個まで設定可能です。  
-ただし多いほど処理に時間がかかるので、不要なテーマを含まないよう注意してください。  
+テーマは複数設定することもでき、1から順にコンテナに割り当てられます。
+2〜3個を想定していますが、9個まで設定可能です。
+ただし多いほど処理に時間がかかるので、不要なテーマを含まないよう注意してください。
 ```sh
 $ ./set-themes.sh 031 031A 031B
 ```
@@ -123,7 +123,7 @@ $ ./init.sh
 ## 利用編
 
 ### 起動
-1. アプリのアイコンをクリックしDockerを起動  
+1. アプリのアイコンをクリックしDockerを起動
 Macの上部にアイコンが表示されていればOKです。
 
 2. 以下のコマンドを実行
@@ -140,7 +140,7 @@ Continue with the new image? [yN]
 
 起動中には、以下のことが自動で実行されます
 - CSSとスタイルガイドの更新
-- bPlacer.md（余白設定値表）の更新  
+- bPlacer.md（余白設定値表）の更新
 _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットしてください。
 
 <br>
@@ -151,17 +151,17 @@ _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットし
 ```
 
 が表示されたら
-http://localhost:ポート番号  
-を開いてください。  
-ポート番号は3000 + コンテナ番号です  
-**例:** コンテナ1の場合  
-http://localhost:3001  
+http://localhost:ポート番号
+を開いてください。
+ポート番号は3000 + コンテナ番号です
+**例:** コンテナ1の場合
+http://localhost:3001
 
 
-クロスブラウザテストで他の端末から接続する場合は  
-`ターミナルに出力される外部URL + ポート番号`を開いてください  
-**例:** コンテナ1の場合  
-http://192.168.0.12:3001  
+クロスブラウザテストで他の端末から接続する場合は
+`ターミナルに出力される外部URL + ポート番号`を開いてください
+**例:** コンテナ1の場合
+http://192.168.0.12:3001
 
 
 <br>
@@ -209,11 +209,11 @@ SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materi
 ```sh
 $ ./lint.sh
 ```
-コーディングルールに従ってscssファイルの中身が自動で整形されます。  
+コーディングルールに従ってscssファイルの中身が自動で整形されます。
 自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
 
-**※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意**  
-**※閉じ括弧などが足りないと不正な出力になってしまうので注意** 
+**※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意**
+**※閉じ括弧などが足りないと不正な出力になってしまうので注意**
 
 #### エラーの例:
 ```sh
@@ -221,10 +221,10 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
   2:51  ✖  Unexpected empty block               block-no-empty
  26:5   ⚠  Unexpected duplicate "#fff"          declaration-block-no-duplicate-properties
 ```
-- 「2行目で✖(エラー)です。ブロックの中身が空です。(ルール:`block-no-empty`)」  
+- 「2行目で✖(エラー)です。ブロックの中身が空です。(ルール:`block-no-empty`)」
 → 空のブロックを削除してください。
 
-- 「26行目で⚠(警告)です。`#fff`が重複しています。(ルール:`declaration-block-no-duplicate-properties`)」  
+- 「26行目で⚠(警告)です。`#fff`が重複しています。(ルール:`declaration-block-no-duplicate-properties`)」
 → 重複している項目を修正してください。
 
 <br>
@@ -237,17 +237,17 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
 また、コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。
 
 #### 参考
-stylelintのルール一覧  
+stylelintのルール一覧
 https://stylelint.io/user-guide/rules
 
 <br>
 
 
 ### 別コンテナでの実行
-上に記載した`./up.sh`以外のコマンドは、引数の指定ができます。  
+上に記載した`./up.sh`以外のコマンドは、引数の指定ができます。
 並行して2つ以上のテーマを開発するための機能なので、1つのテーマのみ開発している場合は気にしなくて問題ありません。
 
-**例:** buildの場合  
+**例:** buildの場合
 ```sh
 $ ./build.sh
 ```
@@ -271,9 +271,9 @@ allを指定した場合、コンテナに関係なく全てのテーマで実�
 
 ### ACRE-themeへの出力
 
-masterブランチへマージすると自動でcircleCIのジョブが登録されます。  
-承認するまで実行されないので、circleCIの画面からWorkflowsを承認してください。  
-しばらくすると、ACRE-themeにブランチが作成されます。  
+masterブランチへマージすると自動でcircleCIのジョブが登録されます。
+承認するまで実行されないので、circleCIの画面からWorkflowsを承認してください。
+しばらくすると、ACRE-themeにブランチが作成されます。
 ブランチ名に実行日時が入っているので、対象のブランチをマージしてください。
 
 <br>
@@ -292,7 +292,7 @@ base_1  | Error: Invalid CSS after "...r: $_textColor;": expected "}", was "&:ho
 base_1  |         on line 19 of devStuff/src/parts/_033_lv2H.scss
 base_1  | >>       color: $_textColor;
 ```
-SASSの構文エラーです。  
+SASSの構文エラーです。
 大抵の場合、メッセージ内にエラー内容、ファイル名、行数が書いてありますので、読んで修正してください。
 
 ### JSON/HTMLを修正した
@@ -327,27 +327,95 @@ $ docker container prune
 <br>
 
 ## リポジトリの保守
-
-### 新しいテーマを作る場合
-1. フォルダの作成
-既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください。  
+### 新規テーマ(無印)を作る場合の作成手順
+1. **フォルダの作成**
+<br>
+**base**フォルダを複製し、新しいテーマ名に変更してください。
+<br>
 **例:**
-031を複製して031Aのフォルダを作成
+`base`を複製して`036`に名前変更
 
-2. devstuff/aigis_config.ymlの設定  
-nameを新しいテーマ名に設定してください。  
+2. **devStuff/aigis_config.yml の設定**
+<br>
+`name:`を新しいテーマ名に設定してください。
+<br>
 **例:**
-Theme 031A
+`name: Theme 036`
 
-3. gulp_config.jsonの設定  
-html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください。  
+3. **gulp_config.json の設定**
+<br>
+`"html_templates_dir":`を、対象テーマの部品があるACRE-theme内のフォルダに設定してください。
+<br>
 **例:**
-"../../ACRE-theme/acre/theme_materials/031/html_templates/"
+` "html_templates_dir": "../../ACRE-theme/acre/theme_materials/036/html_templates/"`
+
+4. **pc-*.scss / sp.scss の設定**
+<br>
+該当ファイルの`$theme:`を、それぞれ新しいテーマ名に変更してください。
+<br>
+**例:**
+` $theme: "036";`
+
+5. **config/_colorConfig.scss の設定**
+<br>
+変数のカラーコードを書き換えることで部品の色を変更できます。<br>
+基本的にカラーコードは _colorConfig.scss 内の変数に格納するようにしてください。
+<br>
+
+画像パスは`url("#($imgsPath)`から始めてください。
 
 <br>
 
+### カラバリテーマ(A~E)を作る場合の作成手順
+1. **フォルダの作成**
+<br>
+**baseA**フォルダを複製し、新しいテーマ名に変更してください。
+<br>
+**例:**
+`base`Aを複製して`036A`に名前変更
+
+2. **devStuff/aigis_config.yml の設定**
+<br>
+`name:`を新しいテーマ名に設定してください。
+<br>
+**例:**
+`name: Theme 036A`
+
+3. **gulp_config.json の設定**
+<br>
+`"html_templates_dir":`を、対象テーマの部品があるACRE-theme内のフォルダに設定してください。
+<br>
+**例:**
+` "html_templates_dir": "../../ACRE-theme/acre/theme_materials/036/html_templates/"`
+
+4. **pc-*.scss / sp.scss の設定**
+<br>
+該当ファイルの`$theme:`を、それぞれ新しいテーマ名に変更してください。
+<br>
+**例:**
+` $theme: "036A";`
+
+5. **_importBase.scss の設定**
+<br>
+`$baseTheme:`を無印のテーマ番号に変更してください。
+<br>
+**例:**
+` $baseTheme: "036";`
+
+6. **config/_colorConfig.scss の設定**
+<br>
+最初に無印の_colorConfig.scssから中身をコピーしてきてください。
+<br>
+変数のカラーコードを書き換えることで部品の色を変更できます。
+<br>
+
+画像ファイルは無印の画像ディレクトリと同じ名前にする必要があります。
+
+<br>
+<br>
+
 ### docker-compose.ymlを変更する場合
-ユーザーがテーマ名を変更するため、.gitignoreに含めています。  
+ユーザーがテーマ名を変更するため、.gitignoreに含めています。
 `_docker-compose.yml`を複製して使うようにしているので、このファイルを変更してください。
 
 <br>
