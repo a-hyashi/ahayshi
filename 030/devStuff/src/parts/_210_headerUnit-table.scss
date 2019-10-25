@@ -11,10 +11,6 @@
     white-space: nowrap;
 
     @include g-rteTableReset();
-    ul, ol {
-      padding-left: 25px;
-    }
-
     a {
       color: #d0c8c8;
       &:hover {
@@ -35,7 +31,7 @@
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     ul {
-      padding: 0 0 0 2.5em;
+      padding: 0 0 0 25px;
       margin-top: $_blockSpacing;
       font-size: $g-baseFontSize;
       ul, ol {
@@ -65,7 +61,7 @@
     }
 
     ol {
-      padding: 0 0 0 2.5em;
+      padding: 0 0 0 25px;
       margin-top: $_blockSpacing;
       font-size: $g-baseFontSize;
       ul, ol {
@@ -160,25 +156,52 @@
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
 
-    $_color_table_border: #6e6e77;
-    $_color_table_th_bg: #152232;
+    $_color_table_border: #645a4e;
+    $_color_table_th_bg: #000;
     $_color_table_td_typo: $textcolor;
 
     @include g-rteTableReset
-      a {
-      color: $textcolor;
+
+      color: #d0c8c8;
+    a {
+      color: #d0c8c8;
     }
+
     p {
       @include g-font(16, 2);
-      margin-top: 1em;
+      margin-top: $_blockSpacing;
     }
 
     > p:first-child {
       margin-top: 0;
     }
 
+    ul {
+      padding: 0 0 0 25px;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(16, 1);
+
+        margin-top: $_elementSpacing;
+        list-style-type: disc;
+        color: #cdbcbc;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
     ol {
-      padding: 0 0 0 2em;
+      padding: 0 0 0 25px;
       margin-top: $_blockSpacing;
       font-size: $g-baseFontSize;
       ul, ol {
@@ -230,6 +253,7 @@
 
       ul, ol {
         font-size: $g-baseFontSize;
+        color: inherit;
         li {
           @include g-font(14, 1);
         }
@@ -257,6 +281,7 @@
       td {
         color: #210a0a;
         font-weight: bold;
+        background-color: #bbb09e;
       }
     }
 
