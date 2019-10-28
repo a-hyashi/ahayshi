@@ -359,10 +359,12 @@ $ docker container prune
 5. **config/_colorConfig.scss の設定**
 <br>
 変数のカラーコードを書き換えることで部品の色を変更できます。<br>
-基本的にカラーコードは _colorConfig.scss 内の変数に格納するようにしてください。
+基本的にカラーコードは _colorConfig.scss 内の変数に格納するようにしてください。<br>
+詳しい使い方はコメントを参照してください。
 <br>
 
-画像パスは`url("#($imgsPath)`から始めてください。
+**画像パスはカラバリテーマでも使うため、`url("#{$imgsPath}/**/*.png")`の形式にしてください。**<br>
+(`$imgsPath`は、/テーマ名/devStuff/src/imgsまで。themeConfig内に定義。)
 
 <br>
 
@@ -409,7 +411,7 @@ $ docker container prune
 変数のカラーコードを書き換えることで部品の色を変更できます。
 <br>
 
-画像ファイルは無印の画像ディレクトリと同じ名前にする必要があります。
+**画像ファイルは無印の画像ディレクトリと同じ名前にする必要があります。**
 
 <br>
 <br>
