@@ -3,7 +3,6 @@
     $_block: &;
     $_fontSizePx_h: 24;
     $_fontSizePx_caption: 16;
-    // 小さい、大きいサイズの標準からの変化分
     $_fontSizeDifference: 4;
     $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
     $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
@@ -15,16 +14,16 @@
     $_fontFamily_icon: "游明朝体 デミボールド", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
     a {
       display: block;
-      color: $textcolor;
+      color: $g-textColor;
       text-decoration: none;
       &:hover {
-        color: $hovercolor;
+        color: $g-hoverColor;
       }
 
       #{$_block}__h {
-        color: $textcolor;
+        color: $g-textColor;
         &:hover {
-          color: $hovercolor;
+          color: $g-hoverColor;
         }
       }
     }
@@ -46,12 +45,10 @@
         $_src: "../imgs/t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
         width: 54px;
         height: 54px;
-
         background-image: url($_src);
       }
 
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
       display: inline-block;
       width: $_background-size;
       height: $_background-size;
@@ -60,17 +57,15 @@
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: $_background-size;
-
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
             @include _iconStyles($_type, $_i);
             &::before {
               display: block;
-              // 背景が影付きのため、影の分だけ小さくする。
+              // 背景が影付きのため、影の分だけ小さくする
               width: ($_background-size - 3px);
               padding-top: 25px;
-
               font-family: $_fontFamily_icon;
               line-height: 1;
               color: #fff;
@@ -103,12 +98,10 @@
     }
 
     &__caption-upper + &__h {
-      // 上補足有りの時2px小さくする為
       @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
     &__caption-upper + a > &__h {
-      // 上補足有りの時2px小さくする為
       @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
@@ -210,7 +203,6 @@
     $_block: &;
     $_fontSizePx_h: 24;
     $_fontSizePx_caption: 16;
-    // 小さい、大きいサイズの標準からの変化分
     $_fontSizeDifference: 4;
     $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
     $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
@@ -223,16 +215,16 @@
     $_fontFamily_icon: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     a {
       display: block;
-      color: $textcolor;
+      color: $g-textColor;
       text-decoration: none;
       &:hover {
-        color: $hovercolor;
+        color: $g-hoverColor;
       }
 
       #{$_block}__h {
-        color: $textcolor;
+        color: $g-textColor;
         &:hover {
-          color: $hovercolor;
+          color: $g-hoverColor;
         }
       }
     }
@@ -252,12 +244,10 @@
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-lv4H-numIcon2__icon/#{$type}/bg.png";
-
         background-image: url($_src);
       }
 
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
-
       display: inline-block;
       width: $_background-size-x;
       height: $_background-size-y;
@@ -266,7 +256,6 @@
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: $_background-size-x $_background-size-y;
-
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -277,7 +266,6 @@
               width: 44px;
               padding-top: 7px;
               padding-left: 50px;
-
               font-family: $_fontFamily_icon;
               line-height: 1;
               color: #fff;
@@ -310,12 +298,10 @@
     }
 
     &__caption-upper + &__h {
-      // 上補足有りの時2px小さくする為
       @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
     &__caption-upper + a > &__h {
-      // 上補足有りの時2px小さくする為
       @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
     }
 
@@ -426,7 +412,7 @@
     $_background-size: 40px;
     $_fontFamily_icon: "游明朝体 デミボールド", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
     a {
-      color: $textcolor;
+      color: $g-textColor;
       text-decoration: none;
     }
 
@@ -443,7 +429,6 @@
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
-
         background-image: url($_src);
       }
 
@@ -455,9 +440,7 @@
       vertical-align: middle;
       background-repeat: no-repeat;
       background-position: 0 0;
-
       background-size: $_background-size;
-
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -466,13 +449,11 @@
               display: block;
               width: $_background-size - 1px;
               padding-top: 18px;
-
               font-family: $_fontFamily_icon;
               line-height: 1;
               color: #fff;
               text-align: center;
               content: "#{$_i}";
-
               @include g-font(16, 0);
             }
           }
@@ -529,7 +510,7 @@
     $_background-size-y: 40px;
     $_fontFamily_icon: "小塚ゴシック Pr6N M", "游ゴシック体 ボールド", "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     a {
-      color: $textcolor;
+      color: $g-textColor;
       text-decoration: none;
     }
 
@@ -546,7 +527,6 @@
     &__icon {
       @mixin _iconStyles($type, $index) {
         $_src: "../imgs/t0-b-lv4H-numIcon2__icon/sp/#{$type}/bg.png";
-
         background-image: url($_src);
       }
 
@@ -558,9 +538,7 @@
       vertical-align: middle;
       background-repeat: no-repeat;
       background-position: 0 0;
-
       background-size: $_background-size-x $_background-size-y;
-
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
@@ -568,13 +546,11 @@
             &::before {
               display: block;
               padding-top: 18px;
-
               font-family: $_fontFamily_icon;
               line-height: 1;
               color: #fff;
               text-align: center;
               content: "#{$_i}";
-
               @include g-font(16, 0);
             }
           }
