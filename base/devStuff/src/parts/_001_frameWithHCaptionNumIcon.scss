@@ -54,6 +54,18 @@
           @include g-font-layout($_fontSize_hd-h_l, 1, $layout);
         }
       }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__numIcon {
@@ -62,6 +74,89 @@
       > * {
         display: table-cell;
         vertical-align: middle;
+      }
+
+      &-h {
+        @include g-font-layout($_fontSize_numIcon-h, 1, $layout);
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSize_caption, 1, $layout);
+        padding: 0 0 5px;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSize_caption, 1, $layout);
+        padding: 5px 0 0;
+      }
+
+      &-caption-upper + &-h {
+        @include g-font-layout($_fontSize_numIcon-h - 2, 1, $layout);
+      }
+
+      &-caption-upper + a > &-h {
+        @include g-font-layout($_fontSize_numIcon-h - 2, 1, $layout);
+      }
+
+      &--size-1 {
+        #{$_block}__caption-upper {
+          @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        }
+
+        #{$_block}__numIcon-h {
+          @include g-font-layout($_fontSize_numIcon-h_s, 1, $layout);
+        }
+
+        #{$_block}__caption-lower {
+          @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        }
+
+        #{$_block}__caption-upper + #{$_block}__numIcon-h {
+          @include g-font-layout($_fontSize_numIcon-h_s - 2, 1, $layout);
+        }
+
+        #{$_block}__caption-upper + a > #{$_block}__numIcon-h {
+          @include g-font-layout($_fontSize_numIcon-h_s - 2, 1, $layout);
+        }
+      }
+
+      &--size-3 {
+        #{$_block}__caption-upper {
+          @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        }
+
+        #{$_block}__numIcon-h {
+          @include g-font-layout($_fontSize_numIcon-h_l, 1, $layout);
+        }
+
+        #{$_block}__caption-lower {
+          @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        }
+
+        #{$_block}__caption-upper + #{$_block}__numIcon-h {
+          @include g-font-layout($_fontSize_numIcon-h_l - 2, 1, $layout);
+        }
+
+        #{$_block}__caption-upper + a > #{$_block}__numIcon-h {
+          @include g-font-layout($_fontSize_numIcon-h_l - 2, 1, $layout);
+        }
+      }
+
+      &--align {
+        width: 100%;
+        line-height: 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
       }
     }
 
@@ -76,104 +171,9 @@
       }
     }
 
-    &__caption-upper {
-      @include g-font-layout($_fontSize_caption, 1, $layout);
-      padding: 0 0 5px;
-    }
-
-    &__numIcon-h {
-      @include g-font-layout($_fontSize_numIcon-h, 1, $layout);
-    }
-
-    &__caption-lower {
-      @include g-font-layout($_fontSize_caption, 1, $layout);
-      padding: 5px 0 0;
-    }
-
-    &__caption-upper + &__numIcon-h {
-      @include g-font-layout($_fontSize_numIcon-h - 2, 1, $layout);
-    }
-
-    &__caption-upper + a > &__numIcon-h {
-      @include g-font-layout($_fontSize_numIcon-h - 2, 1, $layout);
-    }
-
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
-
-    &__numIcon--align {
-      width: 100%;
-      line-height: 0;
-    }
-
-    &__numIcon--align-l {
-      text-align: left;
-    }
-
-    &__numIcon--align-c {
-      text-align: center;
-    }
-
-    &__numIcon--align-r {
-      text-align: right;
-    }
-
     // 最下部の枠があるとき
     & + div {
       margin-top: 2%;
-    }
-
-    &__numIcon--size-1 {
-      #{$_block}__caption-upper {
-        @include g-font-layout($_fontSize_caption_s, 1, $layout);
-      }
-
-      #{$_block}__numIcon-h {
-        @include g-font-layout($_fontSize_numIcon-h_s, 1, $layout);
-      }
-
-      #{$_block}__caption-lower {
-        @include g-font-layout($_fontSize_caption_s, 1, $layout);
-      }
-
-      #{$_block}__caption-upper + #{$_block}__numIcon-h {
-        @include g-font-layout($_fontSize_numIcon-h_s - 2, 1, $layout);
-      }
-
-      #{$_block}__caption-upper + a > #{$_block}__numIcon-h {
-        @include g-font-layout($_fontSize_numIcon-h_s - 2, 1, $layout);
-      }
-    }
-
-    &__numIcon--size-3 {
-      #{$_block}__caption-upper {
-        @include g-font-layout($_fontSize_caption_l, 1, $layout);
-      }
-
-      #{$_block}__numIcon-h {
-        @include g-font-layout($_fontSize_numIcon-h_l, 1, $layout);
-      }
-
-      #{$_block}__caption-lower {
-        @include g-font-layout($_fontSize_caption_l, 1, $layout);
-      }
-
-      #{$_block}__caption-upper + #{$_block}__numIcon-h {
-        @include g-font-layout($_fontSize_numIcon-h_l - 2, 1, $layout);
-      }
-
-      #{$_block}__caption-upper + a > #{$_block}__numIcon-h {
-        @include g-font-layout($_fontSize_numIcon-h_l - 2, 1, $layout);
-      }
     }
   }
 }
@@ -191,16 +191,28 @@
       h3 {
         @include g-font($_fontSize_hd-h, 1);
       }
-    }
 
-    &__hd-caption-upper {
-      @include g-font($_fontSize_caption, 1);
-      padding: 0 0 5px;
-    }
+      &-caption-upper {
+        @include g-font($_fontSize_caption, 1);
+        padding: 0 0 5px;
+      }
 
-    &__hd-caption-lower {
-      @include g-font($_fontSize_caption, 1);
-      padding: 5px 0 0;
+      &-caption-lower {
+        @include g-font($_fontSize_caption, 1);
+        padding: 5px 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
     }
 
     &__numIcon {
@@ -209,49 +221,37 @@
         display: table-cell;
         vertical-align: middle;
       }
-    }
 
-    &__caption-upper {
-      @include g-font($_fontSize_caption, 1);
-      padding: 0 0 5px;
-    }
+      &-h {
+        @include g-font($_fontSize_numIcon-h, 1);
+      }
 
-    &__numIcon-h {
-      @include g-font($_fontSize_numIcon-h, 1);
-    }
+      &-caption-upper {
+        @include g-font($_fontSize_caption, 1);
+        padding: 0 0 5px;
+      }
 
-    &__caption-lower {
-      @include g-font($_fontSize_caption, 1);
-      padding: 5px 0 0;
-    }
+      &-caption-lower {
+        @include g-font($_fontSize_caption, 1);
+        padding: 5px 0 0;
+      }
 
-    &__hd--align-l {
-      text-align: left;
-    }
+      &--align {
+        width: 100%;
+        line-height: 0;
+      }
 
-    &__hd--align-c {
-      text-align: center;
-    }
+      &--align-l {
+        text-align: left;
+      }
 
-    &__hd--align-r {
-      text-align: right;
-    }
+      &--align-c {
+        text-align: center;
+      }
 
-    &__numIcon--align {
-      width: 100%;
-      line-height: 0;
-    }
-
-    &__numIcon--align-l {
-      text-align: left;
-    }
-
-    &__numIcon--align-c {
-      text-align: center;
-    }
-
-    &__numIcon--align-r {
-      text-align: right;
+      &--align-r {
+        text-align: right;
+      }
     }
 
     // 最下部の枠があるとき
