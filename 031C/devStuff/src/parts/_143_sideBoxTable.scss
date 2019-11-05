@@ -1,8 +1,6 @@
 @if $device == PC {
   .t0-b-sideBoxTable {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -10,9 +8,8 @@
     $_color_table_td_bg: #fffbdc;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorsans;
-
-    color: $g-textcolor;
+    font-family: $tenorSans;
+    color: $g-textColor;
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -49,9 +46,8 @@
           margin-top: 0;
         }
 
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -82,9 +78,8 @@
           margin-top: 0;
         }
 
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -101,7 +96,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -170,7 +165,7 @@
       color: inherit;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
   }
@@ -178,9 +173,7 @@
 
 @if $device == SP {
   .t0-b-sideBoxTable {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -188,9 +181,8 @@
     $_color_table_td_bg: #fffbdc;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorsans;
-
-    color: $g-textcolor;
+    font-family: $tenorSans;
+    color: $g-textColor;
     p {
       @include g-font(14, 2);
       margin-top: 1em;
@@ -255,7 +247,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -263,7 +255,7 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
         border-top: 1px solid $_color_table_border;
         p,

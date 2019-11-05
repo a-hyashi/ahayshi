@@ -1,0 +1,314 @@
+@if $device == PC {
+  .t0-b-footerUnit-text {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #fff;
+    $_color_table_th_bg: #e1f2ff;
+    $_color_table_td_bg: #f1f7ff;
+    $_color_table_th_text: #333;
+    $_color_table_td_text: #666;
+    font-family: $tenorSans;
+    color: $g-textColor;
+    white-space: nowrap;
+    p {
+      @include g-font(14, 2);
+      margin-top: 1em;
+    }
+
+    > p {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ol {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+        font-size: $g-baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      li {
+        @include g-font(14, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: decimal;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          display: none;
+          float: left;
+          width: 100%;
+        }
+      }
+    }
+
+    > ol {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(14, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          display: none;
+          float: left;
+          width: 100%;
+        }
+      }
+    }
+
+    > ul {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      white-space: nowrap;
+      // tableのデフォルトの枠線を消す
+      border: transparent 1px solid;
+      th,
+      td {
+        @include g-font(14, 1);
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
+      }
+
+      ul,
+      ol {
+        font-size: $g-baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th {
+        color: $_color_table_th_text;
+        background-color: $_color_table_th_bg;
+      }
+
+      td {
+        color: $_color_table_td_text;
+        background-color: $_color_table_td_bg;
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid $_color_table_border;
+        &:first-child {
+          border-top: 1px solid $_color_table_border;
+        }
+
+        &:last-child {
+          > th,
+          td {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    > table {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 2;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    a {
+      color: $g-textColor;
+      text-decoration: underline;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-text {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #fff;
+    $_color_table_th_bg: #e1f2ff;
+    $_color_table_td_bg: #f1f7ff;
+    $_color_table_th_text: #333;
+    $_color_table_td_text: #666;
+    font-family: $tenorSans;
+    p {
+      @include g-font(14, 2);
+      margin-top: 1em;
+    }
+
+    > p {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ol {
+      padding: 0 0 0 1.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(14, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: decimal;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    > ol {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      padding: 0 0 0 1.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-baseFontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(14, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    > ul {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      // tableのデフォルトの枠線を消す
+      border: transparent 1px solid;
+      th,
+      td {
+        @include g-font(14, 1);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        border-style: none;
+        border-top: 1px solid $_color_table_border;
+      }
+
+      ul,
+      ol {
+        font-size: $g-baseFontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th {
+        color: $_color_table_th_text;
+        background: $_color_table_th_bg;
+      }
+
+      td {
+        color: $_color_table_td_text;
+        background-color: $_color_table_td_bg;
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid $_color_table_border;
+        &:first-child {
+          border-top: 1px solid $_color_table_border;
+        }
+
+        &:last-child {
+          > th,
+          td {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    > table {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    $_fontSizePx: 14;
+    $_lineHeightType: 1;
+    @include g-font($_fontSizePx, $_lineHeightType);
+    color: $g-textColor;
+    a {
+      color: $g-textColor;
+      text-decoration: underline;
+    }
+  }
+}

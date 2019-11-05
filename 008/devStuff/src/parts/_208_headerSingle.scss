@@ -1,0 +1,194 @@
+@if $device == PC {
+  .t0-b-headerSingle {
+    $_width_content: 1020px;
+    $_color_hd_typo: #fff;
+    $_color_hd_bg: #666;
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+    $_block: &;
+    position: relative;
+    background-color: #fff;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    * {
+      white-space: normal;
+    }
+
+    &::before {
+      content: "";
+      background-repeat: repeat-x;
+      background-position: 0 0;
+      display: block;
+      position: absolute;
+      pointer-events: none;
+      background-image: url("../imgs/header/1/10.png");
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    &__hd {
+      text-align: center;
+      padding: 0 0 4px;
+      background-repeat: repeat;
+      background-position: 0 0;
+      background-image: url("../imgs/header/1/11.png");
+      z-index: 11;
+      position: relative;
+      > p {
+        width: $_width_content;
+        margin: 0 auto;
+        @include g-font(12, 1);
+        position: relative;
+      }
+    }
+
+    &__bd {
+      > div {
+        display: block;
+        width: $_width_content;
+        margin: 0 auto;
+        > div {
+          display: table;
+          max-width: $_width_content;
+          text-align: center;
+          vertical-align: top;
+          padding-top: $_colSpacing;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
+      position: relative;
+      z-index: 12;
+    }
+
+    &__col2 {
+      padding: $_colSpacing;
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: 100% 100%;
+      position: relative;
+      z-index: 12;
+      padding-right: 30px;
+    }
+
+    &__col3 {
+      padding: 15px 15px 0;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: 0 -10px;
+      position: relative;
+      z-index: 12;
+      &::after {
+        content: none;
+        display: block;
+        position: absolute;
+        border: #fdf6f5 solid 5px;
+        pointer-events: none;
+        background: url("../imgs/t0-b-media/bg.png") 0 0 repeat;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .t0-b-headerUnit-contact-navB,
+      .t0-b-headerUnit-contact-navB2 {
+        margin: 0 auto;
+      }
+    }
+    // サイト名(中央)に入ったときは中央寄せにする
+    .t0-b-headerUnit-contact-tel,
+    .t0-b-headerUnit-contact-fax,
+    .t0-b-headerUnit-contact-nav,
+    .t0-b-headerUnit-miniCol,
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle__bd,
+    .t0-b-headerUnit-siteTitle2__bd,
+    .t0-b-headerUnit-labeledList table,
+    .t0-b-headerUnit-labeledList2 table {
+      margin: 0 auto;
+    }
+
+    // サイト名(中央)に入ったときは文字数分の幅で中央寄せにする
+    .t0-b-headerUnit-contact-navB,
+    .t0-b-headerUnit-contact-navB2 {
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+      display: table;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerSingle {
+    margin: 0 -15px;
+    padding: 0 15px;
+    $_color_hd_typo: #555;
+    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+    &__hd {
+      margin: 0 -15px 10px;
+      padding: 5px 15px;
+      background: url("../imgs/header/1/11.png") repeat left top;
+      color: $_color_hd_typo;
+      > p {
+        width: 100%;
+        margin: 0 auto;
+        @include g-font-spacingKilled(14, 1);
+      }
+    }
+
+    &__bd {
+      > div {
+        width: 100%;
+        margin: 0 auto;
+        > div {
+          text-align: left;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &__col1 {
+      width: 100%;
+    }
+
+    &__col2 {
+      width: 100%;
+    }
+
+    &__col3 {
+      width: 100%;
+    }
+
+    &__col {
+      width: 100%;
+    }
+
+    &__hd {
+      text-align: center;
+    }
+
+    &__bd {
+      > div {
+        display: block;
+        > div {
+          text-align: center;
+        }
+      }
+    }
+
+    // サイト名(中央)に入ったときに中央寄せにする
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle2__bd,
+    .t0-b-headerUnit-labeledList table,
+    .t0-b-headerUnit-labeledList2 table {
+      margin: 0 auto;
+    }
+  }
+}
