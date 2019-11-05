@@ -9,9 +9,9 @@ span {
 }
 
 // SPフォント用mixin
-// font-sizeとline-heightの組み合わせを指定する
-@mixin g-font($fontSize, $lineHeight) {
-  // 2行にならないことを加味しながら使用
+// @include g-font();で使用。引数でfont-sizeとline-heightを指定する
+// 第二引数を入れない場合、$lineHeightは初期値1となる
+@mixin g-font($fontSize, $lineHeight: 1) {
   @if $lineHeight == 0 {
     line-height: 1;
   }

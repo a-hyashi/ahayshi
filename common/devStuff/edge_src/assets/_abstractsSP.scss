@@ -3,7 +3,12 @@ span {
   font-size: inherit !important;
 }
 
-@mixin g-font($fontSize, $lineHeight: 0) {
+// 第二引数を入れない場合、$lineHeightは初期値1となる
+@mixin g-font($fontSize, $lineHeight: 1) {
+  @if $lineHeight == 0 {
+    line-height: 1;
+  }
+
   @if $lineHeight == 1 {
     line-height: 1.25;
   }
