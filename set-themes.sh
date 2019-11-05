@@ -1,6 +1,8 @@
 #!/bin/bash
 
 rm docker-compose.yml
+echo version: \"3\" >> docker-compose.yml
+echo services: >> docker-compose.yml
 THEMES=($@)
 for i in "${!THEMES[@]}"; do
   num=$(($i+1))
