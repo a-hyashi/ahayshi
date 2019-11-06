@@ -3,7 +3,7 @@ const $ = require("gulp-load-plugins")();
 const runSequence = require('run-sequence');
 const browserSync = require('browser-sync');
 const del = require('del');
-const fs = require('fs-extra');
+const fs = require('graceful-fs');
 const sassdoc = require('sassdoc');
 const merge = require('event-stream').merge;
 const make_html = require('./lib/make_html');
@@ -37,7 +37,7 @@ gulp.task('sass-build', () => {
   return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe($.sass({outputStyle: 'compressed'}))
+      .pipe($.sass())
       .pipe($.debug())
       .pipe($.autoprefixer())
       .pipe(gulp.dest('devStuff/css'));
