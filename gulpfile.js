@@ -37,7 +37,7 @@ gulp.task('sass-build', () => {
   return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe($.sass())
+      .pipe($.sass({outputStyle: 'compressed'}))
       .pipe($.debug())
       .pipe($.autoprefixer())
       .pipe(gulp.dest('devStuff/css'));
