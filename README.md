@@ -213,6 +213,7 @@ $ ./lint.sh
 自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
 
 **※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意**
+
 **※閉じ括弧などが足りないと不正な出力になってしまうので注意**  
 
 #### エラーの例:
@@ -343,10 +344,9 @@ $ docker container prune
 **例:**
 ` "html_templates_dir": "../../ACRE-theme/acre/theme_materials/036/html_templates/"`
 
-4. **pc-*.scss / sp.scss の設定**  
-該当ファイルの`$theme:`を、それぞれ新しいテーマ名に変更してください。  
-**例:**
-` $theme: "036";`
+4. **_importBase.scss の設定**  
+`$baseTheme:`をテーマ番号に変更してください。  
+**例:** ` $baseTheme: "036";`
 
 5. **config/_colorConfig.scss の設定**
 <br>
@@ -368,15 +368,11 @@ $ docker container prune
 `"html_templates_dir":`を、対象テーマの部品があるACRE-theme内のフォルダに設定してください。  
 **例:** ` "html_templates_dir": "../../ACRE-theme/acre/theme_materials/036/html_templates/"`
 
-4. **pc-*.scss / sp.scss の設定**  
-該当ファイルの`$theme:`を、それぞれ新しいテーマ名に変更してください。  
-**例:** ` $theme: "036A";`
-
-5. **_importBase.scss の設定**  
+4. **_importBase.scss の設定**  
 `$baseTheme:`を無印のテーマ番号に変更してください。  
 **例:** ` $baseTheme: "036";`
 
-6. **config/_colorConfig.scss の設定**  
+5. **config/_colorConfig.scss の設定**  
 最初に無印の_colorConfig.scssから中身をコピーしてきてください。  
 変数のカラーコードを書き換えることで部品の色を変更できます。  
 <br>
