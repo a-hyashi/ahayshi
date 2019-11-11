@@ -1,9 +1,12 @@
 @if $device == PC {
+  // headerUnit-siteNameがお客さまに使われなくなった場合に消す
+  // headerUnit-siteName2が別要素としてあることで、headerUnit-siteNameのバリエーションが追加できなかったたため、headerUnit-siteTitleという別クラス名で定義し、バリエーション番号を末尾につけられるようにした。
+  // クラス名の統一性をとるため、メインエリアとフッターエリアのサイト名も同様の対応をしている。
   .t0-b-headerUnit-siteName,
-  .t0-b-headerUnit-siteTitle {
+  .t0-b-headerUnit-siteTitle,
+  .t0-b-headerUnit-siteTitle2 {
     white-space: nowrap;
     color: #333;
-
     $_block: &;
     &--has-width {
       white-space: normal;
@@ -31,6 +34,11 @@
       color: #333;
       text-decoration: none;
       &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $hovercolor;
+        }
+
         img {
           opacity: .8;
         }
@@ -39,7 +47,6 @@
 
     &__bd-note {
       @include g-font-spacingKilled(14, 1);
-
       margin: 0 0 5px;
       padding: 0;
       color: #97802f;
@@ -47,113 +54,41 @@
 
     &__bd-siteName {
       @include g-font(36, 1);
-    }
-
-    &__ft {
-      @include g-font-spacingKilled(14, 1);
-
-      padding: 10px 0 0;
-    }
-  }
-
-  .t0-b-headerUnit-siteTitle2 {
-    white-space: nowrap;
-    color: #333;
-    margin: 0 auto;
-    display: table;
-
-    $_block: &;
-    &--has-width {
-      white-space: normal;
-    }
-
-    &__bd {
-      display: table;
-      > div {
-        vertical-align: middle;
-        display: table;
-        text-align: center;
-      }
-    }
-
-    &__bd-logo {
-      margin: 0 auto;
-      img {
-        display: block;
-        max-width: 125px;
-        height: 44px;
-      }
-    }
-
-    a {
-      color: #333;
-      text-decoration: none;
-      &:hover {
-        img {
-          opacity: .8;
-        }
-      }
-    }
-
-    &__bd-textCol {
-      padding-top: 10px;
-    }
-
-    &__bd-note {
-      @include g-font-spacingKilled(14, 1);
-
-      margin: 0 0 5px;
-      padding: 0;
-      color: #97802f;
-    }
-
-    &__bd-siteName {
-      @include g-font(36, 1);
-    }
-
-    &__ft {
-      @include g-font-spacingKilled(14, 1);
-
-      padding: 10px 0 0;
-    }
-  }
-
-  .t0-b-headerUnit-siteName,
-  .t0-b-headerUnit-siteTitle,
-  .t0-b-headerUnit-siteTitle2 {
-    $_block: &;
-    a:hover {
-      #{$_block}__bd-siteName,
-      #{$_block}__bd-note {
-        color: $hovercolor;
-      }
     }
 
     &__bd-note + &__bd-siteName {
       @include g-font-spacingKilled(32, 1);
     }
-  }
 
-  //サイト名中央に入ったときのみ中央寄せの見た目にする
-  .t0-b-headerSingle,
-  .t0-b-headerSingle2 {
-    .t0-b-headerUnit-siteName__bd,
-    .t0-b-headerUnit-siteTitle__bd,
-    .t0-b-headerUnit-siteTitle2__bd {
-      margin: 0 auto;
+    &__ft {
+      @include g-font-spacingKilled(14, 1);
+      padding: 10px 0 0;
     }
   }
 
-  .t0-b-headerCombi,
-  .t0-b-headerCombi2 {
-    .t0-b-headerUnit-siteTitle2 {
-      margin: 0;
+  .t0-b-headerUnit-siteTitle2 {
+    margin: 0 auto;
+    display: table;
+    &__bd > div {
+      display: table;
+      text-align: center;
+    }
+
+    &__bd-logo {
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    &__bd-textCol {
+      padding-top: 10px;
     }
   }
 }
 
 @if $device == SP {
-  .t0-b-headerUnit-siteName {
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle,
+  .t0-b-headerUnit-siteTitle2 {
     &--has-width {
       white-space: normal;
     }
@@ -184,7 +119,6 @@
 
     &__bd-note {
       @include g-font-spacingKilled(14, 1);
-
       margin: 0 0 5px;
       padding: 0;
       color: #97802f;
@@ -194,58 +128,18 @@
       @include g-font(18, 1);
     }
 
+    &__bd-note + &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+    }
+
     &__ft {
       @include g-font-spacingKilled(14, 1);
-
       padding: 10px 0 0;
     }
   }
 
   .t0-b-headerUnit-siteTitle {
-    &--has-width {
-      white-space: normal;
-    }
-
-    &__bd {
-      display: table;
-      color: #333;
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left;
-      }
-    }
-
-    &__bd-logo {
-      padding: 0 10px 0 0;
-      img {
-        display: block;
-        max-width: 125px;
-        height: 44px;
-      }
-    }
-
-    a {
-      color: #333;
-      text-decoration: none;
-    }
-
-    &__bd-note {
-      @include g-font-spacingKilled(14, 1);
-
-      margin: 0 0 5px;
-      padding: 0;
-      color: #97802f;
-    }
-
-    &__bd-siteName {
-      @include g-font(18, 1);
-    }
-
     &__ft {
-      @include g-font-spacingKilled(14, 1);
-
-      padding: 10px 0 0;
       text-align: left;
     }
   }
@@ -253,71 +147,18 @@
   .t0-b-headerUnit-siteTitle2 {
     margin: 0 auto;
     display: table;
-    &--has-width {
-      white-space: normal;
-    }
-
-    &__bd {
+    &__bd > div {
       display: table;
-      color: #333;
-      > div {
-        vertical-align: middle;
-        display: table;
-        text-align: center;
-      }
+      text-align: center;
     }
 
     &__bd-logo {
       margin: 0 auto;
-      img {
-        display: block;
-        max-width: 125px;
-        height: 44px;
-      }
-    }
-
-    a {
-      color: #333;
-      text-decoration: none;
+      padding: 0;
     }
 
     &__bd-textCol {
       padding-top: 10px;
-    }
-
-    &__bd-note {
-      @include g-font-spacingKilled(14, 1);
-
-      margin: 0 0 5px;
-      padding: 0;
-      color: #97802f;
-    }
-
-    &__bd-siteName {
-      @include g-font(18, 1);
-    }
-
-    &__ft {
-      @include g-font-spacingKilled(14, 1);
-
-      padding: 10px 0 0;
-    }
-  }
-
-  .t0-b-headerUnit-siteName,
-  .t0-b-headerUnit-siteTitle,
-  .t0-b-headerUnit-siteTitle2 {
-    &__bd-note + &__bd-siteName {
-      @include g-font-spacingKilled(18, 1);
-    }
-  }
-
-  //▽サイト名中央に入ったときのみ中央寄せの見た目にする
-  .t0-b-headerSingle,
-  .t0-b-headerSingle2 {
-    .t0-b-headerUnit-siteName__bd,
-    .t0-b-headerUnit-siteTitle2__bd {
-      margin: 0 auto;
     }
   }
 }
