@@ -1,8 +1,6 @@
 @if $device == PC {
   .t0-b-footerUnit-textStrong {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -10,9 +8,8 @@
     $_color_table_td_bg: #f1f7ff;
     $_color_table_th_text: #333;
     $_color_table_td_text: #666;
-    font-family: $tenorsans;
+    font-family: $tenorSans;
     color: #003882;
-
     white-space: nowrap;
     p {
       @include g-font(14, 2);
@@ -49,9 +46,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -81,9 +77,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -160,17 +155,16 @@
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     p {
       font-weight: bold;
     }
 
     a {
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
   }
@@ -178,9 +172,7 @@
 
 @if $device == SP {
   .t0-b-footerUnit-textStrong {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -188,8 +180,7 @@
     $_color_table_td_bg: #f1f7ff;
     $_color_table_th_text: #333;
     $_color_table_td_text: #666;
-
-    font-family: $tenorsans;
+    font-family: $tenorSans;
     p {
       @include g-font(14, 2);
       margin-top: 1em;
@@ -313,11 +304,10 @@
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     color: #003882;
     a {
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
   }
