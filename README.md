@@ -303,7 +303,7 @@ $ ./update-parts.sh
 
 ### sassdocが更新された
 ```sh
-$ docker-compose run web1 gulp update-sassdoc
+$ docker-compose run web1 npx gulp update-sassdoc
 ```
 
 ### 動作が遅くなってきた
