@@ -10,6 +10,7 @@ if [ $1 ] ; then
       docker-compose run bt1 cp ../copy.sh ./copy.sh
       docker-compose run bt1 ./copy.sh
       docker-compose run bt1 gulp update-parts --max_old_space_size=8192
+      docker-compose run bt2 gulp aigis2 --max_old_space_size=8192
     done
   else
     for theme in "$@" ; do
@@ -17,12 +18,14 @@ if [ $1 ] ; then
       docker-compose run bt1 cp ../copy.sh ./copy.sh
       docker-compose run bt1 ./copy.sh
       docker-compose run bt1 gulp update-parts --max_old_space_size=8192
+      docker-compose run bt2 gulp aigis2 --max_old_space_size=8192
     done
   fi
 else
   docker-compose run bt1 cp ../copy.sh ./copy.sh
   docker-compose run bt1 ./copy.sh
   docker-compose run bt1 gulp update-parts --max_old_space_size=8192
+  docker-compose run bt2 gulp aigis2 --max_old_space_size=8192
 fi
 
 docker-compose down
