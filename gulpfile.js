@@ -21,12 +21,12 @@ gulp.task('sass', (done) => {
   merge(
     styleSources.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe($.sourcemaps.init())
-      .pipe($.sass())
-      .pipe($.debug())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('devStuff/css'))
-      .pipe(gulp.dest('devStuff/styleguide/css'))
+        .pipe($.sourcemaps.init())
+        .pipe($.sass())
+        .pipe($.debug())
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest('devStuff/css'))
+        .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   )
   done()
@@ -37,10 +37,10 @@ gulp.task('sass-build', (done) => {
   merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
-      .pipe($.sass({outputStyle: 'compressed'}))
-      .pipe($.debug())
-      .pipe($.autoprefixer())
-      .pipe(gulp.dest('devStuff/css'));
+        .pipe($.sass({outputStyle: 'compressed'}))
+        .pipe($.debug())
+        .pipe($.autoprefixer())
+        .pipe(gulp.dest('devStuff/css'));
     })
   )
   done()
@@ -324,8 +324,8 @@ gulp.task('make-aigis', gulp.series('delete-unittest'), (done) => {
 
 gulp.task('update-imgs', (done) => {
   gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
-  .pipe($.changed('./devStuff/styleguide/imgs/'))
-  .pipe(gulp.dest('./devStuff/styleguide/imgs/'))
+    .pipe($.changed('./devStuff/styleguide/imgs/'))
+    .pipe(gulp.dest('./devStuff/styleguide/imgs/'))
   done()
 });
 
