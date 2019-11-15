@@ -81,6 +81,14 @@ gulp.task('aigis', () => {
   .pipe($.aigis());
 });
 
+gulp.task('aigis2', () => {
+  if (!fs.existsSync('./devStuff/css')){
+    fs.mkdirSync('./devStuff/css');
+  }
+  return gulp.src('devStuff/aigis2_config.yml')
+  .pipe($.aigis());
+});
+
 // webserver
 gulp.task('server', () => {
   return browserSync({
@@ -345,6 +353,12 @@ gulp.task('make-aigis', ['delete-unittest'], () => {
   );
 });
 
+gulp.task('half-md', () => {
+  return gulp.src('./unittest/parts/0[0-9][0-9]_*.md')
+  .pipe(gulp.dest('./unittest2/parts/'))
+  .pipe(del(['/unittest2/parts/0[0-9][0-9]_*.md']));
+});
+
 gulp.task('update-css', () => {
   return runSequence([
     'sass',
@@ -363,7 +377,8 @@ gulp.task('update-parts', () => {
     'make-allparts-datajson',
     'make-html',
     'make-aigis',
-    'aigis'
+    'half-md',
+    'aigis',
   );
 });
 
