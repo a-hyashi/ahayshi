@@ -7,15 +7,16 @@ if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme##*/}
-      docker-compose run web1 gulp stylelint
+      docker-compose run bt1 gulp stylelint
     done
   else
-    for num in "$@" ; do
-      docker-compose run web$num gulp stylelint
+    for theme in "$@" ; do
+      ./set-themes.sh ${theme##*/}
+      docker-compose run bt1 gulp stylelint
     done
   fi
 else
-  docker-compose run web1 gulp stylelint
+  docker-compose run bt1 gulp stylelint
 fi
 
 docker-compose down

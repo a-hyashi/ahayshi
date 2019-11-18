@@ -7,16 +7,16 @@ if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme##*/}
-      docker-compose run web1 gulp update-parts --max_old_space_size=8192
+      docker-compose run bt1 gulp update-parts --max_old_space_size=8192
     done
   else
-    for num in "$@" ; do
-      docker-compose run web$num gulp update-parts --max_old_space_size=8192
-
+    for theme in "$@" ; do
+      ./set-themes.sh ${theme##*/}
+      docker-compose run bt1 gulp update-parts --max_old_space_size=8192
     done
   fi
 else
-  docker-compose run web1 gulp update-parts --max_old_space_size=8192
+  docker-compose run bt1 gulp update-parts --max_old_space_size=8192
 fi
 
 docker-compose down
