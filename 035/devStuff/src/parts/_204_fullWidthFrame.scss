@@ -12,7 +12,6 @@
     padding: 40px 1000px;
     position: relative;
     background-position: center center;
-
     @if $layout == "L25" {
       margin: 0 -1000px 0 (-1000px - $areaSubWidth);
     } @else if $layout == "L30" {
@@ -32,7 +31,6 @@
   .t0-b-fullWidthFrame6,
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame10 {
-
     @if $layout == "L25" {
       margin-left: -1000px;
     } @else if $layout == "L30" {
@@ -47,7 +45,6 @@
     &__hd,
     &__bd,
     &__ft {
-
       @if $layout == "N00" {
         width: $areaMainWidth - $areaSubWidth;
       } @else {
@@ -87,6 +84,16 @@
     &__bd {
       width: 100%;
     }
+
+    // Start テキストががbg下に隠れてしまわないようにするための対処
+    &__hd.outerHtml {
+      z-index: 1;
+    }
+
+    &__bd + .outerHtml {
+      z-index: 1;
+    }
+    // End テキストががbg下に隠れてしまわないようにするための対処
   }
 
   .t0-b-fullWidthFrame::before,
@@ -126,10 +133,12 @@
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
     &::before {
+      z-index: -1;
       background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
     }
 
     &::after {
+      z-index: 0;
       background-image: url("../imgs/area-all/bg.png");
     }
   }
@@ -138,7 +147,7 @@
   .t0-b-fullWidthFrame10::before {
     background-color: $fullWidthBgColor5;
   }
-}// PC
+}
 
 @if $device == SP {
   .t0-b-fullWidthFrame,
@@ -173,7 +182,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: 0;
     content: "";
   }
 
@@ -194,6 +203,16 @@
     * {
       position: relative;
     }
+
+    // Start テキストががbg下に隠れてしまわないようにするための対処
+    &__hd.outerHtml {
+      z-index: 1;
+    }
+
+    &__bd + .outerHtml {
+      z-index: 1;
+    }
+    // End テキストががbg下に隠れてしまわないようにするための対処
   }
 
   .t0-b-fullWidthFrame::before,
@@ -214,10 +233,12 @@
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
     &::before {
+      z-index: -1;
       background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
     }
 
     &::after {
+      z-index: 0;
       background-image: url("../imgs/area-all/bg.png");
     }
   }
@@ -226,4 +247,4 @@
   .t0-b-fullWidthFrame10::before {
     background-color: $fullWidthBgColor5;
   }
-}// SP
+}

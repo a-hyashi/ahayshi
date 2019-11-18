@@ -1,1 +1,29 @@
 @import '../../../../common/devStuff/src/parts/215_twoColsMedia';
+
+// 管理画面で　"画像の回り込みをしない"　とした時テキスト、画像が埋もれてしまったためこの対応をした。
+// z-indexをかけるなら、実際個別にかけず"t0-b-twoColsMedia__div"一つにかけてしまったほうがいいが
+// 全体テストをしなければいけないので今回はこの対応とする
+
+@if $device == PC {
+  .t0-b-twoColsMedia {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      z-index: 10;
+    }
+
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      z-index: 1;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-twoColsMedia {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      z-index: 10;
+    }
+
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      z-index: 1;
+    }
+  }
+}
