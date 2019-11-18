@@ -9,23 +9,23 @@ if [ $1 ] ; then
       ./set-themes.sh ${theme##*/}
       docker-compose run bt1 cp ../copy.sh ./copy.sh
       docker-compose run bt1 ./copy.sh
-      docker-compose run bt1 gulp update-parts --max_old_space_size=8192
-      docker-compose run bt2 gulp aigis2 --max_old_space_size=8192
+      docker-compose run bt1 npx gulp update-parts --max_old_space_size=8192
+      docker-compose run bt2 npx gulp aigis2 --max_old_space_size=8192
     done
   else
     for theme in "$@" ; do
     ./set-themes.sh ${theme##*/}
       docker-compose run bt1 cp ../copy.sh ./copy.sh
       docker-compose run bt1 ./copy.sh
-      docker-compose run bt1 gulp update-parts --max_old_space_size=8192
-      docker-compose run bt2 gulp aigis2 --max_old_space_size=8192
+      docker-compose run bt1 npx gulp update-parts --max_old_space_size=8192
+      docker-compose run bt2 npx gulp aigis2 --max_old_space_size=8192
     done
   fi
 else
   docker-compose run bt1 cp ../copy.sh ./copy.sh
   docker-compose run bt1 ./copy.sh
-  docker-compose run bt1 gulp update-parts --max_old_space_size=8192
-  docker-compose run bt2 gulp aigis2 --max_old_space_size=8192
+  docker-compose run bt1 npx gulp update-parts --max_old_space_size=8192
+  docker-compose run bt2 npxgulp aigis2 --max_old_space_size=8192
 fi
 
 docker-compose down
