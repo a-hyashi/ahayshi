@@ -318,7 +318,7 @@ const output_b_placer_doc = (b_placers) => {
 }
 
 gulp.task('delete-datajson', () => {
-  return del(['./styleguide_assets/datajson/']);
+  return del(['./styleguide_assets/datajson*/']);
 });
 
 gulp.task('make-allparts-datajson', ['delete-datajson'], () => {
@@ -328,8 +328,15 @@ gulp.task('make-allparts-datajson', ['delete-datajson'], () => {
   );
 });
 
+gulp.task('make-allparts-datajson2', ['delete-datajson'], () => {
+  return make_allDatajson.makeAllDatajsonFull(
+    config.html_templates_dir,
+    './styleguide_assets/datajson2/'
+  );
+});
+
 gulp.task('delete-html', () => {
-  return del(['./styleguide_assets/html/']);
+  return del(['./styleguide_assets/html*/']);
 });
 
 gulp.task('make-html', ['delete-html'], () => {
@@ -341,8 +348,17 @@ gulp.task('make-html', ['delete-html'], () => {
   );
 });
 
+gulp.task('make-html2', ['delete-html'], () => {
+  return make_html.makeHtml(
+    './styleguide_assets/html2/',
+    './styleguide_assets/datajson2/',
+    config.html_templates_dir,
+    false
+  );
+});
+
 gulp.task('delete-unittest', () => {
-  return del(['./unittest/']);
+  return del(['./unittest*/']);
 });
 
 gulp.task('make-aigis', ['delete-unittest'], () => {
@@ -353,11 +369,23 @@ gulp.task('make-aigis', ['delete-unittest'], () => {
   );
 });
 
-gulp.task('half-md', () => {
-  return gulp.src('./unittest/parts/0[0-9][0-9]_*.md')
-  .pipe(gulp.dest('./unittest2/parts/'))
-  .pipe(del(['/unittest/parts/0[0-9][0-9]_*.md']));
+gulp.task('make-aigis2', ['delete-unittest'], () => {
+  return make_aigis.makeAigis(
+    './styleguide_assets/html2/',
+    './unittest2/',
+    './devStuff/'
+  );
 });
+
+gulp.task('half-json', () => {
+  // メモリ対策で100以降のdatajsonは2に残す
+  const filenames = fs.readdirSync("./styleguide_assets/datajson/");
+  console.log(filenames);
+  const filenames2 = filenames.filter(filename => filename.match(/^[1-9].*/));
+  console.log(filenames2);
+  const filenames3 = filenames2.map(filename => `./styleguide_assets/datajson/${filename}`);
+  console.log(filenames3);
+  del(filenames3);});
 
 gulp.task('update-css', () => {
   return runSequence([
@@ -375,9 +403,12 @@ gulp.task('update-imgs', () => {
 gulp.task('update-parts', () => {
   return runSequence(
     'make-allparts-datajson',
+    'make-allparts-datajson2',
+    'half-json',
     'make-html',
+    'make-html2',
     'make-aigis',
-    'half-md',
+    'make-aigis2',
     'aigis',
   );
 });
