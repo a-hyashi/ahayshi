@@ -12,6 +12,7 @@
     padding: 40px 1000px;
     position: relative;
     background-position: center center;
+
     @if $layout == "L25" {
       margin: 0 -1000px 0 (-1000px - $areaSubWidth);
     } @else if $layout == "L30" {
@@ -31,6 +32,7 @@
   .t0-b-fullWidthFrame6,
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame10 {
+
     @if $layout == "L25" {
       margin-left: -1000px;
     } @else if $layout == "L30" {
@@ -45,6 +47,7 @@
     &__hd,
     &__bd,
     &__ft {
+
       @if $layout == "N00" {
         width: $areaMainWidth - $areaSubWidth;
       } @else {
@@ -55,8 +58,10 @@
 
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
+
     padding: 75px 1035px;
-    &::after {
+    background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
+    &::before {
       content: "";
       position: absolute;
       pointer-events: none;
@@ -65,10 +70,7 @@
       left: 1000px;
       right: 1000px;
       border-radius: 10px;
-    }
-
-    * {
-      position: relative;
+      background-image: url("../imgs/area-all/bg.png");
     }
 
     @if $layout == "N00" {
@@ -83,17 +85,12 @@
     &__hd,
     &__bd {
       width: 100%;
-    }
-
-    // Start テキストががbg下に隠れてしまわないようにするための対処
-    &__hd.outerHtml {
-      z-index: 1;
+      position: relative;
     }
 
     &__bd + .outerHtml {
-      z-index: 1;
+      position: relative;
     }
-    // End テキストががbg下に隠れてしまわないようにするための対処
   }
 
   .t0-b-fullWidthFrame::before,
@@ -102,8 +99,6 @@
   .t0-b-fullWidthFrame4::before,
   .t0-b-fullWidthFrame5::before,
   .t0-b-fullWidthFrame6::before,
-  .t0-b-fullWidthFrame7::before,
-  .t0-b-fullWidthFrame8::before,
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
     position: absolute;
@@ -128,19 +123,6 @@
   .t0-b-fullWidthFrame5::before,
   .t0-b-fullWidthFrame6::before {
     background-image: url("../imgs/t0-b-fullWidthFrame/bg3.png");
-  }
-
-  .t0-b-fullWidthFrame7,
-  .t0-b-fullWidthFrame8 {
-    &::before {
-      z-index: -1;
-      background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
-    }
-
-    &::after {
-      z-index: 0;
-      background-image: url("../imgs/area-all/bg.png");
-    }
   }
 
   .t0-b-fullWidthFrame9::before,
@@ -173,8 +155,6 @@
   .t0-b-fullWidthFrame4::before,
   .t0-b-fullWidthFrame5::before,
   .t0-b-fullWidthFrame6::before,
-  .t0-b-fullWidthFrame7::before,
-  .t0-b-fullWidthFrame8::before,
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
     position: absolute;
@@ -184,35 +164,6 @@
     left: 0;
     z-index: 0;
     content: "";
-  }
-
-  .t0-b-fullWidthFrame7,
-  .t0-b-fullWidthFrame8 {
-    padding: 40px 35px;
-    &::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      top: 20px;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      border-radius: 10px;
-    }
-
-    * {
-      position: relative;
-    }
-
-    // Start テキストががbg下に隠れてしまわないようにするための対処
-    &__hd.outerHtml {
-      z-index: 1;
-    }
-
-    &__bd + .outerHtml {
-      z-index: 1;
-    }
-    // End テキストががbg下に隠れてしまわないようにするための対処
   }
 
   .t0-b-fullWidthFrame::before,
@@ -230,21 +181,34 @@
     background-image: url("../imgs/t0-b-fullWidthFrame/bg3.png");
   }
 
-  .t0-b-fullWidthFrame7,
-  .t0-b-fullWidthFrame8 {
-    &::before {
-      z-index: -1;
-      background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
-    }
-
-    &::after {
-      z-index: 0;
-      background-image: url("../imgs/area-all/bg.png");
-    }
-  }
-
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
     background-color: $fullWidthBgColor5;
+  }
+
+  .t0-b-fullWidthFrame7,
+  .t0-b-fullWidthFrame8 {
+    &__hd,
+    &__bd {
+      position: relative;
+    }
+
+    &__bd + .outerHtml {
+      position: relative;
+    }
+
+    padding: 40px 35px;
+    background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
+    &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 20px;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      border-radius: 10px;
+      background-image: url("../imgs/area-all/bg.png");
+    }
   }
 }
