@@ -1,5 +1,21 @@
-  bt#{num}:
-    build: .
+  bt1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/buddy-theme:cached
+      - ../ACRE-theme/:/ACRE-theme:cached
+    working_dir: /buddy-theme/#{theme-name}/
+    ports:
+      - "#{port-num}:3000"
+    depends_on:
+      - bt2
+    command: "gulp"
+
+  bt2:
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/buddy-theme:cached
       - ../ACRE-theme/:/ACRE-theme:cached
