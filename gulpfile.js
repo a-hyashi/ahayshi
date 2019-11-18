@@ -356,7 +356,7 @@ gulp.task('make-aigis', ['delete-unittest'], () => {
 gulp.task('half-md', () => {
   return gulp.src('./unittest/parts/0[0-9][0-9]_*.md')
   .pipe(gulp.dest('./unittest2/parts/'))
-  .pipe(del(['/unittest2/parts/0[0-9][0-9]_*.md']));
+  .pipe(del(['/unittest/parts/0[0-9][0-9]_*.md']));
 });
 
 gulp.task('update-css', () => {
