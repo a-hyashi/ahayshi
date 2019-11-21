@@ -16,23 +16,15 @@ $areaSubWidth: 320px;
   margin-right: auto;
   margin-left: auto;
   *zoom: 1;
-  &::before,
-  &::after {
-    display: table;
-    content: '';
-  }
-
-  &::after {
-    clear: both;
-  }
+  display: flex;
+  align-items: flex-start;
 }
 
 .area-main {
-  //デフォルトの背景より上にユーザー側が選択した画像を表示させる為、重ね順を規定
+  // デフォルトの背景の上にユーザーが選択した画像を表示させるため
   position: relative;
   z-index: 0;
   box-sizing: border-box;
-  float: left;
   width: $areaMainWidth;
   min-height: 100px;
   padding-bottom: 50px;
@@ -40,20 +32,19 @@ $areaSubWidth: 320px;
 
 .area-sub {
   position: relative;
-  //R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  // R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
   z-index: 11;
   box-sizing: border-box;
-  float: right;
   width: $areaSubWidth;
   min-height: 100px;
   padding: 0 0 50px 50px;
 }
 
 .area-footer {
-  //デフォルトの背景より上にユーザー側が選択した画像を表示させる為、重ね順を規定
+  // デフォルトの背景の上にユーザーが選択した画像を表示させるため
   position: relative;
   z-index: 0;
-  //フッター最上部のフッターメニューの背景が伸びないための指定
+  // フッター最上部のフッターメニューの背景が伸びないため
   padding-top: 1px;
   background: #fff;
 }
