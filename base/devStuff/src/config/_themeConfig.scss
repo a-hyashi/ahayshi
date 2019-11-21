@@ -5,12 +5,10 @@ $g-baseFontColor: #393939;
 $g-baseBackgroundColor: #fff;
 $g-baseLinkColor: #555;
 $g-baseHoverColor: #45b1c7;
-
-$textcolor: $g-baseFontColor;
-$hovercolor: $g-baseHoverColor;
-$hovercolor2: #0b6577;
-$hovercolor3: #45b1c7;
-
+$g-textColor: $g-baseFontColor;
+$g-hoverColor: $g-baseHoverColor;
+$g-hoverColor2: #0b6577;
+$g-hoverColor3: #45b1c7;
 html {
   font-size: $g-baseFontSize;
 }
@@ -26,7 +24,7 @@ div.mod-body {
 
 .mod-body {
   button, input, optgroup, select, textarea {
-    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
+    font-family: $gothic;
   }
 }
 
@@ -38,36 +36,22 @@ a {
 @if $device == PC {
   a {
     &:hover {
-      color: $hovercolor;
+      color: $g-hoverColor;
     }
   }
 }
-.cms-admin-anchorFlag {
-  position: relative;
-  z-index: 10 !important;
-}
 
-// tel
 $_tel_wd: 40px;
 $_tel_hg: 40px;
-
-// fax
 $_fax_wd: 48px;
 $_fax_hg: 28px;
-
-// free
 $_free_wd: 52px;
 $_free_hg: 29px;
-
-// cell
 $_cell_wd: 23px;
 $_cell_hg: 40px;
-
 $g-spacingBaseLength: 5;
-
 @mixin cf {
-  &::before,
-  &::after {
+  &::before, &::after {
     display: table;
     content: "";
   }
@@ -106,14 +90,12 @@ $fullWidthBgColor2: #fff8dd;
 $fullWidthBgColor3: #fee;
 $fullWidthBgColor4: #37a1b7;
 $fullWidthBgColor5: #fff;
-
 $frameSpacingPC-l: 50px;
 $frameSpacingPC-m: 25px;
 $frameSpacingPC-s: 10px;
 $frameSpacingSP-l: 50px;
 $frameSpacingSP-m: 25px;
 $frameSpacingSP-s: 10px;
-
 @if $device == PC {
   .cms-partsConfig-width-m {
     width: 75%;

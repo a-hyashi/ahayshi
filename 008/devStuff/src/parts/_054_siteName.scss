@@ -1,0 +1,130 @@
+@if $device == PC {
+  .t0-b-siteName,
+  .t0-b-siteTitle {
+    white-space: nowrap;
+    $_block: &;
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 50px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      color: #890619;
+      text-decoration: none;
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $g-hoverColor;
+        }
+
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+      line-height: 1.25;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      line-height: 1.25;
+      padding: 0;
+      color: #890619;
+    }
+
+    &__bd-siteName {
+      @include g-font(36, 1);
+      line-height: 1.25;
+      font-weight: bold;
+      color: #890619;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(28, 1);
+      line-height: 1.25;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      line-height: 1.25;
+      padding: 15px 0 0;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-siteName,
+  .t0-b-siteTitle {
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 40px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      color: #890619;
+      text-decoration: none;
+    }
+
+    &__bd-textCol {
+      @include g-font-spacingKilled(14, 1);
+    }
+
+    &__bd-note {
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 0 10px;
+      color: #890619;
+    }
+
+    &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+      font-weight: bold;
+      color: #890619;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+    }
+
+    &__ft {
+      @include g-font-spacingKilled(14, 1);
+      padding: 15px 0 0;
+    }
+  }
+}

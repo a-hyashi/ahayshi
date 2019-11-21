@@ -1,0 +1,173 @@
+@if $device == PC {
+  // headerUnit-siteNameがお客さまに使われなくなった場合に消す
+  // headerUnit-siteName2が別要素としてあることで、headerUnit-siteNameのバリエーションが追加できなかったたため、headerUnit-siteTitleという別クラス名で定義し、バリエーション番号を末尾につけられるようにした
+  // クラス名の統一性をとるため、メインエリアとフッターエリアのサイト名も同様の対応をしている
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle,
+  .t0-b-headerUnit-siteTitle2 {
+    white-space: nowrap;
+    $_block: &;
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 70px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      color: #890619;
+      text-decoration: none;
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $g-hoverColor;
+        }
+
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd-textCol {
+      @include g-font-spacingKilled(14, 1);
+    }
+
+    &__bd-note {
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 0 10px;
+      color: #890619;
+    }
+
+    &__bd-siteName {
+      @include g-font-spacingKilled(36, 1);
+      font-weight: bold;
+      color: #890619;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font-spacingKilled(28, 1);
+    }
+
+    &__ft {
+      @include g-font-spacingKilled(14, 1);
+      padding: 15px 0 0;
+      color: $g-textColor;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+    margin: 0 auto;
+    display: table;
+    &__bd > div {
+      display: table;
+      text-align: center;
+    }
+
+    &__bd-logo {
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    &__bd-textCol {
+      padding-top: 10px;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle,
+  .t0-b-headerUnit-siteTitle2 {
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 40px;
+        max-width: 80px;
+      }
+    }
+
+    a {
+      color: #890619;
+      text-decoration: none;
+    }
+
+    &__bd-textCol {
+      @include g-font-spacingKilled(14, 1);
+    }
+
+    &__bd-note {
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 0 10px;
+      color: #890619;
+    }
+
+    &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+      font-weight: bold;
+      color: #890619;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+    }
+
+    &__ft {
+      @include g-font-spacingKilled(14, 1);
+      padding: 15px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle {
+    &__ft {
+      text-align: left;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+    margin: 0 auto;
+    display: table;
+    &__bd > div {
+      display: table;
+      text-align: center;
+    }
+
+    &__bd-logo {
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    &__bd-textCol {
+      padding-top: 10px;
+    }
+  }
+}

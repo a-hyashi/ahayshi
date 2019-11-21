@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const $ = require("gulp-load-plugins")();
 const runSequence = require('run-sequence');
 const browserSync = require('browser-sync');
-const minimist = require('minimist');
 const del = require('del');
 const fs = require('fs-extra');
 const sassdoc = require('sassdoc');
@@ -34,13 +33,13 @@ gulp.task('sass', (callback) => {
 });
 
 gulp.task('sass-build', () => {
-  styleSource = ['devStuff/src/**/*.s[ac]ss'];
+  styleSource = ['devStuff/src/**/*.scss'];
   return merge(
     styleSource.map(styleSource=>{
       return gulp.src(styleSource)
       .pipe($.sass({outputStyle: 'compressed'}))
       .pipe($.debug())
-      .pipe($.autoprefixer({browsers: ['last 3 version', 'ie >= 11', 'Android 4.0']}))
+      .pipe($.autoprefixer())
       .pipe(gulp.dest('devStuff/css'));
     })
   );

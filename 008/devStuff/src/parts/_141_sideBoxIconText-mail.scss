@@ -1,0 +1,100 @@
+@if $device == PC {
+  .t0-b-sideBoxIconText-mail {
+    $_block: &;
+    color: #664b3a;
+    display: table;
+    &__bd {
+      font-weight: bold;
+      display: table;
+      text-decoration: underline;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    a {
+      color: #662725;
+      text-decoration: underline;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+
+    &--align-c {
+      margin: 0 auto;
+    }
+
+    &--align-r {
+      margin: 0 0 0 auto;
+    }
+
+    &--size-1 {
+      padding: 0 0 5px;
+      #{$_block}__bd {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      #{$_block}__icon {
+        background: url("../imgs/Icons/1.png") no-repeat 4px center;
+      }
+
+      #{$_block}__mail {
+        width: 34px;
+        height: 12px;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideBoxIconText-mail {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px 0;
+    word-break: break-all;
+    $_block: &;
+    > div {
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__bd {
+      text-align: center;
+      color: #664b3a;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    a {
+      color: #664b3a;
+    }
+
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(16, 1);
+      }
+
+      #{$_block}__icon {
+        width: 18px;
+        height: 12px;
+        margin: (-2px) 4px 0 0;
+        background-image: url("../imgs/Icons/1.png");
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
