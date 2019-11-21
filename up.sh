@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [[ `ifconfig | grep 192.168.0.` =~ 192.168.0.[0-9]{1,3} ]]; then
-  printf "\e[36m外部URL: http://"${BASH_REMATCH[0]}"\e[m\n\n"
-fi
-docker-compose up
+printf "[Info] スタイルガイドをバックグランドで起動します...\n"
+printf "\e[36m001~099 URL: http://localhost:3001\e[m\n"
+printf "\e[36m100~    URL: http://localhost:3002\e[m\n\n"
+
+docker-compose up -d
