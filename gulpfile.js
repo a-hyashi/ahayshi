@@ -35,7 +35,7 @@ gulp.task('sass-build-styleguide', (callback) => {
     styleSources.map(styleSource=>{
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
-      .pipe($.sass())
+      .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.debug())
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/css'))
