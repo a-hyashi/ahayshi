@@ -470,6 +470,11 @@ gulp.task('watch', () => {
   gulp.watch(['devStuff/src/**/*.scss'], () => {
     runSequence('update-css')
   });
+  // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
+  // 複数回reloadが実行されるのは直したい
+  gulp.watch(['devStuff/styleguide/css/*.css'], () => {
+    browserSync.reload()
+  });
 });
 
 // webserver
@@ -486,8 +491,7 @@ gulp.task('server', () => {
       },
       proxy: "localhost:3000"
     },
-    open: false,
-    files: './devStuff/styleguide/css/*.css'
+    open: false
   });
 });
 
@@ -504,8 +508,7 @@ gulp.task('server2', () => {
       },
       proxy: "localhost:3000"
     },
-    open: false,
-    files: './devStuff/styleguide/css/*.css'
+    open: false
   });
 });
 
