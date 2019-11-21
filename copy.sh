@@ -1,16 +1,11 @@
 #!/bin/bash
 
 # 実行ディレクトリが変わってしまうため、シンボリックリンクではなくコピーする
-if [ -e ./gulpfile.js ]; then
-  rm -r ./gulpfile.js
-  echo "gulpfile.jsを削除しました"
-fi
-cp ../gulpfile.js ./gulpfile.js
-echo "gulpfile.jsのコピーが完了しました"
+\cp ../gulpfile.js ./
+printf "\e[36m[Info] gulpfile.jsをコピーしました\e[m\n"
 
 if [ -e ./lib/ ]; then
   rm -r ./lib/
-  echo "libを削除しました"
 fi
-cp -r ../lib/ ./lib/
-echo "libのコピーが完了しました"
+\cp -r ../lib/ ./
+printf "\e[36m[Info] lib/をコピーしました\e[m\n"
