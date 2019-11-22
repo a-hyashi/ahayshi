@@ -1,8 +1,6 @@
 @if $device == PC {
   .t0-b-wysiwyg {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -45,9 +43,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -77,9 +74,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -96,7 +92,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -106,7 +102,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -129,15 +125,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -157,15 +152,14 @@
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
-
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
+    color: $g-textColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -188,9 +182,7 @@
   }
 
   .t0-b-wysiwyg2 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -233,9 +225,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -265,9 +256,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -284,7 +274,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -294,7 +284,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -317,15 +307,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -346,17 +335,16 @@
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_backgroundColor: #f6f6f6;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 15px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -379,9 +367,7 @@
   }
 
   .t0-b-wysiwyg3 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -424,9 +410,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -456,9 +441,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -475,7 +459,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -484,7 +468,7 @@
         text-align: left;
         // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -507,15 +491,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -536,18 +519,17 @@
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_borderColor: #c0c0c0;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 15px;
-    color: $g-textcolor;
+    color: $g-textColor;
     border: 1px solid $_borderColor;
     border-radius: 7px;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -570,9 +552,7 @@
   }
 
   .t0-b-wysiwyg4 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -615,9 +595,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -647,9 +626,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -666,7 +644,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -676,7 +654,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -699,15 +677,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: solid 1px $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -728,17 +705,16 @@
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_backgroundColor: #fcfaf6;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 15px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -761,9 +737,7 @@
   }
 
   .t0-b-wysiwyg5 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -806,9 +780,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -838,9 +811,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -857,7 +829,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -867,7 +839,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -890,15 +862,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -919,17 +890,16 @@
     $_fontSizePx: 14;
     $_lineHeightType: 2;
     $_backgroundColor: #faf3f3;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 15px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -952,9 +922,7 @@
   }
 
   .t0-b-wysiwyg6 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -997,9 +965,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -1029,9 +996,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -1048,7 +1014,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -1058,7 +1024,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -1081,15 +1047,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -1111,19 +1076,18 @@
     $_lineHeightType: 2;
     $_borderColor: #ddd;
     $_backgroundColor: #f4faff;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 15px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     border-top: 1px solid $_borderColor;
     border-bottom: 1px solid $_borderColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -1148,9 +1112,7 @@
 
 @if $device == SP {
   .t0-b-wysiwyg {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -1222,7 +1184,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -1230,9 +1192,9 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -1255,15 +1217,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -1283,12 +1244,11 @@
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
-
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
+    color: $g-textColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
 
@@ -1311,9 +1271,7 @@
   }
 
   .t0-b-wysiwyg2 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -1385,7 +1343,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -1393,9 +1351,9 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -1418,15 +1376,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -1447,14 +1404,13 @@
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_backgroundColor: #f6f6f6;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 7px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
 
@@ -1477,9 +1433,7 @@
   }
 
   .t0-b-wysiwyg3 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -1551,7 +1505,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -1559,9 +1513,16 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+        &:first-child {
+          border-left: 1px solid $_color_table_border;
+        }
+
+        &:last-child {
+          border-right: 1px solid $_color_table_border;
+        }
       }
 
       ul,
@@ -1584,15 +1545,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -1613,15 +1573,14 @@
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_borderColor: #c0c0c0;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 7px;
-    color: $g-textcolor;
+    color: $g-textColor;
     border: 1px solid $_borderColor;
     border-radius: 7px;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
 
@@ -1644,9 +1603,7 @@
   }
 
   .t0-b-wysiwyg4 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -1718,7 +1675,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -1726,9 +1683,9 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -1751,15 +1708,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -1780,14 +1736,13 @@
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_backgroundColor: #fcfaf6;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 7px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
 
@@ -1810,9 +1765,7 @@
   }
 
   .t0-b-wysiwyg5 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -1884,7 +1837,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -1892,9 +1845,9 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -1917,15 +1870,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -1946,14 +1898,13 @@
     $_fontSizePx: 14;
     $_lineHeightType: 1;
     $_backgroundColor: #faf3f3;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 7px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
 
@@ -1976,9 +1927,7 @@
   }
 
   .t0-b-wysiwyg6 {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -2050,7 +1999,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -2058,9 +2007,9 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -2083,15 +2032,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -2113,16 +2061,15 @@
     $_lineHeightType: 1;
     $_borderColor: #ddd;
     $_backgroundColor: #f4faff;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     padding: 7px;
-    color: $g-textcolor;
+    color: $g-textColor;
     background-color: $_backgroundColor;
     border-top: 1px solid $_borderColor;
     border-bottom: 1px solid $_borderColor;
     a {
       display: inline-block;
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
 

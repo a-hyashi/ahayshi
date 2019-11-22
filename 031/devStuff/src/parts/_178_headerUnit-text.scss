@@ -1,8 +1,6 @@
 @if $device == PC {
   .t0-b-headerUnit-text {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -10,7 +8,7 @@
     $_color_table_td_bg: #f1efe8;
     $_color_table_th_text: #482e15;
     $_color_table_td_text: #7c5e42;
-    color: $g-textcolor;
+    color: $g-textColor;
     white-space: nowrap;
     hr {
       height: 1px;
@@ -60,9 +58,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -92,9 +89,8 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
           display: none;
           float: left;
           width: 100%;
@@ -112,7 +108,7 @@
       width: 100%;
       margin-top: $_blockSpacing;
       white-space: nowrap;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -122,7 +118,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -145,15 +141,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -173,13 +168,12 @@
 
     $_fontSizePx: 14;
     $_lineHeightType: 2;
-
     @include g-font($_fontSizePx, $_lineHeightType);
     a {
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
   }
@@ -187,9 +181,7 @@
 
 @if $device == SP {
   .t0-b-headerUnit-text {
-
     @include g-rteTableReset;
-    // 固定(colorはテーマ・バリエーションにより違う)
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #fff;
@@ -274,7 +266,7 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      // tableのhtmlに書かれているデフォルトの枠線を消す為
+      // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
       th,
       td {
@@ -282,9 +274,9 @@
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // 実機でtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
@@ -307,15 +299,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -335,11 +326,10 @@
 
     $_fontSizePx: 14;
     $_lineHeightType: 1;
-
     @include g-font($_fontSizePx, $_lineHeightType);
-    color: $g-textcolor;
+    color: $g-textColor;
     a {
-      color: $g-textcolor;
+      color: $g-textColor;
       text-decoration: underline;
     }
   }
