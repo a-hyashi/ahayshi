@@ -38,6 +38,7 @@ gulp.task('sass-build-styleguide', (callback) => {
       .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.debug())
       .pipe($.sourcemaps.write())
+      .pipe(gulp.dest('devStuff/css'))
       .pipe(gulp.dest('devStuff/styleguide/css'))
       .pipe(gulp.dest('devStuff/styleguide2/css'))
     })
@@ -361,7 +362,7 @@ gulp.task('del-datafile', () => {
 // スタイルガイド生成
 gulp.task('update-styleguide', () => {
   return runSequence(
-    'del-datafile',
+    ['del-datafile', 'update-css'],
     ['make-allparts-datajson', 'make-allparts-datajson2'],
     'half-json',
     'make-html',
