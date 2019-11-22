@@ -3,7 +3,6 @@
     $_block: &;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
-
     padding: #{$_blockSpacing} 0 0;
     &:first-child {
       padding-top: 0;
@@ -11,7 +10,6 @@
 
     #{$_block}__item {
       padding: #{$_itemSpacing} 0 0;
-
       @include cf;
       &:first-child {
         padding-top: 0;
@@ -19,9 +17,9 @@
     }
 
     a {
-      color: $textcolor;
+      color: $g-textColor;
       &:hover {
-        color: $hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -63,17 +61,15 @@
     @mixin _icon($file,$mag) {
       &--#{$file} {
         $_src: "../imgs/b-downloadIcon/#{$file}.png";
-        width: 30px*$mag;
-        height: 30px*$mag;
-
+        width: 30px * $mag;
+        height: 30px * $mag;
         background: url($_src) 0 0 no-repeat;
-        background-size: 30px*$mag;
+        background-size: 30px * $mag;
       }
     }
 
     display: inline-block;
     vertical-align: middle;
-
     @include _icon("pdf", 1);
     @include _icon("doc", 1);
     @include _icon("xls", 1);
@@ -106,7 +102,7 @@
       @include _icon("img",2);
     }
   }
-  // safariで下線が付かない不具合のハック
+  // Safariで下線が付かない不具合のハック
   _::-webkit-full-page-media, _:future, :root .t0-b-fileDownloads__itemText {
     text-decoration: underline;
   }
@@ -117,7 +113,6 @@
     $_block: &;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
-
     padding: #{$_blockSpacing} 0 0;
     &:first-child {
       padding-top: 0;
@@ -125,7 +120,6 @@
 
     #{$_block}__item {
       padding: #{$_itemSpacing} 0 0;
-
       @include cf;
       &:first-child {
         padding-top: 0;
@@ -133,7 +127,7 @@
     }
 
     a {
-      color: $textcolor;
+      color: $g-textColor;
       text-decoration: none;
     }
 
@@ -153,7 +147,6 @@
     #{$_block}__itemText {
       @include g-font(16, 1);
       padding-top: 3px;
-
       text-decoration: underline;
     }
   }
@@ -164,7 +157,6 @@
         $_src: "../imgs/b-downloadIcon/#{$file}.png";
         width: 27px;
         height: 30px;
-
         background: url($_src) 0 0 no-repeat;
         background-size: 27px 30px;
       }
@@ -172,7 +164,6 @@
 
     display: inline-block;
     vertical-align: middle;
-
     @include _icon("pdf");
     @include _icon("doc");
     @include _icon("xls");

@@ -1,7 +1,6 @@
 $areaContainerWidth: 1062px;
 $areaMainWidth: 690px;
 $areaSubWidth: 370px;
-
 .area-all {
   margin: 0 auto;
   word-break: break-all;
@@ -19,13 +18,16 @@ $areaSubWidth: 370px;
   padding-top: 20px;
   *zoom: 1;
   display: flex;
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .area-main {
   box-sizing: border-box;
   padding: 0 0 50px;
   width: $areaMainWidth;
+  // デフォルトの背景の上にユーザーが選択した画像を表示させるため
+  position: relative;
+  z-index: 0;
 }
 
 .area-sub {
@@ -34,7 +36,7 @@ $areaSubWidth: 370px;
   min-height: 100px;
   padding: 0 0 50px 52px;
   position: relative;
-  //R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  // R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
   z-index: 11;
 }
 
@@ -43,4 +45,7 @@ $areaSubWidth: 370px;
   background-repeat: repeat-x, repeat;
   background-position: left top, left top;
   padding: 25px 0 0;
+  // デフォルトの背景の上にユーザーが選択した画像を表示させるため
+  position: relative;
+  z-index: 0;
 }
