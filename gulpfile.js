@@ -20,7 +20,7 @@ gulp.task('sass-build', () => {
       .pipe($.sass({outputStyle: 'compressed'}))
       .pipe($.debug())
       .pipe($.autoprefixer())
-      .pipe(gulp.dest('devStuff/css'));
+      .pipe(gulp.dest('devStuff/temp/css'));
     })
   );
 });
@@ -38,8 +38,8 @@ gulp.task('sass-build-styleguide', (callback) => {
       .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.debug())
       .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('devStuff/css'))
       .pipe(gulp.dest('devStuff/styleguide/css'))
+      .pipe(gulp.dest('devStuff/styleguide2/css'))
     })
   );
   callback()
@@ -78,6 +78,7 @@ gulp.task('create-build', () => {
   var values = get_deploy_values();
   output_imgs(theme);
   output_css(theme, values);
+  del('/devStuff/temp/css/');
 })
 
 const get_theme_name = () => {
@@ -85,7 +86,7 @@ const get_theme_name = () => {
 }
 
 const get_deploy_values = () => {
-  var filelist = fs.readdirSync('devStuff/css/');
+  var filelist = fs.readdirSync('devStuff/temp/css/');
   var deployValues = [];
   for (var file of filelist) {
     var values = file.split('-');
@@ -124,13 +125,13 @@ const output_css = (aTheme, aValues) => {
 }
 
 const output_rename_pc_css = (value, folder) => {
-  gulp.src('devStuff/css/pc' + value.variation + '-' + value.ratio + '.css')
+  gulp.src('devStuff/temp/css/pc' + value.variation + '-' + value.ratio + '.css')
   .pipe($.rename('theme.css'))
   .pipe(gulp.dest('build/themes/' + folder + '/pc/'));
 }
 
 const output_rename_sp_css = (value, folder) => {
-  gulp.src('devStuff/css/sp' + value.variation + '.css')
+  gulp.src('devStuff/temp/css/sp' + value.variation + '.css')
   .pipe($.rename('theme.css'))
   .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
 }
@@ -338,16 +339,16 @@ gulp.task('half-unittest', () => {
 });
 
 gulp.task('make-aigis', () => {
-  if (!fs.existsSync('./devStuff/css')){
-    fs.mkdirSync('./devStuff/css');
+  if (!fs.existsSync('./devStuff/styleguide/css')){
+    fs.mkdirSync('./devStuff/styleguide/css');
   }
   gulp.src('devStuff/aigis_config.yml')
   .pipe($.aigis());
 });
 
 gulp.task('make-aigis2', () => {
-  if (!fs.existsSync('./devStuff/css')){
-    fs.mkdirSync('./devStuff/css');
+  if (!fs.existsSync('./devStuff/styleguide2/css')){
+    fs.mkdirSync('./devStuff/styleguide/css2');
   }
   return gulp.src('devStuff/aigis2_config.yml')
   .pipe($.aigis());
@@ -389,12 +390,8 @@ gulp.task('update-imgs', () => {
 gulp.task('build', () => {
   return runSequence(
     ['sass-build', 'create-bPlacer-doc'],
-    'create-build'
+    'create-build',
   );
-});
-
-gulp.task('output', () => {
-  return runSequence('create-build');
 });
 
 // sftp upload
@@ -514,14 +511,14 @@ gulp.task('server2', () => {
 
 gulp.task('default', ['update-css', 'update-imgs'], () => {
   return runSequence(
-    'watch',
-    'server'
+    'server',
+    'watch'
   );
 });
 
 gulp.task('default2', ['update-css', 'update-imgs'], () => {
   return runSequence(
-    'watch',
-    'server2'
+    'server2',
+    'watch'
   );
 });
