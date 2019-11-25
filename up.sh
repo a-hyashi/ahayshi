@@ -19,7 +19,7 @@ if [ $1 ] ; then
   done
 else
   printf "\e[36m[Info] スタイルガイドを起動します...\e[m\n\n"
-  printf "\e[36m[Info] 001~099 - URL: http://localhost:300${num}\e[m\n"
-  printf "\e[36m       100~    - URL: http://localhost:300${num2}\e[m\n"
+  printf "\e[36m[Info] block 001~099 - URL: http://localhost:300${num}\e[m\n"
+  printf "\e[36m       block 100~    - URL: http://localhost:300${num2}\e[m\n"
   docker-compose up
 fi
