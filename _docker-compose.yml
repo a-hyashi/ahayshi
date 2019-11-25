@@ -1,4 +1,4 @@
-  bt1:
+  bt#{num}:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,10 +9,10 @@
       - NODE_OPTIONS=--max-old-space-size=8192
     working_dir: /buddy-theme/#{theme-name}/
     ports:
-      - "3001:3000"
+      - "300#{num}:3000"
     command: "gulp default"
 
-  bt2:
+  bt#{num2}:
     build:
       context: .
       dockerfile: Dockerfile
@@ -23,5 +23,6 @@
       - NODE_OPTIONS=--max-old-space-size=8192
     working_dir: /buddy-theme/#{theme-name}/
     ports:
-      - "3002:3000"
+      - "300#{num2}:3000"
     command: "gulp default2"
+
