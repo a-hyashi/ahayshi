@@ -479,9 +479,6 @@ gulp.task('watch', () => {
 // styleguide前半用
 gulp.task('server', () => {
   return browserSync({
-    ui: {
-      port: 3001
-    },
     server: {
       baseDir: './devStuff/styleguide',
       routes: {
@@ -496,9 +493,6 @@ gulp.task('server', () => {
 // styleguide後半用
 gulp.task('server2', () => {
   return browserSync({
-    ui: {
-      port: 3002
-    },
     server: {
       baseDir: './devStuff/styleguide2',
       routes: {
