@@ -102,7 +102,7 @@ Macの上部にアイコンが表示されていればOK
 ```sh
 $ cd (buddy-themeフォルダの場所)
 $ ./set-themes.sh 031
-$ docker-compose run bt1 npm ci
+$ docker-compose run app1 npm ci
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
 
