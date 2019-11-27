@@ -9,11 +9,10 @@ if [ $1 ] ; then
     printf "\n\e[32m[Info] 外部URL: \e[34mhttp://"${BASH_REMATCH[0]}"\e[m\n"
   fi
   for i in ${!THEMES[@]}; do
-    num=$(($num+1))
-    num2=$(($num+1))
-    printf "\e[32m${THEMES[i]} block 001~099 - URL: \e[34mhttp://localhost:300${num}\e[m\n"
+    num1=$(($i*2+1))
+    num2=$(($i*2+2))
+    printf "\e[32m${THEMES[i]} block 001~099 - URL: \e[34mhttp://localhost:300${num1}\e[m\n"
     printf "\e[32m${THEMES[i]} block 100~    - URL: \e[34mhttp://localhost:300${num2}\e[m\n"
-    num=$(($num+1))
   done
   printf "\n\e[36m[Info] スタイルガイドを起動します...\e[m\n\n"
   docker-compose up

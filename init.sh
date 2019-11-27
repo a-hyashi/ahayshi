@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #引数がallの場合は全テーマ実行
-#それ以外の場合は指定のテーマで実行
+#それ以外の場合は指定のテーマで実行 複数指定可能
 #ない場合は現在のテーマで実行
-
+THEMES=($@)
 if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     printf "\e[36m[Info] 全テーマでinitを実行します\e[m\n"
@@ -14,12 +14,15 @@ if [ $1 ] ; then
       docker-compose run app1 npx gulp update-styleguide
     done
   else
-    for theme in "$@" ; do
-      printf "\e[36m[Info] ${theme##*/}でinitを実行します\e[m\n"
-      ./set-themes.sh ${theme##*/}
-      docker-compose run app1 cp ../copy.sh ./copy.sh
-      docker-compose run app1 ./copy.sh
-      docker-compose run app1 npx gulp update-styleguide
+    printf "\e[36m[Info] $*でinitを実行します\e[m\n"
+    ./set-themes.sh $*
+    for i in ${!THEMES[@]}; do
+      docker-compose run app$(($i*2+1)) cp ../copy.sh ./copy.sh
+      docker-compose run app$(($i*2+1)) ./copy.sh
+      docker-compose run app$(($i*2+2)) cp ../copy.sh ./copy.sh
+      docker-compose run app$(($i*2+2)) ./copy.sh
+      docker-compose run app$(($i*2+1)) npx gulp update-styleguide
+      docker-compose run app$(($i*2+2)) npx gulp update-styleguide
     done
   fi
 else
