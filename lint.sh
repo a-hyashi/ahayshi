@@ -8,17 +8,18 @@ if [ $1 ] ; then
     printf "\e[36m[Info] 全テーマでlintを実行します\e[m\n"
     for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme##*/}
-      docker-compose run bt1 npx gulp stylelint
+      docker-compose run app1 npx gulp stylelint
     done
   else
     for theme in "$@" ; do
       printf "\e[36m[Info] ${theme##*/}でlintを実行します\e[m\n"
       ./set-themes.sh ${theme##*/}
-      docker-compose run bt1 npx gulp stylelint
+      docker-compose run app1 npx gulp stylelint
     done
   fi
 else
-  docker-compose run bt1 npx gulp stylelint
+  docker-compose run app1 npx gulp stylelint
 fi
 
 docker-compose down
+printf "\e[32m[Info] lintが完了しました\e[m\n"

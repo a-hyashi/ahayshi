@@ -29,3 +29,4 @@ else
 fi
 
 docker-compose down
+printf "\e[32m[Info] initが完了しました\e[m\n"
