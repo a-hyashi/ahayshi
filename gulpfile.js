@@ -398,15 +398,19 @@ gulp.task('build', () => {
 // sftp upload
 // FTPサーバーにテーマフォルダのtheme.cssをアップロードする
 // 全部まとめてやると多すぎてエラーになるのでテーマの値違いで分割してある
-gulp.task('upload-css',  () => {
+gulp.task('upload-css', () => {
   upload_themes('');
+});
+gulp.task('upload-css-2', () => {
   upload_themes('-2');
+});
+gulp.task('upload-css-3', () => {
   upload_themes('-3');
-})
+});
 // 画像をアップロード
-gulp.task('upload-img',  () => {
+gulp.task('upload-img', () => {
   upload_img();
-})
+});
 
 const upload_themes = (variation) => {
   var theme = get_theme_name();
