@@ -18,6 +18,7 @@ if [ $1 ] ; then
     done
   fi
 else
+  printf "\e[36m[Info] buildを実行します\e[m\n"
   docker-compose run app1 npx gulp build
 fi
 
