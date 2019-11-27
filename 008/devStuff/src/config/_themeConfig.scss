@@ -81,20 +81,11 @@ a {
   }
 }
 
-@mixin _icon-pc($file) {
+@mixin fileIcon($file, $size) {
   &--#{$file} {
-    $_src: "../imgs/b-downloadIcon/#{$file}.png";
-    background: url($_src) 0 0 no-repeat;
-    width: 44px;
-    height: 48px;
-  }
-}
-
-@mixin _icon-sp($file) {
-  &--#{$file} {
-    $_src: "../imgs/b-downloadIcon/#{$file}.png";
-    background: url($_src) 0 0 no-repeat;
-    width: 44px;
-    height: 48px;
+    width: 44px * $size;
+    height: 48px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 44px * $size 48px * $size;
   }
 }
