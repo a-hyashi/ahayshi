@@ -274,18 +274,26 @@ gulp.task('make-allparts-datajson2', () => {
   );
 });
 
-gulp.task('half-json', () => {
+gulp.task('deleteDataJson', () => {
   // datajsonの100以降のフォルダは消す
-  const jsonfolders = fs.readdirSync("./styleguide_assets/datajson/");
-  const jsonfolders2 = jsonfolders.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
-  const jsonfolders3 = jsonfolders2.map(jsonfolder => `./styleguide_assets/datajson/${jsonfolder}`);
-  del(jsonfolders3);
-  // datajson2の100未満のフォルダは消す
-  const jsonfolders4 = fs.readdirSync("./styleguide_assets/datajson2/");
-  const jsonfolders5 = jsonfolders4.filter(jsonfolder4 => jsonfolder4.match(/^[0].*/));
-  const jsonfolders6 = jsonfolders5.map(jsonfolder4 => `./styleguide_assets/datajson2/${jsonfolder4}`);
-  del(jsonfolders6);
+  const datajson = fs.readdirSync("./styleguide_assets/datajson/");
+  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
+  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./styleguide_assets/datajson/${jsonfolder}`);
+  del(datajson_delFolder);
 });
+
+gulp.task('deleteDataJson2', () => {
+  // datajson2の100未満のフォルダは消す
+  const datajson2 = fs.readdirSync("./styleguide_assets/datajson2/");
+  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/));
+  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./styleguide_assets/datajson2/${jsonfolder2}`);
+  del(datajson2_delFolder);
+});
+
+gulp.task('half-json', () => {
+  deleteDataJson();
+  deleteDataJson2();
+};
 
 gulp.task('make-html', () => {
   return make_html.makeHtml(
