@@ -19,10 +19,7 @@ if [ $1 ] ; then
     for i in ${!THEMES[@]}; do
       docker-compose run app$(($i*2+1)) cp ../copy.sh ./copy.sh
       docker-compose run app$(($i*2+1)) ./copy.sh
-      docker-compose run app$(($i*2+2)) cp ../copy.sh ./copy.sh
-      docker-compose run app$(($i*2+2)) ./copy.sh
       docker-compose run app$(($i*2+1)) npx gulp update-styleguide
-      docker-compose run app$(($i*2+2)) npx gulp update-styleguide
     done
   fi
 else
