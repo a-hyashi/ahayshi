@@ -313,38 +313,12 @@ gulp.task('make-html2', () => {
   );
 });
 
-gulp.task('half-html', () => {
-  // htmlの100以降のフォルダは消す
-  const htmlfolders = fs.readdirSync("./styleguide_assets/html/");
-  const htmlfolders2 = htmlfolders.filter(htmlfolder => htmlfolder.match(/^[1-9].*/));
-  const htmlfolders3 = htmlfolders2.map(htmlfolder => `./styleguide_assets/html/${htmlfolder}`);
-  del(htmlfolders3);
-  // htmlの100未満のフォルダは消す
-  const htmlfolders4 = fs.readdirSync("./styleguide_assets/html2/");
-  const htmlfolders5 = htmlfolders4.filter(htmlfolder4 => htmlfolder4.match(/^[0].*/));
-  const htmlfolders6 = htmlfolders5.map(htmlfolder4 => `./styleguide_assets/html2/${htmlfolder4}`);
-  del(htmlfolders6);
-});
-
 gulp.task('make-unittest', () => {
   return make_aigis.makeAigis('./styleguide_assets/html/', './unittest/', './devStuff/');
 });
 
 gulp.task('make-unittest2', () => {
   return make_aigis.makeAigis('./styleguide_assets/html2/', './unittest2/', './devStuff/');
-});
-
-gulp.task('half-unittest', () => {
-  // unittestの100以降のフォルダは消す
-  const unitfolders = fs.readdirSync("./unittest/");
-  const unitfolders2 = unitfolders.filter(unitfolder => unitfolder.match(/^[1-9].*/));
-  const unitfolders3 = unitfolders2.map(unitfolder => `./unittest/${unitfolder}`);
-  del(unitfolders3);
-  // unittestの100未満のフォルダは消す
-  const unitfolders4 = fs.readdirSync("./unittest2/");
-  const unitfolders5 = unitfolders4.filter(unitfolder4 => unitfolder4.match(/^[0].*/));
-  const unitfolders6 = unitfolders5.map(unitfolder4 => `./unittest2/${unitfolder4}`);
-  del(unitfolders6);
 });
 
 gulp.task('make-aigis', () => {
@@ -375,9 +349,7 @@ gulp.task('update-styleguide', () => {
     'half-json',
     'make-html',
     'make-html2',
-    'half-html',
     ['make-unittest', 'make-unittest2'],
-    'half-unittest',
     ['make-aigis', 'make-aigis2'],
     'del-datafile'
   );
