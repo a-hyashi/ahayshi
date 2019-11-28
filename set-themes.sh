@@ -3,8 +3,8 @@
 rm docker-compose.yml
 echo version: \"3\" >> docker-compose.yml
 echo services: >> docker-compose.yml
-THEMES=($@)
 if [ $1 ] ; then
+  THEMES=($@)
   for i in ${!THEMES[@]}; do
     container_num1=$(($i*2+1))
     container_num2=$(($i*2+2))

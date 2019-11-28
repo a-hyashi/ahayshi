@@ -2,11 +2,10 @@
 
 #引数がある場合は指定のテーマで実行 複数指定可能
 #ない場合は現在のテーマで実行
-THEMES=($@)
 if [ $1 ] ; then
+  THEMES=($@)
   ./set-themes.sh ${THEMES[@]}
-  printf "\n\e[36m[Info] スタイルガイドを起動します...\e[m\n\n"
-  printf "\e[32m[Info] Access URLs:\e[m\n"
+  printf "\n\e[32m[Info] Access URLs:\e[m\n"
   for i in ${!THEMES[@]}; do
     num1=$(($i*2+1))
     num2=$(($i*2+2))
@@ -29,4 +28,5 @@ else
   fi
 fi
 
+printf "\e[36m[Info] スタイルガイドを起動します...\e[m\n\n"
 docker-compose up

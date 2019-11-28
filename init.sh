@@ -3,8 +3,8 @@
 #引数がallの場合は全テーマ実行
 #それ以外の場合は指定のテーマで実行 複数指定可能
 #ない場合は現在のテーマで実行
-THEMES=($@)
 if [ $1 ] ; then
+  THEMES=($@)
   if [ $1 = "all" ] ; then
     printf "\e[36m[Info] 全テーマでinitを実行します\e[m\n"
     for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
