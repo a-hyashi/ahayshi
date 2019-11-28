@@ -350,7 +350,8 @@ gulp.task('update-styleguide', () => {
     'make-html',
     'make-html2',
     ['make-unittest', 'make-unittest2'],
-    ['make-aigis', 'make-aigis2'],
+    'make-aigis',
+    'make-aigis2',
     'del-datafile'
   );
 });
