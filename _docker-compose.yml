@@ -11,18 +11,3 @@
     ports:
       - "300#{num}:3000"
     command: "gulp default"
-
-  app#{num2}:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/buddy-theme:cached
-      - ../ACRE-theme/:/ACRE-theme:cached
-    environment:
-      - NODE_OPTIONS=--max_old_space_size=4096
-    working_dir: /buddy-theme/#{theme-name}/
-    ports:
-      - "300#{num2}:3000"
-    command: "gulp default2"
-

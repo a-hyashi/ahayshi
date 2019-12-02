@@ -40,7 +40,6 @@ gulp.task('sass-build-styleguide', (callback) => {
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/css'))
       .pipe(gulp.dest('devStuff/styleguide/css'))
-      .pipe(gulp.dest('devStuff/styleguide2/css'))
     })
   );
   callback()
@@ -79,7 +78,7 @@ gulp.task('create-build', () => {
   var values = get_deploy_values();
   output_imgs(theme);
   output_css(theme, values);
-  del('/devStuff/temp/css/');
+  del('/devStuff/temp');
 })
 
 const get_theme_name = () => {
@@ -266,14 +265,6 @@ gulp.task('make-allparts-datajson', () => {
   );
 });
 
-gulp.task('make-allparts-datajson2', () => {
-  return make_allDatajson.makeAllDatajsonFull(
-    config.html_templates_dir,
-    './styleguide_assets/datajson2/',
-    './btool-settings/parts-categories2.json'
-  );
-});
-
 const deleteDataJson = () => {
   // datajsonの100以降のフォルダは消す
   const datajson = fs.readdirSync("./styleguide_assets/datajson/");
@@ -281,19 +272,6 @@ const deleteDataJson = () => {
   const datajson_delFolder = datajson_matchName.map(jsonfolder => `./styleguide_assets/datajson/${jsonfolder}`);
   del(datajson_delFolder);
 };
-
-const deleteDataJson2 = () => {
-  // datajson2の100未満のフォルダは消す
-  const datajson2 = fs.readdirSync("./styleguide_assets/datajson2/");
-  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/));
-  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./styleguide_assets/datajson2/${jsonfolder2}`);
-  del(datajson2_delFolder);
-};
-
-gulp.task('half-json', () => {
-  deleteDataJson();
-  deleteDataJson2();
-});
 
 gulp.task('make-html', () => {
   return make_html.makeHtml(
@@ -304,21 +282,8 @@ gulp.task('make-html', () => {
   );
 });
 
-gulp.task('make-html2', () => {
-  return make_html.makeHtml(
-    './styleguide_assets/html2/',
-    './styleguide_assets/datajson2/',
-    config.html_templates_dir,
-    false
-  );
-});
-
 gulp.task('make-unittest', () => {
   return make_aigis.makeAigis('./styleguide_assets/html/', './unittest/', './devStuff/');
-});
-
-gulp.task('make-unittest2', () => {
-  return make_aigis.makeAigis('./styleguide_assets/html2/', './unittest2/', './devStuff/');
 });
 
 gulp.task('make-aigis', () => {
@@ -326,14 +291,6 @@ gulp.task('make-aigis', () => {
     fs.mkdirSync('./devStuff/styleguide/css');
   }
   gulp.src('devStuff/aigis_config.yml')
-  .pipe($.aigis());
-});
-
-gulp.task('make-aigis2', () => {
-  if (!fs.existsSync('./devStuff/styleguide2/css')){
-    fs.mkdirSync('./devStuff/styleguide/css2');
-  }
-  return gulp.src('devStuff/aigis2_config.yml')
   .pipe($.aigis());
 });
 
@@ -345,13 +302,10 @@ gulp.task('del-datafile', () => {
 gulp.task('update-styleguide', () => {
   return runSequence(
     ['del-datafile', 'update-css'],
-    ['make-allparts-datajson', 'make-allparts-datajson2'],
-    'half-json',
+    'make-allparts-datajson',
     'make-html',
-    'make-html2',
-    ['make-unittest', 'make-unittest2'],
+    'make-unittest',
     'make-aigis',
-    'make-aigis2',
     'del-datafile'
   );
 });
@@ -461,7 +415,6 @@ gulp.task('watch', () => {
 });
 
 // webserver
-// styleguide前半用
 gulp.task('server', () => {
   return browserSync({
     server: {
@@ -475,30 +428,9 @@ gulp.task('server', () => {
   });
 });
 
-// styleguide後半用
-gulp.task('server2', () => {
-  return browserSync({
-    server: {
-      baseDir: './devStuff/styleguide2',
-      routes: {
-        "/sassdoc": "./devStuff/sassdoc"
-      },
-      proxy: "localhost:3000"
-    },
-    open: false
-  });
-});
-
 gulp.task('default', ['update-css', 'update-imgs'], () => {
   return runSequence(
     'server',
-    'watch'
-  );
-});
-
-gulp.task('default2', ['update-css', 'update-imgs'], () => {
-  return runSequence(
-    'server2',
     'watch'
   );
 });

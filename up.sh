@@ -7,24 +7,19 @@ if [ $1 ] ; then
   ./set-themes.sh ${THEMES[@]}
   printf "\n\e[32m[Info] Access URLs:\e[m\n"
   for i in ${!THEMES[@]}; do
-    num1=$(($i*2+1))
-    num2=$(($i*2+2))
+    num=$(($i*2+1))
     printf "\e[36mテーマ${THEMES[i]}\e[m\n"
-    printf "\e[32mlocal 001~099    URL: \e[34mhttp://localhost:300${num1}\e[m\n"
-    printf "\e[32mlocal 100~       URL: \e[34mhttp://localhost:300${num2}\e[m\n"
+    printf "\e[32mlocal    URL: \e[34mhttp://localhost:300${num}\e[m\n"
     if [[ `ifconfig | grep 192.168.0.` =~ 192.168.0.[0-9]{1,3} ]]; then
-      printf "\e[32mExternal 001~099 URL: \e[34mhttp://"${BASH_REMATCH[0]}":300${num1}\e[m\n"
-      printf "\e[32mExternal 100~    URL: \e[34mhttp://"${BASH_REMATCH[0]}":300${num2}\e[m\n"
+      printf "\e[32mExternal URL: \e[34mhttp://"${BASH_REMATCH[0]}":300${num}\e[m\n"
     fi
     echo "-----------------------------------------------------"
   done
 else
   printf "\n\e[32m[Info] Access URLs:\e[m\n"
-  printf "\e[32mlocal 001~099    URL: \e[34mhttp://localhost:300${num1}\e[m\n"
-  printf "\e[32mlocal 100~       URL: \e[34mhttp://localhost:300${num2}\e[m\n"
+  printf "\e[32mlocal    URL: \e[34mhttp://localhost:300${num}\e[m\n"
   if [[ `ifconfig | grep 192.168.0.` =~ 192.168.0.[0-9]{1,3} ]]; then
-    printf "\e[32mExternal 001~099 URL: \e[34mhttp://"${BASH_REMATCH[0]}":3002\e[m\n"
-    printf "\e[32mExternal 100~    URL: \e[34mhttp://"${BASH_REMATCH[0]}":3002\e[m\n"
+    printf "\e[32mExternal URL: \e[34mhttp://"${BASH_REMATCH[0]}":300${num}\e[m\n"
   fi
 fi
 
