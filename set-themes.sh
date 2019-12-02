@@ -10,7 +10,7 @@ fi
 
 THEMES=($@)
 for i in ${!THEMES[@]}; do
-  container_num1=$(($i*2+1))
-  sed -e "s/#{theme-name}/${THEMES[i]}/g" -e "s/#{num}/${container_num1}/g" _docker-compose.yml >> docker-compose.yml
-  printf "\e[32m[Info] app${container_num1}をテーマ${THEMES[i]}に設定しました\e[m\n"
+  container_num=$(($i+1))
+  sed -e "s/#{theme-name}/${THEMES[i]}/g" -e "s/#{num}/${container_num}/g" _docker-compose.yml >> docker-compose.yml
+  printf "\e[32m[Info] app${container_num}をテーマ${THEMES[i]}に設定しました\e[m\n"
 done

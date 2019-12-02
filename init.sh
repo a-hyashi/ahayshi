@@ -12,14 +12,15 @@ if [ $1 ] ; then
       docker-compose run app1 cp ../copy.sh ./copy.sh
       docker-compose run app1 ./copy.sh
       docker-compose run app1 npx gulp update-styleguide
+      docker-compose down
     done
   else
     printf "\e[36m[Info] $*でinitを実行します\e[m\n"
     ./set-themes.sh $*
     for i in ${!THEMES[@]}; do
-      docker-compose run app$(($i*2+1)) cp ../copy.sh ./copy.sh
-      docker-compose run app$(($i*2+1)) ./copy.sh
-      docker-compose run app$(($i*2+1)) npx gulp update-styleguide
+      docker-compose run app$(($i+1)) cp ../copy.sh ./copy.sh
+      docker-compose run app$(($i+1)) ./copy.sh
+      docker-compose run app$(($i+1)) npx gulp update-styleguide
     done
   fi
 else

@@ -265,14 +265,6 @@ gulp.task('make-allparts-datajson', () => {
   );
 });
 
-const deleteDataJson = () => {
-  // datajsonの100以降のフォルダは消す
-  const datajson = fs.readdirSync("./styleguide_assets/datajson/");
-  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
-  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./styleguide_assets/datajson/${jsonfolder}`);
-  del(datajson_delFolder);
-};
-
 gulp.task('make-html', () => {
   return make_html.makeHtml(
     './styleguide_assets/html/',
@@ -295,7 +287,7 @@ gulp.task('make-aigis', () => {
 });
 
 gulp.task('del-datafile', () => {
-  return del(['./styleguide_assets', './unittest/', './unittest2/']);
+  return del(['./styleguide_assets', './unittest/']);
 });
 
 // スタイルガイド生成
