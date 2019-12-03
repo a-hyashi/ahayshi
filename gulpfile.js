@@ -157,7 +157,7 @@ gulp.task('update-sassdoc', () => {
 });
 
 
-gulp.task('create-bPlacer-doc', () => {
+gulp.task('create-b-placer-doc', () => {
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
   var b_placer_base = new BPlacerRecord();
@@ -305,7 +305,7 @@ gulp.task('update-styleguide', () => {
 gulp.task('update-css', () => {
   return runSequence([
     'sass-build-styleguide',
-    'create-bPlacer-doc'
+    'create-b-placer-doc'
   ]);
 });
 
@@ -317,7 +317,7 @@ gulp.task('update-imgs', () => {
 
 gulp.task('build', () => {
   return runSequence(
-    ['sass-build', 'create-bPlacer-doc'],
+    ['sass-build', 'create-b-placer-doc'],
     'create-build',
   );
 });
