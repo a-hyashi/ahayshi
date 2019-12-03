@@ -78,7 +78,7 @@ gulp.task('create-build', () => {
   var values = get_deploy_values();
   output_imgs(theme);
   output_css(theme, values);
-  del('/devStuff/temp');
+  del('/devStuff/temp/css');
 })
 
 const get_theme_name = () => {
@@ -86,7 +86,7 @@ const get_theme_name = () => {
 }
 
 const get_deploy_values = () => {
-  var filelist = fs.readdirSync('devStuff/temp/css/');
+  var filelist = fs.readdirSync('devStuff/temp/css');
   var deployValues = [];
   for (var file of filelist) {
     var values = file.split('-');
@@ -265,6 +265,35 @@ gulp.task('make-allparts-datajson', () => {
   );
 });
 
+gulp.task('make-allparts-datajson2', () => {
+  return make_allDatajson.makeAllDatajsonFull(
+    config.html_templates_dir,
+    './temp/datajson2/',
+    './btool-settings/parts-categories2.json'
+  );
+});
+
+const deleteDataJson = () => {
+  // datajsonの100以降のフォルダは消す
+  const datajson = fs.readdirSync("./temp/datajson/");
+  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
+  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`);
+  del(datajson_delFolder);
+};
+
+const deleteDataJson2 = () => {
+  // datajson2の100未満のフォルダは消す
+  const datajson2 = fs.readdirSync("./temp/datajson2/");
+  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/));
+  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`);
+  del(datajson2_delFolder);
+};
+
+gulp.task('half-json', () => {
+  deleteDataJson();
+  deleteDataJson2();
+});
+
 gulp.task('make-html', () => {
   return make_html.makeHtml(
     './temp/html/',
@@ -272,6 +301,20 @@ gulp.task('make-html', () => {
     config.html_templates_dir,
     false
   );
+});
+
+gulp.task('make-html2', () => {
+  return make_html.makeHtml(
+    './temp/html2/',
+    './temp/datajson2/',
+    config.html_templates_dir,
+    false
+  );
+});
+
+gulp.task('marge-html', () => {
+  return gulp.src(['./temp/html2/**', './temp/html/**'])
+  .pipe(gulp.dest('./temp/html/'));
 });
 
 gulp.task('make-unittest', () => {
@@ -289,17 +332,30 @@ gulp.task('make-aigis', () => {
 gulp.task('del-datafile', () => {
   return del(['./temp', './devStuff/styleguide']);
 });
+
+gulp.task('del-tempfile', () => {
+  return del('./temp');
 });
 
 // スタイルガイド生成
 gulp.task('update-styleguide', () => {
   return runSequence(
-    'update-css',
-    'make-allparts-datajson',
+    // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
+    ['del-datafile', 'update-css'],
+    ['make-allparts-datajson', 'make-allparts-datajson2'],
+    // html作成用のjsonを2つのフォルダに分ける
+    'half-json',
+    // ファイルが多すぎてnode.jsがエラーになるので2つに分けてhtml作成
     'make-html',
+    'make-html2',
+    // htmlフォルダを結合
+    'marge-html',
+    // htmlからmdファイル作成
     'make-unittest',
+    // styleguide作成
     'make-aigis',
-    'del-datafile'
+    // 作業ディレクトリを削除
+    'del-tempfile'
   );
 });
 
