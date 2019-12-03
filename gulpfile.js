@@ -293,7 +293,7 @@ gulp.task('del-datafile', () => {
 // スタイルガイド生成
 gulp.task('update-styleguide', () => {
   return runSequence(
-    ['del-datafile', 'update-css'],
+    'update-css',
     'make-allparts-datajson',
     'make-html',
     'make-unittest',
