@@ -32,9 +32,7 @@ buddy-theme
 │   │   ├── sassdoc/
 │   │   ├── src/
 │   │   ├── styleguide/
-│   │   ├── styleguide2/
-│   │   ├── aigis_config.yml
-│   │   └── aigis2_config.yml
+│   │   └── aigis_config.yml
 │   ├── lib/
 │   ├── gulp_config.json
 │   └── gulpfile.js
@@ -130,10 +128,7 @@ $ ./init.sh all
 テーマフォルダ内に以下のファイルが作成されていればOKです。  
 - gulpfile.js
 - lib/
-- unittest/
-- unittest2/
 - devStuff/styleguide/
-- devStuff/styleguide2/
 
 <br>
 
@@ -155,16 +150,16 @@ $ ./init.sh 031
 $ ./set-themes.sh (テーマ名)
 ```
 
-テーマは複数設定することもでき、左から順に2個ずつコンテナに割り当てられます。  
+テーマは複数設定することもできます。  
 ただし多いほど処理に時間がかかるので、不要なテーマを含まないよう注意してください。  
 ```sh
 $ ./set-themes.sh 031 031A 031B
 ```
 
 ```
-[Info] 1つめのテーマを031に設定しました
-[Info] 2つめのテーマを031Aに設定しました
-[Info] 3つめのテーマを031Bに設定しました
+[Info] app1を031に設定しました
+[Info] app2を031Aに設定しました
+[Info] app3を031Bに設定しました
 ```
 
 <br>
@@ -197,12 +192,10 @@ Continue with the new image? [y/N]
 ```sh
 [Browsersync] Serving files from:
 ```
-が表示されたら、ターミナルに出力される外部URLを開いてください。  
-部品の100番の前と後で分割されており、URLが異なるので注意してください。  
+が表示されたら、ターミナルに出力されるURLを開いてください。  
 
 ```sh
-block 001~099 - URL: http://localhost:3001  
-block 100~    - URL: http://localhost:3002  
+local    URL: http://localhost:3001  
 ```
 
 <br>
@@ -213,25 +206,15 @@ block 100~    - URL: http://localhost:3002
 ```sh
 $ ./up.sh 031 031A 031B
 ```
-```sh
-031 block 001~099 - URL: http://localhost:3001  
-    block 100~    - URL: http://localhost:3002  
-
-031A block 001~099 - URL: http://localhost:3003  
-    block 100~    - URL: http://localhost:3004  
-
-031B block 001~099 - URL: http://localhost:3005  
-    block 100~    - URL: http://localhost:3006  
-```
 
 <br>
 
 クロスブラウザテストで他の端末から接続する場合は  
 `ターミナルに出力される外部URL + ポート番号`を開いてください  
 **例:**  
-http://192.168.0.19:3001   
-http://192.168.0.19:3002  
-
+```sh
+External URL: http://192.168.0.19:3001  
+```
 
 <br>
 <br>
@@ -351,7 +334,7 @@ $ ./update-parts.sh
 
 ### sassdocが更新された
 ```sh
-$ docker-compose run web1 gulp update-sassdoc
+$ docker-compose run app1 npx gulp update-sassdoc
 ```
 
 ### 動作が遅くなってきた
