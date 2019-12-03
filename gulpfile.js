@@ -260,22 +260,22 @@ const output_b_placer_doc = (b_placers) => {
 gulp.task('make-allparts-datajson', () => {
   return make_allDatajson.makeAllDatajsonFull(
     config.html_templates_dir,
-    './styleguide_assets/datajson/',
+    './temp/datajson/',
     './btool-settings/parts-categories.json'
   );
 });
 
 gulp.task('make-html', () => {
   return make_html.makeHtml(
-    './styleguide_assets/html/',
-    './styleguide_assets/datajson/',
+    './temp/html/',
+    './temp/datajson/',
     config.html_templates_dir,
     false
   );
 });
 
 gulp.task('make-unittest', () => {
-  return make_aigis.makeAigis('./styleguide_assets/html/', './unittest/', './devStuff/');
+  return make_aigis.makeAigis('./temp/html/', './temp/unittest/', './devStuff/');
 });
 
 gulp.task('make-aigis', () => {
@@ -287,7 +287,8 @@ gulp.task('make-aigis', () => {
 });
 
 gulp.task('del-datafile', () => {
-  return del(['./styleguide_assets', './unittest/']);
+  return del(['./temp', './devStuff/styleguide']);
+});
 });
 
 // スタイルガイド生成
