@@ -14,6 +14,9 @@ if [ $1 ] ; then
       ./set-themes.sh ${theme##*/}
       docker-compose run app1 npx gulp update-styleguide
     done
+    docker-compose down
+    printf "\e[32minitが完了しました\e[m\n"
+    exit
   # 引数がある場合は引数のテーマで実行
   else
     ./set-themes.sh $*

@@ -13,6 +13,9 @@ if [ $1 ] ; then
       ./set-themes.sh ${theme##*/}
       docker-compose run app1 npx gulp output
     done
+    docker-compose down
+    printf "\e[32m ACRE-Themeへコピーが完了しました\e[m\n"
+    exit
   # 引数がある場合は引数のテーマで実行
   else
     ./set-themes.sh $*
@@ -24,4 +27,4 @@ for ((i = 0; i < ${#APPS[@]}; i++)) ; do
 done
 
 docker-compose down
-printf "\e[32m[Info] ACRE-Themeへコピーが完了しました\e[m\n"
+printf "\e[32m ACRE-Themeへコピーが完了しました\e[m\n"
