@@ -3,7 +3,6 @@
 #引数がallの場合は全テーマ実行
 #それ以外の場合は指定のテーマで実行 複数指定可能
 #ない場合は現在のテーマで実行
-APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
 printf "\e[36m[Info] $@ buildを実行します\e[m\n"
 
 if [ $1 ] ; then
@@ -22,6 +21,7 @@ if [ $1 ] ; then
   fi
 fi
 
+APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
 for ((i = 0; i < ${#APPS[@]}; i++)) ; do
   docker-compose run app$(($i+1)) npx gulp build
 done
