@@ -18,10 +18,18 @@ if [ $1 ] ; then
   else
     theme=$@
   fi
+# 引数がないときのみコンテナの現在のテーマで実行
+else
+  APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
+  for ((i = 0; i < ${#APPS[@]}; i++)) ; do
+    docker-compose run app$(($i+1)) rsync -rcv --exclude "**/.*" ./build/ ../../ACRE-theme/acre/
+  done
+  printf "\e[32mACRE-Themeへコピーが完了しました\e[m\n"
+  exit
 fi
 
+# 引数がall以外のときは引数の数だけループ
 for theme in "$@" ; do
   rsync -rcv --exclude "**/.*" ${theme}/build/ ../ACRE-theme/acre/
 done
-
 printf "\e[32mACRE-Themeへコピーが完了しました\e[m\n"
