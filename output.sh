@@ -10,7 +10,7 @@ if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
       # コピー先にチェックサムの差分がある場合のみコピーする(隠しファイルは除外)
-      rsync -rcv --exclude "**/.*" ${theme#./}/build/themes ${theme#./}/build/theme_materials ../ACRE-theme/acre/
+      rsync -rcv --exclude "**/.*" ${theme#./}/build/ ../ACRE-theme/acre/
     done
     printf "\e[32mACRE-Themeへコピーが完了しました\e[m\n"
     exit
@@ -20,8 +20,8 @@ if [ $1 ] ; then
   fi
 fi
 
-for theme in "$@"
-  rsync -rcv --exclude "**/.*" ${theme}/build/themes ${theme}/build/theme_materials ../ACRE-theme/acre/
+for theme in "$@" ; do
+  rsync -rcv --exclude "**/.*" ${theme}/build/ ../ACRE-theme/acre/
 done
 
 printf "\e[32mACRE-Themeへコピーが完了しました\e[m\n"
