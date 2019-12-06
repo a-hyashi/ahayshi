@@ -8,7 +8,7 @@ printf "\e[36m[Info] $@ buildを実行します\e[m\n"
 if [ $1 ] ; then
   # 引数がallの場合は全テーマ実行
   if [ $1 = "all" ] ; then
-    for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
+    for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme#./}
       docker-compose run app1 npx gulp build
     done
