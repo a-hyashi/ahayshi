@@ -22,7 +22,7 @@ if [ $1 ] ; then
 fi
 
 APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
-for ((i = 0; i < ${#APPS[@]}; i++)) ; down
+for ((i = 0; i < ${#APPS[@]}; i++)) ; do
   docker-compose run app$(($i+1)) npx gulp upload-img
 done
 
