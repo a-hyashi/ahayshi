@@ -7,11 +7,11 @@ themes=()
 error_themes=()
 
 for theme in `find . -type d -regex "../*[0-9][0-9][0-9][A-Z]*"` ; do
-  cp ./.circleci/gulpfile.js ./${theme##*/}/gulpfile.js
-  cd ${theme##*/}
+  cp ./.circleci/gulpfile.js ./${theme#./}/gulpfile.js
+  cd ${theme#./}
   gulp stylelint-check &
   pips+=($!)
-  themes+=( ${theme##*/} )
+  themes+=( ${theme#./} )
   cd ../
 done
 
