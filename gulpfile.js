@@ -39,8 +39,8 @@ gulp.task('sass-build-styleguide', (callback) => {
       .pipe($.sourcemaps.init())
       .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.debug())
+      .pipe($.autoprefixer())
       .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('devStuff/css'))
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   );
