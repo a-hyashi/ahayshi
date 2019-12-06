@@ -11,6 +11,8 @@ if [ $1 ] ; then
     for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme#./}
       docker-compose run app1 npx gulp upload-css
+      docker-compose run app1 npx gulp upload-css-2
+      docker-compose run app1 npx gulp upload-css-3
       docker-compose run app1 npx gulp upload-img
     done
     docker-compose down
@@ -25,6 +27,8 @@ fi
 APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
 for ((i = 0; i < ${#APPS[@]}; i++)) ; down
   docker-compose run app$(($i+1)) npx gulp upload-css
+  docker-compose run app$(($i+1)) npx gulp upload-css-2
+  docker-compose run app$(($i+1)) npx gulp upload-css-3
   docker-compose run app$(($i+1)) npx gulp upload-img
 done
 
