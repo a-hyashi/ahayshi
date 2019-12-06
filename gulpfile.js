@@ -455,15 +455,6 @@ const upload_img = () => {
   }));
 }
 
-// themesとtheme_materialsをACRE-Themeにコピー
-gulp.task('output', () => {
-  return gulp.src(['build/themes/**/*', 'build/theme_materials/**/*'], {
-    // ディレクトリ構造を維持させる
-    base: 'build'
-  })
-  .pipe(gulp.dest('../../ACRE-theme/acre/'));
-});
-
 // cssを自動更新
 gulp.task('watch', () => {
   // ファイルが多いため部品のwatchはギブアップする

@@ -3,28 +3,25 @@
 #引数がallの場合は全テーマ実行
 #それ以外の場合は指定のテーマで実行 複数指定可能
 #ない場合は現在のテーマで実行
-printf "\e[36m[Info] $@ CSSをACRE-Themeへコピーします\e[m\n"
+printf "\e[36m[Info] $@ CSSとimgsの差分をACRE-Themeへコピーします\e[m\n"
 
 if [ $1 ] ; then
   # 引数がallの場合は全テーマ実行
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
-      ./set-themes.sh ${theme#./}
-      docker-compose run app1 npx gulp output
+      # コピー先にチェックサムの差分がある場合のみコピーする(隠しファイルは除外)
+      rsync -rcv --exclude "**/.*" ${theme#./}/build/themes ${theme#./}/build/theme_materials ../ACRE-theme/acre/
     done
-    docker-compose down
     printf "\e[32mACRE-Themeへコピーが完了しました\e[m\n"
     exit
   # 引数がある場合は引数のテーマで実行
   else
-    ./set-themes.sh $*
+    theme=$@
   fi
 fi
 
-APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
-for ((i = 0; i < ${#APPS[@]}; i++)) ; do
-  docker-compose run app$(($i+1)) npx gulp output
+for theme in "$@"
+  rsync -rcv --exclude "**/.*" ${theme}/build/themes ${theme}/build/theme_materials ../ACRE-theme/acre/
 done
 
-docker-compose down
 printf "\e[32mACRE-Themeへコピーが完了しました\e[m\n"
