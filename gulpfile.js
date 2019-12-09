@@ -400,8 +400,6 @@ gulp.task('output', () => {
     destination: '../../ACRE-theme/acre/',
     archive: true,
     incremental: true,
-    progress: true,
-    silent: true,
     exclude: '.DS_Store'
   }));
 });
