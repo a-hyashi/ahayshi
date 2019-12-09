@@ -22,6 +22,8 @@ if [ $1 ] ; then
     ./set-themes.sh $*
     ./copy.sh $*
   fi
+else
+  ./copy.sh
 fi
 
 APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
