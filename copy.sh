@@ -15,7 +15,7 @@ else
 fi
 
 for i in ${!THEMES[@]}; do
-  printf "\e[36m[Info] ${THEMES[i]}にgulpfile.jsとlibをコピーします\e[m\n"
+  printf "\e[36m[Info] ${THEMES[i]} gulpfile.jsとlibをコピーします\e[m\n"
   \cp ./gulpfile.js ./${THEMES[i]}/
   # 上書きだけだと余計なファイルがあると残るので最初に消す
   if [ -e ./${THEMES[i]}/lib/ ]; then
