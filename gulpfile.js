@@ -394,13 +394,14 @@ gulp.task('build', () => {
 
 // build/とACRE-theme/acre/の間で差分があるファイルを転送する
 gulp.task('output', () => {
-  return gulp.src('./build/**')
+  return gulp.src('./build/')
   .pipe($.rsync({
     root: './build/',
     destination: '../../ACRE-theme/acre/',
     archive: true,
     incremental: true,
-    exclude: '.DS_Store'
+    recursive: true,
+    exclude: '**/.*'
   }));
 });
 
