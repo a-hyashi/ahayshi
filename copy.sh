@@ -10,17 +10,19 @@ if [ $1 ] ; then
     THEMES=($@)
   fi
 else
-  # 引数がない場合も全テーマ実行
-  THEMES=(`find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*" | sed -e "s/\.\///"`)
+  # 引数がない場合は現在のテーマで実行
+  THEMES=($(grep './buddy-theme/[0-9][0-9][0-9][A-Z]*' docker-compose.yml --only-matching | sed "s/\/buddy-theme\///"))
 fi
 
 for i in ${!THEMES[@]}; do
+  printf "\e[36m[Info] ${THEMES[i]}にgulpfile.jsとlibをコピーします\e[m\n"
   \cp ./gulpfile.js ./${THEMES[i]}/
   # 上書きだけだと余計なファイルがあると残るので最初に消す
   if [ -e ./${THEMES[i]}/lib/ ]; then
     rm -r ./${THEMES[i]}/lib/
   fi
   \cp -r ./lib/ ./${THEMES[i]}/lib/
+  printf "\e[32mgulpfile.jsとlibのコピーが完了しました\e[m\n"
 done
 
-printf "\e[32mgulpfile.jsとlibのコピーが完了しました\e[m\n"
+
