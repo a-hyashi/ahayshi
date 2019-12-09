@@ -4,21 +4,23 @@
 #それ以外の場合は指定のテーマで実行 複数指定可能
 #ない場合は現在のテーマで実行
 printf "\e[36m[Info] $@ initを実行します\e[m\n"
-./copy.sh
 
 if [ $1 ] ; then
   # 引数がallの場合は全テーマ実行
   if [ $1 = "all" ] ; then
+    ./copy.sh all
     for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme#./}
       docker-compose run app1 npx gulp update-styleguide
+      # 重くなるのでループの中でコンテナを落とす
+      docker-compose down
     done
-    docker-compose down
     printf "\e[32minitが完了しました\e[m\n"
     exit
   # 引数がある場合は引数のテーマで実行
   else
     ./set-themes.sh $*
+    ./copy.sh $*
   fi
 fi
 
