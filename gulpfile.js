@@ -392,6 +392,20 @@ gulp.task('build', () => {
   );
 });
 
+// build/とACRE-theme/acre/の間で差分があるファイルを転送する
+gulp.task('output', () => {
+  return gulp.src('./build/**')
+  .pipe($.rsync({
+    root: './build/',
+    destination: '../../ACRE-theme/acre/',
+    archive: true,
+    incremental: true,
+    progress: true,
+    silent: true,
+    exclude: '.DS_Store'
+  }));
+});
+
 // sftp upload
 // FTPサーバーにテーマフォルダのtheme.cssをアップロードする
 // 全部まとめてやると容量が多すぎてエラーになるのでテーマの値違いで分割してある
