@@ -79,7 +79,6 @@ buddy-theme
 ├── README.md
 ├── set-themes.sh
 ├── up.sh
-├── update-parts.sh
 ├── upload-css.sh
 ├── upload-img.sh
 └── upload.sh
@@ -116,29 +115,6 @@ Googleドライブから**devwork_rsa**と**ssh_config.json**をダウンロー�
 ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
 
 <br>
-
-#### 4. テスト用ファイルの作成
-
-以下のコマンドを実行  
-- allを指定すると全テーマで実行されます  
-```sh
-$ ./init.sh all
-```
-
-テーマフォルダ内に以下のファイルが作成されていればOKです。  
-- gulpfile.js
-- lib/
-- devStuff/styleguide/
-
-<br>
-
-テーマ名を個別に指定して作成することもできます(複数指定可能)  
-
-**個別指定する場合の例:**  
-```sh
-$ ./init.sh 031 033
-```
-
 <br>
 <br>
 
@@ -165,6 +141,21 @@ app3を031Bに設定しました
 <br>
 ---
 
+### テスト用ファイルの作成
+
+以下のコマンドを実行  
+```sh
+$ ./init.sh
+```
+
+テーマフォルダ内に以下のファイルが作成されていればOKです。  
+- gulpfile.js
+- lib/
+- devStuff/styleguide/
+
+<br>
+---
+
 ### スタイルガイド起動
 1. アプリのアイコンをクリックしDockerを起動  
 Macの上部にアイコンが表示されていればOKです。  
@@ -185,14 +176,16 @@ $ ./up.sh
 ```sh
 Continue with the new image? [y/N]
 ```
+
 <br>
+---
 
 ### スタイルガイド表示
 ターミナルに  
 ```sh
 [Browsersync] Serving files from:
 ```
-が表示されたら、ターミナルに出力されるURLを開いてください。  
+が表示されたら、ターミナルに出力されるlocalのURLを開いてください。  
 
 ```sh
 local    URL: http://localhost:3001  
@@ -200,28 +193,10 @@ local    URL: http://localhost:3001
 
 <br>
 
-テーマ名を複数指定することで、同時にスタイルガイドを起動することができます。  
+クロスブラウザテストで他の端末から接続する場合はターミナルに出力されるExternalのURLを開いてください。  
 
-**複数指定する場合の例:**  
-```sh
-$ ./up.sh 031 031A 031B
-```
-
-<br>
-
-クロスブラウザテストで他の端末から接続する場合は  
-`ターミナルに出力される外部URL + ポート番号`を開いてください  
-**例:**  
 ```sh
 External URL: http://192.168.0.19:3001  
-```
-
-<br>
-<br>
-
-### コンテナの停止
-```
-docker-compose down
 ```
 
 <br>
@@ -229,27 +204,28 @@ docker-compose down
 
 ### CSSを出力
 ```sh
-$ ./build.sh (テーマ番号/all)
+$ ./build.sh
 ```
 
 <br>
+---
 
 ### CSSを出力して開発環境にアップロード
-`theme.css`と、`theme_materials/`配下全てをアップロード
+`theme.css`と、`theme_materials/`配下の画像をアップロード
 ```sh
-$ ./upload.sh (テーマ番号/all)
+$ ./upload.sh
 ```
 <br>
 
 `theme.css`のみをアップロード
 ```sh
-$ ./upload-css.sh (テーマ番号/all)
+$ ./upload-css.sh
 ```
 <br>
 
-`theme_materials/`配下のみをアップロード
+`theme_materials/`配下の画像のみをアップロード
 ```sh
-$ ./upload-img.sh (テーマ番号/all)
+$ ./upload-img.sh
 ```
 ```
 SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materials/**
@@ -261,7 +237,7 @@ SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materi
 
 ### コードの整形・コーディングスタイルのチェック
 ```sh
-$ ./lint.sh (テーマ番号/all)
+$ ./lint.sh
 ```
 コーディングルールに従ってscssファイルの中身が自動で整形されます。  
 自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。  
@@ -299,7 +275,7 @@ stylelintのルール一覧
 https://stylelint.io/user-guide/rules
 
 <br>
-<br>
+---
 
 ### ACRE-themeへの出力
 
@@ -307,6 +283,28 @@ masterブランチへマージすると自動でcircleCIのジョブが登録さ
 承認するまで実行されないので、circleCIの画面からWorkflowsを承認してください。  
 しばらくすると、ACRE-themeにブランチが作成されます。  
 ブランチ名に実行日時が入っているので、対象のブランチをマージしてください。
+
+<br>
+---
+
+### テーマの設定とコマンドの実行
+各コマンドはテーマ名を設定して実行することもできます(複数指定可能)  
+
+**設定されているテーマで実行する場合の例:**  
+現在設定中のテーマで実行されます  
+```sh
+$ ./init.sh
+```
+
+**テーマを設定して実行する場合の例:**  
+```sh
+$ ./init.sh 031 033
+```
+
+**全てのテーマで実行する場合の例:**  
+```sh
+$ ./init.sh all
+```
 
 <br>
 <br>
@@ -329,7 +327,7 @@ SASSの構文エラーです。
 
 ### JSON/HTMLを修正した
 ```sh
-$ ./update-parts.sh
+$ ./init.sh
 ```
 
 ### sassdocが更新された
