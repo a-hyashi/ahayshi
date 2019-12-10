@@ -8,7 +8,7 @@
     $_color_table_td_bg: #fff4a5;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #957d6c;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     white-space: nowrap;
     p {
@@ -25,11 +25,11 @@
     ol {
       padding: 0 0 0 2em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(12, 1);
         }
@@ -41,17 +41,11 @@
 
       li {
         @include g-font(12, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -65,7 +59,7 @@
     ul {
       padding: 0 0 0 2em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -73,17 +67,11 @@
 
       li {
         @include g-font(12, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -105,7 +93,7 @@
         padding: 5px;
         text-align: left;
         vertical-align: middle;
-        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
         border-bottom: 1px solid $_color_table_border;
         p,
@@ -117,7 +105,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(12, 1);
         }
@@ -170,7 +158,7 @@
     }
 
     // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
-    [class^='t0-b-headerSingle'] & {
+    [class^="t0-b-headerSingle"] & {
       > table {
         width: auto;
         margin: 0 auto;
@@ -189,7 +177,7 @@
     $_color_table_td_bg: #fff4a5;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #957d6c;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     p {
       @include g-font(14, 2);
@@ -205,7 +193,7 @@
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -230,7 +218,7 @@
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -263,7 +251,7 @@
         padding: 5px;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
         border-bottom: 1px solid $_color_table_border;
         p,
@@ -275,7 +263,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -325,7 +313,7 @@
     }
 
     // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
-    [class^='t0-b-headerSingle'] & {
+    [class^="t0-b-headerSingle"] & {
       > table {
         width: auto;
         margin: 0 auto;

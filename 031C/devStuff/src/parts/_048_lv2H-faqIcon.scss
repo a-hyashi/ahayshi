@@ -1,13 +1,13 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 26;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_lineHeightType: 1;
+    $_fontSize: 26;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight: 1;
     $_textColor: #675f4f;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     a {
       color: $_textColor;
@@ -44,7 +44,7 @@
       display: table-cell;
       padding-left: 5px;
       vertical-align: middle;
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      @include g-font-layout($_fontSize, $_lineHeight, $layout);
     }
 
     &--size-1 {
@@ -55,7 +55,7 @@
       }
 
       h2 {
-        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         height: 29px * .8;
         padding-left: 3px;
       }
@@ -69,7 +69,7 @@
       }
 
       h2 {
-        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         padding-top: 3px;
         padding-left: 7px;
       }
@@ -99,10 +99,10 @@
 @if $device == SP {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 18;
-    $_lineHeightType: 1;
+    $_fontSize: 18;
+    $_lineHeight: 1;
     $_textColor: #675f4f;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     a {
       color: $_textColor;
@@ -139,7 +139,7 @@
       display: table-cell;
       padding-top: 2px;
       vertical-align: middle;
-      @include g-font($_fontSizePx, $_lineHeightType);
+      @include g-font($_fontSize, $_lineHeight);
     }
 
     &--align-l {

@@ -3,173 +3,175 @@ span {
   font-size: inherit !important;
 }
 
-@mixin g-font($fontSizePx, $lineHeightType: 0) {
-  @if $lineHeightType == 1 {
+// 第2引数を入れない場合、$lineHeightは初期値1となる
+// 第2引数が0の場合には、line-heightの値を出力しない
+@mixin g-font($fontSize, $lineHeight: 1) {
+  @if $lineHeight == 1 {
     line-height: 1.25;
   }
 
-  @if $lineHeightType == 2 {
+  @if $lineHeight == 2 {
     line-height: 1.6;
   }
 
-  @if $fontSizePx == 8 {
+  @if $fontSize == 8 {
     font-size: .571em !important;
   }
 
-  @if $fontSizePx == 10 {
+  @if $fontSize == 10 {
     font-size: .714em !important;
   }
 
-  @if $fontSizePx == 12 {
+  @if $fontSize == 12 {
     font-size: .857em !important;
   }
 
-  @if $fontSizePx == 14 {
+  @if $fontSize == 14 {
     font-size: 1em !important;
   }
 
-  @if $fontSizePx == 16 {
+  @if $fontSize == 16 {
     font-size: 1.143em !important;
   }
 
-  @if $fontSizePx == 18 {
+  @if $fontSize == 18 {
     font-size: 1.286em !important;
   }
 
-  @if $fontSizePx == 20 {
+  @if $fontSize == 20 {
     font-size: 1.429em !important;
   }
 
-  @if $fontSizePx == 22 {
+  @if $fontSize == 22 {
     font-size: 1.571em !important;
   }
 
-  @if $fontSizePx == 24 {
+  @if $fontSize == 24 {
     font-size: 1.714em !important;
   }
 
-  @if $fontSizePx == 26 {
+  @if $fontSize == 26 {
     font-size: 1.857em !important;
   }
 
-  @if $fontSizePx == 28 {
+  @if $fontSize == 28 {
     font-size: 2em !important;
   }
 
-  @if $fontSizePx == 30 {
+  @if $fontSize == 30 {
     font-size: 2.143em !important;
   }
 
-  @if $fontSizePx == 32 {
+  @if $fontSize == 32 {
     font-size: 2.286em !important;
   }
 
-  @if $fontSizePx == 34 {
+  @if $fontSize == 34 {
     font-size: 2.429em !important;
   }
 
-  @if $fontSizePx == 36 {
+  @if $fontSize == 36 {
     font-size: 2.571em !important;
   }
 
-  @if $fontSizePx == 38 {
+  @if $fontSize == 38 {
     font-size: 2.714em !important;
   }
 
-  @if $fontSizePx == 40 {
+  @if $fontSize == 40 {
     font-size: 2.857em !important;
   }
 
-  @if $fontSizePx == 42 {
+  @if $fontSize == 42 {
     font-size: 3em !important;
   }
 
-  @if $fontSizePx == 44 {
+  @if $fontSize == 44 {
     font-size: 3.143em !important;
   }
 
-  @if $fontSizePx == 46 {
+  @if $fontSize == 46 {
     font-size: 3.286em !important;
   }
 
-  @if $fontSizePx == 48 {
+  @if $fontSize == 48 {
     font-size: 3.429em !important;
   }
 
-  @if $fontSizePx == 50 {
+  @if $fontSize == 50 {
     font-size: 3.571em !important;
   }
 
-  @if $fontSizePx == 52 {
+  @if $fontSize == 52 {
     font-size: 3.714em !important;
   }
 
-  @if $fontSizePx == 54 {
+  @if $fontSize == 54 {
     font-size: 3.857em !important;
   }
 
-  @if $fontSizePx == 56 {
+  @if $fontSize == 56 {
     font-size: 4em !important;
   }
 
-  @if $fontSizePx == 58 {
+  @if $fontSize == 58 {
     font-size: 4.143em !important;
   }
 
-  @if $fontSizePx == 60 {
+  @if $fontSize == 60 {
     font-size: 4.286em !important;
   }
 
-  @if $fontSizePx == 62 {
+  @if $fontSize == 62 {
     font-size: 4.429em !important;
   }
 
-  @if $fontSizePx == 64 {
+  @if $fontSize == 64 {
     font-size: 4.571em !important;
   }
 
-  @if $fontSizePx == 66 {
+  @if $fontSize == 66 {
     font-size: 4.714em !important;
   }
 
-  @if $fontSizePx == 68 {
+  @if $fontSize == 68 {
     font-size: 4.857em !important;
   }
 
-  @if $fontSizePx == 70 {
+  @if $fontSize == 70 {
     font-size: 5em !important;
   }
 
-  @if $fontSizePx == 72 {
+  @if $fontSize == 72 {
     font-size: 5.143em !important;
   }
 
-  @if $fontSizePx == 74 {
+  @if $fontSize == 74 {
     font-size: 5.286em !important;
   }
 
-  @if $fontSizePx == 76 {
+  @if $fontSize == 76 {
     font-size: 5.429em !important;
   }
 }
 
-@mixin g-font-killSpacing($position, $fontSizePx, $lineHeightType: 1) {
+@mixin g-font-killSpacing($position, $fontSize, $lineHeight: 1) {
   @if $position == top {
     &::before {
       content: "";
       display: block;
       height: 0;
-      @if $lineHeightType == 1 {
-        @if $fontSizePx < 14 {
+      @if $lineHeight == 1 {
+        @if $fontSize < 14 {
           margin-top: -.05em;
         }
-        @else if $fontSizePx == 20 {
+        @else if $fontSize == 20 {
           margin-top: -.175em;
         }
-        @else if $fontSizePx == 22 {
+        @else if $fontSize == 22 {
           margin-top: -.175em;
         }
-        @else if $fontSizePx < 24 {
+        @else if $fontSize < 24 {
           margin-top: -.08em;
         }
         @else {
@@ -177,7 +179,7 @@ span {
         }
       }
 
-      @if $lineHeightType == 2 {
+      @if $lineHeight == 2 {
         margin-top: -.3em;
       }
     }
@@ -188,11 +190,11 @@ span {
       content: "";
       display: block;
       height: 0;
-      @if $lineHeightType == 1 {
-        @if $fontSizePx == 12 {
+      @if $lineHeight == 1 {
+        @if $fontSize == 12 {
           margin-top: -.25em;
         }
-        @else if $fontSizePx == 16 {
+        @else if $fontSize == 16 {
           margin-top: -.25em;
         }
         @else {
@@ -200,8 +202,8 @@ span {
         }
       }
 
-      @if $lineHeightType == 2 {
-        @if $fontSizePx < 18 {
+      @if $lineHeight == 2 {
+        @if $fontSize < 18 {
           margin-top: -.4em;
         }
         @else {
@@ -212,10 +214,10 @@ span {
   }
 }
 
-@mixin g-font-spacingKilled($fontSizePx, $lineHeightType: 1) {
-  @include g-font($fontSizePx, $lineHeightType);
-  @include g-font-killSpacing(top, $fontSizePx, $lineHeightType);
-  @include g-font-killSpacing(bottom, $fontSizePx, $lineHeightType);
+@mixin g-font-spacingKilled($fontSize, $lineHeight: 1) {
+  @include g-font($fontSize, $lineHeight);
+  @include g-font-killSpacing(top, $fontSize, $lineHeight);
+  @include g-font-killSpacing(bottom, $fontSize, $lineHeight);
 }
 
 @mixin g-linePadKiller-top($preset) {
