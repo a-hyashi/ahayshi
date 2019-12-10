@@ -388,7 +388,7 @@ gulp.task('update-imgs', () => {
 gulp.task('build', () => {
   return runSequence(
     ['sass-build', 'create-b-placer-doc'],
-    'create-build',
+    'create-build'
   );
 });
 
