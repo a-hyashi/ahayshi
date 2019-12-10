@@ -5,10 +5,11 @@
 #ない場合は現在のテーマで実行
 printf "\e[36m[Info] initを実行します\e[m\n"
 
+./copy.sh $*
+
 if [ $1 ] ; then
   # 引数がallの場合は全テーマ実行
   if [ $1 = "all" ] ; then
-    ./copy.sh all
     for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
       ./set-themes.sh ${theme#./}
       docker-compose run app1 npx gulp update-styleguide
@@ -20,10 +21,7 @@ if [ $1 ] ; then
   # 引数がある場合は引数のテーマで実行
   else
     ./set-themes.sh $*
-    ./copy.sh $*
   fi
-else
-  ./copy.sh
 fi
 
 APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
