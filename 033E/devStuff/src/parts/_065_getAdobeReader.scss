@@ -20,7 +20,8 @@
       display: block;
       float: left;
       color: #555;
-      text-decoration: none; // text-decorationの指定が2重であるとWindowsのFirefoxで下線が太くなるので一度指定をリセットする。
+      // Firefoxで下線が太くなるので一度リセットする
+      text-decoration: none;
       &:hover {
         color: #7c6600;
       }
@@ -47,17 +48,7 @@
 
   .b-downloadIcon {
     $_color_border: #aaa;
-    @mixin _icon($file) {
-      &--#{$file} {
-        $_src: "b-downloadIcon/#{$file}.png";
-        width: 30px;
-        height: 30px;
-        background-image: url("../imgs/#{$_src}");
-        background-repeat: no-repeat;
-        background-size: 30px;
-      }
-    }
-    @include _icon("reader");
+    @include fileIcon("reader", 1);
     display: inline-block;
     vertical-align: middle;
   }
@@ -111,17 +102,7 @@
 
   .b-downloadIcon {
     $_color_border: #aaa;
-    @mixin _icon($file) {
-      &--#{$file} {
-        $_src: "b-downloadIcon/#{$file}.png";
-        width: 30px;
-        height: 30px;
-        background-image: url("../imgs/#{$_src}");
-        background-repeat: no-repeat;
-        background-size: 30px;
-      }
-    }
-    @include _icon("reader");
+    @include fileIcon("reader", 1);
     display: inline-block;
     vertical-align: middle;
   }

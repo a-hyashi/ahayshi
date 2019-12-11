@@ -3,7 +3,6 @@
     $_block: &;
     // 2列と比較して、arrowエリアの縮小率に合わせて、max-widthを算出
     $_maxWidth_arrow: 18px * (2/4);
-
     width: 100%;
     &__row {
       display: table;
@@ -14,19 +13,19 @@
 
     &__box {
       display: table-cell;
-      width: (100%-2*(6-1))/6;
+      width: (100% - 2 * (6 - 1)) / 6;
       height: 100%;
       vertical-align: top;
       #{$_block}--colSpacing-l & {
-        width: (100%-3.5*(6-1))/6;
+        width: (100% - 3.5 * (6 - 1)) / 6;
       }
 
       #{$_block}--colSpacing-m & {
-        width: (100%-2*(6-1))/6;
+        width: (100% - 2 * (6 - 1)) / 6;
       }
 
       #{$_block}--colSpacing-s & {
-        width: (100%-0.5*(6-1))/6;
+        width: (100% - .5 * (6 - 1)) / 6;
       }
     }
 
@@ -34,8 +33,6 @@
       display: table-cell;
       width: 2%;
       height: 100%;
-      //矢印要素(t0-b-arrowInFlow)分の高さを持たせる。
-      //上余白調整をしても部品の高さからはみ出さないようにするため。
       padding-bottom: 31px;
       #{$_block}--colSpacing-l & {
         width: 3.5%;
@@ -52,15 +49,14 @@
       &-inner {
         position: relative;
         height: 100%;
-        //#cms-body [data-cms-part]についたposition:relativeの影響で、
-        //管理画面上のみで矢印要素の上余白が変更されない問題を解消するために以下を指定する
+        // #cms-body [data-cms-part]のposition:relativeを打ち消して、矢印要素の上余白を変更できるように
         > div {
           position: absolute !important;
           top: 0;
           right: 0;
           bottom: 0;
           left: 0;
-          //管理画面上でホバーできるようにする
+          // 管理画面でホバーできるように
           z-index: 1;
         }
       }
@@ -74,11 +70,9 @@
 
 @if $device == SP {
   .t0-b-flow6LeftToRightWithMidFrame {
-
     width: 100%;
     &__row {
       display: block;
-      //矢印画像の高さと、下余白の合計値をつける
       padding-bottom: 32px;
       background-image: url("../imgs/other/other004/other004_arrow01_v1f1.svg");
       background-repeat: no-repeat;
@@ -91,13 +85,11 @@
     }
 
     &__arrow {
-      //上下の画像要素との余白が等間隔になるようにつける
       padding-bottom: 10px;
     }
   }
 
   .t0-b-arrowInFlow {
-
     width: auto;
     height: 22px;
     background-image: url("../imgs/other/other004/other004_arrow01_v1f1.svg");

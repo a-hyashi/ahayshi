@@ -1,11 +1,11 @@
 @if $device == PC {
   .t0-b-articleDecoration#{$variation1of2} {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSize: 20;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
     &__row {
       display: flex;
     }
@@ -19,23 +19,16 @@
     }
 
     &__bd {
-      display: table;
+      display: block;
       width: 100%;
     }
 
     &__box {
-      display: table-cell;
-      width: 49%;
       padding: 25px 25px 10px;
       background-color: #f1f1f1;
       background-image: url("../imgs/t0-b-articleDecoration/1/1.png"), url("../imgs/t0-b-articleDecoration/1/2.png");
       background-repeat: repeat-x, repeat-x;
       background-position: left top, left bottom;
-    }
-
-    &__arrow {
-      display: table-cell;
-      width: 20px;
     }
 
     &__hd-h {
@@ -59,15 +52,15 @@
       }
 
       h4 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize, $_lineHeight, $layout);
       }
 
       a {
-        color: $textcolor;
+        color: $g-textColor;
         text-decoration: none;
         &:hover {
           h4 {
-            color: $hovercolor;
+            color: $g-hoverColor;
           }
         }
       }
@@ -86,13 +79,13 @@
 
       &--size-1 {
         h4 {
-          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         }
       }
 
       &--size-3 {
         h4 {
-          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         }
       }
     }
@@ -104,11 +97,11 @@
 
   .t0-b-articleDecoration#{$variation2of2} {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
+    $_fontSize: 20;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
     &__row {
       display: flex;
     }
@@ -122,23 +115,16 @@
     }
 
     &__bd {
-      display: table;
+      display: block;
       width: 100%;
     }
 
     &__box {
-      display: table-cell;
-      width: 49%;
       padding: 33px 35px 20px;
       background-color: #fff;
       background-image: url("../imgs/t0-b-articleDecoration/2/bg.png"), url("../imgs/t0-b-articleDecoration/2/bg2.png"), url("../imgs/t0-b-articleDecoration/2/bg3.png"), url("../imgs/t0-b-articleDecoration/2/bg4.png"), url("../imgs/t0-b-articleDecoration/2/bg5.png"), url("../imgs/t0-b-articleDecoration/2/bg6.png"), url("../imgs/t0-b-articleDecoration/2/bg7.png"), url("../imgs/t0-b-articleDecoration/2/bg8.png");
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
       background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-    }
-
-    &__arrow {
-      display: table-cell;
-      width: 20px;
     }
 
     &__hd-h {
@@ -149,17 +135,16 @@
       overflow: hidden;
       border-bottom: 6px double #ddcfa2;
       h4 {
-        @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
-
+        @include g-font-layout($_fontSize, $_lineHeight, $layout);
         text-align: center;
       }
 
       a {
-        color: $textcolor;
+        color: $g-textColor;
         text-decoration: none;
         &:hover {
           h4 {
-            color: $hovercolor;
+            color: $g-hoverColor;
           }
         }
       }
@@ -179,14 +164,14 @@
       &--size-1 {
         border-bottom: 4.8px double #ddcfa2;
         h4 {
-          @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         }
       }
 
       &--size-3 {
         border-bottom: 7.2px double #ddcfa2;
         h4 {
-          @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         }
       }
     }
@@ -200,9 +185,8 @@
 @if $device == SP {
   .t0-b-articleDecoration#{$variation1of2} {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-
+    $_fontSize: 20;
+    $_lineHeight: 1;
     margin: 0 -5px;
     &__col {
       padding-bottom: 30px;
@@ -213,10 +197,6 @@
 
     &__hd {
       padding: 0 20px;
-    }
-
-    &__arrow {
-      height: 20px;
     }
 
     &__box {
@@ -248,11 +228,11 @@
       }
 
       h4 {
-        @include g-font($_fontSizePx, $_lineHeightType);
+        @include g-font($_fontSize, $_lineHeight);
       }
 
       a {
-        color: $textcolor;
+        color: $g-textColor;
         text-decoration: none;
       }
 
@@ -276,9 +256,8 @@
 
   .t0-b-articleDecoration#{$variation2of2} {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
-
+    $_fontSize: 20;
+    $_lineHeight: 1;
     margin: 0 -5px;
     &__col {
       padding-bottom: 30px;
@@ -291,20 +270,12 @@
       padding: 0 28px 5px;
     }
 
-    &__arrow {
-      height: 20px;
-    }
-
     &__box {
       padding: 20px 17px;
       background-color: #fff;
       background-image: url("../imgs/t0-b-articleDecoration/2/bg.png"), url("../imgs/t0-b-articleDecoration/2/bg2.png"), url("../imgs/t0-b-articleDecoration/2/bg3.png"), url("../imgs/t0-b-articleDecoration/2/bg4.png"), url("../imgs/t0-b-articleDecoration/2/bg5.png"), url("../imgs/t0-b-articleDecoration/2/bg6.png"), url("../imgs/t0-b-articleDecoration/2/bg7.png"), url("../imgs/t0-b-articleDecoration/2/bg8.png");
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
       background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
-    }
-
-    &__arrow {
-      height: 20px;
     }
 
     &__hd-h {
@@ -315,14 +286,13 @@
       overflow: hidden;
       border-bottom: 6px double #ddcfa2;
       h4 {
-        @include g-font($_fontSizePx, $_lineHeightType);
-
+        @include g-font($_fontSize, $_lineHeight);
         text-align: center;
       }
 
       a {
         position: relative;
-        color: $textcolor;
+        color: $g-textColor;
         text-decoration: none;
       }
 

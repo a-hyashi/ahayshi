@@ -1,0 +1,140 @@
+@if $device == PC {
+  .t0-b-mediaCols {
+    $_block: &;
+    &__img {
+      position: relative;
+      // 管理画面で画像列をクリックできるようにz-indexをつけている
+      z-index: 10;
+      box-sizing: border-box;
+      width: 40%;
+      // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      padding-top: 3px;
+    }
+
+    &__col {
+      overflow: hidden;
+    }
+
+    &__div {
+      // IEで高さが伸びないようにする。%指定しないと効かない
+      min-height: 0%;
+    }
+
+    &--imgR {
+      #{$_block}__img {
+        float: right;
+        padding-right: 0;
+        padding-left: 4%;
+      }
+    }
+
+    &--imgL {
+      #{$_block}__img {
+        float: left;
+        padding-right: 4%;
+        padding-left: 0;
+      }
+    }
+
+    &--colW {
+      &-l {
+        #{$_block}__img {
+          width: 50%;
+        }
+      }
+
+      &-m {
+        #{$_block}__img {
+          width: 40%;
+        }
+      }
+
+      &-s {
+        #{$_block}__img {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  .ex-imageFloat.t0-b-mediaCols {
+    .t0-b-mediaCols__col,
+    .t0-b-mediaCols__colHead {
+      overflow: visible;
+      [class*="-bPlacer"] {
+        // 画像列が大きくなると文章列が崩れるのでセレクタの詳細度を高めている
+        > div {
+          overflow: hidden;
+        }
+
+        // 文章が回り込むために必要
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul,
+          ol {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-mediaCols {
+    $_block: &;
+    padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    #{$_block}__img {
+      width: 40%;
+      // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      padding-top: 3px;
+    }
+
+    #{$_block}__col,
+    #{$_block}__colHead {
+      overflow: visible;
+      [class*="-bPlacer"] {
+        > div {
+          overflow: hidden;
+        }
+        // 文章が回り込むために必要
+        > .t0-b-wysiwyg {
+          overflow: visible;
+          ul,
+          ol {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+
+    &--imgR {
+      #{$_block}__img {
+        float: right;
+        padding-right: 0;
+        padding-left: 10px;
+      }
+    }
+
+    &--imgL {
+      #{$_block}__img {
+        float: left;
+        padding-right: 10px;
+        padding-left: 0;
+      }
+    }
+
+    &.ex-spLayout__vertical {
+      #{$_block}__img {
+        float: none;
+        // 「列の大きさ」を「自分で選択」にした場合、userEditWidthの値がHTML内に出力されるので!importantをつけている
+        width: 100% !important;
+        padding: 0;
+      }
+    }
+  }
+}

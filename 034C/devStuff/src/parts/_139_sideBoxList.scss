@@ -26,11 +26,11 @@
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #888;
     $_color_table_th_bg: #555;
-    $_color_table_td_typo: $textcolor;
+    $_color_table_td_typo: $g-textColor;
     a {
-      color: $textcolor;
+      color: $g-textColor;
       &:hover {
-        color: $hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -46,7 +46,7 @@
     ol {
       padding: 0 0 0 2.5em;
       margin-left: 10px;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -54,18 +54,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -76,7 +69,7 @@
 
     ul {
       margin-left: 10px;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: 5px;
@@ -91,12 +84,7 @@
           margin-top: 0;
         }
 
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -125,14 +113,14 @@
       }
 
       ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
       }
 
       ul {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
           padding: 0 0 0 10px;
@@ -154,7 +142,7 @@
       }
 
       td {
-        color: $textcolor;
+        color: $g-textColor;
       }
     }
 
@@ -192,9 +180,9 @@
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #888;
     $_color_table_th_bg: #555;
-    $_color_table_td_typo: $textcolor;
+    $_color_table_td_typo: $g-textColor;
     a {
-      color: $textcolor;
+      color: $g-textColor;
     }
 
     p {
@@ -209,7 +197,7 @@
     ol {
       padding: 0 0 0 2em;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -217,18 +205,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -239,7 +220,7 @@
 
     ul {
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: 5px;
@@ -254,13 +235,7 @@
           margin-top: 0;
         }
 
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -290,14 +265,14 @@
       }
 
       ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
       }
 
       ul {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
           background: url("../imgs/t0-b-navList/1.png") 0 5px no-repeat;
@@ -318,7 +293,7 @@
       }
 
       td {
-        color: $textcolor;
+        color: $g-textColor;
       }
     }
 

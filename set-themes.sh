@@ -1,10 +1,17 @@
 #!/bin/bash
 
+if [ "$1" = "" ] ; then
+  printf "\e[31m[Error] テーマを指定してください\e[m\n"
+  exit 1
+fi
+
 rm docker-compose.yml
+echo version: \"3\" >> docker-compose.yml
+echo services: >> docker-compose.yml
+
 THEMES=($@)
-for i in "${!THEMES[@]}"; do
-  num=$(($i+1))
-  sed -e "s/#{theme-name}/${THEMES[i]}/g" -e "s/#{port-num}/300${num}/g"  -e "s/#{num}/${num}/g" _docker-compose.yml >> docker-compose.yml
-  printf "コンテナ${num}：${THEMES[i]}\n"
+for i in ${!THEMES[@]}; do
+  container_num=$(($i+1))
+  sed -e "s/#{theme-name}/${THEMES[i]}/g" -e "s/#{num}/${container_num}/g" _docker-compose.yml >> docker-compose.yml
+  printf "\e[32mapp${container_num}をテーマ${THEMES[i]}に設定しました\e[m\n"
 done
-printf "\e[36mテーマを設定しました\e[m\n"

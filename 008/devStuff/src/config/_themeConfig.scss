@@ -1,0 +1,91 @@
+$g-cellIconHeight: 38px;
+$g-cellIconWidth: 22px;
+$g-faxIconHeight: 31px;
+$g-faxIconWidth: 47px;
+$g-freeIconHeight: 31px;
+$g-freeIconWidth: 55px;
+$g-telIconHeight: 37px;
+$g-telIconWidth: 45px;
+$g-fontSize: 14px;
+$g-leftSpacingBaseLength: 5;
+$g-spacingBaseLength: 5;
+body.mod-body,
+div.mod-body {
+  font-size: $g-fontSize;
+  font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: $g-baseLinkColor;
+}
+
+a {
+  color: $g-baseLinkColor;
+  text-decoration: underline;
+}
+
+@if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+  }
+
+  a {
+    &:hover {
+      color: $g-hoverColor;
+    }
+  }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@mixin cf {
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 44px * $size;
+    height: 48px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 44px * $size 48px * $size;
+  }
+}

@@ -1,19 +1,20 @@
-$baseFontSize: 14px;
+$g-fontSize: 14px;
+$g-spacingBaseLength: 5;
 html {
-  font-size: $baseFontSize;
+  font-size: $g-fontSize;
 }
 
 body.mod-body,
 div.mod-body {
-  font-family: $gothic;
-  font-size: $baseFontSize;
+  font-family: $font-gothic;
+  font-size: $g-fontSize;
   font-weight: 500;
   color: #555;
 }
 
 .mod-body {
   button, input, optgroup, select, textarea {
-    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
+    font-family: $font-gothic;
   }
 }
 
@@ -28,6 +29,18 @@ a {
       color: #16998f;
     }
   }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 @if $device == SP {
@@ -35,22 +48,9 @@ a {
     font-size: inherit !important;
   }
 }
-.cms-admin-anchorFlag {
-  position: relative;
-  z-index: 10 !important;
-}
-// これはadmin.cssに移行するべき
-
-$textcolor: #393939;
-$hovercolor: #45b1c7;
-$hovercolor2: #0b6577;
-$hovercolor3: #45b1c7;
-
-$g-spacingBaseLength: 5;
 
 @mixin cf {
-  &::before,
-  &::after {
+  &::before, &::after {
     display: table;
     content: "";
   }
@@ -84,31 +84,11 @@ $g-spacingBaseLength: 5;
   }
 }
 
-$fullWidthBgColor: #d7f9f3;
-$fullWidthBgColor2: #fff;
-$fullWidthBgColor3: #fdfaf0;
-$fullWidthBgColor4: #444;
-$fullWidthBgColor5: #edfaf9;
-$fullWidthBgColor6: #eaf4f3;
-$fullWidthBgColor7: #f9f5f1;
-$fullWidthBgColor8: #aee4e1;
-
-$frameSpacingPC-l: 50px;
-$frameSpacingPC-m: 25px;
-$frameSpacingPC-s: 10px;
-$frameSpacingSP-l: 50px;
-$frameSpacingSP-m: 25px;
-$frameSpacingSP-s: 10px;
-@if $device == PC {
-  .cms-partsConfig-width-m {
-    width: 75%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .cms-partsConfig-width-s {
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 30px * $size;
   }
 }

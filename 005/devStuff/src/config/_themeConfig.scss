@@ -1,0 +1,88 @@
+$g-fontSize: 14px;
+$g-leftSpacingBaseLength: 10;
+$g-spacingBaseLength: 5;
+@if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+    font-size: $g-fontSize;
+    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    color: #4d4d4d;
+  }
+
+  a {
+    color: inherit;
+    &:hover {
+      color: $g-hoverColor;
+    }
+  }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@if $device == SP {
+  body.mod-body,
+  div.mod-body {
+    font-size: $g-fontSize;
+    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    color: #4d4d4d;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@mixin cf {
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 44px * $size;
+    height: 48px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 44px * $size 48px * $size;
+  }
+}

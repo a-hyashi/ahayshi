@@ -1,24 +1,30 @@
 plugins:
-  # 一時的にソート機能はオフにしている。Masterの内容を修正したら戻す
-  # - stylelint-order
+  #- stylelint-order
   - stylelint-scss
+ignoreFiles:
+  - '**/_bPlacer.scss'
+  - '**/theme.css'
 defaultSeverity: error
-# 一時的にソート設定を読み込まない。Masterの内容を修正したら戻す
-# extends: stylelint-config-recess-order
+# ソート設定を読み込む
+#extends: stylelint-config-recess-order
 rules:
   color-no-invalid-hex: true
   font-family-no-duplicate-names: true
   function-calc-no-invalid: true
   function-calc-no-unspaced-operator: true
   string-no-newline: true
-  # unit-no-unknown: true (不明な単位禁止。多いので一旦コメントアウト)
+  unit-no-unknown: true
   property-no-unknown: true
-  declaration-block-no-duplicate-properties:
-    - true
-    - ignore: consecutive-duplicates-with-different-values
+  # 重複プロパティ禁止
+  #declaration-block-no-duplicate-properties:
+  #  - true
+  #  - severity: warning
   block-no-empty: true
   comment-no-empty: true
-  # no-duplicate-selectors: true (重複プロパティ禁止。多いので一旦コメントアウト)
+  # 重複セレクタ禁止
+  #no-duplicate-selectors:
+  #  - true
+  #  - severity: warning
   no-empty-source: true
   no-extra-semicolons: true
   color-named: never

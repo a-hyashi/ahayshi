@@ -1,0 +1,55 @@
+$areaContainerWidth: 980px;
+$areaMainWidth: 700px;
+$areaSubWidth: 280px;
+.area-all {
+  margin: 0 auto;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #fff;
+  min-width: $areaContainerWidth + 36px;
+  overflow: hidden;
+}
+
+.area-header {
+  background-color: #fff;
+}
+
+.area-container {
+  width: $areaContainerWidth;
+  padding-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.area-main {
+  box-sizing: border-box;
+  float: right;
+  width: $areaMainWidth;
+  padding: 0 0 50px;
+}
+
+.area-sub {
+  float: left;
+  box-sizing: border-box;
+  width: $areaSubWidth;
+  min-height: 100px;
+  padding: 0 26px 50px 0;
+  position: relative;
+  // R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  z-index: 11;
+}
+
+.area-footer {
+  padding-top: 1px;
+  background: none;
+  background-color: #fff;
+}

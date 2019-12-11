@@ -1,0 +1,323 @@
+@if $device == PC {
+  .t0-b-headerUnit-table {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #fff;
+    $_color_table_th_bg: #e1f2ff;
+    $_color_table_td_bg: #f1f7ff;
+    $_color_table_th_text: #333;
+    $_color_table_td_text: #666;
+    font-family: $font-tenorSans;
+    color: $g-textColor;
+    white-space: nowrap;
+    p {
+      @include g-font(12, 2);
+      margin-top: 1em;
+    }
+
+    > p {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ol {
+      padding: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+        font-size: $g-fontSize;
+        li {
+          @include g-font(12, 1);
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+      }
+
+      li {
+        @include g-font(12, 1);
+        @include bugFix_IE_list-item();
+        margin-top: $_elementSpacing;
+        list-style-type: decimal;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    > ol {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      padding: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(12, 1);
+        @include bugFix_IE_list-item();
+        margin-top: $_elementSpacing;
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    > ul {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      // tableのデフォルトの枠線を消す
+      border: transparent 1px solid;
+      th,
+      td {
+        @include g-font(12, 1);
+        padding: 5px;
+        text-align: left;
+        vertical-align: middle;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-bottom: 1px solid $_color_table_border;
+        p,
+        ul,
+        ol {
+          text-align: left;
+        }
+      }
+
+      ul,
+      ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font(12, 1);
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+      }
+
+      th {
+        color: $_color_table_th_text;
+        background-color: $_color_table_th_bg;
+      }
+
+      td {
+        color: $_color_table_td_text;
+        background-color: $_color_table_td_bg;
+      }
+
+      tr {
+        &:first-child {
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
+        }
+
+        &:last-child {
+          > th,
+          td {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    > table {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    a {
+      display: block;
+      color: inherit;
+      text-decoration: underline;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^="t0-b-headerSingle"] & {
+      > table {
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-table {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #fff;
+    $_color_table_th_bg: #e1f2ff;
+    $_color_table_td_bg: #f1f7ff;
+    $_color_table_th_text: #333;
+    $_color_table_td_text: #666;
+    font-family: $font-tenorSans;
+    color: $g-textColor;
+    p {
+      @include g-font(14, 2);
+      margin-top: 1em;
+    }
+
+    > p {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ol {
+      padding: 0 0 0 1.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(14, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: decimal;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    > ol {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      padding: 0 0 0 1.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul,
+      ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(14, 1);
+        margin-top: $_elementSpacing;
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    > ul {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      // tableのデフォルトの枠線を消す
+      border: transparent 1px solid;
+      th,
+      td {
+        @include g-font(14, 1);
+        padding: 5px;
+        text-align: left;
+        vertical-align: middle;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-bottom: 1px solid $_color_table_border;
+        p,
+        ul,
+        ol {
+          text-align: left;
+        }
+      }
+
+      ul,
+      ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th {
+        color: $_color_table_th_text;
+        background: $_color_table_th_bg;
+      }
+
+      td {
+        color: $_color_table_td_text;
+        background-color: $_color_table_td_bg;
+      }
+
+      tr {
+        &:first-child {
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
+        }
+
+        &:last-child {
+          > th,
+          td {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    > table {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    a {
+      display: inline-block;
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    // サイト名中央に入ったときのみ文字数分の幅をもち中央寄せの見た目にする
+    [class^="t0-b-headerSingle"] & {
+      > table {
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+  }
+}

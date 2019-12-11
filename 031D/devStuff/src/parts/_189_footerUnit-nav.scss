@@ -1,17 +1,15 @@
 @if $device == PC {
   .t0-b-footerUnit-nav {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #982929;
     $_hoverColor: #e50101;
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
-
     white-space: nowrap;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -43,18 +41,16 @@
   }
 
   .t0-b-footerUnit-nav2 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #001c5a;
     $_hoverColor: #1c54d3;
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
-
     white-space: nowrap;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -86,18 +82,16 @@
   }
 
   .t0-b-footerUnit-nav3 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #cc9f19;
     $_hoverColor: #febf00;
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
-
     white-space: nowrap;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -129,18 +123,16 @@
   }
 
   .t0-b-footerUnit-nav4 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #399ed4;
     $_hoverColor: #55c0f9;
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
-
     white-space: nowrap;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -170,18 +162,57 @@
       }
     }
   }
+
+  .t0-b-footerUnit-nav5 {
+    $_block: &;
+    $_fontSize: 16;
+    $_lineHeight: 1;
+    $_textColor: #222;
+    $_hoverColor: #888;
+    font-family: $font-tenorSans;
+    color: $_textColor;
+    text-align: left;
+    white-space: nowrap;
+    @include g-font($_fontSize, $_lineHeight);
+    a {
+      display: inline-block;
+      color: $_textColor;
+      &:hover {
+        color: $_hoverColor;
+        p {
+          border-bottom: 1px solid $_textColor;
+        }
+      }
+    }
+
+    &__item {
+      display: inline-block;
+      // リッチテキスト等で文字サイズ（最小8px）を入れても画像を切れない様にする為
+      min-height: 18px;
+      padding: 0 0 0 24px;
+      background-image: url("../imgs/navItem/navItem001/navItem001_v5.svg");
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      background-size: 18px 18px;
+      p {
+        border-bottom: 1px solid $_hoverColor;
+      }
+
+      + #{$_block}__item {
+        margin: 0 0 0 15px;
+      }
+    }
+  }
 }
 
 @if $device == SP {
   .t0-b-footerUnit-nav {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #982929;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -192,12 +223,12 @@
     &__item {
       display: block;
       // リッチテキスト等で文字サイズ（最小8px）を入れても画像を切れない様にする為
-      min-height: 36px *.5;
-      padding: 0 0 0 50px *.5;
+      min-height: 36px * .5;
+      padding: 0 0 0 50px * .5;
       background-image: url("../imgs/navItem/navItem001/sp_navItem001_v1.svg");
       background-repeat: no-repeat;
       background-position: left bottom;
-      background-size: 36px *.5 36px *.5;
+      background-size: 36px * .5 36px * .5;
       p {
         display: inline-block;
         border-bottom: 1px solid #e50101;
@@ -210,14 +241,12 @@
   }
 
   .t0-b-footerUnit-nav2 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #001c5a;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -228,12 +257,12 @@
     &__item {
       display: block;
       // リッチテキスト等で文字サイズ（最小8px）を入れても画像を切れない様にする為
-      min-height: 36px *.5;
-      padding: 0 0 0 50px *.5;
+      min-height: 36px * .5;
+      padding: 0 0 0 50px * .5;
       background-image: url("../imgs/navItem/navItem001/sp_navItem001_v2.svg");
       background-repeat: no-repeat;
       background-position: left bottom;
-      background-size: 36px *.5 36px *.5;
+      background-size: 36px * .5 36px * .5;
       p {
         display: inline-block;
         border-bottom: 1px solid #1e49ac;
@@ -246,14 +275,12 @@
   }
 
   .t0-b-footerUnit-nav3 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #cc9f19;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -264,12 +291,12 @@
     &__item {
       display: block;
       // リッチテキスト等で文字サイズ（最小8px）を入れても画像を切れない様にする為
-      min-height: 36px *.5;
-      padding: 0 0 0 50px *.5;
+      min-height: 36px * .5;
+      padding: 0 0 0 50px * .5;
       background-image: url("../imgs/navItem/navItem001/sp_navItem001_v3.svg");
       background-repeat: no-repeat;
       background-position: left bottom;
-      background-size: 36px *.5 36px *.5;
+      background-size: 36px * .5 36px * .5;
       p {
         display: inline-block;
         border-bottom: 1px solid #febf00;
@@ -282,14 +309,46 @@
   }
 
   .t0-b-footerUnit-nav4 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #399ed4;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
+    color: $_textColor;
+    text-align: left;
+    a {
+      display: inline-block;
+      color: $_textColor;
+    }
 
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    &__item {
+      display: block;
+      // リッチテキスト等で文字サイズ（最小8px）を入れても画像を切れない様にする為
+      min-height: 36px * .5;
+      padding: 0 0 0 50px * .5;
+      background-image: url("../imgs/navItem/navItem001/sp_navItem001_v4.svg");
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      background-size: 36px * .5 36px * .5;
+      p {
+        display: inline-block;
+        border-bottom: 1px solid #55c0f9;
+      }
+
+      + #{$_block}__item {
+        margin: 20px 0 0;
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav5 {
+    $_block: &;
+    $_fontSize: 16;
+    $_lineHeight: 1;
+    $_textColor: #222;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -302,13 +361,13 @@
       // リッチテキスト等で文字サイズ（最小8px）を入れても画像を切れない様にする為
       min-height: 36px *.5;
       padding: 0 0 0 50px *.5;
-      background-image: url("../imgs/navItem/navItem001/sp_navItem001_v4.svg");
+      background-image: url("../imgs/navItem/navItem001/sp_navItem001_v5.svg");
       background-repeat: no-repeat;
       background-position: left bottom;
       background-size: 36px *.5 36px *.5;
       p {
         display: inline-block;
-        border-bottom: 1px solid #55c0f9;
+        border-bottom: 1px solid #888;
       }
 
       + #{$_block}__item {

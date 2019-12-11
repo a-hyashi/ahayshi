@@ -1,0 +1,87 @@
+@if $device == PC {
+  .t0-b-twoColsMediaCardLandscape2col {
+    &__wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__row {
+      display: flex;
+      width: calc(96% / 2);
+      margin: 0 0 40px;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(#000, .05);
+    }
+
+    &__colSpace {
+      width: 4%;
+    }
+
+    [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col2"],
+    [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col4"] {
+      flex: 1;
+      margin: 3% 3% 0;
+    }
+
+    &--colW-l {
+      [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col1"],
+      [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col3"] {
+        width: 50%;
+        height: auto;
+      }
+    }
+
+    &--colW-m {
+      [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col1"],
+      [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col3"] {
+        width: 40%;
+        height: auto;
+      }
+    }
+
+    &--colW-s {
+      [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col1"],
+      [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col3"] {
+        width: 30%;
+        height: auto;
+      }
+    }
+
+    &--imgR {
+      .t0-b-twoColsMediaCardLandscape2col {
+        &__row {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-twoColsMediaCardLandscape2col {
+    display: flex;
+    flex-direction: column;
+    &__row {
+      width: 100%;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(#000, .05);
+    }
+
+    [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col1"],
+    [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col3"] {
+      // 「列の大きさ」を「自分で選択」にした場合、userEditWidthの値がHTML内に出力されるので!importantをつけている
+      width: 100% !important;
+    }
+
+    [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col2"],
+    [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col4"],
+    [class^="t0-b-twoColsMediaCardLandscape2col__row"][class*="col6"] {
+      padding: 16px 24px 0;
+    }
+  }
+}

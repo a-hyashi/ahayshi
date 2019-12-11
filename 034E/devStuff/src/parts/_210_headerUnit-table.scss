@@ -26,14 +26,13 @@
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #777;
     $_color_table_th_bg: #e7e7e7;
-    $_color_table_td_typo: $textcolor;
+    $_color_table_td_typo: $g-textColor;
     color: #fff;
-
     white-space: nowrap;
     a {
       color: #fff;
       &:hover {
-        color: $hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -49,7 +48,7 @@
     ol {
       padding: 0 0 0 25px;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -57,18 +56,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -80,7 +72,7 @@
     ul {
       padding: 0 0 0 25px;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -88,18 +80,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -131,7 +116,7 @@
 
       ul,
       ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -142,18 +127,18 @@
       }
 
       th {
-        color: $textcolor;
+        color: $g-textColor;
         background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
         a {
-          color: $textcolor;
+          color: $g-textColor;
         }
       }
 
       td {
-        color: $textcolor;
+        color: $g-textColor;
         a {
-          color: $textcolor;
+          color: $g-textColor;
         }
       }
     }
@@ -192,8 +177,7 @@
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     $_color_table_border: #777;
     $_color_table_th_bg: #e7e7e7;
-    $_color_table_td_typo: $textcolor;
-
+    $_color_table_td_typo: $g-textColor;
     color: #fff;
     a {
       color: #fff;
@@ -211,7 +195,7 @@
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -219,18 +203,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -242,7 +219,7 @@
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -250,18 +227,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before,
-        &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -293,7 +263,7 @@
 
       ul,
       ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -304,18 +274,18 @@
       }
 
       th {
-        color: $textcolor;
+        color: $g-textColor;
         background: $_color_table_th_bg;
         border-bottom: 1px solid $_color_table_border;
         a {
-          color: $textcolor;
+          color: $g-textColor;
         }
       }
 
       td {
-        color: $textcolor;
+        color: $g-textColor;
         a {
-          color: $textcolor;
+          color: $g-textColor;
         }
       }
     }

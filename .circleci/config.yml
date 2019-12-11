@@ -1,15 +1,22 @@
 version: 2.1
-jobs:
-  lint:
+executors:
+  default:
     docker:
       - image: centos:centos7
+        environment:
+          TZ: Asia/Tokyo
+
+commands:
+  setup:
     steps:
       # Dockerfileと同一の環境を構築する
       - run: rpm -i https://rpm.nodesource.com/pub_11.x/el/7/x86_64/nodejs-11.10.1-1nodesource.x86_64.rpm
       - run: npm install -g npm@6.9.0
       - run: npm install -g gulp@3.9.1
-      - run: yum install -y make gcc*
+      - run: yum install -y git make gcc*
 
+  clone:
+    steps:
       # コードを落とす
       - restore_cache:
           keys:
@@ -22,6 +29,8 @@ jobs:
           paths:
             - ".git"
 
+  npm_install:
+    steps:
       # あればキャッシュを使いnpm installする
       - restore_cache:
           key: v1-npm-deps-{{ checksum "package.json" }}
@@ -33,11 +42,57 @@ jobs:
             - node_modules
           key: v1-npm-deps-{{ checksum "package.json" }}
 
-      # lintを実行する
+jobs:
+  lint:
+    executor:
+      name: default
+    steps:
+      - setup
+      - clone
+      - npm_install
       - run: ./.circleci/lint.sh
+
+  build:
+    executor:
+      name: default
+    steps:
+      - setup
+      - clone
+      - npm_install
+      - run: ./.circleci/build.sh
+
+  output:
+    executor:
+      name: default
+    steps:
+      - setup
+      - clone
+      - npm_install
+      - add_ssh_keys:
+          fingerprints:
+            - "ac:f3:69:74:e5:d3:82:42:c1:ed:df:11:5b:6f:7c:11"
+      - run: ./.circleci/output.sh
 
 workflows:
   version: 2
   lint:
     jobs:
       - lint
+  build:
+    jobs:
+      - build
+  output:
+    jobs:
+      - approval:
+          type: approval
+          filters:
+            branches:
+              only:
+                - master
+      - output:
+          requires:
+            - approval
+          filters:
+            branches:
+              only:
+                - master

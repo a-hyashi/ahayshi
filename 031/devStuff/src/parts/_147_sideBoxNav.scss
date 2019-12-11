@@ -1,13 +1,11 @@
 @if $device == PC {
   .t0-b-sideBoxNav {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -39,33 +37,18 @@
       }
 
       > div {
-        border-bottom: 1px solid $g-hovercolor;
+        border-bottom: 1px solid $g-hoverColor;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav2 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -97,33 +80,18 @@
       }
 
       > div {
-        border-bottom: 1px solid $g-hovercolor;
+        border-bottom: 1px solid $g-hoverColor;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav3 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -158,30 +126,15 @@
         border-bottom: 1px solid #ce005a;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav4 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -216,39 +169,23 @@
         border-bottom: 1px solid #ce005a;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav5 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #ae6200;
-
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
     text-shadow: 1px 1px 0 #fff;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
       #{$_block}__inner {
         > div {
-          // borderアニメーション
           position: relative;
           display: inline-block;
           vertical-align: middle;
@@ -259,21 +196,19 @@
             display: inline-block;
             width: 0;
             height: 1px;
-            content: '';
-            background-color: $g-hovercolor;
+            content: "";
+            background-color: $g-hoverColor;
             transition: .3s;
           }
         }
 
         &:hover {
           &::after {
-            //矢印アニメーション
             right: -10px;
           }
 
           > div {
             color: #6a3c00;
-            // borderアニメーション
             &::before {
               width: 100%;
             }
@@ -283,7 +218,6 @@
     }
 
     &__inner {
-      //矢印アニメーション
       position: relative;
       display: inline-block;
       padding: 0 25px 0 0;
@@ -305,36 +239,19 @@
         transform: translateY(-50%);
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav6 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    // リンク設定なしで寄せ（中央・右）が効かなくなってしまうため使用。（下線が内容の量によって伸縮し、中央寄せ・右寄せができる状態を実現）
-    // 直下の要素（&__inner）のdisplayにはtable-cellではなくflexを指定しているため、tableである必要は無い
+    // リンク設定なしで位置指定が効かなくなってしまうのを防ぐ
     display: table;
-
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -376,45 +293,29 @@
       }
 
       > div {
-        // IE11で表示崩れを防ぐためflex-basisの指定省略時の初期値であるautoを指定しておく
+        // IE11の表示崩れを防ぐ
         flex: 1 1 auto;
         order: 1;
         border-bottom: 2px solid #dd6f9f;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav7 {
-
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #52271c;
-
     // ホバーアニメーションで上に移動する分の余白を持たせておく
     padding-top: 4px;
     // ホバーアニメーションで右に移動する分の余白を持たせておく
     padding-right: 10px;
     // 下線がbPlacerの余白の中に入り込まないための余白
     padding-bottom: 2px;
-
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -425,8 +326,7 @@
             top: -4px;
           }
 
-          &::before,
-          &::after {
+          &::before, &::after {
             position: absolute;
             bottom: -2px;
             left: 10px;
@@ -463,8 +363,7 @@
         transition: .3s;
       }
 
-      &::before,
-      &::after {
+      &::before, &::after {
         position: absolute;
         bottom: -2px;
         left: 0;
@@ -487,31 +386,16 @@
         background-color: #52271c;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 }
 
 @if $device == SP {
   .t0-b-sideBoxNav {
-
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -527,42 +411,27 @@
       }
 
       > span {
-        width: 50px *.5;
-        height: 37px *.5;
+        width: 50px * .5;
+        height: 37px * .5;
         text-align: left;
         background-image: url("../imgs/common/navItem002/Link_arrow001_size3_v1.png");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 37px *.5 37px *.5;
+        background-size: 37px * .5 37px * .5;
       }
 
       > div {
-        border-bottom: 1px solid $g-hovercolor;
+        border-bottom: 1px solid $g-hoverColor;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav2 {
-
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -578,42 +447,27 @@
       }
 
       > span {
-        width: 50px *.5;
-        height: 36px *.5;
+        width: 50px * .5;
+        height: 36px * .5;
         text-align: left;
         background-image: url("../imgs/common/navItem002/Link_arrow002_size3_v2.png");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 36px *.5 36px *.5;
+        background-size: 36px * .5 36px * .5;
       }
 
       > div {
-        border-bottom: 1px solid $g-hovercolor;
+        border-bottom: 1px solid $g-hoverColor;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav3 {
-
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -629,42 +483,27 @@
       }
 
       > span {
-        width: 50px *.5;
-        height: 37px *.5;
+        width: 50px * .5;
+        height: 37px * .5;
         text-align: left;
         background-image: url("../imgs/common/navItem002/Link_arrow003_size3_v3.png");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 37px *.5 37px *.5;
+        background-size: 37px * .5 37px * .5;
       }
 
       > div {
         border-bottom: 1px solid #ce005a;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav4 {
-
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -680,45 +519,30 @@
       }
 
       > span {
-        width: 50px *.5;
-        height: 36px *.5;
+        width: 50px * .5;
+        height: 36px * .5;
         text-align: left;
         background-image: url("../imgs/common/navItem002/Link_arrow004_size3_v4.png");
         background-repeat: no-repeat;
         background-position: left center;
-        background-size: 36px *.5 36px *.5;
+        background-size: 36px * .5 36px * .5;
       }
 
       > div {
         border-bottom: 1px solid #ce005a;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav5 {
-
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #ae6200;
-
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
     text-shadow: 1px 1px 0 #fff;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -728,50 +552,33 @@
       display: flex;
       align-items: center;
       > span {
-        // 文字量が多くなっても矢印装飾が欠けないようにするための指定
+        // 文字量が多くなっても矢印装飾が欠けないように
         flex-shrink: 0;
         order: 2;
-        width: 40px *.5;
-        height: 16px *.5;
+        width: 40px * .5;
+        height: 16px * .5;
         background-image: url("../imgs/common/navItem002/Link_arrow005_size3_v5.png");
         background-repeat: no-repeat;
         background-position: right center;
-        background-size: 31px *.5 16px *.5;
+        background-size: 31px * .5 16px * .5;
       }
 
       > div {
         order: 1;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav6 {
-
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #816739;
-
-    // リンク設定なしで寄せ（中央・右）が効かなくなってしまうため使用。（下線が内容の量によって伸縮し、中央寄せ・右寄せができる状態を実現）
-    // 直下の要素（&__inner）のdisplayにはtable-cellではなくflexを指定しているため、tableである必要は無い
+    // リンク設定なしで位置指定が効かなくなってしまうのを防ぐ
     display: table;
-
-    font-family: $tenorsans;
+    font-family: $font-tenorSans;
     color: $_textColor;
     text-align: left;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    @include g-font($_fontSize, $_lineHeight);
     a {
       display: inline-block;
       color: $_textColor;
@@ -782,47 +589,32 @@
       // 文字の下線とアイコンの下端を揃えるためにPCと異なる実装にしている
       align-items: flex-end;
       > span {
-        flex: 0 0 50px *.5;
+        flex: 0 0 50px * .5;
         order: 2;
-        width: 50px *.5;
-        height: 36px *.5;
+        width: 50px * .5;
+        height: 36px * .5;
         background-image: url("../imgs/common/navItem002/sp_Link_arrow006_v6_02.png");
         background-repeat: no-repeat;
         background-position: right bottom;
-        background-size: 36px *.5 36px *.5;
+        background-size: 36px * .5 36px * .5;
       }
 
       > div {
-        // IE11で表示崩れを防ぐためflex-basisの指定省略時の初期値であるautoを指定しておく。SPは書き方を統一する目的で念のため追加。
+        // IE11の表示崩れを防ぐ。SPは書き方を統一する目的で念のため追加
         flex: 1 1 auto;
         order: 1;
         // 文字の下線とアイコンの下端を揃えるためにPCと異なる実装にしている
         box-shadow: 0 -2px #dd6f9f inset;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 
   .t0-b-sideBoxNav7 {
-
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
+    $_fontSize: 16;
+    $_lineHeight: 1;
     $_textColor: #52271c;
-
-    font-family: $tenorsans;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     color: $_textColor;
     text-align: left;
     a {
@@ -833,11 +625,10 @@
     &__inner {
       position: relative;
       display: inline-block;
-      // 文字が空でも矢印装飾が欠けないようにするためのmin-height
+      // 文字が空でも矢印装飾が欠けないように
       min-height: 8px;
-      padding: 0 46px *.5 4px 22px *.5;
-      &::before,
-      &::after {
+      padding: 0 46px * .5 4px 22px * .5;
+      &::before, &::after {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -851,7 +642,7 @@
         background-image: url("../imgs/common/navItem002/Link_arrow007_size3_v7.png");
         background-repeat: no-repeat;
         background-position: right bottom;
-        background-size: 239px *.5 25px *.5;
+        background-size: 239px * .5 25px * .5;
       }
 
       &::after {
@@ -859,18 +650,5 @@
         background-color: #52271c;
       }
     }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-    // 位置指定なし
   }
 }

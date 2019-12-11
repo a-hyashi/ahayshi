@@ -1,30 +1,24 @@
-$g-baseFontSize: 14px;
-$baseFontSize: 14px;
-$g-baseTextColor: #555;
-$g-baseHoverColor: #ee8100;
-
-$g-textcolor: #555;
-$g-hovercolor: #ee8100;
-
-$_lineHeightType: 1;
-$_fontSizeDifference: 4;
-
+$g-fontSize: 14px;
+$_lineHeight: 1;
+$_fontSizeDiff: 4;
+$g-leftSpacingBaseLength: 6;
+$g-spacingBaseLength: 5;
 html {
-  font-size: $g-baseFontSize;
-  $baseFontSize: 14px;
+  font-size: $g-fontSize;
 }
 
 body.mod-body,
 div.mod-body {
   font-weight: 500;
-  font-size: $g-baseFontSize;
-  font-family: $gothic;
+  font-size: $g-fontSize;
+  font-family: $font-gothic;
   color: $g-baseTextColor;
 }
 
 .mod-body {
   button, input, optgroup, select, textarea {
-    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
+    // normalize.cssによるフォントファミリーの指定を上書き
+    font-family: $font-gothic;
   }
 }
 
@@ -39,6 +33,18 @@ a {
       color: $g-baseHoverColor;
     }
   }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @if $device == SP {
@@ -47,93 +53,46 @@ a {
   }
 }
 
-.cms-admin-anchorFlag{
-  z-index: 10!important;
-  position: relative;
-}
-// これはadmin.cssに移行するべき
-
-$g-spacingBaseLength: 5;
-$g-leftSpacingBaseLength: 6;
-
-@if $device == PC {
-  // 上の余白調整
-  @for $_i from 1 through 10 {
-    .ex-topSpacingTweak-up-#{$_i}s {
-      margin-top: #{-1% * $_i};
-    }
-    .ex-topSpacingTweak-down-#{$_i}s {
-      margin-top: #{1% * $_i};
-    }
-  }
-
-  // 左の余白調整
-  @for $_i from 1 through 10 {
-    .ex-leftSpacingTweak-narrow-#{$_i}s {
-      margin-left: #{-1 * $_i * $g-leftSpacingBaseLength}px;
-    }
-    .ex-leftSpacingTweak-spread-#{$_i}s {
-      margin-left: #{$_i * $g-leftSpacingBaseLength}px;
-    }
-  }
-}
-
 @mixin cf {
-  &:before,
-  &:after {
+  &::before, &::after {
     content: "";
     display: table;
   }
-  &:after {
+
+  &::after {
     clear: both;
   }
 }
-
 
 @mixin g-rteTableReset() {
   th, td {
     > table:first-child {
       margin-top: 0;
     }
+
     > ul:first-child {
       margin-top: 0;
     }
+
     > ol:first-child {
       margin-top: 0;
     }
+
     > p:first-child {
       margin-top: 0;
     }
+
     > hr:first-child {
       margin-top: 0;
     }
   }
 }
 
-$fullWidthBgColor: rgba(146, 138, 76, 0.1);
-$fullWidthBgColor2: rgba(226, 156, 43, 0.2);
-$fullWidthBgColor3: rgba(103, 71, 32, 0.35);
-$fullWidthBgColor4: rgba(97, 130, 0, 0.75);
-$fullWidthBgColor5: transparent;
-
-
-$frameSpacingPC-l: 50px;
-$frameSpacingPC-m: 25px;
-$frameSpacingPC-s: 10px;
-
-$frameSpacingSP-l: 50px;
-$frameSpacingSP-m: 25px;
-$frameSpacingSP-s: 10px;
-
-@if $device == PC {
-  .cms-partsConfig-width-m {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .cms-partsConfig-width-s {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 30px * $size;
   }
 }

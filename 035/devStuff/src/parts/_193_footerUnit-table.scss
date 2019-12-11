@@ -9,7 +9,7 @@
     a {
       color: $_color_table_td;
       &:hover {
-        color: $g-hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -36,7 +36,7 @@
     ol {
       margin: 0 0 0 25px;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -48,13 +48,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -65,7 +59,7 @@
     ul {
       margin: 0 0 0 25px;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -77,13 +71,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -104,7 +92,7 @@
       }
 
       ul, ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -135,7 +123,7 @@
     }
     @include g-rteTableReset();
   }
-}// PC
+}
 
 @if $device == SP {
   .t0-b-footerUnit-table {
@@ -171,7 +159,7 @@
     ol {
       margin: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -183,13 +171,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -200,7 +182,7 @@
     ul {
       margin: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -212,13 +194,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEはlist-itemのpseudo elementにバグあり。その対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -227,7 +203,6 @@
     }
 
     table {
-      //white-space: nowrap
       width: 100%;
       margin-top: 15px;
       tr {
@@ -245,7 +220,7 @@
       }
 
       ul, ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -271,4 +246,4 @@
     }
     @include g-rteTableReset();
   }
-}// SP
+}

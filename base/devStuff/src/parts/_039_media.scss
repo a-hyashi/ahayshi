@@ -1,14 +1,9 @@
 @if $device == PC {
   .t0-b-media {
-
-    $_fontSizePx_h: 16;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
-
+    $_block: &;
+    $_fontSize_h: 16;
+    $_fontSize_caption: 14;
     margin: 0 auto;
-
-    // width variations
     &--width-l {
       width: 100%;
     }
@@ -26,12 +21,7 @@
     }
 
     &__h-upper {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
-
+      @include g-font-layout($_fontSize_h, 1, $layout);
       margin-bottom: 3%;
       font-weight: bold;
       text-align: center;
@@ -42,8 +32,6 @@
       line-height: 0;
       text-align: center;
       a {
-        color: $g-baseFontColor;
-        text-decoration: none;
         &:hover {
           opacity: .8;
         }
@@ -60,12 +48,12 @@
       right: 0;
       left: 0;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        // 3行以上は入らないように
         max-height: 66px;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
@@ -75,22 +63,17 @@
       bottom: 0;
       left: 0;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        // 3行以上は入らないように
         max-height: 66px;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
     &__h-lower {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
-
+      @include g-font-layout($_fontSize_h, 1, $layout);
       margin-top: 3%;
       font-weight: bold;
       text-align: center;
@@ -107,10 +90,6 @@
         text-align: center;
         > a {
           color: inherit;
-          text-decoration: none;
-          &:hover {
-            color: $hovercolor;
-          }
         }
       }
 
@@ -133,29 +112,22 @@
 
     &__h-upper,
     &__h-lower {
-      a {
-        color: $textcolor;
-        text-decoration: none;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
-
       div {
         display: inline-block;
       }
     }
   }
+
   .t0-b-media2 {
-
-    $_fontSizePx_h: 16;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
-
+    $_fontSize_h: 16;
+    $_fontSize_caption: 14;
     margin: 0 auto;
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
 
-    // width variations
     &--width-l {
       width: 100%;
     }
@@ -169,16 +141,14 @@
     }
 
     img {
+      display: block;
       width: 100%;
+      height: auto;
+      border-radius: 50%;
     }
 
     &__h-upper {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
-
+      @include g-font-layout($_fontSize_h, 1, $layout);
       margin-bottom: 3%;
       font-weight: bold;
       text-align: center;
@@ -189,8 +159,7 @@
       line-height: 0;
       text-align: center;
       a {
-        color: $g-baseFontColor;
-        text-decoration: none;
+        display: block;
         &:hover {
           opacity: .8;
         }
@@ -206,13 +175,23 @@
       top: 0;
       right: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        // 3行以上は入らないように
         max-height: 66px;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        padding: 15px 5px 10px;
+        pointer-events: auto;
+        background: rgba($media_BGColor, .8);
       }
     }
 
@@ -221,26 +200,35 @@
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // 3行以上は入らないように
         max-height: 66px;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        padding: 10px 5px 15px;
+        pointer-events: auto;
+        background: rgba($media_BGColor, .8);
       }
     }
 
     &__h-lower {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
-
+      @include g-font-layout($_fontSize_h, 1, $layout);
       margin-top: 3%;
       font-weight: bold;
       text-align: center;
+      div {
+        display: inline-block;
+      }
+
       & + div {
         margin-top: 5%;
       }
@@ -254,10 +242,6 @@
         text-align: center;
         > a {
           color: inherit;
-          text-decoration: none;
-          &:hover {
-            color: $hovercolor;
-          }
         }
       }
 
@@ -280,29 +264,22 @@
 
     &__h-upper,
     &__h-lower {
-      a {
-        color: $textcolor;
-        text-decoration: none;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
-
       div {
         display: inline-block;
       }
     }
   }
+
   .t0-b-media3 {
-
-    $_fontSizePx_h: 16;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
-
+    $_fontSize_h: 16;
+    $_fontSize_caption: 14;
     margin: 0 auto;
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
 
-    // width variations
     &--width-l {
       width: 100%;
     }
@@ -316,16 +293,14 @@
     }
 
     img {
+      display: block;
       width: 100%;
+      height: auto;
+      transition: .5s ease;
     }
 
     &__h-upper {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
-
+      @include g-font-layout($_fontSize_h, 1, $layout);
       margin-bottom: 3%;
       font-weight: bold;
       text-align: center;
@@ -333,13 +308,16 @@
 
     &__media {
       position: relative;
-      line-height: 0;
+      overflow: hidden;
       text-align: center;
       a {
-        color: $g-baseFontColor;
-        text-decoration: none;
+        display: block;
+        transition: .5s ease;
         &:hover {
           opacity: .8;
+          img {
+            transform: scale(1.2);
+          }
         }
       }
 
@@ -353,13 +331,14 @@
       top: 0;
       right: 0;
       left: 0;
+      z-index: 1;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        // 3行以上は入らないように
         max-height: 66px;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
@@ -369,22 +348,17 @@
       bottom: 0;
       left: 0;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        // 3行以上は入らないように
         max-height: 66px;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
     &__h-lower {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx_h + 4, $_lineHeightType_h);
-      } @else {
-        @include g-font($_fontSizePx_h, $_lineHeightType_h);
-      }
-
+      @include g-font-layout($_fontSize_h, 1, $layout);
       margin-top: 3%;
       font-weight: bold;
       text-align: center;
@@ -401,10 +375,6 @@
         text-align: center;
         > a {
           color: inherit;
-          text-decoration: none;
-          &:hover {
-            color: $hovercolor;
-          }
         }
       }
 
@@ -427,14 +397,6 @@
 
     &__h-upper,
     &__h-lower {
-      a {
-        color: $textcolor;
-        text-decoration: none;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
-
       div {
         display: inline-block;
       }
@@ -459,13 +421,9 @@
 
 @if $device == SP {
   .t0-b-media {
-    $_fontSizePx_h: 16;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSize_h: 16;
+    $_fontSize_caption: 14;
     margin: 0 auto;
-
-    // width variations
     &--width-l {
       width: 100%;
     }
@@ -483,20 +441,15 @@
     }
 
     &__h-upper {
-      @include g-font($_fontSizePx_h, $_lineHeightType_h);
-
+      @include g-font($_fontSize_h);
       margin: 0 0 10px;
       text-align: center;
     }
 
     &__media {
       position: relative;
+      line-height: 0;
       text-align: center;
-      a {
-        color: $g-baseFontColor;
-        text-decoration: none;
-      }
-
       & + div {
         margin-top: 10px;
       }
@@ -508,10 +461,10 @@
       right: 0;
       left: 0;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
@@ -521,16 +474,15 @@
       bottom: 0;
       left: 0;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
     &__h-lower {
-      @include g-font(16, 1);
-
+      @include g-font(16);
       margin: 10px 0 0;
       text-align: center;
       & + div {
@@ -565,11 +517,6 @@
 
     &__h-upper,
     &__h-lower {
-      a {
-        color: $textcolor;
-        text-decoration: none;
-      }
-
       div {
         display: inline-block;
       }
@@ -577,13 +524,15 @@
   }
 
   .t0-b-media2 {
-    $_fontSizePx_h: 16;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSize_h: 16;
+    $_fontSize_caption: 14;
     margin: 0 auto;
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
 
-    // width variations
     &--width-l {
       width: 100%;
     }
@@ -597,12 +546,13 @@
     }
 
     img {
+      display: block;
       width: 100%;
+      border-radius: 50%;
     }
 
     &__h-upper {
-      @include g-font($_fontSizePx_h, $_lineHeightType_h);
-
+      @include g-font($_fontSize_h);
       margin: 0 0 10px;
       text-align: center;
     }
@@ -611,8 +561,7 @@
       position: relative;
       text-align: center;
       a {
-        color: $g-baseFontColor;
-        text-decoration: none;
+        display: block;
       }
 
       & + div {
@@ -624,31 +573,50 @@
       position: absolute;
       top: 0;
       right: 0;
+      bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 15px 5px 10px;
+        pointer-events: auto;
+        background: rgba($media_BGColor, .8);
       }
     }
 
     &__textOnImage-lower {
       position: absolute;
+      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
-        padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 10px 5px 15px;
+        pointer-events: auto;
+        background: rgba($media_BGColor, .8);
       }
     }
 
     &__h-lower {
-      @include g-font(16, 1);
-
+      @include g-font(16);
       margin: 10px 0 0;
       text-align: center;
       & + div {
@@ -683,11 +651,6 @@
 
     &__h-upper,
     &__h-lower {
-      a {
-        color: $textcolor;
-        text-decoration: none;
-      }
-
       div {
         display: inline-block;
       }
@@ -695,13 +658,15 @@
   }
 
   .t0-b-media3 {
-    $_fontSizePx_h: 16;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSize_h: 16;
+    $_fontSize_caption: 14;
     margin: 0 auto;
+    > * {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
 
-    // width variations
     &--width-l {
       width: 100%;
     }
@@ -715,12 +680,12 @@
     }
 
     img {
+      display: block;
       width: 100%;
     }
 
     &__h-upper {
-      @include g-font($_fontSizePx_h, $_lineHeightType_h);
-
+      @include g-font($_fontSize_h);
       margin: 0 0 10px;
       text-align: center;
     }
@@ -728,11 +693,6 @@
     &__media {
       position: relative;
       text-align: center;
-      a {
-        color: $g-baseFontColor;
-        text-decoration: none;
-      }
-
       & + div {
         margin-top: 10px;
       }
@@ -744,10 +704,10 @@
       right: 0;
       left: 0;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
@@ -757,16 +717,15 @@
       bottom: 0;
       left: 0;
       p {
-        @include g-font(18,1);
+        @include g-font(18);
         @include g-textOuterGlow;
         padding: 10px 5px;
-        background: rgba(255, 255, 255, .8);
+        background: rgba($media_BGColor, .8);
       }
     }
 
     &__h-lower {
-      @include g-font(16, 1);
-
+      @include g-font(16);
       margin: 10px 0 0;
       text-align: center;
       & + div {
@@ -801,11 +760,6 @@
 
     &__h-upper,
     &__h-lower {
-      a {
-        color: $textcolor;
-        text-decoration: none;
-      }
-
       div {
         display: inline-block;
       }

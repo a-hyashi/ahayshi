@@ -1,0 +1,369 @@
+// デザイン仕様 d07 SPではRTEによるフォントサイズ変更を無効にするために必要。mixin g-fontの!importantと合わせて使用する
+span {
+  font-size: inherit !important;
+}
+
+// 第2引数を入れない場合、$lineHeightは初期値1となる
+// 第2引数が0の場合には、line-heightの値を出力しない
+@mixin g-font($fontSize, $lineHeight: 1) {
+  @if $lineHeight == 1 {
+    line-height: 1.25;
+  }
+
+  @if $lineHeight == 2 {
+    line-height: 1.6;
+  }
+
+  @if $fontSize == 8 {
+    font-size: .571em !important;
+  }
+
+  @if $fontSize == 10 {
+    font-size: .714em !important;
+  }
+
+  @if $fontSize == 12 {
+    font-size: .857em !important;
+  }
+
+  @if $fontSize == 14 {
+    font-size: 1em !important;
+  }
+
+  @if $fontSize == 16 {
+    font-size: 1.143em !important;
+  }
+
+  @if $fontSize == 18 {
+    font-size: 1.286em !important;
+  }
+
+  @if $fontSize == 20 {
+    font-size: 1.429em !important;
+  }
+
+  @if $fontSize == 22 {
+    font-size: 1.571em !important;
+  }
+
+  @if $fontSize == 24 {
+    font-size: 1.714em !important;
+  }
+
+  @if $fontSize == 26 {
+    font-size: 1.857em !important;
+  }
+
+  @if $fontSize == 28 {
+    font-size: 2em !important;
+  }
+
+  @if $fontSize == 30 {
+    font-size: 2.143em !important;
+  }
+
+  @if $fontSize == 32 {
+    font-size: 2.286em !important;
+  }
+
+  @if $fontSize == 34 {
+    font-size: 2.429em !important;
+  }
+
+  @if $fontSize == 36 {
+    font-size: 2.571em !important;
+  }
+
+  @if $fontSize == 38 {
+    font-size: 2.714em !important;
+  }
+
+  @if $fontSize == 40 {
+    font-size: 2.857em !important;
+  }
+
+  @if $fontSize == 42 {
+    font-size: 3em !important;
+  }
+
+  @if $fontSize == 44 {
+    font-size: 3.143em !important;
+  }
+
+  @if $fontSize == 46 {
+    font-size: 3.286em !important;
+  }
+
+  @if $fontSize == 48 {
+    font-size: 3.429em !important;
+  }
+
+  @if $fontSize == 50 {
+    font-size: 3.571em !important;
+  }
+
+  @if $fontSize == 52 {
+    font-size: 3.714em !important;
+  }
+
+  @if $fontSize == 54 {
+    font-size: 3.857em !important;
+  }
+
+  @if $fontSize == 56 {
+    font-size: 4em !important;
+  }
+
+  @if $fontSize == 58 {
+    font-size: 4.143em !important;
+  }
+
+  @if $fontSize == 60 {
+    font-size: 4.286em !important;
+  }
+
+  @if $fontSize == 62 {
+    font-size: 4.429em !important;
+  }
+
+  @if $fontSize == 64 {
+    font-size: 4.571em !important;
+  }
+
+  @if $fontSize == 66 {
+    font-size: 4.714em !important;
+  }
+
+  @if $fontSize == 68 {
+    font-size: 4.857em !important;
+  }
+
+  @if $fontSize == 70 {
+    font-size: 5em !important;
+  }
+
+  @if $fontSize == 72 {
+    font-size: 5.143em !important;
+  }
+
+  @if $fontSize == 74 {
+    font-size: 5.286em !important;
+  }
+
+  @if $fontSize == 76 {
+    font-size: 5.429em !important;
+  }
+}
+
+@mixin g-font-killSpacing($position, $fontSize, $lineHeight: 1) {
+  @if $position == top {
+    &::before {
+      content: "";
+      display: block;
+      height: 0;
+      @if $lineHeight == 1 {
+        @if $fontSize < 14 {
+          margin-top: -.05em;
+        }
+        @else if $fontSize == 20 {
+          margin-top: -.175em;
+        }
+        @else if $fontSize == 22 {
+          margin-top: -.175em;
+        }
+        @else if $fontSize < 24 {
+          margin-top: -.08em;
+        }
+        @else {
+          margin-top: -.15em;
+        }
+      }
+
+      @if $lineHeight == 2 {
+        margin-top: -.3em;
+      }
+    }
+  }
+
+  @if $position == bottom {
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+      @if $lineHeight == 1 {
+        @if $fontSize == 12 {
+          margin-top: -.25em;
+        }
+        @else if $fontSize == 16 {
+          margin-top: -.25em;
+        }
+        @else {
+          margin-top: -.18em;
+        }
+      }
+
+      @if $lineHeight == 2 {
+        @if $fontSize < 18 {
+          margin-top: -.4em;
+        }
+        @else {
+          margin-top: -.35em;
+        }
+      }
+    }
+  }
+}
+
+@mixin g-font-spacingKilled($fontSize, $lineHeight: 1) {
+  @include g-font($fontSize, $lineHeight);
+  @include g-font-killSpacing(top, $fontSize, $lineHeight);
+  @include g-font-killSpacing(bottom, $fontSize, $lineHeight);
+}
+
+@mixin g-linePadKiller-top($preset) {
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+    @if $preset == 1 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 2 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 3 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 4 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 5 {
+      margin-top: -.025em;
+    }
+
+    @if $preset == 6 {
+      margin-top: -.075em;
+    }
+
+    @if $preset == 7 {
+      margin-top: -.05em;
+    }
+
+    @if $preset == 8 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 9 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 10 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 11 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 12 {
+      margin-top: -.125em;
+    }
+
+    @if $preset == 13 {
+      margin-top: -.1em;
+    }
+
+    @if $preset == 14 {
+      margin-top: -.1em;
+    }
+  }
+}
+
+@mixin g-linePadKiller-bottom($preset) {
+  &::after {
+    content: "";
+    display: block;
+    height: 0;
+    @if $preset == 1 {
+      margin-top: -.25em;
+    }
+
+    @if $preset == 2 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 3 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 4 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 5 {
+      margin-top: -.125em;
+    }
+
+    @if $preset == 6 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 7 {
+      margin-top: -.2em;
+    }
+
+    @if $preset == 8 {
+      margin-top: -.175em;
+    }
+
+    @if $preset == 9 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 10 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 11 {
+      margin-top: -.15em;
+    }
+
+    @if $preset == 12 {
+      margin-top: -.225em;
+    }
+
+    @if $preset == 13 {
+      margin-top: -.175em;
+    }
+
+    @if $preset == 14 {
+      margin-top: -.175em;
+    }
+  }
+}
+
+@mixin cf {
+  &::before, &::after {
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

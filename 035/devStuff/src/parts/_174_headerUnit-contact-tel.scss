@@ -4,10 +4,9 @@
     white-space: nowrap;
     $_block: &;
     color: #ee8100;
-    // アイコンサイズ設定
-    $iconSmallWidth: 37px * .8;
-    $iconBigWidth: 37px * 1.2;
-    $iconVeryBigWidth: 37px * 1.3;
+    $_iconSmallWidth: 37px * .8;
+    $_iconBigWidth: 37px * 1.2;
+    $_iconVeryBigWidth: 37px * 1.3;
     &__ruby {
       text-align: right;
       padding: 0 0 7px;
@@ -57,12 +56,12 @@
       }
 
       #{$_block}__free {
-        width: $iconSmallWidth;
-        // 2.pngの幅31px,高さ18px、2.pngの幅に対する仕様値$iconSmallWidthの割合を,2.pngの高さに掛けて、2.pngの仕様値を計算。
-        height: 18 * ($iconSmallWidth / 31);
+        width: $_iconSmallWidth;
+        // 画像の幅に対する$_iconSmallidthの割合を、画像の高さに掛ける
+        height: 18 * ($_iconSmallWidth / 31);
         margin: 6px 6px 0 0;
         background-image: url("../imgs/t0-b-headerUnit-contact/free/2.png");
-        background-size: $iconSmallWidth, 18 * ($iconSmallWidth / 31);
+        background-size: $_iconSmallWidth, 18 * ($_iconSmallWidth / 31);
       }
 
       #{$_block}__cell {
@@ -148,12 +147,12 @@
       }
 
       #{$_block}__free {
-        width: $iconBigWidth;
-        // 5.pngの幅51px,高さ29px、5.pngの幅に対する仕様値$iconBigWidthの割合を 5.pngの高さに掛けて、5.pngの仕様値を計算。
-        height: 29 * ($iconBigWidth / 51);
+        width: $_iconBigWidth;
+        // 画像の幅に対する$_iconBigWidthの割合を、画像の高さに掛ける
+        height: 29 * ($_iconBigWidth / 51);
         margin: 10px 8px 0 0;
         background-image: url("../imgs/t0-b-headerUnit-contact/free/5.png");
-        background-size: $iconBigWidth, 29 * ($iconBigWidth / 51);
+        background-size: $_iconBigWidth, 29 * ($_iconBigWidth / 51);
       }
 
       #{$_block}__cell {
@@ -194,12 +193,12 @@
       }
 
       #{$_block}__free {
-        width: $iconVeryBigWidth;
-        // 5.pngの幅51px,高さ29px、5.pngの幅に対する仕様値$iconVeryBigWidthの割合を,5.pngの高さに掛けて、5.pngの仕様値を計算。
-        height: 29 * ($iconVeryBigWidth / 51);
+        width: $_iconVeryBigWidth;
+        // 画像の幅に対する$_iconBigWidthの割合を、画像の高さに掛ける
+        height: 29 * ($_iconVeryBigWidth / 51);
         margin: 9px 9px 0 0;
         background-image: url("../imgs/t0-b-headerUnit-contact/free/5.png");
-        background-size: $iconVeryBigWidth, 29 * ($iconVeryBigWidth / 51);
+        background-size: $_iconVeryBigWidth, 29 * ($_iconVeryBigWidth / 51);
       }
 
       #{$_block}__cell {
@@ -232,17 +231,17 @@
       display: flex;
       img {
         vertical-align: middle;
-        margin: (-14px) 8px 0 0;
+        margin: -14px 8px 0 0;
       }
     }
 
-    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    // サイト名(中央)に入ったときは中央寄せにする
     .t0-b-headerSingle & {
       margin: 0 auto;
       display: table;
     }
   }
-}// PC
+}
 
 @if $device == SP {
   .t0-b-headerUnit-contact-tel {
@@ -318,4 +317,4 @@
       margin-top: -4px;
     }
   }
-}// SP
+}

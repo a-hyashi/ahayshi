@@ -3,26 +3,18 @@
     $_block: &;
     display: table;
     white-space: nowrap;
-    a {
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor;
-      }
-    }
-
     div {
       display: table-cell;
       vertical-align: middle;
     }
 
     p {
+      @include g-font(16);
       display: table-cell;
       empty-cells: hide;
-      @include g-font(16, 1);
     }
 
-
-    //サイト名中央に入ったときのみ中央寄せの見た目にする
+    // サイト名(中央)に入ったときは中央寄せにする
     .t0-b-headerSingle#{$variation1of2} &,
     .t0-b-headerSingle#{$variation2of2} & {
       display: table;
@@ -34,14 +26,12 @@
 @if $device == SP {
   .t0-b-headerUnit-contact-nav {
     $_block: &;
-
     display: table;
     margin-left: 2.5%;
     font-weight: bold;
     line-height: 0;
     a {
       display: inline-table;
-      text-decoration: none;
     }
 
     div {
@@ -50,9 +40,9 @@
     }
 
     p {
+      @include g-font(16);
       display: table-cell;
       empty-cells: hide;
-      @include g-font(16, 1);
     }
   }
 }

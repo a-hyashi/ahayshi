@@ -1,19 +1,12 @@
 @if $device == PC {
   .t0-b-lv5H-subH {
-    $_fontSizePx: 16;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_lineHeightType: 1;
-
+    $_fontSize: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
     font-weight: bold;
-
     h5 {
-      @if $layout == "N00" {
-        @include g-font($_fontSizePx + 4, $_lineHeightType);
-      } @else {
-        @include g-font($_fontSizePx, $_lineHeightType);
-      }
+      @include g-font-layout($_fontSize, 1, $layout);
     }
 
     &--align-l {
@@ -30,30 +23,17 @@
 
     a {
       display: inline;
-      color: inherit;
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor;
-      }
     }
 
     &--size-1 {
       h5 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_s + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_s, $_lineHeightType);
-        }
+        @include g-font-layout($_fontSize_s, 1, $layout);
       }
     }
 
     &--size-3 {
       h5 {
-        @if $layout == "N00" {
-          @include g-font($_fontSizePx_l + 4, $_lineHeightType);
-        } @else {
-          @include g-font($_fontSizePx_l, $_lineHeightType);
-        }
+        @include g-font-layout($_fontSize_l, 1, $layout);
       }
     }
   }
@@ -61,13 +41,10 @@
 
 @if $device == SP {
   .t0-b-lv5H-subH {
-    $_fontSizePx: 16;
-    $_lineHeightType: 1;
-
+    $_fontSize: 16;
     font-weight: bold;
     h5 {
-      @include g-font($_fontSizePx, $_lineHeightType);
-
+      @include g-font($_fontSize);
       display: inline;
     }
 
@@ -85,8 +62,6 @@
 
     a {
       display: inline;
-      color: inherit;
-      text-decoration: none;
     }
   }
 }

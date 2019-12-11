@@ -1,0 +1,388 @@
+@if $device == PC {
+  .t0-b-footerUnit-contact {
+    $_block: &;
+    $_lineHeight: 1;
+    $_textColor: #003882;
+    $_textColor_note: #333;
+    $_fontSize_note: 16;
+    $_fontSizeDiff_note: 2;
+    $_fontSize_note_s: $_fontSize_note - $_fontSizeDiff_note;
+    $_fontSize_note_m: $_fontSize_note;
+    $_fontSize_note_l: $_fontSize_note + $_fontSizeDiff_note;
+    $_fontSize_note_ll: $_fontSize_note + $_fontSizeDiff_note*2;
+    $_fontSize_ruby: 16;
+    $_fontSizeDiff_ruby: 2;
+    $_fontSize_ruby_s: $_fontSize_ruby - $_fontSizeDiff_ruby;
+    $_fontSize_ruby_m: $_fontSize_ruby;
+    $_fontSize_ruby_l: $_fontSize_ruby + $_fontSizeDiff_ruby;
+    $_fontSize_ruby_ll: $_fontSize_ruby + $_fontSizeDiff_ruby*2;
+    $_fontSize_tel: 42;
+    $_fontSizeDiff_tel: 6;
+    $_fontSize_tel_s: $_fontSize_tel - $_fontSizeDiff_tel;
+    $_fontSize_tel_m: $_fontSize_tel;
+    $_fontSize_tel_l: $_fontSize_tel + $_fontSizeDiff_tel;
+    $_fontSize_tel_ll: $_fontSize_tel + $_fontSizeDiff_tel*2;
+    display: table;
+    &__media {
+      display: table-cell;
+      padding-right: 10px;
+      vertical-align: middle;
+      img {
+        display: block;
+        width: 60px;
+        height: auto;
+      }
+    }
+
+    a {
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd {
+      display: table-cell;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    &__note {
+      font-family: $font-tenorSans;
+      @include g-font($_fontSize_note, $_lineHeight);
+      color: $_textColor_note;
+      a {
+        color: $_textColor_note;
+        text-decoration: underline;
+        &:hover {
+          color: $g-hoverColor;
+        }
+      }
+    }
+
+    &__iconText {
+      color: $_textColor;
+    }
+
+    &__iconTextRuby {
+      @include g-font($_fontSize_ruby_m, $_lineHeight);
+      text-align: right;
+      a {
+        color: $_textColor;
+        text-decoration: underline;
+        &:hover {
+          color: $g-hoverColor;
+        }
+      }
+    }
+
+    &__iconTextBase {
+      display: table;
+      margin: 0 auto;
+      font-family: $font-tenorSans;
+      @include g-font($_fontSize_tel_m, $_lineHeight);
+      #{$_block}__tel + span,
+      #{$_block}__fax + span,
+      #{$_block}__free + span,
+      #{$_block}__cell + span {
+        font-size: 80%;
+      }
+
+      #{$_block}__fax + span,
+      #{$_block}__free + span,
+      #{$_block}__cell + span {
+        padding-top: 3px;
+      }
+
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__tel,
+    &__fax,
+    &__free,
+    &__cell {
+      padding: 0 10px 0 0;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &--size-1 {
+      #{$_block}__note {
+        @include g-font($_fontSize_note_s, $_lineHeight);
+      }
+
+      #{$_block}__iconTextRuby {
+        @include g-font($_fontSize_ruby_s, $_lineHeight);
+      }
+
+      #{$_block}__iconTextBase {
+        @include g-font($_fontSize_tel_s, $_lineHeight);
+      }
+
+      #{$_block}__tel {
+        min-width: 23px;
+        height: 23px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.svg");
+        background-size: 23px 23px;
+      }
+
+      #{$_block}__fax {
+        min-width: 37px;
+        height: 23px;
+        background-image: url("../imgs/contact/contact002/contact002_fax.svg");
+        background-size: 37px 23px;
+      }
+
+      #{$_block}__free {
+        min-width: 43px;
+        height: 23px;
+        background-image: url("../imgs/contact/contact004/contact004_free.svg");
+        background-size: 43px 23px;
+      }
+
+      #{$_block}__cell {
+        min-width: 19px;
+        height: 30px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.svg");
+        background-size: 19px 30px;
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__note {
+        @include g-font($_fontSize_note_m, $_lineHeight);
+      }
+
+      #{$_block}__iconTextRuby {
+        @include g-font($_fontSize_ruby_m, $_lineHeight);
+      }
+
+      #{$_block}__iconTextBase {
+        @include g-font($_fontSize_tel_m, $_lineHeight);
+      }
+
+      #{$_block}__tel {
+        min-width: 26px;
+        height: 26px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.svg");
+        background-size: 26px 26px;
+      }
+
+      #{$_block}__fax {
+        min-width: 40px;
+        height: 26px;
+        background-image: url("../imgs/contact/contact002/contact002_fax.svg");
+        background-size: 40px 26px;
+      }
+
+      #{$_block}__free {
+        min-width: 46px;
+        height: 26px;
+        background-image: url("../imgs/contact/contact004/contact004_free.svg");
+        background-size: 46px 26px;
+      }
+
+      #{$_block}__cell {
+        min-width: 22px;
+        height: 35px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.svg");
+        background-size: 22px 35px;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__note {
+        @include g-font($_fontSize_note_l, $_lineHeight);
+      }
+
+      #{$_block}__iconTextRuby {
+        @include g-font($_fontSize_ruby_l, $_lineHeight);
+      }
+
+      #{$_block}__iconTextBase {
+        @include g-font($_fontSize_tel_l, $_lineHeight);
+      }
+
+      #{$_block}__tel {
+        min-width: 32px;
+        height: 32px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.svg");
+        background-size: 32px 32px;
+      }
+
+      #{$_block}__fax {
+        min-width: 46px;
+        height: 32px;
+        background-image: url("../imgs/contact/contact002/contact002_fax.svg");
+        background-size: 46px 32px;
+      }
+
+      #{$_block}__free {
+        min-width: 52px;
+        height: 32px;
+        background-image: url("../imgs/contact/contact004/contact004_free.svg");
+        background-size: 52px 32px;
+      }
+
+      #{$_block}__cell {
+        min-width: 25px;
+        height: 40px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.svg");
+        background-size: 25px 40px;
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__note {
+        @include g-font($_fontSize_note_ll, $_lineHeight);
+      }
+
+      #{$_block}__iconTextRuby {
+        @include g-font($_fontSize_ruby_ll, $_lineHeight);
+      }
+
+      #{$_block}__iconTextBase {
+        @include g-font($_fontSize_tel_ll, $_lineHeight);
+      }
+
+      #{$_block}__tel {
+        min-width: 34px;
+        height: 34px;
+        background-image: url("../imgs/contact/contact001/contact001_tel.svg");
+        background-size: 34px 34px;
+      }
+
+      #{$_block}__fax {
+        min-width: 52px;
+        height: 35px;
+        background-image: url("../imgs/contact/contact002/contact002_fax.svg");
+        background-size: 52px 35px;
+      }
+
+      #{$_block}__free {
+        min-width: 61px;
+        height: 35px;
+        background-image: url("../imgs/contact/contact004/contact004_free.svg");
+        background-size: 61px 35px;
+      }
+
+      #{$_block}__cell {
+        min-width: 29px;
+        height: 46px;
+        background-image: url("../imgs/contact/contact005/contact005_cell.svg");
+        background-size: 29px 46px;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-contact {
+    $_lineHeight: 1;
+    $_textColor: #003882;
+    $_textColor_note: #333;
+    $_fontSize_note: 16;
+    $_fontSize_ruby: 12;
+    $_fontSize_tel: 22;
+    width: 95%;
+    margin: 0 auto;
+    &__media {
+      padding-bottom: 10px;
+      img {
+        display: block;
+        width: 25%;
+        margin: 0 auto;
+      }
+    }
+
+    &__note {
+      padding-bottom: 10px;
+      font-family: $font-tenorSans;
+      color: $_textColor_note;
+      text-align: center;
+      @include g-font($_fontSize_note, $_lineHeight);
+      a {
+        color: $_textColor_note;
+        text-decoration: underline;
+      }
+    }
+
+    &__iconText {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      word-break: break-all;
+      background: linear-gradient(#fff 0%, #f6f6f6 50%, #eee 100%);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    &__iconTextRuby {
+      @include g-font($_fontSize_ruby, $_lineHeight);
+      margin: 0 0 5px;
+      color: $_textColor;
+      text-align: center;
+      a {
+        color: $_textColor_note;
+        text-decoration: underline;
+      }
+    }
+
+    &__iconTextBase {
+      display: table;
+      margin: 0 auto;
+      font-family: $font-tenorSans;
+      color: #f00;
+      @include g-font($_fontSize_tel, $_lineHeight);
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__tel,
+    &__fax,
+    &__free,
+    &__cell {
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &__tel {
+      min-width: 17px;
+      height: 17px;
+      padding: 0 10px 0 0;
+      background-image: url("../imgs/contact/contact001/contact001_tel.svg");
+      background-size: 17px 17px;
+    }
+
+    &__fax {
+      min-width: 25px;
+      height: 15px;
+      padding: 0 8px 0 0;
+      background-image: url("../imgs/contact/contact002/contact002_fax.svg");
+      background-size: 25px 15px;
+    }
+
+    &__free {
+      min-width: 25px;
+      height: 15px;
+      padding: 0 5px 0 0;
+      background-image: url("../imgs/contact/contact004/contact004_free.svg");
+      background-size: 25px 15px;
+    }
+
+    &__cell {
+      min-width: 14px;
+      height: 23px;
+      padding: 0 15px 0 0;
+      background-image: url("../imgs/contact/contact005/contact005_cell.svg");
+      background-position: 6px center;
+      background-size: 14px 23px;
+    }
+  }
+}

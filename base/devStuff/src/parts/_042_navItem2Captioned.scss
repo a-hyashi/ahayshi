@@ -1,10 +1,8 @@
 @if $device == PC {
   .t0-b-navItem2Captioned {
     $_block: &;
-    $_fontSizePx_main: 26;
-    $_fontSizePx_caption: 16;
-    $_lineHeightType: 1;
-
+    $_fontSize: 26;
+    $_fontSize_caption: 16;
     display: table;
     margin: 0 auto;
     > div {
@@ -22,36 +20,27 @@
     }
 
     &__caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      @include g-font($_fontSize_caption);
       a {
         color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
       }
     }
 
     &__main {
-      @include g-font($_fontSizePx_main, $_fontSizePx_caption);
+      @include g-font($_fontSize);
       padding-bottom: 3px;
     }
 
     a {
-      text-decoration: none;
       #{$_block}__main {
-        &:hover {
-          color: $hovercolor;
-        }
+        //
       }
     }
 
     &__caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      @include g-font($_fontSize_caption);
       a {
         color: inherit;
-        &:hover {
-          color: $hovercolor;
-        }
       }
     }
   }
@@ -60,10 +49,8 @@
 @if $device == SP {
   .t0-b-navItem2Captioned {
     $_block: &;
-    $_fontSizePx_main: 16;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType: 1;
-
+    $_fontSize: 16;
+    $_fontSize_caption: 14;
     display: table;
     margin: 0 auto;
     > div {
@@ -81,28 +68,15 @@
     }
 
     &__caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      @include g-font($_fontSize_caption);
     }
 
     &__main {
-      @include g-font($_fontSizePx_main, $_lineHeightType);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      @include g-font($_fontSize);
     }
 
     &__caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType);
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      @include g-font($_fontSize_caption);
     }
   }
 }

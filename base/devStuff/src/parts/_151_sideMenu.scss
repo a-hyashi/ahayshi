@@ -1,14 +1,6 @@
 @if $device == PC {
   .b-sideMenu#{$variation1of2} {
-    $_block: ".b-sideMenu";
-
-    a {
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor3;
-      }
-    }
-
+    $_block: &;
     label {
       display: none;
     }
@@ -18,117 +10,35 @@
     }
 
     &__hd {
-      @include g-font(20, 1);
-      a {
-        &:hover {
-          color: $hovercolor3;
-          text-decoration: none;
-        }
-      }
+      @include g-font(20);
     }
 
     &__bd {
-      @include g-font(16, 1);
-
-      //親要素
-      > #{$_block}__list {
-        > ul > #{$_block}__item {
-          > div {
-            > div {
-              > a > span,
-              > span {
-              }
-
-              > a > span {
-                &:hover {
-                  color: $hovercolor3;
-                }
-              }
-            }
+      @include g-font(16);
+      // 親要素
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          &.state-current {
+            //
           }
         }
 
-        > ul > #{$_block}__item.state-current {
-          > div {
-            > div {
-              > a > span,
-              > span {
-              }
-
-              > a > span {
-                &:hover {
-                  color: $hovercolor3;
-                }
-              }
-            }
-          }
-        }
-
-        //子要素
-        > ul > li > #{$_block}__list > ul {
+        // 子要素
+        > li > #{$_block}__list > ul {
           > #{$_block}__item {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                }
+            > #{$_block}__list {
+              //
+            }
 
-                > a > span {
-                  &:hover {
-                  }
-                }
-              }
+            &.state-current {
+              //
             }
           }
 
-          > #{$_block}__item.state-current {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
-                }
-              }
-            }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
-          }
-
-          //孫要素
-          > #{$_block}__item > div {
-            > ul > li {
-              > div {
-                > div {
-                  > a > span,
-                  > span {
-                  }
-
-                  > a > span {
-                    &:hover {
-                    }
-                  }
-                }
-              }
-
-              &.state-current {
-                > div {
-                  > div {
-                    > a > span,
-                    > span {
-                    }
-
-                    > a > span {
-                      &:hover {
-                      }
-                    }
-                  }
-                }
-              }
+          // 孫要素
+          > #{$_block}__item > div > ul > li {
+            &.state-current {
+              //
             }
           }
         }
@@ -149,15 +59,7 @@
   }
 
   .b-sideMenu#{$variation2of2} {
-    $_block: ".b-sideMenu";
-
-    a {
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor3;
-      }
-    }
-
+    $_block: &;
     label {
       display: none;
     }
@@ -167,116 +69,49 @@
     }
 
     &__hd {
-      @include g-font(20, 1);
+      @include g-font(20);
       a {
         &:hover {
-          color: $hovercolor3;
-          text-decoration: none;
+          color: $g-baseHoverColor3;
         }
       }
     }
 
     &__bd {
-      @include g-font(16, 1);
+      @include g-font(16);
+      // 親要素
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          a {
+            &:hover {
+              color: $g-baseHoverColor3;
+            }
+          }
 
-      //親要素
-      > #{$_block}__list {
-        > ul > #{$_block}__item {
-          > div {
-            > div {
-              > a > span,
-              > span {
-              }
-
-              > a > span {
-                &:hover {
-                  color: $hovercolor3;
-                }
+          &.state-current {
+            a {
+              &:hover {
+                color: $g-baseHoverColor3;
               }
             }
           }
         }
 
-        > ul > #{$_block}__item.state-current {
-          > div {
-            > div {
-              > a > span,
-              > span {
-              }
-
-              > a > span {
-                &:hover {
-                  color: $hovercolor3;
-                }
-              }
-            }
-          }
-        }
-
-        //子要素
-        > ul > li > #{$_block}__list > ul {
+        // 子要素
+        > li > #{$_block}__list > ul {
           > #{$_block}__item {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
-                }
+            > #{$_block}__list {
+              &.state-current {
+                //
               }
             }
           }
 
-          > #{$_block}__item.state-current {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
-                }
-              }
-            }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
-          }
-
-          //孫要素
+          // 孫要素
           > #{$_block}__item > div {
             > ul > li {
-              > div {
-                > div {
-                  > a > span,
-                  > span {
-                  }
-
-                  > a > span {
-                    &:hover {
-                    }
-                  }
-                }
-              }
-
               &.state-current {
-                > div {
-                  > div {
-                    > a > span,
-                    > span {
-                    }
-
-                    > a > span {
-                      &:hover {
-                      }
-                    }
-                  }
-                }
+                //
               }
             }
           }
@@ -297,12 +132,11 @@
     }
   }
 
-  .b-sideMenuHandle#{$variation1of2} {
+  .b-sideMenuHandle {
     $_block: ".b-sideMenuHandle";
     a {
-      text-decoration: none;
       &:hover {
-        color: $hovercolor3;
+        color: $g-baseHoverColor3;
       }
     }
 
@@ -315,266 +149,41 @@
     }
 
     &__hd {
-      @include g-font(20, 1);
+      @include g-font(20);
       a {
         &:hover {
-          color: $hovercolor3;
+          color: $g-baseHoverColor3;
         }
       }
     }
 
     &__bd {
-      @include g-font(16, 1);
-
-      //親要素
-      > #{$_block}__list {
-        > ul > #{$_block}__item {
-          > div {
-            > div {
-              > a > span,
-              > span {
-
-              }
-
-              > a > span {
-                &:hover {
-
-                }
-              }
-            }
+      @include g-font(16);
+      // 親要素
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          &.state-current {
+            //
           }
         }
 
-        > ul > #{$_block}__item.state-current {
-          > div {
-            > div {
-              > a > span,
-              > span {
-              }
-
-              > a > span {
-                &:hover {
-
-                }
-              }
-            }
-          }
-        }
-
-        //子要素
-        > ul > li > #{$_block}__list > ul {
+        // 子要素
+        li > #{$_block}__list > ul {
           > #{$_block}__item {
-            > div {
-              > div {
+            > #{$_block}__list {
+              //
+            }
 
-                > a > span,
-                > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
-                }
-              }
+            &.state-current {
+              //
             }
           }
 
-          > #{$_block}__item.state-current {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
-                }
-              }
-            }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
-          }
-
-          //孫要素
+          // 孫要素
           > #{$_block}__item > div {
             > ul > li {
-              > div {
-                > div {
-                  > a > span,
-                  > span {
-                  }
-
-                  > a > span {
-                    &:hover {
-                    }
-                  }
-                }
-              }
-
               &.state-current {
-                > div {
-                  > div {
-                    > a > span,
-                    > span {
-                    }
-
-                    > a > span {
-                      &:hover {
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &__hd--align-l {
-      text-align: left;
-    }
-
-    &__hd--align-c {
-      text-align: center;
-    }
-
-    &__hd--align-r {
-      text-align: right;
-    }
-  }
-
-  .b-sideMenuHandle#{$variation2of2} {
-    $_block: ".b-sideMenuHandle";
-    a {
-      text-decoration: none;
-      &:hover {
-        color: $hovercolor3;
-      }
-    }
-
-    label {
-      display: none;
-    }
-
-    input[type="checkbox"].on-off {
-      display: none;
-    }
-
-    &__hd {
-      @include g-font(20, 1);
-      a {
-        &:hover {
-          color: $hovercolor3;
-        }
-      }
-    }
-
-    &__bd {
-      @include g-font(16, 1);
-
-      //親要素
-      > #{$_block}__list {
-        > ul > #{$_block}__item {
-          > div {
-            > div {
-              > a > span,
-              > span {
-
-              }
-
-              > a > span {
-                &:hover {
-
-                }
-              }
-            }
-          }
-        }
-
-        > ul > #{$_block}__item.state-current {
-          > div {
-            > div {
-              > a > span,
-              > span {
-              }
-
-              > a > span {
-                &:hover {
-
-                }
-              }
-            }
-          }
-        }
-
-        //子要素
-        > ul > li > #{$_block}__list > ul {
-          > #{$_block}__item {
-            > div {
-              > div {
-
-                > a > span,
-                > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
-                }
-              }
-            }
-          }
-
-          > #{$_block}__item.state-current {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                }
-
-                > a > span {
-                  &:hover {
-                  }
-                }
-              }
-            }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
-          }
-
-          //孫要素
-          > #{$_block}__item > div {
-            > ul > li {
-              > div {
-                > div {
-                  > a > span,
-                  > span {
-                  }
-
-                  > a > span {
-                    &:hover {
-                    }
-                  }
-                }
-              }
-
-              &.state-current {
-                > div {
-                  > div {
-                    > a > span,
-                    > span {
-                    }
-
-                    > a > span {
-                      &:hover {
-                      }
-                    }
-                  }
-                }
+                //
               }
             }
           }
@@ -598,100 +207,84 @@
 
 @if $device == SP {
   .b-sideMenu#{$variation1of2} {
-    a {
-      color: $textcolor;
-      text-decoration: none;
-    }
-
     $_block: &;
-
-    box-sizing: border-box;
+    @include g-font(14);
     width: 100%;
-
-    @include g-font(14, 1);
-    &__hd,
-    &__bd {
-      display: none;
-    }
-
     label {
       display: inline-block;
       width: 98%;
       padding: 10px 0 10px 2%;
       cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
     }
 
     input[type="checkbox"].on-off {
       display: none;
     }
 
-    label {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▶︎";
-      }
+    &__hd,
+    &__bd {
+      display: none;
     }
 
-    label.active {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▼";
-      }
-    }
-
-    .b-sideMenu__list {
-      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
-      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
+    &__list {
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
       }
 
-      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
-      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
 
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 
   .b-sideMenu#{$variation2of2} {
-    a {
-      color: $textcolor;
-      text-decoration: none;
-    }
-
     $_block: &;
-
-    box-sizing: border-box;
+    @include g-font(14);
     width: 100%;
-
-    @include g-font(14, 1);
     &__hd,
     &__bd {
       display: none;
@@ -702,79 +295,71 @@
       width: 98%;
       padding: 10px 0 10px 2%;
       cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
     }
 
     input[type="checkbox"].on-off {
       display: none;
     }
 
-    label {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▶︎";
-      }
-    }
-
-    label.active {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▼";
-      }
-    }
-
-    .b-sideMenu__list {
-      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
-      > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
+    &__list {
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
       }
 
-      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
-      > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
 
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > a > span,
-      > ul > li > .b-sideMenu__list > ul > li > .b-sideMenu__list > ul > .b-sideMenu__item.state-current > .b-sideMenu__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 
-  .b-sideMenuHandle#{$variation1of2} {
-    a {
-      color: $textcolor;
-      text-decoration: none;
-    }
-
+  .b-sideMenuHandle {
     $_block: &;
-
-    box-sizing: border-box;
+    @include g-font(14);
     width: 100%;
-
-    @include g-font(14, 1);
     &__hd,
     &__bd {
       display: none;
@@ -785,148 +370,64 @@
       width: 98%;
       padding: 10px 0 10px 2%;
       cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
     }
 
     input[type="checkbox"].on-off {
       display: none;
     }
 
-    label {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▶︎";
-      }
-    }
-
-    label.active {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▼";
-      }
-    }
-
-    .b-sideMenuHandle__list {
-      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
+    &__list {
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
       }
 
-      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
 
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
-
-  .b-sideMenuHandle#{$variation2of2} {
-    a {
-      color: $textcolor;
-      text-decoration: none;
-    }
-
-    $_block: &;
-
-    box-sizing: border-box;
-    width: 100%;
-
-    @include g-font(14, 1);
-    &__hd,
-    &__bd {
-      display: none;
-    }
-
-    label {
-      display: inline-block;
-      width: 98%;
-      padding: 10px 0 10px 2%;
-      cursor: pointer;
-    }
-
-    input[type="checkbox"].on-off {
-      display: none;
-    }
-
-    label {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▶︎";
-      }
-    }
-
-    label.active {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▼";
-      }
-    }
-
-    .b-sideMenuHandle__list {
-      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
-
-      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
-
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > a > span,
-      > ul > li > .b-sideMenuHandle__list > ul > li > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item.state-current > .b-sideMenuHandle__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-    }
-  }
-
 }

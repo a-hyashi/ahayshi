@@ -1,19 +1,20 @@
-$baseFontSize: 14px;
+$g-fontSize: 14px;
+$g-spacingBaseLength: 5;
 html {
-  font-size: $baseFontSize;
+  font-size: $g-fontSize;
 }
 
 body.mod-body,
 div.mod-body {
-  font-family: $gothic;
-  font-size: $baseFontSize;
+  font-family: $font-gothic;
+  font-size: $g-fontSize;
   font-weight: 500;
   color: #555;
 }
 
 .mod-body {
   button, input, optgroup, select, textarea {
-    font-family: $gothic; // normalize.cssによるフォントファミリーの指定を上書き
+    font-family: $font-gothic;
   }
 }
 
@@ -28,6 +29,18 @@ a {
       color: #ff8c00;
     }
   }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 @if $device == SP {
@@ -35,17 +48,9 @@ a {
     font-size: inherit !important;
   }
 }
-.cms-admin-anchorFlag {
-  position: relative;
-  z-index: 10 !important;
-}
-// これはadmin.cssに移行するべき
-
-$g-spacingBaseLength: 5;
 
 @mixin cf {
-  &::before,
-  &::after {
+  &::before, &::after {
     display: table;
     content: "";
   }
@@ -79,31 +84,11 @@ $g-spacingBaseLength: 5;
   }
 }
 
-$fullWidthBgColor: #fff3d4;
-$fullWidthBgColor2: #ffffdf;
-$fullWidthBgColor3: #eef6c7;
-$fullWidthBgColor4: #ffa200;
-$fullWidthBgColor5: #fff;
-$fullWidthBgColor6: #ffcd79;
-$fullWidthBgColor7: #fcf8ec;
-$fullWidthBgColor8: #faf3ec;
-
-$frameSpacingPC-l: 50px;
-$frameSpacingPC-m: 25px;
-$frameSpacingPC-s: 10px;
-$frameSpacingSP-l: 50px;
-$frameSpacingSP-m: 25px;
-$frameSpacingSP-s: 10px;
-@if $device == PC {
-  .cms-partsConfig-width-m {
-    width: 75%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .cms-partsConfig-width-s {
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 30px * $size;
   }
 }

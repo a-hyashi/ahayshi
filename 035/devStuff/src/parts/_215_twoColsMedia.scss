@@ -1,1 +1,26 @@
-@import '../../../../common/devStuff/src/parts/215_twoColsMedia';
+@import "../../../../common/devStuff/src/parts/215_twoColsMedia";
+// 管理画面で「画像の回り込み」を「しない」にした時にテキスト、画像が埋もれないようにする
+// 本来は"t0-b-twoColsMedia__div"一つに当てるほうがいいが、全体テストの必要があるので個別対応にしてある
+@if $device == PC {
+  .t0-b-twoColsMedia {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      z-index: 10;
+    }
+
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      z-index: 1;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-twoColsMedia {
+    [class^=t0-b-twoColsMedia__row][class*=col1] {
+      z-index: 10;
+    }
+
+    [class^=t0-b-twoColsMedia__row][class*=col2] {
+      z-index: 1;
+    }
+  }
+}

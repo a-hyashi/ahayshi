@@ -3,7 +3,6 @@
     $_block: &;
     // 2列と比較して、arrowエリアの縮小率に合わせて、max-widthを算出
     $_maxWidth_arrow: 26px * (2/4);
-
     width: 100%;
     &__row {
       display: table;
@@ -16,17 +15,17 @@
       display: table-cell;
       vertical-align: top;
       height: 100%;
-      width: (100%-2*(7-1))/7;
+      width: (100% - 2 * (7 - 1)) / 7;
       #{$_block}--colSpacing-l & {
-        width: (100%-3.5*(7-1))/7;
+        width: (100% - 3.5 * (7 - 1)) / 7;
       }
 
       #{$_block}--colSpacing-m & {
-        width: (100%-2*(7-1))/7;
+        width: (100% - 2 * (7 - 1)) / 7;
       }
 
       #{$_block}--colSpacing-s & {
-        width: (100%-0.5*(7-1))/7;
+        width: (100% - .5 * (7 - 1)) / 7;
       }
     }
 
@@ -34,6 +33,7 @@
       display: table-cell;
       height: 100%;
       width: 2%;
+      padding-bottom: 31px;
       #{$_block}--colSpacing-l & {
         width: 3.5%;
       }
@@ -46,21 +46,17 @@
         width: .5%;
       }
 
-      //矢印要素(t0-b-arrowInFlow)分の高さを持たせる。
-      //上余白調整をしても部品の高さからはみ出さないようにするため。
-      padding-bottom: 31px;
       &-inner {
         height: 100%;
         position: relative;
-        //#cms-body [data-cms-part]についたposition:relativeの影響で、
-        //管理画面上のみで矢印要素の上余白が変更されない問題を解消するために以下を指定する
+        // #cms-body [data-cms-part]のposition:relativeを打ち消して、矢印要素の上余白を変更できるように
         > div {
           position: absolute !important;
           top: 0;
           bottom: 0;
           left: 0;
           right: 0;
-          //管理画面上でホバーできるようにする
+          // 管理画面でホバーできるように
           z-index: 1;
         }
       }
@@ -70,13 +66,12 @@
       max-width: $_maxWidth_arrow;
     }
   }
-}// PC
+}
 
 @if $device == SP {
   .t0-b-flow7LeftToRightWithMidFrame {
     width: 100%;
     &__row {
-      //矢印画像の高さと、下余白の合計値をつける
       padding-bottom: 50px;
       background-repeat: no-repeat;
       background-position: center bottom 15px;
@@ -89,8 +84,7 @@
     }
 
     &__arrow {
-      //上下の画像要素との余白が等間隔になるようにつける
       padding-bottom: 15px;
     }
   }
-}// SP
+}

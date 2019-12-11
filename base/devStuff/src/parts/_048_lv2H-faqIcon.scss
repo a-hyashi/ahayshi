@@ -1,50 +1,47 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 28;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_lineHeightType: 1;
-
+    $_fontSize: 24;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
     > div {
       width: 100%;
     }
 
     a {
-      color: $textcolor;
-      text-decoration: none;
       vertical-align: middle;
-      &:hover {
-        color: $hovercolor;
-      }
     }
 
     &__iconPlacer {
+      //
     }
 
     &__icon {
+      //
     }
 
     &__h {
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      @include g-font-layout($_fontSize, 1, $layout);
     }
 
     &--size-1 {
       #{$_block}__iconPlacer {
+        //
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_s, 1, $layout);
       }
     }
 
     &--size-3 {
       #{$_block}__iconPlacer {
+        //
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_l, 1, $layout);
       }
     }
 
@@ -65,20 +62,22 @@
 @if $device == SP {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
+    $_fontSize: 20;
     position: relative;
-      > div {
+    > div {
       display: table;
       width: 100%;
     }
 
     &__iconPlacer {
+      //
+    }
+
+    &__icon {
+      //
     }
 
     a {
-      color: $textcolor;
-      text-decoration: none;
       vertical-align: middle;
       #{$_block}__h {
         display: block;
@@ -86,7 +85,7 @@
     }
 
     &__h {
-      @include g-font($_fontSizePx, $_lineHeightType);
+      @include g-font($_fontSize);
     }
 
     &--align-l {

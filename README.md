@@ -24,39 +24,71 @@
 
 ```
 buddy-theme
-├── 031（各テーマ）
-│   ├── copy.sh
+├── 031/ (各テーマフォルダ)
+│   ├── build/
+│   ├── devStuff/
+│   │   ├── css/
+│   │   ├── docs/
+│   │   ├── sassdoc/
+│   │   ├── src/
+│   │   ├── styleguide/
+│   │   └── aigis_config.yml
+│   ├── lib/
 │   ├── gulp_config.json
-│   ├── gulpfile.js
-│   ├── lib
-│   │   └── ･･･
-│   └── styleguide_assets
-│   │   └── ･･･
-│   └── unittest
-│       └── ･･･
-├── btool-settings
-│   ├── buddy-parts-testcases.json
-│   ├── function-design.json
-│   └── parts-categories.json
-├── ssh
+│   └── gulpfile.js
+│
+├── common/
+│   └── devStuff/
+│        ├──aigis_assets
+│        ├──edge_src
+│        ├──src
+│        └──template_hbs
+│
+├── lib/
+│   ├── aigis-markdown/
+│   ├── btool-settings/
+│   ├── each_part/
+│   ├── schemas/
+│   ├── utils/
+│   ├── make_aigis.js
+│   ├── make_all-datajsons.js
+│   ├── make_datajson.js
+│   └── make_html.js
+│
+├── ssh/
 │   ├── devwork_rsa
-│   └── sshconfig.json
-├── copy.sh
-├── Dockerfile
+│   └── ssh_config.json
+│
+├── node_modules/
+│   └── **
+│
+├── .dockerignore
+├── .stylelintrc.yml
 ├── _docker-compose.yml
+├── all.sh
+├── build.sh
+├── copy.sh
 ├── docker-compose.yml
+├── Dockerfile
 ├── gulpfile.js
-├── package.json
+├── init.sh
+├── lint.sh
+├── output.sh
 ├── package-lock.json
-└── node_modules
-    └── ･･･
+├── package.json
+├── README.md
+├── set-themes.sh
+├── up.sh
+├── upload-css.sh
+├── upload-img.sh
+└── upload.sh
 ```
 
 <br>
 
-### 全体で一度だけ実行すること
+### 全体で最初に実行すること
 
-#### Dockerとnpmのインストール
+#### 1. Dockerとnpmのインストール
 1. アカウントを作成し、Dockerをインストール  
 https://qiita.com/scrummasudar/items/750aa52f4e0e747eed68
 
@@ -65,13 +97,13 @@ Macの上部にアイコンが表示されていればOK
 
 3. 以下のコマンドを実行
 ```sh
-$ cd （buddy-themeフォルダの場所）
+$ cd (buddy-themeフォルダの場所)
 $ ./set-themes.sh 031
-$ docker-compose run web1 npm install
+$ docker-compose run app1 npm ci
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
 
-#### 関連ファイルの配置
+#### 2. 関連ファイルの配置
 以下のリポジトリをローカルにクローンし、buddy-themeと同じディレクトリに配置してください。
 - https://github.com/wmssystem/ACRE-theme
 
@@ -79,10 +111,14 @@ Googleドライブから**devwork_rsa**と**ssh_config.json**をダウンロー�
 
 <br>
 
-#### テスト対象のブランチに変更
+#### 3. テスト対象のブランチに変更
 ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェックアウトされた状態にしてください。
 
 <br>
+<br>
+<br>
+
+## 利用編
 
 ### テーマの設定
 
@@ -90,88 +126,81 @@ ACRE-theme, buddy-themeをそれぞれテスト対象のブランチにチェッ
 $ ./set-themes.sh (テーマ名)
 ```
 
-テーマは複数設定することもでき、1から順にコンテナに割り当てられます。  
-2〜3個を想定していますが、9個まで設定可能です。  
+テーマは複数設定することもできます。  
 ただし多いほど処理に時間がかかるので、不要なテーマを含まないよう注意してください。  
 ```sh
 $ ./set-themes.sh 031 031A 031B
 ```
 
 ```
-コンテナ1：031
-コンテナ2：031A
-コンテナ3：031B
-テーマを設定しました
+app1を031に設定しました
+app2を031Aに設定しました
+app3を031Bに設定しました
 ```
 
 <br>
+---
 
-### テーマごとに一度だけ実行すること
+### テスト用ファイルの作成
 
+以下のコマンドを実行  
 ```sh
 $ ./init.sh
 ```
 
-指定したテーマフォルダ内に以下のファイルが作成されていればOKです。
+テーマフォルダ内に以下のファイルが作成されていればOKです。  
 - gulpfile.js
 - lib/
-- /unittest/parts/フォルダ内に部品名.md
+- devStuff/styleguide/
 
 <br>
-<br>
+---
 
-## 利用編
-
-### 起動
+### スタイルガイド起動
 1. アプリのアイコンをクリックしDockerを起動  
-Macの上部にアイコンが表示されていればOKです。
+Macの上部にアイコンが表示されていればOKです。  
 
-2. 以下のコマンドを実行
+2. 以下のコマンドを実行  
 ```sh
 $ cd （buddy-themeフォルダの場所）
 $ ./up.sh
 ```
-CSSの更新は自動で反映されます。
-
-以下のメッセージが表示された場合は`y`を押してください。
-```sh
-Continue with the new image? [yN]
-```
-
-起動中には、以下のことが自動で実行されます
-- CSSとスタイルガイドの更新
+起動中には、以下のことが自動で実行されます  
+- CSSとスタイルガイドの更新  
 - bPlacer.md（余白設定値表）の更新  
-_bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットしてください。
+  - _bPlacer.scssを更新した場合は、bPlacer.mdも合わせてコミットしてください。  
 
 <br>
 
+以下のメッセージが表示された場合は`y`を押してください。  
+```sh
+Continue with the new image? [y/N]
+```
+
+<br>
+---
+
 ### スタイルガイド表示
+ターミナルに  
 ```sh
 [Browsersync] Serving files from:
 ```
+が表示されたら、ターミナルに出力されるlocalのURLを開いてください。  
 
-が表示されたら
-http://localhost:ポート番号  
-を開いてください。  
-ポート番号は3000 + コンテナ番号です  
-**例:** コンテナ1の場合  
-http://localhost:3001  
-
-
-クロスブラウザテストで他の端末から接続する場合は  
-`ターミナルに出力される外部URL + ポート番号`を開いてください  
-**例:** コンテナ1の場合  
-http://192.168.0.12:3001  
-
-
-<br>
-
-### 停止
-```
-Ctrl + C
+```sh
+local    URL: http://localhost:3001  
 ```
 
 <br>
+
+クロスブラウザテストで他の端末から接続する場合はターミナルに出力されるExternalのURLを開いてください。  
+
+```sh
+External URL: http://192.168.0.19:3001  
+```
+
+<br>
+---
 
 ### CSSを出力
 ```sh
@@ -179,50 +208,50 @@ $ ./build.sh
 ```
 
 <br>
+---
 
-### 出力した内容を開発環境にアップロード
-`theme.css`と、`theme_materials/`配下全てをアップロード
+### CSSを出力して開発環境にアップロード
+`theme.css`と、`theme_materials/`配下の画像をアップロード
 ```sh
 $ ./upload.sh
 ```
 <br>
 
-`theme.css`をアップロード
+`theme.css`のみをアップロード
 ```sh
 $ ./upload-css.sh
 ```
 <br>
 
-`theme_materials/`配下全てをアップロード
+`theme_materials/`配下の画像のみをアップロード
 ```sh
 $ ./upload-img.sh
 ```
 ```
 SFTP error or directory exists: Error: Failure /mnt/efs/master/acre/theme_materials/**
 ```
-**※ 上記のエラーが出てもアップロードは正常に行われるので、無視してください**
+**※ 上記のエラーが出てもアップロードは正常に行われるので、無視してください**  
 
 <br>
+---
 
-### CSSをACRE-themeにコピー
-```sh
-$ ./output.sh
-```
-`ACRE-theme/acre/`内に、`themes/`と`theme_materials/`がコピーされます。
-
-<br>
-
-### 整形・コーディングスタイルのチェック
+### コードの整形・コーディングスタイルのチェック
 ```sh
 $ ./lint.sh
 ```
 コーディングルールに従ってscssファイルの中身が自動で整形されます。  
-自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。
+自動整形できなかった違反箇所はコンソールにログが出るので、手動で修正してください。  
+コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意してください。  
 
-**※コードの整形・チェックはpartsディレクトリ配下の.scssファイルしか行わないので注意**  
-**※閉じ括弧などが足りないと不正な出力になってしまうので注意** 
+また、コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。  
 
-#### エラーの例:
+(ルールセットの中身は`.stylelintrc.yml`に書いてあります)  
+
+**※閉じ括弧などが足りないと不正な出力になってしまうので注意**  
+
+<br>
+
+#### チェック結果の例:
 ```sh
 devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
   2:51  ✖  Unexpected empty block               block-no-empty
@@ -236,43 +265,46 @@ devStuff/src/parts/_001_frameWithHCaptionNumIcon.scss
 
 <br>
 
-エディタに拡張機能を入れておくとリアルタイムでエラーを発見できます。(推奨)
+**エディタに拡張機能を入れておくとリアルタイムで確認できます。（推奨）**
 - [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint) (VS code)
 - [Sublime​Linter-stylelint](https://packagecontrol.io/packages/SublimeLinter-stylelint) (Sublime Text)
 <br>
-
-また、コードの中で`/* stylelint-disable */`と`/* stylelint-enable */`で囲んだ範囲は無視されます。
 
 #### 参考
 stylelintのルール一覧  
 https://stylelint.io/user-guide/rules
 
 <br>
+---
 
+### ACRE-themeへの出力
 
-### 別コンテナでの実行
-上に記載した`./up.sh`以外のコマンドは、引数の指定ができます。  
-並行して2つ以上のテーマを開発するための機能なので、1つのテーマのみ開発している場合は気にしなくて問題ありません。
-
-**例:** buildの場合  
-```sh
-$ ./build.sh
-```
-引数を指定しない場合、コンテナ1で実行
+masterブランチへマージすると自動でcircleCIのジョブが登録されます。  
+承認するまで実行されないので、circleCIの画面からWorkflowsを承認してください。  
+しばらくすると、ACRE-themeにブランチが作成されます。  
+ブランチ名に実行日時が入っているので、対象のブランチをマージしてください。
 
 <br>
+---
 
+### テーマの設定とコマンドの実行
+各コマンドはテーマ名を設定して実行することもできます(複数指定可能)  
+
+**設定されているテーマで実行する場合の例:**  
+現在設定中のテーマで実行されます  
 ```sh
-$ ./build.sh 2 3
+$ ./init.sh
 ```
-番号を指定した場合、指定番号のコンテナで実行
 
-<br>
-
+**テーマを設定して実行する場合の例:**  
 ```sh
-$ ./build.sh all
+$ ./init.sh 031 033
 ```
-allを指定した場合、コンテナに関係なく全てのテーマで実行
+
+**全てのテーマで実行する場合の例:**  
+```sh
+$ ./init.sh all
+```
 
 <br>
 <br>
@@ -295,12 +327,12 @@ SASSの構文エラーです。
 
 ### JSON/HTMLを修正した
 ```sh
-$ ./update-parts.sh
+$ ./init.sh
 ```
 
 ### sassdocが更新された
 ```sh
-$ docker-compose run web1 gulp update-sassdoc
+$ docker-compose run app1 npx gulp update-sassdoc
 ```
 
 ### 動作が遅くなってきた
@@ -308,47 +340,71 @@ $ docker-compose run web1 gulp update-sassdoc
 
 - Dockerの再起動
 
-- コンテナの削除
+- イメージとコンテナの削除
 ```sh
-$ docker container prune
+$ docker system prune
 ```
 
 ### buddy-themeが更新された
 
-更新を取り込んだあと、
-
-> テーマごとに一度だけ実行すること
-
-を再実行してください。
+更新を取り込んだあと、`./init.sh (all)` を実行してください。
 
 <br>
 <br>
 
 ## リポジトリの保守
-
-### 新しいテーマを作る場合
-1. フォルダの作成
-既存のテーマのフォルダを複製し、新しいテーマ名にリネームしてください。  
+### 新規テーマ(無印)を作る場合の作成手順
+1. **フォルダの作成**  
+**base**フォルダを複製し、新しいテーマ名に変更してください。  
 **例:**
-031を複製して031Aのフォルダを作成
+`base`を複製して`036`に名前変更
 
-2. devstuff/aigis_config.ymlの設定  
-nameを新しいテーマ名に設定してください。  
+2. **devStuff/aigis_config.yml の設定**  
+`name:`を新しいテーマ名に設定してください。  
 **例:**
-Theme 031A
+`name: Theme 036`
 
-3. gulp_config.jsonの設定  
-html_templates_dirをACRE-theme内の対象テーマの部品があるフォルダに設定してください。  
+3. **gulp_config.json の設定**  
+`"html_templates_dir":`を、対象テーマの部品があるACRE-theme内のフォルダに設定してください。  
 **例:**
-"../../ACRE-theme/acre/theme_materials/031/html_templates/"
+` "html_templates_dir": "../../ACRE-theme/acre/theme_materials/036/html_templates/"`
 
+4. **config/_colorConfig.scss の設定**
+<br>
+変数のカラーコードを書き換えることで部品の色を変更できます。  
+基本的にカラーコードは _colorConfig.scss 内の変数に格納するようにしてください。  
+詳しい使い方はコメントを参照してください。  
+<br>
+
+### カラバリテーマ(A~E)を作る場合の作成手順
+1. **フォルダの作成**  
+**baseA**フォルダを複製し、新しいテーマ名に変更してください。  
+**例:** `base`Aを複製して`036A`に名前変更
+
+2. **devStuff/aigis_config.yml の設定**  
+`name:`を新しいテーマ名に設定してください。  
+**例:** `name: Theme 036A`
+
+3. **gulp_config.json の設定**  
+`"html_templates_dir":`を、対象テーマの部品があるACRE-theme内のフォルダに設定してください。  
+**例:** ` "html_templates_dir": "../../ACRE-theme/acre/theme_materials/036/html_templates/"`
+
+4. **config/_colorConfig.scss の設定**  
+最初に無印の_colorConfig.scssから中身をコピーしてきてください。  
+変数のカラーコードを書き換えることで部品の色を変更できます。  
+<br>
+
+**画像ファイルは無印の画像ディレクトリと同じ名前にする必要があります。**
+
+<br>
 <br>
 
 ### docker-compose.ymlを変更する場合
-ユーザーがテーマ名を変更するため、.gitignoreに含めています。  
+ユーザーがテーマ名を変更するため、`.gitignore`に含めています。  
 `_docker-compose.yml`を複製して使うようにしているので、このファイルを変更してください。
 
 <br>
+
 
 ### 関連資料
 

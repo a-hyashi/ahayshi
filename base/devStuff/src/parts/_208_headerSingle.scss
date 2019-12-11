@@ -1,11 +1,7 @@
 @if $device == PC {
-  .t0-b-headerSingle#{$variation1of2} {
+  .t0-b-headerSingle {
     $_width_content: 1100px;
-    $_colSpacing: #{$g-spacingBaseLength * 4}px;
-    box-sizing: border-box;
-
     padding-top: 5px;
-    background: #262626;
     * {
       white-space: normal;
     }
@@ -13,17 +9,9 @@
     &__hd {
       text-align: center;
       > p {
+        @include g-font(16);
         width: $_width_content;
         margin: 0 auto;
-        color: #fff;
-        @include g-font(16, 1);
-      }
-
-      a {
-        color: #fff;
-        &:hover {
-          color: $hovercolor;
-        }
       }
     }
 
@@ -36,53 +24,7 @@
         > div {
           display: table;
           max-width: $_width_content;
-          padding-top: $_colSpacing;
-          margin: 0 auto;
-          text-align: center;
-          vertical-align: top;
-        }
-      }
-    }
-  }
-
-  .t0-b-headerSingle#{$variation2of2} {
-    $_width_content: 1100px;
-    $_colSpacing: #{$g-spacingBaseLength * 4}px;
-    box-sizing: border-box;
-
-    padding-top: 5px;
-    background: #fff;
-    * {
-      white-space: normal;
-    }
-
-    &__hd {
-      text-align: center;
-      > p {
-        width: $_width_content;
-        margin: 0 auto;
-        color: $textcolor;
-        @include g-font(16, 1);
-      }
-
-      a {
-        color: $textcolor;
-        &:hover {
-          color: $hovercolor;
-        }
-      }
-    }
-
-    &__bd {
-      padding-bottom: 10px;
-      > div {
-        display: block;
-        width: $_width_content;
-        margin: 0 auto;
-        > div {
-          display: table;
-          max-width: $_width_content;
-          padding-top: $_colSpacing;
+          padding-top: $g-spacing4x;
           margin: 0 auto;
           text-align: center;
           vertical-align: top;
@@ -93,26 +35,18 @@
 }
 
 @if $device == SP {
-  .t0-b-headerSingle#{$variation1of2} {
-    $_colSpacing: #{$g-spacingBaseLength * 3}px;
+  .t0-b-headerSingle {
     padding: 20px 15px 0;
     margin: 0 -15px;
-    background: #262626;
-
     background-repeat: repeat-x;
     background-position: left top;
     &__hd {
       margin-bottom: 10px;
       text-align: center;
       > p {
+        @include g-font(14);
         width: 100%;
         margin: 0 auto;
-        color: #fff;
-        @include g-font(14, 1);
-      }
-
-      a {
-        color: #fff;
       }
     }
 
@@ -130,42 +64,6 @@
 
     &__col {
       width: 100%;
-    }
-  }
-
-  .t0-b-headerSingle#{$variation2of2} {
-    $_colSpacing: #{$g-spacingBaseLength * 3}px;
-    padding: 20px 15px 0;
-    margin: 0 -15px;
-    background: #fff;
-
-    background-repeat: repeat-x;
-    background-position: left top;
-    &__hd {
-      margin-bottom: 10px;
-      text-align: center;
-      > p {
-        width: 100%;
-        margin: 0 auto;
-        color: $textcolor;
-        @include g-font(14, 1);
-      }
-
-      a {
-        color: $textcolor;
-      }
-    }
-
-    &__bd {
-      > div {
-        display: block;
-        width: 100%;
-        margin: 0 auto;
-        > div {
-          text-align: center;
-          vertical-align: middle;
-        }
-      }
     }
   }
 }
