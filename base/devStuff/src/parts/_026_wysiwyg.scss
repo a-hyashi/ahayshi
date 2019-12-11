@@ -1,16 +1,8 @@
 @if $device == PC {
   .t0-b-wysiwyg {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
-    $_color_table_td_bg: #fff;
     @include g-rteTableReset;
     a {
-      color: $g-textColor;
-      &:hover {
-        color: $g-hoverColor;
-      }
+      text-decoration: underline;
     }
 
     p {
@@ -24,25 +16,19 @@
 
     ol {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -53,26 +39,19 @@
 
     ul {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -83,52 +62,54 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 10px 6px;
         text-align: left;
         vertical-align: middle;
-        background-color: $_color_table_td_bg;
-        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $wysiwyg_borderColor3;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $wysiwyg_borderColor;
+        border-left: 1px solid $wysiwyg_borderColor;
+      }
+
+      th {
+        @include g-font(14);
+        padding: 10px 6px;
+        text-align: left;
+        vertical-align: middle;
+        color: $wysiwyg_textColor;
+        background-color: $wysiwyg_borderColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $wysiwyg_borderColor;
+        border-left: 1px solid $wysiwyg_borderColor;
+        border-bottom: 1px solid $wysiwyg_borderColor;
+        a {
+          color: $wysiwyg_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $wysiwyg_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $wysiwyg_borderColor;
+        }
       }
 
       ul,
       ol {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -138,19 +119,11 @@
   }
 
   .t0-b-wysiwyg2 {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
-    $_color_table_td_bg: #fff;
     @include g-rteTableReset;
     padding: 13px;
-    background-color: #f1f5f4;
+    background-color: $wysiwyg2_BGColor;
     a {
-      color: $g-textColor;
-      &:hover {
-        color: $g-hoverColor;
-      }
+      text-decoration: underline;
     }
 
     p {
@@ -164,26 +137,19 @@
 
     ol {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -194,26 +160,19 @@
 
     ul {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -224,52 +183,54 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 10px 6px;
         text-align: left;
         vertical-align: middle;
-        background-color: $_color_table_td_bg;
-        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $wysiwyg2_borderColor3;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $wysiwyg2_borderColor;
+        border-left: 1px solid $wysiwyg2_borderColor;
+      }
+
+      th {
+        @include g-font(14);
+        padding: 10px 6px;
+        text-align: left;
+        vertical-align: middle;
+        color: $wysiwyg2_textColor;
+        background-color: $wysiwyg2_borderColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $wysiwyg2_borderColor;
+        border-left: 1px solid $wysiwyg2_borderColor;
+        border-bottom: 1px solid $wysiwyg2_borderColor;
+        a {
+          color: $wysiwyg2_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $wysiwyg2_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $wysiwyg2_borderColor;
+        }
       }
 
       ul,
       ol {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background-color: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -282,13 +243,8 @@
 @if $device == SP {
   .t0-b-wysiwyg {
     @include g-rteTableReset;
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
-    $_color_table_td_bg: #fff;
     a {
-      color: $g-textColor;
+      text-decoration: underline;
     }
 
     p {
@@ -302,26 +258,19 @@
 
     ol {
       padding: 0 0 0 2em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -332,26 +281,19 @@
 
     ul {
       padding: 0 0 0 2em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        margin-top: $_elementSpacing;
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -362,48 +304,48 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
+      margin-top: $g-spacing3x;
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        background: $_color_table_td_bg;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        background-color: $wysiwyg_borderColor3;
+        border-top: 1px solid $wysiwyg_borderColor;
+        border-left: 1px solid $wysiwyg_borderColor;
+      }
+
+      th {
+        @include g-font(14);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        color: $wysiwyg_textColor;
+        background-color: $wysiwyg_borderColor2;
+        border-top: 1px solid $wysiwyg_borderColor;
+        border-left: 1px solid $wysiwyg_borderColor;
+        border-bottom: 1px solid $wysiwyg_borderColor;
+        a {
+          color: $wysiwyg_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $wysiwyg_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $wysiwyg_borderColor;
+        }
       }
 
       ul,
       ol {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -415,14 +357,9 @@
   .t0-b-wysiwyg2 {
     @include g-rteTableReset;
     padding: 10px;
-    background-color: #f1f5f4;
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
-    $_color_table_td_bg: #fff;
+    background-color: $wysiwyg2_BGColor;
     a {
-      color: $g-textColor;
+      text-decoration: underline;
     }
 
     p {
@@ -436,26 +373,19 @@
 
     ol {
       padding: 0 0 0 2em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -466,26 +396,19 @@
 
     ul {
       padding: 0 0 0 2em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -496,48 +419,48 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
+      margin-top: $g-spacing3x;
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        background: $_color_table_td_bg;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        background-color: $wysiwyg2_borderColor3;
+        border-top: 1px solid $wysiwyg2_borderColor;
+        border-left: 1px solid $wysiwyg2_borderColor;
+      }
+
+      th {
+        @include g-font(14);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        color: $wysiwyg2_textColor;
+        background-color: $wysiwyg2_borderColor2;
+        border-top: 1px solid $wysiwyg2_borderColor;
+        border-left: 1px solid $wysiwyg2_borderColor;
+        border-bottom: 1px solid $wysiwyg2_borderColor;
+        a {
+          color: $wysiwyg2_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $wysiwyg2_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $wysiwyg2_borderColor;
+        }
       }
 
       ul,
       ol {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 

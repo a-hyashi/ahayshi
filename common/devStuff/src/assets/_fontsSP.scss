@@ -1,55 +1,127 @@
 // SPフォントファミリー用変数
 // font-familyは以下の変数を使用する
-$gothic: "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
-$mincho: "游明朝", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
-$marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+$font-gothic: "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+$font-mincho: "游明朝", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+$font-marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
 // デザイン仕様 d07 SPではRTEによるフォントサイズ変更を無効にするために必要。mixin g-fontの!importantと合わせて使用する
 span {
   font-size: inherit !important;
 }
 
 // SPフォント用mixin
-// font-sizeとline-heightの組み合わせを指定する
-@mixin g-font($fontSizePx, $lineHeightType) {
-  // 2行にならないことを加味しながら使用
-  /* stylelint-disable */
-  @if $lineHeightType == 0 {line-height: 1;}
-  @if $lineHeightType == 1 {line-height: 1.25;}
-  @if $lineHeightType == 2 {line-height: 1.6;}
-  @if $fontSizePx == 8 {font-size: 0.571rem !important;}
-  @if $fontSizePx == 10 {font-size: 0.714rem !important;}
-  @if $fontSizePx == 12 {font-size: 0.857rem !important;}
-  @if $fontSizePx == 14 {font-size: 1.000rem !important;}
-  @if $fontSizePx == 16 {font-size: 1.143rem !important;}
-  @if $fontSizePx == 18 {font-size: 1.286rem !important;}
-  @if $fontSizePx == 20 {font-size: 1.429rem !important;}
-  @if $fontSizePx == 22 {font-size: 1.571rem !important;}
-  @if $fontSizePx == 24 {font-size: 1.714rem !important;}
-  @if $fontSizePx == 26 {font-size: 1.857rem !important;}
-  @if $fontSizePx == 28 {font-size: 2.000rem !important;}
-  @if $fontSizePx == 30 {font-size: 2.143rem !important;}
-  @if $fontSizePx == 32 {font-size: 2.286rem !important;}
-  @if $fontSizePx == 34 {font-size: 2.429rem !important;}
-  @if $fontSizePx == 36 {font-size: 2.571rem !important;}
-  @if $fontSizePx == 38 {font-size: 2.714rem !important;}
-  @if $fontSizePx == 40 {font-size: 2.857rem !important;}
-  @if $fontSizePx == 42 {font-size: 3.000rem !important;}
-  @if $fontSizePx == 44 {font-size: 3.143rem !important;}
-  @if $fontSizePx == 46 {font-size: 3.286rem !important;}
-  @if $fontSizePx == 48 {font-size: 3.429rem !important;}
-  @if $fontSizePx == 50 {font-size: 3.571rem !important;}
-  @if $fontSizePx == 52 {font-size: 3.714rem !important;}
-  @if $fontSizePx == 54 {font-size: 3.857rem !important;}
-  @if $fontSizePx == 56 {font-size: 4.000rem !important;}
-  @if $fontSizePx == 58 {font-size: 4.143rem !important;}
-  @if $fontSizePx == 60 {font-size: 4.286rem !important;}
-  @if $fontSizePx == 62 {font-size: 4.429rem !important;}
-  @if $fontSizePx == 64 {font-size: 4.571rem !important;}
-  @if $fontSizePx == 66 {font-size: 4.714rem !important;}
-  @if $fontSizePx == 68 {font-size: 4.857rem !important;}
-  @if $fontSizePx == 70 {font-size: 5.000rem !important;}
-  @if $fontSizePx == 72 {font-size: 5.143rem !important;}
-  @if $fontSizePx == 74 {font-size: 5.286rem !important;}
-  @if $fontSizePx == 76 {font-size: 5.429rem !important;}
-  /* stylelint-enable */
+// @include g-font();で使用。引数でfont-sizeとline-heightを指定する
+// 第2引数を入れない場合、$lineHeightは初期値1となる
+// 第2引数が0の場合には、line-heightの値を出力しない
+@mixin g-font($fontSize, $lineHeight: 1) {
+  @if $lineHeight == 1 {
+    line-height: 1.25;
+  }
+  @if $lineHeight == 2 {
+    line-height: 1.6;
+  }
+  @if $fontSize == 8 {
+    font-size: .571rem !important;
+  }
+  @if $fontSize == 10 {
+    font-size: .714rem !important;
+  }
+  @if $fontSize == 12 {
+    font-size: .857rem !important;
+  }
+  @if $fontSize == 14 {
+    font-size: 1rem !important;
+  }
+  @if $fontSize == 16 {
+    font-size: 1.143rem !important;
+  }
+  @if $fontSize == 18 {
+    font-size: 1.286rem !important;
+  }
+  @if $fontSize == 20 {
+    font-size: 1.429rem !important;
+  }
+  @if $fontSize == 22 {
+    font-size: 1.571rem !important;
+  }
+  @if $fontSize == 24 {
+    font-size: 1.714rem !important;
+  }
+  @if $fontSize == 26 {
+    font-size: 1.857rem !important;
+  }
+  @if $fontSize == 28 {
+    font-size: 2rem !important;
+  }
+  @if $fontSize == 30 {
+    font-size: 2.143rem !important;
+  }
+  @if $fontSize == 32 {
+    font-size: 2.286rem !important;
+  }
+  @if $fontSize == 34 {
+    font-size: 2.429rem !important;
+  }
+  @if $fontSize == 36 {
+    font-size: 2.571rem !important;
+  }
+  @if $fontSize == 38 {
+    font-size: 2.714rem !important;
+  }
+  @if $fontSize == 40 {
+    font-size: 2.857rem !important;
+  }
+  @if $fontSize == 42 {
+    font-size: 3rem !important;
+  }
+  @if $fontSize == 44 {
+    font-size: 3.143rem !important;
+  }
+  @if $fontSize == 46 {
+    font-size: 3.286rem !important;
+  }
+  @if $fontSize == 48 {
+    font-size: 3.429rem !important;
+  }
+  @if $fontSize == 50 {
+    font-size: 3.571rem !important;
+  }
+  @if $fontSize == 52 {
+    font-size: 3.714rem !important;
+  }
+  @if $fontSize == 54 {
+    font-size: 3.857rem !important;
+  }
+  @if $fontSize == 56 {
+    font-size: 4rem !important;
+  }
+  @if $fontSize == 58 {
+    font-size: 4.143rem !important;
+  }
+  @if $fontSize == 60 {
+    font-size: 4.286rem !important;
+  }
+  @if $fontSize == 62 {
+    font-size: 4.429rem !important;
+  }
+  @if $fontSize == 64 {
+    font-size: 4.571rem !important;
+  }
+  @if $fontSize == 66 {
+    font-size: 4.714rem !important;
+  }
+  @if $fontSize == 68 {
+    font-size: 4.857rem !important;
+  }
+  @if $fontSize == 70 {
+    font-size: 5rem !important;
+  }
+  @if $fontSize == 72 {
+    font-size: 5.143rem !important;
+  }
+  @if $fontSize == 74 {
+    font-size: 5.286rem !important;
+  }
+  @if $fontSize == 76 {
+    font-size: 5.429rem !important;
+  }
 }
