@@ -31,10 +31,6 @@
       text-align: center;
       width: 100%;
       border: 2px solid #e4d56d;
-      > div {
-        display: inline-block;
-      }
-
       #{$_block}__icon {
         display: none;
       }
@@ -43,7 +39,6 @@
     &__caption-upper {
       @include g-font(14, 1);
       padding: 0 0 9px;
-      // IE11のため打ち消しの形を取っています
       text-shadow: none;
     }
 
@@ -54,8 +49,12 @@
     &__caption-lower {
       @include g-font(14, 1);
       padding: 9px 0 0;
-      // IE11のため打ち消しの形を取っています
       text-shadow: none;
+    }
+
+    _:-ms-lang(x)::-ms-backdrop, #{$_block}__inner > div {
+      /* IE11 で以下の表記がないと hover時に透過しないため */
+      display: inline-block;
     }
   }
 }

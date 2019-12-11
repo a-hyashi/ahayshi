@@ -2,8 +2,8 @@
   .t0-b-frameWithHCaptionNumIcon#{$variation1of2} {
     $_block: &;
     $_fontSizePx_hd-h: 24;
-    $_fontSizePx_hd-caption: 16;
-    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_hd-caption: 14;
+    $_fontSizePx_numIcon-h: 24;
     $_fontSizePx_numIcon-caption: 16;
     $_fontSizeDifference: 4;
     $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
@@ -27,8 +27,7 @@
     background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png");
     background-color: #fafafa;
     position: relative;
-
-    > span {
+    &::before {
       pointer-events: none;
       background-repeat: repeat-x;
       background-position: left bottom;
@@ -50,18 +49,18 @@
       background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
       background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg8.png");
       background-color: #f7e6a1;
-
-      > span {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 2px;
+        bottom: 0;
+        left: 2px;
         pointer-events: none;
         background-repeat: repeat-x;
         background-position: left center;
         background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/1.png");
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 3px;
-        right: 3px;
-        z-index: 1;
+        z-index: 0;
       }
 
       #{$_block}__hd-caption-upper {
@@ -89,7 +88,7 @@
         }
       }
 
-      &__hd-h {
+      &-h {
         position: relative;
         z-index: 2;
       }
@@ -131,7 +130,7 @@
     }
 
     &__numIcon {
-      display: inline-block;
+      display: table;
       padding-left: 10px;
       a {
         color: $textcolor;
@@ -153,7 +152,6 @@
 
     &__iconPlacer {
       padding: 0 20px 0 0;
-
       > * {
         display: block;
       }
@@ -182,8 +180,71 @@
     }
 
     &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 63px 68px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 63px;
+      height: 68px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
     }
 
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #ba9e1f;
+            text-indent: 24px;
+            padding-top: 40px;
+            font-family: $themeFont;
+
+            @include g-font(24, 0);
+
+            line-height: 0;
+            text-align: left;
+            text-shadow: $textshadow3;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #ba9e1f;
+          text-indent: 16px;
+          padding-top: 40px;
+          font-family: $themeFont;
+
+          @include g-font(24, 0);
+
+          line-height: 0;
+          text-align: left;
+          text-shadow: $textshadow3;
+        }
+      }
+    }
     &__hd--align-l {
       text-align: left;
     }
@@ -202,15 +263,21 @@
     }
 
     &__numIcon--align-l {
-      text-align: left;
+      #{$_block}__numIcon {
+        margin: 0 auto 0 0;
+      }
     }
 
     &__numIcon--align-c {
-      text-align: center;
+      #{$_block}__numIcon {
+        margin: 0 auto;
+      }
     }
 
     &__numIcon--align-r {
-      text-align: right;
+      #{$_block}__numIcon {
+        margin: 0 0 0 auto;
+      }
     }
 
     & + div { // 最下部の枠があるとき
@@ -239,6 +306,27 @@
       }
 
       #{$_block}__icon {
+        width: 63px*.8;
+        height: 68px*.8;
+        background-size: 63px*.8 68px*.8;
+        &::before {
+          text-indent: 19px;
+          padding-top: 22px;
+
+          @include g-font(20, 0);
+        }
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      @each $_type in $_types {
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 12px;
+            padding-top: 22px;
+            @include g-font(20, 0);
+          }
+        }
       }
     }
 
@@ -264,14 +352,36 @@
       }
 
       #{$_block}__icon {
+        width: 63px*1.2;
+        height: 68px*1.2;
+        background-size: 63px*1.2 68px*1.2;
+        &::before {
+          text-indent: 29px;
+          padding-top: 34px;
+
+          @include g-font(28, 0);
+        }
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      @each $_type in $_types {
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 20px;
+            padding-top: 34px;
+            @include g-font(28, 0);
+          }
+        }
       }
     }
   }
+
   .t0-b-frameWithHCaptionNumIcon#{$variation2of2} {
     $_block: &;
-    $_fontSizePx_hd-h: 28;
-    $_fontSizePx_hd-caption: 16;
-    $_fontSizePx_numIcon-h: 26;
+    $_fontSizePx_hd-h: 24;
+    $_fontSizePx_hd-caption: 14;
+    $_fontSizePx_numIcon-h: 24;
     $_fontSizePx_numIcon-caption: 16;
     $_fontSizeDifference: 4;
     $_fontSizePx_hd-h_s: $_fontSizePx_hd-h - $_fontSizeDifference;
@@ -288,19 +398,41 @@
     $_lineHeightType_numIcon-caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
 
+    margin-bottom: 20px;
+    padding: 47px 47px 37px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+    background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg8.png");
+    background-color: #fff;
+    position: relative;
     &__hd {
+      position: relative;
+      padding: 16px 15px 19px;
+      text-align: center;
+      margin: 0 0 15px;
+      background-repeat: no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y;
+      background-position: left bottom, right bottom, left bottom, left -9px top, right -9px top, left top, left top, right top;
+      background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/1.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/8.png");
+      background-color: #dbf6f1;
       #{$_block}__hd-caption-upper {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
         padding: 0 0 5px;
+        text-shadow: $textshadow3;
       }
 
       #{$_block}__hd-caption-lower {
         @include g-font-layout($_fontSizePx_hd-caption, $_lineHeightType_hd-caption, $layout);
         padding: 5px 0 0;
+        text-shadow: $textshadow3;
       }
 
-      #{$_block}__hd-h h3 {
-        @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
+      #{$_block}__hd-h {
+        position: relative;
+        z-index: 2;
+        h3 {
+          @include g-font-layout($_fontSizePx_hd-h, $_lineHeightType_hd-h, $layout);
+          text-shadow: $textshadow2;
+        }
       }
 
       a {
@@ -341,8 +473,7 @@
     }
 
     &__numIcon {
-      display: inline-block;
-      padding-bottom: 2%;
+      display: table;
       a {
         color: $textcolor;
         text-decoration: none;
@@ -358,11 +489,11 @@
     }
 
     &__box {
-      padding-bottom: 2%;
+      padding: 10px 0 0 82px;
     }
 
     &__iconPlacer {
-      padding: 0 15px 0 0;
+      padding: 0 20px 0 0;
       > * {
         display: block;
       }
@@ -391,8 +522,69 @@
     }
 
     &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-lv4H-numIcon2__icon/#{$type}/bg.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 62px 62px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 62px;
+      height: 62px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
     }
 
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #8e6e3b;
+            text-indent: 24px;
+            padding-top: 40px;
+
+            @include g-font(24, 0);
+
+            line-height: 0;
+            text-align: left;
+            text-shadow: $textshadow3;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #8e6e3b;
+          text-indent: 16px;
+          padding-top: 40px;
+
+          @include g-font(24, 0);
+
+          line-height: 0;
+          text-align: left;
+          text-shadow: $textshadow3;
+        }
+      }
+    }
     &__hd--align-l {
       text-align: left;
     }
@@ -411,15 +603,21 @@
     }
 
     &__numIcon--align-l {
-      text-align: left;
+      #{$_block}__numIcon {
+        margin: 0 auto 0 0;
+      }
     }
 
     &__numIcon--align-c {
-      text-align: center;
+      #{$_block}__numIcon {
+        margin: 0 auto;
+      }
     }
 
     &__numIcon--align-r {
-      text-align: right;
+      #{$_block}__numIcon {
+        margin: 0 0 0 auto;
+      }
     }
 
     & + div { // 最下部の枠があるとき
@@ -448,6 +646,27 @@
       }
 
       #{$_block}__icon {
+        width: 62px*.8;
+        height: 62px*.8;
+        background-size: 62px*.8 62px*.8;
+        &::before {
+          text-indent: 18px;
+          padding-top: 22px;
+
+          @include g-font(20, 0);
+        }
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      @each $_type in $_types {
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 11px;
+            padding-top: 22px;
+            @include g-font(20, 0);
+          }
+        }
       }
     }
 
@@ -473,49 +692,119 @@
       }
 
       #{$_block}__icon {
+        width: 62px*1.2;
+        height: 62px*1.2;
+        background-size: 62px*1.2 62px*1.2;
+        &::before {
+          text-indent: 28px;
+          padding-top: 34px;
+
+          @include g-font(28, 0);
+        }
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      @each $_type in $_types {
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 18px;
+            padding-top: 34px;
+            @include g-font(28, 0);
+          }
+        }
       }
     }
   }
-
 }
 
 @if $device == SP {
   .t0-b-frameWithHCaptionNumIcon#{$variation1of2} {
     $_block: &;
-    $_fontSizePx_hd-h: 20;
+    $_fontSizePx_hd-h: 18;
     $_fontSizePx_hd-caption: 14;
-    $_fontSizePx_numIcon-h: 20;
+    $_fontSizePx_numIcon-h: 18;
     $_fontSizePx_numIcon-caption: 14;
     $_lineHeightType_hd-h: 1;
     $_lineHeightType_hd-caption: 1;
     $_lineHeightType_numIcon-h: 1;
     $_lineHeightType_numIcon-caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    margin: 0 -5px;
-    padding: 20px 15px 10px;
+
+    margin: 0 -5px 20px;
+    padding: 20px 20px 25px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+    background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/bg8.png");
+    background-color: #fafafa;
+    position: relative;
+    &::before {
+      content: "";
+      pointer-events: none;
+      background-repeat: repeat-x;
+      background-position: left bottom;
+      background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/1.png");
+      position: absolute;
+      top: 0;
+      bottom: 7px;
+      left: 5px;
+      right: 5px;
+      z-index: 1;
+    }
 
     &__hd {
+      position: relative;
+      padding: 12px;
+      text-align: center;
+      margin: 0 0 10px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+      background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+      background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/bg8.png");
+      background-color: #f7e6a1;
+      &::before {
+        content: "";
+        pointer-events: none;
+        background-repeat: repeat-x;
+        background-position: left center;
+        background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/1/hd/1.png");
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 3px;
+        right: 3px;
+        z-index: 1;
+      }
+
       h3 {
         @include g-font($_fontSizePx_hd-h, $_lineHeightType_hd-h);
+        text-shadow: $textshadow3;
       }
+
       a {
         color: $textcolor;
         text-decoration: none;
       }
     }
 
+    &__hd-h {
+      position: relative;
+      z-index: 2;
+    }
+
     &__hd-caption-upper {
       @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
       padding: 0 0 5px;
+      text-shadow: $textshadow3;
     }
 
     &__hd-caption-lower {
       @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
       padding: 5px 0 0;
+      text-shadow: $textshadow3;
     }
 
     &__numIcon {
-      display: inline-block;
+      display: table;
       a {
         color: $textcolor;
         text-decoration: none;
@@ -527,10 +816,22 @@
       }
     }
 
+    &__bd {
+      padding: 10px 0;
+      > .b-bPlacer-7s {
+        margin-bottom: -10px;
+      }
+    }
+
     &__box {
+      padding: 10px 0 0;
     }
 
     &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
     }
 
     &__numIcon-caption-upper {
@@ -548,8 +849,69 @@
     }
 
     &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-lv4H-numIcon__icon/#{$type}/bg.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 50px 54px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 54px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
     }
 
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #ba9e1f;
+            text-indent: 19px;
+            padding-top: 32px;
+
+            @include g-font(20, 0);
+
+            line-height: 0;
+            text-align: initial;
+            text-shadow: $textshadow3;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #ba9e1f;
+          text-indent: 11px;
+          padding-top: 32px;
+
+          @include g-font(20, 0);
+
+          line-height: 0;
+          text-align: initial;
+          text-shadow: $textshadow3;
+        }
+      }
+    }
     &__hd--align-l {
       text-align: left;
     }
@@ -568,15 +930,21 @@
     }
 
     &__numIcon--align-l {
-      text-align: left;
+      #{$_block}__numIcon {
+        margin: 0 auto 0 0;
+      }
     }
 
     &__numIcon--align-c {
-      text-align: center;
+      #{$_block}__numIcon {
+        margin: 0 auto;
+      }
     }
 
     &__numIcon--align-r {
-      text-align: right;
+      #{$_block}__numIcon {
+        margin: 0 0 0 auto;
+      }
     }
 
     & + div { // 最下部の枠があるとき
@@ -595,13 +963,28 @@
     $_lineHeightType_numIcon-h: 1;
     $_lineHeightType_numIcon-caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    margin: 0 -5px;
-    padding: 20px 15px 10px;
 
+    margin: 0 -5px 20px;
+    padding: 44px 37px 45px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, repeat-x, repeat-y, repeat-x;
+    background-position: left top, left bottom, right bottom, right top, left top, left bottom, right top, left top;
+    background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg2.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg4.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg5.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg7.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/bg8.png");
+    background-color: #fff;
+    position: relative;
     &__hd {
+      position: relative;
+      padding: 16px 15px 19px;
+      text-align: center;
+      margin: 0 0 15px;
+      background-repeat: no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y;
+      background-position: left bottom, right bottom, left bottom, left top, right top, left top, left top, right top;
+      background-image: url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/9.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/10.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/3.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/13.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/14.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/6.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/11.png"), url("../imgs/t0-b-frameWithHCaptionNumIcon/2/hd/12.png");
+      background-color: #dbf6f1;
       h3 {
         @include g-font($_fontSizePx_hd-h, $_lineHeightType_hd-h);
+        text-shadow: $textshadow2;
       }
+
       a {
         color: $textcolor;
         text-decoration: none;
@@ -611,15 +994,17 @@
     &__hd-caption-upper {
       @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
       padding: 0 0 5px;
+      text-shadow: $textshadow3;
     }
 
     &__hd-caption-lower {
       @include g-font($_fontSizePx_hd-caption, $_lineHeightType_hd-caption);
       padding: 5px 0 0;
+      text-shadow: $textshadow3;
     }
 
     &__numIcon {
-      display: inline-block;
+      display: table;
       a {
         color: $textcolor;
         text-decoration: none;
@@ -631,10 +1016,22 @@
       }
     }
 
+    &__bd {
+      padding: 10px 0;
+      > .b-bPlacer-7s {
+        margin-bottom: -10px;
+      }
+    }
+
     &__box {
+      padding: 10px 0 0;
     }
 
     &__iconPlacer {
+      padding: 0 10px 0 0;
+      > * {
+        display: block;
+      }
     }
 
     &__numIcon-caption-upper {
@@ -652,8 +1049,69 @@
     }
 
     &__icon {
+      @mixin _iconStyles($type, $index) {
+        $_src: "../imgs/t0-b-lv4H-numIcon2__icon/#{$type}/bg.png";
+
+        background-image: url($_src);
+      }
+
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+      background-size: 50px 50px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      text-indent: -100px;
+      color: transparent;
+
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            @include _iconStyles($_type, $_i);
+          }
+        }
+      }
     }
 
+    $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+
+    @each $_type in $_types {
+      @for $_i from 1 through 9 {
+        &__icon--#{$_type}-#{$_i} {
+          &::before {
+            content: "#{$_i}";
+            display: block;
+            color: #8e6e3b;
+            text-indent: 19px;
+            padding-top: 32px;
+
+            @include g-font(20, 0);
+
+            line-height: 0;
+            text-align: initial;
+            text-shadow: $textshadow3;
+          }
+        }
+      }
+      &__icon--#{$_type}-10 {
+        &::before {
+          content: "10";
+          display: block;
+          color: #8e6e3b;
+          text-indent: 11px;
+          padding-top: 32px;
+
+          @include g-font(20, 0);
+
+          line-height: 0;
+          text-align: initial;
+          text-shadow: $textshadow3;
+        }
+      }
+    }
     &__hd--align-l {
       text-align: left;
     }
@@ -672,15 +1130,21 @@
     }
 
     &__numIcon--align-l {
-      text-align: left;
+      #{$_block}__numIcon {
+        margin: 0 auto 0 0;
+      }
     }
 
     &__numIcon--align-c {
-      text-align: center;
+      #{$_block}__numIcon {
+        margin: 0 auto;
+      }
     }
 
     &__numIcon--align-r {
-      text-align: right;
+      #{$_block}__numIcon {
+        margin: 0 0 0 auto;
+      }
     }
 
     & + div { // 最下部の枠があるとき
