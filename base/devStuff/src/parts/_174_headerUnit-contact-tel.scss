@@ -7,16 +7,13 @@
       text-align: right;
       a {
         color: inherit;
-        &:hover {
-          color: $g-hoverColor;
-        }
       }
     }
 
     &__bd {
+      @include g-font(26, 0);
       display: flex;
       font-weight: bold;
-      line-height: 1;
       #{$_block}__tel + span,
       #{$_block}__fax + span,
       #{$_block}__free + span,
@@ -34,8 +31,7 @@
 
     &--size-1 {
       #{$_block}__bd {
-        @include g-font(28, 1);
-        line-height: 1;
+        @include g-font(28, 0);
       }
 
       #{$_block}__tel {
@@ -55,14 +51,13 @@
       }
 
       #{$_block}__ruby {
-        @include g-font(10, 1);
+        @include g-font(10);
       }
     }
 
     &--size-2 {
       #{$_block}__bd {
-        @include g-font(36, 1);
-        line-height: 1;
+        @include g-font(36, 0);
       }
 
       #{$_block}__tel {
@@ -82,14 +77,13 @@
       }
 
       #{$_block}__ruby {
-        @include g-font(12, 1);
+        @include g-font(12);
       }
     }
 
     &--size-3 {
       #{$_block}__bd {
-        @include g-font(42, 1);
-        line-height: 1;
+        @include g-font(42, 0);
       }
 
       #{$_block}__tel {
@@ -109,14 +103,13 @@
       }
 
       #{$_block}__ruby {
-        @include g-font(14, 1);
+        @include g-font(14);
       }
     }
 
     &--size-4 {
       #{$_block}__bd {
-        @include g-font(50, 1);
-        line-height: 1;
+        @include g-font(50, 0);
       }
 
       #{$_block}__tel {
@@ -136,7 +129,7 @@
       }
 
       #{$_block}__ruby {
-        @include g-font(16, 1);
+        @include g-font(16);
       }
     }
   }
@@ -149,8 +142,8 @@
     padding: 10px 0;
     margin: 0 auto;
     word-break: break-all;
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
-    border: 1px solid #ccc;
+    background: -webkit-gradient(linear, left top, left bottom, from($headerUnit-contact-tel_BGColor), color-stop(.5, $headerUnit-contact-tel_BGColor2), to($headerUnit-contact-tel_BGColor3)) left top repeat;
+    border: 1px solid $headerUnit-contact-tel_borderColor;
     border-radius: 8px;
     > div {
       text-align: center;
@@ -158,15 +151,15 @@
     }
 
     &__ruby {
-      color: #555;
+      @include g-font(12);
+      color: $headerUnit-contact-tel_textColor;
       text-align: center;
-      @include g-font(12, 1);
     }
 
     &__bd {
-      color: #f00;
+      @include g-font(22);
+      color: $headerUnit-contact-tel_textColor2;
       text-align: center;
-      @include g-font(22, 1);
       > span {
         display: inline-block;
         vertical-align: middle;
