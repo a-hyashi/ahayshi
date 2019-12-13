@@ -1,31 +1,28 @@
 @if $device == PC {
   .t0-b-formTable#{$variation1of2} {
     $_block: &;
-    $_color_th_typo: #333;
-    $_color_th_bg: #d4e9ed;
-    $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
     table {
       width: 100%;
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
+      border-top: 1px solid $formTable_borderColor;
+      border-left: 1px solid $formTable_borderColor;
     }
 
-    table, x:-moz-any-link {
+    table,
+    x:-moz-any-link {
       border-collapse: initial;
     }
 
-    th, td {
+    th,
+    td {
       padding: 10px 15px;
       text-align: left;
       vertical-align: middle;
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
+      border-right: 1px solid $formTable_borderColor;
+      border-bottom: 1px solid $formTable_borderColor;
     }
 
     th {
-      @include g-font(14, 1);
+      @include g-font(14);
       > div {
         display: table;
         width: 100%;
@@ -36,14 +33,14 @@
     }
 
     .mod-formError {
+      @include g-font(18);
       display: block;
       padding: 10px 0 0;
-      color: $_color_error_typo;
-      @include g-font(18, 1);
+      color: $formTable_textColor;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font(14);
       padding: 10px 0 0;
     }
 
@@ -52,7 +49,9 @@
     }
 
     &__placer-singleInput {
-      input, select, textarea {
+      input,
+      select,
+      textarea {
         display: block;
         width: 100%;
       }
@@ -60,7 +59,7 @@
       select {
         color: inherit;
         background: none transparent;
-        border: 1px solid #ccc;
+        border: 1px solid $formTable_borderColor2;
       }
     }
 
@@ -71,10 +70,10 @@
       }
 
       li {
+        @include g-font(14);
         display: inline;
         padding: 5px 4px 0 0;
         text-indent: -18px;
-        @include g-font(14, 1);
         > span {
           display: inline-block;
           width: 18px;
@@ -87,7 +86,7 @@
           }
 
           textarea {
-            border: 1px solid #cbcbcb;
+            border: 1px solid $formTable_borderColor3;
           }
         }
 
@@ -114,6 +113,7 @@
       width: 40px;
       vertical-align: middle;
       > span {
+        @include g-font(12);
         display: block;
         padding: 3px;
         margin-top: -10px;
@@ -121,77 +121,71 @@
         margin-left: 3px;
         font-weight: normal;
         text-align: center;
-        @include g-font(12, 1);
       }
     }
 
     // 確認ボタン
     &__button {
+      @include g-font(16);
+      display: inline-block;
+      width: 266px;
+      border: none;
+      appearance: none;
       &:hover {
         opacity: .8;
       }
-      width: 266px;
-      display: inline-block;
-      border: none;
-      appearance: none;
-      @include g-font(16, 1);
     }
 
     // 編集ボタン
     &__button2 {
-      &:hover {
-        opacity: .8;
-      }
-
+      @include g-font(16);
       display: inline-block;
       min-width: 90px;
       max-width: 266px;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
+      &:hover {
+        opacity: .8;
+      }
     }
 
     // 送信ボタン
     &__button3 {
-      &:hover {
-        opacity: .8;
-      }
-
+      @include g-font(16);
       display: inline-block;
       width: 266px;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
+      &:hover {
+        opacity: .8;
+      }
     }
   }
 
   .t0-b-formTable#{$variation2of2} {
     $_block: &;
-    $_color_th_typo: #333;
-    $_color_th_bg: #d4e9ed;
-    $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
     table {
       width: 100%;
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
+      border-top: 1px solid $formTable2_borderColor;
+      border-left: 1px solid $formTable2_borderColor;
     }
 
-    table, x:-moz-any-link {
+    table,
+    x:-moz-any-link {
       border-collapse: initial;
     }
 
-    th, td {
+    th,
+    td {
       padding: 10px 15px;
       text-align: left;
       vertical-align: middle;
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
+      border-right: 1px solid $formTable2_borderColor;
+      border-bottom: 1px solid $formTable2_borderColor;
     }
 
     th {
-      @include g-font(14, 1);
+      @include g-font(14);
       > div {
         display: table;
         width: 100%;
@@ -202,14 +196,14 @@
     }
 
     .mod-formError {
+      @include g-font(18);
       display: block;
       padding: 10px 0 0;
-      color: $_color_error_typo;
-      @include g-font(18, 1);
+      color: $formTable2_textColor;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font(14);
       padding: 10px 0 0;
     }
 
@@ -218,7 +212,9 @@
     }
 
     &__placer-singleInput {
-      input, select, textarea {
+      input,
+      select,
+      textarea {
         display: block;
         width: 100%;
       }
@@ -226,7 +222,7 @@
       select {
         color: inherit;
         background: none transparent;
-        border: 1px solid #ccc;
+        border: 1px solid $formTable2_borderColor2;
       }
     }
 
@@ -237,10 +233,10 @@
       }
 
       li {
+        @include g-font(14);
         display: inline;
         padding: 5px 4px 0 0;
         text-indent: -18px;
-        @include g-font(14, 1);
         > span {
           display: inline-block;
           width: 18px;
@@ -253,7 +249,7 @@
           }
 
           textarea {
-            border: 1px solid #cbcbcb;
+            border: 1px solid $formTable2_borderColor3;
           }
         }
 
@@ -280,6 +276,7 @@
       width: 40px;
       vertical-align: middle;
       > span {
+        @include g-font(12);
         display: block;
         padding: 3px;
         margin-top: -10px;
@@ -287,47 +284,44 @@
         margin-left: 3px;
         font-weight: normal;
         text-align: center;
-        @include g-font(12, 1);
       }
     }
 
     // 確認ボタン
     &__button {
+      @include g-font(16);
+      display: inline-block;
+      width: 266px;
+      border: none;
+      appearance: none;
       &:hover {
         opacity: .8;
       }
-      width: 266px;
-      display: inline-block;
-      border: none;
-      appearance: none;
-      @include g-font(16, 1);
     }
 
     // 編集ボタン
     &__button2 {
-      &:hover {
-        opacity: .8;
-      }
-
+      @include g-font(16);
       display: inline-block;
       min-width: 90px;
       max-width: 266px;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
+      &:hover {
+        opacity: .8;
+      }
     }
 
     // 送信ボタン
     &__button3 {
-      &:hover {
-        opacity: .8;
-      }
-
+      @include g-font(16);
       display: inline-block;
       width: 266px;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
+      &:hover {
+        opacity: .8;
+      }
     }
   }
 
@@ -343,55 +337,48 @@
     }
 
     p {
-      @include g-font(12, 1);
+      @include g-font(12);
       padding: 15px 0 0;
       text-align: center;
-      &::before, &::after {
+      &::before,
+      &::after {
         margin-top: 0;
       }
 
       > a {
         color: inherit;
-        &:hover {
-          color: $g-hoverColor;
-        }
       }
     }
   }
 
   .t0-b-inputText {
-    box-sizing: border-box;
+    @include g-font(12);
     width: 100%;
     padding: .3em 6px;
-    border: 1px solid #ccc;
-    @include g-font(12, 1);
+    border: 1px solid $formTable_borderColor2;
   }
 
   .t0-b-textarea {
-    box-sizing: border-box;
+    @include g-font(12, 2);
     display: block;
     width: 100%;
     height: 100px;
     padding: .3em 6px;
     resize: vertical;
-    border: 1px solid #ccc;
-    @include g-font(12, 2);
+    border: 1px solid $formTable_borderColor2;
   }
 }
 
 @if $device == SP {
   .t0-b-formTable#{$variation1of2} {
     $_block: &;
-    $_color_th_bg: #d4e9ed;
-    $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
     label {
       direction: ltr;
     }
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+
     .t0-b-frameWithHCaption#{$variation1of3} &,
     .t0-b-frameWithHCaption#{$variation2of3} & {
+      // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
       margin: 0 -15px;
     }
 
@@ -412,24 +399,29 @@
       font-size: 14px;
     }
 
-    table, tbody, tr, th, td {
+    table,
+    tbody,
+    tr,
+    th,
+    td {
       display: block;
     }
 
     table {
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
+      border-top: 1px solid $formTable_borderColor;
+      border-left: 1px solid $formTable_borderColor;
     }
 
-    th, td {
+    th,
+    td {
       text-align: left;
       vertical-align: middle;
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
+      border-right: 1px solid $formTable_borderColor;
+      border-bottom: 1px solid $formTable_borderColor;
     }
 
     th {
-      @include g-font(14, 1);
+      @include g-font(14);
       > div {
         display: table;
         width: 100%;
@@ -441,18 +433,18 @@
     }
 
     td {
-      background: $_color_td_bg;
+      background-color: $formTable_BGColor;
     }
 
     .mod-formError {
+      @include g-font(14);
       display: block;
       padding: 10px 0 0;
-      color: $_color_error_typo;
-      @include g-font(14, 1);
+      color: $formTable_textColor;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font(14);
       padding: 10px 0 0;
     }
 
@@ -479,9 +471,9 @@
       }
 
       li {
+        @include g-font(14);
         padding: 5px 10px 0 18px;
         text-indent: -18px;
-        @include g-font(14, 1);
         > span {
           display: inline-block;
           width: 18px;
@@ -521,6 +513,7 @@
       padding: 0 10px 0 0;
       vertical-align: middle;
       > span {
+        @include g-font(10);
         display: block;
         padding: 3px 5px 1px;
         margin-top: -8px;
@@ -528,11 +521,11 @@
         margin-left: 3px;
         font-weight: normal;
         text-align: center;
-        @include g-font(10, 1);
       }
     }
 
     &__button {
+      @include g-font(16);
       display: inline-block;
       width: 229px;
       padding: 8px 12px;
@@ -541,10 +534,10 @@
       word-break: break-word;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
     }
 
     &__button2 {
+      @include g-font(16);
       display: inline-block;
       width: 110px;
       padding: 8px 12px;
@@ -553,10 +546,10 @@
       word-break: break-word;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
     }
 
     &__button3 {
+      @include g-font(16);
       display: inline-block;
       width: 170px;
       max-width: 220px;
@@ -565,22 +558,18 @@
       word-break: break-word;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
     }
   }
 
   .t0-b-formTable#{$variation2of2} {
     $_block: &;
-    $_color_th_bg: #d4e9ed;
-    $_color_td_bg: #fff;
-    $_color_table_border: #333;
-    $_color_error_typo: #da0000;
     label {
       direction: ltr;
     }
-    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+
     .t0-b-frameWithHCaption#{$variation1of3} &,
     .t0-b-frameWithHCaption#{$variation2of3} & {
+      // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
       margin: 0 -15px;
     }
 
@@ -601,24 +590,29 @@
       font-size: 14px;
     }
 
-    table, tbody, tr, th, td {
+    table,
+    tbody,
+    tr,
+    th,
+    td {
       display: block;
     }
 
     table {
-      border-top: 1px solid #{$_color_table_border};
-      border-left: 1px solid #{$_color_table_border};
+      border-top: 1px solid $formTable2_borderColor;
+      border-left: 1px solid $formTable2_borderColor;
     }
 
-    th, td {
+    th,
+    td {
       text-align: left;
       vertical-align: middle;
-      border-right: 1px solid #{$_color_table_border};
-      border-bottom: 1px solid #{$_color_table_border};
+      border-right: 1px solid $formTable2_borderColor;
+      border-bottom: 1px solid $formTable2_borderColor;
     }
 
     th {
-      @include g-font(14, 1);
+      @include g-font(14);
       > div {
         display: table;
         width: 100%;
@@ -630,18 +624,18 @@
     }
 
     td {
-      background: $_color_td_bg;
+      background-color: $formTable2_BGColor;
     }
 
     .mod-formError {
+      @include g-font(14);
       display: block;
       padding: 10px 0 0;
-      color: $_color_error_typo;
-      @include g-font(14, 1);
+      color: $formTable2_textColor;
     }
 
     &__td-caption {
-      @include g-font(14, 1);
+      @include g-font(14);
       padding: 10px 0 0;
     }
 
@@ -668,9 +662,9 @@
       }
 
       li {
+        @include g-font(14);
         padding: 5px 10px 0 18px;
         text-indent: -18px;
-        @include g-font(14, 1);
         > span {
           display: inline-block;
           width: 18px;
@@ -710,6 +704,7 @@
       padding: 0 10px 0 0;
       vertical-align: middle;
       > span {
+        @include g-font(10);
         display: block;
         padding: 3px 5px 1px;
         margin-top: -8px;
@@ -717,11 +712,11 @@
         margin-left: 3px;
         font-weight: normal;
         text-align: center;
-        @include g-font(10, 1);
       }
     }
 
     &__button {
+      @include g-font(16);
       display: inline-block;
       max-width: 229px;
       padding: 8px 12px;
@@ -730,10 +725,10 @@
       word-break: break-word;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
     }
 
     &__button2 {
+      @include g-font(16);
       display: inline-block;
       width: 110px;
       padding: 8px 12px;
@@ -742,10 +737,10 @@
       word-break: break-word;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
     }
 
     &__button3 {
+      @include g-font(16);
       display: inline-block;
       width: 170px;
       max-width: 220px;
@@ -754,7 +749,6 @@
       word-break: break-word;
       border: none;
       appearance: none;
-      @include g-font(16, 1);
     }
   }
 
@@ -770,10 +764,11 @@
     }
 
     p {
-      @include g-font(12, 1);
+      @include g-font(12);
       padding: 5px 0 0;
       text-align: center;
-      &::before, &::after {
+      &::before,
+      &::after {
         margin-top: 0;
       }
     }
@@ -784,21 +779,19 @@
   }
 
   .t0-b-inputText {
-    box-sizing: border-box;
+    @include g-font(12);
     width: 100%;
     padding: .3em 6px;
-    border: 1px solid #ccc;
-    @include g-font(12, 1);
+    border: 1px solid $formTable2_borderColor2;
   }
 
   .t0-b-textarea {
-    box-sizing: border-box;
+    @include g-font(12, 2);
     display: block;
     width: 100%;
     height: 100px;
     padding: .3em 6px;
     resize: vertical;
-    border: 1px solid #ccc;
-    @include g-font(12, 2);
+    border: 1px solid $formTable2_borderColor2;
   }
 }
