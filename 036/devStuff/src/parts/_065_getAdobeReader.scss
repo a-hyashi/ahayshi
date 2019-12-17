@@ -31,9 +31,9 @@
     }
 
     a {
-      color: $textcolor;
+      color: $g-textColor;
       &:hover {
-        color: $hovercolor;
+        color: $g-hoverColor;
       }
     }
 
@@ -56,20 +56,10 @@
   }
 
   .b-downloadIcon {
-    @mixin _icon($file) {
-      &--#{$file} {
-        $_src: "../imgs/b-downloadIcon/#{$file}.png";
-        width: 30px;
-        height: 30px;
-        background: url($_src) 0 0 no-repeat;
-        background-size: 30px 30px;
-      }
-    }
-
     display: inline-block;
     vertical-align: middle;
-
-    @include _icon("reader");
+    background-position: 0 0;
+    @include fileIcon("reader", 1);
   }
   // safariで下線が付かない不具合のハック
   _::-webkit-full-page-media, _:future, :root .t0-b-getAdobeReader__itemText {
@@ -110,7 +100,7 @@
     }
 
     a {
-      color: $textcolor;
+      color: $g-textColor;
     }
 
     #{$_block}__itemSplit {
@@ -133,20 +123,15 @@
   }
 
   .b-downloadIcon {
-    @mixin _icon($file) {
-      &--#{$file} {
-        $_src: "../imgs/b-downloadIcon/#{$file}.png";
-        width: 27px;
-        height: 30px;
-
-        background: url($_src) 0 0 no-repeat;
-        background-size: 27px 30px;
-      }
-    }
-
     display: inline-block;
     vertical-align: middle;
+    &--reader {
+      $_src: "../imgs/b-downloadIcon/reader.png";
+      width: 27px;
+      height: 30px;
 
-    @include _icon("reader");
+      background: url($_src) 0 0 no-repeat;
+      background-size: 27px 30px;
+    }
   }
 }
