@@ -1,11 +1,11 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 28;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_s: $_fontSizePx - $_fontSizeDifference;
-    $_fontSizePx_l: $_fontSizePx + $_fontSizeDifference;
-    $_lineHeightType: 1;
+    $_fontSize: 28;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight: 1;
     position: relative;
     padding-bottom: 10px;
     padding-left: 4px;
@@ -44,7 +44,7 @@
       display: table-cell;
       padding: 4px 0 0 10px;
       vertical-align: middle;
-      @include g-font-layout($_fontSizePx, $_lineHeightType, $layout);
+      @include g-font-layout($_fontSize, $_lineHeight, $layout);
     }
 
     &--size-1 {
@@ -55,7 +55,7 @@
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_s, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
     }
 
@@ -67,7 +67,7 @@
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_l, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
     }
 
@@ -88,8 +88,8 @@
 @if $device == SP {
   .t0-b-lv2H-faqIcon {
     $_block: &;
-    $_fontSizePx: 20;
-    $_lineHeightType: 1;
+    $_fontSize: 20;
+    $_lineHeight: 1;
     position: relative;
     padding-bottom: 10px;
     padding-left: 4px;
@@ -124,7 +124,7 @@
       display: table-cell;
       padding: 4px 0 0 10px;
       vertical-align: middle;
-      @include g-font($_fontSizePx, $_lineHeightType);
+      @include g-font($_fontSize, $_lineHeight);
     }
 
     &--align-l {

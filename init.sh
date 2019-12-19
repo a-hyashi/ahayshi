@@ -1,27 +1,33 @@
 #!/bin/bash
 
 #引数がallの場合は全テーマ実行
-#番号の場合は指定の番号のコンテナを実行
-#ない場合は1つ目のコンテナを実行
+#それ以外の場合は指定のテーマで実行 複数指定可能
+#ない場合は現在のテーマで実行
+printf "\e[36m[Info] initを実行します\e[m\n"
+
+./copy.sh $*
+
 if [ $1 ] ; then
+  # 引数がallの場合は全テーマ実行
   if [ $1 = "all" ] ; then
-    for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
-      ./set-themes.sh ${theme##*/}
-      docker-compose run web1 cp ../copy.sh ./copy.sh
-      docker-compose run web1 ./copy.sh
-      docker-compose run web1 gulp update-parts --max_old_space_size=8192
+    for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
+      ./set-themes.sh ${theme#./}
+      docker-compose run app1 npx gulp update-styleguide
+      # 重くなるのでループの中でコンテナを落とす
+      docker-compose down
     done
+    printf "\e[32minitが完了しました\e[m\n"
+    exit
+  # 引数がある場合は引数のテーマで実行
   else
-    for num in "$@" ; do
-      docker-compose run web$num cp ../copy.sh ./copy.sh
-      docker-compose run web$num ./copy.sh
-      docker-compose run web$num gulp update-parts --max_old_space_size=8192
-    done
+    ./set-themes.sh $*
   fi
-else
-  docker-compose run web1 cp ../copy.sh ./copy.sh
-  docker-compose run web1 ./copy.sh
-  docker-compose run web1 gulp update-parts --max_old_space_size=8192
 fi
 
+APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
+for ((i = 0; i < ${#APPS[@]}; i++)) ; do
+  docker-compose run app$(($i+1)) npx gulp update-styleguide
+done
+
 docker-compose down
+printf "\e[32minitが完了しました\e[m\n"
