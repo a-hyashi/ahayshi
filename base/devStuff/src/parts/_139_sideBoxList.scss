@@ -1,17 +1,6 @@
 @if $device == PC {
   .t0-b-sideBoxList {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-      &:hover {
-        color: $g-hoverColor;
-      }
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -24,25 +13,18 @@
     ol {
       padding: 0 0 0 2.5em;
       margin-left: 10px;
-      font-size: $baseFontSize;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -53,25 +35,18 @@
 
     ul {
       margin-left: 10px;
-      font-size: $baseFontSize;
       ul,
       ol {
         margin-top: 5px;
       }
 
       li {
-        @include g-font(16, 1);
-        background: url("");
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        background: url("../imgs/t0-b-sideBoxList/bg.png");
         background-repeat: no-repeat;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -82,55 +57,49 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       tr {
-        border-right: 1px solid $_color_table_border;
+        border-right: 1px solid $sideBoxList_borderColor;
         &:last-child {
-          border-bottom: 1px solid $_color_table_border;
+          border-bottom: 1px solid $sideBoxList_borderColor;
         }
       }
 
       th, td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 10px 6px;
         text-align: left;
         vertical-align: middle;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        background-color: $sideBoxList_BGColor2;
+        border-top: 1px solid $sideBoxList_borderColor;
+        border-left: 1px solid $sideBoxList_borderColor;
       }
 
       ol {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
           padding: 0 0 0 10px;
-          background: url("../imgs/t0-b-navList/3.png") 0 6px no-repeat;
+          background: url("../imgs/t0-b-sideBoxList/bg2.png") 0 6px no-repeat;
         }
       }
 
       p {
-        @include g-font(14, 1);
+        @include g-font(14);
       }
 
       th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
+        color: $sideBoxList_textColor;
+        background-color: $sideBoxList_BGColor;
+        border-bottom: 1px solid $sideBoxList_borderColor;
         a {
-          color: #fff;
+          color: $sideBoxList_textColor;
         }
-      }
-
-      td {
-        color: $g-textColor;
       }
     }
 
@@ -142,15 +111,7 @@
 
 @if $device == SP {
   .t0-b-sideBoxList {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -162,26 +123,19 @@
 
     ol {
       padding: 0 0 0 2em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -191,28 +145,21 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 5px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         padding: 0 0 0 28px;
         margin: 5px 0 0;
-        background-image: url("");
+        background-image: url("../imgs/t0-b-sideBoxList/bg.png");
         background-repeat: no-repeat;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -223,56 +170,55 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
+      margin-top: $g-spacing3x;
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        background-color: $sideBoxList_BGColor2;
+        border-top: 1px solid $sideBoxList_borderColor;
+        border-left: 1px solid $sideBoxList_borderColor;
+      }
+
+      th {
+        @include g-font(14);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        color: $sideBoxList_textColor;
+        background-color: $sideBoxList_BGColor;
+        border-top: 1px solid $sideBoxList_borderColor;
+        border-left: 1px solid $sideBoxList_borderColor;
+        border-bottom: 1px solid $sideBoxList_borderColor;
+        a {
+          color: $sideBoxList_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $sideBoxList_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $sideBoxList_borderColor;
+        }
       }
 
       ol {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
-          background-image: url("");
+          @include g-font(14);
+          background-image: url("../imgs/t0-b-sideBoxList/bg2.png");
           background-repeat: no-repeat;
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
