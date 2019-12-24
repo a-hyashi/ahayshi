@@ -37,11 +37,11 @@
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -58,12 +58,7 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -76,7 +71,7 @@
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -89,12 +84,7 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -121,7 +111,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -165,9 +155,9 @@
       }
     }
 
-    $_fontSizePx: 14;
-    $_lineHeightType: 2;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    $_fontSize: 14;
+    $_lineHeight: 2;
+    @include g-font($_fontSize, $_lineHeight);
     p {
       font-weight: bold;
     }
@@ -219,7 +209,7 @@
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -244,7 +234,7 @@
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -282,7 +272,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -326,9 +316,9 @@
       }
     }
 
-    $_fontSizePx: 14;
-    $_lineHeightType: 2;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    $_fontSize: 14;
+    $_lineHeight: 2;
+    @include g-font($_fontSize, $_lineHeight);
     color: #664b3a;
     a {
       color: $g-textColor;
