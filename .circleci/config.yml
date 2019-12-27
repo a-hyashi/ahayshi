@@ -33,14 +33,14 @@ commands:
     steps:
       # あればキャッシュを使いnpm ciする
       - restore_cache:
-          key: v1-npm-deps-{{ checksum "package.json" }}
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
 
       - run: npm ci
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-npm-deps-{{ checksum "package.json" }}
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
 
 jobs:
   lint:
