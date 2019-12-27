@@ -59,10 +59,19 @@ jobs:
       - setup
       - clone
       - npm_install
+      - run: ./.circleci/build.sh
+
+  output:
+    executor:
+      name: default
+    steps:
+      - setup
+      - clone
+      - npm_install
       - add_ssh_keys:
           fingerprints:
             - "ac:f3:69:74:e5:d3:82:42:c1:ed:df:11:5b:6f:7c:11"
-      - run: ./.circleci/build.sh
+      - run: ./.circleci/output.sh
 
 workflows:
   version: 2
@@ -71,13 +80,16 @@ workflows:
       - lint
   build:
     jobs:
+      - build
+  output:
+    jobs:
       - approval:
           type: approval
           filters:
             branches:
               only:
                 - master
-      - build:
+      - output:
           requires:
             - approval
           filters:
