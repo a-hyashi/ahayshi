@@ -16,10 +16,11 @@
       display: none;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       box-sizing: border-box;
       width: 40%;
-      padding-top: 3px; // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      padding-top: 3px;
       padding-right: 4%;
       .t0-b-layoutSplitter--count-3 {
         margin-left: -10px;
@@ -39,7 +40,7 @@
         }
       }
 
-      [class^=t0-b-twoColsMedia__row][class*=col1] {
+      [class^="t0-b-twoColsMedia__row"][class*="col1"] {
         padding-right: 0;
         padding-left: 4%;
       }
@@ -70,7 +71,7 @@
       clear: right;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       position: relative;
       z-index: 10;
       float: right;
@@ -78,18 +79,19 @@
       padding-left: 4%;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col2] {
+    [class^="t0-b-twoColsMedia__row"][class*="col2"] {
       position: relative;
       z-index: 1;
       overflow: visible;
-      [class*=-bPlacer] {
+      [class*="-bPlacer"] {
         > div {
           overflow: hidden;
         }
 
         > .t0-b-wysiwyg {
           overflow: visible;
-          ul, ol {
+          ul,
+          ol {
             overflow: hidden;
           }
         }
@@ -128,7 +130,7 @@
       clear: left;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       position: relative;
       z-index: 10;
       float: left;
@@ -136,18 +138,19 @@
       padding-left: 0;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col2] {
+    [class^="t0-b-twoColsMedia__row"][class*="col2"] {
       position: relative;
       z-index: 1;
       overflow: visible;
-      [class*=-bPlacer] {
+      [class*="-bPlacer"] {
         > div {
           overflow: hidden;
         }
 
         > .t0-b-wysiwyg {
           overflow: visible;
-          ul, ol {
+          ul,
+          ol {
             overflow: hidden;
           }
         }
@@ -170,19 +173,19 @@
   }
 
   .t0-b-twoColsMedia--colW-l {
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       width: 50%;
     }
   }
 
   .t0-b-twoColsMedia--colW-m {
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       width: 40%;
     }
   }
 
   .t0-b-twoColsMedia--colW-s {
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       width: 30%;
     }
   }
@@ -218,28 +221,30 @@
       clear: right;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       position: relative;
       z-index: 10;
       float: right;
       width: 40%;
-      padding-top: 3px; // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
+      padding-top: 3px;
       padding-right: 0;
       padding-left: 10px;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col2] {
+    [class^="t0-b-twoColsMedia__row"][class*="col2"] {
       position: relative;
       z-index: 1;
       overflow: visible;
-      [class*=-bPlacer] {
+      [class*="-bPlacer"] {
         > div {
           overflow: hidden;
         }
 
         > .t0-b-wysiwyg {
           overflow: visible;
-          ul, ol {
+          ul,
+          ol {
             overflow: hidden;
           }
         }
@@ -261,36 +266,31 @@
     }
 
     &.ex-spLayout__vertical {
-      [class^=t0-b-twoColsMedia__row][class*=col1] {
-        width: 100% !important;
-        // ※ importantを使う例外対応
-        // CMS機能の「列の大きさ」調整機能で、「自分で選択」から数値を指定していた場合、SPのHTML内にstyle属性としてwidthの値(userEditWidth)が出力されてしまう
-        // 縦並びが選択されている場合は、更新画面の設定値を無視し、width: 100%で上書きする
-        // CMSの改修を行い、SPサイトにuserEditWidthの値が出力されなくなったら、本記述のimportantは削除する
-      }
-
       .clearfix {
         display: block;
         clear: both;
       }
 
-      [class^=t0-b-twoColsMedia__row][class*=col1] {
+      [class^="t0-b-twoColsMedia__row"][class*="col1"] {
         float: none;
+        // 「列の大きさ」を「自分で選択」にした場合、userEditWidthの値がHTML内に出力されるので!importantをつけている
+        width: 100% !important;
         padding: 0;
       }
 
-      [class^=t0-b-twoColsMedia__row][class*=col2] {
+      [class^="t0-b-twoColsMedia__row"][class*="col2"] {
         position: relative;
         z-index: 1;
         overflow: visible;
-        [class*=-bPlacer] {
+        [class*="-bPlacer"] {
           > div {
             overflow: hidden;
           }
 
           > .t0-b-wysiwyg {
             overflow: visible;
-            ul, ol {
+            ul,
+            ol {
               overflow: hidden;
             }
           }
@@ -323,7 +323,7 @@
       clear: left;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col1] {
+    [class^="t0-b-twoColsMedia__row"][class*="col1"] {
       position: relative;
       z-index: 10;
       float: left;
@@ -332,18 +332,19 @@
       padding-left: 0;
     }
 
-    [class^=t0-b-twoColsMedia__row][class*=col2] {
+    [class^="t0-b-twoColsMedia__row"][class*="col2"] {
       position: relative;
       z-index: 1;
       overflow: visible;
-      [class*=-bPlacer] {
+      [class*="-bPlacer"] {
         > div {
           overflow: hidden;
         }
 
         > .t0-b-wysiwyg {
           overflow: visible;
-          ul, ol {
+          ul,
+          ol {
             overflow: hidden;
           }
         }
