@@ -1,6 +1,7 @@
-$g-baseFontSize: 14px;
+$g-fontSize: 14px;
+$font-tenorSans: "Tenor Sans", $font-gothic;
 html {
-  font-size: $g-baseFontSize;
+  font-size: $g-fontSize;
 }
 
 // WEBフォントの指定
@@ -17,7 +18,7 @@ html {
   font-family: "Tenor Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Tenor Sans"), local("TenorSans"), url("https://fonts.gstatic.com/s/tenorsans/v7/T3UKHM06bpMTaH0ff0QTZQsYbbCjybiHxArTLjt7FRU.woff2") format('woff2'), url("https://fonts.gstatic.com/s/tenorsans/v9/bx6ANxqUneKx06UkIXISn3V4DA.woff") format("woff");
+  src: local("Tenor Sans"), local("TenorSans"), url("https://fonts.gstatic.com/s/tenorsans/v7/T3UKHM06bpMTaH0ff0QTZQsYbbCjybiHxArTLjt7FRU.woff2") format("woff2"), url("https://fonts.gstatic.com/s/tenorsans/v9/bx6ANxqUneKx06UkIXISn3V4DA.woff") format("woff");
   unicode-range: u+0100-024f, u+1e00-1eff, u+20a0-20ab, u+20ad-20cf, u+2c60-2c7f, u+a720-a7ff;
 }
 // latin
@@ -25,35 +26,13 @@ html {
   font-family: "Tenor Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Tenor Sans"), local("TenorSans"), url("https://fonts.gstatic.com/s/tenorsans/v7/pH9G9MQ0Q-aF9ThG3ok-twzyDMXhdD8sAj6OAJTFsBI.woff2") format('woff2'), url("https://fonts.gstatic.com/s/tenorsans/v9/bx6ANxqUneKx06UkIXISn3V4DA.woff") format("woff");
+  src: local("Tenor Sans"), local("TenorSans"), url("https://fonts.gstatic.com/s/tenorsans/v7/pH9G9MQ0Q-aF9ThG3ok-twzyDMXhdD8sAj6OAJTFsBI.woff2") format("woff2"), url("https://fonts.gstatic.com/s/tenorsans/v9/bx6ANxqUneKx06UkIXISn3V4DA.woff") format("woff");
   unicode-range: u+0000-00ff, u+0131, u+0152-0153, u+02c6, u+02da, u+02dc, u+2000-206f, u+2074, u+20ac, u+2212, u+2215;
 }
-
-$tenorSans: "Tenor Sans", $gothic;
-$g-textColor: #666;
-$g-hoverColor: #aa841b;
-$headerFullWidthKeyColor: #333;
-$fullWidthBgColor: #fffdef;
-$fullWidthBgColor2: #f8f5ff;
-$fullWidthBgColor3: #f3f7f9;
-$fullWidthBgColor4: #c7c1c1;
-$fullWidthBgColor5: #fff;
-$fullWidthBgColor6: #ebe4d9;
-$fullWidthBgColor7: #f9e8ee;
-$fullWidthBgColor8: #e2edf1;
-$fullWidthBgColor9: #e8a3b7;
-$fullWidthBgColor10: #bbb;
-$fullWidthBgColor11: #f9f9f9;
-$fullWidthBgColor12: #fffff3;
-$fullWidthBgColor13: #e6e8ec;
-$fullWidthBgColor14: #eceae9;
-$fullWidthBgColor15: #f6f5f3;
-$fullWidthBgColor16: #edf0f3;
-$fullWidthBgColor17: #f8f2f2;
 body.mod-body,
 div.mod-body {
-  font-family: $gothic;
-  font-size: $g-baseFontSize;
+  font-family: $font-gothic;
+  font-size: $g-fontSize;
   font-weight: 500;
   color: $g-textColor;
 }
@@ -98,9 +77,11 @@ $g-spacingBaseLength: 5;
   }
 }
 
-$frameSpacingPC-l: 50px;
-$frameSpacingPC-m: 25px;
-$frameSpacingPC-s: 10px;
-$frameSpacingSP-l: 50px;
-$frameSpacingSP-m: 25px;
-$frameSpacingSP-s: 10px;
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background: url("../imgs/other/other006/#{$file}.png") 0 0 no-repeat;
+    background-size: 30px * $size;
+  }
+}

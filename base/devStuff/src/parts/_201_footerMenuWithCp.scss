@@ -2,24 +2,18 @@
   .t0-b-footerMenuWithCp {
     width: 100%;
     margin: 0 auto;
-    box-sizing: border-box;
-    color: $g-textColor;
     text-align: center;
     > div {
       display: table;
       width: 100%;
-      width: 1100px;
       margin: 0 auto;
     }
 
     p {
+      @include g-font(14);
       display: table-cell;
-      @include g-font(14, 1);
       a {
         color: inherit;
-        &:hover {
-          color: $g-hoverColor;
-        }
       }
     }
 
@@ -30,19 +24,16 @@
       }
 
       li {
+        @include g-font(14);
         display: inline-block;
         padding: 0 13px;
-        color: $g-textColor;
         text-decoration: none;
-        @include g-font(14, 1);
         &:nth-child(2) {
           background: none;
         }
       }
 
       a {
-        color: $g-textColor;
-        text-decoration: none;
         &:hover {
           text-decoration: underline;
         }
@@ -50,49 +41,35 @@
     }
 
     .state-em {
-      color: $g-hoverColor;
-      a {
-        color: $g-hoverColor;
-      }
+      //
     }
   }
 }
 
 @if $device == SP {
   .t0-b-footerMenuWithCp {
-    @include g-font(12, 1);
+    @include g-font(12);
     margin: 0 -15px;
     text-align: center;
     > div {
       display: table;
       width: 100%;
-      p {
-        > a {
-          color: $g-textColor;
-        }
-      }
     }
 
     p {
-      box-sizing: border-box;
       display: inline-block;
       width: 100%;
       padding: 0 0 5px;
-      color: $g-textColor;
       text-align: center;
-      > a {
-        color: $g-textColor;
-      }
     }
 
     .state-em {
-      color: $g-hoverColor;
+      //
     }
 
     &__menu {
       display: table-header-group;
       a {
-        color: $g-textColor;
         text-decoration: underline;
       }
 
@@ -101,15 +78,14 @@
       }
 
       li {
-        &:first-child {
-          margin-left: 0;
-        }
         display: inline-block;
         padding: 5px 0;
         margin-left: 15px;
-        color: $g-textColor;
         text-align: left;
         text-decoration: underline;
+        &:first-child {
+          margin-left: 0;
+        }
       }
     }
   }
