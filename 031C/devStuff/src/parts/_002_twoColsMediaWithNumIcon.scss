@@ -1,14 +1,14 @@
 @if $device == PC {
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
     $_block: &;
-    $_fontSizeDifference: 4;
-    $_lineHeightType: 1;
-    $_fontSizePx_caption: 16;
-    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
-    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-    $_fontSizePx_numIcon: 30;
-    $_fontSizePx_numIcon_s: $_fontSizePx_numIcon - $_fontSizeDifference;
-    $_fontSizePx_numIcon_l: $_fontSizePx_numIcon + $_fontSizeDifference;
+    $_fontSizeDiff: 4;
+    $_lineHeight: 1;
+    $_fontSize_caption: 16;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_fontSize_numIcon: 30;
+    $_fontSize_numIcon_s: $_fontSize_numIcon - $_fontSizeDiff;
+    $_fontSize_numIcon_l: $_fontSize_numIcon + $_fontSizeDiff;
     $_textColor_hd: #675f4f;
     $_textColor_numIcon: #675f4f;
     $_textColor_nCaption: #b37037;
@@ -17,34 +17,34 @@
       width: 100%;
       > div {
         display: table-cell;
-        font-family: $tenorSans;
+        font-family: $font-tenorSans;
         vertical-align: middle;
       }
 
       &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_caption, $_lineHeight, $layout);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-h {
-        @include g-font-layout($_fontSizePx_numIcon, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_numIcon, $_lineHeight, $layout);
         color: $_textColor_numIcon;
       }
 
       &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_caption, $_lineHeight, $layout);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-caption-upper + &-h {
-        @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_numIcon - 2, $_lineHeight, $layout);
         padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
-        @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_numIcon - 2, $_lineHeight, $layout);
         padding: 0 0 4px;
       }
 
@@ -64,23 +64,23 @@
         }
 
         #{$_block}__numIcon-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_s, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_s, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_s, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_s - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_s - 2, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_s - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_s - 2, $_lineHeight, $layout);
         }
       }
 
@@ -96,23 +96,23 @@
         }
 
         #{$_block}__numIcon-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_l, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_l, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_l, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_l - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_l - 2, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_l - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_l - 2, $_lineHeight, $layout);
         }
       }
 
@@ -165,21 +165,17 @@
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 56px;
-      @mixin _iconStyles($type, $index) {
-        $_src: "../imgs/common/numIcon002/#{$type}.svg";
-        background-image: url($_src);
-      }
-
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
-            @include _iconStyles($_type, $_i);
+            $_src: "../imgs/common/numIcon002/#{$_type}.svg";
+            background-image: url($_src);
             &::before {
               display: block;
               padding-top: 32px;
               overflow: hidden;
-              font-family: $tenorSans;
+              font-family: $font-tenorSans;
               color: #fff;
               text-align: center;
               content: "#{$_i}";
@@ -190,7 +186,6 @@
       }
     }
 
-    // 特徴アイコン下の飾りと要素
     &__box {
       position: relative;
       padding: 2% 0 2% 70px;
@@ -211,22 +206,22 @@
       }
     }
 
+    // 最下部の枠があるとき
     & + div {
-      // 最下部の枠があるとき
       margin-top: 2%;
     }
   }
 
   .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
     $_block: &;
-    $_fontSizeDifference: 4;
-    $_lineHeightType: 1;
-    $_fontSizePx_caption: 16;
-    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
-    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
-    $_fontSizePx_numIcon: 30;
-    $_fontSizePx_numIcon_s: $_fontSizePx_numIcon - $_fontSizeDifference;
-    $_fontSizePx_numIcon_l: $_fontSizePx_numIcon + $_fontSizeDifference;
+    $_fontSizeDiff: 4;
+    $_lineHeight: 1;
+    $_fontSize_caption: 16;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_fontSize_numIcon: 30;
+    $_fontSize_numIcon_s: $_fontSize_numIcon - $_fontSizeDiff;
+    $_fontSize_numIcon_l: $_fontSize_numIcon + $_fontSizeDiff;
     $_textColor_hd: #675f4f;
     $_textColor_numIcon: #675f4f;
     $_textColor_nCaption: #b37037;
@@ -237,34 +232,34 @@
       min-height: 64px;
       > div {
         display: table-cell;
-        font-family: $tenorSans;
+        font-family: $font-tenorSans;
         vertical-align: middle;
       }
 
       &-caption-upper {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_caption, $_lineHeight, $layout);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-h {
-        @include g-font-layout($_fontSizePx_numIcon, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_numIcon, $_lineHeight, $layout);
         color: $_textColor_numIcon;
       }
 
       &-caption-lower {
-        @include g-font-layout($_fontSizePx_caption, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_caption, $_lineHeight, $layout);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-caption-upper + &-h {
-        @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_numIcon - 2, $_lineHeight, $layout);
         padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
-        @include g-font-layout($_fontSizePx_numIcon - 2, $_lineHeightType, $layout);
+        @include g-font-layout($_fontSize_numIcon - 2, $_lineHeight, $layout);
         padding: 0 0 4px;
       }
 
@@ -284,23 +279,23 @@
         }
 
         #{$_block}__numIcon-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_s, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_s, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_s, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_s, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_s - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_s - 2, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_s - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_s - 2, $_lineHeight, $layout);
         }
       }
 
@@ -316,23 +311,23 @@
         }
 
         #{$_block}__numIcon-caption-upper {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_l, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-lower {
-          @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_caption_l, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_l, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_l, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_l - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_l - 2, $_lineHeight, $layout);
         }
 
         #{$_block}__numIcon-caption-upper + a > #{$_block}__numIcon-h {
-          @include g-font-layout($_fontSizePx_numIcon_l - 2, $_lineHeightType, $layout);
+          @include g-font-layout($_fontSize_numIcon_l - 2, $_lineHeight, $layout);
         }
       }
 
@@ -397,21 +392,17 @@
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 60px;
-      @mixin _iconStyles($type, $index) {
-        $_src: "../imgs/common/numIcon001/#{$type}.svg";
-        background-image: url($_src);
-      }
-
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
-            @include _iconStyles($_type, $_i);
+            $_src: "../imgs/common/numIcon001/#{$_type}.svg";
+            background-image: url($_src);
             &::before {
               display: block;
               padding-top: 34px;
               overflow: hidden;
-              font-family: $tenorSans;
+              font-family: $font-tenorSans;
               color: #fff;
               text-align: center;
               content: "#{$_i}";
@@ -422,7 +413,6 @@
       }
     }
 
-    // 特徴アイコン下の飾りと要素
     &__box {
       position: relative;
       padding: 2% 0 2% 75px;
@@ -434,7 +424,7 @@
         width: 2px;
         background: #6cf;
         background: linear-gradient(to bottom, #6cf 0%, #a3e0ff 50%, #fffffe 100%);
-        filter: progid:dximagetransform.microsoft.gradient(startColorstr='#9cbd2c', endColorstr='#fffffe', GradientType=0);
+        filter: progid:dximagetransform.microsoft.gradient(startColorstr="#9cbd2c", endColorstr="#fffffe", GradientType=0);
       }
 
       &:last-child {
@@ -442,8 +432,8 @@
       }
     }
 
+    // 最下部の枠があるとき
     & + div {
-      // 最下部の枠があるとき
       margin-top: 2%;
     }
   }
@@ -452,9 +442,9 @@
 @if $device == SP {
   .t0-b-twoColsMediaWithNumIcon#{$variation1of2} {
     $_block: &;
-    $_lineHeightType: 1;
-    $_fontSizePx_caption: 14;
-    $_fontSizePx_numIcon: 18;
+    $_lineHeight: 1;
+    $_fontSize_caption: 14;
+    $_fontSize_numIcon: 18;
     $_textColor_hd: #675f4f;
     $_textColor_numIcon: #675f4f;
     $_textColor_nCaption: #b37037;
@@ -463,34 +453,34 @@
       width: 100%;
       > div {
         display: table-cell;
-        font-family: $tenorSans;
+        font-family: $font-tenorSans;
         vertical-align: middle;
       }
 
       &-caption-upper {
-        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        @include g-font($_fontSize_caption, $_lineHeight);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-h {
-        @include g-font($_fontSizePx_numIcon, $_lineHeightType);
+        @include g-font($_fontSize_numIcon, $_lineHeight);
         color: $_textColor_numIcon;
       }
 
       &-caption-lower {
-        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        @include g-font($_fontSize_caption, $_lineHeight);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-caption-upper + &-h {
-        @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
+        @include g-font($_fontSize_numIcon - 2, $_lineHeight);
         padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
-        @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
+        @include g-font($_fontSize_numIcon - 2, $_lineHeight);
         padding: 0 0 4px;
       }
 
@@ -550,21 +540,17 @@
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 80px * .5;
-      @mixin _iconStyles($type, $index) {
-        $_src: "../imgs/common/numIcon002/#{$type}.svg";
-        background-image: url($_src);
-      }
-
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
-            @include _iconStyles($_type, $_i);
+            $_src: "../imgs/common/numIcon002/#{$_type}.svg";
+            background-image: url($_src);
             &::before {
               display: block;
               padding-top: 42px * .5;
               overflow: hidden;
-              font-family: $tenorSans;
+              font-family: $font-tenorSans;
               color: #fff;
               text-align: center;
               content: "#{$_i}";
@@ -575,7 +561,6 @@
       }
     }
 
-    // 特徴アイコン下の飾りと要素
     &__box {
       padding: 28px * .5 0 50px * .5;
       &:last-child {
@@ -583,17 +568,17 @@
       }
     }
 
+    // 最下部の枠があるとき
     & + div {
-      // 最下部の枠があるとき
       margin-top: 20px;
     }
   }
 
   .t0-b-twoColsMediaWithNumIcon#{$variation2of2} {
     $_block: &;
-    $_lineHeightType: 1;
-    $_fontSizePx_caption: 14;
-    $_fontSizePx_numIcon: 18;
+    $_lineHeight: 1;
+    $_fontSize_caption: 14;
+    $_fontSize_numIcon: 18;
     $_textColor_hd: #675f4f;
     $_textColor_numIcon: #675f4f;
     $_textColor_nCaption: #b37037;
@@ -602,34 +587,34 @@
       width: 100%;
       > div {
         display: table-cell;
-        font-family: $tenorSans;
+        font-family: $font-tenorSans;
         vertical-align: middle;
       }
 
       &-caption-upper {
-        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        @include g-font($_fontSize_caption, $_lineHeight);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-h {
-        @include g-font($_fontSizePx_numIcon, $_lineHeightType);
+        @include g-font($_fontSize_numIcon, $_lineHeight);
         color: $_textColor_numIcon;
       }
 
       &-caption-lower {
-        @include g-font($_fontSizePx_caption, $_lineHeightType);
+        @include g-font($_fontSize_caption, $_lineHeight);
         padding: 0 0 4px;
         color: $_textColor_nCaption;
       }
 
       &-caption-upper + &-h {
-        @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
+        @include g-font($_fontSize_numIcon - 2, $_lineHeight);
         padding: 0 0 4px;
       }
 
       &-caption-upper + a > &-h {
-        @include g-font($_fontSizePx_numIcon - 2, $_lineHeightType);
+        @include g-font($_fontSize_numIcon - 2, $_lineHeight);
         padding: 0 0 4px;
       }
 
@@ -677,21 +662,17 @@
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 84px * .5;
-      @mixin _iconStyles($type, $index) {
-        $_src: "../imgs/common/numIcon001/#{$type}.svg";
-        background-image: url($_src);
-      }
-
       $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
-            @include _iconStyles($_type, $_i);
+            $_src: "../imgs/common/numIcon001/#{$_type}.svg";
+            background-image: url($_src);
             &::before {
               display: block;
               padding-top: 46px * .5;
               overflow: hidden;
-              font-family: $tenorSans;
+              font-family: $font-tenorSans;
               color: #fff;
               text-align: center;
               content: "#{$_i}";
@@ -702,7 +683,6 @@
       }
     }
 
-    // 特徴アイコン下の飾りと要素
     &__box {
       padding: 28px * .5 0 50px * .5;
       &:last-child {
@@ -710,8 +690,8 @@
       }
     }
 
+    // 最下部の枠があるとき
     & + div {
-      // 最下部の枠があるとき
       margin-top: 20px;
     }
   }

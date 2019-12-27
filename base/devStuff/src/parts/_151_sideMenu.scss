@@ -1,13 +1,6 @@
 @if $device == PC {
   .b-sideMenu#{$variation1of2} {
     $_block: &;
-    a {
-      text-decoration: none;
-      &:hover {
-        color: $g-hoverColor3;
-      }
-    }
-
     label {
       display: none;
     }
@@ -17,127 +10,35 @@
     }
 
     &__hd {
-      @include g-font(20, 1);
-      a {
-        &:hover {
-          color: $g-hoverColor3;
-          text-decoration: none;
-        }
-      }
+      @include g-font(20);
     }
 
     &__bd {
-      @include g-font(16, 1);
+      @include g-font(16);
       // 親要素
-      > #{$_block}__list {
-        > ul > #{$_block}__item {
-          > div {
-            > div {
-              > a > span,
-              > span {
-                //
-              }
-
-              > a > span {
-                &:hover {
-                  color: $g-hoverColor3;
-                }
-              }
-            }
-          }
-        }
-
-        > ul > #{$_block}__item.state-current {
-          > div {
-            > div {
-              > a > span,
-              > span {
-                //
-              }
-
-              > a > span {
-                &:hover {
-                  color: $g-hoverColor3;
-                }
-              }
-            }
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          &.state-current {
+            //
           }
         }
 
         // 子要素
-        > ul > li > #{$_block}__list > ul {
+        > li > #{$_block}__list > ul {
           > #{$_block}__item {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                  //
-                }
-
-                > a > span {
-                  &:hover {
-                    //
-                  }
-                }
-              }
+            > #{$_block}__list {
+              //
             }
-          }
 
-          > #{$_block}__item.state-current {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                  //
-                }
-
-                > a > span {
-                  &:hover {
-                    //
-                  }
-                }
-              }
+            &.state-current {
+              //
             }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
-            //
           }
 
           // 孫要素
-          > #{$_block}__item > div {
-            > ul > li {
-              > div {
-                > div {
-                  > a > span,
-                  > span {
-                    //
-                  }
-
-                  > a > span {
-                    &:hover {
-                      //
-                    }
-                  }
-                }
-              }
-
-              &.state-current {
-                > div {
-                  > div {
-                    > a > span,
-                    > span {
-                      //
-                    }
-
-                    > a > span {
-                      &:hover {
-                        //
-                      }
-                    }
-                  }
-                }
-              }
+          > #{$_block}__item > div > ul > li {
+            &.state-current {
+              //
             }
           }
         }
@@ -159,13 +60,6 @@
 
   .b-sideMenu#{$variation2of2} {
     $_block: &;
-    a {
-      text-decoration: none;
-      &:hover {
-        color: $g-hoverColor3;
-      }
-    }
-
     label {
       display: none;
     }
@@ -175,126 +69,49 @@
     }
 
     &__hd {
-      @include g-font(20, 1);
+      @include g-font(20);
       a {
         &:hover {
-          color: $g-hoverColor3;
-          text-decoration: none;
+          color: $g-baseHoverColor3;
         }
       }
     }
 
     &__bd {
-      @include g-font(16, 1);
+      @include g-font(16);
       // 親要素
-      > #{$_block}__list {
-        > ul > #{$_block}__item {
-          > div {
-            > div {
-              > a > span,
-              > span {
-                //
-              }
-
-              > a > span {
-                &:hover {
-                  color: $g-hoverColor3;
-                }
-              }
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          a {
+            &:hover {
+              color: $g-baseHoverColor3;
             }
           }
-        }
 
-        > ul > #{$_block}__item.state-current {
-          > div {
-            > div {
-              > a > span,
-              > span {
-                //
-              }
-
-              > a > span {
-                &:hover {
-                  color: $g-hoverColor3;
-                }
+          &.state-current {
+            a {
+              &:hover {
+                color: $g-baseHoverColor3;
               }
             }
           }
         }
 
         // 子要素
-        > ul > li > #{$_block}__list > ul {
+        > li > #{$_block}__list > ul {
           > #{$_block}__item {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                  //
-                }
-
-                > a > span {
-                  &:hover {
-                    //
-                  }
-                }
+            > #{$_block}__list {
+              &.state-current {
+                //
               }
             }
-          }
-
-          > #{$_block}__item.state-current {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                  //
-                }
-
-                > a > span {
-                  &:hover {
-                    //
-                  }
-                }
-              }
-            }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
-            //
           }
 
           // 孫要素
           > #{$_block}__item > div {
             > ul > li {
-              > div {
-                > div {
-                  > a > span,
-                  > span {
-                    //
-                  }
-
-                  > a > span {
-                    &:hover {
-                      //
-                    }
-                  }
-                }
-              }
-
               &.state-current {
-                > div {
-                  > div {
-                    > a > span,
-                    > span {
-                      //
-                    }
-
-                    > a > span {
-                      &:hover {
-                        //
-                      }
-                    }
-                  }
-                }
+                //
               }
             }
           }
@@ -318,9 +135,8 @@
   .b-sideMenuHandle {
     $_block: ".b-sideMenuHandle";
     a {
-      text-decoration: none;
       &:hover {
-        color: $g-hoverColor3;
+        color: $g-baseHoverColor3;
       }
     }
 
@@ -333,125 +149,41 @@
     }
 
     &__hd {
-      @include g-font(20, 1);
+      @include g-font(20);
       a {
         &:hover {
-          color: $g-hoverColor3;
+          color: $g-baseHoverColor3;
         }
       }
     }
 
     &__bd {
-      @include g-font(16, 1);
+      @include g-font(16);
       // 親要素
-      > #{$_block}__list {
-        > ul > #{$_block}__item {
-          > div {
-            > div {
-              > a > span,
-              > span {
-                //
-              }
-
-              > a > span {
-                &:hover {
-                  //
-                }
-              }
-            }
-          }
-        }
-
-        > ul > #{$_block}__item.state-current {
-          > div {
-            > div {
-              > a > span,
-              > span {
-                //
-              }
-
-              > a > span {
-                &:hover {
-                  //
-                }
-              }
-            }
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          &.state-current {
+            //
           }
         }
 
         // 子要素
-        > ul > li > #{$_block}__list > ul {
+        li > #{$_block}__list > ul {
           > #{$_block}__item {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                  //
-                }
-
-                > a > span {
-                  &:hover {
-                    //
-                  }
-                }
-              }
+            > #{$_block}__list {
+              //
             }
-          }
 
-          > #{$_block}__item.state-current {
-            > div {
-              > div {
-                > a > span,
-                > span {
-                  //
-                }
-
-                > a > span {
-                  &:hover {
-                    //
-                  }
-                }
-              }
+            &.state-current {
+              //
             }
-          }
-
-          > #{$_block}__item > #{$_block}__list {
-            //
           }
 
           // 孫要素
           > #{$_block}__item > div {
             > ul > li {
-              > div {
-                > div {
-                  > a > span,
-                  > span {
-                    //
-                  }
-
-                  > a > span {
-                    &:hover {
-                      //
-                    }
-                  }
-                }
-              }
-
               &.state-current {
-                > div {
-                  > div {
-                    > a > span,
-                    > span {
-                      //
-                    }
-
-                    > a > span {
-                      &:hover {
-                        //
-                      }
-                    }
-                  }
-                }
+                //
               }
             }
           }
@@ -475,96 +207,84 @@
 
 @if $device == SP {
   .b-sideMenu#{$variation1of2} {
-    a {
-      color: $g-textColor;
-      text-decoration: none;
-    }
-
     $_block: &;
-    box-sizing: border-box;
+    @include g-font(14);
     width: 100%;
-    @include g-font(14, 1);
-    &__hd,
-    &__bd {
-      display: none;
-    }
-
     label {
       display: inline-block;
       width: 98%;
       padding: 10px 0 10px 2%;
       cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
     }
 
     input[type="checkbox"].on-off {
       display: none;
     }
 
-    label {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▶︎";
-      }
-    }
-
-    label.active {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▼";
-      }
+    &__hd,
+    &__bd {
+      display: none;
     }
 
     &__list {
-      > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
       }
 
-      > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
 
-      > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 
   .b-sideMenu#{$variation2of2} {
-    a {
-      color: $g-textColor;
-      text-decoration: none;
-    }
-
     $_block: &;
-    box-sizing: border-box;
+    @include g-font(14);
     width: 100%;
-    @include g-font(14, 1);
     &__hd,
     &__bd {
       display: none;
@@ -575,77 +295,71 @@
       width: 98%;
       padding: 10px 0 10px 2%;
       cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
     }
 
     input[type="checkbox"].on-off {
       display: none;
     }
 
-    label {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▶︎";
-      }
-    }
-
-    label.active {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▼";
-      }
-    }
-
     &__list {
-      > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
       }
 
-      > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
 
-      > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 
   .b-sideMenuHandle {
-    a {
-      color: $g-textColor;
-      text-decoration: none;
-    }
-
     $_block: &;
-    box-sizing: border-box;
+    @include g-font(14);
     width: 100%;
-    @include g-font(14, 1);
     &__hd,
     &__bd {
       display: none;
@@ -656,63 +370,63 @@
       width: 98%;
       padding: 10px 0 10px 2%;
       cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
     }
 
     input[type="checkbox"].on-off {
       display: none;
     }
 
-    label {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▶︎";
-      }
-    }
-
-    label.active {
-      &::before {
-        display: inline-block;
-        margin: 0 .5em 0 .2em;
-        content: "▼";
-      }
-    }
-
     &__list {
-      > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
       }
 
-      > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 20px;
-      }
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
 
-      > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 30px;
-      }
-
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
-      }
-
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > a > span,
-      > ul > li > #{$_block}__list > ul > li > #{$_block}__list > ul > #{$_block}__item.state-current > #{$_block}__item2 > div > span {
-        display: block;
-        padding: 10px 45px 10px 40px;
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -1,15 +1,13 @@
 @if $device == PC {
   .t0-b-lv4H-caseIcon#{$variation1of2} {
     $_block: &;
-    $_fontSizePx_h: 20;
-    $_fontSizePx_caption: 14;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
-    $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
-    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference + 2;
-    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference - 2;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSize_h: 20;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff + 2;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
     line-height: 0;
     > div {
       display: table;
@@ -20,23 +18,23 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      @include g-font-layout($_fontSize_caption, 1, $layout);
     }
 
     &__h {
-      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
+      @include g-font-layout($_fontSize_h, 1, $layout);
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      @include g-font-layout($_fontSize_caption, 1, $layout);
     }
 
     &__caption-upper + &__h {
-      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
     }
 
     &__icon {
@@ -53,23 +51,23 @@
       }
 
       #{$_block}__caption-upper {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_s, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_s, 1, $layout);
       }
 
       #{$_block}__caption-lower {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
       }
 
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
       }
     }
 
@@ -83,23 +81,23 @@
       }
 
       #{$_block}__caption-upper {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_l, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_l, 1, $layout);
       }
 
       #{$_block}__caption-lower {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
       }
 
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
       }
     }
 
@@ -118,29 +116,19 @@
     &--align-r {
       > div {
         margin: 0 0 0 auto;
-      }
-    }
-
-    a {
-      color: $g-textColor;
-      text-decoration: none;
-      &:hover {
-        color: $g-hoverColor;
       }
     }
   }
 
   .t0-b-lv4H-caseIcon#{$variation2of2} {
     $_block: &;
-    $_fontSizePx_h: 20;
-    $_fontSizePx_caption: 14;
-    $_fontSizeDifference: 4;
-    $_fontSizePx_h_s: $_fontSizePx_h - $_fontSizeDifference;
-    $_fontSizePx_h_l: $_fontSizePx_h + $_fontSizeDifference;
-    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
-    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference - 2;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSize_h: 20;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
     line-height: 0;
     > div {
       display: table;
@@ -151,23 +139,23 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      @include g-font-layout($_fontSize_caption, 1, $layout);
     }
 
     &__h {
-      @include g-font-layout($_fontSizePx_h, $_lineHeightType_h, $layout);
+      @include g-font-layout($_fontSize_h, 1, $layout);
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSizePx_caption, $_lineHeightType_caption, $layout);
+      @include g-font-layout($_fontSize_caption, 1, $layout);
     }
 
     &__caption-upper + &__h {
-      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font-layout($_fontSizePx_h - 2, $_lineHeightType_h, $layout);
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
     }
 
     &__icon {
@@ -184,23 +172,23 @@
       }
 
       #{$_block}__caption-upper {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_s, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_s, 1, $layout);
       }
 
       #{$_block}__caption-lower {
-        @include g-font-layout($_fontSizePx_caption_s, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
       }
 
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_s - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
       }
     }
 
@@ -214,23 +202,23 @@
       }
 
       #{$_block}__caption-upper {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
       #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_l, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_l, 1, $layout);
       }
 
       #{$_block}__caption-lower {
-        @include g-font-layout($_fontSizePx_caption_l, $_lineHeightType_caption, $layout);
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
       #{$_block}__caption-upper + #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
       }
 
       #{$_block}__caption-upper + a > #{$_block}__h {
-        @include g-font-layout($_fontSizePx_h_l - 2, $_lineHeightType_h, $layout);
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
       }
     }
 
@@ -249,14 +237,6 @@
     &--align-r {
       > div {
         margin: 0 0 0 auto;
-      }
-    }
-
-    a {
-      color: $g-textColor;
-      text-decoration: none;
-      &:hover {
-        color: $g-hoverColor;
       }
     }
   }
@@ -265,10 +245,8 @@
 @if $device == SP {
   .t0-b-lv4H-caseIcon#{$variation1of2} {
     $_block: &;
-    $_fontSizePx_h: 20;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSize_h: 20;
+    $_fontSize_caption: 14;
     line-height: 0;
     > div {
       display: inline-block;
@@ -279,15 +257,15 @@
     }
 
     &__caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font($_fontSize_caption);
     }
 
     &__h {
-      @include g-font($_fontSizePx_h, $_lineHeightType_h);
+      @include g-font($_fontSize_h);
     }
 
     &__caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font($_fontSize_caption);
     }
 
     &__icon {
@@ -304,20 +282,13 @@
 
     &--align-r {
       text-align: right;
-    }
-
-    a {
-      color: $g-textColor;
-      text-decoration: none;
     }
   }
 
   .t0-b-lv4H-caseIcon#{$variation2of2} {
     $_block: &;
-    $_fontSizePx_h: 20;
-    $_fontSizePx_caption: 14;
-    $_lineHeightType_h: 1;
-    $_lineHeightType_caption: 1;
+    $_fontSize_h: 20;
+    $_fontSize_caption: 14;
     line-height: 0;
     > div {
       display: inline-block;
@@ -328,15 +299,15 @@
     }
 
     &__caption-upper {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font($_fontSize_caption);
     }
 
     &__h {
-      @include g-font($_fontSizePx_h, $_lineHeightType_h);
+      @include g-font($_fontSize_h);
     }
 
     &__caption-lower {
-      @include g-font($_fontSizePx_caption, $_lineHeightType_caption);
+      @include g-font($_fontSize_caption);
     }
 
     &__icon {
@@ -353,11 +324,6 @@
 
     &--align-r {
       text-align: right;
-    }
-
-    a {
-      color: $g-textColor;
-      text-decoration: none;
     }
   }
 }

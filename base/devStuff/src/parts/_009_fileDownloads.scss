@@ -1,30 +1,21 @@
 @if $device == PC {
   .t0-b-fileDownloads {
     $_block: &;
-    $_fontSizePx: 16;
-    $_lineHeightType: 2;
-    $_lineHeightType_itemText: 1;
-    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
-    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
-    padding: #{$_blockSpacing} 0 0;
-    color: $g-textColor;
+    $_fontSize: 16;
+    padding: $g-spacing4x 0 0;
     &:first-child {
       padding-top: 0;
     }
 
     &__item {
-      padding: #{$_itemSpacing} 0 0;
       @include cf;
+      padding: $g-spacing2x 0 0;
     }
 
     a {
       display: block;
       float: left;
-      color: $g-textColor;
       text-decoration: underline;
-      &:hover {
-        color: $g-hoverColor;
-      }
     }
 
     &__itemSplit {
@@ -41,88 +32,74 @@
     }
 
     &__itemText {
-      @include g-font($_fontSizePx, $_lineHeightType_itemText);
+      @include g-font($_fontSize);
       #{$_block}--size-2 & {
-        @include g-font($_fontSizePx + 4, $_lineHeightType_itemText);
+        @include g-font($_fontSize + 4);
       }
 
       #{$_block}--size-3 & {
-        @include g-font($_fontSizePx + 8, $_lineHeightType_itemText);
+        @include g-font($_fontSize + 8);
       }
 
       #{$_block}--size-4 & {
-        @include g-font($_fontSizePx + 12, $_lineHeightType_itemText);
+        @include g-font($_fontSize + 12);
       }
 
       #{$_block}--size-5 & {
-        @include g-font($_fontSizePx + 16, $_lineHeightType_itemText);
+        @include g-font($_fontSize + 16);
       }
     }
   }
 
   .b-downloadIcon {
     $_block: &;
-    $_color_border: #aaa;
-    @mixin _icon($file,$mag) {
-      &--#{$file} {
-        $_src: "b-downloadIcon/#{$file}.png";
-        width: 30px * $mag;
-        height: 30px * $mag;
-        background-image: url("../imgs/#{$_src}");
-        background-repeat: no-repeat;
-        background-size: 30px * $mag;
-      }
-    }
-    @include _icon("pdf",1);
-    @include _icon("doc",1);
-    @include _icon("xls",1);
-    @include _icon("img",1);
+    @include fileIcon("doc", 1);
+    @include fileIcon("img", 1);
+    @include fileIcon("pdf", 1);
+    @include fileIcon("xls", 1);
+    display: inline-block;
+    vertical-align: middle;
     .t0-b-fileDownloads--size-2 & {
-      @include _icon("pdf",1.25);
-      @include _icon("doc",1.25);
-      @include _icon("xls",1.25);
-      @include _icon("img",1.25);
+      @include fileIcon("doc", 1.25);
+      @include fileIcon("img", 1.25);
+      @include fileIcon("pdf", 1.25);
+      @include fileIcon("xls", 1.25);
     }
 
     .t0-b-fileDownloads--size-3 & {
-      @include _icon("pdf",1.5);
-      @include _icon("doc",1.5);
-      @include _icon("xls",1.5);
-      @include _icon("img",1.5);
+      @include fileIcon("doc", 1.5);
+      @include fileIcon("img", 1.5);
+      @include fileIcon("pdf", 1.5);
+      @include fileIcon("xls", 1.5);
     }
 
     .t0-b-fileDownloads--size-4 & {
-      @include _icon("pdf",1.75);
-      @include _icon("doc",1.75);
-      @include _icon("xls",1.75);
-      @include _icon("img",1.75);
+      @include fileIcon("doc", 1.75);
+      @include fileIcon("img", 1.75);
+      @include fileIcon("pdf", 1.75);
+      @include fileIcon("xls", 1.75);
     }
 
     .t0-b-fileDownloads--size-5 & {
-      @include _icon("pdf",2);
-      @include _icon("doc",2);
-      @include _icon("xls",2);
-      @include _icon("img",2);
+      @include fileIcon("doc", 2);
+      @include fileIcon("img", 2);
+      @include fileIcon("pdf", 2);
+      @include fileIcon("xls", 2);
     }
-    display: inline-block;
-    vertical-align: middle;
   }
 }
 
 @if $device == SP {
   .t0-b-fileDownloads {
-    $_fontSizePx: 16;
-    $_lineHeightType: 2;
-    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
-    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
-    padding: #{$_blockSpacing} 0 0;
+    $_fontSize: 16;
+    padding: $g-spacing4x 0 0;
     &:first-child {
       padding-top: 0;
     }
 
     &__item {
-      padding: #{$_itemSpacing} 0 0;
       @include cf;
+      padding: $g-spacing2x 0 0;
       &:first-child {
         padding-top: 0;
       }
@@ -131,7 +108,6 @@
     a {
       display: block;
       float: left;
-      color: $g-textColor;
       text-decoration: underline;
     }
 
@@ -149,28 +125,17 @@
     }
 
     &__itemText {
-      @include g-font($_fontSizePx, $_lineHeightType);
+      @include g-font($_fontSize, 2);
       text-decoration: underline;
     }
   }
 
   .b-downloadIcon {
-    $_color_border: #aaa;
+    @include fileIcon("doc", 1);
+    @include fileIcon("img", 1);
+    @include fileIcon("pdf", 1);
+    @include fileIcon("xls", 1);
     display: inline-block;
     vertical-align: middle;
-    @mixin _icon($file) {
-      &--#{$file} {
-        $_src: "b-downloadIcon/#{$file}.png";
-        width: 30px;
-        height: 30px;
-        background-image: url("../imgs/#{$_src}");
-        background-repeat: no-repeat;
-        background-size: 30px;
-      }
-    }
-    @include _icon("pdf");
-    @include _icon("doc");
-    @include _icon("xls");
-    @include _icon("img");
   }
 }
