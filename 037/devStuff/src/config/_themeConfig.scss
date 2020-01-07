@@ -1,0 +1,132 @@
+$g-cellIconHeight: 40px;
+$g-cellIconWidth: 23px;
+$g-faxIconHeight: 28px;
+$g-faxIconWidth: 48px;
+$g-fontSize: 14px;
+$g-freeIconHeight: 29px;
+$g-freeIconWidth: 52px;
+$g-spacingBaseLength: 5px;
+$g-spacing2x: ($g-spacingBaseLength * 2);
+$g-spacing3x: ($g-spacingBaseLength * 3);
+$g-spacing4x: ($g-spacingBaseLength * 4);
+$g-telIconHeight: 40px;
+$g-telIconWidth: 40px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $g-fontSize;
+}
+
+body.mod-body,
+div.mod-body {
+  font-family: $font-gothic;
+  font-size: $g-fontSize;
+  font-weight: 500;
+  color: $g-baseFontColor;
+  background-color: $g-baseBackgroundColor;
+}
+
+.mod-body {
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: $font-gothic;
+  }
+}
+
+a {
+  color: $g-baseFontColor;
+  text-decoration: none;
+}
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: $g-baseHoverColor;
+    }
+  }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th,
+  td {
+    > table,
+    > ul,
+    > ol,
+    > p,
+    > hr {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@mixin layoutWideWidth {
+  @if $layout == "L25" or $layout == "L30" {
+    padding: 40px 1000px;
+    margin: 0 -1000px 0 (-1000px - $areaSubWidth);
+  } @else if $layout == "N00" {
+    padding: 40px $areaMainWidth;
+    margin: 0 (0 - $areaMainWidth);
+  } @else if $layout == "R25" or $layout == "R30" {
+    padding: 40px 1000px;
+    margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
+  }
+  width: $areaContainerWidth;
+}
+
+@mixin layoutWidth {
+  @if $layout == "L25" or $layout == "L30" {
+    width: $areaMainWidth;
+    padding: 40px 1000px;
+    margin: 0 -1000px;
+  } @else if $layout == "N00" {
+    width: $areaMainWidth - $areaSubWidth;
+    padding: 40px (1000px + $areaSubWidth / 2);
+    margin: 0 -1000px;
+  } @else if $layout == "R25" or $layout == "R30" {
+    width: $areaMainWidth;
+    padding: 40px 1000px;
+    margin: 0 -1000px;
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 30px * $size;
+  }
+}

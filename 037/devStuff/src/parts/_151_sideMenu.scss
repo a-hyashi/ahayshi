@@ -1,0 +1,433 @@
+@if $device == PC {
+  .b-sideMenu#{$variation1of2} {
+    $_block: &;
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font(20);
+    }
+
+    &__bd {
+      @include g-font(16);
+      // 親要素
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          &.state-current {
+            //
+          }
+        }
+
+        // 子要素
+        > li > #{$_block}__list > ul {
+          > #{$_block}__item {
+            > #{$_block}__list {
+              //
+            }
+
+            &.state-current {
+              //
+            }
+          }
+
+          // 孫要素
+          > #{$_block}__item > div > ul > li {
+            &.state-current {
+              //
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+
+  .b-sideMenu#{$variation2of2} {
+    $_block: &;
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font(20);
+      a {
+        &:hover {
+          color: $g-baseHoverColor3;
+        }
+      }
+    }
+
+    &__bd {
+      @include g-font(16);
+      // 親要素
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          a {
+            &:hover {
+              color: $g-baseHoverColor3;
+            }
+          }
+
+          &.state-current {
+            a {
+              &:hover {
+                color: $g-baseHoverColor3;
+              }
+            }
+          }
+        }
+
+        // 子要素
+        > li > #{$_block}__list > ul {
+          > #{$_block}__item {
+            > #{$_block}__list {
+              &.state-current {
+                //
+              }
+            }
+          }
+
+          // 孫要素
+          > #{$_block}__item > div {
+            > ul > li {
+              &.state-current {
+                //
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+
+  .b-sideMenuHandle {
+    $_block: ".b-sideMenuHandle";
+    a {
+      &:hover {
+        color: $g-baseHoverColor3;
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd {
+      @include g-font(20);
+      a {
+        &:hover {
+          color: $g-baseHoverColor3;
+        }
+      }
+    }
+
+    &__bd {
+      @include g-font(16);
+      // 親要素
+      > #{$_block}__list > ul {
+        > #{$_block}__item {
+          &.state-current {
+            //
+          }
+        }
+
+        // 子要素
+        li > #{$_block}__list > ul {
+          > #{$_block}__item {
+            > #{$_block}__list {
+              //
+            }
+
+            &.state-current {
+              //
+            }
+          }
+
+          // 孫要素
+          > #{$_block}__item > div {
+            > ul > li {
+              &.state-current {
+                //
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__hd--align-l {
+      text-align: left;
+    }
+
+    &__hd--align-c {
+      text-align: center;
+    }
+
+    &__hd--align-r {
+      text-align: right;
+    }
+  }
+}
+
+@if $device == SP {
+  .b-sideMenu#{$variation1of2} {
+    $_block: &;
+    @include g-font(14);
+    width: 100%;
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    &__list {
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
+      }
+
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
+
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .b-sideMenu#{$variation2of2} {
+    $_block: &;
+    @include g-font(14);
+    width: 100%;
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__list {
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
+      }
+
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
+
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .b-sideMenuHandle {
+    $_block: &;
+    @include g-font(14);
+    width: 100%;
+    &__hd,
+    &__bd {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      width: 98%;
+      padding: 10px 0 10px 2%;
+      cursor: pointer;
+      &::before {
+        display: inline-block;
+        margin: 0 .5em 0 .2em;
+        content: "▶︎";
+      }
+
+      &.active {
+        &::before {
+          display: inline-block;
+          margin: 0 .5em 0 .2em;
+          content: "▼";
+        }
+      }
+    }
+
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    &__list {
+      > ul > #{$_block}__item {
+        > #{$_block}__item2 > div,
+        &.state-current > #{$_block}__item2 > div {
+          > a > span,
+          > span {
+            display: block;
+            padding: 10px 45px 10px 20px;
+          }
+        }
+      }
+
+      > ul > li > #{$_block}__list > ul {
+        > #{$_block}__item,
+        &.state-current {
+          > #{$_block}__item2 > div {
+            > a > span,
+            > span {
+              display: block;
+              padding: 10px 45px 10px 30px;
+            }
+          }
+        }
+
+        > li {
+          #{$_block}__list > ul {
+            > #{$_block}__item,
+            &.state-current {
+              > #{$_block}__item2 > div {
+                > a > span,
+                span {
+                  display: block;
+                  padding: 10px 45px 10px 40px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

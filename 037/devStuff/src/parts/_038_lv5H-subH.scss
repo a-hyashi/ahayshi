@@ -1,0 +1,67 @@
+@if $device == PC {
+  .t0-b-lv5H-subH {
+    $_fontSize: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    font-weight: bold;
+    h5 {
+      @include g-font-layout($_fontSize, 1, $layout);
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      display: inline;
+    }
+
+    &--size-1 {
+      h5 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      h5 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-lv5H-subH {
+    $_fontSize: 16;
+    font-weight: bold;
+    h5 {
+      @include g-font($_fontSize);
+      display: inline;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    a {
+      display: inline;
+    }
+  }
+}
