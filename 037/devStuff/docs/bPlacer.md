@@ -34,6 +34,10 @@
 |01.見出し|footer|199_フッター小見出し|.t0-b-footerUnit-lv1H||3%||10px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg||4%||20px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|2|6%||25px|
+|02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|3|6%||25px|
+|02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|4|6%||25px|
+|02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|5|6%||25px|
+|02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|6|6%||25px|
 |02.テキスト|main|031_キャッチコピー|.t0-b-catchText||0%||0px|
 |02.テキスト|main|031_キャッチコピー|.t0-b-catchText|2|4%||0px|
 |02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText||5%||20px|
@@ -49,8 +53,12 @@
 |03.リスト|main|028_装飾された番号リスト|.t0-b-orderedList||1%||10px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList||2%||15px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|2|2%||15px|
-|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|3|4%||20px|
-|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|4|4%||20px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|3|2%||15px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|4|2%||15px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|5|2%||15px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|6|2%||15px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|7|2%||15px|
+|03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|8|2%||15px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList||4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList||4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList||2%||20px|
