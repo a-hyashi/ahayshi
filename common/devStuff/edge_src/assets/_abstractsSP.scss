@@ -6,12 +6,19 @@ span {
 // 第2引数を入れない場合、$lineHeightは初期値1となる
 // 第2引数が0の場合には、line-heightの値を出力しない
 @mixin g-font($fontSize, $lineHeight: 1) {
+  @include g-lineHeight($lineHeight);
+  @include g-fontSize($fontSize);
+}
+
+@mixin g-lineHeight ($lineHeight: 1) {
   @if $lineHeight == 1 {
     line-height: 1.25;
   } @else if $lineHeight == 2 {
     line-height: 1.6;
   }
+}
 
+@mixin g-fontSize ($fontSize) {
   @if $fontSize == 8 {
     font-size: .571em !important;
   } @else if $fontSize == 10 {
