@@ -200,6 +200,9 @@
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop||4%||20px|
 |12.その他|main|044_区切り線|.t0-b-line||4%||25px|
 |12.その他|main|047_料金表|.t0-b-priceTable||2%||15px|
+|12.その他|main|047_料金表|.t0-b-priceTable|2|2%||15px|
+|12.その他|main|047_料金表|.t0-b-priceTable|3|2%||15px|
+|12.その他|main|047_料金表|.t0-b-priceTable|4|2%||15px|
 |12.その他|main|055_矢印|.t0-b-arrow||1%||10px|
 |12.その他|main|065_Adobe Readerリンク|.t0-b-getAdobeReader||4%||20px|
 |12.その他|header|176_ヘッダーお問い合わせボックス|.t0-b-headerUnit-miniCol||2%||10px|
