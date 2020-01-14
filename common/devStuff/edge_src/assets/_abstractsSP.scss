@@ -3,6 +3,11 @@ span {
   font-size: inherit !important;
 }
 
+@mixin g-fontSize ($fontSize) {
+  $_strippedUnitGFontSize: stripe-unit($g-fontSize);
+  font-size: round-to-3-decimal-places($fontSize / $_strippedUnitGFontSize) + em !important;
+}
+
 @mixin g-font-killSpacing($position, $fontSize, $lineHeight: 1) {
   @if $position == top {
     &::before {
