@@ -71,3 +71,35 @@
     width: 100%;
   }
 }
+
+// 単位を外す.
+// 例
+// @param $val 14px
+// @return 14
+@function stripe-unit($val) {
+  @return $val / (1 + $val - $val);
+}
+
+// 小数点第3位に丸める.
+// 例
+// @param $num 1.14285714286
+// @return 1.143
+@function round-to-3-decimal-places ($num) {
+  @return str-replace(#{(round(($num) *1000) / 1000)}, "0.", ".");
+}
+
+// 文字列を置換する.
+// 例
+// @param $string "abcde"
+// @param $before "de"
+// @param $after "fg"
+// @return "abcfg"
+@function str-replace($string, $before, $after: '') {
+  $index: str-index($string, $before);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $after + str-replace(str-slice($string, $index + str-length($before)), $before, $after);
+  }
+
+  @return $string;
+}
