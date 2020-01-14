@@ -60,9 +60,9 @@
 |04.表|footer|193_フッター表|.t0-b-footerUnit-table||4%||15px|
 |04.表|header|210_ヘッダー表|.t0-b-headerUnit-table||2%||15px|
 |05.メディア|main|024_HTML|.t0-b-freeHtml||2%||15px|
-|05.メディア|main|039_メディアブロック|.t0-b-media||3%||10px|
-|05.メディア|main|039_メディアブロック|.t0-b-media|2|3%||10px|
-|05.メディア|main|039_メディアブロック|.t0-b-media|3|3%||10px|
+|05.メディア|main|039_メディアブロック|.t0-b-media||6%||15px|
+|05.メディア|main|039_メディアブロック|.t0-b-media|2|6%||15px|
+|05.メディア|main|039_メディアブロック|.t0-b-media|3|6%||15px|
 |05.メディア|main|画像のみ（t0-b-mediaOnly|.t0-b-mediaOnly||4%||15px|
 |05.メディア|side|134_サイド自由HTML|.t0-b-sideFreeHtml||4%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia||5%||15px|
