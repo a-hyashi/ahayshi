@@ -1,0 +1,97 @@
+@if $device == PC {
+  .t0-b-headerUnit-labeledList {
+    white-space: nowrap;
+    &--has-width {
+      white-space: normal;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    th {
+      width: 60px;
+      text-align: center;
+      color: #fff;
+
+      @include g-font-spacingKilled(16, 1);
+      div {
+        background: #735f0d;
+        border-radius: 3px;
+        padding: 2px 8px;
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: inherit;
+        &:hover {
+          color: $g-hoverColor2;
+        }
+      }
+    }
+
+    td {
+      text-align: left;
+      padding: 0 0 10px 6px;
+
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    .t0-b-headerSingle & table,
+    .t0-b-headerSingle1 & table {
+      margin: 0 auto;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-labeledList {
+    word-break: break-all;
+    width: 100%;
+    &--has-width {
+      white-space: normal;
+    }
+
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    th {
+      width: 74px;
+      text-align: center;
+      color: #fff;
+      background: #735f0d;
+      border-radius: 3px;
+      padding: 3px;
+      div {
+        @include g-font(16, 1);
+
+        border-radius: 2px;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+
+    td {
+      text-align: left;
+      padding: 3px 0 3px 4px;
+
+      @include g-font(16, 1);
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    .t0-b-headerSingle & table,
+    .t0-b-headerSingle1 & table {
+      margin: 0 auto;
+    }
+  }
+}
