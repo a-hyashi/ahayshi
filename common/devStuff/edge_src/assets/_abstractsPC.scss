@@ -18,156 +18,18 @@ $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothic
   }
 }
 
-// 第二引数を入れない場合、$lineHeightは初期値1となる
+// PCフォント用mixin
+// @include g-font();で使用。引数でfont-sizeとline-heightを指定する
+// 第2引数を入れない場合、$lineHeightは初期値1となる
 // 第2引数が0の場合には、line-heightの値を出力しない
-@mixin g-font($fontSize, $lineHeight: 1) {
-  @if $lineHeight == 1 {
-    line-height: 1.25;
-  }
+@mixin g-font ($fontSize, $lineHeight: 1) {
+  @include g-lineHeight($lineHeight);
+  @include g-fontSize($fontSize);
+}
 
-  @if $lineHeight == 2 {
-    line-height: 1.6;
-  }
-
-  @if $fontSize == 8 {
-    font-size: .571em;
-  }
-
-  @if $fontSize == 10 {
-    font-size: .714em;
-  }
-
-  @if $fontSize == 12 {
-    font-size: .857em;
-  }
-
-  @if $fontSize == 14 {
-    font-size: 1em;
-  }
-
-  @if $fontSize == 16 {
-    font-size: 1.143em;
-  }
-
-  @if $fontSize == 18 {
-    font-size: 1.286em;
-  }
-
-  @if $fontSize == 20 {
-    font-size: 1.429em;
-  }
-
-  @if $fontSize == 22 {
-    font-size: 1.571em;
-  }
-
-  @if $fontSize == 24 {
-    font-size: 1.714em;
-  }
-
-  @if $fontSize == 26 {
-    font-size: 1.857em;
-  }
-
-  @if $fontSize == 28 {
-    font-size: 2em;
-  }
-
-  @if $fontSize == 30 {
-    font-size: 2.143em;
-  }
-
-  @if $fontSize == 32 {
-    font-size: 2.286em;
-  }
-
-  @if $fontSize == 34 {
-    font-size: 2.429em;
-  }
-
-  @if $fontSize == 36 {
-    font-size: 2.571em;
-  }
-
-  @if $fontSize == 38 {
-    font-size: 2.714em;
-  }
-
-  @if $fontSize == 40 {
-    font-size: 2.857em;
-  }
-
-  @if $fontSize == 42 {
-    font-size: 3em;
-  }
-
-  @if $fontSize == 44 {
-    font-size: 3.143em;
-  }
-
-  @if $fontSize == 46 {
-    font-size: 3.286em;
-  }
-
-  @if $fontSize == 48 {
-    font-size: 3.429em;
-  }
-
-  @if $fontSize == 50 {
-    font-size: 3.571em;
-  }
-
-  @if $fontSize == 52 {
-    font-size: 3.714em;
-  }
-
-  @if $fontSize == 54 {
-    font-size: 3.857em;
-  }
-
-  @if $fontSize == 56 {
-    font-size: 4em;
-  }
-
-  @if $fontSize == 58 {
-    font-size: 4.143em;
-  }
-
-  @if $fontSize == 60 {
-    font-size: 4.286em;
-  }
-
-  @if $fontSize == 62 {
-    font-size: 4.429em;
-  }
-
-  @if $fontSize == 64 {
-    font-size: 4.571em;
-  }
-
-  @if $fontSize == 66 {
-    font-size: 4.714em;
-  }
-
-  @if $fontSize == 68 {
-    font-size: 4.857em;
-  }
-
-  @if $fontSize == 70 {
-    font-size: 5em;
-  }
-
-  @if $fontSize == 72 {
-    font-size: 5.143em;
-  }
-
-  @if $fontSize == 74 {
-    font-size: 5.286em;
-  }
-
-  @if $fontSize == 76 {
-    font-size: 5.429em;
-  }
+@mixin g-fontSize ($fontSize) {
+  $_strippedUnitGFontSize: stripe-unit($g-fontSize);
+  font-size: round-to-3-decimal-places($fontSize / $_strippedUnitGFontSize) + em;
 }
 
 @mixin g-font-killSpacing($position, $fontSize, $lineHeight: 1) {
@@ -188,15 +50,11 @@ $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothic
         } @else {
           margin-top: -.15em;
         }
-      }
-
-      @if $lineHeight == 2 {
+      } @else if $lineHeight == 2 {
         margin-top: -.3em;
       }
     }
-  }
-
-  @if $position == bottom {
+  } @else if $position == bottom {
     &::after {
       display: block;
       height: 0;
@@ -209,9 +67,7 @@ $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothic
         } @else {
           margin-top: -.18em;
         }
-      }
-
-      @if $lineHeight == 2 {
+      } @else if $lineHeight == 2 {
         @if $fontSize < 18 {
           margin-top: -.4em;
         } @else {
@@ -235,57 +91,31 @@ $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothic
     content: "";
     @if $preset == 1 {
       margin-top: -.15em;
-    }
-
-    @if $preset == 2 {
+    } @else if $preset == 2 {
       margin-top: -.05em;
-    }
-
-    @if $preset == 3 {
+    } @else if $preset == 3 {
       margin-top: -.05em;
-    }
-
-    @if $preset == 4 {
+    } @else if $preset == 4 {
       margin-top: -.05em;
-    }
-
-    @if $preset == 5 {
+    } @else if $preset == 5 {
       margin-top: -.025em;
-    }
-
-    @if $preset == 6 {
+    } @else if $preset == 6 {
       margin-top: -.075em;
-    }
-
-    @if $preset == 7 {
+    } @else if $preset == 7 {
       margin-top: -.05em;
-    }
-
-    @if $preset == 8 {
+    } @else if $preset == 8 {
       margin-top: -.1em;
-    }
-
-    @if $preset == 9 {
+    } @else if $preset == 9 {
       margin-top: -.1em;
-    }
-
-    @if $preset == 10 {
+    } @else if $preset == 10 {
       margin-top: -.1em;
-    }
-
-    @if $preset == 11 {
+    } @else if $preset == 11 {
       margin-top: -.1em;
-    }
-
-    @if $preset == 12 {
+    } @else if $preset == 12 {
       margin-top: -.125em;
-    }
-
-    @if $preset == 13 {
+    } @else if $preset == 13 {
       margin-top: -.1em;
-    }
-
-    @if $preset == 14 {
+    } @else if $preset == 14 {
       margin-top: -.1em;
     }
   }
@@ -298,57 +128,31 @@ $marugo: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothic
     content: "";
     @if $preset == 1 {
       margin-top: -.25em;
-    }
-
-    @if $preset == 2 {
+    } @else if $preset == 2 {
       margin-top: -.2em;
-    }
-
-    @if $preset == 3 {
+    } @else if $preset == 3 {
       margin-top: -.2em;
-    }
-
-    @if $preset == 4 {
+    } @else if $preset == 4 {
       margin-top: -.15em;
-    }
-
-    @if $preset == 5 {
+    } @else if $preset == 5 {
       margin-top: -.125em;
-    }
-
-    @if $preset == 6 {
+    } @else if $preset == 6 {
       margin-top: -.2em;
-    }
-
-    @if $preset == 7 {
+    } @else if $preset == 7 {
       margin-top: -.2em;
-    }
-
-    @if $preset == 8 {
+    } @else if $preset == 8 {
       margin-top: -.175em;
-    }
-
-    @if $preset == 9 {
+    } @else if $preset == 9 {
       margin-top: -.15em;
-    }
-
-    @if $preset == 10 {
+    } @else if $preset == 10 {
       margin-top: -.15em;
-    }
-
-    @if $preset == 11 {
+    } @else if $preset == 11 {
       margin-top: -.15em;
-    }
-
-    @if $preset == 12 {
+    } @else if $preset == 12 {
       margin-top: -.225em;
-    }
-
-    @if $preset == 13 {
+    } @else if $preset == 13 {
       margin-top: -.175em;
-    }
-
-    @if $preset == 14 {
+    } @else if $preset == 14 {
       margin-top: -.175em;
     }
   }
