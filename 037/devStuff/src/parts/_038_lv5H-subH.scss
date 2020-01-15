@@ -4,9 +4,20 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_textColor: $lv5H-subH_Color;
+    @include g-font-layout($_fontSize, 1, $layout);
+    color: $_textColor;
     font-weight: bold;
-    h5 {
-      @include g-font-layout($_fontSize, 1, $layout);
+    text-align: center;
+
+    a {
+      h5 {
+        color: $_textColor;
+        display: inline;
+        &:hover {
+          color: $g-baseHoverColor;
+        }
+      }
     }
 
     &--align-l {
@@ -19,10 +30,6 @@
 
     &--align-r {
       text-align: right;
-    }
-
-    a {
-      display: inline;
     }
 
     &--size-1 {
@@ -42,10 +49,16 @@
 @if $device == SP {
   .t0-b-lv5H-subH {
     $_fontSize: 15;
+    $_textColor: $lv5H-subH_Color;
+
     font-weight: bold;
+    text-align: center;
+    color: $_textColor;
+
     h5 {
       @include g-font($_fontSize);
       display: inline;
+      color: $_textColor;
     }
 
     &--align-l {
