@@ -37,11 +37,11 @@
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -58,12 +58,7 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -76,7 +71,7 @@
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -89,12 +84,7 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -108,19 +98,20 @@
       width: 100%;
       margin-top: $_blockSpacing;
       white-space: nowrap;
-      border-color: transparent;
+      border: 1px solid transparent;
       th,
       td {
         @include g-font(14, 1);
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        border-top: 1px solid $_color_table_border;
+        border-style: none;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -138,14 +129,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -164,9 +155,9 @@
       }
     }
 
-    $_fontSizePx: 14;
-    $_lineHeightType: 2;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    $_fontSize: 14;
+    $_lineHeight: 2;
+    @include g-font($_fontSize, $_lineHeight);
     p {
       font-weight: bold;
     }
@@ -218,7 +209,7 @@
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -243,7 +234,7 @@
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -268,19 +259,20 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border-color: transparent;
+      border: 1px solid transparent;
       th,
       td {
         @include g-font(14, 1);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        border-top: 1px solid $_color_table_border;
+        border-style: none;
+        border-bottom: 1px solid $_color_table_border;
       }
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -298,14 +290,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
         &:first-child {
-          border-bottom: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -324,9 +316,9 @@
       }
     }
 
-    $_fontSizePx: 14;
-    $_lineHeightType: 2;
-    @include g-font($_fontSizePx, $_lineHeightType);
+    $_fontSize: 14;
+    $_lineHeight: 2;
+    @include g-font($_fontSize, $_lineHeight);
     color: #664b3a;
     a {
       color: $g-textColor;

@@ -1,17 +1,6 @@
 @if $device == PC {
   .t0-b-navList#{$variation1of1and3} {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-      &:hover {
-        color: $g-hoverColor;
-      }
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -23,26 +12,19 @@
 
     ol {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -52,24 +34,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -80,58 +55,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList_borderColor;
+        border-left: 1px solid $navList_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList_textColor;
+        background-color: $navList_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList_borderColor;
+        border-left: 1px solid $navList_borderColor;
+        border-bottom: 1px solid $navList_borderColor;
+        a {
+          color: $navList_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -141,18 +117,7 @@
   }
 
   .t0-b-navList2 {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-      &:hover {
-        color: $g-hoverColor;
-      }
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -164,26 +129,19 @@
 
     ol {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -193,24 +151,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -221,58 +172,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList2_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList2_borderColor;
+        border-left: 1px solid $navList2_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList2_textColor;
+        background-color: $navList2_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList2_borderColor;
+        border-left: 1px solid $navList2_borderColor;
+        border-bottom: 1px solid $navList2_borderColor;
+        a {
+          color: $navList2_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList2_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList2_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -282,18 +234,7 @@
   }
 
   .t0-b-navList#{$variation3of1and3} {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-      &:hover {
-        color: $g-hoverColor;
-      }
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -305,26 +246,19 @@
 
     ol {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -334,24 +268,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -362,58 +289,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList3_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList3_borderColor;
+        border-left: 1px solid $navList3_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList3_textColor;
+        background-color: $navList3_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList3_borderColor;
+        border-left: 1px solid $navList3_borderColor;
+        border-bottom: 1px solid $navList3_borderColor;
+        a {
+          color: $navList3_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList3_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList3_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -423,18 +351,7 @@
   }
 
   .t0-b-navList4 {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-      &:hover {
-        color: $g-hoverColor;
-      }
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -446,26 +363,19 @@
 
     ol {
       padding: 0 0 0 2.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -475,24 +385,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -503,58 +406,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList4_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList4_borderColor;
+        border-left: 1px solid $navList4_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList4_textColor;
+        background-color: $navList4_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList4_borderColor;
+        border-left: 1px solid $navList4_borderColor;
+        border-bottom: 1px solid $navList4_borderColor;
+        a {
+          color: $navList4_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList4_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList4_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -566,15 +470,7 @@
 
 @if $device == SP {
   .t0-b-navList#{$variation1of1and3} {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -586,26 +482,19 @@
 
     ol {
       padding: 0 0 0 1.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -615,24 +504,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -643,58 +525,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList_borderColor;
+        border-left: 1px solid $navList_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList_textColor;
+        background-color: $navList_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList_borderColor;
+        border-left: 1px solid $navList_borderColor;
+        border-bottom: 1px solid $navList_borderColor;
+        a {
+          color: $navList_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -704,15 +587,7 @@
   }
 
   .t0-b-navList2 {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -724,26 +599,19 @@
 
     ol {
       padding: 0 0 0 1.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -753,24 +621,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -781,58 +642,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList2_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList2_borderColor;
+        border-left: 1px solid $navList2_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList2_textColor;
+        background-color: $navList2_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList2_borderColor;
+        border-left: 1px solid $navList2_borderColor;
+        border-bottom: 1px solid $navList2_borderColor;
+        a {
+          color: $navList2_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList2_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList2_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -842,15 +704,7 @@
   }
 
   .t0-b-navList#{$variation3of1and3} {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -862,26 +716,19 @@
 
     ol {
       padding: 0 0 0 1.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -891,24 +738,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -919,58 +759,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList3_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList3_borderColor;
+        border-left: 1px solid $navList3_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList3_textColor;
+        background-color: $navList3_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList3_borderColor;
+        border-left: 1px solid $navList3_borderColor;
+        border-bottom: 1px solid $navList3_borderColor;
+        a {
+          color: $navList3_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList3_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList3_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 
@@ -980,15 +821,7 @@
   }
 
   .t0-b-navList4 {
-    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #888;
-    $_color_table_th_bg: #555;
     @include g-rteTableReset;
-    a {
-      color: $g-textColor;
-    }
-
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -1000,26 +833,19 @@
 
     ol {
       padding: 0 0 0 1.5em;
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
-        margin-top: $_elementSpacing;
+        margin-top: $g-spacing2x;
       }
 
       li {
-        @include g-font(16, 1);
-        margin-top: $_elementSpacing;
+        @include bugFix_IE_list-item;
+        @include g-font(16);
+        margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -1029,24 +855,17 @@
     }
 
     ul {
-      margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      margin-top: $g-spacing3x;
       ul,
       ol {
         margin-top: 7px;
       }
 
       li {
-        @include g-font(16, 1);
+        @include bugFix_IE_list-item;
+        @include g-font(16);
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -1057,58 +876,59 @@
 
     table {
       width: 100%;
-      margin-top: $_blockSpacing;
+      margin-top: $g-spacing3x;
       // tableのデフォルトの枠線を消す
       border: transparent 1px solid;
-      tr {
-        border-right: 1px solid $_color_table_border;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
-      }
-
-      th,
       td {
-        @include g-font(14, 1);
+        @include g-font(14);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        background-color: $navList4_BGColor2;
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        background: #fff;
-        border-top: 1px solid $_color_table_border;
-        border-left: 1px solid $_color_table_border;
+        border-top: 1px solid $navList4_borderColor;
+        border-left: 1px solid $navList4_borderColor;
       }
 
-      ol {
-        font-size: $baseFontSize;
-        li {
-          @include g-font(14, 1);
+      th {
+        @include g-font(14);
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        color: $navList4_textColor;
+        background-color: $navList4_BGColor;
+        // IE,Firefoxでtableの枠線が出るので消す
+        border-style: none;
+        border-top: 1px solid $navList4_borderColor;
+        border-left: 1px solid $navList4_borderColor;
+        border-bottom: 1px solid $navList4_borderColor;
+        a {
+          color: $navList4_textColor;
+        }
+      }
+
+      tr {
+        border-right: 1px solid $navList4_borderColor;
+        &:last-child {
+          border-bottom: 1px solid $navList4_borderColor;
         }
       }
 
       ul {
-        font-size: $baseFontSize;
         li {
-          @include g-font(14, 1);
+          @include g-font(14);
+        }
+      }
+
+      ol {
+        li {
+          @include g-font(14);
         }
       }
 
       p {
-        @include g-font(14, 1);
-      }
-
-      th {
-        color: #fff;
-        background: $_color_table_th_bg;
-        border-bottom: 1px solid $_color_table_border;
-        a {
-          color: #fff;
-        }
-      }
-
-      td {
-        color: $g-textColor;
+        @include g-font(14);
       }
     }
 

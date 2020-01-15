@@ -5,6 +5,7 @@
     $_color_table_border: #ac8871;
     $_color_table_th_bg: #f6e8c6;
     $_color_table_td: #333;
+    @include g-rteTableReset();
     white-space: nowrap;
     hr {
       margin-top: $_blockSpacing;
@@ -29,7 +30,7 @@
     ol {
       margin: 0 0 0 25px;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -41,13 +42,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -58,7 +53,7 @@
     ul {
       margin: 0 0 0 25px;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -70,13 +65,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -98,7 +87,7 @@
       }
 
       ul, ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -137,6 +126,7 @@
     $_color_table_border: #ac8871;
     $_color_table_th_bg: #f6e8c6;
     $_color_table_td: #333;
+    @include g-rteTableReset();
     hr {
       margin-top: $_blockSpacing;
       border: 0;
@@ -160,7 +150,7 @@
     ol {
       margin: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -172,13 +162,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -189,7 +173,7 @@
     ul {
       margin: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $baseFontSize;
+      font-size: $g-fontSize;
       ul, ol {
         margin-top: $_elementSpacing;
       }
@@ -201,13 +185,7 @@
         &:first-child {
           margin-top: 0;
         }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          width: 100%;
-          float: left;
-          display: none;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -234,7 +212,7 @@
       }
 
       ul, ol {
-        font-size: $baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }

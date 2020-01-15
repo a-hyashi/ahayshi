@@ -67,10 +67,6 @@
       border-radius: 10px;
     }
 
-    * {
-      position: relative;
-    }
-
     @if $layout == "N00" {
       padding: 75px (1035px + $areaSubWidth / 2);
       &::before {
@@ -83,17 +79,20 @@
     &__hd,
     &__bd {
       width: 100%;
+      position: relative;
     }
 
-    // Start テキストががbg下に隠れてしまわないようにするための対処
     &__hd.outerHtml {
+      // テキストががbg下に隠れてしまわないように
+      position: relative;
       z-index: 1;
     }
 
     &__bd + .outerHtml {
+      // テキストががbg下に隠れてしまわないように
+      position: relative;
       z-index: 1;
     }
-    // End テキストががbg下に隠れてしまわないようにするための対処
   }
 
   .t0-b-fullWidthFrame::before,
@@ -145,7 +144,7 @@
 
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
-    background-color: $fullWidthBgColor5;
+    background-color: transparent;
   }
 }
 
@@ -182,7 +181,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 0;
+    z-index: -1;
     content: "";
   }
 
@@ -200,19 +199,23 @@
       border-radius: 10px;
     }
 
-    * {
+    // 子要素が親要素についている幅からはみ出てしまうため
+    &__hd,
+    &__bd {
       position: relative;
     }
 
-    // Start テキストががbg下に隠れてしまわないようにするための対処
     &__hd.outerHtml {
+      // テキストががbg下に隠れてしまわないように
+      position: relative;
       z-index: 1;
     }
 
     &__bd + .outerHtml {
+      // テキストががbg下に隠れてしまわないように
+      position: relative;
       z-index: 1;
     }
-    // End テキストががbg下に隠れてしまわないようにするための対処
   }
 
   .t0-b-fullWidthFrame::before,
@@ -245,6 +248,6 @@
 
   .t0-b-fullWidthFrame9::before,
   .t0-b-fullWidthFrame10::before {
-    background-color: $fullWidthBgColor5;
+    background-color: transparent;
   }
 }

@@ -8,7 +8,7 @@
     $_color_table_td_bg: #fffbdc;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     p {
       @include g-font(16, 2);
@@ -24,11 +24,11 @@
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -40,17 +40,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -64,7 +58,7 @@
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -72,17 +66,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -101,13 +89,12 @@
       th,
       td {
         @include g-font(14, 1);
-        height: 17px;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
         p,
         ul,
         ol {
@@ -117,7 +104,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -135,15 +122,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -180,7 +166,7 @@
     $_color_table_td_bg: #effaff;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     p {
       @include g-font(16, 2);
@@ -196,11 +182,11 @@
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -212,17 +198,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -236,7 +216,7 @@
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -244,17 +224,11 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
-        }
-
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
         }
       }
     }
@@ -273,13 +247,12 @@
       th,
       td {
         @include g-font(14, 1);
-        height: 17px;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
         p,
         ul,
         ol {
@@ -289,7 +262,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -307,15 +280,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -352,7 +324,7 @@
     $_color_table_td_bg: #fff;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     p {
       @include g-font(16, 2);
@@ -368,11 +340,11 @@
     ol {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -389,12 +361,7 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -407,7 +374,7 @@
     ul {
       padding: 0 0 0 2.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -420,12 +387,7 @@
         &:first-child {
           margin-top: 0;
         }
-        // IEのlist-item疑似要素のバグ対応
-        &::before, &::after {
-          display: none;
-          float: left;
-          width: 100%;
-        }
+        @include bugFix_IE_list-item();
       }
     }
 
@@ -438,15 +400,24 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border: 1px solid $_color_table_border;
+      border: 1px solid transparent;
       th,
       td {
         @include g-font(14, 1);
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        // IE,Firefoxでtableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
+        border-bottom: 1px solid $_color_table_border;
+        &:first-child {
+          border-left: 1px solid $_color_table_border;
+        }
+
+        &:last-child {
+          border-right: 1px solid $_color_table_border;
+        }
+
         p,
         ul,
         ol {
@@ -456,7 +427,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(16, 1);
         }
@@ -469,21 +440,21 @@
       th {
         color: $_color_table_th_text;
         background-color: $_color_table_th_bg;
-        &:last-child {
-          border-right: $_color_table_border;
-        }
       }
 
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-right: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border: 1px solid $_color_table_border;
+        &:first-child {
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
+        }
+
         &:last-child {
           > th,
           td {
@@ -520,7 +491,7 @@
     $_color_table_td_bg: #fffbdc;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     p {
       @include g-font(14, 2);
@@ -536,7 +507,7 @@
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -561,7 +532,7 @@
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -591,13 +562,12 @@
       th,
       td {
         @include g-font(14, 1);
-        height: 1em;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
         p,
         ul,
         ol {
@@ -607,7 +577,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -625,15 +595,15 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
           border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -667,7 +637,7 @@
     $_color_table_td_bg: #effaff;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     p {
       @include g-font(14, 2);
@@ -683,7 +653,7 @@
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -708,7 +678,7 @@
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -738,13 +708,12 @@
       th,
       td {
         @include g-font(14, 1);
-        height: 1em;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
         p,
         ul,
         ol {
@@ -754,7 +723,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -772,15 +741,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -814,7 +782,7 @@
     $_color_table_td_bg: #fff;
     $_color_table_th_text: #675f4f;
     $_color_table_td_text: #706d5e;
-    font-family: $tenorSans;
+    font-family: $font-tenorSans;
     color: $g-textColor;
     p {
       @include g-font(14, 2);
@@ -830,7 +798,7 @@
     ol {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -855,7 +823,7 @@
     ul {
       padding: 0 0 0 1.5em;
       margin-top: $_blockSpacing;
-      font-size: $g-baseFontSize;
+      font-size: $g-fontSize;
       ul,
       ol {
         margin-top: $_elementSpacing;
@@ -880,16 +848,24 @@
     table {
       width: 100%;
       margin-top: $_blockSpacing;
-      border: 1px solid $_color_table_border;
+      border: 1px solid transparent;
       th,
       td {
         @include g-font(14, 1);
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        // tableのデフォルトの枠線が出るためborderのスタイルを初期値に戻す
+        // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+        &:first-child {
+          border-left: 1px solid $_color_table_border;
+        }
+
+        &:last-child {
+          border-right: 1px solid $_color_table_border;
+        }
+
         p,
         ul,
         ol {
@@ -899,7 +875,7 @@
 
       ul,
       ol {
-        font-size: $g-baseFontSize;
+        font-size: $g-fontSize;
         li {
           @include g-font(14, 1);
         }
@@ -912,21 +888,21 @@
       th {
         color: $_color_table_th_text;
         background: $_color_table_th_bg;
-        &:last-child {
-          border-right: $_color_table_border;
-        }
       }
 
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-right: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border: 1px solid $_color_table_border;
+        &:first-child {
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
+        }
+
         &:last-child {
           > th,
           td {

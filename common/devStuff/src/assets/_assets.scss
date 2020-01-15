@@ -8,13 +8,13 @@
 }
 
 // N00のレイアウトに対応したフォントサイズを返すg-fontの拡張mixin
-// レイアウト文字列に'N00'が入ったときには、基準フォントサイズにaddPx（デフォルト4px）を加算したフォント指定を生成する
-// 'N00'以外では基準フォントサイズのままを返す
-@mixin g-font-layout($fontSizePx, $lineHeightType: 0, $layout: 'L25', $addPx: 4) {
+// レイアウト文字列に"N00"が入ったときには、基準フォントサイズにaddPx（デフォルト4px）を加算したフォント指定を生成する
+// "N00"以外では基準フォントサイズのままを返す
+@mixin g-font-layout($fontSize, $lineHeight: 0, $layout: "L25", $addPx: 4) {
   @if $layout == "N00" {
-    @include g-font($fontSizePx + $addPx, $lineHeightType);
+    @include g-font($fontSize + $addPx, $lineHeight);
   } @else {
-    @include g-font($fontSizePx, $lineHeightType);
+    @include g-font($fontSize, $lineHeight);
   }
 }
 
@@ -23,11 +23,8 @@
 @mixin g-textOuterGlow($size: 1, $color: #fff, $blur-radius: 1px) {
   @if $size == 0 {
     text-shadow: 0 0 $blur-radius $color;
-  }
-
-  @else if $size == 1 {
-    text-shadow:
-      -1px -1px $blur-radius $color,
+  } @else if $size == 1 {
+    text-shadow: -1px -1px $blur-radius $color,
       -1px 0 $blur-radius $color,
       -1px 1px $blur-radius $color,
       0 -1px $blur-radius $color,
@@ -36,11 +33,8 @@
       1px -1px $blur-radius $color,
       1px 0 $blur-radius $color,
       1px 1px $blur-radius $color;
-  }
-
-  @else if $size == 2 {
-    text-shadow:
-      -2px -2px $blur-radius $color,
+  } @else if $size == 2 {
+    text-shadow: -2px -2px $blur-radius $color,
       -2px -1px $blur-radius $color,
       -2px 0 $blur-radius $color,
       -2px 1px $blur-radius $color,
@@ -66,4 +60,46 @@
       2px 1px $blur-radius $color,
       2px 2px $blur-radius $color;
   }
+}
+
+@mixin bugFix_IE_list-item {
+  &::before,
+  &::after {
+    // IEのlist-item疑似要素のバグ対応
+    display: none;
+    float: left;
+    width: 100%;
+  }
+}
+
+// 単位を外す.
+// 例
+// @param $val 14px
+// @return 14
+@function stripe-unit($val) {
+  @return $val / (1 + $val - $val);
+}
+
+// 小数点第3位に丸める.
+// 例
+// @param $num 1.14285714286
+// @return 1.143
+@function round-to-3-decimal-places ($num) {
+  @return str-replace(#{(round(($num) *1000) / 1000)}, "0.", ".");
+}
+
+// 文字列を置換する.
+// 例
+// @param $string "abcde"
+// @param $before "de"
+// @param $after "fg"
+// @return "abcfg"
+@function str-replace($string, $before, $after: '') {
+  $index: str-index($string, $before);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $after + str-replace(str-slice($string, $index + str-length($before)), $before, $after);
+  }
+
+  @return $string;
 }
