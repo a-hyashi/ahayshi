@@ -1,0 +1,784 @@
+@if $device == PC {
+  .t0-b-navList {
+    @include g-rteTableReset;
+    max-width: 100%;
+    background: url("../imgs/t0-b-navList/1/bg2.png");
+    background-repeat: repeat;
+    background-position: left top;
+    padding: 5px;
+    color: #594c47;
+
+    $_blockSpacing: #{$g-spacingBaseLength * 6}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #f9dbe1;
+    $_color_table_th_bg: #f9dbe1;
+    $_color_table_td_typo: #594c46;
+    $_color_table_th_border: #fff;
+    img {
+      width: 100%;
+    }
+
+    a {
+      text-decoration: underline;
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      padding: 20px 40px 20px 0;
+      font-size: $g-fontSize;
+      margin-top: 10px;
+      background: url("../imgs/t0-b-navList/1/bg2.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-color: $_color_table_th_bg;
+      ol {
+        padding: 0;
+      }
+
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        margin-top: 10px;
+        list-style-type: decimal;
+        margin-left: 40px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > ol {
+      margin-top: 15px;
+    }
+
+    ul {
+      background: url("../imgs/t0-b-navList/1/bg2.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-color: $_color_table_th_bg;
+      padding: 20px;
+      margin-top: 10px;
+      font-size: $g-fontSize;
+      ul {
+        padding: 0;
+      }
+
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        background: url("../imgs/t0-b-navList/1/bg.png");
+        background-repeat: no-repeat;
+        margin-top: 10px;
+        background-position: 0 -.1em;
+        padding: 0 0 0 25px;
+        margin-left: 0;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ul {
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        padding: 8px 3px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        background: none;
+        background-color: transparent;
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+
+          background-position: 0 -.2em;
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: $_color_table_th_bg;
+        border-top: 1px solid $_color_table_th_border;
+        border-left: 1px solid $_color_table_th_border;
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      td {
+        background: #fff;
+        border: 1px solid $_color_table_border;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-navList--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .t0-b-navList2 {
+    @include g-rteTableReset;
+    color: #594c47;
+
+    $_blockSpacing: #{$g-spacingBaseLength * 6}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #f9dbe1;
+    $_color_table_th_bg: #f9dbe1;
+    $_color_table_td_typo: #594c46;
+    $_color_table_th_border: #fff;
+    img {
+      width: 100%;
+    }
+
+    a {
+      text-decoration: underline;
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      padding: 20px 40px 20px 0;
+      font-size: $g-fontSize;
+      margin-top: 10px;
+      background: url("../imgs/t0-b-navList/1/bg2.png");
+      background-repeat: repeat;
+      background-position: left top;
+      background-color: $_color_table_th_bg;
+      ol {
+        padding: 0;
+      }
+
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        margin-top: 10px;
+        list-style-type: decimal;
+        margin-left: 40px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > ol {
+      margin-top: 15px;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding: 20px;
+      font-size: $g-fontSize;
+      ul {
+        padding: 0;
+      }
+
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(18, 1);
+
+        display: block;
+        margin-top: 10px;
+        background: url("../imgs/t0-b-navList/2/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 top;
+        background-size: 35px 39px;
+        padding: 12px 0 0 50px;
+        min-height: 27px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ul {
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        padding: 8px 3px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+
+          margin-top: 0;
+          padding: 12px 0 0 40px;
+          background-size: 25px 25px;
+          background-position: 0 .4em;
+        }
+      }
+
+      ol {
+        font-size: $g-fontSize;
+        background: none;
+        background-color: transparent;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: $_color_table_th_bg;
+        border-top: 1px solid $_color_table_th_border;
+        border-left: 1px solid $_color_table_th_border;
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      td {
+        background: #fff;
+        border: 1px solid $_color_table_border;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-navList2--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-navList {
+    @include g-rteTableReset;
+    max-width: 100%;
+    background: url("../imgs/t0-b-navList/1/bg2.png");
+    background-repeat: repeat;
+    background-position: left top;
+    padding: 5px;
+    ul {
+      font-size: $g-fontSize;
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        margin: 10px 0 0;
+        background: url("../imgs/t0-b-navList/1/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 -.1em;
+        padding: 0 0 0 25px;
+      }
+    }
+
+    > ul {
+      padding: 10px;
+      background-color: rgba(248, 2, 125, .1);
+      > li:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        background-position: 0 -.1em;
+      }
+    }
+
+    $_blockSpacing: #{$g-spacingBaseLength * 6}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #f9dbe1;
+    $_color_table_th_bg: #f9dbe1;
+    $_color_table_td_typo: #594c46;
+    $_color_table_th_border: #fff;
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: $_color_table_th_bg;
+        border-top: 1px solid $_color_table_th_border;
+        border-left: 1px solid $_color_table_th_border;
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      td {
+        background: #fff;
+        border: 1px solid $_color_table_border;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    ol {
+      padding-left: 35px;
+      font-size: $g-fontSize;
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        background-position: 0 -.1em;
+        margin: 10px 0 0 25px;
+      }
+
+      li:first-child {
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol {
+      padding: 10px;
+      background-color: rgba(248, 2, 125, .1);
+      > li:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        background-position: 0 -.1em;
+      }
+    }
+  }
+
+  .t0-b-navList2 {
+    margin-left: 0;
+    ul {
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: 10px;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        display: block;
+        margin: 5px 0 0;
+        background: url("../imgs/t0-b-navList/2/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 top;
+        background-size: 28px 31px;
+        padding: 8px 0 0 40px;
+        min-height: 31px;
+        > a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    $_blockSpacing: #{$g-spacingBaseLength * 6}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #f9dbe1;
+    $_color_table_th_bg: #f9dbe1;
+    $_color_table_td_typo: #594c46;
+    $_color_table_th_border: #fff;
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: $_color_table_th_bg;
+        border-top: 1px solid $_color_table_th_border;
+        border-left: 1px solid $_color_table_th_border;
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      td {
+        background: #fff;
+        border: 1px solid $_color_table_border;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+  }
+}
