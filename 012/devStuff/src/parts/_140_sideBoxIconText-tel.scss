@@ -1,0 +1,179 @@
+@if $device == PC {
+  .t0-b-sideBoxIconText-tel {
+    $_block: &;
+
+    //電話番号改行される問題のため、仕様通りのフォント指定に変更する。
+    //後に、テーマ内共通のフォント指定を仕様通りにした際にこの記述は削除する。
+    font-family: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", HGMaruGothicMPRO, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Pゴシック", sans-serif;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__ruby {
+      text-align: right;
+    }
+
+    &__bd {
+      text-align: center;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: center 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    &--size-1 {
+      #{$_block}__ruby {
+        @include g-font-spacingKilled(14, 1);
+
+        margin-bottom: 2px;
+      }
+
+      #{$_block}__bd {
+        @include g-font-spacingKilled(24, 1);
+
+        line-height: 1;
+        #{$_block}__icon + span {
+          font-size: 80%;
+          vertical-align: top;
+        }
+      }
+
+      #{$_block}__icon {
+        margin: (-14px) 5px 0 0;
+      }
+
+      #{$_block}__tel {
+        width: 32px;
+        height: 19px;
+        background-image: url("../imgs/t0-b-sideBoxIconText/icons/tel/1.png");
+        background-position: center 0;
+      }
+
+      #{$_block}__fax {
+        width: 32px;
+        height: 36px;
+        background-image: url("../imgs/t0-b-sideBoxIconText/icons/fax/1.png");
+        background-position: center 100%;
+      }
+
+      #{$_block}__free {
+        width: 32px;
+        height: 18px;
+        background-image: url("../imgs/t0-b-sideBoxIconText/icons/free/1.png");
+        background-position: 0 0;
+        margin-top: -6px;
+      }
+
+      #{$_block}__cell {
+        width: 32px;
+        height: 23px;
+        background-image: url("../imgs/t0-b-sideBoxIconText/icons/cell/1.png");
+        background-position: 60% 0;
+        margin-top: -15px;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideBoxIconText-tel {
+    width: 95%;
+    margin: 0 auto;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 0;
+    word-break: break-all;
+
+    $_block: &;
+    > div {
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__ruby {
+      text-align: center;
+    }
+
+    &__bd {
+      text-align: center;
+      color: #f00;
+      > span {
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      #{$_block}__ruby {
+        @include g-font(12, 1);
+      }
+
+      #{$_block}__bd {
+        @include g-font(14, 1);
+      }
+
+      #{$_block}__icon {
+        padding: 0 5px 0 0;
+        background-repeat: no-repeat;
+      }
+
+      #{$_block}__tel {
+        width: 20px;
+        height: 16px;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+        background-size: 20px 16px;
+        margin-top: -2px;
+      }
+
+      #{$_block}__fax {
+        width: 15px;
+        height: 16px;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+        background-size: 15px 16px;
+      }
+
+      #{$_block}__free {
+        width: 24px;
+        height: 16px;
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+        background-size: 24px 16px;
+      }
+
+      #{$_block}__cell {
+        width: 11px;
+        height: 16px;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        background-size: 11px 16px;
+        margin-top: -4px;
+      }
+    }
+  }
+}

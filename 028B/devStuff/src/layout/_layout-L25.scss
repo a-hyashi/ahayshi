@@ -1,0 +1,113 @@
+$layout: "L25";
+$areaContainerWidth: 1000px;
+$areaMainWidth: 730px;
+$areaSubWidth: 270px;
+.area-all {
+  margin: 0 auto;
+  background-image: url("../imgs/area-all/bg.png");
+  background-repeat: repeat;
+  word-break: break-all;
+  word-wrap: break-word;
+  min-width: $areaContainerWidth + 36px;
+  overflow: hidden;
+}
+
+.area-container {
+  width: $areaContainerWidth;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+  *zoom: 1;
+}
+
+.area-container::before,
+.area-container::after {
+  content: "";
+  display: table;
+}
+
+.area-container::after {
+  clear: both;
+}
+
+.area-main {
+  float: right;
+  box-sizing: border-box;
+  width: $areaMainWidth;
+  padding: 30px 30px 50px;
+  position: relative;
+  z-index: 10;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 10px;
+    right: 0;
+    left: 0;
+    bottom: 10px;
+    background-color: #f5e5c2;
+    z-index: -1;
+    opacity: .2;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 10px;
+    left: 10px;
+    bottom: 0;
+    background-color: #f5e5c2;
+    z-index: -1;
+    opacity: .2;
+  }
+}
+
+.area-sub {
+  float: left;
+  box-sizing: border-box;
+  width: $areaSubWidth;
+  min-height: 100px;
+  padding: 0 30px 50px 0;
+  position: relative;
+
+  // R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  z-index: 11;
+}
+
+.area-footer {
+  background-color: #afbc73;
+  padding: 85px 0 0;
+  margin-top: 180px;
+  position: relative;
+  background-image: url("../imgs/area-footer/bg4.png"), url("../imgs/area-footer/bg5.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, right bottom;
+  &::before {
+    position: absolute;
+    content: "";
+    top: -40px;
+    right: 0;
+    left: 0;
+    background-image: url("../imgs/area-footer/bg3.png");
+    background-size: 100% 101px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    pointer-events: none;
+    display: block;
+    height: 101px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: -140px;
+    right: 0;
+    left: 0;
+    background-image: url("../imgs/area-footer/bg.png"), url("../imgs/area-footer/bg2.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left 40px, right top;
+    pointer-events: none;
+    display: block;
+    height: 201px;
+  }
+}
