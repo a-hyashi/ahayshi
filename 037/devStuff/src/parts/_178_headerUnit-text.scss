@@ -26,7 +26,7 @@
 
       li {
         @include bugFix_IE_list-item;
-        @include g-font(15, 2);
+        @include g-font(15);
         margin-top: $g-spacing2x;
         list-style-type: decimal;
         &:first-child {
@@ -49,7 +49,7 @@
 
       li {
         @include bugFix_IE_list-item;
-        @include g-font(15, 2);
+        @include g-font(15);
         margin-top: $g-spacing2x;
         list-style-type: disc;
         &:first-child {
@@ -65,20 +65,18 @@
     table {
       width: 100%;
       margin-top: $g-spacing3x;
-      white-space: nowrap;
       border: 1px solid transparent;
 
       th,
       td {
-        @include g-font(14, 1);
+        @include g-font(15, 1);
         text-align: left;
-        vertical-align: top;
+        vertical-align: middle;
         border-style: none;
       }
 
       th {
-        color: #000;
-        border-top: 1px solid #999;
+        border-top: 1px solid $headerUnit-text_borderColor;
         padding: 10px;
       }
 
@@ -89,7 +87,7 @@
       }
 
       tr:last-child {
-        border-bottom: 1px solid #999;
+        border-bottom: 1px solid $headerUnit-text_borderColor;
         td {
           padding: 5px 10px 10px;
         }
@@ -98,12 +96,12 @@
       ul,
       ol {
         li {
-          @include g-font(14, 1);
+          @include g-font(15, 1);
         }
       }
 
       p {
-        @include g-font(14, 1);
+        @include g-font(15, 1);
       }
     }
 
@@ -179,45 +177,45 @@
     table {
       width: 100%;
       margin-top: $g-spacing3x;
+      border: 1px solid transparent;
+
+      th,
       td {
-        @include g-font(14);
-        padding: 3% 1%;
+        @include g-font(15);
         text-align: left;
         vertical-align: middle;
-        background-color: $headerUnit-text_BGColor2;
-        border-top: 1px solid $headerUnit-text_borderColor;
-        border-left: 1px solid $headerUnit-text_borderColor;
+        border-style: none;
+      }
+
+      td {
+        padding: 3%;
       }
 
       th {
-        @include g-font(14);
-        padding: 3% 1%;
-        text-align: left;
-        vertical-align: middle;
-        background-color: $headerUnit-text_BGColor;
         border-top: 1px solid $headerUnit-text_borderColor;
-        border-left: 1px solid $headerUnit-text_borderColor;
-        border-bottom: 1px solid $headerUnit-text_borderColor;
+        padding: 3%;
       }
 
-      tr {
-        border-right: 1px solid $headerUnit-text_borderColor;
-        &:last-child {
-          border-bottom: 1px solid $headerUnit-text_borderColor;
+      tr:first-child {
+        td {
+          padding: 3% 3% 1.5%;
+        }
+      }
+
+      tr:last-child {
+        border-bottom: 1px solid $headerUnit-text_borderColor;
+        td {
+          padding: 1.5% 3% 3%;
         }
       }
 
       ul,
       ol {
         li {
-          @include g-font(14);
+          @include g-font(15, 1);
+        }
         }
       }
-
-      p {
-        @include g-font(14);
-      }
-    }
 
     > table:first-child {
       margin-top: 0;
