@@ -330,6 +330,7 @@
 
     &__hd {
       padding: 15px 3.5%;
+      color: $frameOuter4_textColor;
       text-align: center;
       border-bottom: 2px solid $frameOuter4_borderColor;
       a {
@@ -519,7 +520,7 @@
       }
     }
 
-    &__bd {
+    &__hd + &__bd {
       padding-top: 20px;
     }
 
@@ -933,69 +934,40 @@
 
   .t0-b-frameOuter9 {
     $_block: &;
-    $_fontSize_h: 24;
-    $_fontSize_caption: 14;
-    $_fontSizeDiff: 4;
-    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
-    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_hd: 25;
+    $_fontSize_caption: 15;
+    $_lineHeight_caption: 1;
+    $_fontSizeDiff: 5;
+    $_fontSize_h_s: $_fontSize_hd - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_hd + $_fontSizeDiff;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
-    $_lineHeight_h: 1;
-    $_lineHeight_caption: 1;
+
     &__frame {
-      padding: 4% 4% 1%;
-      background:
-        url("../imgs/t0-b-frameOuter/9/bg.png") no-repeat left bottom,
-        url("../imgs/t0-b-frameOuter/9/bg2.png") no-repeat left top,
-        url("../imgs/t0-b-frameOuter/9/bg3.png") no-repeat right bottom,
-        url("../imgs/t0-b-frameOuter/9/bg4.png") no-repeat right top,
-        url("../imgs/t0-b-frameOuter/9/bg5.png") repeat left top,
-        url("../imgs/t0-b-frameOuter/9/bg6.png") repeat-x left bottom,
-        url("../imgs/t0-b-frameOuter/9/bg7.png") repeat-x left top,
-        url("../imgs/t0-b-frameOuter/9/bg8.png") repeat-y left top,
-        url("../imgs/t0-b-frameOuter/9/bg9.png") repeat-y right top;
-      box-shadow:
-        2px 2px 5px $frameOuter9_boxShadowColor,
-        -2px -2px 5px $frameOuter9_boxShadowColor;
+      padding: 25px 3.5% 1%;
+      background-image:linear-gradient(to top left, $frameOuter9_BGColor 50%, $frameOuter9_BGColor2 50%);
     }
 
     &__hd {
+      padding-bottom: 10px;
+      color: $g-baseHColor;
       text-align: center;
       a {
         color: inherit;
       }
 
       &-h {
-        @include g-font-layout($_fontSize_h, $_lineHeight_h, $layout);
-        padding: 13px 12px 4px;
-        color: $frameOuter9_textColor;
-        background:
-          url("../imgs/t0-b-frameOuter/9/bg10.png") no-repeat left bottom,
-          url("../imgs/t0-b-frameOuter/9/bg11.png") no-repeat right bottom,
-          url("../imgs/t0-b-frameOuter/9/bg12.png") repeat-x left top;
-        background-color: $frameOuter9_BGColor;
-        border-radius: 5px;
-        h2 {
-          padding-bottom: 9px;
-          font-weight: bold;
-          border-bottom: 1px solid $frameOuter9_borderColor;
-        }
-
-        a {
-          &:hover {
-            color: $frameOuter9_hoverColor;
-          }
-        }
+        @include g-font-layout($_fontSize_hd, 1, $layout);
       }
 
       &-caption-upper {
-        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-        padding: 0 12px 5px;
+        @include g-font-layout($_fontSize_caption, 1, $layout);
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
-        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-        padding: 8px 12px 0;
+        @include g-font-layout($_fontSize_caption, 1, $layout);
+        padding: 5px 0 0;
       }
 
       &--size-1 {
@@ -1017,7 +989,7 @@
           }
 
           &-h {
-            @include g-font-layout($_fontSize_h_s, $_lineHeight_h, $layout);
+            @include g-font-layout($_fontSize_h_s, 1, $layout);
           }
         }
       }
@@ -1041,7 +1013,7 @@
           }
 
           &-h {
-            @include g-font-layout($_fontSize_h_l, $_lineHeight_h, $layout);
+            @include g-font-layout($_fontSize_h_l, 1, $layout);
           }
         }
       }
@@ -1060,7 +1032,7 @@
     }
 
     &__hd + &__bd {
-      padding-top: 30px;
+      padding-top: 20px;
     }
 
     &__ft {
@@ -1070,46 +1042,92 @@
 
   .t0-b-frameOuter10 {
     $_block: &;
-    $_fontSize_hd: 24;
-    $_fontSize_caption: 14;
-    $_fontSizeDiff: 4;
+    $_fontSize_hd: 25;
+    $_fontSize_caption: 15;
     $_lineHeight_caption: 1;
-    $_fontSize_s: $_fontSize_hd - $_fontSizeDiff;
-    $_fontSize_l: $_fontSize_hd + $_fontSizeDiff;
+    $_fontSizeDiff: 5;
+    $_fontSize_h_s: $_fontSize_hd - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_hd + $_fontSizeDiff;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+
     &__frame {
-      padding: 20px 20px 10px;
       background-color: $frameOuter10_BGColor;
-      border: 2px solid $frameOuter10_borderColor;
-      box-shadow:
-        2px 2px 2px $frameOuter10_boxShadowColor,
-        -2px -2px 2px $frameOuter10_boxShadowColor,
-        -2px 2px 2px $frameOuter10_boxShadowColor,
-        2px -2px 2px $frameOuter10_boxShadowColor;
+      padding: 25px 3.5% 2%;
+      min-height: 90px;
+      position: relative;
+    }
+
+    &__frame:before,&__frame:after{ 
+      content:'';
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      display: inline-block;
+    }
+
+    &__frame:before{
+      border-left: solid 5px $frameOuter10_borderColor;
+      border-top: solid 5px $frameOuter10_borderColor;
+      top:0;
+      left: 0;
+    }
+
+    &__frame:after{
+      border-right: solid 5px $frameOuter10_borderColor;
+      border-bottom: solid 5px $frameOuter10_borderColor;
+      bottom:0;
+      right: 0;
+    }
+
+    &__frame {
+      span:before,span:after {
+        content:'';
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        display: inline-block;
+      }
+    }
+
+    &__frame {
+      span:before {
+        border-right: solid 5px $frameOuter10_borderColor;
+        border-top: solid 5px $frameOuter10_borderColor;
+        top:0;
+        right: 0;
+      }
+    }
+
+    &__frame {
+      span:after {
+        border-left: solid 5px $frameOuter10_borderColor;
+        border-bottom: solid 5px $frameOuter10_borderColor;
+        bottom:0;
+        left: 0;
+      }
     }
 
     &__hd {
-      padding-bottom: 20px;
-      color: $frameOuter10_textColor;
+      padding-bottom: 10px;
+      color: $g-baseHColor;
+      text-align: center;
       a {
         color: inherit;
       }
 
       &-h {
         @include g-font-layout($_fontSize_hd, 1, $layout);
-        padding: 11px 3.5% 10px;
-        background: linear-gradient($frameOuter10_BGColor, $frameOuter10_BGColor2, $frameOuter10_BGColor3) repeat left top;
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSize_caption, 1, $layout);
-        padding: 0 3.5% 5px;
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSize_caption, 1, $layout);
-        padding: 5px 3.5% 0;
+        padding: 5px 0 0;
       }
 
       &--size-1 {
@@ -1131,7 +1149,7 @@
           }
 
           &-h {
-            @include g-font-layout($_fontSize_s, 1, $layout);
+            @include g-font-layout($_fontSize_h_s, 1, $layout);
           }
         }
       }
@@ -1155,7 +1173,7 @@
           }
 
           &-h {
-            @include g-font-layout($_fontSize_l, 1, $layout);
+            @include g-font-layout($_fontSize_h_l, 1, $layout);
           }
         }
       }
@@ -1173,8 +1191,8 @@
       }
     }
 
-    &__bd {
-      width: 100%;
+    &__hd + &__bd {
+      padding-top: 20px;
     }
 
     &__ft {
@@ -1184,50 +1202,40 @@
 
   .t0-b-frameOuter11 {
     $_block: &;
-    $_fontSize_hd: 24;
-    $_fontSize_caption: 14;
-    $_fontSizeDiff: 4;
+    $_fontSize_hd: 25;
+    $_fontSize_caption: 15;
     $_lineHeight_caption: 1;
-    $_fontSize_s: $_fontSize_hd - $_fontSizeDiff;
-    $_fontSize_l: $_fontSize_hd + $_fontSizeDiff;
+    $_fontSizeDiff: 5;
+    $_fontSize_h_s: $_fontSize_hd - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_hd + $_fontSizeDiff;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     &__frame {
-      padding: 25px 25px 10px;
       background-color: $frameOuter11_BGColor;
-      box-shadow:
-        2px 2px 2px $frameOuter11_boxShadowColor,
-        -2px -2px 2px $frameOuter11_boxShadowColor,
-        -2px 2px 2px $frameOuter11_boxShadowColor,
-        2px -2px 2px $frameOuter11_boxShadowColor;
+      border: 1px solid $frameOuter11_borderColor;
+      padding: 20px 3.5% 1%;
     }
 
     &__hd {
-      padding-bottom: 20px;
-      color: $frameOuter11_textColor;
+      padding-bottom: 10px;
+      color: $g-baseHColor;
+      text-align: center;
       a {
         color: inherit;
       }
 
       &-h {
         @include g-font-layout($_fontSize_hd, 1, $layout);
-        padding: 10px 3.5% 14px;
-        background-color: $frameOuter11_BGColor;
-        a {
-          &:hover {
-            color: $frameOuter11_hoverColor;
-          }
-        }
       }
 
       &-caption-upper {
         @include g-font-layout($_fontSize_caption, 1, $layout);
-        padding: 0 3.5% 5px;
+        padding: 0 0 5px;
       }
 
       &-caption-lower {
         @include g-font-layout($_fontSize_caption, 1, $layout);
-        padding: 5px 3.5% 0;
+        padding: 5px 0 0;
       }
 
       &--size-1 {
@@ -1249,7 +1257,7 @@
           }
 
           &-h {
-            @include g-font-layout($_fontSize_s, 1, $layout);
+            @include g-font-layout($_fontSize_h_s, 1, $layout);
           }
         }
       }
@@ -1273,7 +1281,7 @@
           }
 
           &-h {
-            @include g-font-layout($_fontSize_l, 1, $layout);
+            @include g-font-layout($_fontSize_h_l, 1, $layout);
           }
         }
       }
@@ -1291,120 +1299,8 @@
       }
     }
 
-    &__bd {
-      width: 100%;
-    }
-
-    &__ft {
-      margin-top: 2%;
-    }
-  }
-
-  .t0-b-frameOuter12 {
-    $_block: &;
-    $_fontSize_hd: 24;
-    $_fontSize_caption: 14;
-    $_fontSizeDiff: 4;
-    $_lineHeight_caption: 1;
-    $_fontSize_s: $_fontSize_hd - $_fontSizeDiff;
-    $_fontSize_l: $_fontSize_hd + $_fontSizeDiff;
-    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
-    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
-    &__frame {
-      padding: 20px 20px 10px;
-      background: linear-gradient($frameOuter12_BGColor, $frameOuter12_BGColor2, $frameOuter12_BGColor3);
-    }
-
-    &__hd {
-      padding-bottom: 20px;
-      color: $frameOuter12_textColor;
-      a {
-        color: inherit;
-      }
-
-      &-h {
-        @include g-font-layout($_fontSize_hd, 1, $layout);
-        display: block;
-        padding: 3px 3px 2px 0;
-        h2 {
-          padding: 5px 0 5px 17px;
-          vertical-align: middle;
-        }
-      }
-
-      &-caption-upper {
-        @include g-font-layout($_fontSize_caption, 1, $layout);
-        padding: 0 3px 5px 17px;
-      }
-
-      &-caption-lower {
-        @include g-font-layout($_fontSize_caption, 1, $layout);
-        padding: 5px 3px 0 17px;
-      }
-
-      &--size-1 {
-        #{$_block}__hd {
-          &-caption-upper {
-            @include g-font-layout(
-              $_fontSize_caption_s,
-              $_lineHeight_caption,
-              $layout
-            );
-          }
-
-          &-caption-lower {
-            @include g-font-layout(
-              $_fontSize_caption_s,
-              $_lineHeight_caption,
-              $layout
-            );
-          }
-
-          &-h {
-            @include g-font-layout($_fontSize_s, 1, $layout);
-          }
-        }
-      }
-
-      &--size-3 {
-        #{$_block}__hd {
-          &-caption-upper {
-            @include g-font-layout(
-              $_fontSize_caption_l,
-              $_lineHeight_caption,
-              $layout
-            );
-          }
-
-          &-caption-lower {
-            @include g-font-layout(
-              $_fontSize_caption_l,
-              $_lineHeight_caption,
-              $layout
-            );
-          }
-
-          &-h {
-            @include g-font-layout($_fontSize_l, 1, $layout);
-          }
-        }
-      }
-
-      &--align-l {
-        text-align: left;
-      }
-
-      &--align-c {
-        text-align: center;
-      }
-
-      &--align-r {
-        text-align: right;
-      }
-    }
-
-    &__bd {
-      width: 100%;
+    &__hd + &__bd {
+      padding-top: 20px;
     }
 
     &__ft {
@@ -1910,19 +1806,6 @@
     &__frame {
       padding: 20px 20px 17px;
       margin: 0 -5px;
-      background:
-        url("../imgs/t0-b-frameOuter/9/bg.png") no-repeat left bottom,
-        url("../imgs/t0-b-frameOuter/9/bg2.png") no-repeat left top,
-        url("../imgs/t0-b-frameOuter/9/bg3.png") no-repeat right bottom,
-        url("../imgs/t0-b-frameOuter/9/bg4.png") no-repeat right top,
-        url("../imgs/t0-b-frameOuter/9/bg5.png") repeat left top,
-        url("../imgs/t0-b-frameOuter/9/bg6.png") repeat-x left bottom,
-        url("../imgs/t0-b-frameOuter/9/bg7.png") repeat-x left top,
-        url("../imgs/t0-b-frameOuter/9/bg8.png") repeat-y left top,
-        url("../imgs/t0-b-frameOuter/9/bg9.png") repeat-y right top;
-      box-shadow:
-        2px 2px 5px $frameOuter9_boxShadowColor,
-        -2px -2px 5px $frameOuter9_boxShadowColor;
     }
 
     &__hd {
@@ -1935,7 +1818,7 @@
       &-h {
         @include g-font(18);
         padding: 10px 5px 4px;
-        color: $frameOuter9_textColor;
+        color: $g-baseHColor;
         background:
           url("../imgs/t0-b-frameOuter/9/bg10.png") no-repeat left bottom,
           url("../imgs/t0-b-frameOuter/9/bg11.png") no-repeat right bottom,
@@ -1945,7 +1828,6 @@
         h2 {
           padding-bottom: 9px;
           font-weight: bold;
-          border-bottom: 1px solid $frameOuter9_borderColor;
         }
       }
 
@@ -1993,16 +1875,11 @@
       vertical-align: top;
       background-color: $frameOuter10_BGColor;
       border: 2px solid $frameOuter10_borderColor;
-      box-shadow:
-        2px 2px 2px $frameOuter10_boxShadowColor,
-        -2px -2px 2px $frameOuter10_boxShadowColor,
-        -2px 2px 2px $frameOuter10_boxShadowColor,
-        2px -2px 2px $frameOuter10_boxShadowColor;
     }
 
     &__hd {
       padding: 5px 0 16px;
-      color: $frameOuter10_textColor;
+      color: $g-baseHColor;
       a {
         color: inherit;
       }
@@ -2010,8 +1887,7 @@
       &-h {
         @include g-font($_fontSize_hd);
         padding: 10px 3px;
-        color: $frameOuter10_textColor;
-        background: linear-gradient($frameOuter10_BGColor, $frameOuter10_BGColor2, $frameOuter10_BGColor3) repeat left top;
+        color: $g-baseHColor;
       }
 
       &-caption-upper {
@@ -2046,26 +1922,12 @@
       padding: 20px 20px 10px;
       margin: 0 -5px;
       vertical-align: top;
-      background:
-        url("../imgs/t0-b-frameOuter/11/bg.png") no-repeat left bottom,
-        url("../imgs/t0-b-frameOuter/11/bg2.png") no-repeat left top,
-        url("../imgs/t0-b-frameOuter/11/bg3.png") no-repeat right bottom,
-        url("../imgs/t0-b-frameOuter/11/bg4.png") no-repeat right top,
-        url("../imgs/t0-b-frameOuter/11/bg5.png") repeat-x left bottom,
-        url("../imgs/t0-b-frameOuter/11/bg6.png") repeat-x left top,
-        url("../imgs/t0-b-frameOuter/11/bg7.png") repeat-y left top,
-        url("../imgs/t0-b-frameOuter/11/bg8.png") repeat-y right top;
       background-color: $frameOuter11_BGColor;
-      box-shadow:
-        2px 2px 2px $frameOuter11_boxShadowColor,
-        -2px -2px 2px $frameOuter11_boxShadowColor,
-        -2px 2px 2px $frameOuter11_boxShadowColor,
-        2px -2px 2px $frameOuter11_boxShadowColor;
     }
 
     &__hd {
       padding: 5px 0 10px;
-      color: $frameOuter11_textColor;
+      color: $g-baseHColor;
       a {
         color: inherit;
       }
@@ -2073,9 +1935,6 @@
       &-h {
         @include g-font($_fontSize_hd);
         padding: 10px 13px 14px;
-        background:
-          url("../imgs/t0-b-frameOuter/11/bg9.png") repeat left top,
-          url("../imgs/t0-b-frameOuter/11/bg10.png") repeat-x left bottom;
         background-color: $frameOuter11_BGColor;
       }
 
@@ -2085,65 +1944,6 @@
 
       &-caption-lower {
         padding: 5px 13px 0;
-      }
-
-      &--align-l {
-        text-align: left;
-      }
-
-      &--align-c {
-        text-align: center;
-      }
-
-      &--align-r {
-        text-align: right;
-      }
-    }
-
-    &__ft {
-      margin-top: 20px;
-    }
-  }
-
-  .t0-b-frameOuter12 {
-    $_fontSize_hd: 18;
-    $_fontSize_caption: 14;
-    &__frame {
-      padding: 15px 20px 10px;
-      margin: 0 -5px;
-      vertical-align: top;
-      background: linear-gradient($frameOuter12_BGColor, $frameOuter12_BGColor2, $frameOuter12_BGColor3);
-      box-shadow: $frameOuter12_boxShadowColor 0 0 6px 3px;
-    }
-
-    &__hd {
-      padding: 5px 0 10px;
-      color: $frameOuter12_textColor;
-      a {
-        color: inherit;
-      }
-
-      &-h {
-        @include g-font($_fontSize_hd);
-        display: block;
-        padding: 3px 3px 2px 0;
-        background:
-          url("../imgs/t0-b-frameOuter/12/bg5.png") no-repeat left center,
-          url("../imgs/t0-b-frameOuter/12/bg6.png") repeat-x left bottom;
-        h2 {
-          padding: 5px 0 5px 17px;
-          vertical-align: middle;
-        }
-      }
-
-      &-caption-upper {
-        @include g-font-layout($_fontSize_caption, 1);
-        padding: 0 3px 5px 17px;
-      }
-
-      &-caption-lower {
-        @include g-font-layout($_fontSize_caption, 1);
-        padding: 5px 3px 0 17px;
       }
 
       &--align-l {
