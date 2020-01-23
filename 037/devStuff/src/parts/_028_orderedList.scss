@@ -1,4 +1,6 @@
 @if $device == PC {
+  $_fontSize: 19;
+  $_lineHeight: 1;
   .t0-b-orderedList {
     li {
       display: table;
@@ -6,18 +8,37 @@
 
     a {
       text-decoration: underline;
+      color: inherit;
     }
 
     &__num {
-      @include g-font(20);
-      display: table-cell;
-      text-align: center;
+      align-self: flex-start;
+      min-width: 28px;
+      height: 28px;
+      margin-right: 12px;
+      background: $orderedList_BGColor;
+      > div {
+        box-sizing: border-box;
+        min-width: 28px;
+        height: 28px;
+        line-height: $_lineHeight;
+        padding: 5px 0 0;
+        color: $orderedList_textColor2;
+        text-align: center;
+        @include g-font($_fontSize, 0);
+        &:hover {
+          color: $orderedList_textColor2;
+        }
+      }
     }
 
     &__text {
-      @include g-font(15);
+      @include g-font($_fontSize, $_lineHeight);
       display: table-cell;
       vertical-align: top;
+      padding-top: 3px;
+      color: $orderedList_textColor;
+
     }
   }
 }
