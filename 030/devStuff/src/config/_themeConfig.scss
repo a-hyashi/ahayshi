@@ -1,0 +1,128 @@
+$g-fontSize: 14px;
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 6;
+$g-textColor: #cdbcbc;
+$g-hoverColor: #dccdb1;
+$g-hoverColor2: #ff7800;
+$g-textShadow: 0 0 10px #fff;
+$g-textShadow2: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, -1px -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, -2px -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
+$g-textShadow3: 1px 1px 10px #fff, -1px 1px 10px #fff, -2px 1px 10px #fff, -2px -1px 10px #fff;
+
+$mincho: "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+
+//===========================
+//ぶちぬき
+//===========================
+$fullWidthBgColor: #222;
+$fullWidthBgColor2: #470000;
+$fullWidthBgColor3: #6a5c42;
+$fullWidthBgColor4: #FAFAFA;
+$fullWidthBgColor5: #000;
+
+body.mod-body,
+div.mod-body {
+  font-weight: 500;
+  font-size: $g-fontSize;
+  font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+  color: #cdbcbc;
+  background-color: #000;
+}
+
+.cms-admin-anchorFlag {
+  position: relative;
+  z-index: 10 !important;
+}
+
+// tel
+$_tel_wd: 56px;
+$_tel_hg: 43px;
+
+// fax
+$_fax_wd: 58px;
+$_fax_hg: 38px;
+
+// free
+$_free_wd: 67px;
+$_free_hg: 39px;
+
+// free (sp用) (freeだけspとpcのサイズが違う為sp用の変数を用意)
+$_free_wd_sp: 58px;
+$_free_hg_sp: 38px;
+
+// cell
+$_cell_wd: 29px;
+$_cell_hg: 46px;
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: $g-hoverColor;
+    }
+  }
+}
+
+/* ================
+ 全 Theme　共通
+================ */
+@mixin cf {
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon-pc($file, $size) {
+  &--#{$file} {
+    $_src: "../imgs/b-downloadIcon/#{$file}.png";
+    background: url($_src);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px * $size;
+    height: 48px * $size;
+  }
+}
+
+@mixin fileIcon-sp($file, $size) {
+  &--#{$file} {
+    $_src: "../imgs/b-downloadIcon/#{$file}.png";
+    background: url($_src);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 27px 28px;
+    width: 27px * $size;
+    height: 28px * $size;
+  }
+}
+
+/* ================
+ End 全 Theme　共通
+================ */
