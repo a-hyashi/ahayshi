@@ -111,7 +111,7 @@
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     &__frame {
-      background-color: $frameOuter2_BGColor;
+      background: $frameOuter2_BGColor;
       border: 1px solid $frameOuter2_borderColor;
       padding: 20px 3.5% 1%;
     }
@@ -223,7 +223,7 @@
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     &__frame {
       border-radius: 5px;
-      background-color: $frameOuter3_BGColor;
+      background: $frameOuter3_BGColor;
       padding: 25px 3.5% 1%;
     }
 
@@ -332,6 +332,7 @@
     $_fontSize_h_l: $_fontSize_hd + $_fontSizeDiff;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+
     &__frame {
       border: 2px solid $frameOuter4_borderColor;
       background: $frameOuter4_BGColor;
@@ -445,7 +446,7 @@
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     &__frame {
       border-top: 5px solid $frameOuter5_borderColor;
-      background-color: $frameOuter5_BGColor;
+      background: $frameOuter5_BGColor;
       padding: 20px 3.5% 1%;
     }
 
@@ -554,8 +555,9 @@
     $_fontSize_h_l: $_fontSize_hd + $_fontSizeDiff;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+
     &__frame {
-      background-color: $frameOuter6_BGColor;
+      background: $frameOuter6_BGColor;
       border: 2px solid $frameOuter6_borderColor;
       border-top: 0;
     }
@@ -572,7 +574,7 @@
 
       div {
         // はみ出た枠線を隠す
-        background-color: #fff;
+        background: #fff;
       }
 
       &-h {
@@ -600,7 +602,7 @@
         min-height: 8px;
         padding: 0 40px;
         margin: 0 auto;
-        background-color: $frameOuter6_BGColor;
+        background: $frameOuter6_BGColor;
 
         &::before {
           position: absolute;
@@ -718,13 +720,6 @@
       padding: 25px 3.5% 15px;
     }
 
-    &__row {
-      padding-bottom: 2%;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
     &__ft {
       margin-top: 2%;
     }
@@ -742,7 +737,7 @@
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     &__frame {
       border-radius: 5px;
-      background-color: $frameOuter7_BGColor;
+      background: $frameOuter7_BGColor;
       padding: 25px 3.5% 1%;
     }
 
@@ -852,7 +847,7 @@
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     &__frame {
-      background-color: $frameOuter8_BGColor;
+      background: $frameOuter8_BGColor;
       border: 5px solid $frameOuter8_borderColor;
       padding: 20px 3.5% 1%;
     }
@@ -1076,7 +1071,7 @@
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
 
     &__frame {
-      background-color: $frameOuter10_BGColor;
+      background: $frameOuter10_BGColor;
       padding: 25px 3.5% 2%;
       min-height: 90px;
       position: relative;
@@ -1238,7 +1233,7 @@
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     &__frame {
-      background-color: $frameOuter11_BGColor;
+      background: $frameOuter11_BGColor;
       border: 1px solid $frameOuter11_borderColor;
       color: $frameOuter11_textColor;
       padding: 20px 3.5% 1%;
@@ -1342,10 +1337,12 @@
 
 @if $device == SP {
   .t0-b-frameOuter {
-    $_fontSize_hd: 18;
-    $_fontSize_caption: 14;
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
     &__hd {
       padding: 5px 0;
+      color: $frameOuter_textColor;
       text-align: center;
       a {
         color: inherit;
@@ -1384,16 +1381,18 @@
   }
 
   .t0-b-frameOuter2 {
-    $_fontSize_hd: 18;
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
     &__frame {
-      padding: 20px 20px 10px;
+      padding: 15px 3.5% 1%;
       margin: 0 -5px;
-      background-color: $frameOuter2_BGColor;
+      background: $frameOuter2_BGColor;
       border: 1px solid $frameOuter2_borderColor;
     }
 
     &__hd {
-      padding: 5px 0;
+      padding-bottom: 15px;
       color: $frameOuter2_textColor;
       text-align: center;
       a {
@@ -1405,10 +1404,12 @@
       }
 
       &-caption-upper {
-        padding: 0 0 5px;
+        @include g-font-layout($_fontSize_caption, 1);
+        padding-bottom: 5px;
       }
 
       &-caption-lower {
+        @include g-font-layout($_fontSize_caption, 1);
         padding: 5px 0 0;
       }
 
@@ -1431,18 +1432,124 @@
   }
 
   .t0-b-frameOuter3 {
-    $_fontSize_hd: 18;
-    $_fontSize_caption: 14;
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
     &__frame {
-      padding: 20px 20px 10px;
+      padding: 15px 3.5% 1%;
       margin: 0 -5px;
       border-radius: 5px;
-      background-color: $frameOuter3_BGColor;
+      background: $frameOuter3_BGColor;
     }
 
     &__hd {
-      padding: 5px 0;
+      padding-bottom: 15px;
       color: $frameOuter3_textColor;
+      text-align: center;
+      a {
+        color: inherit;
+      }
+
+      &-h {
+        @include g-font($_fontSize_hd);
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSize_caption, 1);
+        padding-bottom: 5px;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSize_caption, 1);
+        padding: 5px 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+    &__ft {
+      margin-top: 15px;
+    }
+  }
+
+  .t0-b-frameOuter4 {
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
+    &__frame {
+      border: 2px solid $frameOuter4_borderColor;
+      background: $frameOuter4_BGColor;
+    }
+
+    &__hd {
+      padding: 10px 3.5%;
+      text-align: center;
+      color: $frameOuter4_textColor;
+      border-bottom: 2px solid $frameOuter4_borderColor;
+
+      a {
+        color: inherit;
+      }
+
+      &-h {
+        @include g-font($_fontSize_hd);
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSize_caption, 1);
+        padding-bottom: 5px;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSize_caption, 1);
+        padding-top: 5px;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+
+    &__bd {
+      padding: 20px 3.5% 1%;
+    }
+
+    &__ft {
+      margin-top: 20px;
+    }
+  }
+
+  .t0-b-frameOuter5 {
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
+    &__frame {
+      padding: 15px 3.5% 1%;
+      margin: 0 -5px;
+      background: $frameOuter5_BGColor;
+      border-top: 5px solid $frameOuter5_borderColor;
+    }
+
+    &__hd {
+      padding-bottom: 15px;
+      color: $frameOuter5_textColor;
       text-align: center;
       a {
         color: inherit;
@@ -1480,198 +1587,96 @@
     }
   }
 
-  .t0-b-frameOuter4 {
-    a {
-      color: $frameOuter4_textColor;
-      &:hover {
-        color: $g-baseHoverColor;
-      }
-    }
-
-    &__frame {
-      padding: 20px 15px 10px;
-      margin: 0 -5px;
-      background-color: $frameOuter4_BGColor;
-      border: 1px solid $frameOuter4_borderColor;
-    }
-
-    &__hd {
-      min-height: 58px;
-      padding: 20px 10px 17px;
-      text-align: center;
-      a {
-        color: inherit;
-      }
-
-      &-h {
-        @include g-font(18);
-      }
-
-      &-caption-upper {
-        @include g-font(14);
-        padding-bottom: 5px;
-      }
-
-      &-caption-lower {
-        @include g-font(14);
-        padding-top: 5px;
-      }
-
-      &--align-l {
-        text-align: left;
-      }
-
-      &--align-c {
-        text-align: center;
-      }
-
-      &--align-r {
-        text-align: right;
-      }
-    }
-
-    &__bd {
-      padding: 0;
-    }
-
-    &__row {
-      padding-bottom: 25px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
-    &__hd + &__bd {
-      padding: 20px 0 0;
-    }
-
-    &__ft {
-      margin-top: 20px;
-    }
-  }
-
-  .t0-b-frameOuter5 {
-    a {
-      color: $g-baseHColor;
-      &:hover {
-        color: $g-baseHoverColor;
-      }
-    }
-
-    &__frame {
-      padding: 30px 20px 25px;
-      margin: 0;
-    }
-
-    &__hd {
-      padding: 10px;
-      color: $g-baseHColor;
-      text-align: center;
-      background-position: left top;
-      &-h {
-        @include g-font(18);
-        display: inline-block;
-        min-height: 23px;
-        padding: 0 46px;
-        vertical-align: middle;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      &-caption-upper {
-        @include g-font(14);
-        padding-bottom: 5px;
-      }
-
-      &-caption-lower {
-        @include g-font(14);
-        padding-top: 5px;
-      }
-
-      &--align-l {
-        text-align: left;
-      }
-
-      &--align-c {
-        text-align: center;
-      }
-
-      &--align-r {
-        text-align: right;
-      }
-    }
-
-    &__bd {
-      padding: 0;
-    }
-
-    &__row {
-      padding-bottom: 25px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
-    &__hd + &__bd {
-      padding: 20px 0 0;
-    }
-
-    &__ft {
-      margin-top: 20px;
-    }
-  }
-
   .t0-b-frameOuter6 {
-    a {
-      color: $g-baseHColor;
-      &:hover {
-        color: $g-baseHoverColor;
-      }
-    }
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
 
     &__frame {
-      padding: 30px 20px 13px;
-      margin: 0 -5px;
+      background: $frameOuter6_BGColor;
+      border: 2px solid $frameOuter6_borderColor;
+      border-top: 0;
     }
 
     &__hd {
-      position: relative;
-      padding: 0 10px 20px;
-      color: $g-baseHColor;
       text-align: center;
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 47px;
-        bottom: 0;
-        left: 81px;
-        content: "";
-      }
-
+      color: $frameOuter6_textColor;
       a {
         color: inherit;
       }
 
+      div {
+        // はみ出た枠線を隠す
+        background: #fff;
+      }
+
       &-h {
-        @include g-font(18);
+        @include g-font-layout($_fontSize_hd, 1, $layout);
+        position: relative;
+        padding: 0 30px;
+        // はみ出た枠線を隠す
+        margin: 0 -2px;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          content: "";
+          box-shadow: 2px 2px $frameOuter6_borderColor inset, -2px 2px $frameOuter6_borderColor inset;
+        }
+      }
+
+      h2 {
+        position: relative;
+        z-index: 0;
+        display: inline-block;
+        // 文字が空でも装飾が欠けないように
+        min-height: 8px;
+        padding: 0 20px;
+        margin: 0 auto;
+        background: $frameOuter6_BGColor;
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: -1px;
+          display: inline-block;
+          width: 100%;
+          height: 14px;
+          content: "";
+          transform: translateY(-6px);
+        }
+
+        &::after {
+          position: absolute;
+          top: 50%;
+          right: -1px;
+          z-index: -1;
+          display: inline-block;
+          width: 100%;
+          height: 14px;
+          content: "";
+          transform: translateY(-6px);
+        }
+      }
+
+      &-h,
+      &-caption-upper,
+      &-caption-lower {
         position: relative;
         z-index: 1;
       }
 
       &-caption-upper {
-        @include g-font(14);
-        position: relative;
-        z-index: 1;
-        padding-bottom: 5px;
+        @include g-font-layout($_fontSize_caption, 1, $layout);
+        // はみ出た枠線を隠す
+        margin: 0 -2px;
+        padding: 0 50px 5px;
       }
 
       &-caption-lower {
-        @include g-font(14);
-        position: relative;
-        z-index: 1;
-        padding-top: 5px;
+        @include g-font-layout($_fontSize_caption, 1, $layout);
+        padding: 5px 50px 0;
       }
 
       &--align-l {
@@ -1687,124 +1692,102 @@
       }
     }
 
+    &__tp {
+      border-top: 2px solid $frameOuter6_borderColor;
+    }
+
     &__bd {
-      padding: 0;
-    }
-
-    &__row {
-      padding-bottom: 25px;
-      &:last-child {
-        padding-bottom: 0;
-      }
-    }
-
-    &__hd + &__bd {
-      padding: 20px 0 0;
+      padding: 15px 3.5% 1%;
     }
 
     &__ft {
-      margin-top: 20px;
+      margin-top: 15px;
     }
   }
 
   .t0-b-frameOuter7 {
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
     &__frame {
-      padding: 20px 20px 10px;
+      padding: 15px 3.5% 1%;
       margin: 0 -5px;
-      background-color: $frameOuter7_BGColor;
-    }
-
-    &__hd {
-      position: relative;
-      padding: 15px 0;
-      text-align: center;
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        content: "";
-      }
-
-      a {
-        color: inherit;
-      }
-
-      &-h {
-        @include g-font(18);
-        position: relative;
-        z-index: 1;
-        padding: 0 5px;
-      }
-
-      &-caption-upper {
-        position: relative;
-        z-index: 1;
-        padding: 0 5px 5px;
-      }
-
-      &-caption-lower {
-        position: relative;
-        z-index: 1;
-        padding: 5px 5px 0;
-      }
-
-      &--align-l {
-        text-align: left;
-      }
-
-      &--align-c {
-        text-align: center;
-      }
-
-      &--align-r {
-        text-align: right;
-      }
-    }
-
-    &__bd {
-      padding: 0;
-    }
-
-    &__hd + &__bd {
-      padding: 20px 0 0;
-    }
-
-    &__ft {
-      margin-top: 20px;
-    }
-  }
-
-  .t0-b-frameOuter8 {
-    &__frame {
-      padding: 20px 20px 10px;
-      margin: 0 -5px;
-      background-color: $frameOuter8_BGColor;
-      border: 1px solid $frameOuter8_borderColor;
       border-radius: 5px;
+      background: $frameOuter7_BGColor;
     }
 
     &__hd {
-      padding: 15px 0;
+      padding-bottom: 15px;
+      color: $frameOuter7_textColor;
       text-align: center;
-      background:
-        url("../imgs/t0-b-frameOuter/8/bg.png") repeat-x left bottom,
-        url("../imgs/t0-b-frameOuter/8/bg2.png") repeat-x left top;
       a {
         color: inherit;
       }
 
       &-h {
-        @include g-font(18);
+        @include g-font($_fontSize_hd);
       }
 
       &-caption-upper {
+        @include g-font-layout($_fontSize_caption, 1);
         padding-bottom: 5px;
       }
 
       &-caption-lower {
-        padding-top: 5px;
+        @include g-font-layout($_fontSize_caption, 1);
+        padding: 5px 0 0;
+      }
+
+      &--align-l {
+        text-align: left;
+      }
+
+      &--align-c {
+        text-align: center;
+      }
+
+      &--align-r {
+        text-align: right;
+      }
+    }
+    &__ft {
+      margin-top: 15px;
+    }
+  }
+
+  .t0-b-frameOuter8 {
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
+    &__frame {
+      padding: 15px 3.5% 1%;
+      margin: 0 -5px;
+      background: $frameOuter8_BGColor;
+      border: 4px solid $frameOuter8_borderColor;
+    }
+
+    &__hd {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      color: $frameOuter8_textColor;
+      text-align: center;
+      border-bottom: 3px solid $frameOuter8_borderColor2;
+      a {
+        color: inherit;
+      }
+
+      &-h {
+        @include g-font($_fontSize_hd);
+      }
+
+      &-caption-upper {
+        @include g-font-layout($_fontSize_caption, 1);
+        padding-bottom: 5px;
+      }
+
+      &-caption-lower {
+        @include g-font-layout($_fontSize_caption, 1);
+        padding: 5px 0 0;
       }
 
       &--align-l {
@@ -1820,56 +1803,40 @@
       }
     }
 
-    &__bd {
-      padding: 0;
-    }
-
-    &__hd + &__bd {
-      padding: 20px 0 0;
-    }
-
     &__ft {
-      margin-top: 20px;
+      margin-top: 15px;
     }
   }
 
   .t0-b-frameOuter9 {
+    $_fontSize_hd: 19;
+    $_fontSize_caption: 15;
+
     &__frame {
-      padding: 20px 20px 17px;
-      margin: 0 -5px;
+      padding: 15px 3.5% 1%;
+      background-image:linear-gradient(to top left, $frameOuter9_BGColor 50%, $frameOuter9_BGColor2 50%);
     }
 
     &__hd {
-      padding: 0 0 10px;
+      padding-bottom: 15px;
+      color: $frameOuter9_textColor;
       text-align: center;
       a {
         color: inherit;
       }
 
       &-h {
-        @include g-font(18);
-        padding: 10px 5px 4px;
-        color: $g-baseHColor;
-        background:
-          url("../imgs/t0-b-frameOuter/9/bg10.png") no-repeat left bottom,
-          url("../imgs/t0-b-frameOuter/9/bg11.png") no-repeat right bottom,
-          url("../imgs/t0-b-frameOuter/9/bg12.png") repeat-x left top;
-        background-color: $frameOuter9_BGColor;
-        border-radius: 5px;
-        h2 {
-          padding-bottom: 9px;
-          font-weight: bold;
-        }
+        @include g-font($_fontSize_hd);
       }
 
       &-caption-upper {
-        @include g-font(14);
-        padding: 0 12px 5px;
+        @include g-font-layout($_fontSize_caption, 1);
+        padding-bottom: 5px;
       }
 
       &-caption-lower {
-        @include g-font(14);
-        padding: 8px 12px 0;
+        @include g-font-layout($_fontSize_caption, 1);
+        padding: 5px 0 0;
       }
 
       &--align-l {
@@ -1884,17 +1851,8 @@
         text-align: right;
       }
     }
-
-    &__bd {
-      padding: 0;
-    }
-
-    &__hd + &__bd {
-      padding: 20px 0 0;
-    }
-
     &__ft {
-      margin-top: 20px;
+      margin-top: 15px;
     }
   }
 
@@ -1904,7 +1862,7 @@
       padding: 15px 15px 10px;
       margin: 0 -5px;
       vertical-align: top;
-      background-color: $frameOuter10_BGColor;
+      background: $frameOuter10_BGColor;
       border: 2px solid $frameOuter10_borderColor;
     }
 
@@ -1953,7 +1911,7 @@
       padding: 20px 20px 10px;
       margin: 0 -5px;
       vertical-align: top;
-      background-color: $frameOuter11_BGColor;
+      background: $frameOuter11_BGColor;
     }
 
     &__hd {
@@ -1966,7 +1924,7 @@
       &-h {
         @include g-font($_fontSize_hd);
         padding: 10px 13px 14px;
-        background-color: $frameOuter11_BGColor;
+        background: $frameOuter11_BGColor;
       }
 
       &-caption-upper {
