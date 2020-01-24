@@ -1,6 +1,5 @@
 @if $device == PC {
   .t0-b-headerUnit-siteName2 {
-    $_block: &;
     color: $headerUnit-siteName2_textColor;
     &__bd {
       img {
@@ -46,12 +45,21 @@
         min-width: 100px;
       }
     }
+
+    // サイト名(中央)に入ったときは文字数分の幅で中央寄せにする
+    [class^="t0-b-headerSingle"] &__bd {
+      display: table;
+      margin: 0 auto;
+    }
+
+    [class^="t0-b-headerSingle"] &__ft {
+      text-align: center;
+    }
   }
 }
 
 @if $device == SP {
   .t0-b-headerUnit-siteName2 {
-    $_block: &;
     color: $headerUnit-siteName2_textColor;
     &__bd {
       img {
@@ -84,6 +92,11 @@
       img {
         width: 50%;
       }
+    }
+
+    // サイト名(中央)に入ったときは文字数分の幅で中央寄せにする
+    [class^="t0-b-headerSingle"] &__ft {
+      text-align: center;
     }
   }
 }
