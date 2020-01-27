@@ -81,11 +81,11 @@
       right: 0;
       left: 0;
       transform: translateY(-50%);
-      height: 31px;
+      height: 33px;
       width: 100%;
-      max-width: 18px;
+      max-width: 21px;
       margin: 0 auto;
-      background-image: url("../imgs/arrowInFlow/01/1.svg");
+      background-image: url("../imgs/arrowInFlow/01/01.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
@@ -111,13 +111,15 @@
 
 @if $device == SP {
   .t0-b-flow2LeftToRightWithMidFrame {
+    $_arrowHeight: 22px;
+    $_arrowPadding: 15px;
     width: 100%;
     &__row {
-      // 矢印画像の高さと下余白の合計値
-      padding-bottom: 32px;
-      background-image: url("../imgs/t0-b-arrow/01/1.png");
+      padding-bottom: $_arrowHeight + $_arrowPadding;
+      background-image: url("../imgs/arrowInFlow/01/01_sp.svg");
       background-repeat: no-repeat;
-      background-position: center bottom 15px;
+      background-position: center bottom $_arrowPadding;
+      background-size: auto $_arrowHeight;
       &:last-child {
         padding: 0;
         background: none;
@@ -125,17 +127,15 @@
     }
 
     &__arrow {
-      // 上下の画像要素との余白が等間隔になるように
-      padding-bottom: 15px;
+      padding-bottom: $_arrowPadding;
     }
 
     .t0-b-arrowInFlow {
-      height: 21px;
-      background-image: url("../imgs/arrowInFlow/01/1_sp.svg");
+      height: $_arrowHeight;
+      background-image: url("../imgs/arrowInFlow/01/01_sp.svg");
       background-repeat: no-repeat;
-      // この装飾は下にずれて見えるので、上下位置を50%より小さくする
-      background-position: center 40%;
-      background-size: contain;
+      background-position: center;
+      background-size: auto $_arrowHeight;
     }
   }
 }
