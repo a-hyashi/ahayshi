@@ -31,8 +31,6 @@
       display: table-cell;
       width: 4%;
       height: 100%;
-      // 矢印要素分の高さ
-      padding-bottom: 31px;
       #{$_block}--colSpacing-l & {
         width: 7%;
       }
@@ -76,33 +74,36 @@
     &--colW-m &__box ~ &__box {
       width: 64.3%;
     }
-  }
 
-  .t0-b-arrowInFlow {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-width: 18px;
-    height: 31px;
-    margin: 0 auto;
-    background-image: url("../imgs/flow2LeftToRightWithMidFrame_acrePartsMain/01/flow2LeftToRightWithMidFrame_acrePartsMain.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 125%;
+    .t0-b-arrowInFlow {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      transform: translateY(-50%);
+      height: 33px;
+      width: 100%;
+      max-width: 21px;
+      margin: 0 auto;
+      background-image: url("../imgs/arrowInFlow/01/01.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
   }
 
   @for $i from 1 through 10 {
     .ex-arrowInFlow-topSpacingTweak-up-#{$i}s {
       .t0-b-arrowInFlow {
         top: 50% - $i * 5%;
+        transform: translateY(-50% + ($i * 5%));
       }
     }
 
     .ex-arrowInFlow-topSpacingTweak-down-#{$i}s {
       .t0-b-arrowInFlow {
         top: 50% + $i * 5%;
+        transform: translateY(-50% - ($i * 5%));
       }
     }
   }
@@ -110,14 +111,15 @@
 
 @if $device == SP {
   .t0-b-flow2LeftToRightWithMidFrame {
+    $_arrowHeight: 22px;
+    $_arrowPadding: 15px;
     width: 100%;
     &__row {
-      // 矢印画像の高さと下余白の合計値
-      padding-bottom: 34px;
-      background-image: url("../imgs/flow2LeftToRightWithMidFrame_acrePartsMain/01/flow2LeftToRightWithMidFrame_acrePartsMain_sp.svg");
+      padding-bottom: $_arrowHeight + $_arrowPadding;
+      background-image: url("../imgs/arrowInFlow/01/01_sp.svg");
       background-repeat: no-repeat;
-      background-position: center bottom 12px;
-      background-size: auto 22px;
+      background-position: center bottom $_arrowPadding;
+      background-size: auto $_arrowHeight;
       &:last-child {
         padding: 0;
         background: none;
@@ -125,15 +127,15 @@
     }
 
     &__arrow {
-      // 上下の画像要素との余白が等間隔になるように
-      padding-bottom: 12px;
+      padding-bottom: $_arrowPadding;
     }
-  }
 
-  .t0-b-arrowInFlow {
-    background-image: url("../imgs/flow2LeftToRightWithMidFrame_acrePartsMain/01/flow2LeftToRightWithMidFrame_acrePartsMain_sp.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: auto 22px;
+    .t0-b-arrowInFlow {
+      height: $_arrowHeight;
+      background-image: url("../imgs/arrowInFlow/01/01_sp.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto $_arrowHeight;
+    }
   }
 }
