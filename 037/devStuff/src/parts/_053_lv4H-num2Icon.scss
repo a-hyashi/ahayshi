@@ -2,7 +2,7 @@
   .t0-b-lv4H-num2Icon {
     $_block: &;
     $_fontSize_h: 24;
-    $_fontSize_caption: 16;
+    $_fontSize_caption: 14;
     $_fontSizeDiff: 4;
     $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
     $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
@@ -11,22 +11,42 @@
     line-height: 0;
     > div {
       display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
 
     &__iconPlacer {
-      //
+      width: 60px;
+      text-align: left;
     }
 
     &__icon {
-      //
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 48px 48px;
+      @for $_i from 1 through 10 {
+        &--number-#{$_i} {
+          $_src: "../imgs/lv4H-num2Icon/0#{$_i}.svg";
+          background-image: url($_src);
+        }
+      }
     }
 
-    &__bd {
-      //
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
     }
 
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 0 0 5px;
     }
 
     &__h {
@@ -35,6 +55,7 @@
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 5px 0 0;
     }
 
     &__caption-upper + &__h {
@@ -46,12 +67,14 @@
     }
 
     &--size-1 {
-      #{$_block}__bd {
-        //
+      #{$_block}__iconPlacer {
+        width: 63px * .8;
       }
 
       #{$_block}__icon {
-        //
+        width: 48px * .8;
+        height: 48px * .8;
+        background-size: 48px * .8;
       }
 
       #{$_block}__caption-upper {
@@ -136,18 +159,6 @@
     line-height: 0;
     > div {
       display: table;
-    }
-
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
-    }
-
-    &__bd {
-      //
     }
 
     &__caption-upper {
