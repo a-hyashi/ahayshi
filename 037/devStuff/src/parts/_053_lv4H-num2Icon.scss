@@ -32,7 +32,7 @@
       background-size: 48px 48px;
       @for $_i from 1 through 10 {
         &--number-#{$_i} {
-          $_src: "../imgs/lv4H-num2Icon/#{pad-zeros($_i, 2)}.svg";
+          $_src: "../imgs/lv4H-num2Icon/01/#{pad-zeros($_i, 2)}.svg";
           background-image: url($_src);
         }
       }
@@ -159,10 +159,42 @@
     line-height: 0;
     > div {
       display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 100px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      width: 88.8px;
+      height: 40px;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 88.8px 40px;
+      @for $_i from 1 through 10 {
+        &--number-#{$_i} {
+          $_src: "../imgs/lv4H-num2Icon/02/#{pad-zeros($_i, 2)}.svg";
+          background-image: url($_src);
+        }
+      }
+    }
+
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
     }
 
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 0 0 5px;
     }
 
     &__h {
@@ -171,6 +203,7 @@
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 5px 0 0;
     }
 
     &__caption-upper + &__h {
@@ -182,12 +215,14 @@
     }
 
     &--size-1 {
-      #{$_block}__bd {
-        //
+      #{$_block}__iconPlacer {
+        width: 88.8px * .8;
       }
 
       #{$_block}__icon {
-        //
+        width: 88.8px * .8;
+        height: 40px * .8;
+        background-size: 88.8px * .8 40px * .8;
       }
 
       #{$_block}__caption-upper {
