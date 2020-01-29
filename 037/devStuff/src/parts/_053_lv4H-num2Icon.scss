@@ -24,12 +24,12 @@
 
     &__icon {
       display: inline-block;
-      width: 48px;
-      height: 48px;
+      width: 102px * .46;
+      height: 86px * .46;
       vertical-align: middle;
       background-repeat: no-repeat;
       background-position: 0 0;
-      background-size: 48px 48px;
+      background-size: 102px * .46 86px * .46;
       @for $_i from 1 through 10 {
         &--number-#{$_i} {
           $_src: "../imgs/lv4H-num2Icon/01/#{pad-zeros($_i, 2)}.svg";
@@ -72,9 +72,9 @@
       }
 
       #{$_block}__icon {
-        width: 48px * .8;
-        height: 48px * .8;
-        background-size: 48px * .8;
+        width: 102px * .36;
+        height: 86px * .36;
+        background-size: 102px * .36 86px * .36;
       }
 
       #{$_block}__caption-upper {
@@ -99,12 +99,14 @@
     }
 
     &--size-3 {
-      #{$_block}__bd {
-        //
+      #{$_block}__iconPlacer {
+        width: 75px;
       }
 
       #{$_block}__icon {
-        //
+        width: 102px * .56;
+        height: 86px * .56;
+        background-size: 102px * .56 86px * .56;
       }
 
       #{$_block}__caption-upper {
@@ -166,18 +168,18 @@
     }
 
     &__iconPlacer {
-      width: 100px;
+      width: 65px;
       text-align: left;
     }
 
     &__icon {
       display: inline-block;
-      width: 88.8px;
-      height: 40px;
+      width: 111px * .5;
+      height: 65px * .5;
       vertical-align: middle;
       background-repeat: no-repeat;
       background-position: 0 0;
-      background-size: 88.8px 40px;
+      background-size: 111px * .5 65px * .5;
       @for $_i from 1 through 10 {
         &--number-#{$_i} {
           $_src: "../imgs/lv4H-num2Icon/02/#{pad-zeros($_i, 2)}.svg";
@@ -216,13 +218,13 @@
 
     &--size-1 {
       #{$_block}__iconPlacer {
-        width: 88.8px * .8;
+        width: 55px;
       }
 
       #{$_block}__icon {
-        width: 88.8px * .8;
-        height: 40px * .8;
-        background-size: 88.8px * .8 40px * .8;
+        width: 111px * .4;
+        height: 65px * .4;
+        background-size: 111px * .4 65px * .4;
       }
 
       #{$_block}__caption-upper {
@@ -247,12 +249,314 @@
     }
 
     &--size-3 {
-      #{$_block}__bd {
-        //
+      #{$_block}__iconPlacer {
+        width: 75px;
       }
 
       #{$_block}__icon {
-        //
+        width: 111px * .6;
+        height: 65px * .6;
+        background-size: 111px * .6 65px * .6;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+
+      #{$_block}__h {
+        @include g-font-layout($_fontSize_h_l, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      > div {
+        margin: 0 auto 0 0;
+      }
+    }
+
+    &--align-c {
+      > div {
+        margin: 0 auto;
+      }
+    }
+
+    &--align-r {
+      > div {
+        margin: 0 0 0 auto;
+      }
+    }
+  }
+
+  .t0-b-lv4H-num2Icon3 {
+    $_block: &;
+    $_fontSize_h: 24;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff + 2;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
+    line-height: 0;
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 70px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      width: 128px * .5;
+      height: 88px * .5;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 128px * .5 88px * .5;
+      @for $_i from 1 through 10 {
+        &--number-#{$_i} {
+          $_src: "../imgs/lv4H-num2Icon/03/#{pad-zeros($_i, 2)}.svg";
+          background-image: url($_src);
+        }
+      }
+    }
+
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 0 0 5px;
+    }
+
+    &__h {
+      @include g-font-layout($_fontSize_h, 1, $layout);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 5px 0 0;
+    }
+
+    &__caption-upper + &__h {
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
+    }
+
+    &__caption-upper + a > &__h {
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 60px;
+      }
+
+      #{$_block}__icon {
+        width: 128px * .4;
+        height: 88px * .4;
+        background-size: 128px * .4 88px * .4;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+
+      #{$_block}__h {
+        @include g-font-layout($_fontSize_h_s, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 85px;
+      }
+
+      #{$_block}__icon {
+        width: 128px * .6;
+        height: 88px * .6;
+        background-size: 128px * .6 88px * .6;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+
+      #{$_block}__h {
+        @include g-font-layout($_fontSize_h_l, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font-layout($_fontSize_h_l - 2, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      > div {
+        margin: 0 auto 0 0;
+      }
+    }
+
+    &--align-c {
+      > div {
+        margin: 0 auto;
+      }
+    }
+
+    &--align-r {
+      > div {
+        margin: 0 0 0 auto;
+      }
+    }
+  }
+
+  .t0-b-lv4H-num2Icon4 {
+    $_block: &;
+    $_fontSize_h: 24;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff + 2;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
+    line-height: 0;
+    > div {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &__iconPlacer {
+      width: 53px;
+      text-align: left;
+    }
+
+    &__icon {
+      display: inline-block;
+      width: 86px * .5;
+      height: 86px * .5;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 86px * .5 86px * .5;
+      @for $_i from 1 through 10 {
+        &--number-#{$_i} {
+          $_src: "../imgs/lv4H-num2Icon/04/#{pad-zeros($_i, 2)}.svg";
+          background-image: url($_src);
+        }
+      }
+    }
+
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 0 0 5px;
+    }
+
+    &__h {
+      @include g-font-layout($_fontSize_h, 1, $layout);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding: 5px 0 0;
+    }
+
+    &__caption-upper + &__h {
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
+    }
+
+    &__caption-upper + a > &__h {
+      @include g-font-layout($_fontSize_h - 2, 1, $layout);
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 44px;
+      }
+
+      #{$_block}__icon {
+        width: 86px * .4;
+        height: 86px * .4;
+        background-size: 86px * .4 86px * .4;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+
+      #{$_block}__h {
+        @include g-font-layout($_fontSize_h_s, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font-layout($_fontSize_h_s - 2, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 65px;
+      }
+
+      #{$_block}__icon {
+        width: 86px * .6;
+        height: 86px * .6;
+        background-size: 86px * .6 86px * .6;
       }
 
       #{$_block}__caption-upper {
