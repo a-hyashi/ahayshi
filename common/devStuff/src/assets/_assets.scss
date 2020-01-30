@@ -103,3 +103,19 @@
 
   @return $string;
 }
+
+// ゼロ埋めする.
+// 2桁のみ対応、範囲を増やしたい場合はちゃんとしたコードを書いてください
+// 例
+// @param $num 1
+// @param $length 2
+// @return 01
+@function pad-zeros($num, $length) {
+  @if $length == 2 {
+    @if $num < 10 {
+      @return "0#{$num}";
+    } @else {
+      @return "#{$num}";
+    }
+  }
+}
