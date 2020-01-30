@@ -1,0 +1,84 @@
+$g-fontSize: 14px;
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 5;
+$g-hoverColor: #871e12;
+$g-hoverColor2: #b18a24;
+$g-textColor: #240d0d;
+$fullWidthBgColor: rgba(240, 220, 140, .3);
+
+@if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+    font-size: 14px;
+    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    color: $g-textColor;
+  }
+
+  a {
+    color: $g-textColor;
+    text-decoration: underline;
+    &:hover {
+      color: $g-hoverColor;
+    }
+  }
+}
+
+@if $device == SP {
+  body.mod-body,
+  div.mod-body {
+    font-size: 14px;
+    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    color: $g-textColor;
+  }
+
+  a {
+    color: $g-textColor;
+    text-decoration: underline;
+  }
+}
+
+@mixin cf {
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    $_src: "../imgs/b-downloadIcon/#{$file}.png";
+
+    background: url($_src) 0 0 no-repeat;
+    width: 44px;
+    height: 48px;
+  }
+}

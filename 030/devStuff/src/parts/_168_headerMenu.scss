@@ -1,0 +1,584 @@
+@if $device == PC {
+  .t0-b-headerMenu#{$variation1of2} {
+    $_width_content: 1080px;
+
+    margin: 0 0 1px;
+    background: url("../imgs/t0-b-headerMenu/bg2.png") repeat left top;
+    border-top: 1px solid #3c3c3c;
+    border-bottom: 1px solid #3c3c3c;
+    color: #dbdbdb;
+    font-family: $mincho;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    > div {
+      width: $_width_content;
+      margin: 0 auto;
+      > ul {
+        display: table;
+        width: 100%;
+        padding: 8px 0;
+        box-sizing: border-box;
+        > li {
+          display: table-cell;
+          vertical-align: middle;
+          &:last-child {
+            background: none;
+          }
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          table-layout: fixed;
+        }
+      }
+    }
+
+    .t0-b-headerMenu__item {
+      div {
+        @include g-font(16, 1);
+
+        height: 34px;
+        padding: 0 14px 0 10px;
+        position: relative;
+        box-sizing: border-box;
+        border-left: 1px solid #333;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: skew(-20deg);
+        transition: all .5s;
+        > span {
+          transform: skew(20deg);
+          font-weight: bold;
+          display: inline-table\0;
+        }
+
+        &:hover {
+          color: #fff;
+          text-shadow: $g-textShadow;
+        }
+      }
+
+      &:last-child {
+        div {
+          border-right: 1px solid #333;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #dbdbdb;
+    }
+
+    .state-em {
+      div {
+        color: #ffd582;
+      }
+    }
+
+    .state-current {
+      position: relative;
+      div {
+        background: none;
+        color: #ffae00;
+        overflow: hidden;
+        &::before {
+          content: "";
+          position: absolute;
+          pointer-events: none;
+          top: 0;
+          bottom: 0;
+          left: 1px;
+          right: 1px;
+          background: url("../imgs/t0-b-headerMenu/bg3.png") repeat left top;
+        }
+      }
+    }
+  }
+
+  .t0-b-headerMenu#{$variation2of2} {
+    $_width_content: 1080px;
+
+    margin: 0 0 1px;
+    background: linear-gradient(#a4070f, #4e0205);
+    border-top: 1px solid #6a5236;
+    border-bottom: 1px solid #6a5236;
+    color: #dbdbdb;
+    text-align: center;
+    font-family: $mincho;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    > div {
+      width: $_width_content;
+      margin: 0 auto;
+      position: relative;
+      > span {
+        position: absolute;
+        pointer-events: none;
+        top: 3px;
+        bottom: 3px;
+        right: 0;
+        width: 1px;
+        background: #a35441;
+      }
+
+      > ul {
+        display: table;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        > li {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          table-layout: fixed;
+        }
+      }
+    }
+
+    .t0-b-headerMenu__item {
+      padding: 2px 3px;
+      position: relative;
+      > span {
+        position: absolute;
+        pointer-events: none;
+        top: 3px;
+        bottom: 3px;
+        left: 0;
+        width: 1px;
+        background: #a35441;
+      }
+
+      div {
+        @include g-font(16, 1);
+
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 41px;
+        position: relative;
+        > span {
+          z-index: 2;
+          transition: all .7s;
+          display: inline-table\0;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          pointer-events: none;
+          transition: all .5s;
+          top: -5px;
+          bottom: 0;
+          left: -3px;
+          right: -4px;
+          height: 4px;
+          z-index: 1;
+        }
+
+        &:hover {
+          > span {
+            text-shadow: $g-textShadow;
+          }
+
+          &::before {
+            top: 40px;
+            background-color: #a35441;
+          }
+        }
+      }
+
+      &:last-child {
+        div {
+          &::before {
+            right: -3px;
+          }
+        }
+      }
+    }
+
+    a {
+      color: #dbdbdb;
+      text-decoration: none;
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .state-em {
+      color: #e9b95b;
+      a {
+        color: #e9b95b;
+      }
+
+      div {
+        &::after {
+          content: "";
+          position: absolute;
+          pointer-events: none;
+          top: 2px;
+          bottom: 2px;
+          left: 2px;
+          right: 2px;
+          border: 1px solid #ad4939;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    .state-current {
+      div {
+        color: #fff;
+        background: linear-gradient(#bd464c, #57191b);
+        &::after {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .t0-b-headerMenu3 {
+    $_width_content: 1080px;
+
+    margin: 0 0 1px;
+    background-color: #000;
+    color: #c6ad7b;
+    font-family: $mincho;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    > div {
+      width: $_width_content;
+      margin: 0 auto;
+      > ul {
+        display: table;
+        width: 100%;
+        padding: 8px 0;
+        box-sizing: border-box;
+        > li {
+          display: table-cell;
+          vertical-align: middle;
+          &:last-child {
+            background: none;
+          }
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          table-layout: fixed;
+        }
+      }
+    }
+
+    .t0-b-headerMenu__item {
+      div {
+        @include g-font(16, 1);
+
+        height: 34px;
+        padding: 0 14px 0 10px;
+        position: relative;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all .5s;
+        > span {
+          display: inline-table\0;
+        }
+      }
+
+      &:hover {
+        color: #fff;
+        text-shadow: 1px 1px 20px #ffedb7, 1px -1px 20px #ffedb7, -1px 1px 20px #ffedb7, -1px -1px 20px #ffedb7;
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #c6ad7b;
+    }
+
+    .state-current {
+      a {
+        color: #fff;
+        text-shadow: 1px 1px 20px #ffedb7, 1px -1px 20px #ffedb7, -1px 1px 20px #ffedb7, -1px -1px 20px #ffedb7;
+      }
+    }
+  }
+
+  .t0-b-headerMenu4 {
+    $_width_content: 1080px;
+
+    margin: 0 0 1px;
+    background-color: #9a814f;
+    color: #fff2d8;
+    font-family: $mincho;
+    transition: all .5s;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    > div {
+      width: $_width_content;
+      margin: 0 auto;
+      > ul {
+        display: table;
+        width: 100%;
+        box-sizing: border-box;
+        > li {
+          display: table-cell;
+          vertical-align: middle;
+          &:last-child {
+            background: none;
+          }
+        }
+      }
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          table-layout: fixed;
+        }
+      }
+    }
+
+    .t0-b-headerMenu__item {
+      transition: all .3s;
+      position: relative;
+      > span {
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        > span {
+          position: absolute;
+          pointer-events: none;
+          top: 50%;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          margin: 0 auto;
+          transition: all .3s;
+        }
+      }
+
+      div {
+        @include g-font(16, 1);
+
+        padding: 4px 10px;
+        position: relative;
+        max-height: 42px;
+        min-height: 30px;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all .5s;
+        > span {
+          display: inline-table\0;
+        }
+      }
+
+      &:hover {
+        color: #fff;
+        a {
+          color: #fff;
+        }
+
+        > span > span {
+          background-color: #ae9a72;
+          width: 100%;
+          height: 100%;
+          top: 0;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff2d8;
+    }
+
+    .state-current {
+      background-color: #ae9a72;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerMenu#{$variation1of2},
+  .t0-b-headerMenu3,
+  .t0-b-headerMenu4 {
+    @include g-font-spacingKilled(12, 1);
+
+    margin: 0 -15px;
+    background-color: #555;
+    color: #dbdbdb;
+    text-align: center;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    ul {
+      padding: 5px 0;
+    }
+
+    a {
+      color: #dbdbdb;
+      text-decoration: none;
+    }
+
+    .t0-b-headerMenu__item {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      margin-left: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      > div,
+      a > div {
+        list-style: none;
+        padding: 5px 0;
+        text-decoration: underline;
+      }
+    }
+
+    .state-em {
+      > div,
+      a > div {
+        color: #ffd582;
+        font-weight: bold;
+      }
+    }
+
+    .state-current {
+      > div,
+      a > div {
+        padding: 5px;
+        color: #ffae00;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .t0-b-headerMenu#{$variation2of2} {
+    @include g-font-spacingKilled(12, 1);
+
+    margin: 0 -15px;
+    background-color: #a4070f;
+    color: #d6c5c5;
+    text-align: center;
+    input[type="checkbox"].on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
+    }
+
+    a {
+      color: #d6c5c5;
+    }
+
+    ul {
+      padding: 5px 0;
+    }
+
+    .t0-b-headerMenu__item {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      margin-left: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      > div,
+      a > div {
+        list-style: none;
+        padding: 5px 0;
+        text-decoration: underline;
+      }
+    }
+
+    .state-em {
+      > div,
+      a > div {
+        color: #e9b95b;
+        font-weight: bold;
+      }
+    }
+
+    .state-current {
+      > div,
+      a > div {
+        padding: 5px;
+        font-weight: normal;
+        color: #fff;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}

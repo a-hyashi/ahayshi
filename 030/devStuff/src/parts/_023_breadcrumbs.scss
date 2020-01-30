@@ -1,0 +1,131 @@
+@if $device == PC {
+  .b-breadcrumbs {
+    color: #d0c8c8;
+    text-align: right;
+    > div {
+      width: 100%;
+      margin: 0 auto;
+
+      @include g-font(16, 1);
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 5px 0 0;
+      white-space: nowrap;
+      &::before {
+        content: "";
+        display: inline-block;
+        margin: (-3px) 5px 0 5px;
+        vertical-align: middle;
+        height: 10px;
+        line-height: 0;
+        background: url("../imgs/b-breadcrumbs/bg.png") no-repeat left center;
+        width: 7px;
+      }
+
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--inHeader > div {
+      margin-bottom: 5px;
+      width: 1081px;
+    }
+
+    &--inMain > div {
+      width: 100%;
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+
+    &--align-c > div {
+      text-align: center;
+    }
+
+    &--align-r > div {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: #d0c8c8;
+      &:hover {
+        color: $g-hoverColor;
+        text-decoration: underline;
+      }
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+}
+
+@if $device == SP {
+  .b-breadcrumbs {
+    color: #d0c8c8;
+    text-align: right;
+    > div {
+      width: 100%;
+      margin: 0 auto;
+
+      @include g-font(14, 1);
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 5px 0 0;
+      &::before {
+        content: "";
+        display: inline-block;
+        margin: (-3px) 5px 0 2px;
+        vertical-align: middle;
+        height: 10px;
+        line-height: 0;
+        background: url("../imgs/b-breadcrumbs/bg.png") no-repeat left center;
+        width: 7px;
+      }
+
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--inHeader > div {
+      width: 100%;
+    }
+
+    &--inMain > div {
+      width: 100%;
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+
+    &--align-c > div {
+      text-align: center;
+    }
+
+    &--align-r > div {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: $g-textColor;
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+}
