@@ -1,0 +1,1222 @@
+@if $device == PC {
+  .t0-b-wysiwyg {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #382b2b;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #382b2b;
+
+    color: #555;
+    a {
+      color: #555;
+      &:hover {
+        color: #aea928;
+      }
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(14, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    td > ol,
+    th > ol,
+    > ol {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      > li {
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        ol {
+          margin: 0 0 0 2.5em;
+          margin-top: 0;
+        }
+
+        li {
+          list-style-type: decimal;
+          margin-top: $_elementSpacing;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    td > ol:first-child,
+    th > ol:first-child,
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    td > ul,
+    th > ul,
+    > ul {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      > li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        ul {
+          margin: 0 0 0 2.5em;
+          margin-top: 0;
+        }
+
+        li {
+          margin-top: $_elementSpacing;
+          list-style-type: disc;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    td > ul:first-child,
+    th > ul:first-child,
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid #c2c29e;
+        border-left: 1px solid #c2c29e;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      tr {
+        border-right: 1px solid #c2c29e;
+        border-bottom: 1px solid #c2c29e;
+        &:last-child {
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+
+      th {
+        color: #382b2b;
+        background: linear-gradient(to bottom, #fee5ea 0%, #fff 100%);
+        border-bottom: 3px double #c2c29e;
+      }
+
+      td {
+        background-color: #fff;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .t0-b-wysiwyg2 {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #382b2b;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #382b2b;
+
+    background: #f9f9d8;
+    padding: 20px;
+    color: #555;
+    a {
+      color: #555;
+      &:hover {
+        color: #aea928;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(14, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    td > ol,
+    th > ol,
+    > ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      > li {
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        ol {
+          margin: 0 0 0 2.5em;
+          margin-top: 0;
+        }
+
+        li {
+          list-style-type: decimal;
+          margin-top: $_elementSpacing;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    td > ol:first-child,
+    th > ol:first-child,
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    td > ul,
+    th > ul,
+    > ul {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      > li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        ul {
+          margin: 0 0 0 2.5em;
+          margin-top: 0;
+        }
+
+        li {
+          margin-top: $_elementSpacing;
+          list-style-type: disc;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    td > ul:first-child,
+    th > ul:first-child,
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid #c2c29e;
+        border-left: 1px solid #c2c29e;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      tr {
+        border-right: 1px solid #c2c29e;
+        border-bottom: 1px solid #c2c29e;
+        &:last-child {
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+
+      th {
+        color: #382b2b;
+        background: #fee5ea;
+        background: linear-gradient(to bottom, #fee5ea 0%, #fff 100%);
+        border-bottom: 3px double #c2c29e;
+      }
+
+      td {
+        background-color: #fff;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .t0-b-wysiwyg3 {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #382b2b;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #382b2b;
+
+    border: 1px solid #fcd3c8;
+    background: url("../imgs/t0-b-headerMedia/bg1.png");
+    padding: 20px;
+    color: #555;
+    a {
+      color: #555;
+      &:hover {
+        color: #aea928;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(14, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    td > ol,
+    th > ol,
+    > ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      > li {
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        ol {
+          margin: 0 0 0 2.5em;
+          margin-top: 0;
+        }
+
+        li {
+          list-style-type: decimal;
+          margin-top: $_elementSpacing;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    td > ol:first-child,
+    th > ol:first-child,
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    td > ul,
+    th > ul,
+    > ul {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      > li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(14, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        ul {
+          margin: 0 0 0 2.5em;
+          margin-top: 0;
+        }
+
+        li {
+          margin-top: $_elementSpacing;
+          list-style-type: disc;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    td > ul:first-child,
+    th > ul:first-child,
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid #c2c29e;
+        border-left: 1px solid #c2c29e;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      tr {
+        border-right: 1px solid #c2c29e;
+        border-bottom: 1px solid #c2c29e;
+        &:last-child {
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+
+      th {
+        color: #382b2b;
+        background: linear-gradient(to bottom, #fee5ea 0%, #fff 100%);
+        border-bottom: 3px double #c2c29e;
+      }
+
+      td {
+        background-color: #fff;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-wysiwyg {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #c2c29e;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #555;
+    a {
+      color: #555;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    a {
+      > img {
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    ol {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+        &:last-child {
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: linear-gradient(to bottom, #fee5ea 0%, #fff 100%);
+        border-bottom: 3px double $_color_table_border;
+      }
+
+      td {
+        background-color: #fff;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .t0-b-wysiwyg2 {
+    @include g-rteTableReset;
+    padding: 10px;
+    background: #f9f9d8;
+
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #c2c29e;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #555;
+    a {
+      color: #555;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+        &:last-child {
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: linear-gradient(to bottom, #fee5ea 0%, #fff 100%);
+        border-bottom: 3px double $_color_table_border;
+      }
+
+      td {
+        background-color: #fff;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .t0-b-wysiwyg3 {
+    @include g-rteTableReset;
+    padding: 10px;
+    border: 1px solid #fcd3c8;
+    background: url("../imgs/t0-b-headerMedia/bg1.png");
+
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #c2c29e;
+    $_color_table_th_bg: #ddd;
+    $_color_table_td_typo: #555;
+    a {
+      color: #555;
+    }
+
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before,
+        &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+        &:last-child {
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 1);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 1);
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: linear-gradient(to bottom, #fee5ea 0%, #fff 100%);
+        border-bottom: 3px double $_color_table_border;
+      }
+
+      td {
+        background-color: #fff;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-wysiwyg--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
