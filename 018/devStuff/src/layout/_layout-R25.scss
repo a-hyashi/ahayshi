@@ -1,0 +1,58 @@
+$layout: "R25";
+$areaContainerWidth: 1110px;
+$areaMainWidth: 766px;
+$areaSubWidth: 344px;
+.area-all {
+  margin: 0 auto;
+  word-break: break-all;
+  word-wrap: break-word;
+  min-width: $areaContainerWidth + 36px;
+  overflow: hidden;
+}
+
+.mod-body {
+  background-image: url("../imgs/area-all/bg.png");
+  background-repeat: repeat;
+}
+
+.area-container {
+  width: $areaContainerWidth;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  *zoom: 1;
+}
+
+.area-container::before,
+.area-container::after {
+  content: "";
+  display: table;
+}
+
+.area-container::after {
+  clear: both;
+}
+
+.area-main {
+  float: left;
+  box-sizing: border-box;
+  width: $areaMainWidth;
+  padding: 0 0 50px;
+}
+
+.area-sub {
+  float: right;
+  box-sizing: border-box;
+  width: $areaSubWidth;
+  min-height: 100px;
+  padding: 0 0 50px 44px;
+  position: relative;
+
+  // R比率の際に、画像列の下(z-index: 10)の下にもぐらないよう11を指定
+  z-index: 11;
+}
+
+.area-footer {
+  padding: 50px 0 0;
+  background: none;
+}
