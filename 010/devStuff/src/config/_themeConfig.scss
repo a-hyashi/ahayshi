@@ -1,0 +1,109 @@
+$g-fontSize: 14px;
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 8;
+$g-hoverColor: #791d07;
+$g-hoverColor2: #a68914;
+
+$fullWidthBgColor: #e8dec0;
+$fullWidthBgColor2: #fff;
+$fullWidthBgColor3: #e7e6e2;
+$fullWidthBgColor4: #6a473d;
+$fullWidthBgColor5: #f2f2e3;
+
+@if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+    font-size: $g-fontSize;
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+  }
+}
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    $_src: "../imgs/b-downloadIcon/#{$file}.png";
+
+    background: url($_src) 0 0 no-repeat;
+    width: 44px;
+    height: 48px;
+  }
+}
+
+@if $device == SP {
+  body.mod-body,
+  div.mod-body {
+    font-size: $g-fontSize;
+    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+  }
+
+  .sg-codeOutput__widthFull {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__widthHeaderUnit {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__widthAuto {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthFull {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthMain {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthSub {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+
+  .sg-codeOutput__maxWidthAuto {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+}
