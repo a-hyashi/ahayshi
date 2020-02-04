@@ -165,8 +165,8 @@ gulp.task('create-b-placer-doc', () => {
   var b_placers = [];
   var is_sp = false;
   b_placer_lines().forEach(function(line) {
-    // $device =='SP' 以降はSPの余白として設定する
-    sp_match = line.match(/\$device\s*==\s*\'SP\'/);
+    // $device == "SP" 以降はSPの余白として設定する
+    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
     if(sp_match) is_sp = true;
     // //# で始まるコメントはカテゴリー
     var category_match = line.match(/\/\#\s+(.*)/);
