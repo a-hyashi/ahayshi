@@ -1,0 +1,122 @@
+@if $device == PC {
+  .t0-b-fileDownloads {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      display: block;
+      float: left;
+      &:hover {
+        text-decoration: underline;
+        color: #dd0;
+      }
+    }
+
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    #{$_block}__itemIcon {
+      padding: 0 12px 0 0;
+    }
+
+    #{$_block}__itemText {
+      @include g-font-spacingKilled(18, 1);
+
+      color: #fff;
+      text-decoration: underline;
+      &:hover {
+        color: #d4d1ca;
+      }
+    }
+  }
+
+  .b-downloadIcon {
+    display: inline-block;
+    vertical-align: middle;
+
+    @include fileIcon-pc("pdf", 1);
+    @include fileIcon-pc("doc", 1);
+    @include fileIcon-pc("xls", 1);
+    @include fileIcon-pc("img", 1);
+  }
+}
+
+@if $device == SP {
+  .t0-b-fileDownloads {
+    $_block: &;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+
+    #{$_block}__item {
+      padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      display: block;
+      float: left;
+    }
+
+    #{$_block}__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    #{$_block}__itemIcon {
+      padding: 0 10px 0 0;
+    }
+
+    #{$_block}__itemText {
+      @include g-font(16, 1);
+
+      color: #f2ede2;
+      text-decoration: underline;
+    }
+  }
+
+  .b-downloadIcon {
+    display: inline-block;
+    vertical-align: middle;
+
+    @include fileIcon-sp("pdf", 1);
+    @include fileIcon-sp("doc", 1);
+    @include fileIcon-sp("xls", 1);
+    @include fileIcon-sp("img", 1);
+  }
+}
