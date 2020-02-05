@@ -3,6 +3,7 @@
     $_block: &;
     $textcolor: #262626;
 
+    margin: 0 auto;
     color: $textcolor;
     a {
       color: $textcolor;
@@ -13,6 +14,7 @@
       line-height: 0;
       text-align: center;
       position: relative;
+      margin: 0 auto;
       img {
         display: block;
         width: 100%;
@@ -103,6 +105,246 @@
       }
     }
   }
+
+  .t0-b-footerUnit-media2 {
+    $_block: &;
+    $textcolor: #262626;
+
+    margin: 0 auto;
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      margin: 0 auto;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+
+      a {
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        // 3行以上は入らないように
+        max-height: 66px;
+        padding: 10px 5px;
+        pointer-events: auto;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // 3行以上は入らないように
+        max-height: 66px;
+        padding: 10px 5px;
+        pointer-events: auto;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      text-indent: -20px;
+      padding: 10px 0 0 20px;
+
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: (-8px) 0 -6px 0;
+          display: inline-block;
+          vertical-align: middle;
+          background: url("../imgs/t0-b-footerCombi/bg2.png") no-repeat 6px 50%;
+        }
+      }
+
+      a {
+        &:hover {
+          color: #aea928;
+        }
+      }
+    }
+  }
+
+  .t0-b-footerUnit-media3 {
+    $_block: &;
+    $textcolor: #262626;
+
+    margin: 0 auto;
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+      }
+
+      a {
+        display: block;
+        transition: .5s ease;
+        &:hover {
+          opacity: .8;
+          img {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // 3行以上は入らないように
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+
+        // 3行以上は入らないように
+        max-height: 66px;
+      }
+    }
+
+    &__nav {
+      text-indent: -20px;
+      padding: 10px 0 0 20px;
+
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: (-8px) 0 -6px 0;
+          display: inline-block;
+          vertical-align: middle;
+          background: url("../imgs/t0-b-footerCombi/bg2.png") no-repeat 6px 50%;
+        }
+      }
+
+      a {
+        &:hover {
+          color: #aea928;
+        }
+      }
+    }
+  }
 }
 
 @if $device == SP {
@@ -113,6 +355,221 @@
 
     $textcolor: #262626;
 
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      a {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      margin-top: 20px;
+
+      @include g-font(16, 1);
+      > div {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: (-8px) 0 -6px 0;
+          display: inline-block;
+          vertical-align: middle;
+          background: url("../imgs/t0-b-footerCombi/bg2.png") no-repeat 0 50%;
+        }
+
+        text-align: center;
+      }
+    }
+  }
+
+  .t0-b-footerUnit-media2 {
+    $_block: &;
+    $textcolor: #262626;
+
+    margin: 0 auto;
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      a {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        pointer-events: auto;
+        // 3行以上は入らないように
+        padding: 10px 5px;
+        max-height: 66px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: 50%;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // 3行以上は入らないように
+        max-height: 66px;
+        padding: 10px 5px;
+        pointer-events: auto;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      margin-top: 20px;
+
+      @include g-font(16, 1);
+      > div {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: (-8px) 0 -6px 0;
+          display: inline-block;
+          vertical-align: middle;
+          background: url("../imgs/t0-b-footerCombi/bg2.png") no-repeat 0 50%;
+        }
+
+        text-align: center;
+      }
+    }
+  }
+
+  .t0-b-footerUnit-media3 {
+    $_block: &;
+    $textcolor: #262626;
+
+    margin: 0 auto;
     color: $textcolor;
     a {
       color: $textcolor;
