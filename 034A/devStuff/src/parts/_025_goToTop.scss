@@ -12,6 +12,7 @@
       background-image: url("../imgs/t0-b-goToTop/1.png");
       background-repeat: no-repeat;
       background-position: top center;
+      transition: .2s;
       &:hover {
         opacity: .8;
       }
@@ -23,6 +24,81 @@
         font-family: "Futura Medium", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", sans-serif;
         line-height: 1.1;
       }
+    }
+
+    // 固定表示用
+    &--fixDisplay {
+      &-scrollUp,
+      &-scrollDown,
+      &-scrollDownStopFooter {
+        min-height: 65px;
+        text-align: right;
+        position: fixed;
+        // サイドメニューやフッターに重なっても隠さないため
+        z-index: 400;
+        right: 30px;
+        bottom: 5px;
+        // jsで出現させるので最初は消しておく
+        display: none;
+        .t0-b-goToTop__contents {
+          @include g-font(16, 0);
+          transition: .2s;
+          overflow: hidden;
+          font-family: "Futura Medium", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          line-height: 1.1;
+        }
+
+        a {
+          position: relative;
+          display: inline-block;
+          min-width: 43px;
+          min-height: 65px;
+          color: $g-textColor;
+          text-decoration: none;
+          transition: .2s;
+          padding: 0;
+          white-space: nowrap;
+          // 文字にアウトラインつける
+          text-shadow: #fff 1px 1px 0, #fff -1px -1px 0, #fff -1px 1px 0, #fff 1px -1px 0, #fff 0 1px 0, #fff 0 -1px 0, #fff -1px 0 0, #fff 1px 0 0;
+          &::before {
+            display: block;
+            text-align: center;
+            content: url("../imgs/t0-b-goToTop/1.png");
+            transition: .2s;
+          }
+
+          &:hover {
+            .t0-b-goToTop__contents {
+              transform: translateY(-5px);
+              // ホバー時にガクガクしないように
+              pointer-events: none;
+              p {
+                pointer-events: auto;
+              }
+            }
+
+            &::before {
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ex-topSpacingTweak {
+    &--g-fixDisplay {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  // goToTopが固定表示時にbPlacerの余白を消す
+  .t0-b-goToTop-bPlacer {
+    &--g-fixDisplay {
+      margin-top: 0;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }
