@@ -1,0 +1,196 @@
+@if $device == PC {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    $textcolor: #f2ede2;
+
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      a {
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+
+        padding: 10px 5px;
+        background: rgba(0, 0, 0, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+
+        padding: 10px 5px;
+        background: rgba(0, 0, 0, .8);
+
+        // mac chromeで3行入った際の高さ。PCで3行以上は入らないように制限をかける
+        max-height: 66px;
+      }
+    }
+
+    &__nav {
+      text-indent: -20px;
+      padding: 10px 0 0 20px;
+
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        > a {
+          padding: 0 2px 2px 18px;
+          background-image: url("../imgs/t0-b-footerUnit-media/bg.png");
+          background-repeat: no-repeat, no-repeat, repeat-x;
+          background-position: 0 0;
+          &:hover {
+            color: #d4d1ca;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-media {
+    $_block: &;
+
+    margin: 0 auto;
+
+    $textcolor: #f2ede2;
+
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        width: 100%;
+        display: block;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      a {
+        display: block;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+
+        padding: 10px 5px;
+        background: rgba(0, 0, 0, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow($color: #000);
+
+        padding: 10px 5px;
+        background: rgba(0, 0, 0, .8);
+      }
+    }
+
+    &__nav {
+      text-indent: -20px;
+      padding: 10px 0 0 20px;
+
+      @include g-font-spacingKilled(16, 1);
+
+      text-align: center;
+      > div {
+        > a {
+          display: inline;
+          padding: 0 2px 2px 18px;
+          background-image: url("../imgs/t0-b-footerUnit-media/bg.png");
+          background-repeat: no-repeat, no-repeat, repeat-x;
+          background-position: 0 0;
+        }
+      }
+    }
+  }
+}

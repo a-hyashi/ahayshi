@@ -1,0 +1,385 @@
+@if $device == PC {
+  .t0-b-headerUnit-text {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #b69a56;
+    $_color_table_th_bg: #e7d9b4;
+    $_color_table_td_typo: $g-textColor;
+
+    white-space: nowrap;
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(14, 2);
+
+      margin-top: 1em;
+      color: $g-textColor;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    &--has-width {
+      white-space: normal;
+    }
+
+    ol {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      margin: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      white-space: nowrap;
+      width: 100%;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      z-index: 1;
+      * {
+        position: static;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 2);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 10px 5px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 2);
+        }
+      }
+
+      p {
+        @include g-font-spacingKilled(14, 2);
+      }
+
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      th {
+        color: $_color_table_td_typo;
+        background: $_color_table_th_bg;
+      }
+
+      td {
+        background: #fff;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-headerUnit-text--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-text {
+    @include g-rteTableReset;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
+    $_color_table_border: #b69a56;
+    $_color_table_th_bg: #e7d9b4;
+    $_color_table_td_typo: #000;
+    hr {
+      margin-top: $_blockSpacing;
+      border: 0;
+      height: 1px;
+      background: #999;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      @include g-font-spacingKilled(16, 2);
+
+      margin-top: 1em;
+      color: $g-textColor;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > p {
+      white-space: normal;
+    }
+
+    &--has-width {
+      white-space: normal;
+    }
+
+    ol {
+      margin: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      margin: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        margin-top: $_elementSpacing;
+
+        @include g-font-spacingKilled(16, 1);
+
+        list-style-type: disc;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
+      }
+
+      th, td {
+        @include g-font-spacingKilled(14, 2);
+
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font-spacingKilled(14, 1);
+        }
+      }
+
+      p {
+        font-size: inherit !important;
+      }
+
+      th {
+        color: $g-textColor;
+        background: $_color_table_th_bg;
+      }
+
+      td {
+        background: #fffcf1;
+        color: $_color_table_td_typo;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @for $_i from 1 through 10 {
+    $_blockSpacing: #{$g-spacingBaseLength * $_i}px;
+    .t0-b-headerUnit-text--spacing-#{$_i}s {
+      p {
+        margin-top: $_blockSpacing;
+      }
+
+      > p:first-child {
+        margin-top: 0;
+      }
+
+      ol {
+        margin-top: $_blockSpacing;
+      }
+
+      > ol:first-child {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: $_blockSpacing;
+      }
+
+      > ul:first-child {
+        margin-top: 0;
+      }
+
+      table {
+        margin-top: $_blockSpacing;
+      }
+
+      > table:first-child {
+        margin-top: 0;
+      }
+
+      blockquote {
+        margin-top: $_blockSpacing;
+      }
+
+      > blockquote:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@if $device == PC {
+  .t0-b-flow2LeftToRight {
+    $_block: &;
+    width: 100%;
+    &__hd {
+      padding-bottom: 15px;
+    }
+
+    &__bd {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 2%;
+      text-align: center;
+      font-size: 2em;
+      color: #333;
+      vertical-align: middle;
+    }
+  }
+
+  .t0-b-flow2LeftToRight2 {
+    width: 100%;
+    &__bd {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      height: 100%;
+    }
+
+    &__box {
+      display: table-cell;
+      vertical-align: top;
+      height: 100%;
+    }
+
+    &__arrow {
+      display: table-cell;
+      width: 46px;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    &__arrow-inner {
+      display: inline-block;
+      height: 37px;
+      background-repeat: no-repeat;
+      background-position: center 40%;
+      background-image: url("../imgs/navItem/1/34.png");
+      width: 100%;
+      margin-top: -5px;
+    }
+  }
+
+  .t0-b-flow2LeftToRight,
+  .t0-b-flow2LeftToRight2 {
+    &--colW-l &__box {
+      width: 22.3%;
+    }
+
+    &--colW-l &__box ~ &__box {
+      width: 73.3%;
+    }
+
+    &--colW-m &__box {
+      width: 30.7%;
+    }
+
+    &--colW-m &__box ~ &__box {
+      width: 64.7%;
+    }
+  }
+
+  @if $layout == "N00" {
+    .t0-b-flow2LeftToRight,
+    .t0-b-flow2LeftToRight2 {
+      $_block: &;
+      &--colW-l &__box {
+        width: 22.2%;
+      }
+
+      &--colW-l &__box ~ &__box {
+        width: 71%;
+      }
+
+      &--colW-m &__box {
+        width: 30.7%;
+      }
+
+      &--colW-m &__box ~ &__box {
+        width: 63.6%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-flow2LeftToRight {
+    width: 100%;
+  }
+
+  .t0-b-flow2LeftToRight2 {
+    width: 100%;
+  }
+}

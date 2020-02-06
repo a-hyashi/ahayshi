@@ -1,0 +1,138 @@
+$g-fontSize: 14px;
+$g-baseFontColor: #594c46;
+$g-baseBackgroundColor: #fff;
+$g-baseLinkColor: #594c46;
+$g-baseHoverColor: #86766e;
+
+$g-textColor: $g-baseFontColor;
+$g-hoverColor: $g-baseHoverColor;
+
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 10;
+a {
+  color: $g-baseLinkColor;
+}
+
+@if $device == PC {
+  body.mod-body,
+  div.mod-body {
+    font-weight: 500;
+    font-size: $g-fontSize;
+    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    color: #594c46;
+    background-image: url("../imgs/area-all/bg.png");
+  }
+
+  a {
+    &:hover {
+      color: $g-hoverColor;
+    }
+  }
+}
+
+// tel
+$_tel_wd: 40px;
+$_tel_hg: 40px;
+
+// fax
+$_fax_wd: 48px;
+$_fax_hg: 28px;
+
+// free
+$_free_wd: 52px;
+$_free_hg: 29px;
+
+// cell
+$_cell_wd: 23px;
+$_cell_hg: 40px;
+
+@mixin cf {
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 44px * $size;
+    height: 48px * $size;
+    background-image: url("../imgs/b-downloadIcon/#{$file}.png");
+    background-repeat: no-repeat;
+  }
+}
+
+$fullWidthBgColor: #d9f5f6;
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
+
+@if $device == PC {
+  .sg-codeOutput__widthFull {
+    width: 1400px;
+  }
+
+  .sg-codeOutput__widthHeaderUnit {
+    width: 200px;
+  }
+
+  .sg-codeOutput__widthAuto {
+    width: auto;
+  }
+
+  .sg-codeOutput__maxWidthFull {
+    max-width: 1400px;
+  }
+
+  .sg-codeOutput__maxWidthMain {
+    max-width: 1000px;
+  }
+
+  .sg-codeOutput__maxWidthSub {
+    max-width: 290px;
+  }
+
+  .sg-codeOutput__maxWidthAuto {
+    max-width: auto;
+  }
+}
+
+@if $device == SP {
+  body.mod-body,
+  div.mod-body {
+    font-size: $g-fontSize;
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    color: #594c46;
+  }
+}
