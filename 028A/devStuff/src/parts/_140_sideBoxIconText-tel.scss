@@ -1,7 +1,6 @@
 @if $device == PC {
   .t0-b-sideBoxIconText-tel {
     $_block: &;
-
     color: #11245c;
     a {
       color: inherit;
@@ -24,7 +23,7 @@
     &__bd {
       text-align: center;
       font-weight: bold;
-      font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+      font-family: "游明朝", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
     }
 
     &__icon {
@@ -60,7 +59,6 @@
 
       #{$_block}__icon + span {
         display: inline;
-        margin-bottom: 0;
       }
     }
 
@@ -71,13 +69,11 @@
     &--size-1 {
       #{$_block}__ruby {
         @include g-font-spacingKilled(14, 1);
-
         margin-bottom: 5px;
       }
 
       #{$_block}__bd {
         @include g-font-spacingKilled(26, 1);
-
         line-height: 1;
         span {
           font-size: 93% \0;
@@ -85,7 +81,8 @@
 
         #{$_block}__icon + span {
           font-size: 80%;
-          font-size: 74% \0;
+          // IEハック
+          font-size: 74% \0; /* stylelint-disable-line */
           vertical-align: top;
           display: inline-block;
           padding-top: 1px;
@@ -98,53 +95,68 @@
 
       #{$_block}__tel {
         background-size: (45px / 1.8) (37px / 1.8);
-        background-size: 23px 18px\0;
+        // IEハック
+        background-size: 23px 18px\0; /* stylelint-disable-line */
         width: (55px / 1.8);
-        width: 27px\0;
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
         height: (37px / 1.8);
-        height: 18px\0;
+        // IEハック
+        height: 18px\0; /* stylelint-disable-line */
         background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
         margin-top: -14px;
-        margin-top: -12px\0;
+        // IEハック
+        margin-top: -12px\0; /* stylelint-disable-line */
       }
 
       #{$_block}__fax {
         background-size: (47px / 1.8) (31px / 1.8);
-        background-size: 25px 14px\0;
+        // IEハック
+        background-size: 25px 14px\0; /* stylelint-disable-line */
         width: (55px / 1.8);
-        width: 27px\0;
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
         height: (31px / 1.8);
-        height: 14px\0;
+        // IEハック
+        height: 14px\0; /* stylelint-disable-line */
         background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
         margin-top: -11px;
-        margin-top: -10px\0;
+        // IEハック
+        margin-top: -10px\0; /* stylelint-disable-line */
       }
 
       #{$_block}__free {
         background-size: (55px / 1.8) (31px / 1.8);
-        background-size: 25px 15px\0;
+        // IEハック
+        background-size: 25px 15px\0; /* stylelint-disable-line */
         width: (55px / 1.8);
-        width: 27px\0;
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
         height: (31px / 1.8);
-        height: 15px\0;
+        // IEハック
+        height: 15px\0; /* stylelint-disable-line */
         background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
         margin-top: -11px;
-        margin-top: -10px\0;
+        // IEハック
+        margin-top: -10px\0; /* stylelint-disable-line */
       }
 
       #{$_block}__cell {
         background-size: (22px / 1.8) (38px / 1.8);
-        background-size: 12px 21px\0;
+        // IEハック
+        background-size: 12px 21px\0; /* stylelint-disable-line */
         width: (55px / 1.8);
-        width: 27px\0;
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
         height: (38px / 1.8);
-        height: 21px\0;
+        // IEハック
+        height: 21px\0; /* stylelint-disable-line */
         background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
         background-position: 7px center;
         margin-top: -11px;
       }
 
-      //Firefox用のアイコン配置指定
+      // Firefox用のアイコン配置指定
       #{$_block}__fax, x:-moz-any-link {
         margin-top: -12px;
       }
@@ -158,15 +170,12 @@
     // tel
     $_tel_wd: 40px;
     $_tel_hg: 32px;
-
     // fax
     $_fax_wd: 44px;
     $_fax_hg: 23px;
-
     // free
     $_free_wd: 51px;
     $_free_hg: 29px;
-
     // cell
     $_cell_wd: 23px;
     $_cell_hg: 40px;
@@ -177,7 +186,6 @@
     border-radius: 8px;
     padding: 10px 0;
     word-break: break-all;
-
     $_block: &;
     > div {
       vertical-align: top;
