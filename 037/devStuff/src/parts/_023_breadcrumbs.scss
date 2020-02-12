@@ -1,37 +1,74 @@
 @if $device == PC {
   .b-breadcrumbs {
-    $_fontSize: 15;
+    $_fontSize: 14;
+    $_lineHeight: 1;
+    color: $g-baseLinkColor;
     text-align: right;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      vertical-align: middle;
+      &:hover {
+        text-decoration: underline;
+        color: $g-baseHoverColor2;
+      }
+    }
+
+    em {
+      font-style: normal;
+    }
+
     > div {
-      @include g-font($_fontSize);
       width: 100%;
       margin: 0 auto;
+      @include g-font($_fontSize, $_lineHeight);
+      > div {
+        > div {
+          > div {
+            letter-spacing: -.4em;
+          }
+        }
+      }
+    }
+
+    &__item:first-child::before {
+      display: inline-block;
+      width: 29.062px * .5;
+      height: 28.34px * .5;
+      background-size: contain;
+      margin: 0 5px;
+      content: "";
+      background-image: url("../imgs/breadcrumbs/01/house.svg");
+      background-repeat: no-repeat;
     }
 
     &__item {
       display: inline-block;
+      letter-spacing: normal;
+      vertical-align: middle;
       &::before {
         display: inline-block;
         width: 8px;
         height: 12px;
-        margin: 0 9px;
+        background-size: contain;
+        margin: 0 8px;
         line-height: 1.5;
         vertical-align: -2px;
         content: "";
         background-image: url("../imgs/breadcrumbs/01/01.svg");
         background-repeat: no-repeat;
-        background-size: 8px 12px;
       }
+    }
 
-      &:first-child {
-        &::before {
-          display: none;
-        }
+    &--inHeader {
+      margin: 15px 0;
+      > div {
+        width: 1100px;
       }
     }
 
     &--inMain {
-      margin: 0 0 15px;
+      margin-bottom: 15px;
       > div {
         width: 100%;
       }
@@ -47,30 +84,45 @@
 
     &--align-r > div {
       text-align: right;
-    }
-
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    em {
-      font-style: normal;
     }
   }
 
   .b-breadcrumbs2 {
-    $_fontSize: 15;
+    $_fontSize: 14;
+    $_lineHeight: 1;
+    color: $g-baseLinkColor;
     text-align: right;
-    > div {
-      @include g-font($_fontSize);
-      width: 100%;
-      margin: 0 auto;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      vertical-align: middle;
+      &:hover {
+        text-decoration: underline;
+        color: $g-baseHoverColor2;
+      }
     }
 
-    &__item {
+    em {
+      font-style: normal;
+    }
+
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      @include g-font($_fontSize, $_lineHeight);
+      > div {
+        > div {
+          > div {
+            letter-spacing: -.4em;
+          }
+        }
+      }
+    }
+
+    .b-breadcrumbs__item {
       display: inline-block;
+      letter-spacing: normal;
+      vertical-align: middle;
       &::before {
         display: inline-block;
         width: 8px;
@@ -91,8 +143,15 @@
       }
     }
 
+    &--inHeader {
+      margin: 15px 0;
+      > div {
+        width: 1100px;
+      }
+    }
+
     &--inMain {
-      margin: 0 0 15px;
+      margin-bottom: 15px;
       > div {
         width: 100%;
       }
@@ -108,52 +167,77 @@
 
     &--align-r > div {
       text-align: right;
-    }
-
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    em {
-      font-style: normal;
     }
   }
 
   .b-breadcrumbs3 {
-    $_fontSize: 15;
+    $_fontSize: 14;
+    $_lineHeight: 1;
     text-align: right;
-    > div {
-      @include g-font($_fontSize);
-      width: 100%;
-      margin: 0 auto;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      vertical-align: middle;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
-    &__item {
-      display: inline-block;
-      &::before {
-        display: inline-block;
-        width: 8px;
-        height: 12px;
-        margin: 0 9px;
-        line-height: 1.5;
-        vertical-align: -2px;
-        content: "";
-        background-image: url("../imgs/breadcrumbs/03/03.svg");
-        background-repeat: no-repeat;
-        background-size: 8px 12px;
-      }
+    em {
+      font-style: normal;
+    }
 
-      &:first-child {
-        &::before {
-          display: none;
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      @include g-font($_fontSize, $_lineHeight);
+      > div {
+        > div {
+          > div {
+            letter-spacing: -.4em;
+          }
         }
       }
     }
 
+    & .b-breadcrumbs__item:first-child::before {
+      display: inline-block;
+      width: 29.062px * .5;
+      height: 28.34px * .5;
+      background-size: contain;
+      margin: 0 5px;
+      content: "";
+      background-image: url("../imgs/breadcrumbs/03/house.svg");
+      background-repeat: no-repeat;
+    }
+
+    & .b-breadcrumbs__item {
+      display: inline-block;
+      letter-spacing: normal;
+      vertical-align: middle;
+      &::before {
+        display: inline-block;
+        width: 8px;
+        height: 12px;
+        margin: 0 8px;
+        line-height: 1.5;
+        vertical-align: -2px;
+        content: "";
+        background-image: url("../imgs/breadcrumbs/03/01.svg");
+        background-repeat: no-repeat;
+        background-size: 8px 12px;
+      }
+    }
+
+    &--inHeader {
+      margin: 15px 0;
+      > div {
+        width: 1100px;
+      }
+    }
+
     &--inMain {
-      margin: 0 0 15px;
+      margin-bottom: 15px;
       > div {
         width: 100%;
       }
@@ -169,16 +253,6 @@
 
     &--align-r > div {
       text-align: right;
-    }
-
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    em {
-      font-style: normal;
     }
   }
 }
