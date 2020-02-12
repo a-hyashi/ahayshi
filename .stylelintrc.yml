@@ -1,13 +1,16 @@
 plugins:
   #- stylelint-order
   - stylelint-scss
+  - stylelint-declaration-block-no-ignored-properties
 ignoreFiles:
   - '**/_bPlacer.scss'
   - '**/theme.css'
 defaultSeverity: error
-# ソート設定を読み込む
+# stylelint-orderのソート設定を読み込む
 #extends: stylelint-config-recess-order
 rules:
+  # 他のプロパティとの組み合わせで無視されるプロパティを禁止
+  plugin/declaration-block-no-ignored-properties: true
   # 16進数以外のカラーコードを禁止
   color-no-invalid-hex: true
   # フォントファミリーの重複指定を禁止
