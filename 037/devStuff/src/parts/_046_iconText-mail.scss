@@ -1,28 +1,32 @@
 @if $device == PC {
   .t0-b-iconText-mail {
-    $_fontSize: 15;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-    }
-
+    $_fontSize: 16;
+    $_lineHeight: 1;
+    word-break: break-all;
+    color: $g-baseLinkColor;
     a {
-      display: table-cell;
-      word-break: break-all;
       &:hover {
         text-decoration: underline;
       }
     }
 
+    > div {
+      display: inline-block;
+    }
+
     &__bd {
-      @include g-font($_fontSize);
-      font-weight: bold;
-      text-align: left;
+      @include g-font($_fontSize, $_lineHeight);
     }
 
     &__icon {
-      display: table-cell;
+      display: inline-block;
+      width: 18px *1.1;
+      height: 12px *1.1;
+      margin-right: 8px;
       vertical-align: middle;
+      background-image: url("../imgs/iconText-mail/01.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
     }
 
     &--align-l {
@@ -41,26 +45,27 @@
 
 @if $device == SP {
   .t0-b-iconText-mail {
-    $_fontSize: 15;
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-    }
-
+    $_fontSize: 16;
+    $_lineHeight: 1;
+    word-break: break-all;
+    color: $g-baseLinkColor;
     a {
-      display: table-cell;
-      text-align: center;
-      word-break: break-all;
+      text-decoration: none;
     }
 
     &__bd {
-      @include g-font($_fontSize);
+      @include g-font($_fontSize, $_lineHeight);
     }
 
     &__icon {
-      display: table-cell;
+      display: inline-block;
+      width: 18px *1.1;
+      height: 12px *1.1;
+      margin-right: 8px;
       vertical-align: middle;
+      background-image: url("../imgs/iconText-mail/01.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
     }
   }
 }

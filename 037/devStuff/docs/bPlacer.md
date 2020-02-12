@@ -16,8 +16,12 @@
 |01.見出し|main|048_FAQ見出し|.t0-b-lv2H-faqIcon||2%||10px|
 |01.見出し|main|049_用途別の装飾見出し(事例)|.t0-b-lv4H-caseIcon||2%||10px|
 |01.見出し|main|049_用途別の装飾見出し(事例)|.t0-b-lv4H-caseIcon|2|2%||10px|
+|01.見出し|main|049_用途別の装飾見出し(事例)|.t0-b-lv4H-caseIcon|3|2%||10px|
+|01.見出し|main|049_用途別の装飾見出し(事例)|.t0-b-lv4H-caseIcon|4|2%||10px|
 |01.見出し|main|050_用途別の装飾見出し(お客様の声)|.t0-b-lv4H-voiceIcon||2%||10px|
 |01.見出し|main|050_用途別の装飾見出し(お客様の声)|.t0-b-lv4H-voiceIcon|2|2%||10px|
+|01.見出し|main|050_用途別の装飾見出し(お客様の声)|.t0-b-lv4H-voiceIcon|3|2%||10px|
+|01.見出し|main|050_用途別の装飾見出し(お客様の声)|.t0-b-lv4H-voiceIcon|4|2%||10px|
 |01.見出し|main|051_用途別の装飾見出し(Q)|.t0-b-lv4H-qIcon||1%||10px|
 |01.見出し|main|051_用途別の装飾見出し(Q)|.t0-b-lv4H-qIcon|2|1%||10px|
 |01.見出し|main|052_用途別の装飾見出し(A)|.t0-b-lv4H-aIcon||1%||10px|
@@ -130,6 +134,7 @@
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg||4%||35px|
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|2|4%||35px|
 |06.ナビゲーション|side|133_サイドバナー|.t0-b-sideBanner||4%||35px|
+|06.ナビゲーション|side|133_サイドバナー|.t0-b-sideBanner|2|4%||35px|
 |06.ナビゲーション|side|147_サイドボックス誘導リンク|.t0-b-sideBoxNav||4%||20px|
 |06.ナビゲーション|side|148_サイドボックス誘導バナー|.t0-b-sideBoxNavB||4%||35px|
 |06.ナビゲーション|side|148_サイドボックス誘導バナー|.t0-b-sideBoxNavB|2|4%||35px|
