@@ -18,7 +18,7 @@ for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
   count=$(( count + 1 ))
   # 一括処理だとメモリが不足して以下のエラーが発生するため分割して実行
   # ./.circleci/build.sh: line 9:   999 Killed
-  if [ ${count} -eq 12 ] ; then
+  if [ ${count} -eq 8 ] ; then
     for ((i = 0; i < ${#pips[@]}; i++)) ; do
       wait ${pips[$i]}
       if [ $? -ne 0 ]; then
