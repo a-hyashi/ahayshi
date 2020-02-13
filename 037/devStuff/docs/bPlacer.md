@@ -208,6 +208,8 @@
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||25px|
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|2|0||20px|
+|12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs|3|0||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop||4%||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop|2|4%||20px|
 |12.その他|main|025_トップへ戻る|.t0-b-goToTop|3|4%||20px|
