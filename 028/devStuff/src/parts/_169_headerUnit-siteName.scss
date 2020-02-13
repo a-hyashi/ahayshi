@@ -1,0 +1,336 @@
+@if $device == PC {
+  // headerUnit-siteNameがお客さまに使われなくなった場合に消す
+  // headerUnit-siteName2が別要素としてあることで、headerUnit-siteNameのバリエーションが追加できなかったたため、headerUnit-siteTitleという別クラス名で定義し、バリエーション番号を末尾につけられるようにした。
+  // クラス名の統一性をとるため、メインエリアとフッターエリアのサイト名も同様の対応をしている。
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle {
+    white-space: nowrap;
+    color: $g-textColor;
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 55px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      color: $g-textColor;
+      text-decoration: none;
+      &:hover {
+        color: $g-hoverColor;
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-siteName {
+      @include g-font(36, 1);
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 10px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+    white-space: nowrap;
+    color: $g-textColor;
+    margin: 0 auto;
+    display: table;
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table;
+        text-align: center;
+      }
+    }
+
+    &__bd-logo {
+      margin: 0 auto;
+      img {
+        display: block;
+        height: 55px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      color: $g-textColor;
+      text-decoration: none;
+      &:hover {
+        color: $g-hoverColor;
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      padding-top: 10px;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-siteName {
+      @include g-font(36, 1);
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 10px 0 0;
+    }
+
+    .t0-b-headerCombi &,
+    .t0-b-headerCombi1 & {
+      margin: 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle,
+  .t0-b-headerUnit-siteTitle2 {
+    &__bd-note + &__bd-siteName {
+      @include g-font(28, 1);
+    }
+  }
+
+  // サイト名(中央)に入ったときは中央寄せにする
+  .t0-b-headerSingle,
+  .t0-b-headerSingle1 {
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle__bd,
+    .t0-b-headerUnit-siteTitle2__bd {
+      margin: 0 auto;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-siteName {
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 40px;
+        max-width: 80px;
+      }
+    }
+
+    a {
+      color: $g-textColor;
+      text-decoration: none;
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+      color: $g-textColor;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 10px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle {
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 40px;
+        max-width: 80px;
+      }
+    }
+
+    a {
+      color: $g-textColor;
+      text-decoration: none;
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+      color: $g-textColor;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 10px 0 0;
+      text-align: left;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+    margin: 0 auto;
+    display: table;
+    &--has-width {
+      white-space: normal;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table;
+        text-align: center;
+      }
+    }
+
+    &__bd-logo {
+      margin: 0 auto;
+      img {
+        display: block;
+        height: 40px;
+        max-width: 80px;
+      }
+    }
+
+    a {
+      color: $g-textColor;
+      text-decoration: none;
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      padding-top: 10px;
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__bd-siteName {
+      @include g-font-spacingKilled(18, 1);
+      color: $g-textColor;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 10px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle,
+  .t0-b-headerUnit-siteTitle2 {
+    &__bd-note + &__bd-siteName {
+      @include g-font(18, 1);
+    }
+  }
+
+  // サイト名(中央)に入ったときは中央寄せにする
+  .t0-b-headerSingle,
+  .t0-b-headerSingle1 {
+    .t0-b-headerUnit-siteName__bd,
+    .t0-b-headerUnit-siteTitle2__bd {
+      margin: 0 auto;
+    }
+  }
+}

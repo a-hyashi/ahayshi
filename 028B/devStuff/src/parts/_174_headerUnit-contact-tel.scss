@@ -1,0 +1,411 @@
+@if $device == PC {
+  .t0-b-headerUnit-contact-tel {
+    // 4種画像サイズ設定
+    // tel
+    $_tel_wd: 45px;
+    $_tel_hg: 37px;
+    // fax
+    $_fax_wd: 47px;
+    $_fax_hg: 31px;
+    // free
+    $_free_wd: 55px;
+    $_free_hg: 31px;
+    // cell
+    $_cell_wd: 22px;
+    $_cell_hg: 38px;
+    display: table;
+    white-space: nowrap;
+    $_block: &;
+    color: #572900;
+    &__ruby {
+      text-align: right;
+      @include g-font-spacingKilled(14, 1);
+      padding: 0 0 5px;
+      a {
+        color: inherit;
+        &:hover {
+          color: $g-hoverColor2;
+        }
+      }
+    }
+
+    &__bd {
+      display: flex;
+      @include g-font-spacingKilled(36, 1);
+      font-weight: bold;
+      font-family: "YuMincho", "游明朝", serif;
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+
+      line-height: 1;
+      #{$_block}__tel + span,
+      #{$_block}__fax + span,
+      #{$_block}__free + span,
+      #{$_block}__cell + span {
+        font-size: 80%;
+      }
+
+      > span {
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-position: center 0;
+        display: inline-block;
+        background-size: 100% 100%;
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(26, 1);
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        line-height: 1;
+      }
+
+      #{$_block}__tel {
+        width: $_tel_wd / 2.4;
+        height: $_tel_hg / 2.4;
+        margin-right: 5px;
+        margin-top: 1px;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+      }
+
+      #{$_block}__fax {
+        width: $_fax_wd / 2.4;
+        height: $_fax_hg / 2.4;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+        margin-right: 5px;
+        margin-top: 4px;
+        // IEハック
+        margin-top: 3px\0; /* stylelint-disable-line */
+      }
+
+      #{$_block}__free {
+        width: $_free_wd / 2.4;
+        height: $_free_hg / 2.4;
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+        margin-right: 5px;
+        margin-top: 4px;
+        // IEハック
+        margin-top: 3px\0; /* stylelint-disable-line */
+      }
+
+      #{$_block}__cell {
+        width: $_cell_wd / 2.4;
+        height: $_cell_hg / 2.4;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        margin-right: 5px;
+        margin-top: 2px;
+        // IEハック
+        margin-top: 1px\0; /* stylelint-disable-line */
+      }
+
+      #{$_block}__ruby {
+        @include g-font-spacingKilled(12, 1);
+      }
+
+      // Firefox用のアイコン配置指定
+      #{$_block}__tel, x:-moz-any-link {
+        margin-top: 3px;
+      }
+
+      #{$_block}__fax, x:-moz-any-link {
+        margin-top: 5px;
+      }
+
+      #{$_block}__free, x:-moz-any-link {
+        margin-top: 5px;
+      }
+
+      #{$_block}__cell, x:-moz-any-link {
+        margin-top: 3px;
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(38, 1);
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        line-height: 1;
+      }
+
+      #{$_block}__tel {
+        width: $_tel_wd / 1.6;
+        height: $_tel_hg / 1.6;
+        margin-right: 5px;
+        margin-top: 3px;
+        // IEハック
+        margin-top: 2px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+      }
+
+      #{$_block}__fax {
+        width: $_fax_wd / 1.6;
+        height: $_fax_hg / 1.6;
+        margin-right: 5px;
+        margin-top: 6px;
+        // IEハック
+        margin-top: 4px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+      }
+
+      #{$_block}__free {
+        width: $_free_wd / 1.6;
+        height: $_free_hg / 1.6;
+        margin-right: 5px;
+        margin-top: 6px;
+        // IEハック
+        margin-top: 4px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+      }
+
+      #{$_block}__cell {
+        width: $_cell_wd / 1.6;
+        height: $_cell_hg / 1.6;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        margin-right: 5px;
+        margin-top: 3px;
+        // IEハック
+        margin-top: 2px\0; /* stylelint-disable-line */
+      }
+
+      #{$_block}__ruby {
+        @include g-font-spacingKilled(16, 1);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(50, 1);
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        line-height: 1;
+      }
+
+      #{$_block}__tel {
+        width: $_tel_wd / 1.2;
+        height: $_tel_hg / 1.2;
+        margin-right: 5px;
+        margin-top: 3px;
+        // IEハック
+        margin-top: 1px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+      }
+
+      #{$_block}__fax {
+        width: $_fax_wd / 1.2;
+        height: $_fax_hg / 1.2;
+        margin-right: 5px;
+        margin-top: 6px;
+        // IEハック
+        margin-top: 4px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+      }
+
+      #{$_block}__free {
+        width: $_free_wd / 1.2;
+        height: $_free_hg / 1.2;
+        margin-right: 5px;
+        margin-top: 7px;
+        // IEハック
+        margin-top: 5px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+      }
+
+      #{$_block}__cell {
+        width: $_cell_wd / 1.2;
+        height: $_cell_hg / 1.2;
+        margin-right: 5px;
+        margin-top: 2px;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+      }
+
+      #{$_block}__ruby {
+        @include g-font-spacingKilled(20, 1);
+      }
+
+      // Firefox用のアイコン配置指定
+      #{$_block}__tel, x:-moz-any-link {
+        margin-top: 4px;
+      }
+
+      #{$_block}__fax, x:-moz-any-link {
+        margin-top: 8px;
+      }
+
+      #{$_block}__free, x:-moz-any-link {
+        margin-top: 8px;
+      }
+
+      #{$_block}__cell, x:-moz-any-link {
+        margin-top: 4px;
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__bd {
+        @include g-font-spacingKilled(62, 1);
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        line-height: 1;
+      }
+
+      #{$_block}__tel {
+        width: $_tel_wd;
+        height: $_tel_hg;
+        margin-right: 5px;
+        margin-top: 4px;
+        // IEハック
+        margin-top: 2px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+      }
+
+      #{$_block}__fax {
+        width: $_fax_wd;
+        height: $_fax_hg;
+        margin-right: 5px;
+        margin-top: 9px;
+        // IEハック
+        margin-top: 6px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+      }
+
+      #{$_block}__free {
+        width: $_free_wd;
+        height: $_free_hg;
+        margin-right: 5px;
+        margin-top: 10px;
+        // IEハック
+        margin-top: 6px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+      }
+
+      #{$_block}__cell {
+        width: $_cell_wd;
+        height: $_cell_hg;
+        margin-right: 5px;
+        margin-top: 5px;
+        // IEハック
+        margin-top: 3px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+      }
+
+      #{$_block}__ruby {
+        @include g-font-spacingKilled(24, 1);
+      }
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    .t0-b-headerSingle &,
+    .t0-b-headerSingle1 & {
+      margin: 0 auto;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-contact-tel {
+    // 4種画像サイズ設定
+    // tel
+    $_tel_wd: 40px;
+    $_tel_hg: 32px;
+    // fax
+    $_fax_wd: 44px;
+    $_fax_hg: 23px;
+    // free
+    $_free_wd: 51px;
+    $_free_hg: 29px;
+    // cell
+    $_cell_wd: 23px;
+    $_cell_hg: 40px;
+    width: 95%;
+    margin: 0 auto;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 0;
+    word-break: break-all;
+    $_block: &;
+    > div {
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__ruby {
+      text-align: center;
+    }
+
+    &__bd {
+      text-align: center;
+      color: #f00;
+      > span {
+        vertical-align: middle;
+        display: inline-block;
+        background-size: 100% 100%;
+        margin-right: 3px;
+      }
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4 {
+      #{$_block}__ruby {
+        @include g-font(12, 1);
+      }
+
+      #{$_block}__bd {
+        @include g-font(14, 1);
+      }
+
+      #{$_block}__tel {
+        width: $_tel_wd / 2;
+        height: $_tel_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+        margin-top: -3px;
+      }
+
+      #{$_block}__fax {
+        width: $_fax_wd / 2;
+        height: $_fax_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+        margin-top: -2px;
+      }
+
+      #{$_block}__free {
+        width: $_free_wd / 2;
+        height: $_free_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+        margin-top: -2px;
+      }
+
+      #{$_block}__cell {
+        width: $_cell_wd / 2;
+        height: $_cell_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        margin-top: -3px;
+      }
+    }
+  }
+}

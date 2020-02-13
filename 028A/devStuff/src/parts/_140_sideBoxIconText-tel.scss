@@ -1,0 +1,261 @@
+@if $device == PC {
+  .t0-b-sideBoxIconText-tel {
+    $_block: &;
+    color: #11245c;
+    a {
+      color: inherit;
+      &:hover {
+        color: $g-hoverColor2;
+      }
+    }
+
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__ruby {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    &__bd {
+      text-align: center;
+      font-weight: bold;
+      font-family: "游明朝", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+
+    #{$_block}__bd {
+      margin-top: 7px;
+      text-align: left;
+      span {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+
+      #{$_block}__icon {
+        margin-bottom: 0;
+      }
+
+      #{$_block}__icon + span {
+        display: inline;
+      }
+    }
+
+    #{$_block}__ruby + #{$_block}__bd {
+      margin-top: 0;
+    }
+
+    &--size-1 {
+      #{$_block}__ruby {
+        @include g-font-spacingKilled(14, 1);
+        margin-bottom: 5px;
+      }
+
+      #{$_block}__bd {
+        @include g-font-spacingKilled(26, 1);
+        line-height: 1;
+        span {
+          font-size: 93% \0;
+        }
+
+        #{$_block}__icon + span {
+          font-size: 80%;
+          // IEハック
+          font-size: 74% \0; /* stylelint-disable-line */
+          vertical-align: top;
+          display: inline-block;
+          padding-top: 1px;
+        }
+      }
+
+      #{$_block}__icon {
+        margin: 0 2px 0 0;
+      }
+
+      #{$_block}__tel {
+        background-size: (45px / 1.8) (37px / 1.8);
+        // IEハック
+        background-size: 23px 18px\0; /* stylelint-disable-line */
+        width: (55px / 1.8);
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
+        height: (37px / 1.8);
+        // IEハック
+        height: 18px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+        margin-top: -14px;
+        // IEハック
+        margin-top: -12px\0; /* stylelint-disable-line */
+      }
+
+      #{$_block}__fax {
+        background-size: (47px / 1.8) (31px / 1.8);
+        // IEハック
+        background-size: 25px 14px\0; /* stylelint-disable-line */
+        width: (55px / 1.8);
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
+        height: (31px / 1.8);
+        // IEハック
+        height: 14px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+        margin-top: -11px;
+        // IEハック
+        margin-top: -10px\0; /* stylelint-disable-line */
+      }
+
+      #{$_block}__free {
+        background-size: (55px / 1.8) (31px / 1.8);
+        // IEハック
+        background-size: 25px 15px\0; /* stylelint-disable-line */
+        width: (55px / 1.8);
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
+        height: (31px / 1.8);
+        // IEハック
+        height: 15px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+        margin-top: -11px;
+        // IEハック
+        margin-top: -10px\0; /* stylelint-disable-line */
+      }
+
+      #{$_block}__cell {
+        background-size: (22px / 1.8) (38px / 1.8);
+        // IEハック
+        background-size: 12px 21px\0; /* stylelint-disable-line */
+        width: (55px / 1.8);
+        // IEハック
+        width: 27px\0; /* stylelint-disable-line */
+        height: (38px / 1.8);
+        // IEハック
+        height: 21px\0; /* stylelint-disable-line */
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        background-position: 7px center;
+        margin-top: -11px;
+      }
+
+      // Firefox用のアイコン配置指定
+      #{$_block}__fax, x:-moz-any-link {
+        margin-top: -12px;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideBoxIconText-tel {
+    // 電話番号4種画像サイズ設定
+    // tel
+    $_tel_wd: 40px;
+    $_tel_hg: 32px;
+    // fax
+    $_fax_wd: 44px;
+    $_fax_hg: 23px;
+    // free
+    $_free_wd: 51px;
+    $_free_hg: 29px;
+    // cell
+    $_cell_wd: 23px;
+    $_cell_hg: 40px;
+    width: 95%;
+    margin: 0 auto;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #f6f6f6), to(#eee)) left top repeat;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 0;
+    word-break: break-all;
+    $_block: &;
+    > div {
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__ruby {
+      text-align: center;
+    }
+
+    &__bd {
+      text-align: center;
+      color: #f00;
+      > span {
+        vertical-align: middle;
+      }
+    }
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    &--size-1,
+    &--size-2,
+    &--size-3,
+    &--size-4,
+    &--size-5 {
+      #{$_block}__ruby {
+        @include g-font(12, 1);
+      }
+
+      #{$_block}__bd {
+        @include g-font(14, 1);
+      }
+
+      #{$_block}__icon {
+        background-size: 100% 100%;
+        margin-right: 3px;
+        background-repeat: no-repeat;
+      }
+
+      #{$_block}__tel {
+        width: $_tel_wd / 2;
+        height: $_tel_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/tel/1.png");
+        margin-top: -3px;
+      }
+
+      #{$_block}__fax {
+        width: $_fax_wd / 2;
+        height: $_fax_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/fax/1.png");
+        margin-top: -2px;
+      }
+
+      #{$_block}__free {
+        width: $_free_wd / 2;
+        height: $_free_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/free/1.png");
+        margin-top: -2px;
+      }
+
+      #{$_block}__cell {
+        width: $_cell_wd / 2;
+        height: $_cell_hg / 2;
+        background-image: url("../imgs/t0-b-iconText/icons/cell/1.png");
+        margin-top: -3px;
+      }
+    }
+  }
+}

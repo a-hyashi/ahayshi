@@ -1,0 +1,111 @@
+@if $device == PC {
+  .t0-b-footerMenuWithCp {
+    margin: 0 auto;
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(1, 0, 1, .5) 0%, rgba(79, 20, 44, .5) 100%);
+    > div {
+      display: table;
+      width: 1110px;
+      padding: 5px 0;
+      margin: 0 auto;
+    }
+
+    p {
+      display: table-cell;
+      @include g-font-spacingKilled(12, 1);
+      padding: 0 0 0 13px;
+      font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    }
+
+    &__menu {
+      display: table-cell;
+      ul {
+        text-align: right;
+        padding-right: 13px;
+      }
+
+      li {
+        display: inline-block;
+        margin: 5px 0;
+        @include g-font-spacingKilled(12, 1);
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        &:hover {
+          text-decoration: underline;
+          color: #fff;
+        }
+      }
+
+      div {
+        padding: 0 5px;
+        border-left: 1px solid #fff;
+        color: #fff;
+      }
+
+      ul > li:first-child > div,
+      ul > li:first-child > a > div {
+        border-left: none;
+      }
+    }
+
+    .state-em {
+      background-color: #8f1400;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerMenuWithCp {
+    @include g-font-spacingKilled(12, 1);
+    color: #fff;
+    margin: 0 -15px;
+    text-align: center;
+    > div {
+      background: linear-gradient(to bottom, rgba(1, 0, 1, .5) 0%, rgba(79, 20, 44, .5) 100%);
+      display: table;
+      width: 100%;
+    }
+
+    p {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      padding: 0 0 5px;
+      background: linear-gradient(to bottom, rgba(1, 0, 1, .5) 0%, rgba(79, 20, 44, .5) 100%);
+      color: #fff;
+      border: 1px solid rgba(1, 0, 1, .5);
+      border-top: none;
+      box-sizing: border-box;
+    }
+
+    &__menu {
+      display: table-header-group;
+      a {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      ul {
+        padding: 5px 10px;
+        border: 1px solid rgba(1, 0, 1, .5);
+        border-bottom: none;
+      }
+
+      li {
+        &:first-child {
+          margin-left: 0;
+        }
+
+        margin-left: 15px;
+        display: inline-block;
+        text-align: left;
+        padding: 5px 0;
+        color: #fff;
+        text-decoration: underline;
+      }
+    }
+  }
+}

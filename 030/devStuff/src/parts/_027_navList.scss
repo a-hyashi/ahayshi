@@ -1,0 +1,411 @@
+@if $device == PC {
+  .t0-b-navList,
+  .t0-b-navList2 {
+    @include g-rteTableReset();
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #6e6e77;
+    $_color_table_th_bg: #152232;
+    $_color_table_td_typo: $g-textColor;
+    a {
+      color: $g-textColor;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    p {
+      @include g-font(16, 2);
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      padding: 0 0 0 2.5em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+
+      th, td {
+        @include g-font(14, 1);
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 6px;
+        text-align: left;
+        vertical-align: middle;
+        background: #fff;
+        a {
+          &:hover, &:hover * {
+            color: $g-hoverColor;
+          }
+        }
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th * {
+        color: #fff;
+      }
+
+      td * {
+        color: #210a0a;
+      }
+
+      th {
+        color: #fff;
+        font-family: $mincho;
+        border-bottom: 1px solid $_color_table_border;
+        background: $_color_table_th_bg;
+      }
+
+      td {
+        color: #210a0a;
+        font-weight: bold;
+        background-color: #c1c1c1;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .t0-b-navList {
+    padding: 20px 15px;
+    border: 1px solid #303030;
+    background-color: #061221;
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    ul {
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: 6px;
+      }
+
+      li {
+        @include g-font(16, 1);
+        margin: 6px 0 0;
+        background: url("../imgs/t0-b-navList/bg.png") 0 7px no-repeat;
+        padding: 0 0 0 18px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      ul {
+        li {
+          background: url("../imgs/t0-b-navList/bg.png") 0 5px no-repeat;
+          padding: 0 0 0 15px;
+          list-style-type: none;
+        }
+      }
+    }
+  }
+
+  .t0-b-navList2 {
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    ul {
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: 15px;
+      }
+
+      li {
+        @include g-font(18, 1);
+        margin: 15px 0 0;
+        background: url("../imgs/t0-b-navList/bg2.png") 0 0 no-repeat;
+        padding: 5px 0 10px 45px;
+        min-height: 32px;
+        color: #fff;
+        box-sizing: border-box;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      ul {
+        li {
+          padding: 6px 0 0 35px;
+          background-size: 25px 25px;
+        }
+      }
+    }
+
+    > ul > li {
+      background: url("../imgs/t0-b-navList/bg2.png") 0 0 no-repeat, url("../imgs/t0-b-navList/bg3.png") 0 bottom repeat-x;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-navList,
+  .t0-b-navList2 {
+    @include g-rteTableReset();
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_color_table_border: #6e6e77;
+    $_color_table_th_bg: #152232;
+    $_color_table_td_typo: $g-textColor;
+    a {
+      color: $g-textColor;
+    }
+
+    p {
+      @include g-font(16, 2);
+      margin-top: 1em;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    ol {
+      padding: 0 0 0 2em;
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: $_elementSpacing;
+      }
+
+      li {
+        @include g-font(16, 1);
+        list-style-type: decimal;
+        margin-top: $_elementSpacing;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: $_blockSpacing;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        &:last-child {
+          border-bottom: 1px solid $_color_table_border;
+        }
+      }
+
+      th, td {
+        @include g-font(14, 1);
+        border-top: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        padding: 3% 1%;
+        text-align: left;
+        vertical-align: middle;
+        background: #fff;
+      }
+
+      ul, ol {
+        font-size: $g-fontSize;
+        li {
+          @include g-font(14, 1);
+        }
+      }
+
+      p {
+        @include g-font(14, 1);
+      }
+
+      th * {
+        color: #fff;
+      }
+
+      td * {
+        color: #210a0a;
+      }
+
+      th {
+        color: #fff;
+        font-family: $mincho;
+        border-bottom: 1px solid $_color_table_border;
+        background: $_color_table_th_bg;
+      }
+
+      td {
+        color: #210a0a;
+        font-weight: bold;
+      }
+    }
+
+    > table:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .t0-b-navList {
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    border: 1px solid #303030;
+    background-color: #061221;
+    padding: 15px 20px;
+    ul {
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: 6px;
+      }
+
+      li {
+        @include g-font(16, 1);
+        margin: 6px 0 0;
+        background: url("../imgs/t0-b-navList/bg.png") 0 7px no-repeat;
+        padding: 0 0 0 18px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      ul {
+        li {
+          background: url("../imgs/t0-b-navList/bg.png") 0 5px no-repeat;
+          padding: 0 0 0 15px;
+        }
+      }
+    }
+  }
+
+  .t0-b-navList2 {
+    $_blockSpacing: #{$g-spacingBaseLength * 3}px;
+    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    ul {
+      margin-top: $_blockSpacing;
+      font-size: $g-fontSize;
+      ul, ol {
+        margin-top: 15px;
+      }
+
+      li {
+        @include g-font(16, 1);
+        margin: 15px 0 0;
+        background: url("../imgs/t0-b-navList/bg2.png") 0 0 no-repeat;
+        background-size: 24px 24px;
+        padding: 3px 0 0 35px;
+        color: #fff;
+        min-height: 32px;
+        box-sizing: border-box;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        // IEのlist-item疑似要素のバグ対応
+        &::before, &::after {
+          width: 100%;
+          float: left;
+          display: none;
+        }
+      }
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    table {
+      ul {
+        li {
+          padding: 6px 0 0 35px;
+        }
+      }
+    }
+  }
+}
