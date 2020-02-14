@@ -8,7 +8,6 @@
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
     display: table;
-    width: 100%;
     &--width-l {
       width: 100%;
     }
@@ -23,85 +22,70 @@
 
     &--align-l {
       margin-right: auto;
+      text-align: left;
     }
 
     &--align-c {
       margin: 0 auto;
+      text-align: center;
     }
 
     &--align-r {
       margin-left: auto;
+      text-align: right;
+    }
+
+    > a {
+      display: block;
     }
 
     &__inner {
-      @include g-font($_fontSize);
-      position: relative;
-      padding: 7px 19px 7px 29px;
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
-        width: 10px;
-        height: 16px;
-        background-image: url("https://placehold.jp/10x16.png");
-        background-size: contain;
-      }
-    }
-
-    a {
-      &:hover {
-        #{$_block}__inner {
+      display: table;
+      width: 100%;
+      > span {
+        display: table-cell;
+        #{$_block}--size-1 & {
           //
-          &::before {
-            //
-          }
+        }
+
+        #{$_block}--size-2 & {
+          //
+        }
+
+        #{$_block}--size-3 & {
+          //
+        }
+
+        #{$_block}--size-4 & {
+          //
+        }
+
+        #{$_block}--size-5 & {
+          //
         }
       }
-    }
 
-    &--size-1 {
-      #{$_block}__inner {
-        padding: 4px 19px 4px 29px;
-        @include g-font($_fontSize_ss);
-        &::before {
-          width: 5px;
-          height: 8px;
+      > div {
+        @include g-font($_fontSize);
+        display: table-cell;
+        #{$_block}--size-1 & {
+          @include g-font($_fontSize_ss);
         }
-      }
-    }
 
-    &--size-2 {
-      #{$_block}__inner {
-        padding: 5px 19px 5px 29px;
-        @include g-font($_fontSize_s);
-        &::before {
-          width: 7px;
-          height: 12px;
+        #{$_block}--size-2 & {
+          @include g-font($_fontSize_s);
         }
-      }
-    }
 
-    &--size-4 {
-      #{$_block}__inner {
-        padding: 6px 19px 6px 29px;
-        @include g-font($_fontSize_l);
-        &::before {
-          width: 9px;
-          height: 15px;
+        #{$_block}--size-3 & {
+          @include g-font($_fontSize);
         }
-      }
-    }
 
-    &--size-5 {
-      #{$_block}__inner {
-        padding: 7px 19px 7px 29px;
-        @include g-font($_fontSize_ll);
-        &::before {
-          width: 10px;
-          height: 16px;
+        #{$_block}--size-4 & {
+          @include g-font($_fontSize_l);
+        }
+
+        #{$_block}--size-5 & {
+          @include g-font($_fontSize_ll);
         }
       }
     }
@@ -123,25 +107,16 @@
   .t0-b-navItem {
     $_fontSize: 16;
     display: table;
-    width: 100%;
     &__inner {
-      @include g-font($_fontSize);
-      position: relative;
-      padding: 12px 30px 12px 15px;
-      text-align: center;
-      width: 95%;
-      margin: 0 auto;
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        width: 10px;
-        height: 16px;
-        background-image: url("https://placehold.jp/10x16.png");
-        background-size: contain;
+      display: table;
+      width: 100%;
+      > span {
+        display: table-cell;
+      }
+
+      > div {
+        @include g-font($_fontSize);
+        display: table-cell;
       }
     }
   }
