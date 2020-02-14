@@ -1,0 +1,109 @@
+@if $device == PC {
+  .t0-b-sideNavItem {
+    display: inline-block;
+    font-weight: bold;
+    > a {
+      display: block;
+      box-sizing: border-box;
+      color: #52400a;
+      text-decoration: none;
+      > div > div {
+        &:hover {
+          color: #aea928;
+        }
+      }
+    }
+
+    div {
+      display: block;
+      box-sizing: border-box;
+      color: #52400a;
+      text-decoration: none;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      > div {
+        color: #52400a;
+        text-decoration: underline;
+        @include g-font-spacingKilled(16, 1);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    > a > div > span, > div > span {
+      &::before {
+        content: "→";
+        display: block;
+        line-height: 1;
+        padding: 2px 3px 0 0;
+        color: #aea928;
+        @include g-font-spacingKilled(20, 1);
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideNavItem {
+    display: table;
+    margin: 0 auto;
+    > a {
+      display: block;
+      box-sizing: border-box;
+      color: #52400a;
+      text-decoration: none;
+      > div > div {
+        &:hover {
+          color: #aea928;
+        }
+      }
+
+      > div > span {
+        &::before {
+          content: "→";
+          display: block;
+          line-height: 1;
+          padding: 2px 3px 0 0;
+          color: #aea928;
+          @include g-font-spacingKilled(16, 1);
+        }
+      }
+    }
+
+    div {
+      display: block;
+      box-sizing: border-box;
+      @include g-font-spacingKilled(16, 1);
+      color: #52400a;
+      text-decoration: none;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      > div {
+        color: #52400a;
+        @include g-font-spacingKilled(16, 1);
+        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    > div > span {
+      &::before {
+        content: "→";
+        display: block;
+        line-height: 1;
+        padding: 2px 3px 0 0;
+        color: #aea928;
+        @include g-font-spacingKilled(16, 1);
+      }
+    }
+  }
+}
