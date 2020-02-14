@@ -1,47 +1,41 @@
 @if $device == PC {
   .t0-b-footerUnit-navB {
-    white-space: nowrap;
+    $_block: &;
     &__item {
-      display: table-cell;
-      padding: 0 0 0 20px;
-      &:first-child {
-        padding-left: 0;
-      }
-
-      div {
+      display: inline-block;
+      position: relative;
+      p {
         @include g-font(16);
-        a {
+        padding: 4px 10px 4px 20px;
+        color: $footerUnit-navB-textColor;
+        background-color: $footerUnit-navB-BGColor;
+        min-height: 10px;
+        white-space: nowrap;
+        &::before {
+          content: "";
           display: block;
-          &:hover {
-            opacity: .8;
-          }
-
-          p {
-            display: block;
-          }
+          position: absolute;
+          top: 50%;
+          left: 8px;
+          transform: translateY(-50%);
+          width: 6px;
+          height: 10px;
+          background-image: url("https://placehold.jp/6x10.png");
+          background-size: contain;
         }
       }
-    }
-  }
 
-  .t0-b-footerUnit-navB2 {
-    white-space: nowrap;
-    &__item {
-      display: table-cell;
-      padding: 0 0 0 20px;
-      &:first-child {
-        padding-left: 0;
+      & + & {
+        margin-left: 15px;
       }
+    }
 
-      div {
-        @include g-font(16);
-        a {
-          &:hover {
-            opacity: .8;
-          }
-
-          p {
-            display: block;
+    a:hover {
+      #{$_block}__item {
+        p {
+          //
+          &::before {
+            //
           }
         }
       }
@@ -54,60 +48,30 @@
     width: 95%;
     margin: 0 auto;
     &__item {
-      margin-top: 10px;
-      font-weight: bold;
-      &:first-child {
-        margin-top: 0;
-      }
-
-      a {
-        p {
-          @include g-font(16);
+      position: relative;
+      p {
+        @include g-font(16);
+        padding: 13px 25px;
+        color: $footerUnit-navB-textColor;
+        background-color: $footerUnit-navB-BGColor;
+        min-height: 16px;
+        text-align: center;
+        &::before {
+          content: "";
           display: block;
-          padding: 12px 10px;
-          margin-right: 10%;
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+          width: 10px;
+          height: 15px;
+          background-image: url("https://placehold.jp/10x15.png");
+          background-size: contain;
         }
       }
 
-      div {
-        > p {
-          @include g-font(16);
-          display: block;
-          padding: 12px 10px;
-          margin-right: 10%;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-
-  .t0-b-footerUnit-navB2 {
-    width: 95%;
-    margin: 0 auto;
-    &__item {
-      margin-top: 10px;
-      font-weight: bold;
-      &:first-child {
-        margin-top: 0;
-      }
-
-      a {
-        p {
-          @include g-font(16);
-          display: block;
-          padding: 12px 10px;
-          margin-right: 10%;
-        }
-      }
-
-      div {
-        > p {
-          @include g-font(16);
-          display: block;
-          padding: 12px 10px;
-          margin-right: 10%;
-          text-decoration: none;
-        }
+      & + & {
+        margin-top: 10px;
       }
     }
   }
