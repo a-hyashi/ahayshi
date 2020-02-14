@@ -1,6 +1,28 @@
 @if $device == PC {
   .t0-b-navBItem {
     $_block: &;
+    width: 100%;
+    &__inner {
+      @include g-font(18);
+      position: relative;
+      padding: 7px 19px 7px 29px;
+      color: $navBItem-textColor;
+      background-color: $navBItem-BGColor;
+      min-height: 16px;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 16px;
+        background-image: url("https://placehold.jp/10x16.png");
+        background-size: contain;
+      }
+    }
+
     &--align-l {
       margin-right: auto;
     }
@@ -26,139 +48,57 @@
     }
 
     a {
-      display: block;
       &:hover {
-        opacity: .8;
+        //
       }
     }
 
-    &__inner {
-      display: table;
-      width: 100%;
-    }
-
     &--size-1 {
-      @include g-font(14);
       #{$_block}__inner {
-        //
+        @include g-font(14);
+        padding: 4px 19px 4px 29px;
+        &::before {
+          width: 5px;
+          height: 8px;
+        }
       }
     }
 
     &--size-2 {
-      @include g-font(16);
       #{$_block}__inner {
-        //
-      }
-    }
-
-    &--size-3 {
-      @include g-font(18);
-      #{$_block}__inner {
-        //
-      }
-    }
-
-    &--size-4 {
-      @include g-font(20);
-      #{$_block}__inner {
-        //
-      }
-    }
-
-    &--size-5 {
-      @include g-font(24);
-      #{$_block}__inner {
-        //
-      }
-    }
-  }
-
-  .t0-b-navBItem2 {
-    $_block: &;
-    &--align-l {
-      margin-right: auto;
-    }
-
-    &--align-c {
-      margin: 0 auto;
-    }
-
-    &--align-r {
-      margin-left: auto;
-    }
-
-    &--width-l {
-      width: 100%;
-    }
-
-    &--width-m {
-      width: 75%;
-    }
-
-    &--width-s {
-      width: 50%;
-    }
-
-    a {
-      display: block;
-      &:hover {
-        opacity: .8;
-      }
-    }
-
-    &__inner {
-      display: table;
-      width: 100%;
-    }
-
-    &--size-1 {
-      @include g-font(14);
-      #{$_block}__inner {
-        //
-      }
-    }
-
-    &--size-2 {
-      @include g-font(16);
-      #{$_block}__inner {
-        //
-      }
-    }
-
-    &--size-3 {
-      @include g-font(18);
-      #{$_block}__inner {
-        //
+        @include g-font(16);
+        padding: 5px 19px 5px 29px;
+        &::before {
+          width: 7px;
+          height: 12px;
+        }
       }
     }
 
     &--size-4 {
-      @include g-font(20);
       #{$_block}__inner {
-        //
+        @include g-font(20);
+        padding: 6px 19px 6px 29px;
+        &::before {
+          width: 9px;
+          height: 15px;
+        }
       }
     }
 
     &--size-5 {
-      @include g-font(24);
       #{$_block}__inner {
-        //
+        @include g-font(24);
+        padding: 7px 19px 7px 29px;
+        &::before {
+          width: 10px;
+          height: 16px;
+        }
       }
     }
   }
 
   .t0-b-navBItemDouble {
-    display: flex;
-    &__layout {
-      flex: 1 1 50%;
-      padding-left: 4%;
-      &:first-child {
-        padding-left: 0;
-      }
-    }
-  }
-
-  .t0-b-navBItemDouble2 {
     display: flex;
     &__layout {
       flex: 1 1 50%;
@@ -172,35 +112,32 @@
 
 @if $device == SP {
   .t0-b-navBItem {
-    @include g-font(16);
-    width: 95%;
-    margin: 0 auto;
+    width: 100%;
     &__inner {
-      padding: 12px 10px;
-      margin-right: 10%;
-    }
-  }
-
-  .t0-b-navBItem2 {
-    @include g-font(16);
-    width: 95%;
-    margin: 0 auto;
-    &__inner {
-      padding: 12px 10px;
-      margin-right: 10%;
-    }
-  }
-
-  .t0-b-navBItemDouble {
-    &__layout {
-      padding-bottom: 10px;
-      &:last-child {
-        padding-bottom: 0;
+      @include g-font(16);
+      position: relative;
+      padding: 12px 30px 12px 15px;
+      text-align: center;
+      width: 95%;
+      margin: 0 auto;
+      color: $navBItem-textColor;
+      background-color: $navBItem-BGColor;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 16px;
+        background-image: url("https://placehold.jp/10x16.png");
+        background-size: contain;
       }
     }
   }
 
-  .t0-b-navBItemDouble2 {
+  .t0-b-navBItemDouble {
     &__layout {
       padding-bottom: 10px;
       &:last-child {

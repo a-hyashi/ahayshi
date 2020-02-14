@@ -101,9 +101,7 @@
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg||4%||35px|
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImgDouble||2%||10px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem||4%||25px|
-|06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem|2|4%||25px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble||2%||25px|
-|06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItemDouble|2|2%||25px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned||4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptioned|2|4%||35px|
 |06.ナビゲーション|main|063_誘導バナー（補足付）|.t0-b-navBItemCaptionedDouble||2%||10px|
