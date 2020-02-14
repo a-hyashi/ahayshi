@@ -33,7 +33,9 @@
 |01.見出し|main|061_装飾見出し(大)|.t0-b-lv4HBig||2%||10px|
 |01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H||4%||10px|
 |01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|2|4%||10px|
+|01.見出し|side|135_サイドボックス中見出し|.t0-b-sideBoxLv1H|3|4%||10px|
 |01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H||2%||10px|
+|01.見出し|side|136_サイドボックス小見出し|.t0-b-sideBoxLv2H|2|2%||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH||0||10px|
 |01.見出し|header|163_ページ見出し - ヘッダエリア用|.t0-b-lv1H-pageH|2|0||10px|
 |01.見出し|footer|198_フッター要素見出し|.t0-b-footerUnit-lv2H||3%||10px|
