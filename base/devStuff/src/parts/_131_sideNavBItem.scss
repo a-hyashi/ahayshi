@@ -1,52 +1,30 @@
 @if $device == PC {
   .t0-b-sideNavBItem {
-    a {
-      display: block;
-      &:hover {
-        opacity: .8;
-      }
-    }
-
+    $_block: &;
     &__inner {
-      display: table;
-      width: 100%;
-      padding: 7px 10px 6px 0;
-      text-decoration: none;
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-      > div {
-        @include g-font(16);
-        display: table-cell;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .t0-b-sideNavBItem2 {
-    a {
-      display: block;
-      &:hover {
-        opacity: .8;
+      @include g-font(16);
+      position: relative;
+      padding: 6px 19px 5px 29px;
+      color: $sideNavBItem-textColor;
+      background-color: $sideNavBItem-BGColor;
+      min-height: 14px;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 14px;
+        background-image: url("https://placehold.jp/8x14.png");
+        background-size: contain;
       }
     }
 
-    &__inner {
-      display: table;
-      width: 100%;
-      padding: 7px 10px 6px 0;
-      text-decoration: none;
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-      > div {
-        @include g-font(16);
-        display: table-cell;
-        vertical-align: middle;
+    a:hover {
+      #{$_block}__inner {
+        //
       }
     }
   }
@@ -57,24 +35,22 @@
     width: 95%;
     margin: 0 auto;
     &__inner {
-      > div {
-        @include g-font(16);
-        min-height: 20px;
-        padding: 12px 10px;
-        margin-right: 10px;
-      }
-    }
-  }
-
-  .t0-b-sideNavBItem2 {
-    width: 95%;
-    margin: 0 auto;
-    &__inner {
-      > div {
-        @include g-font(16);
-        min-height: 20px;
-        padding: 12px 10px;
-        margin-right: 10px;
+      @include g-font(16);
+      position: relative;
+      padding: 12px 30px 12px 15px;
+      color: $sideNavBItem-textColor;
+      background-color: $sideNavBItem-BGColor;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 15px;
+        background-image: url("https://placehold.jp/10x15.png");
+        background-size: contain;
       }
     }
   }
