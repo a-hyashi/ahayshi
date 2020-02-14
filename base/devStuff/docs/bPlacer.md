@@ -115,7 +115,6 @@
 |06.ナビゲーション|side|148_サイドボックス誘導バナー|.t0-b-sideBoxNavB|2|4%||35px|
 |06.ナビゲーション|header|171_ヘッダー誘導リンク|.t0-b-headerUnit-contact-nav||2%||15px|
 |06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB||2%||15px|
-|06.ナビゲーション|header|172_ヘッダー誘導バナー|.t0-b-headerUnit-contact-navB|2|2%||15px|
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav||4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB||4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB|2|4%||15px|
