@@ -1,5 +1,11 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of2} {
+    $_fontSize: 28;
+    $_lineHeight: 1.6;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     margin: 0 auto;
     margin-bottom: 10px;
     color: #594e4a;
@@ -7,6 +13,7 @@
     background: url("../imgs/t0-b-lv2H/1/bg.png");
     padding: 10px 0;
     text-align: center;
+
     > div {
       background-repeat: repeat;
       background: url("../imgs/t0-b-lv2H/1/bg.png");
@@ -26,7 +33,21 @@
     h2 {
       background: #fff;
       padding: 30px 10px;
-      @include g-font-spacingKilled(28, 2);
+      @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &--size-1 {
+      h2 {
+        padding: 30px * .8 10px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        padding: 30px * 1.2 10px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
@@ -43,12 +64,19 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_fontSize: 24;
+    $_lineHeight: 1.6;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     margin: 0 auto;
     margin-bottom: 10px;
     color: #594c43;
     background-color: #f4dadd;
     padding: 10px 0;
     text-align: center;
+
     > div {
       background-color: #f4dadd;
       padding: 0 10px;
@@ -67,7 +95,21 @@
     h2 {
       background: #fff;
       padding: 30px 10px;
-      @include g-font-spacingKilled(24, 2);
+      @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &--size-1 {
+      h2 {
+        padding: 30px * .8 10px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        padding: 30px * 1.2 10px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {

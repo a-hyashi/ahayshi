@@ -1,5 +1,12 @@
 @if $device == PC {
   .t0-b-lv3H#{$variation1of2} {
+    $_block: &;
+    $_fontSize: 20;
+    $_lineHeight: 1.25;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     color: #594b48;
     line-height: 0;
     > div {
@@ -28,8 +35,34 @@
 
     h3 {
       padding-left: 12px;
-      @include g-font(20, 1);
+      @include g-font($_fontSize, $_lineHeight);
       font-weight: bold;
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 40px * .8;
+        height: 40px * .8;
+        background-size: 40px * .8 40px * .8;
+      }
+
+      h3 {
+        padding-left: 12px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 40px * 1.2;
+        height: 40px * 1.2;
+        background-size: 40px * 1.2 40px * 1.2;
+      }
+
+      h3 {
+        padding-left: 12px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
@@ -54,6 +87,12 @@
   }
 
   .t0-b-lv3H#{$variation2of2} {
+    $_fontSize: 24;
+    $_lineHeight: 1.25;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     padding: 12px 20px;
     position: relative;
     background: #f6d9de;
@@ -62,6 +101,19 @@
       @include g-font(24, 1);
       font-weight: bold;
     }
+
+    &--size-1 {
+      h3 {
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      h3 {
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
+    }
+
 
     &--align-l {
       text-align: left;
