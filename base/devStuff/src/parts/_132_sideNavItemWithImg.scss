@@ -1,142 +1,53 @@
 @if $device == PC {
   .t0-b-sideNavItemWithImg {
     $_block: &;
-    a {
-      display: block;
-      &:hover {
-        color: inherit;
-        opacity: .8;
-      }
-    }
-
+    color: $sideNavItemWithImg_textColor;
     &__inner {
-      display: table;
-      width: 100%;
-      height: 100%;
-      padding: 1px 0;
-      table-layout: fixed;
-    }
-
-    &__img {
-      display: table-cell;
-      padding: 0 10px 0 0;
-      text-align: center;
-      vertical-align: middle;
-      img {
+      border: 1px solid $sideNavItemWithImg_borderColor;
+      display: flex;
+      align-items: center;
+      > span {
+        flex: 0 1 20px;
+        order: 1;
         display: block;
-        width: 75px;
-        height: 75px;
-        margin: -1px 0;
+        width: 100%;
+        height: 20px;
+        background-image: url("https://placehold.jp/20x20.png");
+        background-size: contain;
+        margin: 0 0 0 8px;
       }
     }
 
     &__text {
-      @include g-font(16);
-      display: table-cell;
-      width: 100%;
-      vertical-align: middle;
-    }
-
-    &--imgL {
-      #{$_block}__inner {
-        direction: ltr;
-      }
-
-      #{$_block}__img {
-        padding-right: 10px;
-      }
-
-      #{$_block}__text {
-        padding-right: 25px;
-        padding-left: 85px;
-        direction: ltr;
-      }
-    }
-
-    &--imgR {
-      #{$_block}__inner {
-        direction: rtl;
-      }
-
-      #{$_block}__img {
-        padding-right: 0;
-      }
-
-      #{$_block}__text {
-        padding-right: 80px;
-        padding-left: 30px;
-        direction: ltr;
-      }
-    }
-  }
-
-  .t0-b-sideNavItemWithImg2 {
-    $_block: &;
-    a {
-      display: block;
-      &:hover {
-        color: inherit;
-        opacity: .8;
-      }
-    }
-
-    &__inner {
-      display: table;
-      width: 100%;
-      height: 100%;
-      padding: 1px 0;
-      table-layout: fixed;
+      flex: 1 1;
+      order: 2;
+      @include g-font(20);
+      text-align: left;
+      padding: 0 10px;
     }
 
     &__img {
-      display: table-cell;
-      padding: 0 10px 0 0;
-      text-align: center;
-      vertical-align: middle;
+      flex: 0 1 75px;
+      order: 3;
       img {
         display: block;
-        width: 75px;
-        height: 75px;
-        margin: -1px 0;
+        max-width: 100%;
       }
     }
 
-    &__text {
-      @include g-font(16);
-      display: table-cell;
-      width: 100%;
-      vertical-align: middle;
+    a:hover {
+      #{$_block}__inner {
+        opacity: .8;
+        color: $sideNavItemWithImg_textColor;
+      }
     }
 
     &--imgL {
       #{$_block}__inner {
-        direction: ltr;
-      }
-
-      #{$_block}__img {
-        padding-right: 10px;
-      }
-
-      #{$_block}__text {
-        padding-right: 25px;
-        padding-left: 85px;
-        direction: ltr;
-      }
-    }
-
-    &--imgR {
-      #{$_block}__inner {
-        direction: rtl;
-      }
-
-      #{$_block}__img {
-        padding-right: 0;
-      }
-
-      #{$_block}__text {
-        padding-right: 80px;
-        padding-left: 30px;
-        direction: ltr;
+        flex-direction: row-reverse;
+        > span {
+          margin: 0 8px 0 0;
+        }
       }
     }
   }
@@ -147,124 +58,46 @@
     $_block: &;
     width: 95%;
     margin: 0 auto;
-    a {
-      display: block;
-    }
-
+    color: $sideNavItemWithImg_textColor;
     &__inner {
-      display: table;
-      width: 100%;
-    }
-
-    &__img {
-      display: table-cell;
-      padding: 0 10px 0 0;
-      text-align: center;
-      vertical-align: middle;
-      img {
+      border: 1px solid $sideNavItemWithImg_borderColor;
+      display: flex;
+      align-items: center;
+      > span {
+        flex: 0 1 20px;
+        order: 1;
         display: block;
-        width: 75px;
-        height: 75px;
-        margin: -1px 0;
+        width: 100%;
+        height: 20px;
+        background-image: url("https://placehold.jp/20x20.png");
+        background-size: contain;
+        margin: 0 0 0 8px;
       }
     }
 
     &__text {
+      flex: 1 1;
+      order: 2;
       @include g-font(16);
-      display: table-cell;
-      width: 100%;
-      vertical-align: middle;
-      direction: ltr;
-    }
-
-    &--imgL {
-      #{$_block}__inner {
-        direction: ltr;
-      }
-
-      #{$_block}__img {
-        padding-right: 10px;
-      }
-
-      #{$_block}__text {
-        padding-right: 30px;
-      }
-    }
-
-    &--imgR {
-      #{$_block}__inner {
-        direction: rtl;
-      }
-
-      #{$_block}__img {
-        padding-right: 0;
-      }
-
-      #{$_block}__text {
-        padding-right: 30px;
-      }
-    }
-  }
-
-  .t0-b-sideNavItemWithImg2 {
-    $_block: &;
-    width: 95%;
-    margin: 0 auto;
-    a {
-      display: block;
-    }
-
-    &__inner {
-      display: table;
-      width: 100%;
+      text-align: left;
+      padding: 0 7px;
     }
 
     &__img {
-      display: table-cell;
-      padding: 0 10px 0 0;
-      text-align: center;
-      vertical-align: middle;
+      flex: 0 1 75px;
+      order: 3;
       img {
         display: block;
-        width: 75px;
-        height: 75px;
-        margin: -1px 0;
+        max-width: 100%;
       }
-    }
-
-    &__text {
-      @include g-font(16);
-      display: table-cell;
-      width: 100%;
-      vertical-align: middle;
-      direction: ltr;
     }
 
     &--imgL {
       #{$_block}__inner {
-        direction: ltr;
-      }
-
-      #{$_block}__img {
-        padding-right: 10px;
-      }
-
-      #{$_block}__text {
-        padding-right: 30px;
-      }
-    }
-
-    &--imgR {
-      #{$_block}__inner {
-        direction: rtl;
-      }
-
-      #{$_block}__img {
-        padding-right: 0;
-      }
-
-      #{$_block}__text {
-        padding-right: 30px;
+        flex-direction: row-reverse;
+        > span {
+          margin: 0 8px 0 0;
+        }
       }
     }
   }
