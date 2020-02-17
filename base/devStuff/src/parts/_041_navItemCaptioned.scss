@@ -12,41 +12,48 @@
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     $_fontSize_caption_ll: $_fontSize_caption + $_fontSizeDiff + 2;
-    display: table;
     &__inner {
-      display: table;
+      position: relative;
+      padding: 10px 13px 10px 43px;
+      color: $navItemCaptioned_textColor;
+      background-color: $navItemCaptioned_BGColor;
       > span {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-      }
-    }
-
-    > a {
-      display: block;
-      #{$_block}__inner {
-        //
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 11px;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background-image: url("https://placehold.jp/28x28.png");
+        background-size: contain;
       }
     }
 
     &__main {
       @include g-font($_fontSize);
-      position: relative;
     }
 
     &__caption {
       @include g-font($_fontSize_caption);
-      padding: 5px 0 0;
+      padding-top: 5px;
+    }
+
+    a:hover {
+      #{$_block}__inner {
+        //
+        > span {
+          //
+        }
+      }
     }
 
     &--size-1 {
       #{$_block}__inner {
+        padding: 10px 10px 10px 38px;
         > span {
-          //
+          width: 20px;
+          height: 20px;
         }
       }
 
@@ -61,8 +68,10 @@
 
     &--size-2 {
       #{$_block}__inner {
+        padding: 10px 11px 10px 41px;
         > span {
-          //
+          width: 22px;
+          height: 22px;
         }
       }
 
@@ -75,26 +84,12 @@
       }
     }
 
-    &--size-3 {
-      #{$_block}__inner {
-        > span {
-          //
-        }
-      }
-
-      #{$_block}__main {
-        @include g-font($_fontSize);
-      }
-
-      #{$_block}__caption {
-        @include g-font($_fontSize_caption);
-      }
-    }
-
     &--size-4 {
       #{$_block}__inner {
+        padding: 10px 15px 10px 45px;
         > span {
-          //
+          width: 26px;
+          height: 26px;
         }
       }
 
@@ -109,8 +104,10 @@
 
     &--size-5 {
       #{$_block}__inner {
+        padding: 10px 17px 10px 47px;
         > span {
-          //
+          width: 28px;
+          height: 28px;
         }
       }
 
@@ -125,17 +122,14 @@
 
     &--align-l {
       margin-right: auto;
-      text-align: left;
     }
 
     &--align-c {
       margin: 0 auto;
-      text-align: center;
     }
 
     &--align-r {
       margin-left: auto;
-      text-align: right;
     }
   }
 
@@ -155,15 +149,21 @@
   .t0-b-navItemCaptioned {
     $_fontSize: 16;
     $_fontSize_caption: 14;
-    > a {
-      display: block;
-    }
-
     &__inner {
-      display: table;
-      margin: 0 auto;
+      position: relative;
+      padding: 10px 27px 10px 9px;
+      color: $navItemCaptioned_textColor;
+      background-color: $navItemCaptioned_BGColor;
       > span {
-        display: table-cell;
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 11px;
+        transform: translateY(-50%);
+        width: 19px;
+        height: 19px;
+        background-image: url("https://placehold.jp/19x19.png");
+        background-size: contain;
       }
     }
 
@@ -173,9 +173,7 @@
 
     &__caption {
       @include g-font($_fontSize_caption);
-      > a {
-        display: block;
-      }
+      padding-top: 5px;
     }
   }
 
