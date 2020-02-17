@@ -1,20 +1,36 @@
 @if $device == PC {
   .t0-b-sideNavItem {
-    a {
-      display: block;
-    }
-
+    $_block: &;
     &__inner {
-      display: table;
-      vertical-align: middle;
+      position: relative;
+      min-height: 18px;
       > span {
-        display: table-cell;
-        vertical-align: middle;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background-image: url("https://placehold.jp/18x18.png");
+        background-size: contain;
       }
 
       > div {
+        margin-left: 24px;
         @include g-font(16);
-        display: table-cell;
+      }
+    }
+
+    a:hover {
+      #{$_block}__inner {
+        > span {
+          //
+        }
+
+        > div {
+          //
+        }
       }
     }
   }
@@ -24,19 +40,24 @@
   .t0-b-sideNavItem {
     // バナー要素（横幅95%）と左端を揃える
     margin-left: 2.5%;
-    a {
-      display: block;
-    }
-
     &__inner {
-      display: table;
+      position: relative;
+      min-height: 19px;
       > span {
-        display: table-cell;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 19px;
+        height: 19px;
+        background-image: url("https://placehold.jp/19x19.png");
+        background-size: contain;
       }
 
       > div {
+        margin-left: 25px;
         @include g-font(16);
-        display: table-cell;
       }
     }
   }
