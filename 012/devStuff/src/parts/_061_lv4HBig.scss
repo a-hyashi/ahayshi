@@ -1,5 +1,16 @@
 @if $device == PC {
   .t0-b-lv4HBig {
+    $_block: &;
+    $_fontSize_bd: 24;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #594b48;
     background: url("../imgs/t0-b-lv4HBig/1/bg.png"), #fff000;
     background-repeat: repeat;
@@ -20,14 +31,14 @@
     }
 
     &__caption-upper {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 15px 0;
       position: relative;
     }
 
     &__bd {
       h4 {
-        @include g-font(24, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         padding: 5px 15px;
         position: relative;
         display: flex;
@@ -43,9 +54,47 @@
     }
 
     &__caption-lower {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 15px 5px;
       position: relative;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 15px * .8 0;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+          padding: 5px * .8 15px * .8;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 15px * .8 5px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 15px * 1.2 0;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+          padding: 5px * 1.2 15px * 1.2;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 15px * 1.2 5px * 1.2;
+      }
     }
 
     &--align-l {
