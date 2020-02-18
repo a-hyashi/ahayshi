@@ -12,6 +12,7 @@
 |01.見出し|main|036_番号アイコン付き見出し|.t0-b-lv4H-numIcon|2|2%||10px|
 |01.見出し|main|037_小見出し|.t0-b-lv5H||2%||10px|
 |01.見出し|main|037_小見出し|.t0-b-lv5H|2|2%||10px|
+|01.見出し|main|037_小見出し|.t0-b-lv5H|3|2%||10px|
 |01.見出し|main|038_要素見出し|.t0-b-lv5H-subH||1%||10px|
 |01.見出し|main|048_FAQ見出し|.t0-b-lv2H-faqIcon||2%||10px|
 |01.見出し|main|049_用途別の装飾見出し(事例)|.t0-b-lv4H-caseIcon||2%||10px|
@@ -69,10 +70,14 @@
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|8|2%||15px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList||4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList||4%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|2|4%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|3|4%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|4|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList||2%||20px|
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList||4%||20px|
 |04.表|main|030_表|.t0-b-table||2%||15px|
 |04.表|side|143_サイドボックス表|.t0-b-sideBoxTable||4%||15px|
+|04.表|side|143_サイドボックス表|.t0-b-sideBoxTable|2|4%||15px|
 |04.表|footer|193_フッター表|.t0-b-footerUnit-table||4%||15px|
 |04.表|header|210_ヘッダー表|.t0-b-headerUnit-table||2%||15px|
 |05.メディア|main|024_HTML|.t0-b-freeHtml||2%||15px|

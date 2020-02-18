@@ -1,72 +1,64 @@
 @if $device == PC {
   .t0-b-lv5H {
     $_block: &;
-    $_fontSize_bd: 18;
+    $_fontSize: 18;
     $_fontSize_caption: 14;
     $_fontSizeDiff: 4;
-    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
-    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff + 2;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
+    color: $lv5H_textColor;
+    text-align: center;
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 3px;
     }
 
-    &__main {
-      //
-    }
-
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
-    }
-
-    &__bd {
-      a {
-        display: table-cell;
-      }
-
-      h5 {
-        @include g-font-layout($_fontSize_bd, 1, $layout);
-      }
+    h5 {
+      @include g-font-layout($_fontSize, 1, $layout);
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 3px;
     }
 
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-bottom: 3px;
       }
 
-      #{$_block}__bd {
-        h5 {
-          @include g-font-layout($_fontSize_bd_s, 1, $layout);
-        }
+      h5 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
       }
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-top: 3px;
       }
     }
 
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-bottom: 3px;
       }
 
-      #{$_block}__bd {
-        h5 {
-          @include g-font-layout($_fontSize_bd_l, 1, $layout);
-        }
+      h5 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
       }
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-top: 3px;
       }
     }
 
@@ -85,72 +77,165 @@
 
   .t0-b-lv5H2 {
     $_block: &;
-    $_fontSize_bd: 18;
+    $_fontSize: 18;
     $_fontSize_caption: 14;
     $_fontSizeDiff: 4;
-    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
-    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff + 2;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
+    $_textlinePadding: 20px;
+    color: $lv5H2_textColor;
+    text-align: center;
+    overflow: hidden;
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 3px;
     }
 
-    &__main {
-      //
-    }
-
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
-    }
-
-    &__bd {
-      a {
-        display: table-cell;
+    h5 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      display: inline-block;
+      max-width: 90%;
+      padding: 0 $_textlinePadding;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 100vw;
+        border-top: 1px solid $lv5H_borderColor;
       }
 
-      h5 {
-        @include g-font-layout($_fontSize_bd, 1, $layout);
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 100vw;
+        border-top: 1px solid $lv5H_borderColor;
       }
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 3px;
     }
 
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-bottom: 3px;
       }
 
-      #{$_block}__bd {
-        h5 {
-          @include g-font-layout($_fontSize_bd_s, 1, $layout);
-        }
+      h5 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
       }
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-top: 3px;
       }
     }
 
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-bottom: 3px;
       }
 
-      #{$_block}__bd {
-        h5 {
-          @include g-font-layout($_fontSize_bd_l, 1, $layout);
-        }
+      h5 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
       }
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-top: 3px;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+      h5 {
+        padding-left: 0;
+      }
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+      h5 {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .t0-b-lv5H3 {
+    $_block: &;
+    $_fontSize: 18;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff + 2;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff - 2;
+    color: $lv5H3_textColor;
+    text-align: center;
+    border: 1px solid $lv5H3_borderColor;
+    padding: 7px 10px;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 3px;
+    }
+
+    h5 {
+      @include g-font-layout($_fontSize, 1, $layout);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 3px;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-bottom: 3px;
+      }
+
+      h5 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-top: 3px;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-bottom: 3px;
+      }
+
+      h5 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-top: 3px;
       }
     }
 
@@ -170,36 +255,22 @@
 
 @if $device == SP {
   .t0-b-lv5H {
-    $_fontSize_bd: 20;
+    $_fontSize: 18;
     $_fontSize_caption: 14;
+    color: $lv5H_textColor;
+    text-align: center;
     &__caption-upper {
       @include g-font($_fontSize_caption);
+      padding-bottom: 3px;
     }
 
-    &__main {
-      //
-    }
-
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
-    }
-
-    &__bd {
-      a {
-        display: table-cell;
-      }
-
-      h5 {
-        @include g-font($_fontSize_bd);
-      }
+    h5 {
+      @include g-font($_fontSize);
     }
 
     &__caption-lower {
       @include g-font($_fontSize_caption);
+      padding-top: 3px;
     }
 
     &--align-l {
@@ -216,36 +287,51 @@
   }
 
   .t0-b-lv5H2 {
-    $_fontSize_bd: 20;
+    $_fontSize: 18;
     $_fontSize_caption: 14;
+    color: $lv5H_textColor;
+    // textとlineの間の値
+    $_textlinePadding: 20px;
+    // 文字量が多い場合に横線が持つ最低幅
+    $_lineMinWidth: 50px;
+    color: $lv5H2_textColor;
+    text-align: center;
+    overflow: hidden;
     &__caption-upper {
       @include g-font($_fontSize_caption);
+      padding-bottom: 3px;
     }
 
-    &__main {
-      //
-    }
-
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
-    }
-
-    &__bd {
-      a {
-        display: table-cell;
+    h5 {
+      @include g-font-layout($_fontSize);
+      position: relative;
+      display: inline-block;
+      max-width: 90%;
+      padding: 0 $_textlinePadding;
+      &::before {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vw;
+        content: "";
+        border-top: 1px solid $lv5H_borderColor;
       }
 
-      h5 {
-        @include g-font($_fontSize_bd);
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        // 大きい横幅を指定してルート要素のoverflow:hiddenで隠す
+        width: 100vw;
+        content: "";
+        border-top: 1px solid $lv5H_borderColor;
       }
     }
 
     &__caption-lower {
       @include g-font($_fontSize_caption);
+      padding-top: 3px;
     }
 
     &--align-l {
