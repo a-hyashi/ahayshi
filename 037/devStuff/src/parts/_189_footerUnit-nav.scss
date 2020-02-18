@@ -1,12 +1,43 @@
 @if $device == PC {
   .t0-b-footerUnit-nav {
-    @include g-font(15);
+    $_block: &;
     white-space: nowrap;
     &__item {
-      display: table-cell;
-      vertical-align: middle;
-      &:first-child {
-        padding-left: 30px;
+      display: inline-block;
+      position: relative;
+      min-height: 18px;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background-image: url("https://placehold.jp/18x18.png");
+        background-size: contain;
+      }
+
+      p {
+        padding-left: 24px;
+        @include g-font(16);
+      }
+
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    a:hover {
+      #{$_block}__item {
+        &::before {
+          //
+        }
+
+        p {
+          //
+        }
       }
     }
   }
@@ -14,14 +45,30 @@
 
 @if $device == SP {
   .t0-b-footerUnit-nav {
-    @include g-font(15);
     margin-left: 2.5%;
-    font-weight: bold;
     &__item {
-      display: table;
-      margin-top: 20px;
-      &:first-child {
-        margin-top: 0;
+      position: relative;
+      min-height: 18px;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background-image: url("https://placehold.jp/18x18.png");
+        background-size: contain;
+      }
+
+      p {
+        padding-left: 25px;
+        @include g-font(16);
+      }
+
+      & + & {
+        margin-top: 20px;
       }
     }
   }

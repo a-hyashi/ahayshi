@@ -2,8 +2,6 @@
   .t0-b-sideBoxIconText-tel {
     > div {
       display: inline-block;
-      text-align: center;
-      vertical-align: top;
     }
 
     &__ruby {
@@ -12,6 +10,8 @@
     }
 
     &__bd {
+      display: flex;
+      align-items: center;
       @if $layout == "L30" or $layout == "R30" {
         // L30かR30で番号が折り返さない最大サイズ
         @include g-font(30, 0);
@@ -19,52 +19,46 @@
         // L25かR25で番号が折り返さない最大サイズ
         @include g-font(26, 0);
       }
-      display: table;
-      align-items: center;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    &__icon {
-      display: inline-block;
-      width: 22px;
-      margin-bottom: 0;
-      vertical-align: middle;
-      & + span {
-        display: inline;
-        padding-left: 5px;
-        // ヒラギノ・11桁で折り返さないギリギリのサイズ
+      > span {
+        // 11桁で折り返さないギリギリのサイズ
         font-size: 90%;
-        vertical-align: top;
       }
     }
 
+    &__icon {
+      width: 18px;
+      height: 18px;
+      background-image: url("https://placehold.jp/18x18.png");
+      background-size: contain;
+      margin-right: 5px;
+    }
+
     &__tel {
-      //
+      background-image: url("https://placehold.jp/18x18.png?text=tel");
     }
 
     &__fax {
-      //
+      background-image: url("https://placehold.jp/18x18.png?text=fax");
     }
 
     &__free {
-      //
+      background-image: url("https://placehold.jp/18x18.png?text=free");
     }
 
     &__cell {
-      //
+      background-image: url("https://placehold.jp/18x18.png?text=cell");
     }
 
     &--align-l {
-      text-align: left;
+      justify-content: flex-start;
     }
 
     &--align-c {
-      text-align: center;
+      justify-content: center;
     }
 
     &--align-r {
-      text-align: right;
+      justify-content: flex-end;
     }
   }
 }
@@ -75,44 +69,41 @@
     padding: 10px 0;
     margin: 0 auto;
     word-break: break-all;
-    background: -webkit-gradient(linear, left top, left bottom, from($sideBoxIconText-tel_BGColor), color-stop(.5, $sideBoxIconText-tel_BGColor2), to($sideBoxIconText-tel_BGColor2)) left top repeat;
-    border: 1px solid $sideBoxIconText-tel_borderColor;
-    border-radius: 8px;
     &__ruby {
       @include g-font(12);
       text-align: center;
     }
 
     &__bd {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       @include g-font(22);
       color: $sideBoxIconText-tel_textColor;
-      text-align: center;
-      > span {
-        vertical-align: middle;
-      }
     }
 
     &__icon {
-      display: inline-block;
-      padding: 0 3px 0 0;
-      text-align: center;
-      vertical-align: top;
+      width: 17px;
+      height: 17px;
+      background-image: url("https://placehold.jp/17x17.png");
+      background-size: contain;
+      margin-right: 10px;
     }
 
     &__tel {
-      //
+      background-image: url("https://placehold.jp/17x17.png?text=tel");
     }
 
     &__fax {
-      //
+      background-image: url("https://placehold.jp/17x17.png?text=fax");
     }
 
     &__free {
-      //
+      background-image: url("https://placehold.jp/17x17.png?text=free");
     }
 
     &__cell {
-      //
+      background-image: url("https://placehold.jp/17x17.png?text=cell");
     }
   }
 }

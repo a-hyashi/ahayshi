@@ -3,39 +3,50 @@
     $_block: &;
     $_fontSize: 26;
     $_fontSize_caption: 16;
-    display: table;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     > div {
-      display: table;
+      position: relative;
+      min-height: 36px;
     }
 
     &__icon {
-      display: table-cell;
-      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background-image: url("https://placehold.jp/36x36.png");
+      background-size: contain;
     }
 
     &__text {
-      display: table-cell;
-      vertical-align: middle;
+      padding-left: 46px;
     }
 
     &__caption-upper {
       @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-bottom: 4px;
     }
 
     &__main {
       @include g-font($_fontSize);
-      padding-bottom: 3px;
+      padding: 0 0 2px;
+      border-bottom: 1px solid $navItem2Captioned_borderColor;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-top: 10px;
     }
 
     a {
       #{$_block}__main {
         //
       }
-    }
-
-    &__caption-lower {
-      @include g-font($_fontSize_caption);
     }
   }
 }
@@ -44,32 +55,43 @@
   .t0-b-navItem2Captioned {
     $_fontSize: 16;
     $_fontSize_caption: 14;
-    display: table;
-    margin: 0 auto;
+    display: flex;
     > div {
-      display: table;
+      position: relative;
+      min-height: 24px;
     }
 
     &__icon {
-      display: table-cell;
-      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background-image: url("https://placehold.jp/24x24.png");
+      background-size: contain;
     }
 
     &__text {
-      display: table-cell;
-      vertical-align: middle;
+      padding-left: 30px;
     }
 
     &__caption-upper {
       @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-bottom: 3px;
     }
 
     &__main {
       @include g-font($_fontSize);
+      padding: 0 0 2px;
+      border-bottom: 1px solid $navItem2Captioned_borderColor;
     }
 
     &__caption-lower {
       @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-top: 7px;
     }
   }
 }

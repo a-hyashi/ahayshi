@@ -1,794 +1,380 @@
 @if $device == PC {
   .t0-b-formTable {
     $_block: &;
+    padding: 30px;
+    border-radius: 7px;
     table {
       width: 100%;
+      margin-bottom: 6%;
+    }
+
+    tr:first-child {
+      > th,
+      td {
+        border-top: none;
+      }
+    }
+
+    th {
+      width: 35%;
+      padding: 25px;
+      @include g-font(14);
       border-top: 1px solid $formTable_borderColor;
-      border-left: 1px solid $formTable_borderColor;
-    }
-
-    table,
-    x:-moz-any-link {
-      border-collapse: initial;
-    }
-
-    th,
-    td {
-      padding: 10px 15px;
-      text-align: left;
-      vertical-align: middle;
-      border-right: 1px solid $formTable_borderColor;
-      border-bottom: 1px solid $formTable_borderColor;
-    }
-
-    th {
-      @include g-font(14);
       > div {
-        display: table;
-        width: 100%;
-        > label, span {
-          display: table-cell;
-        }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
     }
 
-    .mod-formError {
-      @include g-font(18);
-      display: block;
-      padding: 10px 0 0;
-      color: $formTable_textColor;
-    }
-
-    &__td-caption {
-      @include g-font(14);
-      padding: 10px 0 0;
-    }
-
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-
-    &__placer-singleInput {
-      input,
-      select,
-      textarea {
-        display: block;
-        width: 100%;
-      }
-
-      select {
-        color: inherit;
-        background: none transparent;
-        border: 1px solid $formTable_borderColor2;
-      }
-    }
-
-    &__placer-list {
-      ul {
-        padding-top: 5px;
-        margin: -5px -10px 0 0;
-      }
-
-      li {
-        @include g-font(14);
-        display: inline;
-        padding: 5px 4px 0 0;
-        text-indent: -18px;
-        > span {
-          display: inline-block;
-          width: 18px;
-          height: 1px;
-          vertical-align: middle;
-          input {
-            position: relative;
-            top: -.6em;
-            display: block;
-          }
-
-          textarea {
-            border: 1px solid $formTable_borderColor3;
-          }
-        }
-
-        > label {
-          display: inline;
-        }
-      }
-
-      li#{$_block}__listBreak {
-        display: block;
-        height: 0;
-        padding: 0;
-      }
-    }
-
-    .ex-vertical {
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
-      }
-    }
-
-    &__required {
-      width: 40px;
-      vertical-align: middle;
-      > span {
-        @include g-font(12);
-        display: block;
-        padding: 3px;
-        margin-top: -10px;
-        margin-bottom: -10px;
-        margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-      }
-    }
-
-    // 確認ボタン
-    &__button {
-      @include g-font(16);
-      display: inline-block;
-      width: 266px;
-      border: none;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-
-    // 編集ボタン
-    &__button2 {
-      @include g-font(16);
-      display: inline-block;
-      min-width: 90px;
-      max-width: 266px;
-      border: none;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-
-    // 送信ボタン
-    &__button3 {
-      @include g-font(16);
-      display: inline-block;
-      width: 266px;
-      border: none;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-  }
-
-  .t0-b-formTable2 {
-    $_block: &;
-    table {
-      width: 100%;
-      border-top: 1px solid $formTable2_borderColor;
-      border-left: 1px solid $formTable2_borderColor;
-    }
-
-    table,
-    x:-moz-any-link {
-      border-collapse: initial;
-    }
-
-    th,
     td {
-      padding: 10px 15px;
-      text-align: left;
-      vertical-align: middle;
-      border-right: 1px solid $formTable2_borderColor;
-      border-bottom: 1px solid $formTable2_borderColor;
-    }
-
-    th {
+      padding: 25px 10px;
       @include g-font(14);
-      > div {
-        display: table;
-        width: 100%;
-        > label, span {
-          display: table-cell;
-        }
-      }
+      border-top: 1px solid $formTable_borderColor;
     }
 
-    .mod-formError {
-      @include g-font(18);
-      display: block;
-      padding: 10px 0 0;
-      color: $formTable2_textColor;
-    }
-
-    &__td-caption {
-      @include g-font(14);
-      padding: 10px 0 0;
-    }
-
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-
-    &__placer-singleInput {
-      input,
-      select,
-      textarea {
-        display: block;
-        width: 100%;
-      }
-
-      select {
-        color: inherit;
-        background: none transparent;
-        border: 1px solid $formTable2_borderColor2;
-      }
-    }
-
-    &__placer-list {
-      ul {
-        padding-top: 5px;
-        margin: -5px -10px 0 0;
-      }
-
-      li {
-        @include g-font(14);
-        display: inline;
-        padding: 5px 4px 0 0;
-        text-indent: -18px;
-        > span {
-          display: inline-block;
-          width: 18px;
-          height: 1px;
-          vertical-align: middle;
-          input {
-            position: relative;
-            top: -.6em;
-            display: block;
-          }
-
-          textarea {
-            border: 1px solid $formTable2_borderColor3;
-          }
-        }
-
-        > label {
-          display: inline;
-        }
-      }
-
-      li#{$_block}__listBreak {
-        display: block;
-        height: 0;
-        padding: 0;
-      }
-    }
-
-    .ex-vertical {
-      li {
-        display: list-item;
-        padding: 5px 10px 0 18px;
-      }
-    }
-
-    &__required {
-      width: 40px;
-      vertical-align: middle;
-      > span {
-        @include g-font(12);
-        display: block;
-        padding: 3px;
-        margin-top: -10px;
-        margin-bottom: -10px;
-        margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-      }
-    }
-
-    // 確認ボタン
-    &__button {
-      @include g-font(16);
+    &__requiredLabel {
       display: inline-block;
-      width: 266px;
-      border: none;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-
-    // 編集ボタン
-    &__button2 {
-      @include g-font(16);
-      display: inline-block;
-      min-width: 90px;
-      max-width: 266px;
-      border: none;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-
-    // 送信ボタン
-    &__button3 {
-      @include g-font(16);
-      display: inline-block;
-      width: 266px;
-      border: none;
-      appearance: none;
-      &:hover {
-        opacity: .8;
-      }
-    }
-  }
-
-  .t0-b-buttonPlacer {
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    p {
-      @include g-font(12);
-      padding: 15px 0 0;
+      width: 50px;
+      padding: 2px 6px;
+      border-radius: 5px;
       text-align: center;
-      &::before,
-      &::after {
-        margin-top: 0;
+      @include g-font(14);
+    }
+
+    &__td-caption {
+      @include g-font(12);
+      padding: 3px 0 0;
+    }
+
+    &__singleInput {
+      position: relative;
+      select {
+        appearance: none;
+        width: 100%;
+        padding: .3em 6px;
+        background-color: $formTable_BGColor;
+        border: 1px solid $formTable_borderColor2;
+        border-radius: 5px;
       }
 
-      > a {
-        text-decoration: underline;
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        content: "";
+        border-color: $formTable_borderColor3 transparent transparent;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        transform: translateY(-50%);
       }
     }
-  }
 
-  .t0-b-inputText {
-    @include g-font(12);
-    width: 100%;
-    padding: .3em 6px;
-    border: 1px solid $formTable_borderColor2;
-  }
+    &__radioList,
+    &__checkboxList {
+      ul {
+        display: flex;
+      }
 
-  .t0-b-textarea {
-    @include g-font(12, 2);
-    display: block;
-    width: 100%;
-    height: 100px;
-    padding: .3em 6px;
-    resize: vertical;
-    border: 1px solid $formTable_borderColor2;
+      li {
+        padding: 5px 15px 0 0;
+      }
+
+      input {
+        margin-right: 8px;
+      }
+
+      &--align-vertical {
+        ul {
+          flex-direction: column;
+        }
+
+        li {
+          padding: 0;
+          & + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+
+    &__textInput,
+    &__email {
+      width: 100%;
+      height: 30px;
+      padding: .3em 6px;
+      background-color: $formTable_BGColor;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+    }
+
+    &__textarea {
+      display: block;
+      width: 100%;
+      height: 90px;
+      padding: .3em 6px;
+      background-color: $formTable_BGColor;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    &__buttons {
+      text-align: center;
+      > p {
+        padding-top: 20px;
+        @include g-font(14);
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__button-confirm {
+      display: inline-block;
+      input {
+        appearance: none;
+        min-width: 90px;
+        max-width: 266px;
+        padding: 10px 15px 10px 32px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__button-edit {
+      display: inline-block;
+      input {
+        appearance: none;
+        min-width: 90px;
+        max-width: 266px;
+        padding: 10px 15px 10px 32px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__button-send {
+      display: inline-block;
+      margin-left: 40px;
+      input {
+        appearance: none;
+        min-width: 90px;
+        max-width: 266px;
+        padding: 10px 15px 10px 32px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    .mod-formError {
+      @include g-font(18);
+      display: block;
+      padding-top: 10px;
+      color: $formTable_textColor;
+      font-weight: bold;
+    }
   }
 }
 
 @if $device == SP {
   .t0-b-formTable {
     $_block: &;
-    label {
-      direction: ltr;
-    }
-
-    .t0-b-frameWithHCaption &,
-    .t0-b-frameWithHCaption2 & {
-      // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
-      margin: 0 -15px;
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-    }
-
-    input[type="radio"] {
-      border-radius: 50%;
-    }
-
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
-    }
-
-    table,
-    tbody,
-    tr,
-    th,
-    td {
-      display: block;
-    }
-
+    padding: 15px 5px;
+    border-radius: 7px;
     table {
-      border-top: 1px solid $formTable_borderColor;
-      border-left: 1px solid $formTable_borderColor;
-    }
-
-    th,
-    td {
-      text-align: left;
-      vertical-align: middle;
-      border-right: 1px solid $formTable_borderColor;
-      border-bottom: 1px solid $formTable_borderColor;
+      width: 100%;
+      margin: 0 0 30px;
     }
 
     th {
+      display: block;
+      padding: 10px;
       @include g-font(14);
       > div {
-        display: table;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
         width: 100%;
-        direction: rtl;
-        > label, span {
-          display: table-cell;
-        }
       }
     }
 
     td {
+      display: block;
+      padding: 0 15px 20px;
+      @include g-font(14);
+    }
+
+    &__requiredLabel {
+      display: block;
+      width: 35px;
+      padding: 5px;
+      border-radius: 5px;
+      margin-right: 10px;
+      text-align: center;
+      @include g-font(10);
+    }
+
+    &__td-caption {
+      @include g-font(14);
+      padding: 3px 0 0;
+    }
+
+    &__singleInput {
+      position: relative;
+      select {
+        appearance: none;
+        width: 100%;
+        padding: .3em 6px;
+        background-color: $formTable_BGColor;
+        border: 1px solid $formTable_borderColor2;
+        border-radius: 5px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-color: $formTable_borderColor3 transparent transparent;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        pointer-events: none;
+      }
+    }
+
+    &__radioList,
+    &__checkboxList {
+      ul {
+        display: flex;
+      }
+
+      li {
+        padding: 5px 15px 0 0;
+      }
+
+      input {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+      }
+
+      &--align-vertical {
+        ul {
+          flex-direction: column;
+        }
+
+        li {
+          padding: 0;
+          & + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+
+    &__textInput,
+    &__email {
+      width: 100%;
+      height: 30px;
+      padding: .3em 6px;
       background-color: $formTable_BGColor;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+    }
+
+    &__textarea {
+      display: block;
+      width: 100%;
+      height: 90px;
+      padding: .3em 6px;
+      background-color: $formTable_BGColor;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    &__buttons {
+      text-align: center;
+      > p {
+        padding-top: 10px;
+        @include g-font(12);
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__button-confirm {
+      display: inline-block;
+      input {
+        appearance: none;
+        width: 220px;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+      }
+    }
+
+    &__button-edit {
+      display: inline-block;
+      input {
+        appearance: none;
+        width: 110px;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+      }
+    }
+
+    &__button-send {
+      display: inline-block;
+      width: calc(100% - 125px);
+      max-width: 220px;
+      margin-left: 10px;
+      input {
+        appearance: none;
+        width: 100%;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+      }
     }
 
     .mod-formError {
       @include g-font(14);
       display: block;
-      padding: 10px 0 0;
+      padding-top: 10px;
       color: $formTable_textColor;
     }
 
-    &__td-caption {
-      @include g-font(14);
-      padding: 10px 0 0;
-    }
-
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-
-    &__placer-singleInput {
-      input,
-      select,
-      textarea {
-        display: block;
-        width: 100%;
-      }
-
-      select {
-        color: inherit;
-      }
-    }
-
-    &__placer-list {
-      ul {
-        margin: -5px -10px 0 0;
-      }
-
-      li {
-        @include g-font(14);
-        padding: 5px 10px 0 18px;
-        text-indent: -18px;
-        > span {
-          display: inline-block;
-          width: 18px;
-          height: 1px;
-          vertical-align: middle;
-          input {
-            position: relative;
-            top: -.6em;
-            display: block;
-          }
-        }
-
-        > label {
-          position: relative;
-          top: 3px;
-        }
-      }
-
-      li#{$_block}__listBreak {
-        display: block;
-        height: 0;
-        padding: 0;
-      }
-    }
-
-    .ex-vertical {
-      li {
-        display: list-item;
-        padding: 5px 10px 0 29px;
-        line-height: 25px;
-        text-indent: -29px;
-      }
-    }
-
-    &__required {
-      width: 40px;
-      padding: 0 10px 0 0;
-      vertical-align: middle;
-      > span {
-        @include g-font(10);
-        display: block;
-        padding: 3px 5px 1px;
-        margin-top: -8px;
-        margin-bottom: -10px;
-        margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-      }
-    }
-
-    &__button {
-      @include g-font(16);
-      display: inline-block;
-      width: 229px;
-      padding: 8px 12px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
-      appearance: none;
-    }
-
-    &__button2 {
-      @include g-font(16);
-      display: inline-block;
-      width: 110px;
-      padding: 8px 12px;
-      margin-right: 10px;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
-      appearance: none;
-    }
-
-    &__button3 {
-      @include g-font(16);
-      display: inline-block;
-      width: 170px;
-      max-width: 220px;
-      padding: 8px 12px;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
-      appearance: none;
-    }
-  }
-
-  .t0-b-formTable2 {
-    $_block: &;
-    label {
-      direction: ltr;
-    }
-
-    .t0-b-frameWithHCaption &,
-    .t0-b-frameWithHCaption2 & {
-      // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+    [class^="t0-b-frameWithHCaption"] & {
       margin: 0 -15px;
     }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-    }
-
-    input[type="radio"] {
-      border-radius: 50%;
-    }
-
-    select {
-      width: 10%;
-      height: 44px;
-      font-size: 14px;
-    }
-
-    table,
-    tbody,
-    tr,
-    th,
-    td {
-      display: block;
-    }
-
-    table {
-      border-top: 1px solid $formTable2_borderColor;
-      border-left: 1px solid $formTable2_borderColor;
-    }
-
-    th,
-    td {
-      text-align: left;
-      vertical-align: middle;
-      border-right: 1px solid $formTable2_borderColor;
-      border-bottom: 1px solid $formTable2_borderColor;
-    }
-
-    th {
-      @include g-font(14);
-      > div {
-        display: table;
-        width: 100%;
-        direction: rtl;
-        > label, span {
-          display: table-cell;
-        }
-      }
-    }
-
-    td {
-      background-color: $formTable2_BGColor;
-    }
-
-    .mod-formError {
-      @include g-font(14);
-      display: block;
-      padding: 10px 0 0;
-      color: $formTable2_textColor;
-    }
-
-    &__td-caption {
-      @include g-font(14);
-      padding: 10px 0 0;
-    }
-
-    &__confirmer {
-      @include g-font(14, 2);
-    }
-
-    &__placer-singleInput {
-      input,
-      select,
-      textarea {
-        display: block;
-        width: 100%;
-      }
-
-      select {
-        color: inherit;
-      }
-    }
-
-    &__placer-list {
-      ul {
-        margin: -5px -10px 0 0;
-      }
-
-      li {
-        @include g-font(14);
-        padding: 5px 10px 0 18px;
-        text-indent: -18px;
-        > span {
-          display: inline-block;
-          width: 18px;
-          height: 1px;
-          vertical-align: middle;
-          input {
-            position: relative;
-            top: -.6em;
-            display: block;
-          }
-        }
-
-        > label {
-          position: relative;
-          top: 3px;
-        }
-      }
-
-      li#{$_block}__listBreak {
-        display: block;
-        height: 0;
-        padding: 0;
-      }
-    }
-
-    .ex-vertical {
-      li {
-        display: list-item;
-        padding: 5px 10px 0 29px;
-        line-height: 25px;
-        text-indent: -29px;
-      }
-    }
-
-    &__required {
-      width: 40px;
-      padding: 0 10px 0 0;
-      vertical-align: middle;
-      > span {
-        @include g-font(10);
-        display: block;
-        padding: 3px 5px 1px;
-        margin-top: -8px;
-        margin-bottom: -10px;
-        margin-left: 3px;
-        font-weight: normal;
-        text-align: center;
-      }
-    }
-
-    &__button {
-      @include g-font(16);
-      display: inline-block;
-      max-width: 229px;
-      padding: 8px 12px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
-      appearance: none;
-    }
-
-    &__button2 {
-      @include g-font(16);
-      display: inline-block;
-      width: 110px;
-      padding: 8px 12px;
-      margin-right: 10px;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
-      appearance: none;
-    }
-
-    &__button3 {
-      @include g-font(16);
-      display: inline-block;
-      width: 170px;
-      max-width: 220px;
-      padding: 8px 12px;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      border: none;
-      appearance: none;
-    }
-  }
-
-  .t0-b-buttonPlacer {
-    margin: 0 -5px;
-    text-align: center;
-    > div {
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    p {
-      @include g-font(12);
-      padding: 5px 0 0;
-      text-align: center;
-      &::before,
-      &::after {
-        margin-top: 0;
-      }
-
-      > a {
-        text-decoration: underline;
-      }
-    }
-
-    input {
-      white-space: inherit;
-    }
-  }
-
-  .t0-b-inputText {
-    @include g-font(12);
-    width: 100%;
-    padding: .3em 6px;
-    border: 1px solid $formTable2_borderColor2;
-  }
-
-  .t0-b-textarea {
-    @include g-font(12, 2);
-    display: block;
-    width: 100%;
-    height: 100px;
-    padding: .3em 6px;
-    resize: vertical;
-    border: 1px solid $formTable2_borderColor2;
   }
 }
