@@ -1,7 +1,8 @@
 @if $device == PC {
   .t0-b-iconText-tel {
     $_block: &;
-    display: table;
+    display: flex;
+    align-items: center;
     p {
       @include g-font(14);
       padding-bottom: 10px;
@@ -19,22 +20,19 @@
     }
 
     &__bd {
-      display: table;
+      display: flex;
+      align-items: center;
       font-weight: bold;
       text-align: center;
       @include g-font(34, 0);
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-      }
     }
 
     &__icon {
-      width: 36px;
+      width: 26px;
+      height: 26px;
       background-image: url("https://placehold.jp/34x34.png");
-      background-size: 26px auto;
-      background-repeat: no-repeat;
-      background-position: left center;
+      background-size: contain;
+      margin-right: 10px;
     }
 
     &__tel {
@@ -53,15 +51,8 @@
       background-image: url("https://placehold.jp/34x34.png?text=cell");
     }
 
-    &__wrap {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
     &__media {
-      display: table-cell;
       padding: 0 10px 0 0;
-      vertical-align: middle;
       img {
         display: block;
         width: 60px;
@@ -78,18 +69,15 @@
     }
 
     &--align-l {
-      margin-right: auto;
-      text-align: left;
+      justify-content: flex-start;
     }
 
     &--align-c {
-      margin: 0 auto;
-      text-align: center;
+      justify-content: center;
     }
 
     &--align-r {
-      margin-left: auto;
-      text-align: right;
+      justify-content: flex-end;
     }
 
     &--size-1 {
@@ -106,8 +94,8 @@
       }
 
       #{$_block}__icon {
-        width: 30px;
-        background-size: 20px auto;
+        width: 20px;
+        height: 20px;
       }
     }
 
@@ -125,8 +113,8 @@
       }
 
       #{$_block}__icon {
-        width: 33px;
-        background-size: 23px auto;
+        width: 23px;
+        height: 23px;
       }
     }
 
@@ -144,8 +132,8 @@
       }
 
       #{$_block}__icon {
-        width: 42px;
-        background-size: 32px auto;
+        width: 32px;
+        height: 32px;
       }
     }
 
@@ -163,8 +151,8 @@
       }
 
       #{$_block}__icon {
-        width: 44px;
-        background-size: 34px auto;
+        width: 34px;
+        height: 34px;
       }
     }
   }
@@ -197,12 +185,11 @@
 
     &__bd {
       @include g-font(22);
-      display: table;
-      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: $iconText-tel_textColor2;
       > span {
-        display: table-cell;
-        vertical-align: middle;
         &:last-child {
           word-wrap: break-word;
         }
@@ -210,11 +197,11 @@
     }
 
     &__icon {
-      width: 27px;
+      width: 18px;
+      height: 18px;
       background-image: url("https://placehold.jp/34x34.png");
-      background-size: 18px auto;
-      background-repeat: no-repeat;
-      background-position: left center;
+      background-size: contain;
+      margin-right: 9px;
     }
 
     &__tel {

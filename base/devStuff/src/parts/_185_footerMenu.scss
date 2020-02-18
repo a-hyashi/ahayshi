@@ -2,59 +2,26 @@
   .t0-b-footerMenu {
     margin: 0 auto;
     ul {
-      display: table;
+      display: flex;
+      align-items: center;
+      justify-content: stretch;
       width: 100%;
-      margin: 0 auto;
+      > li {
+        flex-grow: 1;
+      }
     }
 
     &--widthEqualized {
       > div {
         > ul {
-          table-layout: fixed;
+          > li {
+            flex: 1 1;
+          }
         }
       }
     }
 
     .t0-b-footerMenu__item {
-      display: table-cell;
-      vertical-align: middle;
-      div {
-        @include g-font(16);
-        position: relative;
-        text-align: center;
-      }
-    }
-
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .state-em {
-      //
-    }
-  }
-
-  .t0-b-footerMenu2 {
-    margin: 0 auto;
-    ul {
-      display: table;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    &--widthEqualized {
-      > div {
-        > ul {
-          table-layout: fixed;
-        }
-      }
-    }
-
-    .t0-b-footerMenu__item {
-      display: table-cell;
-      vertical-align: middle;
       div {
         @include g-font(16);
         position: relative;
@@ -76,33 +43,6 @@
 
 @if $device == SP {
   .t0-b-footerMenu {
-    margin: 0 -15px;
-    text-align: center;
-    ul {
-      padding: 5px 10px;
-    }
-
-    .t0-b-footerMenu__item {
-      display: inline-block;
-      margin-left: 15px;
-      &:first-child {
-        margin-left: 0;
-      }
-
-      div {
-        @include g-font(12);
-        padding: 5px 0;
-        text-align: center;
-        text-decoration: underline;
-      }
-    }
-
-    .state-em {
-      //
-    }
-  }
-
-  .t0-b-footerMenu2 {
     margin: 0 -15px;
     text-align: center;
     ul {

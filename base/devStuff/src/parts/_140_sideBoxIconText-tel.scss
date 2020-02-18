@@ -10,7 +10,8 @@
     }
 
     &__bd {
-      display: table;
+      display: flex;
+      align-items: center;
       @if $layout == "L30" or $layout == "R30" {
         // L30かR30で番号が折り返さない最大サイズ
         @include g-font(30, 0);
@@ -19,19 +20,17 @@
         @include g-font(26, 0);
       }
       > span {
-        display: table-cell;
         // 11桁で折り返さないギリギリのサイズ
         font-size: 90%;
-        vertical-align: middle;
       }
     }
 
     &__icon {
-      width: 23px;
+      width: 18px;
+      height: 18px;
       background-image: url("https://placehold.jp/18x18.png");
-      background-size: 18px auto;
-      background-repeat: no-repeat;
-      background-position: left center;
+      background-size: contain;
+      margin-right: 5px;
     }
 
     &__tel {
@@ -51,15 +50,15 @@
     }
 
     &--align-l {
-      text-align: left;
+      justify-content: flex-start;
     }
 
     &--align-c {
-      text-align: center;
+      justify-content: center;
     }
 
     &--align-r {
-      text-align: right;
+      justify-content: flex-end;
     }
   }
 }
@@ -76,21 +75,19 @@
     }
 
     &__bd {
-      display: table;
-      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       @include g-font(22);
       color: $sideBoxIconText-tel_textColor;
-      > span {
-        display: table-cell;
-      }
     }
 
     &__icon {
-      width: 27px;
+      width: 17px;
+      height: 17px;
       background-image: url("https://placehold.jp/17x17.png");
-      background-size: 17px auto;
-      background-repeat: no-repeat;
-      background-position: left center;
+      background-size: contain;
+      margin-right: 10px;
     }
 
     &__tel {
