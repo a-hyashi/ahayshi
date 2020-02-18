@@ -1,0 +1,167 @@
+/*
+================================================
+z-indexを管理するためのファイルです。
+部品のscssに、
+z-index: z(goToTop);
+あるいは、
+z-index: z(headerMenu, span);
+のように書くことで値を取り出せます。
+
+実際の数値はこのファイルに書いてください。
+基本的にはクラス名から名前をつけてください(t0-b-は省略)。
+$zの直下に接頭辞が同じキーが2つ以上あるときはネストしてください。
+ネストするとルートの値と重複してしまう場合はzを使ってください。
+
+z-indexの運用ルールについては以下のドキュメントを参照してください。
+https://docs.google.com/spreadsheets/d/1ah4P1XUkOq7lnQ1JML2OnTrYxezhmDERdGl3CiemRWM/edit#gid=102128659
+================================================
+*/
+
+/* stylelint-disable */
+$z: (
+  mod-sp: (
+    head-bar:            420,
+    side-menu:           420,
+    accordion-h:         410,
+  ),
+  headerUnit: (
+    contact-navB:        20,
+    contact-navB-before: 10,
+    contact-navB-after:  10,
+    miniCol:             10,
+  ),
+  headerCombi: (
+    hd:                  20,
+    col2:                10,
+    col3:                10,
+  ),
+  headerMedia: (
+    span:                90,
+    img:                 20,
+    before:              10,
+  ),
+  headerMenu: (
+    li:                  420,
+    span:                420,
+    fixDisplay:          420,
+    state-em:            420,
+  ),
+  // サイドエリア部品 390〜300で指定
+  sideNavItem:           300,
+  sideBanner:            300,
+  sideFreeHtml:          300,
+  sideBoxElement:        300,
+  sideNavBItem: (
+    root:                320,
+    before:              310,
+    after:               310,
+  ),
+  sideMenu: (
+    state-current:       300,
+    root:                300,
+  ),
+  sideMenuHandle: (
+    item:                320,
+    item-span:           310,
+    before:              300,
+    state-current:       300,
+  ),
+  sideBox: (
+    hd-h4:               320,
+    hd:                  310,
+    hd-span:             310,
+    root:                300,
+  ),
+  sideBoxMedia: (
+    textOnImage-upper:   320,
+    main:                300,
+    root:                300,
+  ),
+  footer: (
+    textOnImage-upper:   20,
+    media:               10,
+  ),
+  footerMenu: (
+    li:                  30,
+    item:                20,
+    div:                 20,
+  ),
+  lightbox: (
+    root:                520,
+    overlay:             510,
+    nav:                 500,
+  ),
+  goToTop:               400,
+  // 装飾枠はframe
+  frame: (
+    root:                200,
+    hd-caption:          220,
+    hd-h:                210,
+    box-span:            200,
+  ),
+  navBItemCaptioned: (
+    root:                20,
+    a:                   20,
+    main:                20,
+    caption:             20,
+    inner-before:        20,
+    inner-span:          10,
+    before:              10,
+    after:               10,
+  ),
+  navBItem: (
+    div:                 30,
+    root:                20,
+    before:              20,
+    after:               10,
+  ),
+  lvH: (
+    caption-upper:       20,
+    caption-lower:       20,
+    bd:                  20,
+    bd-h4:               20,
+    before:              10,
+    bd-before:           10,
+    after:               10,
+  ),
+  twoColsMedia: (
+    col1:                20,
+    col2:                10,
+  ),
+  media: (
+    textOnImage-upper:   20,
+    span:                10,
+  ),
+  flowLeftToRight: (
+    inner:               10,
+  ),
+  catchText: (
+    inner:               10,
+  ),
+  mediaCols:             10,
+  background: (
+    // backを使うとき親要素に0を指定する必要がある場合に使う
+    base:                0,
+    // 背景の後ろに配置するときに使う
+    back:                -1
+  )
+);
+
+// ================================================
+// z-indexを取り出すfunction
+// ================================================
+@function map-deep-get($z, $keys...) {
+  @each $key in $keys {
+    @if not map-has-key($z, $key) {
+      // ミスを拾えるようにwarnを出してからerrorで処理を止める
+      @warn '"#{$keys}"は_z-map.scssに存在しません。';
+      @error;
+    }
+    $z: map-get($z, $key);
+  }
+  @return $z;
+}
+
+@function z($keys...) {
+  @return map-deep-get($z, $keys...);
+}
