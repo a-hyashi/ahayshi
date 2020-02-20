@@ -1,5 +1,11 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of2} {
+    $_fontSize: 24;
+    $_lineHeight: 2;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     margin: 0 auto;
     max-width: 100%;
     background-image: url("../imgs/t0-b-lv2H/bg2.png"), url("../imgs/t0-b-lv2H/bg.png");
@@ -16,9 +22,23 @@
 
     h2 {
       padding: 15px 0 15px 60px;
-      @include g-font-spacingKilled(24, 2);
+      @include g-font($_fontSize, $_lineHeight);
       font-weight: bold;
       text-decoration: none;
+    }
+
+    &--size-1 {
+      h2 {
+        padding: 15px * .8 0 15px 60px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        padding: 15px * 1.2 0 15px 60px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
@@ -38,6 +58,12 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_fontSize: 24;
+    $_lineHeight: 2;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     background-image: url("../imgs/t0-b-lv2H/bg3.png");
     background-repeat: no-repeat;
     background-position: left center;
@@ -58,8 +84,22 @@
 
     h2 {
       padding: 15px 0 15px 60px;
-      @include g-font-spacingKilled(24, 2);
+      @include g-font($_fontSize, $_lineHeight);
       font-weight: bold;
+    }
+
+    &--size-1 {
+      h2 {
+        padding: 15px * .8 0 15px 60px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        padding: 15px * 1.2 0 15px 60px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
