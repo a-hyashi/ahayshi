@@ -1,47 +1,43 @@
 @if $device == PC {
   .t0-b-sideBoxIconText-mail {
     $_block: &;
-    > div {
-      display: inline-block;
-      text-align: center;
-      vertical-align: top;
-    }
-
     &__bd {
-      @include g-font(16);
-      font-weight: bold;
-    }
-
-    a {
-      word-break: break-all;
-      &:hover {
-        text-decoration: underline;
+      display: flex;
+      align-items: center;
+      a {
+        @include g-font(16);
+        font-weight: bold;
+        word-break: break-all;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
-    &__icon {
-      display: inline-block;
-      vertical-align: middle;
+    &__mail {
+      display: block;
+      width: 20px;
+      height: 10px;
+      background-image: url("https://placehold.jp/20x10.png");
+      background-size: contain;
+      margin-right: 10px;
     }
 
     &--align-l {
-      text-align: left;
       #{$_block}__bd {
-        //
+        justify-content: flex-start;
       }
     }
 
     &--align-c {
-      text-align: center;
       #{$_block}__bd {
-        //
+        justify-content: center;
       }
     }
 
     &--align-r {
-      text-align: right;
       #{$_block}__bd {
-        //
+        justify-content: flex-end;
       }
     }
   }
@@ -49,24 +45,23 @@
 
 @if $device == SP {
   .t0-b-sideBoxIconText-mail {
-    text-align: center;
-    > div {
-      display: inline-block;
-      text-align: center;
-      vertical-align: top;
-    }
-
     &__bd {
-      @include g-font(16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        @include g-font(16);
+        word-break: break-all;
+      }
     }
 
-    a {
-      word-break: break-all;
-    }
-
-    &__icon {
-      display: inline-block;
-      vertical-align: middle;
+    &__mail {
+      display: block;
+      width: 20px;
+      height: 10px;
+      background-image: url("https://placehold.jp/20x10.png");
+      background-size: contain;
+      margin-right: 10px;
     }
   }
 }
