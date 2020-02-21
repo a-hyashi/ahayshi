@@ -1,5 +1,16 @@
 @if $device == PC {
   .t0-b-lv4HBig {
+    $_block: &;
+    $_fontSize_bd: 30;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     border-top: 15px solid rgba(#7d6120, .36);
     border-left: 15px solid rgba(#b69a5a, .36);
     border-right: 15px solid rgba(#b69a5a, .36);
@@ -25,7 +36,7 @@
     }
 
     &__caption-upper {
-      @include g-font-spacingKilled(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding-top: 7px;
       padding-bottom: 1px;
       position: relative;
@@ -33,7 +44,7 @@
 
     &__bd {
       h4 {
-        @include g-font-spacingKilled(30, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         font-weight: bold;
         padding: 7px 0;
         position: relative;
@@ -41,10 +52,58 @@
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       background: linear-gradient(0deg, rgba(201, 161, 69, .46) 0%, rgba(239, 202, 118, .46) 50%, rgba(201, 161, 69, .46) 100%);
       padding: 1px 10px 7px;
       position: relative;
+    }
+
+    &--size-1 {
+      #{$_block}__box {
+        padding: 0 10px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 7 * .8;
+        padding-bottom: 1 * .8;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+          padding: 7px * .8 0;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 1px * .8 10px * .8 7px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__box {
+        padding: 0 10px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 7 * 1.2;
+        padding-bottom: 1 * 1.2;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+          padding: 7px * 1.2 0;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 1px * 1.2 10px * 1.2 7px * 1.2;
+      }
     }
 
     &--align-l {
