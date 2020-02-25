@@ -1,13 +1,10 @@
 @if $device == PC {
   .t0-b-footerUnit-contact {
     $_block: &;
-    > div {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
+    display: flex;
+    align-items: center;
     &__media {
-      padding: 0 10px 0 0;
+      padding-right: 10px;
       img {
         display: block;
         width: 60px;
@@ -25,17 +22,16 @@
 
     &__bd {
       white-space: nowrap;
-      vertical-align: bottom;
-    }
-
-    &__bd > div {
-      margin-top: 5px;
-      &:first-child {
-        margin-top: 0;
+      > div {
+        margin-top: 5px;
+        &:first-child {
+          margin-top: 0;
+        }
       }
     }
 
     &__note {
+      @include g-font(14);
       a {
         text-decoration: underline;
       }
@@ -45,37 +41,58 @@
       //
     }
 
-    &__iconTextBase {
-      font-weight: bold;
-      #{$_block}__tel + span,
-      #{$_block}__fax + span,
-      #{$_block}__free + span,
-      #{$_block}__cell + span {
-        padding-bottom: 0;
-        font-size: 80%;
-      }
-
-      > span {
-        display: inline-block;
-        padding-bottom: 4px;
-        vertical-align: top;
-        background-repeat: no-repeat;
-        background-position: center 0;
-      }
-
-      #{$_block}__tel,
-      #{$_block}__fax,
-      #{$_block}__free,
-      #{$_block}__cell {
-        vertical-align: baseline;
-      }
-    }
-
     &__iconTextRuby {
+      @include g-font(12);
       text-align: right;
       a {
         text-decoration: underline;
       }
+    }
+
+    &__iconTextBase {
+      @include g-font(36);
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      > span {
+        padding-bottom: 4px;
+        & + span {
+          padding-bottom: 0;
+          font-size: 80%;
+        }
+      }
+    }
+
+    &__tel {
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/35x35.png?text=tel");
+      background-size: contain;
+    }
+
+    &__fax {
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/35x35.png?text=fax");
+      background-size: contain;
+    }
+
+    &__free {
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/35x35.png?text=free");
+      background-size: contain;
+    }
+
+    &__cell {
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/35x35.png?text=cell");
+      background-size: contain;
     }
 
     &--size-1 {
@@ -87,20 +104,12 @@
         @include g-font(28);
       }
 
-      #{$_block}__tel {
-        //
-      }
-
-      #{$_block}__fax {
-        //
-      }
-
-      #{$_block}__free {
-        //
-      }
-
+      #{$_block}__tel,
+      #{$_block}__fax,
+      #{$_block}__free,
       #{$_block}__cell {
-        //
+        width: 23px;
+        height: 23px;
       }
 
       #{$_block}__iconTextRuby {
@@ -108,59 +117,21 @@
       }
     }
 
-    &--size-2 {
-      #{$_block}__note {
-        @include g-font(14);
-      }
-
-      #{$_block}__iconTextBase {
-        @include g-font(36, 0);
-      }
-
-      #{$_block}__tel {
-        //
-      }
-
-      #{$_block}__fax {
-        //
-      }
-
-      #{$_block}__free {
-        //
-      }
-
-      #{$_block}__cell {
-        //
-      }
-
-      #{$_block}__iconTextRuby {
-        @include g-font(12);
-      }
-    }
-
     &--size-3 {
       #{$_block}__note {
-        @include g-font(15);
+        @include g-font(16);
       }
 
       #{$_block}__iconTextBase {
-        @include g-font(42);
+        @include g-font(42, 0);
       }
 
-      #{$_block}__tel {
-        //
-      }
-
-      #{$_block}__fax {
-        //
-      }
-
-      #{$_block}__free {
-        //
-      }
-
+      #{$_block}__tel,
+      #{$_block}__fax,
+      #{$_block}__free,
       #{$_block}__cell {
-        //
+        width: 32px;
+        height: 32px;
       }
 
       #{$_block}__iconTextRuby {
@@ -177,20 +148,12 @@
         @include g-font(50);
       }
 
-      #{$_block}__tel {
-        //
-      }
-
-      #{$_block}__fax {
-        //
-      }
-
-      #{$_block}__free {
-        //
-      }
-
+      #{$_block}__tel,
+      #{$_block}__fax,
+      #{$_block}__free,
       #{$_block}__cell {
-        //
+        width: 35px;
+        height: 35px;
       }
 
       #{$_block}__iconTextRuby {
@@ -205,7 +168,6 @@
     width: 95%;
     margin: 0 auto;
     &__media {
-      display: block;
       text-align: center;
       img {
         width: 25%;
@@ -223,13 +185,9 @@
     }
 
     &__iconText {
-      width: 100%;
       padding: 10px 0;
-      margin-top: 10px;
+      padding-top: 20px;
       word-break: break-all;
-      background: -webkit-gradient(linear, left top, left bottom, from($footerUnit-contact_BGColor), color-stop(.5, $footerUnit-contact_BGColor2), to($footerUnit-contact_BGColor3)) left top repeat;
-      border: 1px solid $footerUnit-contact_borderColor;
-      border-radius: 8px;
     }
 
     &__iconTextBase {
@@ -238,12 +196,6 @@
       justify-content: center;
       color: $footerUnit-contact_textColor2;
       text-align: center;
-      span {
-        display: inline-block;
-        vertical-align: middle;
-        background-repeat: no-repeat;
-        background-position: center 0;
-      }
     }
 
     &__iconTextRuby {
@@ -254,24 +206,36 @@
       }
     }
 
-    &__icon {
-      background-repeat: no-repeat;
-    }
-
     &__tel {
-      //
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/25x25.png?text=tel");
+      background-size: contain;
     }
 
     &__fax {
-      //
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/25x25.png?text=fax");
+      background-size: contain;
     }
 
     &__free {
-      //
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/25x25.png?text=free");
+      background-size: contain;
     }
 
     &__cell {
-      //
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      background-image: url("https://placehold.jp/25x25.png?text=cell");
+      background-size: contain;
     }
   }
 }
