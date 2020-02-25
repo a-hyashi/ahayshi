@@ -15,29 +15,36 @@
 
     &__bd {
       @include g-font(15);
-      // 親要素
-      > #{$_block}__list > ul {
-        > #{$_block}__item {
-          &.state-current {
-            //
-          }
+      > #{$_block}__list > ul > #{$_block}__item {
+        // 親要素
+        > #{$_block}__item2 {
+          //
         }
 
-        // 子要素
-        > li > #{$_block}__list > ul {
-          > #{$_block}__item {
-            > #{$_block}__list {
-              //
-            }
+        // 親要素のカレント
+        &.state-current > #{$_block}__item2 {
+          //
+        }
 
-            &.state-current {
-              //
-            }
+        > #{$_block}__list > ul > #{$_block}__item {
+          // 子要素
+          > #{$_block}__item2 {
+            //
           }
 
-          // 孫要素
-          > #{$_block}__item > div > ul > li {
-            &.state-current {
+          // 子要素のカレント
+          &.state-current > #{$_block}__item2 {
+            //
+          }
+
+          > #{$_block}__list > ul > #{$_block}__item {
+            // 孫要素
+            > #{$_block}__item2 {
+              //
+            }
+
+            // 孫要素のカレント
+            &.state-current > #{$_block}__item2 {
               //
             }
           }
@@ -79,40 +86,37 @@
 
     &__bd {
       @include g-font(15);
-      // 親要素
-      > #{$_block}__list > ul {
-        > #{$_block}__item {
-          a {
-            &:hover {
-              color: $g-baseHoverColor3;
-            }
-          }
-
-          &.state-current {
-            a {
-              &:hover {
-                color: $g-baseHoverColor3;
-              }
-            }
-          }
+      > #{$_block}__list > ul > #{$_block}__item {
+        // 親要素
+        > #{$_block}__item2 {
+          //
         }
 
-        // 子要素
-        > li > #{$_block}__list > ul {
-          > #{$_block}__item {
-            > #{$_block}__list {
-              &.state-current {
-                //
-              }
-            }
+        // 親要素のカレント
+        &.state-current > #{$_block}__item2 {
+          //
+        }
+
+        > #{$_block}__list > ul > #{$_block}__item {
+          // 子要素
+          > #{$_block}__item2 {
+            //
           }
 
-          // 孫要素
-          > #{$_block}__item > div {
-            > ul > li {
-              &.state-current {
-                //
-              }
+          // 子要素のカレント
+          &.state-current > #{$_block}__item2 {
+            //
+          }
+
+          > #{$_block}__list > ul > #{$_block}__item {
+            // 孫要素
+            > #{$_block}__item2 {
+              //
+            }
+
+            // 孫要素のカレント
+            &.state-current > #{$_block}__item2 {
+              //
             }
           }
         }
@@ -134,12 +138,6 @@
 
   .b-sideMenuHandle {
     $_block: &;
-    a {
-      &:hover {
-        color: $g-baseHoverColor3;
-      }
-    }
-
     label {
       display: none;
     }
@@ -159,32 +157,37 @@
 
     &__bd {
       @include g-font(15);
-      // 親要素
-      > #{$_block}__list > ul {
-        > #{$_block}__item {
-          &.state-current {
-            //
-          }
+      > #{$_block}__list > ul > #{$_block}__item {
+        // 親要素
+        > #{$_block}__item2 {
+          //
         }
 
-        // 子要素
-        li > #{$_block}__list > ul {
-          > #{$_block}__item {
-            > #{$_block}__list {
-              //
-            }
+        // 親要素のカレント
+        &.state-current > #{$_block}__item2 {
+          //
+        }
 
-            &.state-current {
-              //
-            }
+        > #{$_block}__list > ul > #{$_block}__item {
+          // 子要素
+          > #{$_block}__item2 {
+            //
           }
 
-          // 孫要素
-          > #{$_block}__item > div {
-            > ul > li {
-              &.state-current {
-                //
-              }
+          // 子要素のカレント
+          &.state-current > #{$_block}__item2 {
+            //
+          }
+
+          > #{$_block}__list > ul > #{$_block}__item {
+            // 孫要素
+            > #{$_block}__item2 {
+              //
+            }
+
+            // 孫要素のカレント
+            &.state-current > #{$_block}__item2 {
+              //
             }
           }
         }
@@ -209,12 +212,10 @@
   .b-sideMenu {
     $_block: &;
     @include g-font(14);
-    width: 100%;
     label {
       display: inline-block;
       width: 98%;
-      padding: 10px 0 10px 2%;
-      cursor: pointer;
+      padding: 10px 0 10px 15px;
       &::before {
         display: inline-block;
         margin: 0 .5em 0 .2em;
@@ -223,8 +224,6 @@
 
       &.active {
         &::before {
-          display: inline-block;
-          margin: 0 .5em 0 .2em;
           content: "▼";
         }
       }
@@ -234,46 +233,43 @@
       display: none;
     }
 
-    &__hd,
-    &__bd {
+    &__hd {
       display: none;
     }
 
-    &__list {
-      > ul > #{$_block}__item {
-        > #{$_block}__item2 > div,
-        &.state-current > #{$_block}__item2 > div {
-          > a > span,
-          > span {
-            display: block;
-            padding: 10px 45px 10px 20px;
-          }
+    &__bd {
+      display: none;
+      > #{$_block}__list > ul > #{$_block}__item {
+        // 親要素
+        > #{$_block}__item2 {
+          //
         }
-      }
 
-      > ul > li > #{$_block}__list > ul {
-        > #{$_block}__item,
-        &.state-current {
-          > #{$_block}__item2 > div {
-            > a > span,
-            > span {
-              display: block;
-              padding: 10px 45px 10px 30px;
+        // 親要素のカレント
+        &.state-current > #{$_block}__item2 {
+          //
+        }
+
+        > #{$_block}__list > ul > #{$_block}__item {
+          // 子要素
+          > #{$_block}__item2 {
+            //
+          }
+
+          // 子要素のカレント
+          &.state-current > #{$_block}__item2 {
+            //
+          }
+
+          > #{$_block}__list > ul > #{$_block}__item {
+            // 孫要素
+            > #{$_block}__item2 {
+              //
             }
-          }
-        }
 
-        > li {
-          #{$_block}__list > ul {
-            > #{$_block}__item,
-            &.state-current {
-              > #{$_block}__item2 > div {
-                > a > span,
-                span {
-                  display: block;
-                  padding: 10px 45px 10px 40px;
-                }
-              }
+            // 孫要素のカレント
+            &.state-current > #{$_block}__item2 {
+              //
             }
           }
         }
@@ -284,17 +280,10 @@
   .b-sideMenu2 {
     $_block: &;
     @include g-font(14);
-    width: 100%;
-    &__hd,
-    &__bd {
-      display: none;
-    }
-
     label {
       display: inline-block;
       width: 98%;
-      padding: 10px 0 10px 2%;
-      cursor: pointer;
+      padding: 10px 0 10px 15px;
       &::before {
         display: inline-block;
         margin: 0 .5em 0 .2em;
@@ -303,8 +292,6 @@
 
       &.active {
         &::before {
-          display: inline-block;
-          margin: 0 .5em 0 .2em;
           content: "▼";
         }
       }
@@ -314,41 +301,43 @@
       display: none;
     }
 
-    &__list {
-      > ul > #{$_block}__item {
-        > #{$_block}__item2 > div,
-        &.state-current > #{$_block}__item2 > div {
-          > a > span,
-          > span {
-            display: block;
-            padding: 10px 45px 10px 20px;
-          }
-        }
-      }
+    &__hd {
+      display: none;
+    }
 
-      > ul > li > #{$_block}__list > ul {
-        > #{$_block}__item,
-        &.state-current {
-          > #{$_block}__item2 > div {
-            > a > span,
-            > span {
-              display: block;
-              padding: 10px 45px 10px 30px;
+    &__bd {
+      display: none;
+      > #{$_block}__list > ul > #{$_block}__item {
+        // 親要素
+        > #{$_block}__item2 {
+          //
+        }
+
+        // 親要素のカレント
+        &.state-current > #{$_block}__item2 {
+          //
+        }
+
+        > #{$_block}__list > ul > #{$_block}__item {
+          // 子要素
+          > #{$_block}__item2 {
+            //
+          }
+
+          // 子要素のカレント
+          &.state-current > #{$_block}__item2 {
+            //
+          }
+
+          > #{$_block}__list > ul > #{$_block}__item {
+            // 孫要素
+            > #{$_block}__item2 {
+              //
             }
-          }
-        }
 
-        > li {
-          #{$_block}__list > ul {
-            > #{$_block}__item,
-            &.state-current {
-              > #{$_block}__item2 > div {
-                > a > span,
-                span {
-                  display: block;
-                  padding: 10px 45px 10px 40px;
-                }
-              }
+            // 孫要素のカレント
+            &.state-current > #{$_block}__item2 {
+              //
             }
           }
         }
@@ -359,17 +348,10 @@
   .b-sideMenuHandle {
     $_block: &;
     @include g-font(14);
-    width: 100%;
-    &__hd,
-    &__bd {
-      display: none;
-    }
-
     label {
       display: inline-block;
       width: 98%;
-      padding: 10px 0 10px 2%;
-      cursor: pointer;
+      padding: 10px 0 10px 15px;
       &::before {
         display: inline-block;
         margin: 0 .5em 0 .2em;
@@ -378,8 +360,6 @@
 
       &.active {
         &::before {
-          display: inline-block;
-          margin: 0 .5em 0 .2em;
           content: "▼";
         }
       }
@@ -389,41 +369,43 @@
       display: none;
     }
 
-    &__list {
-      > ul > #{$_block}__item {
-        > #{$_block}__item2 > div,
-        &.state-current > #{$_block}__item2 > div {
-          > a > span,
-          > span {
-            display: block;
-            padding: 10px 45px 10px 20px;
-          }
-        }
-      }
+    &__hd {
+      display: none;
+    }
 
-      > ul > li > #{$_block}__list > ul {
-        > #{$_block}__item,
-        &.state-current {
-          > #{$_block}__item2 > div {
-            > a > span,
-            > span {
-              display: block;
-              padding: 10px 45px 10px 30px;
+    &__bd {
+      display: none;
+      > #{$_block}__list > ul > #{$_block}__item {
+        // 親要素
+        > #{$_block}__item2 {
+          //
+        }
+
+        // 親要素のカレント
+        &.state-current > #{$_block}__item2 {
+          //
+        }
+
+        > #{$_block}__list > ul > #{$_block}__item {
+          // 子要素
+          > #{$_block}__item2 {
+            //
+          }
+
+          // 子要素のカレント
+          &.state-current > #{$_block}__item2 {
+            //
+          }
+
+          > #{$_block}__list > ul > #{$_block}__item {
+            // 孫要素
+            > #{$_block}__item2 {
+              //
             }
-          }
-        }
 
-        > li {
-          #{$_block}__list > ul {
-            > #{$_block}__item,
-            &.state-current {
-              > #{$_block}__item2 > div {
-                > a > span,
-                span {
-                  display: block;
-                  padding: 10px 45px 10px 40px;
-                }
-              }
+            // 孫要素のカレント
+            &.state-current > #{$_block}__item2 {
+              //
             }
           }
         }
