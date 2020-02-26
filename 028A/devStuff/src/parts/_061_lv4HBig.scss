@@ -1,5 +1,16 @@
 @if $device == PC {
   .t0-b-lv4HBig {
+    $_block: &;
+    $_fontSize_bd: 28;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: $g-textColor;
     text-align: center;
     padding: 15px;
@@ -8,7 +19,7 @@
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-y, repeat-x, repeat-y;
     background-position: left top, right bottom, right top, left bottom, left top, left top, left bottom, right top;
     &__caption-upper {
-      @include g-font-spacingKilled(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 10px;
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
@@ -21,7 +32,7 @@
       flex-direction: column;
       margin: 10px 0;
       h4 {
-        @include g-font-spacingKilled(28, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         padding: 0 10px;
         position: relative;
         font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
@@ -30,10 +41,54 @@
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 10px;
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
+    }
+
+    &--size-1 {
+      padding: 15px * .8;
+      background-size: 93px * .8 64px * .8, 101px * .8 71px * .8, 56px * .8 12px * .8, 57px * .8 11px * .8, 14px * .8 3px * .8, 4px * .8 8px * .8, 10px * .8 4px * .8, 3px * .8 12px * .8;
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 10px * .8;
+      }
+
+      #{$_block}__bd {
+        margin: 10px * .8 0;
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+          padding: 0 10px * .8;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 10px * .8;
+      }
+    }
+
+    &--size-3 {
+      padding: 15px * 1.2;
+      background-size: 93px * 1.2 64px * 1.2, 101px * 1.2 71px * 1.2, 56px * 1.2 12px * 1.2, 57px * 1.2 11px * 1.2, 14px * 1.2 3px * 1.2, 4px * 1.2 8px * 1.2, 10px * 1.2 4px * 1.2, 3px * 1.2 12px * 1.2;
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 10px * 1.2;
+      }
+
+      #{$_block}__bd {
+        margin: 10px * 1.2 0;
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+          padding: 0 10px * 1.2;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 10px * 1.2;
+      }
     }
 
     &--align-l {
