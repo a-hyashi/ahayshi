@@ -2,162 +2,175 @@
 ================================================
 z-indexを管理するためのファイル。
 部品のscssに、
-z-index: z(goToTop);
-あるいは、
-z-index: z(headerMenu, span);
+z-index: z(headerMenu, 2);
 のように書くことで値が入る。
 
 実際の数値はこのファイルに書くこと。
-基本的にはクラス名から名前をつける(t0-b-は省略)。
-$zの直下に接頭辞が同じキーが2つ以上あるときはネストする。
-ネストしたものはセレクタの名前などから名前をつける。
+クラス名から名前をつける(t0-b-は省略)。
+使いたい数値をコロンの右側、数値の10の位の数(基本的には)を左側に置く。
+  例) 1: 210
 
 部品の装飾枠は、z(frame, **)で統一。
-sideBox要素はsideBoxElementで統一。(sideBoxMediaは別)
-z-indexが0あるいは-1の場合は、z(background, **)で統一。
+数値が0あるいは-1の場合は、z(bg, **)で統一。
 
-z-indexの数値の決め方や運用ルールについては以下のドキュメントを参照。
-https://docs.google.com/spreadsheets/d/1ah4P1XUkOq7lnQ1JML2OnTrYxezhmDERdGl3CiemRWM/edit#gid=102128659
+z-indexの決め方や運用ルールについては以下を参照。
+https://docs.google.com/spreadsheets/d/1ah4P1XUkOq7lnQ1JML2OnTrYxezhmDERdGl3CiemRWM
 ================================================
 */
 
 /* stylelint-disable */
 $z: (
-  mod-sp: (
-    head-bar: 420,
-    side-menu: 420,
-    accordion-h: 410,
+  // ========
+  // 背景画像
+  // ========
+  bg: (
+    0: 0,
+    // 背景の後ろに配置するときに使う
+    -1: -1,
   ),
-  headerUnit: (
-    contact-navB: 20,
-    contact-navB-before: 10,
-    contact-navB-after: 10,
-    miniCol: 10,
-  ),
-  headerCombi: (
-    hd: 20,
-    col2: 10,
-    col3: 10,
-  ),
-  headerMedia: (
-    span: 90,
-    img: 20,
-    before: 10,
-  ),
-  headerMenu: (
-    li: 420,
-    span: 420,
-    fixDisplay: 420,
-    state-em: 420,
-  ),
-  // サイドエリア部品 390〜300で指定
-  sideNavItem: 300,
-  sideBanner: 300,
-  sideFreeHtml: 300,
-  // sideBox要素はsideBoxElementで統一
-  sideBoxElement: 300,
-  sideNavBItem: (
-    root: 320,
-    before: 310,
-    after: 310,
-  ),
-  sideMenu: (
-    root: 300,
-    item-span: 300,
-  ),
-  sideMenuHandle: (
-    item: 320,
-    item-span: 310,
-    before: 300,
-    state-current: 300,
-  ),
-  sideBox: (
-    hd-h4: 320,
-    hd: 310,
-    hd-span: 310,
-    root: 300,
-  ),
-  sideBoxMedia: (
-    textOnImage: 320,
-    main: 300,
-    root: 300,
-  ),
-  footerUnit: (
-    textOnImage: 20,
-    media: 10,
-  ),
-  footerMenu: (
-    li: 30,
-    item: 20,
-    div: 20,
-  ),
-  lightbox: (
-    root: 520,
-    overlay: 510,
-    nav: 500,
-  ),
-  goToTop: 400,
-  // 装飾枠はframe
+
+  // ==================
+  // 10-90 部品の装飾枠
+  // ==================
   frame: (
-    root: 200,
-    hd-caption: 220,
-    hd-h: 210,
-    box-span: 200,
+    1: 10,
+    2: 20,
+    3: 30,
   ),
   fullWidthFrame: (
-    hd: 200,
+    1: 10,
   ),
-  navBItemCaptioned: (
-    root: 20,
-    a: 20,
-    main: 20,
-    caption: 20,
-    inner-before: 20,
-    inner-span: 10,
-    before: 10,
-    after: 10,
-  ),
-  navBItem: (
-    div: 30,
-    root: 20,
-    before: 20,
-    after: 10,
-  ),
-  lvH: (
-    caption: 20,
-    bd: 20,
-    bd-h4: 20,
-    before: 10,
-    bd-before: 10,
-    after: 10,
-  ),
+
+  // ======================
+  // 100-290 要素(全エリア)
+  // ======================
   twoColsMedia: (
-    col1: 20,
-    col2: 10,
+    1: 110,
+    2: 120,
+  ),
+  flow2LeftToRight: (1: 110),
+  flow3LeftToRight: (1: 110),
+  flow4LeftToRight: (1: 110),
+  flow5LeftToRight: (1: 110),
+  flow6LeftToRight: (1: 110),
+  flow7LeftToRight: (1: 110),
+  catchText: (
+    1: 110,
+    2: 120,
+  )
+  lv1H-mainH: (
+    1: 110,
+    2: 120,
+  ),
+  lv4H: (
+    1: 110,
+    2: 120,
   ),
   media: (
-    textOnImage: 20,
-    span: 10,
+    1: 110,
+    2: 120,
   ),
-  flowLeftToRight: (
-    inner: 10,
+  navBItemCaptioned: (
+    1: 110,
+    2: 120,
   ),
-  catchText: (
-    root: 10,
-    inner: 20,
+  navBItem: (
+    1: 110,
+    2: 120,
+    3: 130,
   ),
-  mediaCols: 10,
-  background: (
-    // backを使うとき親要素に0を指定する必要がある場合に使う
-    base: 0,
-    // 背景の後ろに配置するときに使う
-    back: -1,
+  headerUnit-contact-navB: (
+    1: 110,
+    2: 120,
+  ),
+  headerUnit-miniCol: (
+    1: 110,
+  )
+  headerCombi: (
+    1: 110,
+    2: 120,
+  ),
+  headerMedia: (
+    1: 110,
+    2: 120,
+    3: 130,
+  ),
+  footerUnit: (
+    1: 110,
+  ),
+  footerMenu: (
+    1: 110,
+    2: 120,
+  ),
+
+  // ===============================
+  // 300-390 サイドエリア 部品と要素
+  // ===============================
+  sideNavItem: (0: 300),
+  sideNavItemWithImg: (0: 300),
+  sideBanner: (0: 300),
+  sideFreeHtml: (0: 300),
+  sideBoxLv1H: (0: 300),
+  sideBoxLv2H: (0: 300),
+  sideBoxText: (0: 300),
+  sideBoxTextStrong: (0: 300),
+  sideBoxList: (0: 300),
+  sideBoxIconText-tel: (0: 300),
+  sideBoxIconText-mail: (0: 300),
+  sideBoxLabeledList: (0: 300),
+  sideBoxTable: (0: 300),
+  sideBoxFreeHtml: (0: 300),
+  sideBoxNav: (0: 300),
+  sideBoxNavB: (
+    0: 300,
+    1: 310,
+  ),
+  sideNavBItem: (
+    2: 320,
+  ),
+  sideMenu: (
+    0: 300,
+  ),
+  sideMenuHandle: (
+    0: 300,
+    1: 310,
+    2: 320,
+  ),
+  sideBox: (
+    0: 300,
+    1: 310,
+    2: 320,
+  ),
+  sideBoxMedia: (
+    0: 300,
+    1: 310,
+  ),
+
+  // ==============================
+  // 400-490 フローティングメニュー
+  // ==============================
+  goToTop: (
+    0: 400,
+  ),
+  mod-sp: (
+    1: 410,
+    2: 420,
+  ),
+  headerMenu: (
+    2: 420,
+  ),
+
+  // ========================
+  // 500-590 ポップアップ要素
+  // ========================
+  lightbox: (
+    0: 500,
+    1: 510,
+    2: 520,
   )
 );
 
-// ================================================
-// z-indexを取り出すfunction
-// ================================================
+// 値を取り出すための関数
 @function map-deep-get($z, $keys...) {
   @each $key in $keys {
     @if not map-has-key($z, $key) {
