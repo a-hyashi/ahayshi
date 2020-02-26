@@ -1,11 +1,17 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
+    $_block: &;
+    $_fontSize_h: 20;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_lineHeight_h: 2;
+
     color: #240d0d;
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-image: url("../imgs/main/1/6-2.png");
-    $_block: &;
     position: relative;
     box-shadow: 1px 0 #dcd6c5, -1px 0 #dcd6c5, 0 1px 2px #b7b2a5;
     > span {
@@ -42,7 +48,7 @@
     }
 
     &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       background-repeat: no-repeat;
       background-position: left center;
       background-image: url("../imgs/main/1/6-3.png");
@@ -52,6 +58,42 @@
       z-index: 2;
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
+    }
+
+    &--size-1 {
+      background-size: 91px * .8 40px * .8;
+      > span {
+        background-size: 12px * .8 40px * .8;
+      }
+
+      > div > a,
+      > div > #{$_block}__h {
+        margin-left: 16px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding: 7px * .8 36px * .8 7px * .8 43px * .8;
+        background-size: 38px * .8 40px * .8;
+      }
+    }
+
+    &--size-3 {
+      background-size: 91px * 1.2 40px * 1.2;
+      > span {
+        background-size: 12px * 1.2 40px * 1.2;
+      }
+
+      > div > a,
+      > div > #{$_block}__h {
+        margin-left: 16px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding: 7px * 1.2 36px * 1.2 7px * 1.2 43px * 1.2;
+        background-size: 38px * 1.2 40px * 1.2;
+      }
     }
 
     &--align-l {
@@ -68,6 +110,13 @@
   }
 
   .t0-b-lv2H-faqIcon2 {
+    $_block: &;
+    $_fontSize_h: 20;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_lineHeight_h: 2;
+
     margin: 0 auto;
     a {
       text-decoration: none;
@@ -106,9 +155,41 @@
     }
 
     &__h {
-      @include g-font-spacingKilled(20, 2);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 56px * .8;
+        height: 51px * .8;
+        background-size: 56px * .8 51px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 56px * 1.2;
+        height: 51px * 1.2;
+        background-size: 56px * 1.2 51px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
     }
 
     &--align-l {

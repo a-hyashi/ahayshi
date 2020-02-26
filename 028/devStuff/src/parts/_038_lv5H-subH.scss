@@ -1,10 +1,28 @@
 @if $device == PC {
   .t0-b-lv5H-subH {
+    $_fontSize: 16;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     color: #a20000;
     h5 {
       font-weight: bold;
-      @include g-font(16, 1);
+      @include g-font($_fontSize, $_lineHeight);
       display: inline;
+    }
+
+    &--size-1 {
+      h5 {
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      h5 {
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {

@@ -1,6 +1,16 @@
 @if $device == PC {
   .t0-b-lv4H-qIcon#{$variation1of2} {
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_block: &;
+    $_fontSize_h: 20;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
     color: $g-textColor;
     > div {
       display: table;
@@ -19,7 +29,7 @@
       background-repeat: no-repeat;
       display: inline-block;
       width: 32px;
-      height: 36px;
+      height: 63px;
       background-position: -211px 0;
       overflow: hidden;
       text-indent: -100px;
@@ -35,30 +45,102 @@
     }
 
     &__caption-upper {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 5px;
       font-weight: normal;
     }
 
     &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       background: url("../imgs/main/1/21.png") repeat-x left bottom;
       padding-bottom: 6px;
       font-weight: normal;
     }
 
     &__caption-lower {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 0 0;
       font-weight: normal;
     }
 
     &__caption-upper + &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 32px * .8;
+        height: 63px * .8;
+        background-size: 422px * .8 63px * .8;
+        background-position: -211px * .8 0;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 5px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding: 6px * .8 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 32px * 1.2;
+        height: 63px * 1.2;
+        background-size: 422px * 1.2 63px * 1.2;
+        background-position: -211px * 1.2 0;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 5px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding: 6px * 1.2 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
     }
 
     &--align-l {
@@ -83,7 +165,17 @@
   }
 
   .t0-b-lv4H-qIcon#{$variation2of2} {
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_block: &;
+    $_fontSize_h: 20;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
     color: $g-textColor;
     > div {
       display: table;
@@ -118,28 +210,100 @@
     }
 
     &__caption-upper {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 5px;
     }
 
     &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-weight: normal;
       padding: 0 0 5px;
       background: url("../imgs/main/2/12.png") repeat-x left bottom;
     }
 
     &__caption-lower {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 56px * .8;
+        height: 63px * .8;
+        background-size: 422px * .8 63px * .8;
+        background-position: -243px * .8 0;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 5px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding: 6px * .8 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 56px * 1.2;
+        height: 63px * 1.2;
+        background-size: 422px * 1.2 63px * 1.2;
+        background-position: -243px * 1.2 0;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 5px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding: 6px * 1.2 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
     }
 
     &--align-l {
@@ -166,7 +330,6 @@
 
 @if $device == SP {
   .t0-b-lv4H-qIcon#{$variation1of2} {
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     color: $g-textColor;
     > div {
       display: inline-block;
@@ -244,7 +407,6 @@
   }
 
   .t0-b-lv4H-qIcon#{$variation2of2} {
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
     color: $g-textColor;
     > div {
       display: inline-block;
