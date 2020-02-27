@@ -5,25 +5,21 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    text-align: center;
+    color: $lv2H_textColor;
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
     h2 {
       @include g-font-layout($_fontSize, 1, $layout);
-    }
-
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, 1, $layout);
-      }
-
-      #{$_block}__iconPlacer {
-        //
       }
     }
 
@@ -31,18 +27,10 @@
       h2 {
         @include g-font-layout($_fontSize_l, 1, $layout);
       }
-
-      #{$_block}__iconPlacer {
-        //
-      }
     }
 
     &--align-l {
       text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
     }
 
     &--align-r {
@@ -56,25 +44,35 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    color: $lv2H2_textColor;
+
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     h2 {
       @include g-font-layout($_fontSize, 1, $layout);
-    }
-
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
+      position: relative;
+      vertical-align: middle;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        background: url("../imgs/lv2H/02/01.png");
+        background-size: contain;
+        width: 110px;
+        height: 110px;
+        z-index: -1;
+      }
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, 1, $layout);
-      }
-
-      #{$_block}__iconPlacer {
-        //
       }
     }
 
@@ -82,18 +80,198 @@
       h2 {
         @include g-font-layout($_fontSize_l, 1, $layout);
       }
+    }
 
-      #{$_block}__iconPlacer {
-        //
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-lv2H3 {
+    $_block: &;
+    $_fontSize: 28;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    color: $lv2H3_textColor;
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      display: inline-block;
+      vertical-align: bottom;
+      padding: 0 30px;
+      margin: 0 20px;
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: -20px;
+        display: inline-block;
+        width: 30px;
+        height: 80%;
+        max-height: 100px;
+        min-height: 30px;
+        content: "";
+        background: url("../imgs/lv2H/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        right: -20px;
+        display: inline-block;
+        width: 30px;
+        height: 80%;
+        max-height: 100px;
+        min-height: 30px;
+        content: "";
+        background: url("../imgs/lv2H/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+        transform: scale(-1, 1);
+      }
+    }
+
+    &--size-1 {
+      h2 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-lv2H4 {
+    $_block: &;
+    $_fontSize: 28;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_textlinePadding: 25px;
+    text-align: center;
+    overflow: hidden;
+    color: $lv2H4_textColor;
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      display: inline-block;
+      max-width: 90%;
+      padding: 0 $_textlinePadding;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 100vw;
+        border-top: 2px solid $lv3H4_borderColor;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 100vw;
+        border-top: 2px solid $lv3H4_borderColor;
+      }
+    }
+
+    &--size-1 {
+      h2 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
       }
     }
 
     &--align-l {
       text-align: left;
+      h2 {
+        padding-left: 0;
+      }
     }
 
-    &--align-c {
-      text-align: center;
+    &--align-r {
+      text-align: right;
+      h2 {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .t0-b-lv2H5 {
+    $_block: &;
+    $_fontSize: 28;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    border-bottom: 2px solid $lv3H5_borderColor;
+    padding: 0 5px 10px;
+    text-align: center;
+    color: $lv2H5_textColor;
+    a {
+      &:hover {
+        color: $g-baseHoverColor2;
+      }
+    }
+
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+    }
+
+    &--size-1 {
+      h2 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
     }
 
     &--align-r {
@@ -104,25 +282,18 @@
 
 @if $device == SP {
   .t0-b-lv2H {
-    $_fontSize: 20;
-    &__iconPlacer {
-      //
-    }
-
-    &__icon {
-      //
-    }
-
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    text-align: center;
+    color: $lv2H_textColor;
     h2 {
       @include g-font($_fontSize);
     }
 
     &--align-l {
       text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
     }
 
     &--align-r {
@@ -131,25 +302,169 @@
   }
 
   .t0-b-lv2H2 {
-    $_fontSize: 20;
-    &__iconPlacer {
-      //
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    color: $lv2H2_textColor;
+
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      vertical-align: middle;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        background: url("../imgs/lv2H/02/01.png");
+        background-size: contain;
+        width: 80px;
+        height: 80px;
+        z-index: -1;
+      }
     }
 
-    &__icon {
-      //
+    &--align-l {
+      justify-content: flex-start;
     }
 
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-lv2H3 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    color: $lv2H3_textColor;
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    h2 {
+      @include g-font($_fontSize);
+      position: relative;
+      display: inline-block;
+      vertical-align: bottom;
+      padding: 0 15px;
+      margin: 0 20px;
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: -20px;
+        display: inline-block;
+        width: 20px;
+        height: 80%;
+        max-height: 100px;
+        min-height: 20px;
+        content: "";
+        background: url("../imgs/lv2H/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        right: -20px;
+        display: inline-block;
+        width: 20px;
+        height: 80%;
+        max-height: 100px;
+        min-height: 20px;
+        content: "";
+        background: url("../imgs/lv2H/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+        transform: scale(-1, 1);
+      }
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-lv2H4 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_textlinePadding: 20px;
+    text-align: center;
+    overflow: hidden;
+    color: $lv2H4_textColor;
+    h2 {
+      @include g-font($_fontSize);
+      position: relative;
+      display: inline-block;
+      max-width: 90%;
+      padding: 0 $_textlinePadding;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 100vw;
+        border-top: 2px solid $lv3H4_borderColor;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 100vw;
+        border-top: 2px solid $lv3H4_borderColor;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+      h2 {
+        padding-left: 0;
+      }
+    }
+
+    &--align-r {
+      text-align: right;
+      h2 {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .t0-b-lv2H5 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    border-bottom: 2px solid $lv3H5_borderColor;
+    padding: 0 5px 8px;
+    text-align: center;
+    color: $lv2H5_textColor;
     h2 {
       @include g-font($_fontSize);
     }
 
     &--align-l {
       text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
     }
 
     &--align-r {
