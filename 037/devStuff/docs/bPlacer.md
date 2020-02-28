@@ -75,6 +75,7 @@
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|7|2%||15px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList|8|2%||15px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList||4%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList|2|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList||4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|2|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|3|4%||20px|
