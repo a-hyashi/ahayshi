@@ -1,7 +1,16 @@
 @if $device == PC {
   .t0-b-lv4H-num2Icon#{$variation1of2} {
     $_block: &;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
     color: $g-textColor;
     > div {
       display: inline-block;
@@ -20,27 +29,27 @@
     }
 
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 5px;
     }
 
     &__h {
-      @include g-font(22, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__icon {
@@ -91,6 +100,144 @@
       }
     }
 
+    &--size-1 {
+      #{$_block}__icon {
+        width: 44px * .8;
+        height: 44px * .8;
+        background-size: 440px * .8 44px * .8;
+        &--number-2 {
+          background-position: -88px * .8 0;
+        }
+
+        &--number-3 {
+          background-position: -132px * .8 0;
+        }
+
+        &--number-4 {
+          background-position: -176px * .8 0;
+        }
+
+        &--number-5 {
+          background-position: -220px * .8 0;
+        }
+
+        &--number-6 {
+          background-position: -264px * .8 0;
+        }
+
+        &--number-7 {
+          background-position: -308px * .8 0;
+        }
+
+        &--number-8 {
+          background-position: -352px * .8 0;
+        }
+
+        &--number-9 {
+          background-position: -396px * .8 0;
+        }
+
+        &--number-10 {
+          background-position: -44px * .8 0;
+        }
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 7px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 5px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 44px * 1.2;
+        height: 44px * 1.2;
+        background-size: 440px * 1.2 44px * 1.2;
+        &--number-2 {
+          background-position: -88px * 1.2 0;
+        }
+
+        &--number-3 {
+          background-position: -132px * 1.2 0;
+        }
+
+        &--number-4 {
+          background-position: -176px * 1.2 0;
+        }
+
+        &--number-5 {
+          background-position: -220px * 1.2 0;
+        }
+
+        &--number-6 {
+          background-position: -264px * 1.2 0;
+        }
+
+        &--number-7 {
+          background-position: -308px * 1.2 0;
+        }
+
+        &--number-8 {
+          background-position: -352px * 1.2 0;
+        }
+
+        &--number-9 {
+          background-position: -396px * 1.2 0;
+        }
+
+        &--number-10 {
+          background-position: -44px * 1.2 0;
+        }
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 7px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 5px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -114,7 +261,16 @@
 
   .t0-b-lv4H-num2Icon#{$variation2of2} {
     $_block: &;
-    $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
     color: $g-textColor;
     > div {
       display: inline-block;
@@ -133,27 +289,27 @@
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 5px;
     }
 
     &__h {
-      @include g-font(22, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__icon {
@@ -201,6 +357,144 @@
 
       &--number-10 {
         background-position: -52px 0;
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 52px * .8;
+        height: 50px * .8;
+        background-size: 520px * .8 50px * .8;
+        &--number-2 {
+          background-position: -104px *1.2 0;
+        }
+
+        &--number-3 {
+          background-position: -156px *1.2 0;
+        }
+
+        &--number-4 {
+          background-position: -208px *1.2 0;
+        }
+
+        &--number-5 {
+          background-position: -260px *1.2 0;
+        }
+
+        &--number-6 {
+          background-position: -312px *1.2 0;
+        }
+
+        &--number-7 {
+          background-position: -364px *1.2 0;
+        }
+
+        &--number-8 {
+          background-position: -416px *1.2 0;
+        }
+
+        &--number-9 {
+          background-position: -468px *1.2 0;
+        }
+
+        &--number-10 {
+          background-position: -52px *1.2 0;
+        }
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 5px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 52px * 1.2;
+        height: 50px * 1.2;
+        background-size: 520px * 1.2 50px * 1.2;
+        &--number-2 {
+          background-position: -104px *1.2 0;
+        }
+
+        &--number-3 {
+          background-position: -156px *1.2 0;
+        }
+
+        &--number-4 {
+          background-position: -208px *1.2 0;
+        }
+
+        &--number-5 {
+          background-position: -260px *1.2 0;
+        }
+
+        &--number-6 {
+          background-position: -312px *1.2 0;
+        }
+
+        &--number-7 {
+          background-position: -364px *1.2 0;
+        }
+
+        &--number-8 {
+          background-position: -416px *1.2 0;
+        }
+
+        &--number-9 {
+          background-position: -468px *1.2 0;
+        }
+
+        &--number-10 {
+          background-position: -52px *1.2 0;
+        }
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 5px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
       }
     }
 

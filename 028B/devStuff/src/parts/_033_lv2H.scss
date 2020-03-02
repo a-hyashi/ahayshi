@@ -1,5 +1,12 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of2} {
+    $_block: &;
+    $_fontSize: 24;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     margin: 0 auto;
     color: #240d0d;
     a {
@@ -38,10 +45,36 @@
     }
 
     h2 {
-      @include g-font(24, 1);
+      @include g-font($_fontSize, $_lineHeight);
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
       padding-left: 12px;
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 44px * .8;
+        height: 40px * .8;
+        background-size: 44px * .8 40px * .8;
+      }
+
+      h2 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding-left: 12px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 44px * 1.2;
+        height: 40px * 1.2;
+        background-size: 44px * 1.2 40px * 1.2;
+      }
+
+      h2 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding-left: 12px * 1.2;
+      }
     }
 
     &--align-l {
@@ -58,6 +91,12 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_fontSize: 24;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     margin: 0 auto;
     color: #fff;
     background: linear-gradient(to bottom, #416916 0%, #02552d 88%);
@@ -105,9 +144,47 @@
 
     h2 {
       padding: 12px 15px 19px;
-      @include g-font-spacingKilled(24, 1);
+      @include g-font($_fontSize, $_lineHeight);
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
+    }
+
+    &--size-1 {
+      &::after {
+        background-size: 90px * .8 43px * .8;
+        width: 90px * .8;
+        height: 43px * .8;
+        bottom: 6px * .8;
+      }
+
+      &::before {
+        height: 6px * .8;
+        background-size: 110px * .8 6px * .8;
+      }
+
+      h2 {
+        padding: 12px * .8 15px * .8 19px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      &::after {
+        background-size: 90px * 1.2 43px * 1.2;
+        width: 90px * 1.2;
+        height: 43px * 1.2;
+        bottom: 6px * 1.2;
+      }
+
+      &::before {
+        height: 6px * 1.2;
+        background-size: 110px * 1.2 6px * 1.2;
+      }
+
+      h2 {
+        padding: 12px * 1.2 15px * 1.2 19px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
