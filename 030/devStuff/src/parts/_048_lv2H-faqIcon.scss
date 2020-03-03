@@ -1,6 +1,12 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
     $_block: &;
+    $_fontSize_h: 24;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_lineHeight_h: 2;
+
     position: relative;
     min-height: 70px;
     color: #fff;
@@ -16,7 +22,7 @@
 
     &__h {
       position: relative;
-      @include g-font(24, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       padding: 8px 30px 8px 70px;
       box-sizing: border-box;
       background: url("../imgs/t0-b-lv2H-faqIcon/bg5.png") repeat 0 0, linear-gradient(to right, rgba(0, 0, 0, .55), rgba(0, 0, 0, .005), rgba(0, 0, 0, .55)), url("../imgs/t0-b-lv2H-faqIcon/bg6.png") repeat 0 0;
@@ -43,6 +49,54 @@
         width: 68px;
         height: 70px;
         background: url("../imgs/t0-b-lv2H-faqIcon/bg.png") no-repeat 0 0;
+      }
+    }
+
+    &--size-1 {
+      min-height: 70px * .8;
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding: 8px * .8 30px * .8 8px * .8 70px * .8;
+        background-size: 100% 100%, auto, 4px * .8 4px * .8;
+        margin-top: 4px * .8;
+        &::before {
+          left: 6px * .8;
+          right: 4px * .8;
+          top: 2px * .8;
+          bottom: 2px * .8;
+        }
+
+        &::after {
+          left: 0;
+          top: -4px * .8;
+          width: 68px * .8;
+          height: 70px * .8;
+          background-size: 68px * .8 70px * .8;
+        }
+      }
+    }
+
+    &--size-3 {
+      min-height: 70px * 1.2;
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding: 8px * 1.2 30px * 1.2 8px * 1.2 70px * 1.2;
+        background-size: 100% 100%, auto, 4px * 1.2 4px * 1.2;
+        margin-top: 4px * 1.2;
+        &::before {
+          left: 6px * 1.2;
+          right: 4px * 1.2;
+          top: 2px * 1.2;
+          bottom: 2px * 1.2;
+        }
+
+        &::after {
+          left: 0;
+          top: -4px * 1.2;
+          width: 68px * 1.2;
+          height: 70px * 1.2;
+          background-size: 68px * 1.2 70px * 1.2;
+        }
       }
     }
 
