@@ -55,8 +55,9 @@
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|4|6%||25px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|5|6%||25px|
 |02.テキスト|main|026_基本テキストセット|.t0-b-wysiwyg|6|6%||25px|
-|02.テキスト|main|031_キャッチコピー|.t0-b-catchText||0%||0px|
-|02.テキスト|main|031_キャッチコピー|.t0-b-catchText|2|4%||0px|
+|02.テキスト|main|031_キャッチコピー|.t0-b-catchText||4%||15px|
+|02.テキスト|main|031_キャッチコピー|.t0-b-catchText|2|4%||15px|
+|02.テキスト|main|031_キャッチコピー|.t0-b-catchText|3|4%||15px|
 |02.テキスト|side|137_サイドボックステキスト|.t0-b-sideBoxText||5%||20px|
 |02.テキスト|side|138_サイドボックステキスト（強調）|.t0-b-sideBoxTextStrong||3%||5px|
 |02.テキスト|header|166_ヘッダテキスト|.t0-b-headerText||4%||10px|
