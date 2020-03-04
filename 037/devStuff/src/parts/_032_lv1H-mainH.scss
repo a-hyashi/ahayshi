@@ -38,26 +38,29 @@
   }
 
   .t0-b-lv1H-mainH2 {
+    $_block: &;
     $_fontSize_bd: 38;
     $_fontSize_caption: 20;
     color: $lv1H-mainH2_textColor;
     text-shadow: 1px 1px 0 $lv1H-mainH2_textShadowColor, -1px -1px 0 $lv1H-mainH2_textShadowColor, 0 1px 0 $lv1H-mainH2_textShadowColor, 0 -1px 0 $lv1H-mainH2_textShadowColor, -1px 0 0 $lv1H-mainH2_textShadowColor, 1px 0 0 $lv1H-mainH2_textShadowColor;
-    min-height: 110px;
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    align-items: center;
-    justify-content: center;
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
-      padding-bottom: 10px;
+      // 背景の円との余白を詰めるため
+      margin-bottom: -20px;
+    }
+
+    &__bd {
+      min-height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     h1 {
       @include g-font-layout($_fontSize_bd, 1, $layout);
+      padding: 20px 0;
       position: relative;
-      align-items: center;
-      justify-content: center;
       &::before {
         content: "";
         position: absolute;
@@ -75,19 +78,21 @@
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
-      padding-top: 10px;
+      margin-top: -20px;
     }
 
     &--align-l {
       text-align: left;
-      align-items: flex-start;
-      justify-content: flex-start;
+      #{$_block}__bd {
+        justify-content: flex-start;
+      }
     }
 
     &--align-r {
       text-align: right;
-      align-items: flex-end;
-      justify-content: flex-end;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
   }
 
@@ -95,10 +100,7 @@
     $_fontSize_bd: 38;
     $_fontSize_caption: 20;
     color: $lv1H-mainH3_textColor;
-    display: flex;
     text-align: center;
-    flex-direction: column;
-    justify-content: center;
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
       padding-bottom: 10px;
@@ -120,7 +122,6 @@
         width: 70px;
         height: 100%;
         max-height: 100px;
-        min-height: 38px;
         content: "";
         background: url("../imgs/lv1H-mainH/03/01.svg");
         background-repeat: no-repeat;
@@ -135,7 +136,6 @@
         width: 70px;
         height: 100%;
         max-height: 100px;
-        min-height: 38px;
         content: "";
         background: url("../imgs/lv1H-mainH/03/01.svg");
         background-repeat: no-repeat;
@@ -151,20 +151,10 @@
 
     &--align-l {
       text-align: left;
-      align-items: flex-start;
-      justify-content: flex-start;
-      h1 {
-        margin-left: 0;
-      }
     }
 
     &--align-r {
       text-align: right;
-      align-items: flex-end;
-      justify-content: flex-end;
-      h1 {
-        margin-right: 0;
-      }
     }
   }
 
@@ -237,26 +227,28 @@
   }
 
   .t0-b-lv1H-mainH2 {
+    $_block: &;
     $_fontSize_bd: 24;
     $_fontSize_caption: 14;
     color: $lv1H-mainH2_textColor;
     text-shadow: 1px 1px 0 $lv1H-mainH2_textShadowColor, -1px -1px 0 $lv1H-mainH2_textShadowColor, 0 1px 0 $lv1H-mainH2_textShadowColor, 0 -1px 0 $lv1H-mainH2_textShadowColor, -1px 0 0 $lv1H-mainH2_textShadowColor, 1px 0 0 $lv1H-mainH2_textShadowColor;
-    min-height: 90px;
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    align-items: center;
-    justify-content: center;
     &__caption-upper {
       @include g-font($_fontSize_caption);
-      padding-bottom: 5px;
+      margin-bottom: -25px;
+    }
+
+    &__bd {
+      min-height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     h1 {
       @include g-font-layout($_fontSize_bd, 1, $layout);
+      padding: 25px 0;
       position: relative;
-      align-items: center;
-      justify-content: center;
       &::before {
         content: "";
         position: absolute;
@@ -274,19 +266,21 @@
 
     &__caption-lower {
       @include g-font($_fontSize_caption);
-      padding-top: 5px;
+      margin-top: -25px;
     }
 
     &--align-l {
       text-align: left;
-      align-items: flex-start;
-      justify-content: flex-start;
+      #{$_block}__bd {
+        justify-content: flex-start;
+      }
     }
 
     &--align-r {
       text-align: right;
-      align-items: flex-end;
-      justify-content: flex-end;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
   }
 
@@ -294,10 +288,7 @@
     $_fontSize_bd: 24;
     $_fontSize_caption: 14;
     color: $lv1H-mainH3_textColor;
-    display: flex;
     text-align: center;
-    flex-direction: column;
-    justify-content: center;
     &__caption-upper {
       @include g-font($_fontSize_caption);
       padding-bottom: 5px;
@@ -319,7 +310,6 @@
         width: 40px;
         height: 100%;
         max-height: 70px;
-        min-height: 30px;
         content: "";
         background: url("../imgs/lv1H-mainH/03/01.svg");
         background-repeat: no-repeat;
@@ -334,7 +324,6 @@
         width: 40px;
         height: 100%;
         max-height: 70px;
-        min-height: 30px;
         content: "";
         background: url("../imgs/lv1H-mainH/03/01.svg");
         background-repeat: no-repeat;
@@ -350,20 +339,10 @@
 
     &--align-l {
       text-align: left;
-      align-items: flex-start;
-      justify-content: flex-start;
-      h1 {
-        margin-left: 0;
-      }
     }
 
     &--align-r {
       text-align: right;
-      align-items: flex-end;
-      justify-content: flex-end;
-      h1 {
-        margin-right: 0;
-      }
     }
   }
 
