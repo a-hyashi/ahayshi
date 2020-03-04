@@ -4,6 +4,7 @@
     $_fontSize_sub: 20;
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
+    $_textPadding: 100px;
     display: flex;
     justify-content: center;
 
@@ -15,12 +16,13 @@
       flex-direction: column;
       justify-content: center;
       min-height: 110px;
-      padding: 0 120px;
+      padding-left: 110px;
+      padding-right: 110px;
       &::before {
         position: absolute;
         left: 0;
         display: inline-block;
-        width: 120px;
+        width: $_textPadding;
         height: 90%;
         min-height: 110px;
         content: "";
@@ -34,7 +36,7 @@
         position: absolute;
         right: 0;
         display: inline-block;
-        width: 120px;
+        width: $_textPadding;
         height: 90%;
         min-height: 110px;
         content: "";
@@ -75,12 +77,51 @@
     $_fontSize_sub: 20;
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
-    a {
-      text-decoration: underline;
-    }
+    $_textPadding: 100px;
+    display: flex;
+    justify-content: center;
 
     &__inner {
-      //
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      display: inline-flex;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 80px;
+      min-width: 80px;
+      padding: 0 $_textPadding;
+      &::before {
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        width: $_textPadding;
+        height: 80%;
+        min-height: 80px;
+        min-width: 80px;
+        max-height: 180px;
+        content: "";
+        background: url("../imgs/catchText/02/01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center left;
+      }
+
+      &::after {
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        width: $_textPadding;
+        height: 80%;
+        min-height: 80px;
+        max-height: 180px;
+        content: "";
+        background: url("../imgs/catchText/02/01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center left;
+        transform: scale(-1, 1);
+      }
     }
 
     &__text-sub {
@@ -94,7 +135,7 @@
     }
 
     &__text-main {
-      @include g-font-layout($_fontSize, $_lineHeight_main, $layout);
+        @include g-font-layout($_fontSize, $_lineHeight_main, $layout);
     }
 
     &__text-sub3 {
