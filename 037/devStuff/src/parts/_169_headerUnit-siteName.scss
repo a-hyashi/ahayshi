@@ -13,12 +13,8 @@
     }
 
     &__bd {
-      display: table;
-      > div {
-        display: table-cell;
-        text-align: left;
-        vertical-align: middle;
-      }
+      display: flex;
+      align-items: center;
     }
 
     &__bd-logo {
@@ -44,7 +40,7 @@
     }
 
     &__ft {
-      @include g-font(14);
+      @include g-font($g-fontSize);
       padding-top: 5px;
     }
 
@@ -61,6 +57,10 @@
   .t0-b-headerUnit-siteTitle2 {
     white-space: nowrap;
     color: $headerUnit-siteName_textColor;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
     a {
       &:hover {
         color: $g-baseHoverColor2;
@@ -70,23 +70,14 @@
       }
     }
 
-    &__bd {
-      display: table;
-      margin: 0 auto;
-      > div {
-        display: table;
-        text-align: center;
-      }
-    }
-
     &__bd-logo {
       padding-bottom: 10px;
-      margin: 0 auto;
       img {
         display: block;
         width: auto;
         max-width: 160px;
         height: 45px;
+        margin: 0 auto;
       }
     }
 
@@ -100,7 +91,7 @@
     }
 
     &__ft {
-      @include g-font(14);
+      @include g-font($g-fontSize);
       padding-top: 5px;
       text-align: center;
     }
@@ -112,12 +103,8 @@
   .t0-b-headerUnit-siteTitle {
     color: $headerUnit-siteName_textColor;
     &__bd {
-      display: table;
-      > div {
-        display: table-cell;
-        text-align: left;
-        vertical-align: middle;
-      }
+      display: flex;
+      align-items: center;
     }
 
     &__bd-logo {
@@ -147,15 +134,6 @@
       padding-top: 5px;
       text-align: left;
     }
-
-    // ヘッダーセット(中央)に合わせた見た目にする
-    [class^="t0-b-headerSingle"] &__bd {
-      margin: 0 auto;
-    }
-
-    [class^="t0-b-headerSingle"] &__ft {
-      text-align: center;
-    }
   }
 
   .t0-b-headerUnit-siteTitle2 {
@@ -188,8 +166,12 @@
       @include g-font(28);
     }
 
+    &__bd-note + &__bd-siteName {
+      @include g-font(24);
+    }
+
     &__ft {
-      @include g-font(14);
+      @include g-font($g-fontSize);
       padding-top: 5px;
       text-align: center;
     }
