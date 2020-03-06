@@ -1,7 +1,17 @@
 @if $device == PC {
   .t0-b-lv4H-voiceIcon#{$variation1of2} {
     $_block: &;
+    $_fontSize_h: 26;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 1}px;
+
     line-height: 0;
     color: #282828;
     > div {
@@ -21,26 +31,26 @@
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 #{$_elementSpacing};
     }
 
     &__h {
-      @include g-font(26, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-weight: bold;
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: #{$_elementSpacing} 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font(24, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font(24, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__icon {
@@ -53,6 +63,76 @@
       text-indent: -100px;
       color: transparent;
       background-image: url("../imgs/t0-b-lv4H-voiceIcon/bg.png");
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 50px * .8;
+        height: 51px * .8;
+        text-indent: -100px * .8;
+        background-size: 50px * .8 51px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 15px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 50px * 1.2;
+        height: 51px * 1.2;
+        text-indent: -100px * 1.2;
+        background-size: 50px * 1.2 51px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 15px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
     }
 
     &--align-l {
@@ -78,7 +158,17 @@
 
   .t0-b-lv4H-voiceIcon#{$variation2of2} {
     $_block: &;
+    $_fontSize_h: 26;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 1}px;
+
     line-height: 0;
     color: #282828;
     > div {
@@ -98,26 +188,26 @@
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 #{$_elementSpacing};
     }
 
     &__h {
-      @include g-font(26, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-weight: bold;
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: #{$_elementSpacing} 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font(24, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font(24, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__icon {
@@ -130,6 +220,76 @@
       text-indent: -100px;
       color: transparent;
       background-image: url("../imgs/t0-b-lv4H-voiceIcon/bg2.png");
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 50px * .8;
+        height: 51px * .8;
+        text-indent: -100px * .8;
+        background-size: 50px * .8 51px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 15px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 50px * 1.2;
+        height: 51px * 1.2;
+        text-indent: -100px * 1.2;
+        background-size: 50px * 1.2 51px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 15px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
     }
 
     &--align-l {

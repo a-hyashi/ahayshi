@@ -1,5 +1,12 @@
 @if $device == PC {
   .t0-b-lv3H#{$variation1of3} {
+    $_block: &;
+    $_fontSize: 24;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     position: relative;
     line-height: 0;
     color: #2f1818;
@@ -16,7 +23,7 @@
     }
 
     h3 {
-      @include g-font(24, 1);
+      @include g-font($_fontSize, $_lineHeight);
       padding: 0 0 0 12px;
       display: table-cell;
       vertical-align: middle;
@@ -29,6 +36,32 @@
       vertical-align: middle;
       &:hover {
         color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 14px * .8;
+        height: 48px * .8;
+        background-size: 14px * .8 48px * .8;
+      }
+
+      h3 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding: 0 0 0 12px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 14px * 1.2;
+        height: 48px * 1.2;
+        background-size: 14px * 1.2 48px * 1.2;
+      }
+
+      h3 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding: 0 0 0 12px * 1.2;
       }
     }
 
@@ -46,6 +79,13 @@
   }
 
   .t0-b-lv3H#{$variation2of3} {
+    $_block: &;
+    $_fontSize: 22;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     padding: 10px 10px 10px 30px;
     position: relative;
     border: 1px solid #fff;
@@ -63,7 +103,7 @@
     }
 
     h3 {
-      @include g-font(22, 1);
+      @include g-font($_fontSize, $_lineHeight);
     }
 
     a {
@@ -71,6 +111,36 @@
       color: #2f1818;
       &:hover {
         color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      padding: 10px * .8 10px * .8 10px * .8 30px * .8;
+      border-radius: 2px * .8;
+      &::before {
+        top: 7px * .8;
+        bottom: 7px * .8;
+        left: 10px * .8;
+        width: 8px * .8;
+      }
+
+      h3 {
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      padding: 10px * 1.2 10px * 1.2 10px * 1.2 30px * 1.2;
+      border-radius: 2px * 1.2;
+      &::before {
+        top: 7px * 1.2;
+        bottom: 7px * 1.2;
+        left: 10px * 1.2;
+        width: 8px * 1.2;
+      }
+
+      h3 {
+        @include g-font($_fontSize_l, $_lineHeight);
       }
     }
 
@@ -88,6 +158,13 @@
   }
 
   .t0-b-lv3H#{$variation3of3} {
+    $_block: &;
+    $_fontSize: 24;
+    $_lineHeight: 2;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     background: linear-gradient(#f6f6f6, #e2e2e2);
     border: 1px solid #5e513e;
     border-radius: 5px 5px 0 0;
@@ -114,7 +191,7 @@
     }
 
     h3 {
-      @include g-font-spacingKilled(24, 2);
+      @include g-font($_fontSize, $_lineHeight);
       padding: 7px 10px 10px 40px;
     }
 
@@ -123,6 +200,34 @@
       color: #2f1818;
       &:hover {
         color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      border-radius: 5px * .8 5px * .8 0 0;
+      &::before {
+        bottom: 5px * .8;
+        left: 30px * .8;
+        width: 3px * .8;
+      }
+
+      h3 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding: 7px * .8 10px * .8 10px * .8 40px * .8;
+      }
+    }
+
+    &--size-3 {
+      border-radius: 5px * 1.2 5px * 1.2 0 0;
+      &::before {
+        bottom: 5px * 1.2;
+        left: 30px * 1.2;
+        width: 3px * 1.2;
+      }
+
+      h3 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding: 7px * 1.2 10px * 1.2 10px * 1.2 40px * 1.2;
       }
     }
 

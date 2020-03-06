@@ -1,7 +1,12 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon#{$variation1of2} {
-    $_block: &;
-    @include g-font(24, 1);
+    $_fontSize: 24;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
+    @include g-font($_fontSize, $_lineHeight);
     border: 1px solid #2f1818;
     padding: 1px;
     background: #fff;
@@ -21,6 +26,27 @@
     > div {
       padding: 10px 20px;
       background: url("../imgs/t0-b-lv2H-faqIcon/bg5.png") no-repeat left 5px center, url("../imgs/t0-b-lv2H-faqIcon/bg6.png") no-repeat right 5px center, linear-gradient(rgba(218, 218, 75, .3), rgba(113, 93, 93, .4)), url("../imgs/t0-b-lv2H-faqIcon/bg4.png") repeat left top;
+      background-size: 34px 33px, 33px 34px, 40px 42px;
+    }
+
+    &--size-1 {
+      @include g-font($_fontSize_s, $_lineHeight);
+      text-shadow: 0 2px * .8 2px * .8 #5f5128;
+      > div {
+        padding: 10px * .8 20px * .8;
+        background-position: left 5px * .8 center, right 5px * .8 center, left top;
+        background-size: 34px * .8 33px * .8, 33px * .8 34px * .8, 40px * .8 42px * .8;
+      }
+    }
+
+    &--size-3 {
+      @include g-font($_fontSize_l, $_lineHeight);
+      text-shadow: 0 2px * 1.2 2px * 1.2 #5f5128;
+      > div {
+        padding: 10px * 1.2 20px * 1.2;
+        background-position: left 5px * 1.2 center, right 5px * 1.2 center, left top;
+        background-size: 34px * 1.2 33px * 1.2, 33px * 1.2 34px * 1.2, 40px * 1.2 42px * 1.2;
+      }
     }
 
     &--align-l {
@@ -37,8 +63,13 @@
   }
 
   .t0-b-lv2H-faqIcon#{$variation2of2} {
-    $_block: &;
-    @include g-font(24, 1);
+    $_fontSize: 24;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
+    @include g-font($_fontSize, $_lineHeight);
     border: 1px solid #2f1818;
     padding: 1px;
     background: #fff;
@@ -58,6 +89,24 @@
     > div {
       padding: 10px 20px;
       background: url("../imgs/t0-b-lv2H-faqIcon/bg2.png") no-repeat left 5px center, url("../imgs/t0-b-lv2H-faqIcon/bg3.png") no-repeat right 5px center, linear-gradient(rgba(255, 255, 255, .4), rgba(194, 182, 182, .4)), url("../imgs/t0-b-lv2H-faqIcon/bg.png") repeat left top;
+    }
+
+    &--size-1 {
+      @include g-font($_fontSize_s, $_lineHeight);
+      > div {
+        padding: 10px * .8 20px * .8;
+        background-position: left 5px * .8 center, right 5px * .8 center, left top;
+        background-size: 35px * .8 34px * .8, 34px * .8 36px * .8, 40px * .8 42px * .8;
+      }
+    }
+
+    &--size-3 {
+      @include g-font($_fontSize_l, $_lineHeight);
+      > div {
+        padding: 10px * 1.2 20px * 1.2;
+        background-position: left 5px * 1.2 center, right 5px * 1.2 center, left top;
+        background-size: 35px * 1.2 34px * 1.2, 34px * 1.2 36px * 1.2, 40px * 1.2 42px * 1.2;
+      }
     }
 
     &--align-l {

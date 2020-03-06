@@ -1,5 +1,11 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of3} {
+    $_block: &;
+    $_fontSize: 30;
+    $_lineHeight: 2;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
     a {
       text-decoration: none;
       color: #2f1818;
@@ -21,6 +27,7 @@
     &__iconPlacer {
       display: table-cell;
       background: url("../imgs/t0-b-lv2H/bg.png") no-repeat 0 50%;
+      background-size: 16px 50px;
       width: 16px;
       height: 50px;
     }
@@ -28,9 +35,35 @@
     h2 {
       display: table-cell;
       padding: 0 0 0 12px;
-      @include g-font-spacingKilled(30, 2);
+      @include g-font($_fontSize, $_lineHeight);
       text-align: left;
       vertical-align: middle;
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        width: 16px * .8;
+        height: 50px * .8;
+        background-size: 16px * .8 50px * .8;
+      }
+
+      h2 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding-left: 12px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        width: 16px * 1.2;
+        height: 50px * 1.2;
+        background-size: 16px * 1.2 50px * 1.2;
+      }
+
+      h2 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding-left: 12px * 1.2;
+      }
     }
 
     &--align-l {
@@ -47,6 +80,13 @@
   }
 
   .t0-b-lv2H#{$variation2of3} {
+    $_block: &;
+    $_fontSize: 30;
+    $_lineHeight: 2;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     padding: 1px;
     border: 1px solid #2f1818;
     position: relative;
@@ -64,6 +104,7 @@
       background-image: url("../imgs/t0-b-lv2H/bg2.png"), url("../imgs/t0-b-lv2H/bg3.png"), url("../imgs/t0-b-lv2H/bg4.png"), url("../imgs/t0-b-lv2H/bg5.png");
       background-repeat: no-repeat;
       background-position: left top, right top, left bottom, right bottom;
+      background-size: 7px 7px, 8px 8px, 7px 7px, 7px 7px;
       > span {
         position: absolute;
         top: 0;
@@ -95,9 +136,75 @@
 
     h2 {
       padding: 15px 30px;
-      @include g-font-spacingKilled(30, 2);
+      @include g-font($_fontSize, $_lineHeight);
       position: relative;
       z-index: 10;
+    }
+
+    &--size-1 {
+      padding: 1px * .8;
+      box-shadow: 0 0 10px * .8 #d2cbcb;
+      color: #2f1818;
+      background-size: 100%, 100% 160px * .8;
+      > span {
+        top: 1px * .8;
+        bottom: 1px * .8;
+        left: 1px * .8;
+        right: 1px * .8;
+        background-size: 7px * .8 7px * .8, 8px * .8 8px * .8, 7px * .8 7px * .8, 7px * .8 7px * .8;
+        > span {
+          left: 7px * .8;
+          right: 7px * .8;
+          border-top: 3px * .8 double #fff;
+          border-bottom: 3px * .8 double #fff;
+          > span {
+            top: 4px * .8;
+            bottom: 4px * .8;
+            left: -7px * .8;
+            right: -7px * .8;
+            border-left: 3px * .8 double #fff;
+            border-right: 3px * .8 double #fff;
+          }
+        }
+      }
+
+      h2 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding: 15px * .8 30px * .8;
+      }
+    }
+
+    &--size-3 {
+      padding: 1px * 1.2;
+      box-shadow: 0 0 10px * 1.2 #d2cbcb;
+      color: #2f1818;
+      background-size: 100%, 100% 160px * 1.2;
+      > span {
+        top: 1px * 1.2;
+        bottom: 1px * 1.2;
+        left: 1px * 1.2;
+        right: 1px * 1.2;
+        background-size: 7px * 1.2 7px * 1.2, 8px * 1.2 8px * 1.2, 7px * 1.2 7px * 1.2, 7px * 1.2 7px * 1.2;
+        > span {
+          left: 7px * 1.2;
+          right: 7px * 1.2;
+          border-top: 3px * 1.2 double #fff;
+          border-bottom: 3px * 1.2 double #fff;
+          > span {
+            top: 4px * 1.2;
+            bottom: 4px * 1.2;
+            left: -7px * 1.2;
+            right: -7px * 1.2;
+            border-left: 3px * 1.2 double #fff;
+            border-right: 3px * 1.2 double #fff;
+          }
+        }
+      }
+
+      h2 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding: 15px * 1.2 30px * 1.2;
+      }
     }
 
     &--align-l {
@@ -114,6 +221,13 @@
   }
 
   .t0-b-lv2H#{$variation3of3} {
+    $_block: &;
+    $_fontSize: 30;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     padding: 10px 10px 10px 30px;
     position: relative;
     border: 1px solid #fff;
@@ -131,7 +245,7 @@
     }
 
     h2 {
-      @include g-font(30, 1);
+      @include g-font($_fontSize, $_lineHeight);
     }
 
     a {
@@ -140,6 +254,36 @@
       position: relative;
       &:hover {
         color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      padding: 10px * .8 10px * .8 10px * .8 30px * .8;
+      border-radius: 2px * .8;
+      &::before {
+        top: 10px * .8;
+        bottom: 10px * .8;
+        left: 10px * .8;
+        width: 8px * .8;
+      }
+
+      h2 {
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      padding: 10px * 1.2 10px * 1.2 10px * 1.2 30px * 1.2;
+      border-radius: 2px * 1.2;
+      &::before {
+        top: 10px * 1.2;
+        bottom: 10px * 1.2;
+        left: 10px * 1.2;
+        width: 8px * 1.2;
+      }
+
+      h2 {
+        @include g-font($_fontSize_l, $_lineHeight);
       }
     }
 
