@@ -5,7 +5,7 @@
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
     $_decoration_minHeigh: 110px;
-    $_textPadding: 100px;
+    $_decoration_width: 100px;
     display: flex;
     justify-content: center;
     color: $catchText_textColor;
@@ -23,7 +23,7 @@
         position: absolute;
         left: 0;
         display: inline-block;
-        width: $_textPadding;
+        width: $_decoration_width;
         height: 90%;
         min-height: $_decoration_minHeigh;
         content: "";
@@ -37,7 +37,7 @@
         position: absolute;
         right: 0;
         display: inline-block;
-        width: $_textPadding;
+        width: $_decoration_width;
         height: 90%;
         min-height: $_decoration_minHeigh;
         content: "";
@@ -213,12 +213,12 @@
 
 @if $device == SP {
   .t0-b-catchText {
-    $_fontSize: 18;
+    $_fontSize: 20;
     $_fontSize_sub: 14;
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
-    $_decoration_minHeigh: 65px;
-    $_textPadding: 45px;
+    $_decoration_minHeigh: 70px;
+    $_decoration_width: 45px;
     display: flex;
     justify-content: center;
     color: $catchText_textColor;
@@ -230,14 +230,14 @@
       flex-direction: column;
       justify-content: center;
       min-height: $_decoration_minHeigh;
-      padding-left: 50px;
-      padding-right: 50px;
+      padding-left: 55px;
+      padding-right: 55px;
       &::before {
         position: absolute;
         left: 0;
         display: inline-block;
-        width: $_textPadding;
-        height: 45%;
+        width: $_decoration_width;
+        height: 90%;
         min-height: $_decoration_minHeigh;
         content: "";
         background: url("../imgs/catchText/01/left.svg");
@@ -250,8 +250,8 @@
         position: absolute;
         right: 0;
         display: inline-block;
-        width: $_textPadding;
-        height: 45%;
+        width: $_decoration_width;
+        height: 90%;
         min-height: $_decoration_minHeigh;
         content: "";
         background: url("../imgs/catchText/01/right.svg");
@@ -287,26 +287,63 @@
   }
 
   .t0-b-catchText2 {
-    $_fontSize: 18;
+    $_fontSize: 20;
     $_fontSize_sub: 14;
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
-    a {
-      text-decoration: underline;
-    }
-
+    $_lineHeight_sub: 1;
+    $_textPadding: 50px;
+    display: flex;
+    justify-content: center;
+    color: $catchText2_textColor;
     &__inner {
-      //
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      display: inline-flex;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 80px;
+      min-width: 80px;
+      padding: 0 $_textPadding;
+      &::before {
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        width: $_textPadding;
+        height: 80%;
+        max-height: 100px;
+        content: "";
+        background: url("../imgs/catchText/02/01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center left;
+      }
+
+      &::after {
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        width: $_textPadding;
+        height: 80%;
+        max-height: 100px;
+        content: "";
+        background: url("../imgs/catchText/02/01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center left;
+        transform: scale(-1, 1);
+      }
     }
 
     &__text-sub {
       @include g-font($_fontSize_sub - 2, $_lineHeight_sub);
-      padding-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     &__text-sub2 {
       @include g-font($_fontSize_sub, $_lineHeight_sub);
-      padding-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     &__text-main {
@@ -315,50 +352,73 @@
 
     &__text-sub3 {
       @include g-font($_fontSize_sub, $_lineHeight_sub);
-      padding-top: 10px;
+      padding-top: 5px;
     }
 
     &__text-sub4 {
       @include g-font($_fontSize_sub - 2, $_lineHeight_sub);
-      padding-top: 10px;
+      padding-top: 5px;
     }
   }
 
+
   .t0-b-catchText3 {
-    $_fontSize: 18;
+    $_fontSize: 20;
     $_fontSize_sub: 14;
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
-    a {
-      text-decoration: underline;
-    }
 
-    &__inner {
-      //
+    color: $catchText3_textColor2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto 40px;
+    padding: 10px;
+    min-width: 120px;
+    max-width: 90%;
+    min-height: 140px;
+    background: $catchText3_BGColor;
+    text-align: center;
+    border-radius: 10px;
+
+    text-shadow: 1px 1px $catchText3_textShadowColor;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 16px;
+      top: 100%;
+      border: 16px solid transparent;
+      border-top: 30px solid $catchText3_borderColor;
     }
 
     &__text-sub {
       @include g-font($_fontSize_sub - 2, $_lineHeight_sub);
-      padding-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     &__text-sub2 {
       @include g-font($_fontSize_sub, $_lineHeight_sub);
-      padding-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     &__text-main {
       @include g-font($_fontSize, $_lineHeight_main);
+      color: $catchText3_textColor;
     }
 
     &__text-sub3 {
       @include g-font($_fontSize_sub, $_lineHeight_sub);
-      padding-top: 10px;
+      padding-top: 5px;
     }
 
     &__text-sub4 {
       @include g-font($_fontSize_sub - 2, $_lineHeight_sub);
-      padding-top: 10px;
+      padding-top: 5px;
     }
   }
 }
