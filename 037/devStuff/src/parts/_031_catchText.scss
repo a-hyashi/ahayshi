@@ -4,6 +4,7 @@
     $_fontSize_sub: 22;
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
+    $_decoration_minHeigh: 110px;
     $_textPadding: 100px;
     display: flex;
     justify-content: center;
@@ -15,16 +16,16 @@
       text-align: center;
       flex-direction: column;
       justify-content: center;
-      min-height: 110px;
-      padding-left: 110px;
-      padding-right: 110px;
+      min-height: $_decoration_minHeigh;
+      padding-left: 120px;
+      padding-right: 120px;
       &::before {
         position: absolute;
         left: 0;
         display: inline-block;
         width: $_textPadding;
         height: 90%;
-        min-height: 110px;
+        min-height: $_decoration_minHeigh;
         content: "";
         background: url("../imgs/catchText/01/left.svg");
         background-repeat: no-repeat;
@@ -38,7 +39,7 @@
         display: inline-block;
         width: $_textPadding;
         height: 90%;
-        min-height: 110px;
+        min-height: $_decoration_minHeigh;
         content: "";
         background: url("../imgs/catchText/01/right.svg");
         background-repeat: no-repeat;
@@ -166,7 +167,7 @@
     min-width: 120px;
     max-width: 90%;
     min-height: 140px;
-    background: $catchText3_BGColor；
+    background: $catchText3_BGColor;
     text-align: center;
     border-radius: 10px;
 
@@ -177,9 +178,9 @@
       left: 0;
       right: 0;
       margin: auto;
-      width: 5%;
+      width: 24px;
       top: 100%;
-      border: 20px solid transparent;
+      border: 24px solid transparent;
       border-top: 40px solid $catchText3_borderColor;
     }
 
@@ -216,22 +217,58 @@
     $_fontSize_sub: 14;
     $_lineHeight_main: 1;
     $_lineHeight_sub: 1;
-    a {
-      text-decoration: underline;
-    }
-
+    $_decoration_minHeigh: 65px;
+    $_textPadding: 45px;
+    display: flex;
+    justify-content: center;
+    color: $catchText_textColor;
     &__inner {
-      //
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      display: inline-flex;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+      min-height: $_decoration_minHeigh;
+      padding-left: 50px;
+      padding-right: 50px;
+      &::before {
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        width: $_textPadding;
+        height: 45%;
+        min-height: $_decoration_minHeigh;
+        content: "";
+        background: url("../imgs/catchText/01/left.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center left;
+      }
+
+      &::after {
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        width: $_textPadding;
+        height: 45%;
+        min-height: $_decoration_minHeigh;
+        content: "";
+        background: url("../imgs/catchText/01/right.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center right;
+      }
     }
 
     &__text-sub {
       @include g-font($_fontSize_sub - 2, $_lineHeight_sub);
-      padding-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     &__text-sub2 {
       @include g-font($_fontSize_sub, $_lineHeight_sub);
-      padding-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     &__text-main {
@@ -240,12 +277,12 @@
 
     &__text-sub3 {
       @include g-font($_fontSize_sub, $_lineHeight_sub);
-      padding-top: 10px;
+      padding-top: 5px;
     }
 
     &__text-sub4 {
       @include g-font($_fontSize_sub - 2, $_lineHeight_sub);
-      padding-top: 10px;
+      padding-top: 5px;
     }
   }
 
