@@ -218,6 +218,7 @@
 |11.枠|main|116_枠(文章装飾)|.t0-b-articleDecoration|2|8%||45px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox||8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|2|8%||25px|
+|11.枠|side|155_サイドボックス|.t0-b-sideBox|3|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi||0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle||0||0px|
