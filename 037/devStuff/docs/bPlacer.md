@@ -85,6 +85,9 @@
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|3|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxLabeledList|4|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList||2%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList|2|2%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList|3|2%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-headerUnit-labeledList|4|2%||20px|
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList||4%||20px|
 |04.表|main|030_表|.t0-b-table||2%||15px|
 |04.表|side|143_サイドボックス表|.t0-b-sideBoxTable||4%||15px|
