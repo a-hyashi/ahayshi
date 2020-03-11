@@ -9,11 +9,11 @@
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame9,
   .t0-b-fullWidthFrame10 {
-    padding: 40px 1000px;
     position: relative;
+    z-index: z(bg, -1);
+    padding: 40px 1000px;
     background-repeat: no-repeat;
     background-position: center center;
-
     @if $layout == "L25" {
       margin: 0 -1000px 0 (-1000px - $areaSubWidth);
     } @else if $layout == "L30" {
@@ -39,7 +39,6 @@
   .t0-b-fullWidthFrame6,
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame10 {
-
     @if $layout == "L25" {
       margin-left: -1000px;
     } @else if $layout == "L30" {
@@ -94,19 +93,19 @@
     &__bd {
       width: 100%;
       position: relative;
-      z-index: 1;
+      z-index: z(fullWidthFrame, 1);
     }
 
     &__hd.outerHtml {
       // テキストががbg下に隠れてしまわないように
       position: relative;
-      z-index: 1;
+      z-index: z(fullWidthFrame, 1);
     }
 
     &__bd + .outerHtml {
       // テキストががbg下に隠れてしまわないように
       position: relative;
-      z-index: 1;
+      z-index: z(fullWidthFrame, 1);
     }
   }
 
@@ -125,7 +124,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: z(bg, -1);
     content: "";
   }
 
@@ -146,13 +145,15 @@
 
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
+    // 透過画像をuserが入れた時の重なり時の対処
+    background-color: #89a03d;
     &::before {
-      z-index: -1;
+      z-index: z(bg, -1);
       background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
     }
 
     &::after {
-      z-index: 0;
+      z-index: z(bg, 0);
       background-image: url("../imgs/area-all/bg.png");
     }
   }
@@ -174,9 +175,10 @@
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame9,
   .t0-b-fullWidthFrame10 {
+    position: relative;
     margin: 0 -15px;
     padding: 40px 15px;
-    position: relative;
+    background-repeat: no-repeat;
     background-position: center center;
     background-size: auto 100%;
   }
@@ -196,7 +198,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: z(bg, -1);
     content: "";
   }
 
@@ -223,13 +225,13 @@
     &__hd.outerHtml {
       // テキストががbg下に隠れてしまわないように
       position: relative;
-      z-index: 1;
+      z-index: z(fullWidthFrame, 1);
     }
 
     &__bd + .outerHtml {
       // テキストががbg下に隠れてしまわないように
       position: relative;
-      z-index: 1;
+      z-index: z(fullWidthFrame, 1);
     }
   }
 
@@ -250,13 +252,15 @@
 
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
+    // 透過画像をuserが入れた時の重なり時の対処
+    background-color: #89a03d;
     &::before {
-      z-index: -1;
+      z-index: z(bg, -1);
       background-image: url("../imgs/t0-b-fullWidthFrame/bg4.png");
     }
 
     &::after {
-      z-index: 0;
+      z-index: z(bg, 0);
       background-image: url("../imgs/area-all/bg.png");
     }
   }

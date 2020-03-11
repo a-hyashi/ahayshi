@@ -159,14 +159,17 @@ gulp.task('update-sassdoc', () => {
 
 
 gulp.task('create-b-placer-doc', () => {
+  // カラバリの場合は実行しない
+  if (get_theme_name().match(/[ABCDEFG]/)) return;
+
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
   var b_placer_base = new BPlacerRecord();
   var b_placers = [];
   var is_sp = false;
   b_placer_lines().forEach(function(line) {
-    // $device =='SP' 以降はSPの余白として設定する
-    sp_match = line.match(/\$device\s*==\s*\'SP\'/);
+    // $device == "SP" 以降はSPの余白として設定する
+    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
     if(sp_match) is_sp = true;
     // //# で始まるコメントはカテゴリー
     var category_match = line.match(/\/\#\s+(.*)/);

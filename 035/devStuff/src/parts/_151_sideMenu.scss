@@ -9,6 +9,7 @@
     background-position: left top, left bottom, right bottom, right top;
     background-image: url("../imgs/b-sideMenu/1/1/bg.png"), url("../imgs/b-sideMenu/1/1/bg2.png"), url("../imgs/b-sideMenu/1/1/bg3.png"), url("../imgs/b-sideMenu/1/1/bg4.png");
     position: relative;
+    z-index: z(sideMenu, 0);
     > span {
       background-repeat: repeat-y, repeat-y;
       background-position: left top, right top;
@@ -393,6 +394,7 @@
     background-position: left 20px top 19px, left top 1px, right top 1px, right top 1px;
     background-image: url("../imgs/b-sideMenu/2/2/bg9.png"), url("../imgs/b-sideMenu/2/2/bg6.png"), url("../imgs/b-sideMenu/2/2/bg9.png"), url("../imgs/b-sideMenu/2/2/bg8.png");
     position: relative;
+    z-index: z(sideMenu, 0);
     padding-top: 18px;
     > span {
       background-repeat: repeat-x;
@@ -484,7 +486,7 @@
         position: absolute;
         top: 0;
         left: 3px;
-        z-index: -1;
+        z-index: z(bg, -1);
         content: "";
         display: block;
         background-color: #fff;
@@ -731,6 +733,7 @@
     margin: 0 auto;
     padding-top: 10px;
     position: relative;
+    z-index: z(sideMenu, 0);
     background-color: #fff;
     > span {
       background-color: #adc550;
@@ -1034,6 +1037,8 @@
     padding-top: 15px;
     @include g-font-layout(14, $_lineHeight, $layout);
     margin: 0 -5px;
+    position: relative;
+    z-index: z(sideMenuHandle, 0);
     .sideMenuHandle2 + .sideMenuHandle2,
     .sideMenuHandle3 + .sideMenuHandle2 {
       position: relative;
@@ -1071,7 +1076,6 @@
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left top, left bottom, right bottom, right top;
     background-image: url("../imgs/b-sideMenu/1/1/bg.png"), url("../imgs/b-sideMenu/1/1/bg2.png"), url("../imgs/b-sideMenu/1/1/bg3.png"), url("../imgs/b-sideMenu/1/1/bg4.png");
-    position: relative;
     > span {
       background-repeat: repeat-y, repeat-y;
       background-position: left top, right top;
@@ -1443,14 +1447,9 @@
     }
   }
 
-  // bPlacer
-
-  @for $_i from 1 through 12 {
-    .b-bPlacer-#{$_i}s {
-      padding-bottom: #{$_i * $g-spacingBaseLength}px;
-    }
-  }
   .b-sideMenuHandle#{$variation2of2} {
+    position: relative;
+    z-index: z(sideMenuHandle, 0);
     .sideMenuHandle2 + .sideMenuHandle2,
     .sideMenuHandle3 + .sideMenuHandle2,
     .sideMenuHandle2 + .sideMenuHandle1,
@@ -1469,13 +1468,11 @@
         background-repeat: repeat-x;
       }
     }
-
     $_block: &;
     margin: 0 auto;
     background-repeat: no-repeat, no-repeat;
     background-position: left top 1px, right top 1px;
     background-image: url("../imgs/b-sideMenu/2/2/bg6.png"), url("../imgs/b-sideMenu/2/2/bg8.png");
-    position: relative;
     padding-top: 18px;
     > span {
       background-repeat: repeat-x;
@@ -1567,7 +1564,7 @@
         position: absolute;
         top: 0;
         left: 3px;
-        z-index: -1;
+        z-index: z(bg, -1);
         content: "";
         display: block;
         background-color: #fff;
@@ -1816,6 +1813,8 @@
   }
 
   .b-sideMenuHandle3 {
+    position: relative;
+    z-index: z(sideMenuHandle, 0);
     .sideMenuHandle2 + .sideMenuHandle2,
     .sideMenuHandle3 + .sideMenuHandle2 {
       position: relative;
@@ -1849,14 +1848,12 @@
         background-image: url("../imgs/b-sideMenu/3/bg4.png");
       }
     }
-
     $_block: &;
     border: 1px solid #ac8871;
     border-radius: 10px;
     overflow: hidden;
     margin: 0 auto;
     padding-top: 10px;
-    position: relative;
     background-color: #fff;
     > span {
       background-color: #adc550;
@@ -1983,7 +1980,7 @@
             padding: 0 10px 0 25px;
             margin: 0 -10px 0 -25px;
             position: relative;
-            z-index: 2;
+            z-index: z(sideMenuHandle, 2);
             &:hover {
               text-decoration: underline;
             }
@@ -1993,9 +1990,9 @@
           > div > span {
             display: block;
             padding: 13px 0;
-            @include g-font-layout(14, $_lineHeight, $layout);
             position: relative;
-            z-index: 1;
+            z-index: z(sideMenuHandle, 1);
+            @include g-font-layout(14, $_lineHeight, $layout);
           }
         }
       }
@@ -2020,7 +2017,7 @@
             padding: 0 10px 0 25px;
             margin: 0 -10px 0 -25px;
             position: relative;
-            z-index: 2;
+            z-index: z(sideMenuHandle, 2);
             &:hover {
               text-decoration: underline;
               color: $g-hoverColor;
@@ -2032,9 +2029,9 @@
             display: block;
             padding: 13px 0;
             color: $g-hoverColor;
-            @include g-font-layout(14, $_lineHeight, $layout);
             position: relative;
-            z-index: 1;
+            z-index: z(sideMenuHandle, 0);
+            @include g-font-layout(14, $_lineHeight, $layout);
           }
         }
       }
@@ -2135,8 +2132,6 @@
     }
   }
 
-  // bPlacer
-
   @for $_i from 1 through 12 {
     .b-bPlacer-#{$_i}s {
       padding-bottom: #{$_i * $g-spacingBaseLength}px;
@@ -2150,7 +2145,6 @@
       text-decoration: none;
       color: #333;
     }
-
     $_block: &;
     width: 100%;
     background-color: #f6eedf;
@@ -2496,7 +2490,6 @@
       text-decoration: none;
       color: #333;
     }
-
     $_block: &;
     width: 100%;
     background-color: #f6eedf;
@@ -2842,7 +2835,6 @@
     }
   }
 
-  // bPlacer
   // SPのみ、0sと1sの値を10pxにする
   @for $_i from 0 through 1 {
     .b-bPlacer-#{$_i}s {
