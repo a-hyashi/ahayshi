@@ -2,6 +2,133 @@
   .t0-b-navBItemCaptioned {
     $_block: &;
     width: 100%;
+    text-align: center;
+    &__inner {
+      transition: all 0.5s;
+      position: relative;
+      padding: 15px;
+      background-color: $navBItemCaptioned_BGColor;
+      color: $navBItemCaptioned_textColor;
+      border: 2px solid $navBItemCaptioned_borderColor;
+      > span {
+        display: block;
+        position: absolute;
+        background-color: $navBItemCaptioned_BGColor;
+        top: 8px;
+        left: 8px;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        border: 2px solid $navBItemCaptioned_borderColor;
+        z-index: -1;
+      }
+    }
+
+    &__main {
+      @include g-font(20);
+    }
+
+    &__caption {
+      @include g-font(16);
+      padding-top: 3px;
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          transform: translate(8px, 8px);
+          background-color: #029b41;
+          color: #fff;
+          > span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__inner {
+        padding: 10px 10px 10px 38px;
+      }
+
+      #{$_block}__main {
+        @include g-font(14);
+      }
+
+      #{$_block}__caption {
+        @include g-font(14);
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__inner {
+        padding: 10px 11px 10px 41px;
+      }
+
+      #{$_block}__main {
+        @include g-font(18);
+      }
+
+      #{$_block}__caption {
+        @include g-font(14);
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__inner {
+        padding: 10px 15px 10px 45px;
+      }
+
+      #{$_block}__main {
+        @include g-font(22);
+      }
+
+      #{$_block}__caption {
+        @include g-font(18);
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__inner {
+        padding: 10px 17px 10px 47px;
+      }
+
+      #{$_block}__main {
+        @include g-font(24);
+      }
+
+      #{$_block}__caption {
+        @include g-font(20);
+      }
+    }
+
+    &--align-l {
+      margin-right: auto;
+    }
+
+    &--align-c {
+      margin: 0 auto;
+    }
+
+    &--align-r {
+      margin-left: auto;
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+  }
+
+  .t0-b-navBItemCaptioned2 {
+    $_block: &;
+    width: 100%;
     &__inner {
       position: relative;
       padding: 10px 13px 10px 43px;
