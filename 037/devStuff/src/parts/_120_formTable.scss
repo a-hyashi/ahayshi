@@ -2,7 +2,7 @@
   .t0-b-formTable {
     $_block: &;
     padding: 30px;
-    border-radius: 7px;
+    background-color: $formTable_BGColor;
     table {
       width: 100%;
       margin-bottom: 6%;
@@ -18,7 +18,6 @@
     th {
       width: 35%;
       padding: 25px;
-      @include g-font(14);
       border-top: 1px solid $formTable_borderColor;
       > div {
         display: flex;
@@ -29,21 +28,22 @@
 
     td {
       padding: 25px 10px;
-      @include g-font(14);
       border-top: 1px solid $formTable_borderColor;
     }
 
     &__requiredLabel {
       display: inline-block;
-      width: 50px;
-      padding: 2px 6px;
-      border-radius: 5px;
+      width: 38px;
+      padding: 3px 2px 2px;
+      border-radius: 3px;
       text-align: center;
-      @include g-font(14);
+      color: $formTable_textColor;
+      background-color: $formTable_BGColor3;
+      @include g-font(13);
     }
 
     &__td-caption {
-      @include g-font(12);
+      @include g-font(13);
       padding: 3px 0 0;
     }
 
@@ -52,8 +52,8 @@
       select {
         appearance: none;
         width: 100%;
-        padding: .3em 6px;
-        background-color: $formTable_BGColor;
+        padding: 6px;
+        background-color: $formTable_BGColor2;
         border: 1px solid $formTable_borderColor2;
         border-radius: 5px;
       }
@@ -106,8 +106,8 @@
     &__email {
       width: 100%;
       height: 30px;
-      padding: .3em 6px;
-      background-color: $formTable_BGColor;
+      padding: 6px;
+      background-color: $formTable_BGColor2;
       border: 1px solid $formTable_borderColor2;
       border-radius: 5px;
     }
@@ -116,8 +116,8 @@
       display: block;
       width: 100%;
       height: 90px;
-      padding: .3em 6px;
-      background-color: $formTable_BGColor;
+      padding: 6px;
+      background-color: $formTable_BGColor2;
       border: 1px solid $formTable_borderColor2;
       border-radius: 5px;
       resize: vertical;
@@ -126,7 +126,7 @@
     &__buttons {
       text-align: center;
       > p {
-        padding-top: 20px;
+        padding: 20px 0 5px;
         @include g-font(14);
         a {
           text-decoration: underline;
@@ -139,13 +139,15 @@
       input {
         appearance: none;
         min-width: 90px;
-        max-width: 266px;
-        padding: 10px 15px 10px 32px;
+        max-width: 280px;
+        padding: 16px 25px 15px;
         border: none;
         border-radius: 5px;
-        @include g-font(16);
+        background-color: $formTable_BGColor4;
+        color: $formTable_textColor;
+        transition: .4s;
         &:hover {
-          opacity: .8;
+          background-color: $formTable_BGColor7;
         }
       }
     }
@@ -155,13 +157,15 @@
       input {
         appearance: none;
         min-width: 90px;
-        max-width: 266px;
-        padding: 10px 15px 10px 32px;
+        max-width: 280px;
+        padding: 16px 25px 15px;
         border: none;
         border-radius: 5px;
-        @include g-font(16);
+        background-color: $formTable_BGColor5;
+        color: $formTable_textColor;
+        transition: .4s;
         &:hover {
-          opacity: .8;
+          background-color: $formTable_BGColor6;
         }
       }
     }
@@ -172,13 +176,224 @@
       input {
         appearance: none;
         min-width: 90px;
-        max-width: 266px;
-        padding: 10px 15px 10px 32px;
+        max-width: 280px;
+        padding: 16px 25px 15px;
         border: none;
         border-radius: 5px;
-        @include g-font(16);
+        background-color: $formTable_BGColor4;
+        color: $formTable_textColor;
+        transition: .4s;
         &:hover {
-          opacity: .8;
+          background-color: $formTable_BGColor7;
+        }
+      }
+    }
+
+    .mod-formError {
+      @include g-font(18);
+      display: block;
+      padding-top: 10px;
+      color: $formTable_textColor;
+      font-weight: bold;
+    }
+  }
+
+  .t0-b-formTable2 {
+    $_block: &;
+    padding: 30px;
+    table {
+      width: 100%;
+      margin-bottom: 6%;
+      background-color: $formTable2_BGColor;
+      border: 1px solid $formTable2_borderColor;
+    }
+
+    tr:first-child {
+      > th,
+      td {
+        border-top: none;
+      }
+    }
+
+    th {
+      width: 35%;
+      padding: 25px 30px;
+      border-top: 1px solid $formTable2_borderColor;
+      background-color: $formTable2_BGColor2;
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    td {
+      padding: 25px 30px;
+      border-top: 1px solid $formTable2_borderColor;
+    }
+
+    &__requiredLabel {
+      display: inline-block;
+      width: 38px;
+      padding: 3px 2px 2px;
+      text-align: center;
+      color: $formTable2_textColor;
+      background-color: $formTable2_BGColor3;
+      @include g-font(13);
+    }
+
+    &__td-caption {
+      @include g-font(13);
+      padding: 3px 0 0;
+    }
+
+    &__singleInput {
+      position: relative;
+      select {
+        appearance: none;
+        width: 100%;
+        padding: 6px;
+        background-color: $formTable_BGColor2;
+        border: 1px solid $formTable_borderColor2;
+        border-radius: 5px;
+      }
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        content: "";
+        border-color: $formTable_borderColor3 transparent transparent;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    &__radioList,
+    &__checkboxList {
+      ul {
+        display: flex;
+      }
+
+      li {
+        padding: 5px 15px 0 0;
+      }
+
+      input {
+        margin-right: 8px;
+      }
+
+      &--align-vertical {
+        ul {
+          flex-direction: column;
+        }
+
+        li {
+          padding: 0;
+          & + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+
+    &__textInput,
+    &__email {
+      width: 100%;
+      height: 30px;
+      padding: 6px;
+      background-color: $formTable_BGColor2;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+    }
+
+    &__textarea {
+      display: block;
+      width: 100%;
+      height: 90px;
+      padding: 6px;
+      background-color: $formTable_BGColor2;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    &__buttons {
+      text-align: center;
+      > p {
+        padding: 20px 0 5px;
+        @include g-font(14);
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__button-confirm {
+      display: inline-block;
+      input {
+        appearance: none;
+        min-width: 90px;
+        max-width: 280px;
+        padding: 16px 34px 15px 25px;
+        border: none;
+        background-color: $formTable2_BGColor4;
+        color: $formTable2_textColor;
+        transition: .6s;
+        background-image: url("../imgs/formTable/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 8px 12px;
+        &:hover {
+          background-color: $formTable2_BGColor7;
+        }
+      }
+    }
+
+    &__button-edit {
+      display: inline-block;
+      input {
+        appearance: none;
+        min-width: 90px;
+        max-width: 280px;
+        padding: 16px 34px 15px 25px;
+        border: none;
+        background-color: $formTable2_BGColor5;
+        color: $formTable_textColor;
+        transition: .6s;
+        background-image: url("../imgs/formTable/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 8px 12px;
+        &:hover {
+          background-color: $formTable2_BGColor6;
+        }
+      }
+    }
+
+    &__button-send {
+      display: inline-block;
+      margin-left: 40px;
+      input {
+        appearance: none;
+        min-width: 90px;
+        max-width: 280px;
+        padding: 16px 34px 15px 25px;
+        border: none;
+        background-color: $formTable2_BGColor4;
+        color: $formTable_textColor;
+        transition: .6s;
+        background-image: url("../imgs/formTable/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 8px 12px;
+        &:hover {
+          background-color: $formTable2_BGColor7;
         }
       }
     }
@@ -243,7 +458,190 @@
         appearance: none;
         width: 100%;
         padding: .3em 6px;
-        background-color: $formTable_BGColor;
+        background-color: $formTable_BGColor2;
+        border: 1px solid $formTable_borderColor2;
+        border-radius: 5px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-color: $formTable_borderColor3 transparent transparent;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        pointer-events: none;
+      }
+    }
+
+    &__radioList,
+    &__checkboxList {
+      ul {
+        display: flex;
+      }
+
+      li {
+        padding: 5px 15px 0 0;
+      }
+
+      input {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+      }
+
+      &--align-vertical {
+        ul {
+          flex-direction: column;
+        }
+
+        li {
+          padding: 0;
+          & + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+
+    &__textInput,
+    &__email {
+      width: 100%;
+      height: 30px;
+      padding: .3em 6px;
+      background-color: $formTable_BGColor;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+    }
+
+    &__textarea {
+      display: block;
+      width: 100%;
+      height: 90px;
+      padding: .3em 6px;
+      background-color: $formTable_BGColor;
+      border: 1px solid $formTable_borderColor2;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    &__buttons {
+      text-align: center;
+      > p {
+        padding-top: 10px;
+        @include g-font(12);
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__button-confirm {
+      display: inline-block;
+      input {
+        appearance: none;
+        width: 220px;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+      }
+    }
+
+    &__button-edit {
+      display: inline-block;
+      input {
+        appearance: none;
+        width: 110px;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+      }
+    }
+
+    &__button-send {
+      display: inline-block;
+      width: calc(100% - 125px);
+      max-width: 220px;
+      margin-left: 10px;
+      input {
+        appearance: none;
+        width: 100%;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 5px;
+        @include g-font(16);
+      }
+    }
+
+    .mod-formError {
+      @include g-font(14);
+      display: block;
+      padding-top: 10px;
+      color: $formTable_textColor;
+    }
+
+    // frameWithHCaptionに入った場合、フォーム要素の幅を広げる
+    [class^="t0-b-frameWithHCaption"] & {
+      margin: 0 -15px;
+    }
+  }
+  .t0-b-formTable2 {
+    $_block: &;
+    padding: 15px 5px;
+    border-radius: 7px;
+    table {
+      width: 100%;
+      margin: 0 0 30px;
+    }
+
+    th {
+      display: block;
+      padding: 10px;
+      @include g-font(14);
+      > div {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        width: 100%;
+      }
+    }
+
+    td {
+      display: block;
+      padding: 0 15px 20px;
+      @include g-font(14);
+    }
+
+    &__requiredLabel {
+      display: block;
+      width: 35px;
+      padding: 5px;
+      border-radius: 5px;
+      margin-right: 10px;
+      text-align: center;
+      @include g-font(10);
+    }
+
+    &__td-caption {
+      @include g-font(14);
+      padding: 3px 0 0;
+    }
+
+    &__singleInput {
+      position: relative;
+      select {
+        appearance: none;
+        width: 100%;
+        padding: .3em 6px;
+        background-color: $formTable_BGColor2;
         border: 1px solid $formTable_borderColor2;
         border-radius: 5px;
       }
