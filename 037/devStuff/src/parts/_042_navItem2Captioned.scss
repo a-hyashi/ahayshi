@@ -1,51 +1,122 @@
 @if $device == PC {
   .t0-b-navItem2Captioned {
     $_block: &;
-    $_fontSize: 26;
+    $_fontSize: 28;
     $_fontSize_caption: 16;
+    $_iconSize: 36px;
     display: flex;
     justify-content: center;
+    color: $navItem2Captioned_textColor;
     > div {
       position: relative;
-      min-height: 36px;
-    }
-
-    &__icon {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
-      background-image: url("https://placehold.jp/36x36.png");
-      background-size: contain;
+      min-height: $_iconSize;
     }
 
     &__text {
-      padding-left: 46px;
+      padding-left: 50px;
     }
 
     &__caption-upper {
       @include g-font($_fontSize_caption);
       text-align: center;
-      padding-bottom: 4px;
+      padding-bottom: 5px;
     }
 
     &__main {
       @include g-font($_fontSize);
-      padding: 0 0 2px;
-      border-bottom: 1px solid $navItem2Captioned_borderColor;
+      padding: 0 0 3px;
+      border-bottom: 2px solid $navItem2Captioned_borderColor;
+      &::before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItem2Captioned/01/01.svg");
+        background-size: contain;
+        transition: .5s ease-in-out;
+      }
     }
 
     &__caption-lower {
       @include g-font($_fontSize_caption);
       text-align: center;
-      padding-top: 10px;
+      padding-top: 12px;
     }
 
     a {
-      #{$_block}__main {
-        //
+      &:hover {
+        transition: all .3s ease-in-out;
+        color: $navItem2Captioned_textColor2;
+        #{$_block}__main {
+          border-bottom: 2px solid $navItem2Captioned_borderColor2;
+          &::before {
+            background-image: url("../imgs/navItem2Captioned/02/01.svg");
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-navItem2Captioned2 {
+    $_block: &;
+    $_fontSize: 28;
+    $_fontSize_caption: 16;
+    $_iconSize: 36px;
+    display: flex;
+    justify-content: center;
+    color: $navItem2Captioned2_textColor;
+    > div {
+      position: relative;
+      min-height: $_iconSize;
+    }
+
+    &__text {
+      padding-left: 50px;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-bottom: 5px;
+    }
+
+    &__main {
+      @include g-font($_fontSize);
+      padding: 0 0 3px;
+      border-bottom: 2px solid $navItem2Captioned2_borderColor;
+      &::before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItem2Captioned/02/01.svg");
+        background-size: contain;
+        transition: .5s ease-in-out;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-top: 12px;
+    }
+
+    a {
+      transition: all .3s ease-in-out;
+      &:hover {
+        color: $navItem2Captioned2_textColor2;
+        #{$_block}__main {
+          border-bottom: 2px solid $navItem2Captioned2_borderColor2;
+          &::before {
+            background-image: url("../imgs/navItem2Captioned/02/02.svg");
+          }
+        }
       }
     }
   }
@@ -53,12 +124,14 @@
 
 @if $device == SP {
   .t0-b-navItem2Captioned {
-    $_fontSize: 16;
+    $_fontSize: 20;
     $_fontSize_caption: 14;
     display: flex;
+    justify-content: center;
+    color: $navItem2Captioned_textColor;
     > div {
       position: relative;
-      min-height: 24px;
+      min-height: 26px;
     }
 
     &__icon {
@@ -66,14 +139,14 @@
       top: 50%;
       left: 0;
       transform: translateY(-50%);
-      width: 24px;
-      height: 24px;
-      background-image: url("https://placehold.jp/24x24.png");
+      width: 26px;
+      height: 26px;
+      background-image: url("../imgs/navItem2Captioned/01/01.svg");
       background-size: contain;
     }
 
     &__text {
-      padding-left: 30px;
+      padding-left: 36px;
     }
 
     &__caption-upper {
@@ -85,13 +158,58 @@
     &__main {
       @include g-font($_fontSize);
       padding: 0 0 2px;
-      border-bottom: 1px solid $navItem2Captioned_borderColor;
+      border-bottom: 2px solid $navItem2Captioned_borderColor;
     }
 
     &__caption-lower {
       @include g-font($_fontSize_caption);
       text-align: center;
-      padding-top: 7px;
+      padding-top: 9px;
+    }
+  }
+
+  .t0-b-navItem2Captioned2 {
+    $_fontSize: 20;
+    $_fontSize_caption: 14;
+    display: flex;
+    justify-content: center;
+    color: $navItem2Captioned2_textColor;
+    > div {
+      position: relative;
+      min-height: 26px;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      background-image: url("../imgs/navItem2Captioned/02/01.svg");
+      background-size: contain;
+    }
+
+    &__text {
+      padding-left: 36px;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-bottom: 3px;
+    }
+
+    &__main {
+      @include g-font($_fontSize);
+      padding: 0 0 2px;
+      border-bottom: 2px solid $navItem2Captioned2_borderColor;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      text-align: center;
+      padding-top: 9px;
     }
   }
 }
