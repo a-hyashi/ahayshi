@@ -7,54 +7,73 @@
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
-    $_fontSize_caption: 16;
+    $_fontSize_caption: 18;
     $_fontSize_caption_ss: $_fontSize_caption - $_fontSizeDiff -2;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     $_fontSize_caption_ll: $_fontSize_caption + $_fontSizeDiff + 2;
+    $_iconSize: 24px;
+    $_iconSize_ss: $_iconSize - 4;
+    $_iconSize_s: $_iconSize - 2;
+    $_iconSize_l: $_iconSize + 2;
+    $_iconSize_ll: $_iconSize + 4;
+    $_padding-left_ss: $_iconSize_ss + 6;
+    $_padding-left_s: $_iconSize_s + 8;
+    $_padding-left: $_iconSize + 8;
+    $_padding-left_l: $_iconSize_l + 8;
+    $_padding-left_ll: $_iconSize_ll + 10;
+
     display: flex;
+    color: $navItemCaptioned_textColor;
     &__inner {
       position: relative;
-      padding-left: 28px;
-      min-height: 21px;
+      padding-left: $_padding-left;
+      min-height: $_iconSize;
       > span {
         display: block;
         position: absolute;
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        width: 21px;
-        height: 21px;
-        background-image: url("https://placehold.jp/25x25.png");
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItemCaptioned/01/01.svg");
+        background-repeat: no-repeat;
         background-size: contain;
+        transition: all .3s ease-in-out;
       }
     }
 
     &__main {
       @include g-font($_fontSize);
-      border-bottom: 1px solid $navItemCaptioned_borderColor;
+      padding-bottom: 2px;
+      border-bottom: 2px solid $navItemCaptioned_borderColor;
+      transition: all .6s ease-in-out;
     }
 
     &__caption {
       @include g-font($_fontSize_caption);
-      padding-top: 2px;
+      padding-top: 4px;
     }
 
     a:hover {
+      color: $navItemCaptioned_hoverColor;
       #{$_block}__inner {
-        //
+        #{$_block}__main{
+          border-bottom: 2px solid $navItemCaptioned_borderColor2;
+        }
         > span {
-          //
+          background-image: url("../imgs/navItemCaptioned/01/01_hover.svg");
         }
       }
     }
 
     &--size-1 {
       #{$_block}__inner {
-        padding-left: 24px;
+        padding-left: $_padding-left_ss;
         > span {
-          width: 17px;
-          height: 17px;
+          width: $_iconSize_ss;
+          height: $_iconSize_ss;
         }
       }
 
@@ -69,10 +88,10 @@
 
     &--size-2 {
       #{$_block}__inner {
-        padding-left: 26px;
+        padding-left: $_padding-left_s;
         > span {
-          width: 19px;
-          height: 19px;
+          width: $_iconSize_s;
+          height: $_iconSize_s;
         }
       }
 
@@ -87,10 +106,10 @@
 
     &--size-4 {
       #{$_block}__inner {
-        padding-left: 30px;
+        padding-left: $_padding-left_l;
         > span {
-          width: 23px;
-          height: 23px;
+          width: $_iconSize_l;
+          height: $_iconSize_l;
         }
       }
 
@@ -105,10 +124,472 @@
 
     &--size-5 {
       #{$_block}__inner {
-        padding-left: 32px;
+        padding-left: $_padding-left_ll;
         > span {
-          width: 25px;
-          height: 25px;
+          width: $_iconSize_ll;
+          height: $_iconSize_ll;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_ll);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_ll);
+      }
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-c {
+      justify-content: center;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-navItemCaptioned2 {
+    $_block: &;
+    $_fontSizeDiff: 2;
+    $_fontSize: 20;
+    $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
+    $_fontSize_caption: 18;
+    $_fontSize_caption_ss: $_fontSize_caption - $_fontSizeDiff -2;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_fontSize_caption_ll: $_fontSize_caption + $_fontSizeDiff + 2;
+    $_iconSize: 24px;
+    $_iconSize_ss: $_iconSize - 4;
+    $_iconSize_s: $_iconSize - 2;
+    $_iconSize_l: $_iconSize + 2;
+    $_iconSize_ll: $_iconSize + 4;
+    $_padding-left_ss: $_iconSize_ss + 6;
+    $_padding-left_s: $_iconSize_s + 8;
+    $_padding-left: $_iconSize + 8;
+    $_padding-left_l: $_iconSize_l + 8;
+    $_padding-left_ll: $_iconSize_ll + 10;
+
+    display: flex;
+    color: $navItemCaptioned2_textColor;
+    &__inner {
+      position: relative;
+      padding-left: $_padding-left;
+      min-height: $_iconSize;
+      > span {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItemCaptioned/02/01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: all .3s ease-in-out;
+      }
+    }
+
+    &__main {
+      @include g-font($_fontSize);
+      padding-bottom: 2px;
+      border-bottom: 2px solid $navItemCaptioned2_borderColor;
+      transition: all .6s ease-in-out;
+    }
+
+    &__caption {
+      @include g-font($_fontSize_caption);
+      padding-top: 4px;
+    }
+
+    a:hover {
+      color: $navItemCaptioned2_hoverColor;
+      #{$_block}__inner {
+        #{$_block}__main{
+          border-bottom: 2px solid $navItemCaptioned2_borderColor2;
+        }
+        > span {
+          background-image: url("../imgs/navItemCaptioned/02/01_hover.svg");
+        }
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_ss;
+        > span {
+          width: $_iconSize_ss;
+          height: $_iconSize_ss;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_ss);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_ss);
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_s;
+        > span {
+          width: $_iconSize_s;
+          height: $_iconSize_s;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_s);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_s);
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_l;
+        > span {
+          width: $_iconSize_l;
+          height: $_iconSize_l;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_l);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_l);
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_ll;
+        > span {
+          width: $_iconSize_ll;
+          height: $_iconSize_ll;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_ll);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_ll);
+      }
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-c {
+      justify-content: center;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-navItemCaptioned3 {
+    $_block: &;
+    $_fontSizeDiff: 2;
+    $_fontSize: 20;
+    $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
+    $_fontSize_caption: 18;
+    $_fontSize_caption_ss: $_fontSize_caption - $_fontSizeDiff -2;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_fontSize_caption_ll: $_fontSize_caption + $_fontSizeDiff + 2;
+    $_iconSize: 24px;
+    $_iconSize_ss: $_iconSize - 4;
+    $_iconSize_s: $_iconSize - 2;
+    $_iconSize_l: $_iconSize + 2;
+    $_iconSize_ll: $_iconSize + 4;
+    $_padding-left_ss: $_iconSize_ss + 6;
+    $_padding-left_s: $_iconSize_s + 8;
+    $_padding-left: $_iconSize + 8;
+    $_padding-left_l: $_iconSize_l + 8;
+    $_padding-left_ll: $_iconSize_ll + 10;
+
+    display: flex;
+    color: $navItemCaptioned3_textColor;
+    &__inner {
+      position: relative;
+      padding-left: $_padding-left;
+      min-height: $_iconSize;
+      > span {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItemCaptioned/03/01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: all .3s ease-in-out;
+      }
+    }
+
+    &__main {
+      @include g-font($_fontSize);
+      padding-bottom: 2px;
+      border-bottom: 2px solid $navItemCaptioned3_borderColor;
+      transition: all .6s ease-in-out;
+    }
+
+    &__caption {
+      @include g-font($_fontSize_caption);
+      padding-top: 4px;
+    }
+
+    a:hover {
+      color: $navItemCaptioned3_hoverColor;
+      #{$_block}__inner {
+        #{$_block}__main{
+          border-bottom: 2px solid $navItemCaptioned3_borderColor2;
+        }
+        > span {
+          background-image: url("../imgs/navItemCaptioned/03/01_hover.svg");
+        }
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_ss;
+        > span {
+          width: $_iconSize_ss;
+          height: $_iconSize_ss;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_ss);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_ss);
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_s;
+        > span {
+          width: $_iconSize_s;
+          height: $_iconSize_s;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_s);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_s);
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_l;
+        > span {
+          width: $_iconSize_l;
+          height: $_iconSize_l;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_l);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_l);
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_ll;
+        > span {
+          width: $_iconSize_ll;
+          height: $_iconSize_ll;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_ll);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_ll);
+      }
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-c {
+      justify-content: center;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-navItemCaptioned4 {
+    $_block: &;
+    $_fontSizeDiff: 2;
+    $_fontSize: 20;
+    $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
+    $_fontSize_caption: 18;
+    $_fontSize_caption_ss: $_fontSize_caption - $_fontSizeDiff -2;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_fontSize_caption_ll: $_fontSize_caption + $_fontSizeDiff + 2;
+    $_iconSize: 24px;
+    $_iconSize_ss: $_iconSize - 4;
+    $_iconSize_s: $_iconSize - 2;
+    $_iconSize_l: $_iconSize + 2;
+    $_iconSize_ll: $_iconSize + 4;
+    $_padding-left_ss: $_iconSize_ss + 6;
+    $_padding-left_s: $_iconSize_s + 8;
+    $_padding-left: $_iconSize + 8;
+    $_padding-left_l: $_iconSize_l + 8;
+    $_padding-left_ll: $_iconSize_ll + 10;
+
+    display: flex;
+    color: $navItemCaptioned4_textColor;
+    &__inner {
+      position: relative;
+      padding-left: $_padding-left;
+      min-height: $_iconSize;
+      > span {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItemCaptioned/04/01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: all .3s ease-in-out;
+      }
+    }
+
+    &__main {
+      @include g-font($_fontSize);
+      padding-bottom: 2px;
+      border-bottom: 2px solid $navItemCaptioned4_borderColor;
+      transition: all .6s ease-in-out;
+    }
+
+    &__caption {
+      @include g-font($_fontSize_caption);
+      padding-top: 4px;
+    }
+
+    a:hover {
+      color: $navItemCaptioned4_hoverColor;
+      #{$_block}__inner {
+        #{$_block}__main{
+          border-bottom: 2px solid $navItemCaptioned4_borderColor2;
+        }
+        > span {
+          background-image: url("../imgs/navItemCaptioned/04/01_hover.svg");
+        }
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_ss;
+        > span {
+          width: $_iconSize_ss;
+          height: $_iconSize_ss;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_ss);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_ss);
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_s;
+        > span {
+          width: $_iconSize_s;
+          height: $_iconSize_s;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_s);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_s);
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_l;
+        > span {
+          width: $_iconSize_l;
+          height: $_iconSize_l;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSize_l);
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSize_caption_l);
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__inner {
+        padding-left: $_padding-left_ll;
+        > span {
+          width: $_iconSize_ll;
+          height: $_iconSize_ll;
         }
       }
 
