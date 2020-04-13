@@ -379,7 +379,71 @@
       }
     }
 
-    &__radioList,
+    &__radioList {
+      ul {
+        display: flex;
+      }
+
+      li {
+        padding: 5px 15px 0 0;
+      }
+
+      input {
+        display: none;
+        & + label {
+          position: relative;
+          padding-left: 20px;
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 1px;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border: 2px solid #bbb;
+            border-radius: 50%;
+          }
+          &::after {
+            content: "";
+            display: block;
+            opacity: 0;
+            position: absolute;
+            top: 25%;
+            left: 5px;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #ff6c00;
+            border-radius: 50%;
+            transition: .3s;
+          }
+        }
+
+        &:checked + label {
+          &::after {
+            opacity: 1;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      &--align-vertical {
+        ul {
+          flex-direction: column;
+        }
+
+        li {
+          padding: 0;
+          & + li {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+
     &__checkboxList {
       ul {
         display: flex;
@@ -390,8 +454,49 @@
       }
 
       input {
-        margin-right: 3px;
-        vertical-align: .1em;
+        display: none;
+        & + label {
+          position: relative;
+          padding-left: 20px;
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 1px;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            border: 2px solid #bbb;
+            background-color: #fff;
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            opacity: 0;
+            position: absolute;
+            top: -2px;
+            left: 5px;
+            transform: rotate(80deg);
+            width: 7px;
+            height: 14px;
+            border-bottom: 3px solid #ff6c00;
+            border-right: 3px solid #ff6c00;
+            transition: .3s;
+          }
+        }
+
+        &:checked + label {
+          &::before {
+            display: none;
+          }
+          &::after {
+            opacity: 1;
+            transform: rotate(45deg);
+          }
+        }
       }
 
       &--align-vertical {
