@@ -95,18 +95,32 @@
             top: 50%;
             left: 1px;
             transform: translateY(-50%);
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            border: 2px solid #00f;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border: 2px solid #8db82d;
             border-radius: 50%;
-            transition: .5s;
+          }
+          &::after {
+            content: "";
+            display: block;
+            opacity: 0;
+            position: absolute;
+            top: 25%;
+            left: 5px;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #00652a;
+            border-radius: 50%;
+            transition: .3s;
           }
         }
 
         &:checked + label {
-          &::before {
-            background-color: #0f0;
+          &::after {
+            opacity: 1;
+            transform: rotate(45deg);
           }
         }
       }
@@ -146,9 +160,11 @@
             top: 50%;
             left: 1px;
             transform: translateY(-50%);
-            width: 10px;
-            height: 10px;
-            border: 1px solid #00f;
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            border: 2px solid #8db82d;
+            background-color: #fff;
           }
 
           &::after {
@@ -157,19 +173,23 @@
             opacity: 0;
             position: absolute;
             top: -2px;
-            left: 4px;
-            transform: rotate(40deg);
+            left: 5px;
+            transform: rotate(80deg);
             width: 7px;
             height: 14px;
-            border-bottom: 3px solid #f00;
-            border-right: 3px solid #f00;
-            transition: .2s;
+            border-bottom: 3px solid #00652a;
+            border-right: 3px solid #00652a;
+            transition: .3s;
           }
         }
 
         &:checked + label {
+          &::before {
+            display: none;
+          }
           &::after {
             opacity: 1;
+            transform: rotate(45deg);
           }
         }
       }
