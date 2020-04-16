@@ -1,8 +1,8 @@
 @if $device == PC {
   .t0-b-sideNavItem {
     $_block: &;
-    text-align: left;
     color: $sideNavItem_textColor;
+    @include g-font(16);
     &__inner {
       display: table;
       > * {
@@ -14,7 +14,6 @@
       > span {
         width: 30px;
         height: 22px;
-        text-align: left;
         background-image: url("../imgs/sideNavItem/01/01.svg");
         background-repeat: no-repeat;
         background-position: left bottom;
@@ -22,6 +21,7 @@
       }
 
       > div {
+        padding-bottom: 1px;
         border-bottom: 2px solid $sideNavItem_borderColor;
       }
     }
@@ -29,9 +29,11 @@
     a {
       display: inline-block;
       color: $sideNavItem_textColor;
-      #{$_block}__inner:hover {
-        > div {
-          color: $sideNavItem_hoverColor;
+      #{$_block}__inner {
+        &:hover {
+          > div {
+            color: $sideNavItem_hoverColor;
+          }
         }
       }
     }
@@ -39,8 +41,8 @@
 
   .t0-b-sideNavItem2 {
     $_block: &;
-    text-align: left;
     color: $sideNavItem2_textColor;
+    @include g-font(16);
     &__inner {
       display: table;
       > * {
@@ -52,7 +54,6 @@
       > span {
         width: 30px;
         height: 22px;
-        text-align: left;
         background-image: url("../imgs/sideNavItem/02/01.svg");
         background-repeat: no-repeat;
         background-position: left bottom;
@@ -60,6 +61,7 @@
       }
 
       > div {
+        padding-bottom: 1px;
         border-bottom: 2px solid $sideNavItem2_borderColor;
       }
     }
@@ -67,9 +69,11 @@
     a {
       display: inline-block;
       color: $sideNavItem2_textColor;
-      #{$_block}__inner:hover {
-        > div {
-          color: $sideNavItem2_hoverColor;
+      #{$_block}__inner {
+        &:hover {
+          > div {
+            color: $sideNavItem2_hoverColor;
+          }
         }
       }
     }
@@ -77,37 +81,158 @@
 
   .t0-b-sideNavItem3 {
     $_block: &;
+    color: $sideNavItem3_textColor;
+    @include g-font(16);
     &__inner {
       position: relative;
-      min-height: 18px;
-      
-      > span {
-        display: block;
+      display: inline-block;
+      padding: 0 30px 0 0;
+      transition: .3s;
+      &::before {
+        content: "";
         position: absolute;
         top: 50%;
-        left: 0;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/03/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
         transform: translateY(-50%);
-        width: 18px;
-        height: 18px;
-        background-image: url("../imgs/sideNavItem/01/01.svg");
-        background-size: contain;
       }
 
-      > div {
-        display: inline-block;
-        margin-left: 24px;
-        @include g-font(16);
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transition: .3s;
+        transition-delay: .3s;
+        transform: translateY(-50%);
       }
     }
 
-    a:hover {
+    a {
+      display: inline-block;
+      color: #000;
       #{$_block}__inner {
-        > span {
-          //
+        > div {
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          &::before {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $sideNavItem3_BGColor;
+            transition: .3s;
+          }
         }
 
+        &:hover {
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            @include g-font(16);
+            color: $sideNavItem3_hoverColor;
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-sideNavItem4 {
+    $_block: &;
+    color: $sideNavItem4_textColor;
+    @include g-font(16);
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding: 0 30px 0 0;
+      transition: .3s;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/04/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/04/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transition: .3s;
+        transition-delay: .3s;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      display: inline-block;
+      color: #000;
+      #{$_block}__inner {
         > div {
-          //
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          &::before {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $sideNavItem4_BGColor;
+            transition: .3s;
+          }
+        }
+
+        &:hover {
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $sideNavItem4_hoverColor;
+            &::before {
+              width: 100%;
+            }
+          }
         }
       }
     }
@@ -118,24 +243,149 @@
   .t0-b-sideNavItem {
     // バナー要素（横幅95%）と左端を揃える
     margin-left: 2.5%;
+    $_block: &;
+    color: $sideNavItem_textColor;
+    @include g-font(16);
     &__inner {
-      position: relative;
-      min-height: 19px;
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+      }
+
       > span {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 19px;
-        height: 19px;
-        background-image: url("https://placehold.jp/19x19.png");
-        background-size: contain;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: 22px 22px;
       }
 
       > div {
-        margin-left: 25px;
-        @include g-font(16);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $sideNavItem_borderColor;
+      }
+    }
+  }
+
+  .t0-b-sideNavItem2 {
+    // バナー要素（横幅95%）と左端を揃える
+    margin-left: 2.5%;
+    $_block: &;
+    color: $sideNavItem2_textColor;
+    @include g-font(16);
+    &__inner {
+      display: table;
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+      }
+
+      > span {
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        padding-bottom: 1px;
+        border-bottom: 2px solid $sideNavItem2_borderColor;
+      }
+    }
+  }
+
+  .t0-b-sideNavItem3 {
+    // バナー要素（横幅95%）と左端を揃える
+    margin-left: 2.5%;
+    $_block: &;
+    color: $sideNavItem3_textColor;
+    @include g-font(16);
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding: 0 30px 0 0;
+      transition: .3s;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/03/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transition: .3s;
+        transition-delay: .3s;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .t0-b-sideNavItem4 {
+    // バナー要素（横幅95%）と左端を揃える
+    margin-left: 2.5%;
+    $_block: &;
+    color: $sideNavItem4_textColor;
+    @include g-font(16);
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding: 0 30px 0 0;
+      transition: .3s;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/04/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/sideNavItem/04/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transition: .3s;
+        transition-delay: .3s;
+        transform: translateY(-50%);
       }
     }
   }
