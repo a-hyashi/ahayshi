@@ -1,5 +1,12 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of3} {
+    $_block: &;
+    $_fontSize: 28;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize+$_fontSizeDiff;
+
     margin: 0 auto;
     color: #594c46;
     a {
@@ -39,7 +46,33 @@
     }
 
     h2 {
-      @include g-font(28, 1);
+      @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 65px * .8;
+        height: 58px * .8;
+        text-indent: -100px * .8;
+        background-size: 58px * .8 58px * .8;
+      }
+
+      h2 {
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 65px * 1.2;
+        height: 58px * 1.2;
+        text-indent: -100px * 1.2;
+        background-size: 58px * 1.2 58px * 1.2;
+      }
+
+      h2 {
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
@@ -56,6 +89,12 @@
   }
 
   .t0-b-lv2H#{$variation2of3} {
+    $_fontSize: 28;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize+$_fontSizeDiff;
+
     margin: 0 auto;
     color: #594c46;
     text-align: center;
@@ -72,7 +111,21 @@
 
     h2 {
       padding: 32px 20px 10px;
-      @include g-font(28, 1);
+      @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &--size-1 {
+      h2 {
+        padding: 32px * .8 20px * .8 10px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        padding: 32px * 1.2 20px * 1.2 10px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
@@ -89,6 +142,12 @@
   }
 
   .t0-b-lv2H#{$variation3of3} {
+    $_fontSize: 28;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize+$_fontSizeDiff;
+
     margin: 0 auto;
     color: #594c46;
     text-align: center;
@@ -124,6 +183,48 @@
     h2 {
       padding: 0 10px 25px;
       @include g-font(28, 1);
+    }
+
+    &--size-1 {
+      background-size: 229px * .8 27px * .8;
+      &::before {
+        left: 229px * .8;
+        right: 228px * .8;
+        background-size: 254px * .8 27px * .8;
+      }
+
+      a {
+        h2 {
+          padding: 0 10px * .8 25px * .8;
+          @include g-font($_fontSize_s, $_lineHeight);
+        }
+      }
+
+      h2 {
+        padding: 0 10px * .8 25px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      background-size: 229px * 1.2 27px * 1.2;
+      &::before {
+        left: 229px * 1.2;
+        right: 228px * 1.2;
+        background-size: 254px * 1.2 27px * 1.2;
+      }
+
+      a {
+        h2 {
+          padding: 0 10px * 1.2 25px * 1.2;
+          @include g-font($_fontSize_l, $_lineHeight);
+        }
+      }
+
+      h2 {
+        padding: 0 10px * 1.2 25px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {

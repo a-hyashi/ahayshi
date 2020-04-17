@@ -1,8 +1,19 @@
 @if $device == PC {
   .t0-b-lv5H#{$variation1of2} {
+    $_block: &;
+    $_fontSize_bd: 18;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #594c46;
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 30px 5px;
     }
 
@@ -14,7 +25,7 @@
     &__bd {
       display: inline-block;
       h5 {
-        @include g-font(18, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
 
       > * {
@@ -42,8 +53,66 @@
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 30px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 30px * .8 5px * .8;
+      }
+
+      #{$_block}__main {
+        padding-right: 29px * .8;
+      }
+
+      #{$_block}__bd {
+        h5 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__icon {
+        width: 27px * .8;
+        height: 21px * .8;
+        text-indent: -100px * .8;
+        background-size: 21px * .8 21px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 30px * .8 0;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 30px * 1.2 5px * 1.2;
+      }
+
+      #{$_block}__main {
+        padding-right: 29px * 1.2;
+      }
+
+      #{$_block}__bd {
+        h5 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__icon {
+        width: 27px * 1.2;
+        height: 21px * 1.2;
+        text-indent: -100px * 1.2;
+        background-size: 21px * 1.2 21px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 30px * 1.2 0;
+      }
     }
 
     &--align-l {
@@ -68,10 +137,21 @@
   }
 
   .t0-b-lv5H#{$variation2of2} {
+    $_block: &;
+    $_fontSize_bd: 18;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #7e5c25;
     text-align: center;
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 10px 8px;
     }
 
@@ -80,13 +160,51 @@
       padding: 8px;
       > * {
         font-weight: normal;
-        @include g-font-spacingKilled(18, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 8px 10px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 10px * .8 8px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 8px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 8px * .8 10px * .8 0;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 10px * 1.2 8px * 1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 8px * 1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 8px * 1.2 10px * 1.2 0;
+      }
     }
 
     &--align-l {
