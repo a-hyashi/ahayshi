@@ -1,5 +1,16 @@
 @if $device == PC {
   .t0-b-lv4HBig#{$variation1of2} {
+    $_block: &;
+    $_fontSize_bd: 24;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     position: relative;
     padding: 20px 30px;
     // IEハック
@@ -17,7 +28,7 @@
     flex-direction: column;
     text-align: center;
     &__caption-upper {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 10px;
       position: relative;
       z-index: 2;
@@ -58,17 +69,101 @@
       }
 
       h4 {
-        @include g-font-spacingKilled(24, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         position: relative;
         z-index: 2;
       }
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 10px 0 0;
       position: relative;
       z-index: 2;
+    }
+
+    &--size-1 {
+      padding: 20px * .8 30px * .8;
+      // IEハック
+      padding: 36px * .8 30px * .8 \0;
+      background-size: 47px * .8 46px * .8,
+        47px * .8 48px * .8,
+        47px * .8 48px * .8,
+        47px * .8 46px * .8;
+      min-height: 102px;
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 10px * .8;
+      }
+
+      #{$_block}__bd {
+        > span {
+          top: 46px * .8;
+          bottom: 48px * .8;
+          > span {
+            top: -46px * .8;
+            bottom: -48px * .8;
+            left: 47px * .8;
+            right: 47px * .8;
+            background-size: 621px * .8 48px * .8, 621px * .8 46px * .8;
+            > span {
+              top: 46px * .8;
+              bottom: 48px * .8;
+            }
+          }
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px * .8 0 0;
+      }
+    }
+
+    &--size-3 {
+      padding: 20px * 1.2 30px * 1.2;
+      // IEハック
+      padding: 36px * 1.2 30px * 1.2 \0;
+      background-size: 47px * 1.2 46px * 1.2,
+        47px * 1.2 48px * 1.2,
+        47px * 1.2 48px * 1.2,
+        47px * 1.2 46px * 1.2;
+      min-height: 102px;
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 10px * 1.2;
+      }
+
+      #{$_block}__bd {
+        > span {
+          top: 46px * 1.2;
+          bottom: 48px * 1.2;
+          > span {
+            top: -46px * 1.2;
+            bottom: -48px * 1.2;
+            left: 47px * 1.2;
+            right: 47px * 1.2;
+            background-size: 621px * 1.2 48px * 1.2, 621px * 1.2 46px * 1.2;
+            > span {
+              top: 46px * 1.2;
+              bottom: 48px * 1.2;
+            }
+          }
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px * 1.2 0 0;
+      }
     }
 
     &--align-l {
@@ -94,6 +189,17 @@
   }
 
   .t0-b-lv4HBig#{$variation2of2} {
+    $_block: &;
+    $_fontSize_bd: 24;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     background: linear-gradient(#ebeeff, #e2e4ee);
     box-shadow: 0 0 3px #b9c0c4;
     position: relative;
@@ -108,7 +214,7 @@
     flex-direction: column;
     text-align: center;
     &__caption-upper {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 10px;
       position: relative;
     }
@@ -125,15 +231,63 @@
       }
 
       h4 {
-        @include g-font-spacingKilled(24, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         position: relative;
       }
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 10px 0 0;
       position: relative;
+    }
+
+    &--size-1 {
+      padding: 20px * .8 50px * .8;
+      min-height: 80px * .8;
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 10px * .8;
+      }
+
+      #{$_block}__bd {
+        > span {
+          background-size: 52px * .8 53px * .8, 51px * .8 52px * .8;
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px * .8 0 0;
+      }
+    }
+
+    &--size-3 {
+      padding: 20px * 1.2 50px * 1.2;
+      min-height: 80px * 1.2;
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 10px * 1.2;
+      }
+
+      #{$_block}__bd {
+        > span {
+          background-size: 52px * 1.2 53px * 1.2, 51px * 1.2 52px * 1.2;
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px * 1.2 0 0;
+      }
     }
 
     &--align-l {
