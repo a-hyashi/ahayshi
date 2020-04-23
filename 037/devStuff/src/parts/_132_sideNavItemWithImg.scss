@@ -3,23 +3,13 @@
     $_block: &;
     color: $sideNavItemWithImg_textColor;
     border: 2px solid #e81836;
-    height: 100%;
-    background: repeating-linear-gradient(-45deg, #fef5f5 0, #fef5f5 5px, #fff 5px, #fff 10px);
     &__inner {
-      box-sizing: border-box;
       display: flex;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      background-image: url("../imgs/sideNavItemWithImg/01/02.svg");
-      background-position: right center;
-      background-repeat: repeat-y;
-      background-size: 24px;
       > span {
         display: block;
-        flex: 0 24px;
-        height: 75px;
+        flex: 0 1 24px;
+        order: 1;
+        background-color: #e81836;
         background-image: url("../imgs/sideNavItemWithImg/01/01.svg");
         background-repeat: no-repeat;
         background-position: center center;
@@ -30,8 +20,10 @@
     &__text {
       flex: 1 1;
       order: 2;
+      display: flex;
+      align-items: center;
       @include g-font(16);
-      text-align: left;
+      background: repeating-linear-gradient(-45deg, #fef5f5 0, #fef5f5 5px, #fff 5px, #fff 10px);
       padding: 0 10px;
     }
 
@@ -40,8 +32,7 @@
       order: 3;
       img {
         display: block;
-        width: 75px;
-        height: 75px;
+        width: 100%;
       }
     }
 
@@ -55,9 +46,6 @@
     &--imgL {
       #{$_block}__inner {
         flex-direction: row-reverse;
-        > span {
-          margin: 0;
-        }
       }
     }
   }
