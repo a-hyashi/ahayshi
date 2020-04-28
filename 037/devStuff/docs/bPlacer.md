@@ -155,6 +155,8 @@
 |06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned||4%||35px|
 |06.ナビゲーション|main|042_誘導リンク（上下補足付）|.t0-b-navItem2Captioned|2|4%||35px|
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg||4%||35px|
+|06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg|2|4%||35px|
+|06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImg|3|4%||35px|
 |06.ナビゲーション|main|043_誘導バナー（画像付）|.t0-b-navItemWithImgDouble||2%||10px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem||4%||25px|
 |06.ナビゲーション|main|062_誘導バナー|.t0-b-navBItem|2|4%||25px|
@@ -198,6 +200,7 @@
 |06.ナビゲーション|side|131_サイド誘導バナー|.t0-b-sideNavBItem|12|4%||35px|
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg||4%||35px|
 |06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|2|4%||35px|
+|06.ナビゲーション|side|132_サイド誘導バナー（画像付）|.t0-b-sideNavItemWithImg|3|4%||35px|
 |06.ナビゲーション|side|133_サイドバナー|.t0-b-sideBanner||4%||35px|
 |06.ナビゲーション|side|133_サイドバナー|.t0-b-sideBanner|2|4%||35px|
 |06.ナビゲーション|side|147_サイドボックス誘導リンク|.t0-b-sideBoxNav||4%||20px|
