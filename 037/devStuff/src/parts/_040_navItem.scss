@@ -1,91 +1,576 @@
 @if $device == PC {
   .t0-b-navItem {
     $_block: &;
-    $_fontSize: 15;
+    $_fontSize: 16;
     $_fontSizeDiff: 2;
     $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
-    display: flex;
     &__inner {
-      position: relative;
-      min-height: 18px;
+      display: table;
       > span {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 18px;
-        height: 18px;
-        background-image: url("https://placehold.jp/22x22.png");
-        background-size: contain;
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/navItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
       }
 
       > div {
-        margin-left: 24px;
+        display: table-cell;
+        vertical-align: middle;
         @include g-font($_fontSize);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $navItem_borderColor;
       }
     }
 
-    a:hover {
-      #{$_block}__inner {
-        > span {
-          //
-        }
-
-        > div {
-          //
+    a {
+      display: inline-block;
+      &:hover {
+        #{$_block}__inner {
+          > div {
+            color: $navItem_hoverColor;
+          }
         }
       }
     }
 
     &--size-1 &__inner {
       > span {
-        width: 14px;
-        height: 14px;
+        width: 24px;
+        height: 18px;
+        background-size: 18px 18px;
       }
 
       > div {
-        margin-left: 20px;
         @include g-font($_fontSize_ss);
       }
     }
 
     &--size-2 &__inner {
       > span {
-        width: 16px;
-        height: 16px;
+        width: 28px;
+        height: 20px;
+        background-size: 20px 20px;
       }
 
       > div {
-        margin-left: 22px;
         @include g-font($_fontSize_s);
       }
     }
 
     &--size-4 &__inner {
       > span {
-        width: 20px;
-        height: 20px;
+        width: 34px;
+        height: 26px;
+        background-size: 26px 26px;
       }
 
       > div {
-        margin-left: 26px;
         @include g-font($_fontSize_l);
+        padding-bottom: 2px;
       }
     }
 
     &--size-5 &__inner {
       > span {
-        width: 22px;
-        height: 22px;
+        width: 38px;
+        height: 30px;
+        background-size: 30px 30px;
       }
 
       > div {
-        margin-left: 28px;
         @include g-font($_fontSize_ll);
+        padding-bottom: 2px;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-c {
+      justify-content: center;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-navItem2 {
+    $_block: &;
+    $_fontSize: 16;
+    $_fontSizeDiff: 2;
+    $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/navItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font($_fontSize);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $navItem2_borderColor;
+      }
+    }
+
+    a {
+      display: inline-block;
+      &:hover {
+        #{$_block}__inner {
+          > div {
+            color: $navItem2_hoverColor;
+          }
+        }
+      }
+    }
+
+    &--size-1 &__inner {
+      > span {
+        width: 24px;
+        height: 18px;
+        background-size: 18px 18px;
+      }
+
+      > div {
+        @include g-font($_fontSize_ss);
+      }
+    }
+
+    &--size-2 &__inner {
+      > span {
+        width: 28px;
+        height: 20px;
+        background-size: 20px 20px;
+      }
+
+      > div {
+        @include g-font($_fontSize_s);
+      }
+    }
+
+    &--size-4 &__inner {
+      > span {
+        width: 34px;
+        height: 26px;
+        background-size: 26px 26px;
+      }
+
+      > div {
+        @include g-font($_fontSize_l);
+        padding-bottom: 2px;
+      }
+    }
+
+    &--size-5 &__inner {
+      > span {
+        width: 38px;
+        height: 30px;
+        background-size: 30px 30px;
+      }
+
+      > div {
+        @include g-font($_fontSize_ll);
+        padding-bottom: 2px;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-c {
+      justify-content: center;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-navItem3 {
+    $_block: &;
+    $_fontSize: 16;
+    $_fontSizeDiff: 2;
+    $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
+    color: $navItem3_textColor;
+    padding: 2px 0;
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        @include g-font($_fontSize);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $navItem3_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $navItem3_textColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $navItem3_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    &--size-1 &__inner {
+      padding-right: 26px;
+      > div {
+        @include g-font($_fontSize_ss);
+      }
+
+      &::before {
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+      }
+    }
+
+    &--size-2 &__inner {
+      padding-right: 28px;
+      > div {
+        @include g-font($_fontSize_s);
+      }
+
+      &::before {
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+      }
+    }
+
+    &--size-4 &__inner {
+      padding: 0 32px 0 0;
+      > div {
+        @include g-font($_fontSize_l);
+      }
+
+      &::before {
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+      }
+    }
+
+    &--size-5 &__inner {
+      padding: 0 36px 0 0;
+      > div {
+        @include g-font($_fontSize_ll);
+      }
+
+      &::before {
+        width: 26px;
+        height: 26px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 26px;
+        height: 26px;
+        background-size: contain;
+      }
+    }
+
+    &--width-l {
+      width: 100%;
+    }
+
+    &--width-m {
+      width: 75%;
+    }
+
+    &--width-s {
+      width: 50%;
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-c {
+      justify-content: center;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-navItem4 {
+    $_block: &;
+    $_fontSize: 16;
+    $_fontSizeDiff: 2;
+    $_fontSize_ss: $_fontSize - $_fontSizeDiff - 2;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_ll: $_fontSize + $_fontSizeDiff + 2;
+    color: $navItem4_textColor;
+    padding: 2px 0;
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        @include g-font($_fontSize);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $navItem4_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/04/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/04/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $navItem4_textColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $navItem4_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    &--size-1 &__inner {
+      padding-right: 26px;
+      > div {
+        @include g-font($_fontSize_ss);
+      }
+
+      &::before {
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+      }
+    }
+
+    &--size-2 &__inner {
+      padding-right: 28px;
+      > div {
+        @include g-font($_fontSize_s);
+      }
+
+      &::before {
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+      }
+    }
+
+    &--size-4 &__inner {
+      padding: 0 32px 0 0;
+      > div {
+        @include g-font($_fontSize_l);
+      }
+
+      &::before {
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+      }
+    }
+
+    &--size-5 &__inner {
+      padding: 0 36px 0 0;
+      > div {
+        @include g-font($_fontSize_ll);
+      }
+
+      &::before {
+        width: 26px;
+        height: 26px;
+        background-size: contain;
+      }
+
+      &::after {
+        width: 26px;
+        height: 26px;
+        background-size: contain;
       }
     }
 
@@ -128,24 +613,173 @@
 
 @if $device == SP {
   .t0-b-navItem {
-    $_fontSize: 15;
+    $_fontSize: 16;
     &__inner {
-      position: relative;
+      display: table;
       > span {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 19px;
-        height: 19px;
-        background-image: url("https://placehold.jp/19x19.png");
-        background-size: contain;
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/navItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
       }
 
       > div {
-        margin-left: 25px;
+        display: table-cell;
+        vertical-align: middle;
         @include g-font($_fontSize);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $navItem_borderColor;
+        @include g-font($_fontSize);
+      }
+    }
+  }
+
+  .t0-b-navItem2 {
+    $_fontSize: 16;
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/navItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font($_fontSize);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $navItem2_borderColor;
+        @include g-font($_fontSize);
+      }
+    }
+  }
+
+  .t0-b-navItem3 {
+    $_fontSize: 16;
+    color: $navItem3_textColor;
+    padding: 2px 0;
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        @include g-font($_fontSize);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $navItem3_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .t0-b-navItem4 {
+    $_fontSize: 16;
+    color: $navItem4_textColor;
+    padding: 2px 0;
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        @include g-font($_fontSize);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $navItem4_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/04/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/04/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
       }
     }
   }
