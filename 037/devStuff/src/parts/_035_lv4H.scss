@@ -425,10 +425,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H6_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H6_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -439,8 +462,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -451,33 +474,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H6_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H6_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -491,10 +491,27 @@
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid $lv4H6_borderColor;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid transparent;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid transparent;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid $lv4H6_borderColor2;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 28px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid transparent;
@@ -502,8 +519,8 @@
           border-bottom: $_triangleSize_s solid $lv4H6_borderColor;
           border-left: $_triangleSize_s solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid $lv4H6_borderColor2;
@@ -511,27 +528,9 @@
           border-bottom: $_triangleSize_s solid transparent;
           border-left: $_triangleSize_s solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_s;
-          left: $_trianglePosition_s;
-          border-top: $_triangleSize_s solid $lv4H6_borderColor;
-          border-right: $_triangleSize_s solid transparent;
-          border-bottom: $_triangleSize_s solid transparent;
-          border-left: $_triangleSize_s solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_s, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_s;
-            left: $_trianglePosition_s;
-            border-top: $_triangleSize_s solid transparent;
-            border-right: $_triangleSize_s solid transparent;
-            border-bottom: $_triangleSize_s solid $lv4H6_borderColor2;
-            border-left: $_triangleSize_s solid transparent;
-          }
         }
       }
 
@@ -545,10 +544,27 @@
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid $lv4H6_borderColor;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid transparent;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid transparent;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid $lv4H6_borderColor2;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 38px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid transparent;
@@ -556,8 +572,8 @@
           border-bottom: $_triangleSize_l solid $lv4H6_borderColor;
           border-left: $_triangleSize_l solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid $lv4H6_borderColor2;
@@ -565,27 +581,9 @@
           border-bottom: $_triangleSize_l solid transparent;
           border-left: $_triangleSize_l solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_l;
-          left: $_trianglePosition_l;
-          border-top: $_triangleSize_l solid $lv4H6_borderColor;
-          border-right: $_triangleSize_l solid transparent;
-          border-bottom: $_triangleSize_l solid transparent;
-          border-left: $_triangleSize_l solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_l, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_l;
-            left: $_trianglePosition_l;
-            border-top: $_triangleSize_l solid transparent;
-            border-right: $_triangleSize_l solid transparent;
-            border-bottom: $_triangleSize_l solid $lv4H6_borderColor2;
-            border-left: $_triangleSize_l solid transparent;
-          }
         }
       }
 
@@ -633,10 +631,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H7_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H7_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -647,8 +668,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -659,34 +680,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H7_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
-
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H7_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -700,10 +697,27 @@
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid $lv4H7_borderColor;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid transparent;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid transparent;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid $lv4H7_borderColor2;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 28px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid transparent;
@@ -711,8 +725,8 @@
           border-bottom: $_triangleSize_s solid $lv4H7_borderColor;
           border-left: $_triangleSize_s solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid $lv4H7_borderColor2;
@@ -720,27 +734,9 @@
           border-bottom: $_triangleSize_s solid transparent;
           border-left: $_triangleSize_s solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_s;
-          left: $_trianglePosition_s;
-          border-top: $_triangleSize_s solid $lv4H7_borderColor;
-          border-right: $_triangleSize_s solid transparent;
-          border-bottom: $_triangleSize_s solid transparent;
-          border-left: $_triangleSize_s solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_s, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_s;
-            left: $_trianglePosition_s;
-            border-top: $_triangleSize_s solid transparent;
-            border-right: $_triangleSize_s solid transparent;
-            border-bottom: $_triangleSize_s solid $lv4H7_borderColor2;
-            border-left: $_triangleSize_s solid transparent;
-          }
         }
       }
 
@@ -754,10 +750,27 @@
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid $lv4H7_borderColor;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid transparent;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid transparent;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid $lv4H7_borderColor2;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 38px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid transparent;
@@ -765,8 +778,8 @@
           border-bottom: $_triangleSize_l solid $lv4H7_borderColor;
           border-left: $_triangleSize_l solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid $lv4H7_borderColor2;
@@ -774,27 +787,9 @@
           border-bottom: $_triangleSize_l solid transparent;
           border-left: $_triangleSize_l solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_l;
-          left: $_trianglePosition_l;
-          border-top: $_triangleSize_l solid $lv4H7_borderColor;
-          border-right: $_triangleSize_l solid transparent;
-          border-bottom: $_triangleSize_l solid transparent;
-          border-left: $_triangleSize_l solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_l, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_l;
-            left: $_trianglePosition_l;
-            border-top: $_triangleSize_l solid transparent;
-            border-right: $_triangleSize_l solid transparent;
-            border-bottom: $_triangleSize_l solid $lv4H7_borderColor2;
-            border-left: $_triangleSize_l solid transparent;
-          }
         }
       }
 
@@ -842,10 +837,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H8_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H8_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -856,8 +874,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -868,34 +886,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H8_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
-
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H8_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -909,10 +903,27 @@
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid $lv4H8_borderColor;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid transparent;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid transparent;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid $lv4H8_borderColor2;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 28px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid transparent;
@@ -920,8 +931,8 @@
           border-bottom: $_triangleSize_s solid $lv4H8_borderColor;
           border-left: $_triangleSize_s solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid $lv4H8_borderColor2;
@@ -929,27 +940,9 @@
           border-bottom: $_triangleSize_s solid transparent;
           border-left: $_triangleSize_s solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_s;
-          left: $_trianglePosition_s;
-          border-top: $_triangleSize_s solid $lv4H8_borderColor;
-          border-right: $_triangleSize_s solid transparent;
-          border-bottom: $_triangleSize_s solid transparent;
-          border-left: $_triangleSize_s solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_s, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_s;
-            left: $_trianglePosition_s;
-            border-top: $_triangleSize_s solid transparent;
-            border-right: $_triangleSize_s solid transparent;
-            border-bottom: $_triangleSize_s solid $lv4H8_borderColor2;
-            border-left: $_triangleSize_s solid transparent;
-          }
         }
       }
 
@@ -963,10 +956,27 @@
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid $lv4H8_borderColor;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid transparent;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid transparent;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid $lv4H8_borderColor2;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 38px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid transparent;
@@ -974,8 +984,8 @@
           border-bottom: $_triangleSize_l solid $lv4H8_borderColor;
           border-left: $_triangleSize_l solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid $lv4H8_borderColor2;
@@ -983,27 +993,9 @@
           border-bottom: $_triangleSize_l solid transparent;
           border-left: $_triangleSize_l solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_l;
-          left: $_trianglePosition_l;
-          border-top: $_triangleSize_l solid $lv4H8_borderColor;
-          border-right: $_triangleSize_l solid transparent;
-          border-bottom: $_triangleSize_l solid transparent;
-          border-left: $_triangleSize_l solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_l, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_l;
-            left: $_trianglePosition_l;
-            border-top: $_triangleSize_l solid transparent;
-            border-right: $_triangleSize_l solid transparent;
-            border-bottom: $_triangleSize_l solid $lv4H8_borderColor2;
-            border-left: $_triangleSize_l solid transparent;
-          }
         }
       }
 
@@ -1051,10 +1043,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H9_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H9_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -1065,8 +1080,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -1077,34 +1092,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H9_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
-
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H9_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -1118,10 +1109,27 @@
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid $lv4H9_borderColor;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid transparent;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid transparent;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid $lv4H9_borderColor2;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 28px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid transparent;
@@ -1129,8 +1137,8 @@
           border-bottom: $_triangleSize_s solid $lv4H9_borderColor;
           border-left: $_triangleSize_s solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid $lv4H9_borderColor2;
@@ -1138,27 +1146,9 @@
           border-bottom: $_triangleSize_s solid transparent;
           border-left: $_triangleSize_s solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_s;
-          left: $_trianglePosition_s;
-          border-top: $_triangleSize_s solid $lv4H9_borderColor;
-          border-right: $_triangleSize_s solid transparent;
-          border-bottom: $_triangleSize_s solid transparent;
-          border-left: $_triangleSize_s solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_s, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_s;
-            left: $_trianglePosition_s;
-            border-top: $_triangleSize_s solid transparent;
-            border-right: $_triangleSize_s solid transparent;
-            border-bottom: $_triangleSize_s solid $lv4H9_borderColor2;
-            border-left: $_triangleSize_s solid transparent;
-          }
         }
       }
 
@@ -1172,10 +1162,27 @@
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid $lv4H9_borderColor;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid transparent;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid transparent;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid $lv4H9_borderColor2;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 38px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid transparent;
@@ -1183,8 +1190,8 @@
           border-bottom: $_triangleSize_l solid $lv4H9_borderColor;
           border-left: $_triangleSize_l solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid $lv4H9_borderColor2;
@@ -1192,27 +1199,9 @@
           border-bottom: $_triangleSize_l solid transparent;
           border-left: $_triangleSize_l solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_l;
-          left: $_trianglePosition_l;
-          border-top: $_triangleSize_l solid $lv4H9_borderColor;
-          border-right: $_triangleSize_l solid transparent;
-          border-bottom: $_triangleSize_l solid transparent;
-          border-left: $_triangleSize_l solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_l, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_l;
-            left: $_trianglePosition_l;
-            border-top: $_triangleSize_l solid transparent;
-            border-right: $_triangleSize_l solid transparent;
-            border-bottom: $_triangleSize_l solid $lv4H9_borderColor2;
-            border-left: $_triangleSize_l solid transparent;
-          }
         }
       }
 
@@ -1260,10 +1249,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H10_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H10_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -1274,8 +1286,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -1286,34 +1298,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H10_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
-
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H10_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -1327,10 +1315,27 @@
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid $lv4H10_borderColor;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid transparent;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_s;
+        left: $_trianglePosition_s;
+        border-top: $_triangleSize_s solid transparent;
+        border-right: $_triangleSize_s solid transparent;
+        border-bottom: $_triangleSize_s solid $lv4H10_borderColor2;
+        border-left: $_triangleSize_s solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 28px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid transparent;
@@ -1338,8 +1343,8 @@
           border-bottom: $_triangleSize_s solid $lv4H10_borderColor;
           border-left: $_triangleSize_s solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_s;
           right: $_trianglePosition_s;
           border-top: $_triangleSize_s solid $lv4H10_borderColor2;
@@ -1347,27 +1352,9 @@
           border-bottom: $_triangleSize_s solid transparent;
           border-left: $_triangleSize_s solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_s;
-          left: $_trianglePosition_s;
-          border-top: $_triangleSize_s solid $lv4H10_borderColor;
-          border-right: $_triangleSize_s solid transparent;
-          border-bottom: $_triangleSize_s solid transparent;
-          border-left: $_triangleSize_s solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_s, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_s;
-            left: $_trianglePosition_s;
-            border-top: $_triangleSize_s solid transparent;
-            border-right: $_triangleSize_s solid transparent;
-            border-bottom: $_triangleSize_s solid $lv4H10_borderColor2;
-            border-left: $_triangleSize_s solid transparent;
-          }
         }
       }
 
@@ -1381,10 +1368,27 @@
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
       }
 
-      #{$_block}__bd {
+      &::before {//左下
+        bottom: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid $lv4H10_borderColor;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid transparent;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      &::after {//左上
+        top: $_trianglePosition_l;
+        left: $_trianglePosition_l;
+        border-top: $_triangleSize_l solid transparent;
+        border-right: $_triangleSize_l solid transparent;
+        border-bottom: $_triangleSize_l solid $lv4H10_borderColor2;
+        border-left: $_triangleSize_l solid transparent;
+      }
+
+      #{$_block}__box {
         min-height: 38px;
-        //右上
-        &::before {
+        &::before {//右上
           top: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid transparent;
@@ -1392,8 +1396,8 @@
           border-bottom: $_triangleSize_l solid $lv4H10_borderColor;
           border-left: $_triangleSize_l solid transparent;
         }
-        //右下
-        &::after {
+
+        &::after {//右下
           bottom: $_trianglePosition_l;
           right: $_trianglePosition_l;
           border-top: $_triangleSize_l solid $lv4H10_borderColor2;
@@ -1401,27 +1405,9 @@
           border-bottom: $_triangleSize_l solid transparent;
           border-left: $_triangleSize_l solid transparent;
         }
-        //左下
-        > span {
-          bottom: $_trianglePosition_l;
-          left: $_trianglePosition_l;
-          border-top: $_triangleSize_l solid $lv4H10_borderColor;
-          border-right: $_triangleSize_l solid transparent;
-          border-bottom: $_triangleSize_l solid transparent;
-          border-left: $_triangleSize_l solid transparent;
-        }
 
         h4 {
           @include g-font-layout($_fontSize_bd_l, 1, $layout);
-          //左上
-          &::after {
-            top: $_trianglePosition_l;
-            left: $_trianglePosition_l;
-            border-top: $_triangleSize_l solid transparent;
-            border-right: $_triangleSize_l solid transparent;
-            border-bottom: $_triangleSize_l solid $lv4H10_borderColor2;
-            border-left: $_triangleSize_l solid transparent;
-          }
         }
       }
 
@@ -1650,10 +1636,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H6_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H6_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -1664,8 +1673,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -1676,33 +1685,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H6_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H6_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -1739,10 +1725,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H7_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H7_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -1753,8 +1762,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -1765,33 +1774,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H7_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H7_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -1828,10 +1814,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H8_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H8_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -1842,8 +1851,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -1854,33 +1863,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H8_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H8_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -1917,7 +1903,31 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H9_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H9_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
       //右上
       &::before {
@@ -1943,33 +1953,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H9_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H9_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
@@ -2006,10 +1993,33 @@
       padding: 0 35px;
     }
 
-    &__bd {
+    &::before {//左下
+      content: "";
+      position: absolute;
+      bottom: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid $lv4H10_borderColor;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid transparent;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(45deg);
+    }
+
+    &::after {//左上
+      content: "";
+      position: absolute;
+      top: $_trianglePosition;
+      left: $_trianglePosition;
+      border-top: $_triangleSize solid transparent;
+      border-right: $_triangleSize solid transparent;
+      border-bottom: $_triangleSize solid $lv4H10_borderColor2;
+      border-left: $_triangleSize solid transparent;
+      transform: rotate(-45deg);
+    }
+
+    &__box {
       min-height: 33px;
-      //右上
-      &::before {
+      &::before {//右上
         content: "";
         position: absolute;
         top: $_trianglePosition;
@@ -2020,8 +2030,8 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(45deg);
       }
-      //右下
-      &::after {
+
+      &::after {//右下
         content: "";
         position: absolute;
         bottom: $_trianglePosition;
@@ -2032,33 +2042,10 @@
         border-left: $_triangleSize solid transparent;
         transform: rotate(-45deg);
       }
-      //左下
-      > span {
-        position: absolute;
-        bottom: $_trianglePosition;
-        left: $_trianglePosition;
-        border-top: $_triangleSize solid $lv4H10_borderColor;
-        border-right: $_triangleSize solid transparent;
-        border-bottom: $_triangleSize solid transparent;
-        border-left: $_triangleSize solid transparent;
-        transform: rotate(45deg);
-      }
 
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
         padding: 5px 35px;
-        //左上
-        &::after {
-          content: "";
-          position: absolute;
-          top: $_trianglePosition;
-          left: $_trianglePosition;
-          border-top: $_triangleSize solid transparent;
-          border-right: $_triangleSize solid transparent;
-          border-bottom: $_triangleSize solid $lv4H10_borderColor2;
-          border-left: $_triangleSize solid transparent;
-          transform: rotate(-45deg);
-        }
       }
     }
 
