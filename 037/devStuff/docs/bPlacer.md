@@ -288,7 +288,10 @@
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|2|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|3|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
-|11.枠|header|205_ヘッダーセット|.t0-b-headerCombi||0||0px|
+|11.枠|header|205_ヘッダーセット|.t0-b-headerCombi||0|||
+|11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|2|0||0px|
+|11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|3|0||0px|
+|11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|4|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle||0||0px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
