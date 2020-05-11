@@ -293,6 +293,9 @@
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|3|0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|4|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle||0||0px|
+|11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|2|0||0px|
+|11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|3|0||0px|
+|11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|4|0||0px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||25px|
