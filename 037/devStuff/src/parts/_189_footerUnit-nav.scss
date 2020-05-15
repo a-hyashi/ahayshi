@@ -86,28 +86,54 @@
     white-space: nowrap;
     color: $footerUnit-nav_textColor;
     &__item {
-      display: inline-block;
       position: relative;
+      display: inline-block;
       min-height: 22px;
+      padding-right: 30px;
+      transition: .3s;
+      p {
+        display: block;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $navItem3_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
       &::before {
         content: "";
-        display: block;
         position: absolute;
         top: 50%;
-        left: 0;
-        transform: translateY(-50%);
+        right: 0;
+        display: block;
         width: 22px;
         height: 22px;
-        background-image: url("../imgs/footerUnit-nav/01/01.svg");
+        background-image: url("../imgs/navItem/03/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
         background-size: contain;
+        transform: translateY(-50%);
       }
-
-      p {
-        margin-left: 30px;
-        @include g-font(16);
-        transition: ease-in-out .4s;
-        padding-bottom: 1px;
-        border-bottom: 2px solid $footerUnit-nav_borderColor;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
       }
 
       & + & {
@@ -115,11 +141,96 @@
       }
     }
 
-    a:hover {
-      p {
-        color: $footerUnit-nav_hoverColor;
+   a:hover {
+      &__item {
+        color: $navItem3_textColor;
+      &::after {
+        right: -10px;
       }
     }
+    p {
+      color: $footerUnit-nav_hoverColor;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  }
+
+  .t0-b-footerUnit-nav4 {
+    $_block: &;
+    white-space: nowrap;
+    color: $footerUnit-nav_textColor;
+    &__item {
+      position: relative;
+      display: inline-block;
+      min-height: 22px;
+      padding-right: 30px;
+      transition: .3s;
+      p {
+        display: block;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $navItem3_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+  a:hover {
+      &__item {
+        color: $navItem3_textColor;
+      &::after {
+        right: -10px;
+      }
+    }
+    p {
+      color: $footerUnit-nav_hoverColor;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
   }
 }
 
