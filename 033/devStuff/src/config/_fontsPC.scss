@@ -7,3 +7,49 @@
     line-height: 1.6;
   }
 }
+
+// 一括フォントサイズ設定
+.pc-fontPx {
+  &-s {
+    .g-fontPx {
+      p,
+      ol li,
+      ul li {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &-m {
+    .g-fontPx {
+      p,
+      ol li,
+      ul li {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &-l {
+    .g-fontPx {
+      p,
+      ol li,
+      ul li {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // 10pxから20pxまでループ
+  @for $i from 10 to 21 {
+    &-#{$i} {
+      .g-fontPx {
+        p,
+        ol li,
+        ul li {
+          font-size: 1px * $i;
+        }
+      }
+    }
+  }
+}
