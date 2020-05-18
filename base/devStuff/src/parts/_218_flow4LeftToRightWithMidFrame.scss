@@ -1,13 +1,8 @@
 @if $device == PC {
   .t0-b-flow4LeftToRightWithMidFrame {
     $_block: &;
-    // 2列と比較して、arrowエリアの縮小率に合わせて、max-widthを算出
-    $_maxWidth_arrow: 21px * (3/4);
-    width: 100%;
     &__row {
       display: flex;
-      width: 100%;
-      height: 100%;
     }
 
     &__box {
@@ -34,6 +29,8 @@
       &-inner {
         position: relative;
         height: 100%;
+        max-width: 16px;
+        margin: 0 auto;
         // #cms-body [data-cms-part]のposition:relativeを打ち消して、矢印要素の上余白を変更できるように
         > div {
           position: absolute !important;
@@ -46,22 +43,6 @@
         }
       }
     }
-
-    .t0-b-arrowInFlow {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      left: 0;
-      transform: translateY(-50%);
-      height: 26px;
-      width: 100%;
-      max-width: 16px;
-      margin: 0 auto;
-      background-image: url("../imgs/arrowInFlow/01/01.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-    }
   }
 }
 
@@ -69,7 +50,6 @@
   .t0-b-flow4LeftToRightWithMidFrame {
     $_arrowHeight: 22px;
     $_arrowPadding: 15px;
-    width: 100%;
     &__row {
       padding-bottom: $_arrowHeight + $_arrowPadding;
       background-image: url("../imgs/arrowInFlow/01/01_sp.svg");
@@ -84,14 +64,6 @@
 
     &__arrow {
       padding-bottom: $_arrowPadding;
-    }
-
-    .t0-b-arrowInFlow {
-      height: $_arrowHeight;
-      background-image: url("../imgs/arrowInFlow/01/01_sp.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: auto $_arrowHeight;
     }
   }
 }
