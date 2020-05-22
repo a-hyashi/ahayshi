@@ -2,35 +2,251 @@
   .t0-b-headerUnit-contact-nav {
     $_block: &;
     white-space: nowrap;
+    color: $headerUnit-contact-nav_textColor;
     &__inner {
-      position: relative;
-      min-height: 18px;
+      display: table;
       > span {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 18px;
-        height: 18px;
-        background-image: url("https://placehold.jp/18x18.png");
-        background-size: contain;
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
+        min-width: 30px;
+        background-image: url("../imgs/headerUnit-contact-nav/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
       }
 
       > div {
-        margin-left: 24px;
+        display: table-cell;
+        vertical-align: middle;
         @include g-font(16);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $headerUnit-contact-nav_borderColor;
       }
     }
 
-    a:hover {
-      #{$_block}__inner {
-        > span {
-          //
+    a {
+      display: inline-block;
+      &:hover {
+        #{$_block}__inner {
+          > div {
+            color: $headerUnit-contact-nav_hoverColor;
+          }
         }
+      }
+    }
 
-        > div {
-          //
+    // サイト名(中央)に入ったときは中央寄せにする
+    [class^="t0-b-headerSingle"] & {
+      margin: 0 auto;
+    }
+  }
+
+  .t0-b-headerUnit-contact-nav2 {
+    $_block: &;
+    white-space: nowrap;
+    color: $headerUnit-contact-nav2_textColor;
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
+        min-width: 30px;
+        background-image: url("../imgs/headerUnit-contact-nav/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(16);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $headerUnit-contact-nav2_borderColor;
+      }
+    }
+
+    a {
+      display: inline-block;
+      &:hover {
+        #{$_block}__inner {
+          > div {
+            color: $headerUnit-contact-nav2_hoverColor;
+          }
+        }
+      }
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    [class^="t0-b-headerSingle"] & {
+      margin: 0 auto;
+    }
+  }
+
+  .t0-b-headerUnit-contact-nav3 {
+    $_block: &;
+    white-space: nowrap;
+    color: $headerUnit-contact-nav3_textColor;
+    padding: 2px 0;
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        @include g-font(16);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $headerUnit-contact-nav3_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/03/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/03/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $headerUnit-contact-nav3_textColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $headerUnit-contact-nav3_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    [class^="t0-b-headerSingle"] & {
+      margin: 0 auto;
+    }
+  }
+
+  .t0-b-headerUnit-contact-nav4 {
+    $_block: &;
+    white-space: nowrap;
+    color: $headerUnit-contact-nav4_textColor;
+    padding: 2px 0;
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        @include g-font(16);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $headerUnit-contact-nav4_BGColor;//伸びる下線
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/04/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/04/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $headerUnit-contact-nav4_textColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $headerUnit-contact-nav4_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
         }
       }
     }
@@ -45,24 +261,147 @@
 @if $device == SP {
   .t0-b-headerUnit-contact-nav {
     margin-left: 2.5%;
+    color: $headerUnit-contact-nav_textColor;
     &__inner {
-      position: relative;
-      min-height: 19px;
+      display: table;
       > span {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 19px;
-        height: 19px;
-        background-image: url("https://placehold.jp/19x19.png");
-        background-size: contain;
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
       }
 
       > div {
-        margin-left: 25px;
+        display: table-cell;
+        vertical-align: middle;
         @include g-font(16);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $headerUnit-contact-nav_borderColor;
+      }
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    [class^="t0-b-headerSingle"] & {
+      margin: 0 auto;
+    }
+  }
+
+  .t0-b-headerUnit-contact-nav2 {
+    margin-left: 2.5%;
+    color: $headerUnit-contact-nav2_textColor;
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(16);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $headerUnit-contact-nav2_borderColor;
+      }
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    [class^="t0-b-headerSingle"] & {
+      margin: 0 auto;
+    }
+  }
+
+  .t0-b-headerUnit-contact-nav3 {
+    margin-left: 2.5%;
+    color: $headerUnit-contact-nav3_textColor;
+    padding: 2px 0;
+    @include g-font(16);
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/03/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/03/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+    }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    [class^="t0-b-headerSingle"] & {
+      margin: 0 auto;
+    }
+  }
+
+  .t0-b-headerUnit-contact-nav4 {
+    margin-left: 2.5%;
+    color: $headerUnit-contact-nav4_textColor;
+    padding: 2px 0;
+    @include g-font(16);
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/04/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/headerUnit-contact-nav/04/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
       }
     }
 
