@@ -245,6 +245,7 @@
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|2|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|3|0||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|4|0||0px|
+|08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|5|0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu||0||0px|
 |08.メニュー|footer|185_フッターメニュー|.t0-b-footerMenu|2|0||0px|
 |08.メニュー|footer|201_フッターメニュー（コピーライト付き）|.t0-b-footerMenuWithCp||0||px|
