@@ -15,6 +15,7 @@
       position: relative;
       padding: 12px 0 15px;
       border-bottom: 2px solid $sideMenu_borderColor;
+      text-align: center;
       &::after {
         content: "";
         position: absolute;
@@ -28,7 +29,6 @@
         min-height: 25px;
         color: $sideMenu_textColor;
         @include g-font(20);
-        text-align: center;
       }
 
       a {
@@ -45,137 +45,98 @@
       > .b-sideMenu__list > ul {
         border-bottom: 1px solid $sideMenu_borderColor3;
         > .b-sideMenu__item {
-          // 親要素
-          > .b-sideMenu__item2 {
-            @include g-font(15);
-            padding: 2px 0;
-            color: $sideMenu_textColor;
-            border-top: 1px solid $sideMenu_borderColor3;
+          // 親要素のカレント
+          &.state-current > .b-sideMenu__item2 {
             > div {
-              span {
-                > span {
-                  transition: background-color .5s ease-in;
-                  display: block;
-                  padding: 5px 5px 5px 23px;
-                  color: $sideMenu_textColor;
-                  background-image: url("../imgs/sideMenu/01/01.svg");
-                  background-repeat: no-repeat;
-                  background-position: 6px center;
-                  background-size: 12px 14px;
-                }
-              }
-            }
-
-            &:hover {
-              > div {
-                > a {
-                  display: block;
-                  span {
-                    > span {
-                      display: block;
-                      color: $sideMenu_textColor;
-                      background-color: $sideMenu_BGColor2;
-                      background-image: url("../imgs/sideMenu/01/01.svg");
-                      background-repeat: no-repeat;
-                      background-position: 6px center;
-                      background-size: 12px 14px;
-                    }
-                  }
-                }
+              > span,
+              > a > span {
+                background-color: $sideMenu_BGColor;
               }
             }
           }
 
-          // 親要素のカレント
-          &.state-current > .b-sideMenu__item2 {
+          // 親要素
+          > .b-sideMenu__item2 {
+            padding: 2px 0;
+            border-top: 1px solid $sideMenu_borderColor3;
             > div {
-              span {
-                > span {
-                  background-color: $sideMenu_BGColor;
-                }
+              > span,
+              > a > span {
+                @include g-font(15);
+                transition: background-color .5s ease-in;
+                display: block;
+                padding: 5px 5px 5px 23px;
+                color: $sideMenu_textColor;
+                background-image: url("../imgs/sideMenu/01/01.svg");
+                background-repeat: no-repeat;
+                background-position: 6px center;
+                background-size: 12px 14px;
+              }
+
+              > a:hover > span {
+                background-color: $sideMenu_BGColor2;
               }
             }
           }
 
           > .b-sideMenu__list > ul > .b-sideMenu__item {
-            // 子要素
-            @include g-font(14);
-            > .b-sideMenu__item2 {
+            // 子要素のカレント
+            &.state-current > .b-sideMenu__item2 {
               > div {
-                border-top: 1px solid $sideMenu_borderColor3;
-                span {
-                  > span {
-                    display: block;
-                    margin: 2px 0;
-                    padding: 5px 5px 5px 28px;
-                  }
-                }
-              }
-
-              &:hover {
-                > div {
-                  > a {
-                    span {
-                      > span {
-                        color: #000;
-                        margin: 2px 0;
-                        background-color: $sideMenu_BGColor2;
-                      }
-                    }
-                  }
+                > span,
+                > a > span {
+                  background-color: $sideMenu_BGColor;
                 }
               }
             }
 
-            // 子要素のカレント
-            &.state-current > .b-sideMenu__item2 {
+            // 子要素
+            > .b-sideMenu__item2 {
               > div {
-                span {
-                  > span {
-                    margin: 2px 0;
-                    background-color: $sideMenu_BGColor;
-                  }
+                padding: 2px 0;
+                border-top: 1px solid $sideMenu_borderColor3;
+                > span,
+                > a > span {
+                  @include g-font(14);
+                  transition: background-color .5s ease-in;
+                  display: block;
+                  padding: 5px 5px 5px 28px;
+                  color: $sideMenu_textColor;
+                }
+
+                > a:hover > span {
+                  background-color: $sideMenu_BGColor2;
                 }
               }
             }
 
             > .b-sideMenu__list > ul > .b-sideMenu__item {
-              // 孫要素
-              > .b-sideMenu__item2 {
+              // 孫要素のカレント
+              &.state-current > .b-sideMenu__item2 {
                 > div {
-                  border-top: 1px solid $sideMenu_borderColor3;
-                  span {
-                    > span {
-                      display: block;
-                      margin: 2px 0;
-                      padding: 5px 5px 5px 33px;
-                    }
-                  }
-                }
-
-                &:hover {
-                  > div {
-                    > a {
-                      span {
-                        > span {
-                          color: #000;
-                          margin: 2px 0;
-                          background-color: $sideMenu_BGColor2;
-                        }
-                      }
-                    }
+                  > span,
+                  > a > span {
+                    background-color: $sideMenu_BGColor;
                   }
                 }
               }
 
-              // 孫要素のカレント
-              &.state-current > .b-sideMenu__item2 {
+              // 孫要素
+              > .b-sideMenu__item2 {
                 > div {
-                  span {
-                    > span {
-                      margin: 2px 0;
-                      background-color: $sideMenu_BGColor;
-                    }
+                  padding: 2px 0;
+                  border-top: 1px solid $sideMenu_borderColor3;
+                  > span,
+                  > a > span {
+                    @include g-font(14);
+                    transition: background-color .5s ease-in;
+                    display: block;
+                    padding: 5px 5px 5px 33px;
+                    color: $sideMenu_textColor;
+                  }
+
+                  > a:hover > span {
+                    background-color: $sideMenu_BGColor2;
                   }
                 }
               }
@@ -214,11 +175,11 @@
       position: relative;
       padding: 15px 0 10px;
       border-bottom: 1px solid $sideMenu2_borderColor;
+      text-align: center;
       h4 {
         min-height: 25px;
         color: $sideMenu2_textColor;
         @include g-font(20);
-        text-align: center;
       }
 
       a {
@@ -234,133 +195,98 @@
       padding: 25px 0;
       > .b-sideMenu__list > ul {
         > .b-sideMenu__item {
-          // 親要素
-          > .b-sideMenu__item2 {
-            @include g-font(15);
-            padding: 2px 0;
-            color: $sideMenu2_textColor;
+          // 親要素のカレント
+          &.state-current > .b-sideMenu__item2 {
             > div {
-              span {
-                > span {
-                  transition: background-color .5s ease-in;
-                  display: block;
-                  padding: 7px 5px 7px 23px;
-                  color: $sideMenu2_textColor;
-                  background-image: url("../imgs/sideMenu/02/01.svg");
-                  background-repeat: no-repeat;
-                  background-position: 10px center;
-                  background-size: 5px 5px;
-                }
-              }
-            }
-
-            &:hover {
-              > div {
-                > a {
-                  display: block;
-                  span {
-                    > span {
-                      background-color: $sideMenu2_BGColor2;
-                      color: $sideMenu2_textColor;
-                      border-radius: 3px;
-                    }
-                  }
-                }
+              > span,
+              > a > span {
+                background-color: $sideMenu2_BGColor3;
               }
             }
           }
 
-          // 親要素のカレント
-          &.state-current > .b-sideMenu__item2 {
+          // 親要素
+          > .b-sideMenu__item2 {
             > div {
-              span {
-                > span {
-                  background-color: $sideMenu2_BGColor3;
-                  border-radius: 3px;
-                }
+              padding: 2px 0;
+              > span,
+              > a > span {
+                @include g-font(15);
+                transition: background-color .5s ease-in;
+                display: block;
+                padding: 7px 5px 7px 23px;
+                color: $sideMenu2_textColor;
+                background-image: url("../imgs/sideMenu/02/01.svg");
+                background-repeat: no-repeat;
+                background-position: 10px center;
+                background-size: 5px 5px;
+                border-radius: 3px;
+              }
+
+              > a:hover > span {
+                background-color: $sideMenu2_BGColor2;
               }
             }
           }
 
           > .b-sideMenu__list > ul > .b-sideMenu__item {
-            // 子要素
-            @include g-font(14);
-            > .b-sideMenu__item2 {
+            // 子要素のカレント
+            &.state-current > .b-sideMenu__item2 {
               > div {
-                span {
-                  > span {
-                    display: block;
-                    margin: 2px 0;
-                    padding: 7px 5px 7px 28px;
-                  }
-                }
-              }
-
-              &:hover {
-                > div {
-                  > a {
-                    span {
-                      > span {
-                        background-color: $sideMenu2_BGColor2;
-                        border-radius: 3px;
-                        color: $sideMenu2_textColor;
-                      }
-                    }
-                  }
+                > span,
+                > a > span {
+                  background-color: $sideMenu2_BGColor3;
                 }
               }
             }
 
-            // 子要素のカレント
-            &.state-current > .b-sideMenu__item2 {
+            // 子要素
+            > .b-sideMenu__item2 {
               > div {
-                span {
-                  > span {
-                    background-color: $sideMenu2_BGColor3;
-                    border-radius: 3px;
-                  }
+                padding: 2px 0;
+                > span,
+                > a > span {
+                  @include g-font(14);
+                  transition: background-color .5s ease-in;
+                  display: block;
+                  padding: 7px 5px 7px 28px;
+                  color: $sideMenu2_textColor;
+                  border-radius: 3px;
+                }
+
+                > a:hover > span {
+                  background-color: $sideMenu2_BGColor2;
                 }
               }
             }
 
             > .b-sideMenu__list > ul > .b-sideMenu__item {
-              // 孫要素
-              > .b-sideMenu__item2 {
+              // 孫要素のカレント
+              &.state-current > .b-sideMenu__item2 {
                 > div {
-                  span {
-                    > span {
-                      display: block;
-                      margin: 2px 0;
-                      padding: 7px 5px 7px 33px;
-                    }
-                  }
-                }
-
-                &:hover {
-                  > div {
-                    > a {
-                      span {
-                        > span {
-                          color: #000;
-                          margin: 2px 0;
-                          background-color: $sideMenu2_BGColor2;
-                          border-radius: 3px;
-                        }
-                      }
-                    }
+                  > span,
+                  > a > span {
+                    background-color: $sideMenu2_BGColor3;
                   }
                 }
               }
 
-              // 孫要素のカレント
-              &.state-current > .b-sideMenu__item2 {
+              // 孫要素
+              > .b-sideMenu__item2 {
                 > div {
-                  span {
-                    > span {
-                      margin: 2px 0;
-                      background-color: $sideMenu2_BGColor3;
-                      border-radius: 3px;
-                    }
+                  padding: 2px 0;
+                  > span,
+                  > a > span {
+                    @include g-font(14);
+                    transition: background-color .5s ease-in;
+                    display: block;
+                    color: $sideMenu2_textColor;
+                    padding: 7px 5px 7px 33px;
+                    border-radius: 3px;
+                  }
+
+                  > a:hover > span {
+                    background-color: $sideMenu2_BGColor2;
                   }
                 }
               }
@@ -399,11 +325,11 @@
       position: relative;
       padding: 15px 0 10px;
       border-bottom: 1px solid $sideMenu3_borderColor;
+      text-align: center;
       h4 {
         min-height: 25px;
         color: $sideMenu3_textColor;
         @include g-font(20);
-        text-align: center;
       }
 
       a {
@@ -419,133 +345,98 @@
       padding: 25px 0;
       > .b-sideMenu__list > ul {
         > .b-sideMenu__item {
-          // 親要素
-          > .b-sideMenu__item2 {
-            @include g-font(15);
-            padding: 2px 0;
-            color: $sideMenu3_textColor;
+          // 親要素のカレント
+          &.state-current > .b-sideMenu__item2 {
             > div {
-              span {
-                > span {
-                  transition: background-color .5s ease-in;
-                  display: block;
-                  padding: 7px 5px 7px 23px;
-                  color: $sideMenu2_textColor;
-                  background-image: url("../imgs/sideMenu/03/01.svg");
-                  background-repeat: no-repeat;
-                  background-position: 10px center;
-                  background-size: 5px 5px;
-                }
-              }
-            }
-
-            &:hover {
-              > div {
-                > a {
-                  display: block;
-                  span {
-                    > span {
-                      background-color: $sideMenu3_BGColor2;
-                      color: $sideMenu3_textColor;
-                      border-radius: 3px;
-                    }
-                  }
-                }
+              > span,
+              > a > span {
+                background-color: $sideMenu3_BGColor3;
               }
             }
           }
 
-          // 親要素のカレント
-          &.state-current > .b-sideMenu__item2 {
+          // 親要素
+          > .b-sideMenu__item2 {
             > div {
-              span {
-                > span {
-                  background-color: $sideMenu3_BGColor3;
-                  border-radius: 3px;
-                }
+              padding: 2px 0;
+              > span,
+              > a > span {
+                @include g-font(15);
+                transition: background-color .5s ease-in;
+                display: block;
+                padding: 7px 5px 7px 23px;
+                color: $sideMenu3_textColor;
+                background-image: url("../imgs/sideMenu/03/01.svg");
+                background-repeat: no-repeat;
+                background-position: 10px center;
+                background-size: 5px 5px;
+                border-radius: 3px;
+              }
+
+              > a:hover > span {
+                background-color: $sideMenu3_BGColor2;
               }
             }
           }
 
           > .b-sideMenu__list > ul > .b-sideMenu__item {
-            // 子要素
-            @include g-font(14);
-            > .b-sideMenu__item2 {
+            // 子要素のカレント
+            &.state-current > .b-sideMenu__item2 {
               > div {
-                span {
-                  > span {
-                    display: block;
-                    margin: 2px 0;
-                    padding: 7px 5px 7px 28px;
-                  }
-                }
-              }
-
-              &:hover {
-                > div {
-                  > a {
-                    span {
-                      > span {
-                        background-color: $sideMenu3_BGColor2;
-                        border-radius: 3px;
-                        color: $sideMenu3_textColor;
-                      }
-                    }
-                  }
+                > span,
+                > a > span {
+                  background-color: $sideMenu3_BGColor3;
                 }
               }
             }
 
-            // 子要素のカレント
-            &.state-current > .b-sideMenu__item2 {
+            // 子要素
+            > .b-sideMenu__item2 {
               > div {
-                span {
-                  > span {
-                    background-color: $sideMenu3_BGColor3;
-                    border-radius: 3px;
-                  }
+                padding: 2px 0;
+                > span,
+                > a > span {
+                  @include g-font(14);
+                  transition: background-color .5s ease-in;
+                  display: block;
+                  padding: 7px 5px 7px 28px;
+                  color: $sideMenu3_textColor;
+                  border-radius: 3px;
+                }
+
+                > a:hover > span {
+                  background-color: $sideMenu3_BGColor2;
                 }
               }
             }
 
             > .b-sideMenu__list > ul > .b-sideMenu__item {
-              // 孫要素
-              > .b-sideMenu__item2 {
+              // 孫要素のカレント
+              &.state-current > .b-sideMenu__item2 {
                 > div {
-                  span {
-                    > span {
-                      display: block;
-                      margin: 2px 0;
-                      padding: 7px 5px 7px 33px;
-                    }
-                  }
-                }
-
-                &:hover {
-                  > div {
-                    > a {
-                      span {
-                        > span {
-                          color: #000;
-                          margin: 2px 0;
-                          background-color: $sideMenu3_BGColor2;
-                          border-radius: 3px;
-                        }
-                      }
-                    }
+                  > span,
+                  > a > span {
+                    background-color: $sideMenu3_BGColor3;
                   }
                 }
               }
 
-              // 孫要素のカレント
-              &.state-current > .b-sideMenu__item2 {
+              // 孫要素
+              > .b-sideMenu__item2 {
                 > div {
-                  span {
-                    > span {
-                      margin: 2px 0;
-                      background-color: $sideMenu3_BGColor3;
-                      border-radius: 3px;
-                    }
+                  padding: 2px 0;
+                  > span,
+                  > a > span {
+                    @include g-font(14);
+                    transition: background-color .5s ease-in;
+                    display: block;
+                    color: $sideMenu3_textColor;
+                    padding: 7px 5px 7px 33px;
+                    border-radius: 3px;
+                  }
+
+                  > a:hover > span {
+                    background-color: $sideMenu3_BGColor2;
                   }
                 }
               }
@@ -589,36 +480,78 @@
     &__bd {
       @include g-font(15);
       > .b-sideMenu__list > ul > .b-sideMenu__item {
-        // 親要素
-        > .b-sideMenu__item2 {
-          //
-        }
-
         // 親要素のカレント
         &.state-current > .b-sideMenu__item2 {
-          //
+          > div {
+            > span,
+            > a > span {
+              //
+            }
+          }
         }
 
-        > .b-sideMenu__list > ul > .b-sideMenu__item {
-          // 子要素
-          > .b-sideMenu__item2 {
-            //
-          }
-
-          // 子要素のカレント
-          &.state-current > .b-sideMenu__item2 {
-            //
-          }
-
-          > .b-sideMenu__list > ul > .b-sideMenu__item {
-            // 孫要素
-            > .b-sideMenu__item2 {
+        // 親要素
+        > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
               //
             }
 
+            > a:hover > span {
+              //
+            }
+          }
+        }
+
+        > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                //
+              }
+            }
+          }
+
+          // 子要素
+          > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                //
+              }
+
+              > a:hover > span {
+                //
+              }
+            }
+          }
+
+          > .b-sideMenu__list > ul > .b-sideMenu__item {
             // 孫要素のカレント
             &.state-current > .b-sideMenu__item2 {
-              //
+              > div {
+                > span,
+                > a > span {
+                  //
+                }
+              }
+            }
+
+            // 孫要素
+            > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
+                  //
+                }
+
+                > a:hover > span {
+                  //
+                }
+              }
             }
           }
         }
@@ -672,6 +605,14 @@
     &__bd {
       display: none;
       > .b-sideMenu__list > ul > .b-sideMenu__item {
+        // 親要素のカレント
+        &.state-current > .b-sideMenu__item2 {
+          > div > span,
+          > div > a > span {
+            background-color: #f00;
+          }
+        }
+
         // 親要素
         > .b-sideMenu__item2 {
           > div > span,
@@ -685,15 +626,15 @@
           }
         }
 
-        // 親要素のカレント
-        &.state-current > .b-sideMenu__item2 {
-          > div > span,
-          > div > a > span {
-            background-color: #f00;
-          }
-        }
-
         > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div > span,
+            > div > a > span {
+              background-color: #f00;
+            }
+          }
+
           // 子要素
           > .b-sideMenu__item2 {
             > div > span,
@@ -707,15 +648,15 @@
             }
           }
 
-          // 子要素のカレント
-          &.state-current > .b-sideMenu__item2 {
-            > div > span,
-            > div > a > span {
-              background-color: #f00;
-            }
-          }
-
           > .b-sideMenu__list > ul > .b-sideMenu__item {
+            // 孫要素のカレント
+            &.state-current > .b-sideMenu__item2 {
+              > div > span,
+              > div > a > span {
+                background-color: #f00;
+              }
+            }
+
             // 孫要素
             > .b-sideMenu__item2 {
               > div > span,
@@ -726,14 +667,6 @@
                 background-repeat: no-repeat;
                 background-position: 95% center;
                 background-size: 18px 18px;
-              }
-            }
-
-            // 孫要素のカレント
-            &.state-current > .b-sideMenu__item2 {
-              > div > span,
-              > div > a > span {
-                background-color: #f00;
               }
             }
           }
@@ -772,6 +705,14 @@
     &__bd {
       display: none;
       > .b-sideMenu__list > ul > .b-sideMenu__item {
+        // 親要素のカレント
+        &.state-current > .b-sideMenu__item2 {
+          > div > span,
+          > div > a > span {
+            background-color: #f00;
+          }
+        }
+
         // 親要素
         > .b-sideMenu__item2 {
           > div > span,
@@ -785,15 +726,15 @@
           }
         }
 
-        // 親要素のカレント
-        &.state-current > .b-sideMenu__item2 {
-          > div > span,
-          > div > a > span {
-            background-color: #f00;
-          }
-        }
-
         > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div > span,
+            > div > a > span {
+              background-color: #f00;
+            }
+          }
+
           // 子要素
           > .b-sideMenu__item2 {
             > div > span,
@@ -807,15 +748,15 @@
             }
           }
 
-          // 子要素のカレント
-          &.state-current > .b-sideMenu__item2 {
-            > div > span,
-            > div > a > span {
-              background-color: #f00;
-            }
-          }
-
           > .b-sideMenu__list > ul > .b-sideMenu__item {
+            // 孫要素のカレント
+            &.state-current > .b-sideMenu__item2 {
+              > div > span,
+              > div > a > span {
+                background-color: #f00;
+              }
+            }
+
             // 孫要素
             > .b-sideMenu__item2 {
               > div > span,
@@ -826,14 +767,6 @@
                 background-repeat: no-repeat;
                 background-position: 95% center;
                 background-size: 18px 18px;
-              }
-            }
-
-            // 孫要素のカレント
-            &.state-current > .b-sideMenu__item2 {
-              > div > span,
-              > div > a > span {
-                background-color: #f00;
               }
             }
           }
@@ -872,6 +805,14 @@
     &__bd {
       display: none;
       > .b-sideMenu__list > ul > .b-sideMenu__item {
+        // 親要素のカレント
+        &.state-current > .b-sideMenu__item2 {
+          > div > span,
+          > div > a > span {
+            background-color: #f00;
+          }
+        }
+
         // 親要素
         > .b-sideMenu__item2 {
           > div > span,
@@ -885,15 +826,15 @@
           }
         }
 
-        // 親要素のカレント
-        &.state-current > .b-sideMenu__item2 {
-          > div > span,
-          > div > a > span {
-            background-color: #f00;
-          }
-        }
-
         > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div > span,
+            > div > a > span {
+              background-color: #f00;
+            }
+          }
+
           // 子要素
           > .b-sideMenu__item2 {
             > div > span,
@@ -907,15 +848,15 @@
             }
           }
 
-          // 子要素のカレント
-          &.state-current > .b-sideMenu__item2 {
-            > div > span,
-            > div > a > span {
-              background-color: #f00;
-            }
-          }
-
           > .b-sideMenu__list > ul > .b-sideMenu__item {
+            // 孫要素のカレント
+            &.state-current > .b-sideMenu__item2 {
+              > div > span,
+              > div > a > span {
+                background-color: #f00;
+              }
+            }
+
             // 孫要素
             > .b-sideMenu__item2 {
               > div > span,
@@ -926,14 +867,6 @@
                 background-repeat: no-repeat;
                 background-position: 95% center;
                 background-size: 18px 18px;
-              }
-            }
-
-            // 孫要素のカレント
-            &.state-current > .b-sideMenu__item2 {
-              > div > span,
-              > div > a > span {
-                background-color: #f00;
               }
             }
           }
