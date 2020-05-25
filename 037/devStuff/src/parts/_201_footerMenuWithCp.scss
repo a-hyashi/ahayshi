@@ -1,35 +1,45 @@
 @if $device == PC {
   .t0-b-footerMenuWithCp {
+    width: 100%;
+    margin: 0 auto;
+    color: $footerMenuWithCp_textColor;
+    background-color: $footerMenuWithCp_BGColor;
+    padding: 8px 0;
+    min-height: 34px;
     > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    p {
-      @include g-font(14);
-      margin-right: auto;
-      a {
-        text-decoration: underline;
+      p {
+        @include g-font(13);
+        margin-right: auto;
       }
     }
 
     &__menu {
       li {
-        @include g-font(14);
+        @include g-font(13);
         display: inline-block;
+        vertical-align: middle;
         padding: 0 13px;
       }
 
       a {
         &:hover {
-          text-decoration: underline;
+          color: $footerMenuWithCp_hoverColor;
+          div {
+            margin: 0 0 -1px;
+            border-bottom: 1px solid $footerMenuWithCp_hoverColor;
+          }
         }
       }
     }
 
     .state-em {
-      //
+      div {
+        font-weight: bold;
+        color: $footerMenuWithCp_hoverColor;
+      }
     }
   }
 }
@@ -39,6 +49,8 @@
     @include g-font(12);
     margin: 0 -15px;
     text-align: center;
+    color: $footerMenuWithCp_textColor;
+    background-color: $footerMenuWithCp_BGColor;
     > div {
       display: flex;
       flex-direction: column-reverse;
@@ -47,7 +59,7 @@
     p {
       display: inline-block;
       width: 100%;
-      padding: 0 0 5px;
+      padding-bottom: 10px;
       text-align: center;
       a {
         text-decoration: underline;
@@ -55,7 +67,7 @@
     }
 
     .state-em {
-      //
+      font-weight: bold;
     }
 
     &__menu {
