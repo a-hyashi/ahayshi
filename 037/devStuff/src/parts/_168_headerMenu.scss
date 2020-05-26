@@ -98,6 +98,11 @@
       div {
         color: $headerMenu_textColor2;
       }
+      &:hover {
+        div {
+          color: $headerMenu_textColor;
+        }
+      }
     }
 
     .state-current {
@@ -145,6 +150,49 @@
         width: 100%;
         > li {
           flex-grow: 1;
+          text-align: center;
+          a {
+            position: relative;
+            display: inline-block;
+            div {
+              > span {
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  display: block;
+                  background: url("../imgs/headerMenu/02/01.svg");
+                  background-size: contain;
+                  width: 0;
+                  height: 0;
+                  z-index: -1;
+                  transition: .3s;
+                }
+              }
+            }
+            &:hover {
+              color: $headerMenu2_textColor;
+              div {
+                > span {
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    display: block;
+                    background: url("../imgs/headerMenu/02/01.svg");
+                    background-size: contain;
+                    width: 40px;
+                    height: 40px;
+                    z-index: -1;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -165,10 +213,30 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        //padding: 0 20px;
         text-align: center;
         > span {
           display: inline-table;
+        }
+      }
+    }
+
+    .state-current.state-em {
+      div {
+        > span {
+          background-color: transparent;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            background: url("../imgs/headerMenu/02/01.svg");
+            background-size: contain;
+            width: 40px;
+            height: 40px;
+            z-index: -1;
+          }
         }
       }
     }
@@ -179,9 +247,53 @@
           background-color: $headerMenu2_BGColor;
           padding: 10px 20px;
           border-radius: 40px;
+          transition: .3s;
+        }
+      }
+      &:hover {
+        div {
+          > span {
+            background-color: transparent;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              display: block;
+              background: url("../imgs/headerMenu/02/01.svg");
+              background-size: contain;
+              width: 0;
+              height: 0;
+              z-index: -1;
+              transition: .3s;
+            }
+          }
+        }
+        &:hover {
+          color: $headerMenu2_textColor;
+          div {
+            > span {
+              &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: block;
+                background: url("../imgs/headerMenu/02/01.svg");
+                background-size: contain;
+                width: 40px;
+                height: 40px;
+                z-index: -1;
+              }
+            }
+          }
         }
       }
     }
+
+
 
     .state-current {
       position: relative;
