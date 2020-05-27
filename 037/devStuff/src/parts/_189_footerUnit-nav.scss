@@ -1,40 +1,43 @@
 @if $device == PC {
   .t0-b-footerUnit-nav {
     $_block: &;
-    white-space: nowrap;
-    color: $footerUnit-nav_textColor;
     &__item {
       display: inline-block;
-      position: relative;
-      min-height: 22px;
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/footerUnit-nav/01/01.svg");
-        background-size: contain;
-      }
-
-      p {
-        margin-left: 30px;
-        @include g-font(16);
-        transition: ease-in-out .4s;
-        padding-bottom: 1px;
-        border-bottom: 2px solid $footerUnit-nav_borderColor;
-      }
-
+      white-space: nowrap;
+      color: $footerUnit-nav_textColor;
       & + & {
         margin-left: 15px;
       }
     }
 
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
+        min-width: 30px;
+        background-image: url("../imgs/footerUnit-nav/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(16);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav_borderColor;
+      }
+    }
+
     a:hover {
-      p {
+      #{$_block}__inner div {
         color: $footerUnit-nav_hoverColor;
       }
     }
@@ -42,40 +45,43 @@
 
   .t0-b-footerUnit-nav2 {
     $_block: &;
-    white-space: nowrap;
-    color: $footerUnit-nav2_textColor;
     &__item {
       display: inline-block;
-      position: relative;
-      min-height: 22px;
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/footerUnit-nav/02/01.svg");
-        background-size: contain;
-      }
-
-      p {
-        margin-left: 30px;
-        @include g-font(16);
-        transition: ease-in-out .4s;
-        padding-bottom: 1px;
-        border-bottom: 2px solid $footerUnit-nav2_borderColor;
-      }
-
+      white-space: nowrap;
+      color: $footerUnit-nav2_textColor;
       & + & {
         margin-left: 15px;
       }
     }
 
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
+        min-width: 30px;
+        background-image: url("../imgs/footerUnit-nav/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(16);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav2_borderColor;
+      }
+    }
+
     a:hover {
-      p {
+      #{$_block}__inner div {
         color: $footerUnit-nav2_hoverColor;
       }
     }
@@ -83,17 +89,24 @@
 
   .t0-b-footerUnit-nav3 {
     $_block: &;
-    white-space: nowrap;
-    color: $footerUnit-nav_textColor;
     &__item {
+      display: inline-block;
+      white-space: nowrap;
+      color: $footerUnit-nav3_textColor;
+      padding: 2px 0;
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &__inner {
       position: relative;
       display: inline-block;
-      min-height: 22px;
       padding-right: 30px;
       transition: .3s;
-      p {
-        display: block;
+      div {
         position: relative;
+        @include g-font(16);
         &::after {
           content: "";
           position: absolute;
@@ -137,24 +150,22 @@
         transition: all .3s .3s ease;
         transform: translateY(-50%);
       }
-
-      & + & {
-        margin-left: 15px;
-      }
     }
 
-    a:hover {
-      &__item {
-        color: $navItem3_textColor;
-        &::after {
-          right: -10px;
-        }
-      }
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $footerUnit-nav3_textColor;
+          &::after {
+            right: -10px;
+          }
 
-      p {
-        color: $footerUnit-nav_hoverColor;
-        &::after {
-          width: 100%;
+          > div {
+            color: $footerUnit-nav3_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
         }
       }
     }
@@ -162,17 +173,24 @@
 
   .t0-b-footerUnit-nav4 {
     $_block: &;
-    white-space: nowrap;
-    color: $footerUnit-nav_textColor;
     &__item {
+      display: inline-block;
+      white-space: nowrap;
+      color: $footerUnit-nav4_textColor;
+      padding: 2px 0;
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &__inner {
       position: relative;
       display: inline-block;
-      min-height: 22px;
       padding-right: 30px;
       transition: .3s;
-      p {
-        display: block;
+      div {
         position: relative;
+        @include g-font(16);
         &::after {
           content: "";
           position: absolute;
@@ -181,7 +199,7 @@
           left: 0;
           width: 0;
           height: 2px;
-          background-color: $navItem3_BGColor;//伸びる下線
+          background-color: $navItem4_BGColor;//伸びる下線
           transition: .3s;
         }
       }
@@ -194,7 +212,7 @@
         display: block;
         width: 22px;
         height: 22px;
-        background-image: url("../imgs/navItem/03/02.svg");//下線画像
+        background-image: url("../imgs/navItem/04/02.svg");//下線画像
         background-repeat: no-repeat;
         background-position: right center;
         background-size: contain;
@@ -209,31 +227,29 @@
         display: block;
         width: 22px;
         height: 22px;
-        background-image: url("../imgs/navItem/03/01.svg");//アイコン
+        background-image: url("../imgs/navItem/04/01.svg");//アイコン
         background-repeat: no-repeat;
         background-position: right center;
         background-size: contain;
         transition: all .3s .3s ease;
         transform: translateY(-50%);
       }
-
-      & + & {
-        margin-left: 15px;
-      }
     }
 
-    a:hover {
-      &__item {
-        color: $navItem3_textColor;
-        &::after {
-          right: -10px;
-        }
-      }
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $footerUnit-nav4_textColor;
+          &::after {
+            right: -10px;
+          }
 
-      p {
-        color: $footerUnit-nav_hoverColor;
-        &::after {
-          width: 100%;
+          > div {
+            color: $footerUnit-nav4_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
         }
       }
     }
@@ -244,28 +260,157 @@
   .t0-b-footerUnit-nav {
     margin-left: 2.5%;
     &__item {
-      position: relative;
-      min-height: 18px;
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 18px;
-        height: 18px;
-        background-image: url("https://placehold.jp/18x18.png");
-        background-size: contain;
-      }
-
-      p {
-        padding-left: 25px;
-        @include g-font(16);
-      }
-
+      color: $footerUnit-nav_textColor;
       & + & {
         margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/footerUnit-nav/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(16);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav_borderColor;
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav2 {
+    margin-left: 2.5%;
+    &__item {
+      color: $footerUnit-nav2_textColor;
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/footerUnit-nav/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(16);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav2_borderColor;
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav3 {
+    margin-left: 2.5%;
+    &__item {
+      color: $footerUnit-nav3_textColor;
+      padding: 2px 0;
+      @include g-font(16);
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/footerUnit-nav/03/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/footerUnit-nav/03/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav4 {
+    margin-left: 2.5%;
+    &__item {
+      color: $footerUnit-nav4_textColor;
+      padding: 2px 0;
+      @include g-font(16);
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/footerUnit-nav/04/02.svg");//下線画像
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../imgs/footerUnit-nav/04/01.svg");//アイコン
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
       }
     }
   }
