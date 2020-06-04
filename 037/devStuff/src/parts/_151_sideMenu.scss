@@ -501,26 +501,46 @@
     }
 
     &__bd {
-      padding: 25px 0;
-      > .b-sideMenu__list > ul {
-        border-bottom: 1px solid $sideMenu_borderColor3;
-        > .b-sideMenu__item {
-          // 親要素
-          > .b-sideMenu__item2 {
-            padding: 2px 0;
-            border-top: 1px solid $sideMenu_borderColor3;
+      margin: 25px 0;
+      border-bottom: 1px solid $sideMenu_borderColor3;
+      > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+        // 親要素
+        > .b-sideMenuHandle__item2 {
+          padding: 2px 0;
+          border-top: 1px solid $sideMenu_borderColor3;
+          > div {
+            > span,
+            > a > span {
+              @include g-font(15);
+              transition: background-color .5s ease-in;
+              display: block;
+              padding: 5px 5px 5px 23px;
+              color: $sideMenu_textColor;
+              background-image: url("../imgs/sideMenu/01/01.svg");
+              background-repeat: no-repeat;
+              background-position: 6px center;
+              background-size: 12px 14px;
+            }
+
+            > a:hover > span {
+              background-color: $sideMenu_BGColor2;
+            }
+          }
+        }
+
+        > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+          // 子要素
+          > .b-sideMenuHandle__item2 {
             > div {
+              padding: 2px 0;
+              border-top: 1px solid $sideMenu_borderColor3;
               > span,
               > a > span {
-                @include g-font(15);
+                @include g-font(14);
                 transition: background-color .5s ease-in;
                 display: block;
-                padding: 5px 5px 5px 23px;
+                padding: 5px 5px 5px 28px;
                 color: $sideMenu_textColor;
-                background-image: url("../imgs/sideMenu/01/01.svg");
-                background-repeat: no-repeat;
-                background-position: 6px center;
-                background-size: 12px 14px;
               }
 
               > a:hover > span {
@@ -529,19 +549,9 @@
             }
           }
 
-          > .b-sideMenu__list > ul > .b-sideMenu__item {
-            // 子要素のカレント
-            &.state-current > .b-sideMenu__item2 {
-              > div {
-                > span,
-                > a > span {
-                  background-color: $sideMenu_BGColor;
-                }
-              }
-            }
-
-            // 子要素
-            > .b-sideMenu__item2 {
+          > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+            // 孫要素
+            > .b-sideMenuHandle__item2 {
               > div {
                 padding: 2px 0;
                 border-top: 1px solid $sideMenu_borderColor3;
@@ -550,44 +560,12 @@
                   @include g-font(14);
                   transition: background-color .5s ease-in;
                   display: block;
-                  padding: 5px 5px 5px 28px;
+                  padding: 5px 5px 5px 33px;
                   color: $sideMenu_textColor;
                 }
 
                 > a:hover > span {
                   background-color: $sideMenu_BGColor2;
-                }
-              }
-            }
-
-            > .b-sideMenu__list > ul > .b-sideMenu__item {
-              // 孫要素のカレント
-              &.state-current > .b-sideMenu__item2 {
-                > div {
-                  > span,
-                  > a > span {
-                    background-color: $sideMenu_BGColor;
-                  }
-                }
-              }
-
-              // 孫要素
-              > .b-sideMenu__item2 {
-                > div {
-                  padding: 2px 0;
-                  border-top: 1px solid $sideMenu_borderColor3;
-                  > span,
-                  > a > span {
-                    @include g-font(14);
-                    transition: background-color .5s ease-in;
-                    display: block;
-                    padding: 5px 5px 5px 33px;
-                    color: $sideMenu_textColor;
-                  }
-
-                  > a:hover > span {
-                    background-color: $sideMenu_BGColor2;
-                  }
                 }
               }
             }
@@ -1054,7 +1032,7 @@
       }
     }
   }
-  
+
   .b-sideMenu3 {
     @include g-font(14);
     border: 1px solid $sideMenu_borderColor;
