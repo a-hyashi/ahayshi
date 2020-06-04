@@ -211,14 +211,31 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+        overflow: hidden;
         transition: .5s;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 0;
+          bottom: 0;
+          background-color: $headerMenu3_BGColor3;
+          transition: .5s;
+        }
+
+        span {
+          z-index: 1;
+        }
       }
 
       a {
         &:hover {
           div {
-            background-color: $headerMenu3_BGColor3;
             color: $headerMenu3_hoverColor;
+            &::before {
+              height: 100%;
+            }
           }
         }
       }
