@@ -2,8 +2,6 @@
   .t0-b-headerMenu {
     width: 1100px;
     margin: 0 auto;
-    position: relative;
-    color: $headerMenu_textColor;
     .on-off {
       display: none;
     }
@@ -14,35 +12,22 @@
 
     ul {
       display: flex;
-      align-items: center;
-      justify-content: stretch;
-      width: 100%;
+      align-items: stretch;
     }
 
     .t0-b-headerMenu__item {
       flex-grow: 1;
-      display: table-cell;
-      min-width: 50px;
       text-align: center;
-      vertical-align: middle;
-      height: 100%;
       div {
+        min-width: 50px;
+        height: 100%;
+        padding: 10px 20px;
+        color: $headerMenu_textColor;
         @include g-font(15);
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 20px;
-        text-align: center;
-        > span {
-          display: inline-table;
-          padding: 10px 0;
-        }
-      }
-
-      a {
-        position: relative;
-        display: inline-block;
-        transition: .3s;
         &::before {
           content: "";
           position: absolute;
@@ -64,15 +49,21 @@
           right: 0;
           transition: .3s;
         }
+      }
 
+      a {
+        display: inline-block;
+        height: 100%;
+        transition: .3s;
         &:hover {
-          color: $headerMenu_textColor;
-          &::before {
-            width: 100%;
-          }
+          div {
+            &::before {
+              width: 100%;
+            }
 
-          &::after {
-            width: 100%;
+            &::after {
+              width: 100%;
+            }
           }
         }
       }
@@ -81,34 +72,16 @@
         div {
           color: $headerMenu_textColor2;
         }
-
-        &:hover {
-          div {
-            color: $headerMenu_textColor;
-          }
-        }
       }
 
       &.state-current {
-        position: relative;
         div {
-          color: $headerMenu_textColor;
           &::before {
-            content: "";
-            position: absolute;
             width: 100%;
-            height: 2px;
-            background-color: $headerMenu_BGColor;
-            top: 0;
           }
 
           &::after {
-            content: "";
-            position: absolute;
             width: 100%;
-            height: 2px;
-            background-color: $headerMenu_BGColor;
-            bottom: 0;
           }
         }
       }
@@ -122,8 +95,6 @@
   .t0-b-headerMenu2 {
     width: 1100px;
     margin: 0 auto;
-    position: relative;
-    color: $headerMenu2_textColor;
     .on-off {
       display: none;
     }
@@ -134,162 +105,68 @@
 
     ul {
       display: flex;
-      align-items: center;
-      justify-content: stretch;
-      width: 100%;
     }
 
     .t0-b-headerMenu__item {
       flex-grow: 1;
-      min-width: 50px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       div {
+        min-width: 50px;
+        min-height: 40px;
+        padding: 10px 20px;
+        color: $headerMenu2_textColor;
         @include g-font(15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
         text-align: center;
-        > span {
-          display: inline-table;
-        }
+        position: relative;
       }
 
       a {
-        position: relative;
-        display: inline-block;
         div {
-          > span {
-            &::before {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              display: block;
-              background: url("../imgs/headerMenu/02/01.svg");
-              background-size: contain;
-              width: 0;
-              height: 0;
-              z-index: -1;
-              transition: .3s;
-            }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            background-color: $headerMenu2_BGColor;
+            background-size: contain;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            z-index: -1;
+            transition: .3s;
           }
         }
 
         &:hover {
-          color: $headerMenu2_textColor;
+          color: inherit;
           div {
-            > span {
-              &::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                display: block;
-                background: url("../imgs/headerMenu/02/01.svg");
-                background-size: contain;
-                width: 40px;
-                height: 40px;
-                z-index: -1;
-              }
-            }
-          }
-        }
-      }
-
-      &.state-current.state-em {
-        div {
-          > span {
-            background-color: transparent;
             &::before {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              display: block;
-              background: url("../imgs/headerMenu/02/01.svg");
-              background-size: contain;
               width: 40px;
               height: 40px;
-              z-index: -1;
             }
           }
         }
       }
 
       &.state-em {
-        div{
-          > span {
-            background-color: $headerMenu2_BGColor;
-            padding: 10px 20px;
+        div {
+          &::before {
+            width: 100%;
+            height: 100%;
             border-radius: 40px;
-            transition: .3s;
-          }
-        }
-
-        &:hover {
-          div {
-            > span {
-              background-color: transparent;
-              &::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                display: block;
-                background: url("../imgs/headerMenu/02/01.svg");
-                background-size: contain;
-                width: 0;
-                height: 0;
-                z-index: -1;
-                transition: .3s;
-              }
-            }
-          }
-
-          &:hover {
-            color: $headerMenu2_textColor;
-            div {
-              > span {
-                &::before {
-                  content: "";
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  display: block;
-                  background: url("../imgs/headerMenu/02/01.svg");
-                  background-size: contain;
-                  width: 40px;
-                  height: 40px;
-                  z-index: -1;
-                }
-              }
-            }
           }
         }
       }
 
       &.state-current {
-        position: relative;
         div {
-          > span {
-            &::before {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              display: block;
-              background: url("../imgs/headerMenu/02/01.svg");
-              background-size: contain;
-              width: 40px;
-              height: 40px;
-              z-index: -1;
-            }
+          &::before {
+            width: 40px;
+            height: 40px;
           }
         }
       }
@@ -303,8 +180,6 @@
   .t0-b-headerMenu3 {
     width: 1100px;
     margin: 0 auto;
-    position: relative;
-    color: $headerMenu3_textColor;
     .on-off {
       display: none;
     }
@@ -315,8 +190,6 @@
 
     ul {
       display: flex;
-      width: 100%;
-      height: 100%;
     }
 
     &--widthEqualized .t0-b-headerMenu__item {
@@ -324,64 +197,50 @@
     }
 
     .t0-b-headerMenu__item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid $headerMenu3_borderColor;
-      border-radius: 5px;
-      margin: 0 5px;
       flex-grow: 1;
-      min-width: 50px;
+      margin: 0 5px;
       div {
-        @include g-font(15);
+        min-width: 50px;
+        height: 100%;
         padding: 10px;
+        border: 2px solid $headerMenu3_borderColor;
+        border-radius: 5px;
+        color: $headerMenu3_textColor;
+        @include g-font(15);
         text-align: center;
-        > span {
-          display: inline-table;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
       }
 
-      &:hover {
-        display: block;
-        a {
+      a {
+        &:hover {
           div {
             background-color: $headerMenu3_BGColor3;
             color: $headerMenu3_hoverColor;
-            transition: .5s;
           }
         }
       }
 
       &:first-child {
-        margin: 0 5px 0 0;
+        margin-left: 0;
       }
 
       &:last-child {
-        margin: 0 0 0 5px;
+        margin-right: 0;
       }
 
       &.state-em {
-        background-color: $headerMenu3_BGColor;
-        &:hover {
-          display: block;
-          div {
-            background-color: $headerMenu3_BGColor3;
-            color: $headerMenu3_hoverColor;
-            transition: .5s;
-          }
+        div {
+          background-color: $headerMenu3_BGColor;
         }
       }
 
       &.state-current {
-        background-color: $headerMenu3_BGColor2;
-        color: $headerMenu3_textColor2;
-        &:hover {
-          display: block;
-          div {
-            background-color: $headerMenu3_BGColor3;
-            color: $headerMenu3_hoverColor;
-            transition: .5s;
-          }
+        div {
+          background-color: $headerMenu3_BGColor2;
+          color: $headerMenu3_textColor2;
         }
       }
     }
@@ -390,8 +249,6 @@
   .t0-b-headerMenu4 {
     width: 1100px;
     margin: 0 auto;
-    position: relative;
-    color: $headerMenu4_textColor;
     border-bottom: 3px solid $headerMenu4_borderColor;
     .on-off {
       display: none;
@@ -403,67 +260,56 @@
 
     ul {
       display: flex;
-      width: 100%;
-      height: 100%;
-    }
-
-    &--widthEqualized .t0-b-headerMenu__item {
-      flex: 1 1;
     }
 
     .t0-b-headerMenu__item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 50px;
       flex-grow: 1;
-      min-width: 50px;
       div {
+        height: 100%;
+        min-height: 50px;
+        min-width: 50px;
+        padding: 0 20px;
         @include g-font(15);
+        color: $headerMenu4_textColor;
+        text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 20px;
-        text-align: center;
-        min-height: 50px;
-        > span {
-          display: inline-table;
-        }
+        transition: .5s;
       }
 
-      &:hover {
-        display: block;
-        a {
-          > div {
-            min-height: 50px;
+      a {
+        &:hover {
+          div {
             background-color: $headerMenu3_BGColor3;
             color: $headerMenu3_hoverColor;
-            transition: .5s;
           }
         }
       }
 
       &.state-em {
-        background-color: $headerMenu4_BGColor;
         div {
+          background-color: $headerMenu4_BGColor;
           color: $headerMenu4_textColor2;
         }
       }
 
       &.state-current {
-        background-color: $headerMenu4_BGColor2;
         div {
+          background-color: $headerMenu4_BGColor2;
           color: $headerMenu4_hoverColor;
         }
       }
+    }
+
+    &--widthEqualized .t0-b-headerMenu__item {
+      flex: 1 1;
     }
   }
 
   .t0-b-headerMenu5 {
     width: 1100px;
     margin: 0 auto;
-    position: relative;
-    color: $headerMenu5_textColor;
     background-color: $headerMenu5_BGColor;
     .on-off {
       display: none;
@@ -473,13 +319,70 @@
       display: none;
     }
 
-    > div {
-      > ul {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        > li {
+    ul {
+      display: flex;
+    }
 
+    .t0-b-headerMenu__item {
+      flex-grow: 1;
+      margin: 0 5px;
+      div {
+        min-width: 50px;
+        height: 100%;
+        padding: 10px;
+        color: $headerMenu5_textColor;
+        @include g-font(15);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        &:hover {
+          div {
+            background-color: $headerMenu5_BGColor3;
+          }
+        }
+      }
+
+      &.state-em {
+        div {
+          background-color: $headerMenu5_BGColor2;
+          color: $headerMenu5_textColor2;
+          border-radius: 5px;
+        }
+
+        a {
+          &:hover {
+            div {
+              background-color: $headerMenu5_BGColor;
+            }
+          }
+        }
+      }
+
+      &.state-current {
+        div {
+          background-color: $headerMenu3_BGColor2;
+          color: $headerMenu3_textColor2;
+        }
+
+        a {
+          &:hover {
+            div {
+              background-color: $headerMenu3_BGColor3;
+            }
+          }
         }
       }
     }
@@ -487,75 +390,13 @@
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
     }
-
-    .t0-b-headerMenu__item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 5px;
-      margin: 0 5px;
-      flex-grow: 1;
-      min-width: 50px;
-      div {
-        @include g-font(15);
-        padding: 10px;
-        text-align: center;
-        > span {
-          display: inline-table;
-        }
-      }
-
-      &:first-child {
-        margin: 0 5px 0 0;
-      }
-
-      &:last-child {
-        margin: 0 0 0 5px;
-      }
-
-      &:hover {
-        display: block;
-        a {
-          div {
-            background-color: $headerMenu5_BGColor3;
-            transition: .5s;
-          }
-        }
-      }
-
-      &.state-em {
-        background-color: $headerMenu5_BGColor2;
-        color: $headerMenu5_textColor2;
-        &:hover {
-          display: block;
-          div {
-            background-color: $headerMenu5_BGColor;
-            transition: .5s;
-          }
-        }
-      }
-
-      &.state-current {
-        background-color: $headerMenu3_BGColor2;
-        color: $headerMenu3_textColor2;
-        &:hover {
-          display: block;
-          div {
-            background-color: $headerMenu3_BGColor3;
-            transition: .5s;
-          }
-        }
-      }
-    }
   }
 }
 
 @if $device == SP {
   .t0-b-headerMenu {
-    @include g-font(12);
     margin: 0 -15px;
     text-align: center;
-    color: $headerMenu_textColor;
     ul {
       padding: 5px 0;
     }
@@ -571,10 +412,11 @@
     .t0-b-headerMenu__item {
       display: inline-block;
       margin-left: 15px;
+      @include g-font(12);
+      color: $headerMenu_textColor;
       div {
         padding: 5px 0;
         text-decoration: underline;
-        list-style: none;
       }
 
       &:first-child {
@@ -594,10 +436,8 @@
   }
 
   .t0-b-headerMenu2 {
-    @include g-font(12);
     margin: 0 -15px;
     text-align: center;
-    color: $headerMenu2_textColor;
     ul {
       padding: 5px 0;
     }
@@ -613,10 +453,11 @@
     .t0-b-headerMenu__item {
       display: inline-block;
       margin-left: 5px;
+      @include g-font(12);
+      color: $headerMenu2_textColor;
       div {
-        padding: 5px;
+        padding: 5px 15px;
         text-decoration: underline;
-        list-style: none;
       }
 
       &:first-child {
@@ -625,31 +466,40 @@
 
       &.state-em {
         div {
-          background-color: $headerMenu2_BGColor;
-          border-radius: 15px;
-          padding: 0 15px;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            background-color: $headerMenu2_BGColor;
+            background-size: contain;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            z-index: -1;
+          }
         }
       }
 
       &.state-current {
-        font-weight: normal;
-        position: relative;
         div {
-          background-color: transparent;
-          > span {
-            &::before {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              display: block;
-              background: url("../imgs/headerMenu/02/01.svg");
-              background-size: contain;
-              width: 25px;
-              height: 25px;
-              z-index: -1;
-            }
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            background-color: $headerMenu2_BGColor;
+            background-size: contain;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            z-index: -1;
           }
         }
       }
@@ -657,10 +507,8 @@
   }
 
   .t0-b-headerMenu3 {
-    @include g-font(12);
     margin: 0 -15px;
     text-align: center;
-    color: $headerMenu3_textColor;
     ul {
       padding: 5px 0;
     }
@@ -676,10 +524,11 @@
     .t0-b-headerMenu__item {
       display: inline-block;
       margin-left: 15px;
+      @include g-font(12);
+      color: $headerMenu3_textColor;
       div {
         padding: 5px;
         text-decoration: underline;
-        list-style: none;
       }
 
       &:first-child {
@@ -687,28 +536,22 @@
       }
 
       &.state-em {
-        div {
-          background-color: $headerMenu3_BGColor;
-          border: 1px solid $headerMenu3_borderColor;
-          border-radius: 3px;
-        }
+        background-color: $headerMenu3_BGColor;
+        border: 1px solid $headerMenu3_borderColor;
+        border-radius: 3px;
       }
 
       &.state-current {
-        div {
-          background-color: $headerMenu3_BGColor3;
-          color: $headerMenu3_textColor2;
-          border-radius: 3px;
-        }
+        background-color: $headerMenu3_BGColor3;
+        color: $headerMenu3_textColor2;
+        border-radius: 3px;
       }
     }
   }
 
   .t0-b-headerMenu4 {
-    @include g-font(12);
     margin: 0 -15px;
     text-align: center;
-    color: $headerMenu4_textColor;
     ul {
       padding: 5px;
     }
@@ -724,10 +567,11 @@
     .t0-b-headerMenu__item {
       display: inline-block;
       margin-left: 15px;
+      @include g-font(12);
+      color: $headerMenu4_textColor;
       div {
         padding: 5px;
         text-decoration: underline;
-        list-style: none;
       }
 
       &:first-child {
@@ -747,10 +591,8 @@
   }
 
   .t0-b-headerMenu5 {
-    @include g-font(12);
     margin: 0 -15px;
     text-align: center;
-    color: $headerMenu5_textColor;
     background-color: $headerMenu5_BGColor;
     ul {
       padding: 5px 0;
@@ -767,10 +609,11 @@
     .t0-b-headerMenu__item {
       display: inline-block;
       margin-left: 15px;
+      @include g-font(12);
+      color: $headerMenu5_textColor;
       div {
         padding: 5px;
         text-decoration: underline;
-        list-style: none;
       }
 
       &:first-child {
