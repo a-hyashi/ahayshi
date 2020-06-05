@@ -2,6 +2,40 @@ $g-fontSize: 14px;
 $g-spacingBaseLength: 5;
 html {
   font-size: $g-fontSize;
+  // 一括フォントサイズ設定
+  &.pc-fontPx {
+    &-s {
+      font-size: $g-fontSize - 2px;
+    }
+
+    &-l {
+      font-size: $g-fontSize + 2px;
+    }
+
+    // 10pxから20pxまでループ
+    @for $i from 10 to 21 {
+      &-#{$i} {
+        font-size: 1px * $i;
+      }
+    }
+  }
+
+  &.sp-fontPx {
+    &-s {
+      font-size: $g-fontSize - 2px;
+    }
+
+    &-l {
+      font-size: $g-fontSize + 2px;
+    }
+
+    // 10pxから20pxまでループ
+    @for $i from 10 to 21 {
+      &-#{$i} {
+        font-size: 1px * $i;
+      }
+    }
+  }
 }
 
 body.mod-body,
