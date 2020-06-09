@@ -327,6 +327,7 @@
   .t0-b-headerMenu5 {
     width: 1100px;
     margin: 0 auto;
+    min-height: 40px;
     background-color: $headerMenu5_BGColor;
     .on-off {
       display: none;
@@ -338,15 +339,14 @@
 
     ul {
       display: flex;
+      min-height: 40px;
     }
 
     .t0-b-headerMenu__item {
       flex-grow: 1;
-      margin: 0 5px;
       div {
         min-width: 50px;
         height: 100%;
-        padding: 10px;
         color: $headerMenu5_textColor;
         @include g-font(15);
         text-align: center;
@@ -363,11 +363,11 @@
       &:last-child {
         margin-right: 0;
       }
-
+//普通のhover
       a {
         &:hover {
           div {
-            color: inherit;
+            color: $headerMenu5_hoverColor;
             background-color: $headerMenu5_BGColor3;
           }
         }
@@ -375,9 +375,13 @@
 
       &.state-em {
         div {
-          background-color: $headerMenu5_BGColor2;
           color: $headerMenu5_textColor2;
-          border-radius: 5px;
+          > span {
+            padding: 8px 0 7px;
+            width: 95%;
+            border-radius: 5px;
+            background-color: #fff;
+          }
         }
 
         a {
@@ -391,17 +395,25 @@
 
       &.state-current {
         div {
-          background-color: $headerMenu3_BGColor2;
-          color: $headerMenu3_textColor2;
-        }
-
-        a {
-          &:hover {
-            div {
-              background-color: $headerMenu3_BGColor3;
+          background-color: $headerMenu5_BGColor3;
+          color: $headerMenu5_textColor;
+          border-radius: 0;
+          a {
+            &:hover {
+              div {
+                background-color: $headerMenu5_BGColor3;
+              }
             }
           }
         }
+
+        // a {
+        //   &:hover {
+        //     div {
+        //       background-color: $headerMenu3_BGColor3;
+        //     }
+        //   }
+        // }
       }
     }
 
