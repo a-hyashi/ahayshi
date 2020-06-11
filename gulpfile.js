@@ -7,7 +7,6 @@ const fs = require('fs-extra');
 const sassdoc = require('sassdoc');
 const merge = require('event-stream').merge;
 const make_html = require('./lib/make_html');
-const make_datajson = require('./lib/make_datajson');
 const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
 const config = require('./gulp_config.json');
