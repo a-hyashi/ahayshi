@@ -55,22 +55,24 @@ gulp.task('stylelint', () => {
 });
 
 // scssを自動整形
-gulp.task('stylelint-fix', () => {
-  return gulp.src('devStuff/src/parts/*.scss')
-    .pipe($.stylelint({
-      fix: true,
-      failAfterError: false
-    }))
-    .pipe(gulp.dest('devStuff/src/parts'));
+gulp.task('stylelint-fix', (callback) => {
+  gulp.src('devStuff/src/parts/*.scss')
+  .pipe($.stylelint({
+    fix: true,
+    failAfterError: false
+  }))
+  .pipe(gulp.dest('devStuff/src/parts'));
+  callback();
 });
 
 // stylelint-fix時にチェックも入れると拾いきれない場合があるので分割している
-gulp.task('stylelint-check', () => {
-  return gulp.src('devStuff/src/parts/*.scss')
-    .pipe($.stylelint({
-      failAfterError: false,
-      reporters: [{formatter: 'string', console: true}]
-    }));
+gulp.task('stylelint-check', (callback) => {
+  gulp.src('devStuff/src/parts/*.scss')
+  .pipe($.stylelint({
+    failAfterError: false,
+    reporters: [{formatter: 'string', console: true}]
+  }));
+  callback();
 });
 
 gulp.task('create-build', () => {
