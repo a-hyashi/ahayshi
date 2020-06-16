@@ -26,13 +26,13 @@ gulp.task('sass-build', () => {
 });
 
 // スタイルガイド用ビルド
-gulp.task('sass-build-styleguide', (callback) => {
+gulp.task('sass-build-styleguide', () => {
   styleSources = [
     'devStuff/src/**/pc-L25.scss',
     'devStuff/src/**/pc-N00.scss',
     'devStuff/src/**/sp.scss'
   ];
-  merge(
+  return merge(
     styleSources.map(styleSource=>{
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
@@ -43,36 +43,34 @@ gulp.task('sass-build-styleguide', (callback) => {
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   );
-  callback();
 });
 
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
-gulp.task('stylelint', () => {
-  return runSequence(
+gulp.task('stylelint', (callback) => {
+  runSequence(
     'stylelint-fix',
-    'stylelint-check'
+    'stylelint-check',
+    callback
   );
 });
 
 // scssを自動整形
-gulp.task('stylelint-fix', (callback) => {
-  gulp.src('devStuff/src/parts/*.scss')
+gulp.task('stylelint-fix', () => {
+  return gulp.src('devStuff/src/parts/*.scss')
   .pipe($.stylelint({
     fix: true,
     failAfterError: false
   }))
   .pipe(gulp.dest('devStuff/src/parts'));
-  callback();
 });
 
 // stylelint-fix時にチェックも入れると拾いきれない場合があるので分割している
-gulp.task('stylelint-check', (callback) => {
-  gulp.src('devStuff/src/parts/*.scss')
+gulp.task('stylelint-check', () => {
+  return gulp.src('devStuff/src/parts/*.scss')
   .pipe($.stylelint({
     failAfterError: false,
     reporters: [{formatter: 'string', console: true}]
   }));
-  callback();
 });
 
 gulp.task('create-build', () => {
@@ -346,8 +344,8 @@ gulp.task('del-tempfile', () => {
 });
 
 // スタイルガイド作成
-gulp.task('update-styleguide', () => {
-  return runSequence(
+gulp.task('update-styleguide', (callback) => {
+  runSequence(
     // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
     ['del-datafile', 'update-css'],
     ['make-allparts-datajson', 'make-allparts-datajson2'],
@@ -363,7 +361,8 @@ gulp.task('update-styleguide', () => {
     // styleguide作成
     'make-aigis',
     // 作業ディレクトリを削除
-    'del-tempfile'
+    'del-tempfile',
+    callback
   );
 });
 
@@ -383,10 +382,11 @@ gulp.task('update-imgs', () => {
 });
 
 // ビルド
-gulp.task('build', () => {
+gulp.task('build', (callback) => {
   return runSequence(
     ['sass-build', 'create-b-placer-doc'],
-    'create-build'
+    'create-build',
+    callback
   );
 });
 
@@ -467,17 +467,16 @@ const upload_img = () => {
 }
 
 // cssを自動更新
-gulp.task('watch', (callback) => {
+gulp.task('watch', () => {
   // ファイルが多いため部品のwatchはギブアップする
   gulp.watch(['devStuff/src/**/*.scss'], () => {
-    runSequence('update-css');
+    return runSequence('update-css');
   });
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
-  gulp.watch(['devStuff/styleguide/css/*.css'], () => {
-    browserSync.reload();
+  return gulp.watch(['devStuff/styleguide/css/*.css'], () => {
+    return browserSync.reload();
   });
-  callback();
 });
 
 // webserver立ち上げ
@@ -495,9 +494,10 @@ gulp.task('server', () => {
 });
 
 // スタイルガイド起動
-gulp.task('default', ['update-css', 'update-imgs'], () => {
+gulp.task('default', ['update-css', 'update-imgs'], (callback) => {
   return runSequence(
     'server',
-    'watch'
+    'watch',
+    callback
   );
 });
