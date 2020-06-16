@@ -335,7 +335,7 @@ gulp.task('make-aigis', () => {
   if (!fs.existsSync('./devStuff/styleguide/css')){
     fs.mkdirSync('./devStuff/styleguide/css', {recursive: true});
   }
-  gulp.src('devStuff/aigis_config.yml')
+  return gulp.src('devStuff/aigis_config.yml')
   .pipe($.aigis());
 });
 
