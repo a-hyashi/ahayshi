@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const $ = require("gulp-load-plugins")();
+const $ = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
 const browserSync = require('browser-sync');
 const del = require('del');
@@ -43,7 +43,7 @@ gulp.task('sass-build-styleguide', (callback) => {
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   );
-  callback()
+  callback();
 });
 
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
@@ -78,7 +78,7 @@ gulp.task('create-build', () => {
   var values = get_deploy_values();
   output_imgs(theme);
   output_css(theme, values);
-  del('/devStuff/temp/css');
+  return del('/devStuff/temp/css');
 })
 
 const get_theme_name = () => {
@@ -278,25 +278,19 @@ gulp.task('make-allparts-datajson2', () => {
 });
 
 // datajsonの100以降のフォルダは消す
-const deleteDataJson = () => {
-  const datajson = fs.readdirSync("./temp/datajson/");
+gulp.task('delete-data-json', () => {
+  const datajson = fs.readdirSync('./temp/datajson/');
   const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
   const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`);
-  del(datajson_delFolder);
-};
+  return del(datajson_delFolder);
+});
 
 // datajson2の100未満のフォルダは消す
-const deleteDataJson2 = () => {
-  const datajson2 = fs.readdirSync("./temp/datajson2/");
+gulp.task('delete-data-json2', () => {
+  const datajson2 = fs.readdirSync('./temp/datajson2/');
   const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/));
   const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`);
-  del(datajson2_delFolder);
-};
-
-// datajsonを分割する
-gulp.task('half-json', () => {
-  deleteDataJson();
-  deleteDataJson2();
+  return del(datajson2_delFolder);
 });
 
 // スタイルガイド作成用htmlを作成
@@ -356,7 +350,7 @@ gulp.task('update-styleguide', () => {
     ['del-datafile', 'update-css'],
     ['make-allparts-datajson', 'make-allparts-datajson2'],
     // html作成用のjsonを2つのフォルダに分ける
-    'half-json',
+    ['delete-data-json', 'delete-data-json2'],
     // ファイルが多すぎてnode.jsがエラーになるので2つに分けてhtml作成
     'make-html',
     'make-html2',
@@ -411,23 +405,23 @@ gulp.task('output', () => {
 // FTPサーバーにテーマフォルダのtheme.cssをアップロードする
 // 全部まとめてやると容量が多すぎてエラーになるのでテーマの値違いで分割してある
 gulp.task('upload-css', () => {
-  upload_themes('');
+  return upload_themes('');
 });
 gulp.task('upload-css-2', () => {
-  upload_themes('-2');
+  return upload_themes('-2');
 });
 gulp.task('upload-css-3', () => {
-  upload_themes('-3');
+  return upload_themes('-3');
 });
 // 画像をアップロード
 gulp.task('upload-img', () => {
-  upload_img();
+  return upload_img();
 });
 
 const upload_themes = (variation) => {
   var theme = get_theme_name();
-  for(var ratio of ["L25", "L30", "N00", "R25", "R30"]) {
-    for(var device of ["pc", "sp"]) {
+  for(var ratio of ['L25', 'L30', 'N00', 'R25', 'R30']) {
+    for(var device of ['pc', 'sp']) {
       // variationでテーマの2番と3番に対応
       sftp_each_themes(theme + '-' + ratio + variation + '/' + device + '/');
     }
@@ -471,16 +465,17 @@ const upload_img = () => {
 }
 
 // cssを自動更新
-gulp.task('watch', () => {
+gulp.task('watch', (callback) => {
   // ファイルが多いため部品のwatchはギブアップする
   gulp.watch(['devStuff/src/**/*.scss'], () => {
-    runSequence('update-css')
+    runSequence('update-css');
   });
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
   gulp.watch(['devStuff/styleguide/css/*.css'], () => {
-    browserSync.reload()
+    browserSync.reload();
   });
+  callback();
 });
 
 // webserver立ち上げ
@@ -489,9 +484,9 @@ gulp.task('server', () => {
     server: {
       baseDir: './devStuff/styleguide',
       routes: {
-        "/sassdoc": "./devStuff/sassdoc"
+        '/sassdoc': './devStuff/sassdoc'
       },
-      proxy: "localhost:3000"
+      proxy: 'localhost:3000'
     },
     open: false
   });
