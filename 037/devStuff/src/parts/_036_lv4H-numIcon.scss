@@ -15,11 +15,29 @@
 
     &__icon {
       display: block;
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
       background-size: contain;
-      background-image: url("https://placehold.jp/66x66.png");
       margin-right: 14px;
+      font-weight: 600;
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            $_src: "../imgs/lv4H-numIcon/01/#{$_type}.svg";
+            background-image: url($_src);
+            &::before {
+              display: block;
+              padding-top: 28px;
+              overflow: hidden;
+              color: #e81836;
+              text-align: center;
+              content: "#{$_i}";
+              @include g-font(20, 0);
+            }
+          }
+        }
+      }
     }
 
     &__caption-upper {
@@ -125,11 +143,28 @@
 
     &__icon {
       display: block;
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
       background-size: contain;
-      background-image: url("https://placehold.jp/66x66.png");
       margin-right: 14px;
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            $_src: "../imgs/lv4H-numIcon/02/#{$_type}.svg";
+            background-image: url($_src);
+            &::before {
+              display: block;
+              padding-top: 28px;
+              overflow: hidden;
+              color: #000;
+              text-align: center;
+              content: "#{$_i}";
+              @include g-font(20, 0);
+            }
+          }
+        }
+      }
     }
 
     &__caption-upper {
