@@ -1,6 +1,6 @@
 @if $device == PC {
   .t0-b-headerMenu {
-    width: 1100px;
+    width: $areaContainerWidth;
     margin: 0 auto;
     .on-off {
       display: none;
@@ -93,7 +93,7 @@
   }
 
   .t0-b-headerMenu2 {
-    width: 1100px;
+    width: $areaContainerWidth;
     margin: 0 auto;
     .on-off {
       display: none;
@@ -120,6 +120,8 @@
         @include g-font(15);
         text-align: center;
         position: relative;
+        display: flex;
+        align-items: center;
       }
 
       a {
@@ -178,7 +180,7 @@
   }
 
   .t0-b-headerMenu3 {
-    width: 1100px;
+    width: $areaContainerWidth;
     margin: 0 auto;
     .on-off {
       display: none;
@@ -192,14 +194,11 @@
       display: flex;
     }
 
-    &--widthEqualized .t0-b-headerMenu__item {
-      flex: 1 1;
-    }
-
     .t0-b-headerMenu__item {
       flex-grow: 1;
       margin: 0 5px;
       div {
+        z-index: 1;
         min-width: 50px;
         height: 100%;
         padding: 10px;
@@ -221,11 +220,8 @@
           height: 0;
           bottom: 0;
           background-color: $headerMenu3_BGColor3;
+          z-index: -1;
           transition: .5s;
-        }
-
-        span {
-          z-index: 1;
         }
       }
 
@@ -261,10 +257,14 @@
         }
       }
     }
+
+    &--widthEqualized .t0-b-headerMenu__item {
+      flex: 1 1;
+    }
   }
 
   .t0-b-headerMenu4 {
-    width: 1100px;
+    width: $areaContainerWidth;
     margin: 0 auto;
     border-bottom: 3px solid $headerMenu4_borderColor;
     .on-off {
@@ -325,7 +325,7 @@
   }
 
   .t0-b-headerMenu5 {
-    width: 1100px;
+    width: $areaContainerWidth;
     margin: 0 auto;
     background-color: $headerMenu5_BGColor;
     .on-off {
