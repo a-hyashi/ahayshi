@@ -8,22 +8,28 @@
     }
 
     &__ruby {
-      @include g-font(14);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 14px;
+      line-height: 1.25;
       text-align: right;
     }
 
     &__bd {
-      @if $layout == "L30" or $layout == "R30" {
-        // L30かR30で番号が折り返さない最大サイズ
-        @include g-font(30, 0);
-      } @else {
-        // L25かR25で番号が折り返さない最大サイズ
-        @include g-font(26, 0);
-      }
       display: table;
       align-items: center;
       font-weight: bold;
       text-align: center;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 30px;
+        line-height: 1.25;
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 26px;
+        line-height: 1.25;
+      }
     }
 
     &__icon {
@@ -81,12 +87,16 @@
     border: 1px solid $sideBoxIconText-tel_borderColor;
     border-radius: 8px;
     &__ruby {
-      @include g-font(12);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: center;
     }
 
     &__bd {
-      @include g-font(22);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 22px;
+      line-height: 1.25;
       color: $sideBoxIconText-tel_textColor;
       text-align: center;
       > span {
