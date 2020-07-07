@@ -5,40 +5,83 @@
     &__item {
       display: inline-block;
       color: $footerUnit-nav_textColor;
+      padding: 2px 0;
       & + & {
         margin-left: 15px;
       }
     }
 
     &__inner {
-      display: table;
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-        transition: ease-in-out .4s;
-        width: 30px;
-        height: 22px;
-        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
-        min-width: 30px;
-        background-image: url("../imgs/navItem/01/01.svg");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 22px 22px;
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      div {
+        position: relative;
+        @include g-font(15);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          // 伸びる下線
+          background-color: $navItem_BGColor;
+          transition: .3s;
+        }
       }
 
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        @include g-font(15);
-        transition: ease-in-out .4s;
-        padding-bottom: 1px;
-        border-bottom: 2px solid $footerUnit-nav_borderColor;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // 下線画像
+        background-image: url("../imgs/navItem/01/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
       }
     }
 
-    a:hover {
-      #{$_block}__inner div {
-        color: $footerUnit-nav_hoverColor;
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $footerUnit-nav_textColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $footerUnit-nav_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }
@@ -49,6 +92,93 @@
     &__item {
       display: inline-block;
       color: $footerUnit-nav2_textColor;
+      padding: 2px 0;
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      div {
+        position: relative;
+        @include g-font(15);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          // 伸びる下線
+          background-color: $navItem2_BGColor;
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // 下線画像
+        background-image: url("../imgs/navItem/02/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $footerUnit-nav2_textColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $footerUnit-nav2_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav3 {
+    $_block: &;
+    white-space: nowrap;
+    &__item {
+      display: inline-block;
+      color: $footerUnit-nav3_textColor;
       & + & {
         margin-left: 15px;
       }
@@ -64,7 +194,7 @@
         height: 22px;
         //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
         min-width: 30px;
-        background-image: url("../imgs/navItem/02/01.svg");
+        background-image: url("../imgs/navItem/03/01.svg");
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 22px 22px;
@@ -76,97 +206,13 @@
         @include g-font(15);
         transition: ease-in-out .4s;
         padding-bottom: 1px;
-        border-bottom: 2px solid $footerUnit-nav2_borderColor;
+        border-bottom: 2px solid $footerUnit-nav3_borderColor;
       }
     }
 
     a:hover {
       #{$_block}__inner div {
-        color: $footerUnit-nav2_hoverColor;
-      }
-    }
-  }
-
-  .t0-b-footerUnit-nav3 {
-    $_block: &;
-    white-space: nowrap;
-    &__item {
-      display: inline-block;
-      color: $footerUnit-nav3_textColor;
-      padding: 2px 0;
-      & + & {
-        margin-left: 15px;
-      }
-    }
-
-    &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      transition: .3s;
-      div {
-        position: relative;
-        @include g-font(15);
-        &::after {
-          content: "";
-          position: absolute;
-          display: inline-block;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background-color: $navItem3_BGColor;//伸びる下線
-          transition: .3s;
-        }
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/03/02.svg");//下線画像
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/03/01.svg");//アイコン
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transition: all .3s .3s ease;
-        transform: translateY(-50%);
-      }
-    }
-
-    a {
-      &:hover {
-        #{$_block}__inner {
-          color: $footerUnit-nav3_textColor;
-          &::after {
-            right: -10px;
-          }
-
-          > div {
-            color: $footerUnit-nav3_hoverColor;
-            &::after {
-              width: 100%;
-            }
-          }
-        }
+        color: $footerUnit-nav3_hoverColor;
       }
     }
   }
@@ -177,80 +223,40 @@
     &__item {
       display: inline-block;
       color: $footerUnit-nav4_textColor;
-      padding: 2px 0;
       & + & {
         margin-left: 15px;
       }
     }
 
     &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      transition: .3s;
-      div {
-        position: relative;
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
+        min-width: 30px;
+        background-image: url("../imgs/navItem/04/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
         @include g-font(15);
-        &::after {
-          content: "";
-          position: absolute;
-          display: inline-block;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background-color: $navItem4_BGColor;//伸びる下線
-          transition: .3s;
-        }
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/04/02.svg");//下線画像
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/04/01.svg");//アイコン
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transition: all .3s .3s ease;
-        transform: translateY(-50%);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav4_borderColor;
       }
     }
 
-    a {
-      &:hover {
-        #{$_block}__inner {
-          color: $footerUnit-nav4_textColor;
-          &::after {
-            right: -10px;
-          }
-
-          > div {
-            color: $footerUnit-nav4_hoverColor;
-            &::after {
-              width: 100%;
-            }
-          }
-        }
+    a:hover {
+      #{$_block}__inner div {
+        color: $footerUnit-nav4_hoverColor;
       }
     }
   }
@@ -261,30 +267,47 @@
     margin-left: 2.5%;
     &__item {
       color: $footerUnit-nav_textColor;
+      padding: 2px 0;
+      @include g-font(15);
       & + & {
         margin-top: 20px;
       }
     }
 
     &__inner {
-      display: table;
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-        width: 30px;
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
         height: 22px;
-        background-image: url("../imgs/navItem/01/01.svg");
+        // 下線画像
+        background-image: url("../imgs/navItem/01/02.svg");
         background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 22px 22px;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
       }
 
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        @include g-font(15);
-        padding-bottom: 1px;
-        border-bottom: 2px solid $footerUnit-nav_borderColor;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
       }
     }
   }
@@ -293,6 +316,55 @@
     margin-left: 2.5%;
     &__item {
       color: $footerUnit-nav2_textColor;
+      padding: 2px 0;
+      @include g-font(15);
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // 下線画像
+        background-image: url("../imgs/navItem/02/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav3 {
+    margin-left: 2.5%;
+    &__item {
+      color: $footerUnit-nav3_textColor;
       & + & {
         margin-top: 20px;
       }
@@ -305,7 +377,7 @@
         vertical-align: middle;
         width: 30px;
         height: 22px;
-        background-image: url("../imgs/navItem/02/01.svg");
+        background-image: url("../imgs/navItem/03/01.svg");
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 22px 22px;
@@ -316,54 +388,7 @@
         vertical-align: middle;
         @include g-font(15);
         padding-bottom: 1px;
-        border-bottom: 2px solid $footerUnit-nav2_borderColor;
-      }
-    }
-  }
-
-  .t0-b-footerUnit-nav3 {
-    margin-left: 2.5%;
-    &__item {
-      color: $footerUnit-nav3_textColor;
-      padding: 2px 0;
-      @include g-font(15);
-      & + & {
-        margin-top: 20px;
-      }
-    }
-
-    &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/03/02.svg");//下線画像
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/03/01.svg");//アイコン
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
+        border-bottom: 2px solid $footerUnit-nav3_borderColor;
       }
     }
   }
@@ -372,45 +397,30 @@
     margin-left: 2.5%;
     &__item {
       color: $footerUnit-nav4_textColor;
-      padding: 2px 0;
-      @include g-font(15);
       & + & {
         margin-top: 20px;
       }
     }
 
     &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
         height: 22px;
-        background-image: url("../imgs/navItem/04/02.svg");//下線画像
+        background-image: url("../imgs/navItem/04/01.svg");
         background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
+        background-position: left center;
+        background-size: 22px 22px;
       }
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/04/01.svg");//アイコン
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(15);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav4_borderColor;
       }
     }
   }

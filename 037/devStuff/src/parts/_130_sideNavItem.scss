@@ -1,37 +1,77 @@
 @if $device == PC {
   .t0-b-sideNavItem {
     $_block: &;
-    color: $sideNavItem_textColor;
     @include g-font(16);
+    color: $sideNavItem_textColor;
+    padding: 2px 0;
     &__inner {
-      display: table;
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-        transition: ease-in-out .4s;
-        width: 30px;
-        height: 22px;
-        background-image: url("../imgs/navItem/01/01.svg");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 22px 22px;
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          // 伸びる下線
+          background-color: $sideNavItem_BGColor;
+          transition: .3s;
+        }
       }
 
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        transition: ease-in-out .4s;
-        padding-bottom: 1px;
-        border-bottom: 2px solid $sideNavItem_borderColor;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 45%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // 下線画像
+        background-image: url("../imgs/navItem/01/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 45%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
       }
     }
 
     a {
-      display: inline-block;
       &:hover {
         #{$_block}__inner {
+          color: $sideNavItem_textColor;
+          &::after {
+            right: -10px;
+          }
+
           > div {
             color: $sideNavItem_hoverColor;
+            &::after {
+              width: 100%;
+            }
           }
         }
       }
@@ -40,7 +80,86 @@
 
   .t0-b-sideNavItem2 {
     $_block: &;
+    @include g-font(16);
     color: $sideNavItem2_textColor;
+    padding: 2px 0;
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      > div {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          // 伸びる下線
+          background-color: $sideNavItem2_BGColor;
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 45%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // 下線画像
+        background-image: url("../imgs/navItem/02/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 45%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 22px 22px;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $sideNavItem2_textColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            color: $sideNavItem2_hoverColor;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-sideNavItem3 {
+    $_block: &;
+    color: $sideNavItem3_textColor;
     @include g-font(16);
     &__inner {
       display: table;
@@ -50,7 +169,7 @@
         transition: ease-in-out .4s;
         width: 30px;
         height: 22px;
-        background-image: url("../imgs/navItem/02/01.svg");
+        background-image: url("../imgs/navItem/03/01.svg");
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 22px 22px;
@@ -61,7 +180,7 @@
         vertical-align: middle;
         transition: ease-in-out .4s;
         padding-bottom: 1px;
-        border-bottom: 2px solid $sideNavItem2_borderColor;
+        border-bottom: 2px solid $sideNavItem3_borderColor;
       }
     }
 
@@ -69,84 +188,8 @@
       display: inline-block;
       &:hover {
         #{$_block}__inner {
-          > div {
-            color: $sideNavItem2_hoverColor;
-          }
-        }
-      }
-    }
-  }
-
-  .t0-b-sideNavItem3 {
-    $_block: &;
-    @include g-font(16);
-    color: $sideNavItem3_textColor;
-    padding: 2px 0;
-    &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      transition: .3s;
-      > div {
-        position: relative;
-        &::after {
-          content: "";
-          position: absolute;
-          display: inline-block;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background-color: $sideNavItem3_BGColor;//伸びる下線
-          transition: .3s;
-        }
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 45%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/03/02.svg");//下線画像
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 45%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/03/01.svg");//アイコン
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transition: all .3s .3s ease;
-        transform: translateY(-50%);
-      }
-    }
-
-    a {
-      &:hover {
-        #{$_block}__inner {
-          color: $sideNavItem3_textColor;
-          &::after {
-            right: -10px;
-          }
-
           > div {
             color: $sideNavItem3_hoverColor;
-            &::after {
-              width: 100%;
-            }
           }
         }
       }
@@ -155,74 +198,37 @@
 
   .t0-b-sideNavItem4 {
     $_block: &;
-    @include g-font(16);
     color: $sideNavItem4_textColor;
-    padding: 2px 0;
+    @include g-font(16);
     &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      transition: .3s;
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/navItem/04/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
       > div {
-        position: relative;
-        &::after {
-          content: "";
-          position: absolute;
-          display: inline-block;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background-color: $sideNavItem4_BGColor;//伸びる下線
-          transition: .3s;
-        }
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 45%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/04/02.svg");//下線画像
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: 22px 22px;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 45%;
-        right: 0;
-        display: block;
-        width: 22px;
-        height: 22px;
-        background-image: url("../imgs/navItem/04/01.svg");//アイコン
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: 22px 22px;
-        transition: all .3s .3s ease;
-        transform: translateY(-50%);
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $sideNavItem4_borderColor;
       }
     }
 
     a {
+      display: inline-block;
       &:hover {
         #{$_block}__inner {
-          color: $sideNavItem4_textColor;
-          &::after {
-            right: -10px;
-          }
-
           > div {
             color: $sideNavItem4_hoverColor;
-            &::after {
-              width: 100%;
-            }
           }
         }
       }
@@ -237,24 +243,24 @@
     $_block: &;
     color: $sideNavItem_textColor;
     @include g-font(16);
+    padding: 2px 0;
     &__inner {
-      display: table;
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-        width: 30px;
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
         height: 22px;
         background-image: url("../imgs/navItem/01/01.svg");
         background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 22px 22px;
-      }
-
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        padding-bottom: 1px;
-        border-bottom: 2px solid $sideNavItem_borderColor;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
       }
     }
   }
@@ -265,24 +271,24 @@
     $_block: &;
     color: $sideNavItem2_textColor;
     @include g-font(16);
+    padding: 2px 0;
     &__inner {
-      display: table;
-      > span {
-        display: table-cell;
-        vertical-align: middle;
-        width: 30px;
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
         height: 22px;
         background-image: url("../imgs/navItem/02/01.svg");
         background-repeat: no-repeat;
-        background-position: left center;
-        background-size: 22px 22px;
-      }
-
-      > div {
-        display: table-cell;
-        vertical-align: middle;
-        padding-bottom: 1px;
-        border-bottom: 2px solid $sideNavItem2_borderColor;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
       }
     }
   }
@@ -293,24 +299,24 @@
     $_block: &;
     color: $sideNavItem3_textColor;
     @include g-font(16);
-    padding: 2px 0;
     &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
         height: 22px;
         background-image: url("../imgs/navItem/03/01.svg");
         background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $sideNavItem3_borderColor;
       }
     }
   }
@@ -321,24 +327,24 @@
     $_block: &;
     color: $sideNavItem4_textColor;
     @include g-font(16);
-    padding: 2px 0;
     &__inner {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        display: block;
-        width: 22px;
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
         height: 22px;
         background-image: url("../imgs/navItem/04/01.svg");
         background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        transform: translateY(-50%);
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $sideNavItem4_borderColor;
       }
     }
   }
