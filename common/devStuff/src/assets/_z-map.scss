@@ -1,0 +1,202 @@
+// ================================================
+// z-indexを管理するためのファイル。
+// 部品のscssに、
+// z-index: z(headerMenu, 1);
+// のように書くことで値が入る。
+
+// 実際の数値はこのファイルに書くこと。
+// クラス名から名前をつける(t0-b-は省略)。例) .t0-b-lv1H-mainH#{$variation1of2} -> lv1H-mainH
+// 使いたい数値をコロンの右側、数値の10の位の数(基本的には)を左側に置く。例) 1: 210
+
+// 部品の装飾枠は、z(frame, **)で統一。
+// 数値が0あるいは-1の場合は、z(bg, **)で統一。
+
+// z-indexの決め方や運用ルールについては以下を参照。
+// https://docs.google.com/spreadsheets/d/1ah4P1XUkOq7lnQ1JML2OnTrYxezhmDERdGl3CiemRWM
+// ================================================
+
+/* stylelint-disable */
+$z: (
+  // ========
+  // 背景画像
+  // ========
+  bg: (
+    0: 0,
+    // 背景の後ろに配置するときに使う
+    -1: -1,
+  ),
+
+  // ==================
+  // 10-90 部品の装飾枠
+  // ==================
+  frame: (
+    1: 10,
+    2: 20,
+    3: 30,
+  ),
+  fullWidthFrame: (
+    1: 10,
+  ),
+
+  // ======================
+  // 100-290 要素(全エリア)
+  // ======================
+  twoColsMedia: (
+    1: 110,
+    2: 120,
+  ),
+  flow2LeftToRight: (1: 110),
+  flow3LeftToRight: (1: 110),
+  flow4LeftToRight: (1: 110),
+  flow5LeftToRight: (1: 110),
+  flow6LeftToRight: (1: 110),
+  flow7LeftToRight: (1: 110),
+  flow2LeftToRightWithMidFrame: (1: 110),
+  flow3LeftToRightWithMidFrame: (1: 110),
+  flow4LeftToRightWithMidFrame: (1: 110),
+  flow5LeftToRightWithMidFrame: (1: 110),
+  flow6LeftToRightWithMidFrame: (1: 110),
+  flow7LeftToRightWithMidFrame: (1: 110),
+  goToTop: (
+    0: 110,
+  ),
+  catchText: (
+    1: 110,
+  ),
+  lv1H-mainH: (
+    1: 110,
+    2: 120,
+  ),
+  lv4H: (
+    1: 110,
+    2: 120,
+  ),
+  media: (
+    1: 110,
+    2: 120,
+  ),
+  navBItemCaptioned: (
+    1: 110,
+    2: 120,
+  ),
+  navBItem: (
+    1: 110,
+    2: 120,
+    3: 130,
+  ),
+  headerUnit-contact-navB: (
+    1: 110,
+    2: 120,
+  ),
+  headerUnit-miniCol: (
+    1: 110,
+  ),
+  headerCombi: (
+    1: 110,
+    2: 120,
+  ),
+  headerMedia: (
+    1: 110,
+    2: 120,
+    3: 130,
+  ),
+  headerMenu: (
+    0: 110,
+    1: 120,
+    2: 130,
+  ),
+  footerUnit-media: (
+    1: 110,
+  ),
+  footerMenu: (
+    1: 110,
+    2: 120,
+  ),
+
+  // ===============================
+  // 300-390 サイドエリア 部品と要素
+  // ===============================
+  sideNavItem: (0: 300),
+  sideNavItemWithImg: (0: 300),
+  sideNavBItem: (
+    0: 300,
+    1: 310,
+  ),
+  sideBanner: (0: 300),
+  sideFreeHtml: (0: 300),
+  sideBoxLv1H: (0: 300),
+  sideBoxLv2H: (0: 300),
+  sideBoxText: (0: 300),
+  sideBoxTextStrong: (0: 300),
+  sideBoxList: (0: 300),
+  sideBoxIconText-tel: (0: 300),
+  sideBoxIconText-mail: (0: 300),
+  sideBoxLabeledList: (0: 300),
+  sideBoxTable: (0: 300),
+  sideBoxFreeHtml: (0: 300),
+  sideBoxNav: (0: 300),
+  sideBoxNavB: (
+    0: 300,
+    1: 310,
+  ),
+  sideBox: (
+    0: 300,
+    1: 310,
+    2: 320,
+  ),
+  sideBoxMedia: (
+    0: 300,
+    1: 310,
+  ),
+  sideBoxMediaBox: (
+    0: 300,
+  ),
+  sideMenu: (
+    0: 300,
+  ),
+  sideMenuHandle: (
+    0: 300,
+    1: 310,
+    2: 320,
+  ),
+
+  // ==============================
+  // 400-490 フローティングメニュー
+  // ==============================
+  // mod-spは部品より手前に来るように
+  mod-sp: (
+    1: 460,
+    2: 470,
+  ),
+  goToTop-fixed: (
+    1: 420,
+  ),
+  headerMenu-fixed: (
+    1: 420,
+  ),
+
+  // ========================
+  // 500-590 ポップアップ要素
+  // ========================
+  lightbox: (
+    0: 500,
+    1: 510,
+    2: 520,
+  ),
+);
+
+// 値を取り出すための関数
+@function map-deep-get($z, $keys...) {
+  @each $key in $keys {
+    @if not map-has-key($z, $key) {
+      @warn '"#{$keys}"は_z-map.scssに存在しません。';
+    }
+
+    $z: map-get($z, $key);
+  }
+  @return $z;
+}
+
+@function z($keys...) {
+  @return map-deep-get($z, $keys...);
+}
