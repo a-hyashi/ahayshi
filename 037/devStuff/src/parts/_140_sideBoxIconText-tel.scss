@@ -1,11 +1,15 @@
 @if $device == PC {
   .t0-b-sideBoxIconText-tel {
+    position: relative;
+    z-index: z(sideBoxIconText-tel, 0);
     > div {
       display: inline-block;
     }
 
     &__ruby {
-      @include g-font(14);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 14px;
+      line-height: 1.3;
       text-align: right;
     }
 
@@ -14,10 +18,11 @@
       align-items: center;
       @if $layout == "L30" or $layout == "R30" {
         // L30かR30で番号が折り返さない最大サイズ
-        @include g-font(27, 0);
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 27px;
       } @else {
-        // L25かR25で番号が折り返さない最大サイズ
-        @include g-font(23, 0);
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 23px;
       }
     }
 

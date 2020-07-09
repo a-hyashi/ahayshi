@@ -22,7 +22,6 @@
         min-width: 50px;
         height: 100%;
         padding: 10px 20px;
-        color: $headerMenu_textColor;
         @include g-font(15);
         position: relative;
         display: flex;
@@ -56,6 +55,7 @@
         height: 100%;
         transition: .3s;
         &:hover {
+          color: inherit;
           div {
             &::before {
               width: 100%;
@@ -70,7 +70,7 @@
 
       &.state-em {
         div {
-          color: $headerMenu_textColor2;
+          color: $headerMenu_textColor;
         }
       }
 
@@ -116,7 +116,6 @@
         min-width: 50px;
         min-height: 40px;
         padding: 10px 20px;
-        color: $headerMenu2_textColor;
         @include g-font(15);
         text-align: center;
         position: relative;
@@ -138,7 +137,7 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            z-index: -1;
+            z-index: z(bg, -1);
             transition: .3s;
           }
         }
@@ -198,7 +197,7 @@
       flex-grow: 1;
       margin: 0 5px;
       div {
-        z-index: 1;
+        z-index: z(headerMenu, 1);
         min-width: 50px;
         height: 100%;
         padding: 10px;
@@ -220,7 +219,7 @@
           height: 0;
           bottom: 0;
           background-color: $headerMenu3_BGColor3;
-          z-index: -1;
+          z-index: z(bg, -1);
           transition: .5s;
         }
       }
@@ -228,7 +227,7 @@
       a {
         &:hover {
           div {
-            color: $headerMenu3_hoverColor;
+            color: $headerMenu3_hoverTextColor;
             &::before {
               height: 100%;
             }
@@ -287,7 +286,6 @@
         min-width: 50px;
         padding: 0 20px;
         @include g-font(15);
-        color: $headerMenu4_textColor;
         text-align: center;
         display: flex;
         align-items: center;
@@ -298,8 +296,8 @@
       a {
         &:hover {
           div {
-            background-color: $headerMenu4_BGColor3;
-            color: $headerMenu4_hoverColor;
+            background-color: $headerMenu4_hoverBGColor;
+            color: $headerMenu4_hoverTextColor;
           }
         }
       }
@@ -307,14 +305,14 @@
       &.state-em {
         div {
           background-color: $headerMenu4_BGColor;
-          color: $headerMenu4_textColor2;
+          color: $headerMenu4_textColor;
         }
       }
 
       &.state-current {
         div {
           background-color: $headerMenu4_BGColor2;
-          color: $headerMenu4_hoverColor;
+          color: $headerMenu4_textColor2;
         }
       }
     }
@@ -368,7 +366,7 @@
       a {
         &:hover {
           div {
-            color: $headerMenu5_hoverColor;
+            color: $headerMenu5_hoverTextColor;
             background-color: $headerMenu5_BGColor3;
           }
         }
@@ -431,7 +429,6 @@
       display: inline-block;
       margin-left: 15px;
       @include g-font(12);
-      color: $headerMenu_textColor;
       div {
         padding: 5px 0;
         text-decoration: underline;
@@ -443,12 +440,12 @@
 
       &.state-em {
         font-weight: bold;
-        color: $headerMenu_textColor2;
+        color: $headerMenu_textColor;
       }
 
       &.state-current {
         font-weight: normal;
-        color: $headerMenu_textColor2;
+        color: $headerMenu_textColor;
       }
     }
   }
@@ -472,7 +469,6 @@
       display: inline-block;
       margin-left: 5px;
       @include g-font(12);
-      color: $headerMenu2_textColor;
       div {
         padding: 5px 15px;
         text-decoration: underline;
@@ -497,7 +493,7 @@
             width: 100%;
             height: 100%;
             border-radius: 15px;
-            z-index: -1;
+            z-index: z(bg, -1);
           }
         }
       }
@@ -517,7 +513,7 @@
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            z-index: -1;
+            z-index: z(bg, -1);
           }
         }
       }
@@ -586,7 +582,6 @@
       display: inline-block;
       margin-left: 15px;
       @include g-font(12);
-      color: $headerMenu4_textColor;
       div {
         padding: 5px;
         text-decoration: underline;
@@ -598,12 +593,12 @@
 
       &.state-em {
         background-color: $headerMenu3_BGColor;
-        color: $headerMenu4_textColor2;
+        color: $headerMenu4_textColor;
       }
 
       &.state-current {
         background-color: $headerMenu4_BGColor2;
-        color: $headerMenu4_hoverColor;
+        color: $headerMenu4_textColor2;
       }
     }
   }

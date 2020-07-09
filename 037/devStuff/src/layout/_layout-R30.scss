@@ -2,8 +2,11 @@ $areaContainerWidth: 1100px;
 $areaMainWidth: 700px;
 $areaSubWidth: $areaContainerWidth - $areaMainWidth;
 .area-all {
+  position: relative;
+  z-index: 0;
   min-width: $areaContainerWidth + 36px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
   word-break: break-all;
   word-wrap: break-word;
@@ -12,35 +15,30 @@ $areaSubWidth: $areaContainerWidth - $areaMainWidth;
 .area-container {
   width: $areaContainerWidth;
   padding-top: 40px;
-  margin: 0 auto;
-  @include cf;
-  &::after {
-    clear: both;
-  }
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: flex-start;
 }
 
 .area-main {
   // デフォルトの背景の上にユーザーが選択した画像を表示させるため
   position: relative;
-  z-index: 0;
-  float: left;
-  width: 740px;
-  padding: 0 0 50px;
+  width: $areaMainWidth;
+  padding-bottom: 50px;
 }
 
 .area-sub {
   position: relative;
-  z-index: 11;
-  float: right;
-  width: 360px;
+  width: $areaSubWidth;
   min-height: 100px;
-  padding: 0 0 50px 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
 }
 
 .area-footer {
   // デフォルトの背景の上にユーザーが選択した画像を表示させるため
   position: relative;
-  z-index: 0;
   // フッター最上部のフッターメニューの背景が伸びないため
   padding-top: 1px;
 }

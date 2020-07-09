@@ -14,7 +14,6 @@
         min-width: 50px;
         height: 100%;
         padding: 7px 20px;
-        color: $footerMenu_textColor;
         @include g-font(14);
         position: relative;
         display: flex;
@@ -48,6 +47,7 @@
         height: 100%;
         transition: .3s;
         &:hover {
+          color: inherit;
           div {
             &::before {
               width: 100%;
@@ -62,7 +62,7 @@
 
       &.state-em {
         div {
-          color: $footerMenu_textColor2;
+          color: $footerMenu_textColor;
         }
       }
     }
@@ -88,7 +88,6 @@
         min-width: 50px;
         min-height: 40px;
         padding: 8px 20px;
-        color: $footerMenu2_textColor;
         @include g-font(14);
         text-align: center;
         position: relative;
@@ -110,7 +109,7 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            z-index: -1;
+            z-index: z(bg, -1);
             transition: .3s;
           }
         }
@@ -153,7 +152,7 @@
       flex-grow: 1;
       margin: 0 5px;
       div {
-        z-index: 1;
+        z-index: z(footerMenu, 1);
         min-width: 50px;
         height: 100%;
         padding: 5px 10px;
@@ -175,7 +174,7 @@
           height: 0;
           bottom: 0;
           background-color: $footerMenu3_BGColor3;
-          z-index: -1;
+          z-index: z(bg, -1);
           transition: .5s;
         }
       }
@@ -183,7 +182,7 @@
       a {
         &:hover {
           div {
-            color: $footerMenu3_hoverColor;
+            color: $footerMenu3_hoverTextColor;
             &::before {
               height: 100%;
             }
@@ -227,7 +226,6 @@
         min-width: 50px;
         padding: 3px 20px 0;
         @include g-font(14);
-        color: $footerMenu4_textColor;
         text-align: center;
         display: flex;
         align-items: center;
@@ -238,8 +236,8 @@
       a {
         &:hover {
           div {
-            background-color: $footerMenu4_BGColor3;
-            color: $footerMenu4_hoverColor;
+            background-color: $footerMenu4_hoverBGColor;
+            color: $footerMenu4_hoverTextColor;
           }
         }
       }
@@ -292,7 +290,7 @@
       a {
         &:hover {
           div {
-            color: $footerMenu5_hoverColor;
+            color: $footerMenu5_hoverTextColor;
             background-color: $footerMenu5_BGColor3;
           }
         }
@@ -302,7 +300,7 @@
         div {
           position: relative;
           color: $footerMenu5_textColor2;
-          z-index: 1;
+          z-index: z(footerMenu, 1);
           &::before {
             content: "";
             position: absolute;
@@ -313,7 +311,7 @@
             width: 97%;
             border-radius: 5px;
             background-color: $footerMenu5_BGColor2;
-            z-index: -1;
+            z-index: z(bg, -1);
           }
         }
 
@@ -345,7 +343,6 @@
       display: inline-block;
       margin-left: 15px;
       @include g-font(12);
-      color: $footerMenu_textColor;
       div {
         padding: 5px 0;
         text-decoration: underline;
@@ -357,7 +354,7 @@
 
       &.state-em {
         font-weight: bold;
-        color: $footerMenu_textColor2;
+        color: $footerMenu_textColor;
       }
     }
   }
@@ -373,7 +370,6 @@
       display: inline-block;
       margin-left: 5px;
       @include g-font(12);
-      color: $footerMenu2_textColor;
       div {
         padding: 5px 15px;
         text-decoration: underline;
@@ -398,7 +394,7 @@
             width: 100%;
             height: 100%;
             border-radius: 15px;
-            z-index: -1;
+            z-index: z(bg, -1);
           }
         }
       }
@@ -445,7 +441,6 @@
       display: inline-block;
       margin-left: 15px;
       @include g-font(12);
-      color: $footerMenu4_textColor;
       div {
         padding: 5px;
         text-decoration: underline;
@@ -456,8 +451,8 @@
       }
 
       &.state-em {
-        background-color: $footerMenu3_BGColor;
-        color: $footerMenu4_textColor2;
+        background-color: $footerMenu4_BGColor;
+        color: $footerMenu4_textColor;
       }
     }
   }
@@ -465,7 +460,7 @@
   .t0-b-footerMenu5 {
     margin: 0 -15px;
     text-align: center;
-    background-color: $headerMenu5_BGColor;
+    background-color: $footerMenu5_BGColor;
     ul {
       padding: 5px 10px;
     }
