@@ -373,7 +373,7 @@
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|2|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|3|0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle|4|0||0px|
-|11.枠|main|1000_枠|.t0-b-frameOuter||6%||0px|
+|11.枠|main|1000_枠|.t0-b-frameOuter|0|6%||0px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|2|8%||35px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|3|8%||35px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|4|8%||35px|
