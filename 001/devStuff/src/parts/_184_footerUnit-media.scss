@@ -1,0 +1,193 @@
+@if $device == PC {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    $textcolor: #262626;
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      a {
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+        // 3行以上は入らないように
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+        // 3行以上は入らないように
+        max-height: 66px;
+      }
+    }
+
+    &__nav {
+      text-indent: -20px;
+      padding: 10px 0 0 20px;
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: -8px 0 -6px;
+          display: inline-block;
+          vertical-align: middle;
+          background: url("../imgs/t0-b-footerCombi/bg2.png") no-repeat 6px 50%;
+        }
+      }
+
+      a {
+        &:hover {
+          color: #aea928;
+        }
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    margin: 0 auto;
+    $textcolor: #262626;
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      a {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      margin-top: 20px;
+      @include g-font(16, 1);
+      > div {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: -8px 0 -6px;
+          display: inline-block;
+          vertical-align: middle;
+          background: url("../imgs/t0-b-footerCombi/bg2.png") no-repeat 0 50%;
+        }
+
+        text-align: center;
+      }
+    }
+  }
+}
