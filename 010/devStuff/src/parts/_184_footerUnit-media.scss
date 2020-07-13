@@ -1,0 +1,180 @@
+@if $device == PC {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    $textcolor: #333;
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      a {
+        display: block;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+        // 3行以上は入らないように
+        max-height: 66px;
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+        // 3行以上は入らないように
+        max-height: 66px;
+      }
+    }
+
+    &__nav {
+      margin-top: 10px;
+      padding: 0 0 0 10px;
+      text-decoration: underline;
+      color: #333;
+      @include g-font(14, 1);
+      background: url("../imgs/t0-b-footerUnit-navList/bg.png") no-repeat 0 center;
+      a {
+        &:hover {
+          color: $g-hoverColor;
+        }
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-media {
+    $_block: &;
+    margin: 0 auto;
+    $textcolor: #333;
+    color: $textcolor;
+    a {
+      color: $textcolor;
+      text-decoration: none;
+    }
+
+    &__media {
+      margin: 0 auto;
+      line-height: 0;
+      text-align: center;
+      position: relative;
+      img {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      a {
+        display: block;
+      }
+    }
+
+    &--width-l {
+      #{$_block}__media {
+        width: 100%;
+      }
+    }
+
+    &--width-m {
+      #{$_block}__media {
+        width: 75%;
+      }
+    }
+
+    &--width-s {
+      #{$_block}__media {
+        width: 50%;
+      }
+    }
+
+    &__textOnImage-upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__textOnImage-lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      p {
+        @include g-font(18, 1);
+        @include g-textOuterGlow;
+        padding: 10px 5px;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
+
+    &__nav {
+      display: table;
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 0 0 0 20px;
+      text-decoration: underline;
+      @include g-font(16, 1);
+      background: url("../imgs/t0-b-navItem/bg.png") no-repeat 0 center;
+      background-size: 15px 15px;
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
