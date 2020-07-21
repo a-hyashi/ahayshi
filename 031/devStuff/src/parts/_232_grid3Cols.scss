@@ -6,75 +6,75 @@
       display: -ms-grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
-      margin-bottom: -5.3%;
+      margin-bottom: -5%;
       grid-column-gap: 4%;
       -ms-grid-columns: 1fr 4% 1fr;
       -ms-grid-column-gap: 4%;
       -ms-grid-rows: auto auto;
+      #{$_block}--colSpacing-l & {
+        grid-column-gap: 7%;
+        -ms-grid-column-gap: 7%;
+      }
+
+      #{$_block}--colSpacing-m & {
+        grid-column-gap: 4%;
+        -ms-grid-column-gap: 4%;
+      }
+
+      #{$_block}--colSpacing-s & {
+        grid-column-gap: 1%;
+        -ms-grid-column-gap: 1%;
+      }
     }
 
-    &__bd > *:nth-child(1) {
+    &__box > div {
+      padding-bottom: 10.5%;
+    }
+
+    // IEの対応のため
+    &__box1 {
       -ms-grid-row: 1;
       -ms-grid-column: 1;
     }
 
-    &__bd > *:nth-child(2) {
+    &__box2 {
       -ms-grid-row: 1;
       -ms-grid-column: 3;
     }
 
-    &__bd > *:nth-child(3) {
+    &__box3 {
       -ms-grid-row: 2;
       -ms-grid-column: 1;
     }
 
-    &__bd > *:nth-child(4) {
+    &__box4 {
       -ms-grid-row: 2;
       -ms-grid-column: 3;
     }
 
-    &__bd > *:nth-child(5) {
+    &__box5 {
       -ms-grid-row: 3;
       -ms-grid-column: 1;
     }
 
-    &__bd > *:nth-child(6) {
+    &__box6 {
       -ms-grid-row: 3;
       -ms-grid-column: 3;
     }
 
-    &__bd > *:nth-child(7) {
+    &__box7 {
       -ms-grid-row: 4;
       -ms-grid-column: 1;
     }
 
-    &__bd > *:nth-child(8) {
+    &__box8 {
       -ms-grid-row: 4;
       -ms-grid-column: 3;
     }
 
-    &__bd > *:nth-child(9) {
+    &__box9 {
       -ms-grid-row: 5;
       -ms-grid-column: 1;
-    }
-
-    #{$_block}--colSpacing-l & {
-      grid-column-gap: 7%;
-      -ms-grid-column-gap: 7%;
-    }
-
-    #{$_block}--colSpacing-m & {
-      grid-column-gap: 4%;
-      -ms-grid-column-gap: 4%;
-    }
-
-    #{$_block}--colSpacing-s & {
-      grid-column-gap: 1%;
-      -ms-grid-column-gap: 1%;
-    }
-
-    &__box {
-      padding-bottom: 10.5%;
     }
   }
 
@@ -82,66 +82,75 @@
     $_block: &;
     &__bd {
       display: grid;
+      display: -ms-grid;
       grid-template-columns: 1fr 1fr 1fr;
-      margin-bottom: -3.3%;
+      -ms-grid-columns: 1fr 3.5% 1fr 3.5% 1fr;
+      margin-bottom: -5%;
       grid-column-gap: 3.5%;
       #{$_block}--colSpacing-l & {
         grid-column-gap: 5%;
+        -ms-grid-column-gap: 5%;
       }
 
       #{$_block}--colSpacing-m & {
         grid-column-gap: 3.5%;
+        -ms-grid-column-gap: 3.5%;
       }
 
       #{$_block}--colSpacing-s & {
         grid-column-gap: 1%;
+        -ms-grid-column-gap: 1%;
       }
     }
 
-    &__box {
-      padding-bottom: 10.5%;
+    &__box > div {
+      padding-bottom: 16%;
     }
-  }
 
-  @if $layout == "N00" {
-    // N00での比率
-    .t0-b-grid3Cols,
-    .t0-b-grid3Cols2 {
-      &__bd {
-        margin-bottom: -55px;
-      }
-
-      &__box {
-        margin-bottom: 55px;
-      }
+    // IEの対応のため
+    &__box1 {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
     }
-  }
 
-  @if $layout == "R30" {
-    // R30での比率
-    .t0-b-grid3Cols,
-    .t0-b-grid3Cols2 {
-      &__bd {
-        margin-bottom: -35px;
-      }
-
-      &__box {
-        margin-bottom: 35px;
-      }
+    &__box2 {
+      -ms-grid-row: 1;
+      -ms-grid-column: 3;
     }
-  }
 
-  @if $layout == "L30" {
-    // L30での比率
-    .t0-b-grid3Cols,
-    .t0-b-grid3Cols2 {
-      &__bd {
-        margin-bottom: -35px;
-      }
+    &__box3 {
+      -ms-grid-row: 1;
+      -ms-grid-column: 5;
+    }
 
-      &__box {
-        margin-bottom: 35px;
-      }
+    &__box4 {
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+    }
+
+    &__box5 {
+      -ms-grid-row: 2;
+      -ms-grid-column: 3;
+    }
+
+    &__box6 {
+      -ms-grid-row: 2;
+      -ms-grid-column: 5;
+    }
+
+    &__box7 {
+      -ms-grid-row: 3;
+      -ms-grid-column: 1;
+    }
+
+    &__box8 {
+      -ms-grid-row: 3;
+      -ms-grid-column: 3;
+    }
+
+    &__box9 {
+      -ms-grid-row: 3;
+      -ms-grid-column: 5;
     }
   }
 }
@@ -152,23 +161,12 @@
     &__bd {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      margin-bottom: -20px;
+      margin-bottom: -5.3%;
       grid-column-gap: 4%;
-      #{$_block}--colSpacing-l & {
-        grid-column-gap: 7%;
-      }
-
-      #{$_block}--colSpacing-m & {
-        grid-column-gap: 4%;
-      }
-
-      #{$_block}--colSpacing-s & {
-        grid-column-gap: 1%;
-      }
     }
 
-    &__box {
-      margin-bottom: 20px;
+    &__box > div {
+      padding-bottom: 11%;
     }
   }
 
@@ -177,23 +175,12 @@
     &__bd {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      margin-bottom: -20px;
+      margin-bottom: -5.3%;
       grid-column-gap: 3.5%;
-      #{$_block}--colSpacing-l & {
-        grid-column-gap: 5%;
-      }
-
-      #{$_block}--colSpacing-m & {
-        grid-column-gap: 3.5%;
-      }
-
-      #{$_block}--colSpacing-s & {
-        grid-column-gap: 1%;
-      }
     }
 
-    &__box {
-      margin-bottom: 20px;
+    &__box > div {
+      padding-bottom: 17%;
     }
   }
 }
