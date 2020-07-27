@@ -559,10 +559,14 @@ gulp.task('server', (done) => {
 });
 
 // スタイルガイド起動
-gulp.task('default', gulp.parallel('update-css', 'update-imgs'), (done) => {
+gulp.task('default'), (done) => {
   gulp.series(
+    gulp.parallel(
+      'update-css',
+      'update-imgs'
+    ),
     'server',
     'watch'
   )
   done()
-});
+};
