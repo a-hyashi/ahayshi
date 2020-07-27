@@ -1,0 +1,1249 @@
+@if $device == PC {
+  .t0-b-inputText {
+    box-sizing: border-box;
+    padding: .3em 6px;
+    @include g-font(12, 1);
+  }
+
+  .t0-b-textarea {
+    box-sizing: border-box;
+    padding: .3em 6px;
+    display: block;
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    @include g-font(12, 2);
+  }
+
+  .t0-b-required {
+    $_color_typo: #fff;
+    $_color_bg: #cf3e3e;
+    display: inline-block;
+    height: 1px;
+    vertical-align: middle;
+    > span {
+      display: block;
+      color: $_color_typo;
+      background: $_color_bg;
+      border-radius: 2px;
+      @include g-font-spacingKilled(10, 1);
+      padding: 4px 5px;
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: -10px;
+      margin-right: 3px;
+    }
+  }
+
+  .t0-b-button {
+    $_color_border: #999;
+    $_color_typo: #555;
+    $_color_bg: #ddd;
+    max-width: 675px;
+    min-width: 90px;
+    color: $_color_typo;
+    background: $_color_bg;
+    border: 1px solid #{$_color_border};
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    /* stylelint-disable */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* stylelint-enable */
+    appearance: none;
+    @include g-font-spacingKilled(16, 1);
+  }
+
+  .t0-b-button2 {
+    $_color_border: #999;
+    $_color_typo: #555;
+    $_color_bg: #ddd;
+    max-width: 266px;
+    min-width: 90px;
+    color: $_color_typo;
+    background: $_color_bg;
+    border: 1px solid #{$_color_border};
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    /* stylelint-disable */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* stylelint-enable */
+    appearance: none;
+    @include g-font-spacingKilled(16, 1);
+  }
+
+  .t0-b-buttonPlacer {
+    text-align: center;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      z-index: 100;
+      > .t0-b-formTable#{$variation2of2}__button + span,
+      > .t0-b-formTable#{$variation2of2}__button3 + span {
+        content: "";
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        background-image: url("../imgs/main/2/10-5.png"), url("../imgs/main/2/10-7.png");
+        background-position: left top, right top;
+        background-repeat: no-repeat, no-repeat;
+        background-size: 10px 100%;
+        top: 10px;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        > span {
+          content: "";
+          display: block;
+          position: absolute;
+          pointer-events: none;
+          background-image: url("../imgs/main/2/10-8.png"), url("../imgs/main/2/10-6.png");
+          background-position: left top, left bottom;
+          background-repeat: repeat-x, repeat-x;
+          top: -10px;
+          bottom: -12px;
+          left: 10px;
+          right: 10px;
+          z-index: -1;
+          > span {
+            content: "";
+            background-image: url("../imgs/main/2/10-9.png");
+            background-position: left top;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            display: block;
+            position: absolute;
+            pointer-events: none;
+            top: 10px;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+          }
+        }
+      }
+
+      > .t0-b-formTable#{$variation2of2}__button2 + span {
+        content: "";
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        background-image: url("../imgs/main/2/11-5.png"), url("../imgs/main/2/11-7.png");
+        background-position: left top, right top;
+        background-repeat: repeat-y, repeat-y;
+        top: 10px;
+        bottom: 12px;
+        left: 0;
+        right: 60px;
+        z-index: -1;
+        > span {
+          content: "";
+          display: block;
+          position: absolute;
+          pointer-events: none;
+          background-image: url("../imgs/main/2/11-8.png"), url("../imgs/main/2/11-6.png");
+          background-position: left top, left bottom;
+          background-repeat: repeat-x, repeat-x;
+          top: -10px;
+          bottom: -12px;
+          left: 10px;
+          right: 10px;
+          z-index: -1;
+          > span {
+            content: "";
+            background-image: url("../imgs/main/2/11-9.png");
+            background-position: left top;
+            background-repeat: repeat;
+            display: block;
+            position: absolute;
+            pointer-events: none;
+            top: 10px;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+          }
+        }
+      }
+
+      > * {
+        display: block;
+        white-space: normal;
+      }
+    }
+
+    p {
+      @include g-font-spacingKilled(12, 1);
+      text-align: center;
+      padding: 15px 0 0;
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation1of2} {
+    $_block: &;
+    $_color_th_typo: $g-textColor;
+    $_color_th_bg: none;
+    $_color_td_bg: none;
+    $_color_table_border: #8e6e3b;
+    $_color_error_typo: #a71111;
+    table {
+      border-top: 0 dotted #{$_color_table_border};
+      border-left: 0 dotted #{$_color_table_border};
+      width: 100%;
+      tr {
+        border-bottom: 1px dotted #{$_color_table_border};
+        &:last-child {
+          border-bottom: 0 dotted #{$_color_table_border};
+        }
+      }
+    }
+
+    th, td {
+      border-right: 0 dotted #{$_color_table_border};
+      border-bottom: 0 dotted #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
+    }
+
+    th {
+      color: $_color_th_typo;
+      border-right: 1px dotted #{$_color_table_border};
+      background: $_color_th_bg;
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        display: table;
+        width: 100%;
+        > * {
+          display: table-cell;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+      color: $g-textColor;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font-spacingKilled(18, 1);
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font-spacingKilled(12, 1);
+      padding: 10px 0 0;
+    }
+
+    &__confirmer {
+      @include g-font-spacingKilled(14, 2);
+    }
+
+    &__placer-singleInput {
+      input, select, textarea {
+        display: block;
+        border: 1px solid #9c897a;
+        background: #fff;
+      }
+    }
+
+    &__placer-list {
+      ul {
+        margin: -5px -10px 0 0;
+        padding-top: 5px;
+      }
+
+      li {
+        padding: 5px 4px 0 0;
+        text-indent: -18px;
+        @include g-font(14, 1);
+        display: initial;
+        // IEハック
+        display: inline\0; /* stylelint-disable-line */
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+        }
+      }
+
+      li#{$_block}__listBreak {
+        display: block;
+        height: 0;
+        padding: 0;
+      }
+    }
+
+    .ex-vertical {
+      padding: 0;
+      li {
+        display: list-item;
+        padding: 5px 10px 0 18px;
+      }
+    }
+
+    &__required {
+      $_color_typo: #fff;
+      $_color_bg: #882a18;
+      width: 46px;
+      > span {
+        display: block;
+        font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font-spacingKilled(12, 1);
+        font-weight: normal;
+        padding: 3px 4px 5px;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+      }
+    }
+
+    &__button {
+      &:hover {
+        opacity: .8;
+      }
+      $_color_border: #77090b;
+      $_color_typo: #fff;
+      $_color_bg: #9b0003;
+      max-width: 266px;
+      min-width: 90px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      color: $_color_typo;
+      background: $_color_bg;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 12px 15px;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button2 {
+      &:hover {
+        opacity: .8;
+      }
+      $_color_border: #664f21;
+      $_color_typo: #fff;
+      $_color_bg: #87744f;
+      max-width: 266px;
+      min-width: 90px;
+      margin-right: 60px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      color: $_color_typo;
+      background: $_color_bg;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 12px 15px;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button3 {
+      &:hover {
+        opacity: .8;
+      }
+      $_color_border: #77090b;
+      $_color_typo: #fff;
+      $_color_bg: #9b0003;
+      max-width: 266px;
+      min-width: 90px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      color: $_color_typo;
+      background: $_color_bg;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 12px 15px;
+      border-radius: 0;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+  }
+
+  .t0-b-formTable#{$variation2of2} {
+    $_block: &;
+    $_color_th_typo: $g-textColor;
+    $_color_th_bg: #dfd3a7;
+    $_color_td_bg: #f0e9d7;
+    $_color_table_border: #695012;
+    $_color_error_typo: #a71111;
+    table {
+      border-top: 0 solid #{$_color_table_border};
+      border-bottom: 0 solid #{$_color_table_border};
+      width: 100%;
+    }
+
+    th, td {
+      border-right: 1px solid #{$_color_table_border};
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
+    }
+
+    tr {
+      &:last-child {
+        th, td {
+          border-top: 0;
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th {
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        display: table;
+        width: 100%;
+        > * {
+          display: table-cell;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+      color: $_color_th_typo;
+      border-right: none;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font-spacingKilled(18, 1);
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font-spacingKilled(1, 1);
+      padding: 10px 0 0;
+    }
+
+    &__confirmer {
+      @include g-font-spacingKilled(14, 2);
+    }
+
+    &__placer-singleInput {
+      input, select, textarea {
+        display: block;
+        border: 1px solid #9c897a;
+        background: #fff;
+      }
+    }
+
+    &__placer-list {
+      ul {
+        margin: -5px -10px 0 0;
+        padding-top: 5px;
+      }
+
+      li {
+        padding: 5px 4px 0 0;
+        text-indent: -18px;
+        @include g-font(14, 1);
+        display: initial;
+        // IEハック
+        display: inline\0; /* stylelint-disable-line */
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+        }
+      }
+
+      li#{$_block}__listBreak {
+        display: block;
+        height: 0;
+        padding: 0;
+      }
+    }
+
+    .ex-vertical {
+      padding: 0;
+      li {
+        display: list-item;
+        padding: 5px 10px 0 18px;
+      }
+    }
+
+    &__required {
+      $_color_typo: #fff;
+      $_color_bg: #695012;
+      width: 46px;
+      > span {
+        display: block;
+        font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+        color: $_color_typo;
+        background-size: 100% 100%;
+        background-image: url("../imgs/main/2/13.png");
+        @include g-font-spacingKilled(12, 1);
+        font-weight: normal;
+        padding: 2px 4px 6px;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+      }
+    }
+
+    &__button {
+      $_color_border: #77090b;
+      $_color_typo: $g-textColor;
+      $_color_bg: #c6a83a;
+      max-width: 266px;
+      min-width: 90px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      color: $_color_typo;
+      border: 0 solid #{$_color_border};
+      display: inline-block;
+      padding: 15px 15px 17px;
+      background: url("../imgs/main/2/10-1.png"), url("../imgs/main/2/10-2.png"), url("../imgs/main/2/10-4.png"), url("../imgs/main/2/10-3.png");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    &__button2 {
+      $_color_border: #77090b;
+      $_color_typo: $g-textColor;
+      $_color_bg: #c49191;
+      max-width: 266px;
+      min-width: 90px;
+      margin-right: 60px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      color: $_color_typo;
+      border: 0 solid #{$_color_border};
+      display: inline-block;
+      padding: 15px 15px 17px;
+      border-radius: 0;
+      background: url("../imgs/main/2/11-1.png"), url("../imgs/main/2/11-2.png"), url("../imgs/main/2/11-4.png"), url("../imgs/main/2/11-3.png");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    &__button3 {
+      $_color_border: #b74249;
+      $_color_typo: $g-textColor;
+      $_color_bg: #b74249;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      max-width: 266px;
+      min-width: 90px;
+      color: $_color_typo;
+      border: 0 solid #{$_color_border};
+      display: inline-block;
+      padding: 15px 15px 17px;
+      border-radius: 4px;
+      background: url("../imgs/main/2/10-1.png"), url("../imgs/main/2/10-2.png"), url("../imgs/main/2/10-4.png"), url("../imgs/main/2/10-3.png");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-inputText {
+    box-sizing: border-box;
+    padding: .3em 6px;
+    @include g-font(12, 1);
+    width: 100%;
+  }
+
+  .t0-b-textarea {
+    box-sizing: border-box;
+    padding: .3em 6px;
+    display: block;
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    @include g-font(12, 2);
+  }
+
+  .t0-b-required {
+    $_color_typo: #fff;
+    $_color_bg: #cf3e3e;
+    display: inline-block;
+    height: 1px;
+    vertical-align: middle;
+    > span {
+      display: block;
+      color: $_color_typo;
+      background: $_color_bg;
+      border-radius: 2px;
+      @include g-font-spacingKilled(10, 1);
+      padding: 4px 5px;
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: -10px;
+      margin-right: 3px;
+    }
+  }
+
+  .t0-b-button {
+    $_color_border: #999;
+    $_color_typo: $g-textColor;
+    $_color_bg: #ddd;
+    width: 229px;
+    word-break: break-word;
+    color: $_color_typo;
+    background: $_color_bg;
+    border: 1px solid #{$_color_border};
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    /* stylelint-disable */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* stylelint-enable */
+    appearance: none;
+    @include g-font-spacingKilled(16, 1);
+  }
+
+  .t0-b-button2 {
+    $_color_border: #999;
+    $_color_typo: $g-textColor;
+    $_color_bg: #ddd;
+    width: 229px;
+    margin-bottom: 5px;
+    word-break: break-word;
+    color: $_color_typo;
+    background: $_color_bg;
+    border: 1px solid #{$_color_border};
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    /* stylelint-disable */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* stylelint-enable */
+    appearance: none;
+    @include g-font-spacingKilled(16, 1);
+  }
+
+  .t0-b-buttonPlacer {
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      z-index: 19;
+      > .t0-b-formTable#{$variation2of2}__button + span,
+      > .t0-b-formTable#{$variation2of2}__button3 + span {
+        content: "";
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        background-image: url("../imgs/main/2/10-5.png"), url("../imgs/main/2/10-7.png");
+        background-position: left top, right top;
+        background-repeat: no-repeat, no-repeat;
+        background-size: 10px 100%;
+        top: 10px;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        > span {
+          content: "";
+          display: block;
+          position: absolute;
+          pointer-events: none;
+          background-image: url("../imgs/main/2/10-8.png"), url("../imgs/main/2/10-6.png");
+          background-position: left top, left bottom;
+          background-repeat: repeat-x, repeat-x;
+          top: -10px;
+          bottom: -12px;
+          left: 10px;
+          right: 10px;
+          z-index: -1;
+          > span {
+            content: "";
+            background-image: url("../imgs/main/2/10-9.png");
+            background-position: left top;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            display: block;
+            position: absolute;
+            pointer-events: none;
+            top: 10px;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+          }
+        }
+      }
+
+      > .t0-b-formTable#{$variation2of2}__button2 + span {
+        content: "";
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        background-image: url("../imgs/main/2/11-5.png"), url("../imgs/main/2/11-7.png");
+        background-position: left top, right top;
+        background-repeat: repeat-y, repeat-y;
+        top: 10px;
+        bottom: 12px;
+        left: 0;
+        right: 10px;
+        z-index: -1;
+        > span {
+          content: "";
+          display: block;
+          position: absolute;
+          pointer-events: none;
+          background-image: url("../imgs/main/2/11-8.png"), url("../imgs/main/2/11-6.png");
+          background-position: left top, left bottom;
+          background-repeat: repeat-x, repeat-x;
+          top: -10px;
+          bottom: -12px;
+          left: 10px;
+          right: 10px;
+          z-index: -1;
+          > span {
+            content: "";
+            background-image: url("../imgs/main/2/11-9.png");
+            background-position: left top;
+            background-repeat: repeat;
+            display: block;
+            position: absolute;
+            pointer-events: none;
+            top: 10px;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+          }
+        }
+      }
+
+      > * {
+        display: block;
+      }
+    }
+
+    text-align: center;
+    margin: 0 -5px;
+    p {
+      @include g-font-spacingKilled(12, 1);
+      text-align: center;
+      padding: 15px 0 0;
+      &::before,
+      &::after {
+        margin-top: 0;
+      }
+    }
+
+    input {
+      white-space: inherit;
+    }
+  }
+
+  .t0-b-formTable#{$variation1of2} {
+    $_block: &;
+    $_color_th_typo: #000;
+    $_color_th_bg: none;
+    $_color_td_bg: none;
+    $_color_table_border: #8e6e3b;
+    $_color_error_typo: #a71111;
+    table, tbody, tr, th, td {
+      display: block;
+    }
+
+    table {
+      border-top: 1px dotted #{$_color_table_border};
+      border-left: 1px dotted #{$_color_table_border};
+      margin: 0;
+    }
+
+    th, td {
+      border-right: 1px dotted #{$_color_table_border};
+      border-bottom: 1px dotted #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px;
+    }
+
+    th {
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        display: table;
+        width: 100%;
+        direction: rtl;
+        > * {
+          display: table-cell;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font-spacingKilled(14, 1);
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font-spacingKilled(14, 1);
+      padding: 10px 0 0;
+    }
+
+    &__confirmer {
+      @include g-font-spacingKilled(14, 2);
+    }
+
+    &__placer-singleInput {
+      input, select, textarea {
+        display: block;
+        border: 1px solid #9c897a;
+        background: #fff;
+      }
+    }
+
+    &__placer-list {
+      ul {
+        margin: -5px -10px 0 0;
+      }
+
+      li {
+        padding: 5px 4px 0 0;
+        text-indent: -18px;
+        display: inline;
+        @include g-font(14, 1);
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+        }
+      }
+
+      li#{$_block}__listBreak {
+        display: block;
+        height: 0;
+        padding: 0;
+      }
+    }
+
+    .ex-vertical {
+      li {
+        display: list-item;
+        padding: 5px 10px 0 18px;
+      }
+    }
+
+    &__required {
+      $_color_typo: #fff;
+      $_color_bg: #882a18;
+      width: 40px;
+      padding: 0 10px 0 0;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font-spacingKilled(10, 1);
+        padding: 3px 5px 4px;
+        text-align: center;
+        margin-top: -9px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+      }
+    }
+
+    .t0-b-formTable__required > span {
+      background: #882a18;
+    }
+
+    &__button {
+      $_color_border: #77090b;
+      $_color_typo: #fff;
+      $_color_bg: #9b0003;
+      color: $_color_typo;
+      max-width: 229px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      word-break: break-word;
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 6px 12px;
+      background: $_color_bg;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button2 {
+      $_color_border: #664f21;
+      $_color_typo: #fff;
+      $_color_bg: #87744f;
+      color: $_color_typo;
+      max-width: 113px;
+      margin-right: 10px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      word-break: break-word;
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 6px 12px;
+      background: $_color_bg;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button3 {
+      $_color_border: #77090b;
+      $_color_typo: #fff;
+      $_color_bg: #9b0003;
+      color: $_color_typo;
+      max-width: 229px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      word-break: break-word;
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 1px solid #{$_color_border};
+      display: inline-block;
+      padding: 6px 12px;
+      background: $_color_bg;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+  }
+
+  .t0-b-buttonPlacer {
+    div + div {
+      .t0-b-formTable#{$variation1of2}__button3 {
+        max-width: 113px;
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation2of2} {
+    $_block: &;
+    $_color_th_typo: #000;
+    $_color_th_bg: #dfd3a7;
+    $_color_td_bg: #f0e9d7;
+    $_color_table_border: #695012;
+    $_color_error_typo: #a71111;
+    table, tbody, tr, th, td {
+      display: block;
+    }
+
+    table {
+      border-top: 1px solid #{$_color_table_border};
+      margin: 0;
+    }
+
+    tr {
+      &:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+
+    th, td {
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px;
+    }
+
+    th {
+      color: $_color_th_typo;
+      background: $_color_th_bg;
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        display: table;
+        width: 100%;
+        direction: rtl;
+        > * {
+          display: table-cell;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font-spacingKilled(14, 1);
+      font-weight: bold;
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font-spacingKilled(14, 1);
+      padding: 10px 0 0;
+    }
+
+    &__confirmer {
+      @include g-font-spacingKilled(14, 2);
+    }
+
+    &__placer-singleInput {
+      input, select, textarea {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &__placer-list {
+      ul {
+        margin: -5px -10px 0 0;
+      }
+
+      li {
+        padding: 5px 4px 0 0;
+        text-indent: -18px;
+        display: inline;
+        @include g-font(14, 1);
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+        }
+      }
+
+      li#{$_block}__listBreak {
+        display: block;
+        height: 0;
+        padding: 0;
+      }
+    }
+
+    .ex-vertical {
+      li {
+        display: list-item;
+        padding: 5px 10px 0 18px;
+      }
+    }
+
+    &__required {
+      $_color_typo: #fff;
+      $_color_bg: #695012;
+      width: 40px;
+      padding: 0 10px 0 0;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font-spacingKilled(10, 1);
+        padding: 3px 5px 4px;
+        text-align: center;
+        margin-top: -9px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+      }
+    }
+
+    .t0-b-formTable__required > span {
+      background: #695012;
+    }
+
+    &__button {
+      $_color_border: #77090b;
+      $_color_typo: $g-textColor;
+      $_color_bg: #c6a83a;
+      max-width: 229px;
+      word-break: break-word;
+      overflow: hidden;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      border: 0 solid #{$_color_border};
+      display: inline-block;
+      padding: 10px 12px 11px;
+      background: url("../imgs/main/2/10-1.png"), url("../imgs/main/2/10-2.png"), url("../imgs/main/2/10-4.png"), url("../imgs/main/2/10-3.png");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button2 {
+      $_color_border: #77090b;
+      $_color_typo: $g-textColor;
+      $_color_bg: #c49191;
+      max-width: 113px;
+      word-break: break-word;
+      overflow: hidden;
+      margin-right: 10px;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      color: $_color_typo;
+      border: 0 solid #{$_color_border};
+      display: inline-block;
+      padding: 10px 12px 11px;
+      border-radius: 0;
+      background: url("../imgs/main/2/11-1.png"), url("../imgs/main/2/11-2.png"), url("../imgs/main/2/11-4.png"), url("../imgs/main/2/11-3.png");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+
+    &__button3 {
+      $_color_border: #b74249;
+      $_color_typo: $g-textColor;
+      $_color_bg: #b74249;
+      font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
+      font-weight: 400;
+      max-width: 229px;
+      word-break: break-word;
+      overflow: hidden;
+      color: $_color_typo;
+      border: 0 solid #{$_color_border};
+      display: inline-block;
+      padding: 10px 12px 11px;
+      border-radius: 4px;
+      background: url("../imgs/main/2/10-1.png"), url("../imgs/main/2/10-2.png"), url("../imgs/main/2/10-4.png"), url("../imgs/main/2/10-3.png");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+      /* stylelint-disable */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* stylelint-enable */
+      appearance: none;
+      @include g-font-spacingKilled(16, 1);
+    }
+  }
+
+  .t0-b-buttonPlacer {
+    div + div {
+      .t0-b-formTable#{$variation2of2}__button3 {
+        max-width: 113px;
+      }
+    }
+  }
+}

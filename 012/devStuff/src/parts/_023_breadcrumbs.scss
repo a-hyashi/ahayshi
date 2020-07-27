@@ -1,0 +1,136 @@
+@if $device == PC {
+  .b-breadcrumbs {
+    color: #594c46;
+    a {
+      text-decoration: none;
+      color: #5a4d47;
+      &:hover {
+        color: #86766e;
+        text-decoration: underline;
+      }
+    }
+
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      text-align: right;
+      @include g-font-spacingKilled(12, 1);
+      > div {
+        margin: -5px 0 0 -3px;
+      }
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 5px 0 0 3px;
+      white-space: nowrap;
+      color: #594c46;
+      > a {
+        color: #594c46;
+      }
+
+      &::before {
+        content: url("../imgs/b-breadcrumbs/1.png");
+        display: inline-block;
+        margin: -1px 5px 0 0;
+        vertical-align: middle;
+        line-height: 0;
+      }
+
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--inHeader {
+      margin: 15px 0;
+      > div {
+        width: 1060px;
+      }
+    }
+
+    &--inMain > div {
+      width: 100%;
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+
+    &--align-c > div {
+      text-align: center;
+    }
+
+    &--align-r > div {
+      text-align: right;
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+}
+
+@if $device == SP {
+  .b-breadcrumbs {
+    color: #5a4d47;
+    a {
+      text-decoration: none;
+      color: #5a4d47;
+    }
+
+    > div {
+      width: 100%;
+      margin: 0 auto;
+      text-align: right;
+      @include g-font-spacingKilled(14, 1);
+      > div {
+        margin: -5px 0 0 -10px;
+      }
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 5px 0 0 10px;
+      &::before {
+        content: ">";
+        display: inline-block;
+        margin: -4px 5px 0 0;
+        vertical-align: middle;
+        line-height: 0;
+      }
+
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--inHeader > div {
+      width: 100%;
+    }
+
+    &--inMain > div {
+      width: 100%;
+    }
+
+    &--align-l > div {
+      text-align: left;
+    }
+
+    &--align-c > div {
+      text-align: center;
+    }
+
+    &--align-r > div {
+      text-align: right;
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+}

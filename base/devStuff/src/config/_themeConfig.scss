@@ -31,6 +31,8 @@ div.mod-body {
 }
 
 .mod-body {
+  position: relative;
+  z-index: z(bg, 0);
   button,
   input,
   optgroup,
@@ -89,5 +91,44 @@ a {
         margin-top: 0;
       }
     }
+  }
+}
+
+@mixin layoutWideWidth {
+  @if $layout == "L25" or $layout == "L30" {
+    padding: 40px 1000px;
+    margin: 0 -1000px 0 (-1000px - $areaSubWidth);
+  } @else if $layout == "N00" {
+    padding: 40px $areaMainWidth;
+    margin: 0 (0 - $areaMainWidth);
+  } @else if $layout == "R25" or $layout == "R30" {
+    padding: 40px 1000px;
+    margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
+  }
+  width: $areaContainerWidth;
+}
+
+@mixin layoutWidth {
+  @if $layout == "L25" or $layout == "L30" {
+    width: $areaMainWidth;
+    padding: 40px 1000px;
+    margin: 0 -1000px;
+  } @else if $layout == "N00" {
+    width: $areaMainWidth - $areaSubWidth;
+    padding: 40px (1000px + $areaSubWidth / 2);
+    margin: 0 -1000px;
+  } @else if $layout == "R25" or $layout == "R30" {
+    width: $areaMainWidth;
+    padding: 40px 1000px;
+    margin: 0 -1000px;
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 30px * $size;
   }
 }

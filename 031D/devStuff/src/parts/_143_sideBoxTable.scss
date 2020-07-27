@@ -10,6 +10,8 @@
     $_color_table_td_text: #666;
     font-family: $font-tenorSans;
     color: $g-textColor;
+    position: relative;
+    z-index: z(sideBoxTable, 0);
     p {
       @include g-font(16, 2);
       margin-top: 1em;
@@ -40,13 +42,12 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: decimal;
         &:first-child {
           margin-top: 0;
         }
-
-        @include bugFix_IE_list-item();
       }
     }
 
@@ -67,13 +68,12 @@
 
       li {
         @include g-font(16, 1);
+        @include bugFix_IE_list-item();
         margin-top: $_elementSpacing;
         list-style-type: disc;
         &:first-child {
           margin-top: 0;
         }
-
-        @include bugFix_IE_list-item();
       }
     }
 
@@ -96,7 +96,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
         p,
         ul,
         ol {
@@ -124,15 +124,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {
@@ -247,7 +246,7 @@
         vertical-align: middle;
         // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
-        border-top: 1px solid $_color_table_border;
+        border-bottom: 1px solid $_color_table_border;
         p,
         ul,
         ol {
@@ -275,15 +274,14 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-        &:last-child {
-          border-bottom: 1px solid $_color_table_border;
-        }
       }
 
       tr {
-        border-bottom: 1px solid $_color_table_border;
         &:first-child {
-          border-top: 1px solid $_color_table_border;
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
         }
 
         &:last-child {

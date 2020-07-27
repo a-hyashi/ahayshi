@@ -1,9 +1,5 @@
 @if $device == PC {
   .b-icon-hMarker {
-    @mixin _iconStyles($file) {
-      $_src: "../imgs/b-icon-hMarker/#{$file}.png";
-      background-image: url($_src);
-    }
     background-position: 0 0;
     background-repeat: no-repeat;
     display: inline-block;
@@ -11,7 +7,7 @@
     height: 24px;
     @for $_i from 1 through 8 {
       &--#{$_i} {
-        @include _iconStyles($_i);
+        background-image: url("../imgs/b-icon-hMarker/#{$_i}.png");
       }
     }
   }
@@ -239,7 +235,8 @@
             height: 20px;
             position: absolute;
             top: 50%;
-            top: auto\0;
+            // IEハック
+            top: auto\0; /* stylelint-disable-line */
             margin-top: -10px;
             background-repeat: no-repeat;
             left: -2px;
@@ -280,7 +277,8 @@
           height: 20px;
           position: absolute;
           top: 50%;
-          top: auto\0;
+          // IEハック
+          top: auto\0; /* stylelint-disable-line */
           margin-top: -10px;
           background-repeat: no-repeat;
           left: -2px;
@@ -560,10 +558,6 @@
 
 @if $device == SP {
   .b-icon-hMarker {
-    @mixin _iconStyles($file) {
-      $_src: "../imgs/b-icon-hMarker/#{$file}.png";
-      background-image: url($_src);
-    }
     background-position: 0 0;
     background-repeat: no-repeat;
     display: inline-block;
@@ -571,7 +565,7 @@
     height: 24px;
     @for $_i from 1 through 8 {
       &--#{$_i} {
-        @include _iconStyles($_i);
+        background-image: url("../imgs/b-icon-hMarker/#{$_i}.png");
       }
     }
   }
@@ -966,7 +960,6 @@
     }
   }
 
-  // bPlacer
   // SPのみ、0sと1sの値を10pxにする
   @for $_i from 0 through 1 {
     .b-bPlacer-#{$_i}s {

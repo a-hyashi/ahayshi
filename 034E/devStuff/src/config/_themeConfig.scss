@@ -22,6 +22,8 @@ div.mod-body {
 }
 
 .mod-body {
+  position: relative;
+  z-index: z(bg, 0);
   button, input, optgroup, select, textarea {
     font-family: $font-gothic;
   }
@@ -84,5 +86,14 @@ a {
     > hr:first-child {
       margin-top: 0;
     }
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 30px * $size;
   }
 }
