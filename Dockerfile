@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-WORKDIR /buddy-theme/aigis-master
+WORKDIR /buddy-theme
 
 RUN rpm -i https://rpm.nodesource.com/pub_12.x/el/7/x86_64/nodejs-12.9.1-1nodesource.x86_64.rpm
 RUN npm install -g npm@6.9.0
