@@ -77,31 +77,6 @@ gulp.task('stylelint-check', (done) => {
   done()
 });
 
-// styleguide
-gulp.task('aigis', (done) => {
-  if (!fs.existsSync('./devStuff/css')){
-    fs.mkdirSync('./devStuff/css');
-  }
-  gulp.src('devStuff/aigis_config.yml')
-    .pipe($.aigis())
-  done()
-});
-
-// webserver
-gulp.task('server', (done) => {
-  browserSync({
-    server: {
-      baseDir: './devStuff/styleguide',
-      routes: {
-        "/sassdoc": "./devStuff/sassdoc"
-      },
-      proxy: "localhost:3000"
-    },
-    open: false
-  })
-  done()
-});
-
 // build tasks
 gulp.task('create-build', (done) => {
   var theme = get_theme_name()
