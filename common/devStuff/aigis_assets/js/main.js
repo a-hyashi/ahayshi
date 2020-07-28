@@ -1,11 +1,13 @@
 window.onload = function () {
   var toggle = document.getElementById('toggle');
   var theme = document.getElementById('theme');
+  var html = document.documentElement;
   var sidemenuToggle = document.getElementById('sidemenu-toggle');
   var codeToggle = document.getElementById('code-toggle');
   var viewToggle = document.getElementById('view-toggle');
   var ratio_toggle = document.getElementById('ratio-toggle');
   var width_menu = document.getElementById('width-menu');
+  var fontsizePx = document.getElementById('fontsizePx');
   var spButton = document.getElementById('sp-button');
   var previewWidth = document.getElementById("previewWidth");
   var preview = document.getElementsByClassName("aigis-preview");
@@ -58,6 +60,29 @@ window.onload = function () {
         preview_width = SUB_WIDTH;
     }
     changePreviewAreaWidth(preview_width);
+  }
+
+  fontsizePx.onchange = function() {
+    html.classList = [];
+    var device = "pc";
+    if (theme.getAttribute('href').match(/sp/)) {
+      device = "sp";
+    }
+    var fontSize;
+    switch (this.value) {
+      case "none":
+        fontSize = '';
+        break;
+      case "small":
+        fontSize = "s";
+        break;
+      case "medium":
+        fontSize = "m";
+        break;
+      case "large":
+        fontSize = "l";
+    }
+    html.classList.add(device + "-fontPx-" + fontSize);
   }
 
   spButton.onclick = function() {
