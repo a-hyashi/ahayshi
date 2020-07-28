@@ -12,7 +12,7 @@ const config = require('./gulp_config.json');
 
 // 通常ビルド
 gulp.task('sass-build', (done) => {
-  styleSource = ['devStuff/src/**/*.scss'];
+  styleSource = ['devStuff/src/**/*.scss']
   merge(
     styleSource.map(styleSource=>{
       gulp.src(styleSource)
@@ -41,7 +41,6 @@ gulp.task('sass-build-styleguide', (done) => {
       .pipe($.autoprefixer())
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/styleguide/css'))
-      done();
     })
   )
   done();
@@ -172,34 +171,34 @@ gulp.task('create-b-placer-doc', (done) => {
 
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
-  var b_placer_base = new BPlacerRecord();
-  var b_placers = [];
-  var is_sp = false;
+  var b_placer_base = new BPlacerRecord()
+  var b_placers = []
+  var is_sp = false
   b_placer_lines().forEach(function(line) {
     // $device == "SP" 以降はSPの余白として設定する
-    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
-    if (sp_match) is_sp = true;
+    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/)
+    if (sp_match) is_sp = true
     // //# で始まるコメントはカテゴリー
-    var category_match = line.match(/\/\#\s+(.*)/);
-    if (category_match) b_placer_base.category = category_match[1].trim();
+    var category_match = line.match(/\/\#\s+(.*)/)
+    if (category_match) b_placer_base.category = category_match[1].trim()
     // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
-    var area_and_name_match = line.match(/\/\##\s+(.*)/);
+    var area_and_name_match = line.match(/\/\##\s+(.*)/)
     if (area_and_name_match) {
-      var area_and_name = area_and_name_match[1].trim().split('|');
-      b_placer_base.area = area_and_name[0].trim();
-      b_placer_base.name = area_and_name[1].trim();
+      var area_and_name = area_and_name_match[1].trim().split('|')
+      b_placer_base.area = area_and_name[0].trim()
+      b_placer_base.name = area_and_name[1].trim()
     }
     // .t0-b-で始まる文字はバリエーション
     // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
     // 正規表現がややこしくなるため、スペース等はあまり考慮していません
     // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
     // [0]:全体, [1]:クラス名, [2]:t0-, [3]:バリエーション名, [4]:{}の中身（使わない）, [5]:N00がある場合の余白の値, [6]:N00でない余白の値
-    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
+    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/)
     if (variation_match) {
       if (!is_sp) {
-        b_placers.push(create_b_placer(b_placer_base, variation_match));
+        b_placers.push(create_b_placer(b_placer_base, variation_match))
       } else {
-        update_sp_value(b_placers, variation_match);
+        update_sp_value(b_placers, variation_match)
       }
     }
   })
@@ -291,18 +290,18 @@ gulp.task('make-allparts-datajson2', (done) => {
 
 // datajsonの100以降のフォルダは消す
 gulp.task('delete-data-json', (done) => {
-  const datajson = fs.readdirSync('./temp/datajson/');
-  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
-  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`);
+  const datajson = fs.readdirSync('./temp/datajson/')
+  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/))
+  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`)
   del(datajson_delFolder)
   done();
 });
 
 // datajson2の100未満のフォルダは消す
 gulp.task('delete-data-json2', (done) => {
-  const datajson2 = fs.readdirSync('./temp/datajson2/');
-  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/));
-  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`);
+  const datajson2 = fs.readdirSync('./temp/datajson2/')
+  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/))
+  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`)
   del(datajson2_delFolder)
   done();
 });
@@ -461,7 +460,7 @@ const upload_themes = (variation) => {
 // sftpでファイルがアップロードされる
 const sftp_each_themes = (folder) => {
   const ssh_config = require('../ssh/ssh_config.json');
-  return gulp.src([
+  gulp.src([
     'build/themes/' + folder + '/theme.css'
   ])
   .pipe($.sftp({
@@ -478,7 +477,7 @@ const sftp_each_themes = (folder) => {
 
 const upload_img = () => {
   const ssh_config = require('../ssh/ssh_config.json');
-  return gulp.src([
+  gulp.src([
     // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
   ])
@@ -497,15 +496,13 @@ const upload_img = () => {
 // cssを自動更新
 gulp.task('watch', (done) => {
   // ファイルが多いため部品のwatchはギブアップする
-  gulp.watch(['devStuff/src/**/*.scss'], (done) => {
+  gulp.watch(['devStuff/src/**/*.scss'], () => {
     gulp.series('update-css')
-    done();
   })
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
-  gulp.watch(['devStuff/styleguide/css/*.css'], (done) => {
+  gulp.watch(['devStuff/styleguide/css/*.css'], () => {
     browserSync.reload()
-    done();
   })
   done();
 });
