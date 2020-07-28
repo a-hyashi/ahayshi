@@ -11,30 +11,29 @@ const make_aigis = require('./lib/make_aigis');
 const config = require('./gulp_config.json');
 
 // 通常ビルド
-gulp.task('sass-build', (done) => {
+gulp.task('sass-build', () => {
   styleSource = ['devStuff/src/**/*.scss']
-  merge(
+  return merge(
     styleSource.map(styleSource=>{
-      gulp.src(styleSource)
+      return gulp.src(styleSource)
       .pipe($.sass({outputStyle: 'compressed'}))
       .pipe($.debug())
       .pipe($.autoprefixer())
       .pipe(gulp.dest('devStuff/temp/css'))
     })
   )
-  done();
 });
 
 // スタイルガイド用ビルド
-gulp.task('sass-build-styleguide', (done) => {
+gulp.task('sass-build-styleguide', () => {
   styleSources = [
     'devStuff/src/**/pc-L25.scss',
     'devStuff/src/**/pc-N00.scss',
     'devStuff/src/**/sp.scss'
   ]
-  merge(
+  return merge(
     styleSources.map(styleSource=>{
-      gulp.src(styleSource)
+      return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
       .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.debug())
@@ -43,47 +42,36 @@ gulp.task('sass-build-styleguide', (done) => {
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   )
-  done();
-});
-
-// Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
-gulp.task('stylelint', (done) => {
-  gulp.series(
-    'stylelint-fix',
-    'stylelint-check'
-  )
-  done();
 });
 
 // scssを自動整形
-gulp.task('stylelint-fix', (done) => {
-  gulp.src('devStuff/src/parts/*.scss')
+gulp.task('stylelint-fix', () => {
+  return gulp.src('devStuff/src/parts/*.scss')
   .pipe($.stylelint({
     fix: true,
     failAfterError: false
   }))
   .pipe(gulp.dest('devStuff/src/parts'))
-  done();
 });
 
 // stylelint-fix時にチェックも入れると拾いきれない場合があるので分割している
-gulp.task('stylelint-check', (done) => {
-  gulp.src('devStuff/src/parts/*.scss')
+gulp.task('stylelint-check', () => {
+  return gulp.src('devStuff/src/parts/*.scss')
   .pipe($.stylelint({
     failAfterError: false,
     reporters: [{formatter: 'string', console: true}]
   }))
-  done();
 });
 
-// build tasks
-gulp.task('create-build', (done) => {
-  var theme = get_theme_name()
-  var values = get_deploy_values()
-  output_imgs(theme)
-  output_css(theme, values)
-  del('/devStuff/temp/css')
-  done();
+// Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
+gulp.task('stylelint', gulp.series('stylelint-fix', 'stylelint-check'));
+
+gulp.task('create-build', () => {
+  var theme = get_theme_name();
+  var values = get_deploy_values();
+  output_imgs(theme);
+  output_css(theme, values);
+  return del('/devStuff/temp/css');
 })
 
 const get_theme_name = () => {
@@ -95,7 +83,7 @@ const get_deploy_values = () => {
   var deployValues = [];
   for (var file of filelist) {
     var values = file.split('-');
-    if (values.length == 1 || values[0].substring(0, 2) != 'pc') continue;
+    if(values.length == 1 || values[0].substring(0, 2) != 'pc') continue;
     deployValues.push(create_deploy_hush(values));
   }
   return deployValues;
@@ -121,7 +109,7 @@ const output_imgs = (aTheme) => {
 const output_css = (aTheme, aValues) => {
   for(var value of aValues) {
     var folder = aTheme + '-' + value.ratio;
-    if (value.variation){
+    if(value.variation){
       folder += '-' + value.variation;
     }
     output_rename_pc_css(value, folder);
@@ -141,7 +129,7 @@ const output_rename_sp_css = (value, folder) => {
   .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
 }
 
-gulp.task('update-sassdoc', (done) => {
+gulp.task('update-sassdoc', () => {
   var options = {
     dest: './devStuff/sassdoc',
     verbose: true,
@@ -156,54 +144,50 @@ gulp.task('update-sassdoc', (done) => {
       bar: 'Bar group',
     },
     basePath: 'https://github.com/SassDoc/sassdoc',
-  }
-  gulp.src('devStuff/src/**/*.scss')
-  .pipe(sassdoc(options))
-  done();
+  };
+  return gulp.src('devStuff/src/**/*.scss')
+  .pipe(sassdoc(options));
 });
 
 
-gulp.task('create-b-placer-doc', (done) => {
+gulp.task('create-b-placer-doc', () => {
   // カラバリの場合は実行しない
-  if (get_theme_name().match(/[ABCDEFG]/)) {
-    done();
-  }
+  if (get_theme_name().match(/[ABCDEFG]/)) return;
 
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
-  var b_placer_base = new BPlacerRecord()
-  var b_placers = []
-  var is_sp = false
+  var b_placer_base = new BPlacerRecord();
+  var b_placers = [];
+  var is_sp = false;
   b_placer_lines().forEach(function(line) {
     // $device == "SP" 以降はSPの余白として設定する
-    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/)
-    if (sp_match) is_sp = true
+    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
+    if(sp_match) is_sp = true;
     // //# で始まるコメントはカテゴリー
-    var category_match = line.match(/\/\#\s+(.*)/)
-    if (category_match) b_placer_base.category = category_match[1].trim()
+    var category_match = line.match(/\/\#\s+(.*)/);
+    if(category_match) b_placer_base.category = category_match[1].trim();
     // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
-    var area_and_name_match = line.match(/\/\##\s+(.*)/)
-    if (area_and_name_match) {
-      var area_and_name = area_and_name_match[1].trim().split('|')
-      b_placer_base.area = area_and_name[0].trim()
-      b_placer_base.name = area_and_name[1].trim()
+    var area_and_name_match = line.match(/\/\##\s+(.*)/);
+    if(area_and_name_match) {
+      var area_and_name = area_and_name_match[1].trim().split('|');
+      b_placer_base.area = area_and_name[0].trim();
+      b_placer_base.name = area_and_name[1].trim();
     }
     // .t0-b-で始まる文字はバリエーション
     // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
     // 正規表現がややこしくなるため、スペース等はあまり考慮していません
     // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
     // [0]:全体, [1]:クラス名, [2]:t0-, [3]:バリエーション名, [4]:{}の中身（使わない）, [5]:N00がある場合の余白の値, [6]:N00でない余白の値
-    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/)
-    if (variation_match) {
-      if (!is_sp) {
-        b_placers.push(create_b_placer(b_placer_base, variation_match))
-      } else {
-        update_sp_value(b_placers, variation_match)
+    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
+    if(variation_match) {
+      if(!is_sp) {
+        b_placers.push(create_b_placer(b_placer_base, variation_match));
+      }else{
+        update_sp_value(b_placers, variation_match);
       }
     }
-  })
-  output_b_placer_doc(b_placers)
-  done();
+  });
+  return output_b_placer_doc(b_placers);
 });
 
 const b_placer_lines = () => {
@@ -244,8 +228,8 @@ const create_b_placer = (b_placer_base, variation_match) => {
   // カテゴリー、エリア、名前は前にコメントで出てきた値を使う
   var b_placer = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base)), b_placer_base);
   b_placer.class_name = variation_match[1].trim();
-  if (variation_match[3]) b_placer.variation = variation_match[3].trim();
-  if (variation_match[5]) b_placer.pc_n00_value = variation_match[5].trim();
+  if(variation_match[3]) b_placer.variation = variation_match[3].trim();
+  if(variation_match[5]) b_placer.pc_n00_value = variation_match[5].trim();
   b_placer.pc_value = variation_match[6].trim();
   return b_placer;
 }
@@ -268,99 +252,91 @@ const output_b_placer_doc = (b_placers) => {
   fs.writeFileSync('devStuff/docs/bPlacer.md', (table.join('\n')));
 }
 
+// ビルド
+gulp.task('build', gulp.series('sass-build', 'create-b-placer-doc', 'create-build'));
+
 // スタイルガイド作成用jsonを作成
-gulp.task('make-allparts-datajson', (done) => {
-  make_allDatajson.makeAllDatajsonFull(
+gulp.task('make-allparts-datajson', () => {
+  return make_allDatajson.makeAllDatajsonFull(
     config.html_templates_dir,
     './temp/datajson/',
     './btool-settings/parts-categories.json'
   )
-  done();
 });
 
 // make-htmlで詰まらないように分割している
-gulp.task('make-allparts-datajson2', (done) => {
-  make_allDatajson.makeAllDatajsonFull(
+gulp.task('make-allparts-datajson2', () => {
+  return make_allDatajson.makeAllDatajsonFull(
     config.html_templates_dir,
     './temp/datajson2/',
     './btool-settings/parts-categories2.json'
   )
-  done();
 });
 
 // datajsonの100以降のフォルダは消す
-gulp.task('delete-data-json', (done) => {
-  const datajson = fs.readdirSync('./temp/datajson/')
-  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/))
-  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`)
-  del(datajson_delFolder)
-  done();
+gulp.task('delete-data-json', () => {
+  const datajson = fs.readdirSync('./temp/datajson/');
+  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
+  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`);
+  return del(datajson_delFolder)
 });
 
 // datajson2の100未満のフォルダは消す
-gulp.task('delete-data-json2', (done) => {
-  const datajson2 = fs.readdirSync('./temp/datajson2/')
-  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/))
-  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`)
-  del(datajson2_delFolder)
-  done();
+gulp.task('delete-data-json2', () => {
+  const datajson2 = fs.readdirSync('./temp/datajson2/');
+  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/));
+  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`);
+  return del(datajson2_delFolder)
 });
 
 // スタイルガイド作成用htmlを作成
-gulp.task('make-html', (done) => {
-  make_html.makeHtml(
+gulp.task('make-html', () => {
+  return make_html.makeHtml(
     './temp/html/',
     './temp/datajson/',
     config.html_templates_dir,
     false
   )
-  done();
 });
 
 // 一度に開きすぎてエラーになるので分割している
-gulp.task('make-html2', (done) => {
-  make_html.makeHtml(
+gulp.task('make-html2', () => {
+  return make_html.makeHtml(
     './temp/html2/',
     './temp/datajson2/',
     config.html_templates_dir,
     false
   )
-  done();
 });
 
 // 作成したhtmlをフォルダ統合
-gulp.task('marge-html', (done) => {
-  gulp.src(['./temp/html2/**', './temp/html/**'])
+gulp.task('marge-html', () => {
+  return gulp.src(['./temp/html2/**', './temp/html/**'])
   .pipe(gulp.dest('./temp/html/'))
-  done();
 });
 
 // スタイルガイド用mdファイル作成
-gulp.task('make-unittest', (done) => {
-  make_aigis.makeAigis('./temp/html/', './temp/unittest/', './devStuff/')
-  done();
+gulp.task('make-unittest', () => {
+  return make_aigis.makeAigis('./temp/html/', './temp/unittest/', './devStuff/')
 });
 
 // styleguide作成
-gulp.task('make-aigis', (done) => {
+gulp.task('make-aigis', () => {
   if (!fs.existsSync('./devStuff/styleguide/css')){
     fs.mkdirSync('./devStuff/styleguide/css', {recursive: true});
   }
-  gulp.src('devStuff/aigis_config.yml')
+  return gulp.src('devStuff/aigis_config.yml')
   .pipe($.aigis())
-  done();
 });
 
 // 作業前に一時フォルダを削除
-gulp.task('del-datafile', (done) => {
-  del(['./temp', './devStuff/styleguide'])
-  done();
+gulp.task('del-datafile', () => {
+  return del(['./temp', './devStuff/styleguide'])
 });
 
 // 作業後に一時フォルダを削除
-gulp.task('del-tempfile', (done) => {
-  del('./temp')
-  done();
+gulp.task('del-tempfile', () => {
+  return del('./temp')
 });
 
 // スタイルガイド作成
@@ -387,34 +363,20 @@ gulp.task('update-styleguide', (done) => {
 });
 
 // スタイルガイド用cssを更新
-gulp.task('update-css', (done) => {
-  gulp.parallel(
-    'sass-build-styleguide',
-    'create-b-placer-doc'
-  )
+gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-doc', (done) => {
   done();
-});
+}));
 
 // スタイルガイド用imgsを更新
-gulp.task('update-imgs', (done) => {
-  gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
+gulp.task('update-imgs', () => {
+  return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
   .pipe($.changed('./devStuff/styleguide/imgs/'))
   .pipe(gulp.dest('./devStuff/styleguide/imgs/'))
-  done();
-});
-
-// ビルド
-gulp.task('build', (done) => {
-  gulp.series(
-    gulp.parallel('sass-build', 'create-b-placer-doc'),
-    'create-build'
-  )
-  done();
 });
 
 // build/とACRE-theme/acre/の間で差分があるファイルを転送する
-gulp.task('output', (done) => {
-  gulp.src('./build/')
+gulp.task('output', () => {
+  return gulp.src('./build/')
   .pipe($.rsync({
     root: './build/',
     destination: '../../ACRE-theme/acre/',
@@ -423,28 +385,23 @@ gulp.task('output', (done) => {
     recursive: true,
     exclude: '**/.*'
   }))
-  done();
 });
 
 // sftp upload
 // FTPサーバーにテーマフォルダのtheme.cssをアップロードする
 // 全部まとめてやると容量が多すぎてエラーになるのでテーマの値違いで分割してある
-gulp.task('upload-css', (done) => {
-  upload_themes('')
-  done();
+gulp.task('upload-css', () => {
+  return upload_themes('')
 });
-gulp.task('upload-css-2', (done) => {
-  upload_themes('-2')
-  done();
+gulp.task('upload-css-2', () => {
+  return upload_themes('-2')
 });
-gulp.task('upload-css-3', (done) => {
-  upload_themes('-3')
-  done();
+gulp.task('upload-css-3', () => {
+  return upload_themes('-3')
 });
 // 画像をアップロード
-gulp.task('upload-img', (done) => {
-  upload_img()
-  done();
+gulp.task('upload-img', () => {
+  return upload_img()
 });
 
 const upload_themes = (variation) => {
@@ -460,7 +417,7 @@ const upload_themes = (variation) => {
 // sftpでファイルがアップロードされる
 const sftp_each_themes = (folder) => {
   const ssh_config = require('../ssh/ssh_config.json');
-  gulp.src([
+  return gulp.src([
     'build/themes/' + folder + '/theme.css'
   ])
   .pipe($.sftp({
@@ -477,7 +434,7 @@ const sftp_each_themes = (folder) => {
 
 const upload_img = () => {
   const ssh_config = require('../ssh/ssh_config.json');
-  gulp.src([
+  return gulp.src([
     // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
   ])
@@ -494,22 +451,21 @@ const upload_img = () => {
 }
 
 // cssを自動更新
-gulp.task('watch', (done) => {
+gulp.task('watch', () => {
   // ファイルが多いため部品のwatchはギブアップする
   gulp.watch(['devStuff/src/**/*.scss'], () => {
     gulp.series('update-css')
   })
   // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
   // 複数回reloadが実行されるのは直したい
-  gulp.watch(['devStuff/styleguide/css/*.css'], () => {
-    browserSync.reload()
+  return gulp.watch(['devStuff/styleguide/css/*.css'], () => {
+    return browserSync.reload()
   })
-  done();
 });
 
 // webserver立ち上げ
-gulp.task('server', (done) => {
-  browserSync({
+gulp.task('server', () => {
+  return browserSync({
     server: {
       baseDir: './devStuff/styleguide',
       routes: {
@@ -519,14 +475,13 @@ gulp.task('server', (done) => {
     },
     open: false
   })
-  done();
 });
 
 // スタイルガイド起動
-gulp.task('default', gulp.parallel('update-css', 'update-imgs'), (done) => {
+gulp.task('default', gulp.parallel('update-css', 'update-imgs', (done) => {
   gulp.series(
     'server',
     'watch'
   )
-  done();
-});
+  done()
+}));
