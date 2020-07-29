@@ -36,12 +36,12 @@ gulp.task('stylelint', gulp.series('stylelint-fix', 'stylelint-check'));
 gulp.task('sass-build', (done) => {
   styleSource = ['devStuff/src/**/*.scss'];
   merge(
-    styleSource.map(styleSource=>{
+    styleSource.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sass({outputStyle: 'compressed'}))
       .pipe($.debug())
       .pipe($.autoprefixer())
-      .pipe(gulp.dest('devStuff/temp/css'))
+      .pipe(gulp.dest('devStuff/temp/css'));
     })
   )
   done();
@@ -53,9 +53,9 @@ gulp.task('sass-build-styleguide', (done) => {
     'devStuff/src/**/pc-L25.scss',
     'devStuff/src/**/pc-N00.scss',
     'devStuff/src/**/sp.scss'
-  ]
+  ];
   merge(
-    styleSources.map(styleSource=>{
+    styleSources.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
       .pipe($.sass({outputStyle: 'expanded'}))
@@ -101,9 +101,9 @@ const output_imgs = (aTheme) => {
 }
 
 const output_css = (aTheme, aValues) => {
-  for(var value of aValues) {
+  for (var value of aValues) {
     var folder = aTheme + '-' + value.ratio;
-    if (value.variation){
+    if (value.variation) {
       folder += '-' + value.variation;
     }
     output_rename_pc_css(value, folder);
@@ -334,7 +334,7 @@ gulp.task('make-unittest', () => {
 
 // styleguide作成
 gulp.task('make-aigis', () => {
-  if (!fs.existsSync('./devStuff/styleguide/css')){
+  if (!fs.existsSync('./devStuff/styleguide/css')) {
     fs.mkdirSync('./devStuff/styleguide/css', {recursive: true});
   }
   return gulp.src('devStuff/aigis_config.yml')
@@ -360,8 +360,7 @@ gulp.task('update-styleguide',
     // html作成用のjsonを2つのフォルダに分ける
     gulp.parallel('delete-data-json', 'delete-data-json2'),
     // ファイルが多すぎてnode.jsがエラーになるので2つに分けてhtml作成
-    'make-html',
-    'make-html2',
+    'make-html', 'make-html2',
     // htmlフォルダを結合
     'marge-html',
     // htmlからmdファイル作成
@@ -388,8 +387,8 @@ gulp.task('output', () => {
 
 const upload_themes = (variation) => {
   var theme = get_theme_name();
-  for(var ratio of ['L25', 'L30', 'N00', 'R25', 'R30']) {
-    for(var device of ['pc', 'sp']) {
+  for (var ratio of ['L25', 'L30', 'N00', 'R25', 'R30']) {
+    for (var device of ['pc', 'sp']) {
       // variationでテーマの2番と3番に対応
       sftp_each_themes(theme + '-' + ratio + variation + '/' + device + '/');
     }
@@ -479,8 +478,7 @@ gulp.task('server', () => {
 // スタイルガイド起動
 gulp.task('default',
   gulp.series(
-    gulp.parallel('update-css', 'update-imgs',
-    'server',
-    'watch'
+    gulp.parallel('update-css', 'update-imgs'),
+    'server', 'watch'
   )
-));
+);
