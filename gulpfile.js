@@ -77,7 +77,7 @@ const get_deploy_values = () => {
   var deployValues = [];
   for (var file of filelist) {
     var values = file.split('-');
-    if(values.length == 1 || values[0].substring(0, 2) != 'pc') continue;
+    if (values.length == 1 || values[0].substring(0, 2) != 'pc') continue;
     deployValues.push(create_deploy_hush(values));
   }
   return deployValues;
@@ -103,7 +103,7 @@ const output_imgs = (aTheme) => {
 const output_css = (aTheme, aValues) => {
   for(var value of aValues) {
     var folder = aTheme + '-' + value.ratio;
-    if(value.variation){
+    if (value.variation){
       folder += '-' + value.variation;
     }
     output_rename_pc_css(value, folder);
@@ -189,8 +189,8 @@ const create_b_placer = (b_placer_base, variation_match) => {
   // カテゴリー、エリア、名前は前にコメントで出てきた値を使う
   var b_placer = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base)), b_placer_base);
   b_placer.class_name = variation_match[1].trim();
-  if(variation_match[3]) b_placer.variation = variation_match[3].trim();
-  if(variation_match[5]) b_placer.pc_n00_value = variation_match[5].trim();
+  if (variation_match[3]) b_placer.variation = variation_match[3].trim();
+  if (variation_match[5]) b_placer.pc_n00_value = variation_match[5].trim();
   b_placer.pc_value = variation_match[6].trim();
   return b_placer;
 }
@@ -225,13 +225,13 @@ gulp.task('create-b-placer-doc', (done) => {
   b_placer_lines().forEach(function(line) {
     // $device == "SP" 以降はSPの余白として設定する
     sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
-    if(sp_match) is_sp = true;
+    if (sp_match) is_sp = true;
     // //# で始まるコメントはカテゴリー
     var category_match = line.match(/\/\#\s+(.*)/);
-    if(category_match) b_placer_base.category = category_match[1].trim();
+    if (category_match) b_placer_base.category = category_match[1].trim();
     // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
     var area_and_name_match = line.match(/\/\##\s+(.*)/);
-    if(area_and_name_match) {
+    if (area_and_name_match) {
       var area_and_name = area_and_name_match[1].trim().split('|');
       b_placer_base.area = area_and_name[0].trim();
       b_placer_base.name = area_and_name[1].trim();
@@ -242,10 +242,10 @@ gulp.task('create-b-placer-doc', (done) => {
     // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
     // [0]:全体, [1]:クラス名, [2]:t0-, [3]:バリエーション名, [4]:{}の中身（使わない）, [5]:N00がある場合の余白の値, [6]:N00でない余白の値
     var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
-    if(variation_match) {
-      if(!is_sp) {
+    if (variation_match) {
+      if (!is_sp) {
         b_placers.push(create_b_placer(b_placer_base, variation_match));
-      }else{
+      } else {
         update_sp_value(b_placers, variation_match);
       }
     }
