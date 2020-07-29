@@ -123,13 +123,12 @@ const output_rename_sp_css = (value, folder) => {
   .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
 }
 
-gulp.task('create-build', (done) => {
+gulp.task('create-build', () => {
   var theme = get_theme_name()
   var values = get_deploy_values()
   output_imgs(theme)
   output_css(theme, values)
-  del('/devStuff/temp/css')
-  done();
+  return del('/devStuff/temp/css')
 })
 
 gulp.task('update-sassdoc', () => {
@@ -262,106 +261,94 @@ gulp.task('build', gulp.series('sass-build', 'create-b-placer-doc', 'create-buil
 gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-doc'));
 
 // スタイルガイド用imgsを更新
-gulp.task('update-imgs', (done) => {
-  gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
+gulp.task('update-imgs', () => {
+  return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
   .pipe($.changed('./devStuff/styleguide/imgs/'))
   .pipe(gulp.dest('./devStuff/styleguide/imgs/'))
-  done();
 });
 
 // スタイルガイド作成用jsonを作成
-gulp.task('make-allparts-datajson', (done) => {
-  make_allDatajson.makeAllDatajsonFull(
+gulp.task('make-allparts-datajson', () => {
+  return make_allDatajson.makeAllDatajsonFull(
     config.html_templates_dir,
     './temp/datajson/',
     './btool-settings/parts-categories.json'
   )
-  done();
 });
 
 // make-htmlで詰まらないように分割している
-gulp.task('make-allparts-datajson2', (done) => {
-  make_allDatajson.makeAllDatajsonFull(
+gulp.task('make-allparts-datajson2', () => {
+  return make_allDatajson.makeAllDatajsonFull(
     config.html_templates_dir,
     './temp/datajson2/',
     './btool-settings/parts-categories2.json'
   )
-  done();
 });
 
 // datajsonの100以降のフォルダは消す
-gulp.task('delete-data-json', (done) => {
+gulp.task('delete-data-json', () => {
   const datajson = fs.readdirSync('./temp/datajson/')
   const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/))
   const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`)
-  del(datajson_delFolder)
-  done();
+  return del(datajson_delFolder)
 });
 
 // datajson2の100未満のフォルダは消す
-gulp.task('delete-data-json2', (done) => {
+gulp.task('delete-data-json2', () => {
   const datajson2 = fs.readdirSync('./temp/datajson2/')
   const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/))
   const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`)
-  del(datajson2_delFolder)
-  done();
+  return del(datajson2_delFolder)
 });
 
 // スタイルガイド作成用htmlを作成
-gulp.task('make-html', (done) => {
-  make_html.makeHtml(
+gulp.task('make-html', () => {
+  return make_html.makeHtml(
     './temp/html/',
     './temp/datajson/',
     config.html_templates_dir,
     false
   )
-  done();
 });
 
 // 一度に開きすぎてエラーになるので分割している
-gulp.task('make-html2', (done) => {
-  make_html.makeHtml(
+gulp.task('make-html2', () => {
+  return make_html.makeHtml(
     './temp/html2/',
     './temp/datajson2/',
     config.html_templates_dir,
     false
   )
-  done();
 });
 
 // 作成したhtmlをフォルダ統合
-gulp.task('marge-html', (done) => {
-  gulp.src(['./temp/html2/**', './temp/html/**'])
+gulp.task('marge-html', () => {
+  return gulp.src(['./temp/html2/**', './temp/html/**'])
   .pipe(gulp.dest('./temp/html/'))
-  done();
 });
 
 // スタイルガイド用mdファイル作成
-gulp.task('make-unittest', (done) => {
-  make_aigis.makeAigis('./temp/html/', './temp/unittest/', './devStuff/')
-  done();
+gulp.task('make-unittest', () => {
+  return make_aigis.makeAigis('./temp/html/', './temp/unittest/', './devStuff/')
 });
 
 // styleguide作成
-gulp.task('make-aigis', (done) => {
+gulp.task('make-aigis', () => {
   if (!fs.existsSync('./devStuff/styleguide/css')){
     fs.mkdirSync('./devStuff/styleguide/css', {recursive: true});
   }
-  gulp.src('devStuff/aigis_config.yml')
+  return gulp.src('devStuff/aigis_config.yml')
   .pipe($.aigis())
-  done();
 });
 
 // 作業前に一時フォルダを削除
-gulp.task('del-datafile', (done) => {
-  del(['./temp', './devStuff/styleguide'])
-  done();
+gulp.task('del-datafile', () => {
+  return del(['./temp', './devStuff/styleguide'])
 });
 
 // 作業後に一時フォルダを削除
-gulp.task('del-tempfile', (done) => {
-  del('./temp')
-  done();
+gulp.task('del-tempfile', () => {
+  return del('./temp')
 });
 
 // スタイルガイド作成
