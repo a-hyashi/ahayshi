@@ -10,40 +10,6 @@ const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
 const config = require('./gulp_config.json');
 
-// 通常ビルド
-gulp.task('sass-build', () => {
-  styleSource = ['devStuff/src/**/*.scss']
-  return merge(
-    styleSource.map(styleSource=>{
-      return gulp.src(styleSource)
-      .pipe($.sass({outputStyle: 'compressed'}))
-      .pipe($.debug())
-      .pipe($.autoprefixer())
-      .pipe(gulp.dest('devStuff/temp/css'))
-    })
-  )
-});
-
-// スタイルガイド用ビルド
-gulp.task('sass-build-styleguide', () => {
-  styleSources = [
-    'devStuff/src/**/pc-L25.scss',
-    'devStuff/src/**/pc-N00.scss',
-    'devStuff/src/**/sp.scss'
-  ]
-  return merge(
-    styleSources.map(styleSource=>{
-      return gulp.src(styleSource)
-      .pipe($.sourcemaps.init())
-      .pipe($.sass({outputStyle: 'expanded'}))
-      .pipe($.debug())
-      .pipe($.autoprefixer())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('devStuff/styleguide/css'))
-    })
-  )
-});
-
 // scssを自動整形
 gulp.task('stylelint-fix', () => {
   return gulp.src('devStuff/src/parts/*.scss')
@@ -66,12 +32,48 @@ gulp.task('stylelint-check', () => {
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
 gulp.task('stylelint', gulp.series('stylelint-fix', 'stylelint-check'));
 
-gulp.task('create-build', () => {
-  var theme = get_theme_name();
-  var values = get_deploy_values();
-  output_imgs(theme);
-  output_css(theme, values);
-  return del('/devStuff/temp/css');
+// 通常ビルド
+gulp.task('sass-build', (done) => {
+  styleSource = ['devStuff/src/**/*.scss']
+  merge(
+    styleSource.map(styleSource=>{
+      return gulp.src(styleSource)
+      .pipe($.sass({outputStyle: 'compressed'}))
+      .pipe($.debug())
+      .pipe($.autoprefixer())
+      .pipe(gulp.dest('devStuff/temp/css'))
+    })
+  )
+  done();
+});
+
+// スタイルガイド用ビルド
+gulp.task('sass-build-styleguide', () => {
+  styleSources = [
+    'devStuff/src/**/pc-L25.scss',
+    'devStuff/src/**/pc-N00.scss',
+    'devStuff/src/**/sp.scss'
+  ]
+  return merge(
+    styleSources.map(styleSource=>{
+      return gulp.src(styleSource)
+      .pipe($.sourcemaps.init())
+      .pipe($.sass({outputStyle: 'expanded'}))
+      .pipe($.debug())
+      .pipe($.autoprefixer())
+      .pipe($.sourcemaps.write())
+      .pipe(gulp.dest('devStuff/styleguide/css'))
+    })
+  )
+});
+
+gulp.task('create-build', (done) => {
+  var theme = get_theme_name()
+  var values = get_deploy_values()
+  output_imgs(theme)
+  output_css(theme, values)
+  del('/devStuff/temp/css')
+  done();
 })
 
 const get_theme_name = () => {
@@ -149,16 +151,15 @@ gulp.task('update-sassdoc', () => {
   .pipe(sassdoc(options));
 });
 
-
-gulp.task('create-b-placer-doc', () => {
+gulp.task('create-b-placer-doc', (done) => {
   // カラバリの場合は実行しない
-  if (get_theme_name().match(/[ABCDEFG]/)) return;
+  if (get_theme_name().match(/[ABCDEFG]/)) return
 
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
-  var b_placer_base = new BPlacerRecord();
-  var b_placers = [];
-  var is_sp = false;
+  var b_placer_base = new BPlacerRecord()
+  var b_placers = []
+  var is_sp = false
   b_placer_lines().forEach(function(line) {
     // $device == "SP" 以降はSPの余白として設定する
     sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
@@ -186,8 +187,9 @@ gulp.task('create-b-placer-doc', () => {
         update_sp_value(b_placers, variation_match);
       }
     }
-  });
-  return output_b_placer_doc(b_placers);
+  })
+  output_b_placer_doc(b_placers)
+  done();
 });
 
 const b_placer_lines = () => {
@@ -363,9 +365,7 @@ gulp.task('update-styleguide', (done) => {
 });
 
 // スタイルガイド用cssを更新
-gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-doc', (done) => {
-  done();
-}));
+gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-doc'));
 
 // スタイルガイド用imgsを更新
 gulp.task('update-imgs', () => {
@@ -483,5 +483,5 @@ gulp.task('default', gulp.parallel('update-css', 'update-imgs', (done) => {
     'server',
     'watch'
   )
-  done()
+  done();
 }));
