@@ -68,15 +68,6 @@ gulp.task('sass-build-styleguide', (done) => {
   done();
 });
 
-gulp.task('create-build', (done) => {
-  var theme = get_theme_name()
-  var values = get_deploy_values()
-  output_imgs(theme)
-  output_css(theme, values)
-  del('/devStuff/temp/css')
-  done();
-})
-
 const get_theme_name = () => {
   return __dirname.split('/').pop();
 }
@@ -132,6 +123,15 @@ const output_rename_sp_css = (value, folder) => {
   .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
 }
 
+gulp.task('create-build', (done) => {
+  var theme = get_theme_name()
+  var values = get_deploy_values()
+  output_imgs(theme)
+  output_css(theme, values)
+  del('/devStuff/temp/css')
+  done();
+})
+
 gulp.task('update-sassdoc', () => {
   var options = {
     dest: './devStuff/sassdoc',
@@ -150,47 +150,6 @@ gulp.task('update-sassdoc', () => {
   };
   return gulp.src('devStuff/src/**/*.scss')
   .pipe(sassdoc(options));
-});
-
-gulp.task('create-b-placer-doc', (done) => {
-  // カラバリの場合は実行しない
-  if (get_theme_name().match(/[ABCDEFG]/)) return
-
-  // 一度出てきた情報を保持しておくために使います
-  // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
-  var b_placer_base = new BPlacerRecord()
-  var b_placers = []
-  var is_sp = false
-  b_placer_lines().forEach(function(line) {
-    // $device == "SP" 以降はSPの余白として設定する
-    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
-    if(sp_match) is_sp = true;
-    // //# で始まるコメントはカテゴリー
-    var category_match = line.match(/\/\#\s+(.*)/);
-    if(category_match) b_placer_base.category = category_match[1].trim();
-    // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
-    var area_and_name_match = line.match(/\/\##\s+(.*)/);
-    if(area_and_name_match) {
-      var area_and_name = area_and_name_match[1].trim().split('|');
-      b_placer_base.area = area_and_name[0].trim();
-      b_placer_base.name = area_and_name[1].trim();
-    }
-    // .t0-b-で始まる文字はバリエーション
-    // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
-    // 正規表現がややこしくなるため、スペース等はあまり考慮していません
-    // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
-    // [0]:全体, [1]:クラス名, [2]:t0-, [3]:バリエーション名, [4]:{}の中身（使わない）, [5]:N00がある場合の余白の値, [6]:N00でない余白の値
-    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
-    if(variation_match) {
-      if(!is_sp) {
-        b_placers.push(create_b_placer(b_placer_base, variation_match));
-      }else{
-        update_sp_value(b_placers, variation_match);
-      }
-    }
-  })
-  output_b_placer_doc(b_placers)
-  done();
 });
 
 const b_placer_lines = () => {
@@ -254,6 +213,47 @@ const output_b_placer_doc = (b_placers) => {
   });
   fs.writeFileSync('devStuff/docs/bPlacer.md', (table.join('\n')));
 }
+
+gulp.task('create-b-placer-doc', (done) => {
+  // カラバリの場合は実行しない
+  if (get_theme_name().match(/[ABCDEFG]/)) return
+
+  // 一度出てきた情報を保持しておくために使います
+  // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
+  var b_placer_base = new BPlacerRecord()
+  var b_placers = []
+  var is_sp = false
+  b_placer_lines().forEach(function(line) {
+    // $device == "SP" 以降はSPの余白として設定する
+    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
+    if(sp_match) is_sp = true;
+    // //# で始まるコメントはカテゴリー
+    var category_match = line.match(/\/\#\s+(.*)/);
+    if(category_match) b_placer_base.category = category_match[1].trim();
+    // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
+    var area_and_name_match = line.match(/\/\##\s+(.*)/);
+    if(area_and_name_match) {
+      var area_and_name = area_and_name_match[1].trim().split('|');
+      b_placer_base.area = area_and_name[0].trim();
+      b_placer_base.name = area_and_name[1].trim();
+    }
+    // .t0-b-で始まる文字はバリエーション
+    // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
+    // 正規表現がややこしくなるため、スペース等はあまり考慮していません
+    // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
+    // [0]:全体, [1]:クラス名, [2]:t0-, [3]:バリエーション名, [4]:{}の中身（使わない）, [5]:N00がある場合の余白の値, [6]:N00でない余白の値
+    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
+    if(variation_match) {
+      if(!is_sp) {
+        b_placers.push(create_b_placer(b_placer_base, variation_match));
+      }else{
+        update_sp_value(b_placers, variation_match);
+      }
+    }
+  })
+  output_b_placer_doc(b_placers)
+  done();
+});
 
 // ビルド
 gulp.task('build', gulp.series('sass-build', 'create-b-placer-doc', 'create-build'));
@@ -401,23 +401,6 @@ gulp.task('output', (done) => {
   done();
 });
 
-// sftp upload
-// FTPサーバーにテーマフォルダのtheme.cssをアップロードする
-// 全部まとめてやると容量が多すぎてエラーになるのでテーマの値違いで分割してある
-gulp.task('upload-css', () => {
-  return upload_themes('')
-});
-gulp.task('upload-css-2', () => {
-  return upload_themes('-2')
-});
-gulp.task('upload-css-3', () => {
-  return upload_themes('-3')
-});
-// 画像をアップロード
-gulp.task('upload-img', () => {
-  return upload_img()
-});
-
 const upload_themes = (variation) => {
   var theme = get_theme_name();
   for(var ratio of ['L25', 'L30', 'N00', 'R25', 'R30']) {
@@ -463,6 +446,23 @@ const upload_img = () => {
     remotePath: ('/mnt/efs/master/acre/theme_materials/')
   }));
 }
+
+// sftp upload
+// FTPサーバーにテーマフォルダのtheme.cssをアップロードする
+// 全部まとめてやると容量が多すぎてエラーになるのでテーマの値違いで分割してある
+gulp.task('upload-css', () => {
+  return upload_themes('')
+});
+gulp.task('upload-css-2', () => {
+  return upload_themes('-2')
+});
+gulp.task('upload-css-3', () => {
+  return upload_themes('-3')
+});
+// 画像をアップロード
+gulp.task('upload-img', () => {
+  return upload_img()
+});
 
 // cssを自動更新
 gulp.task('watch', () => {
