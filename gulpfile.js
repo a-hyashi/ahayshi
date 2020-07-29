@@ -48,13 +48,13 @@ gulp.task('sass-build', (done) => {
 });
 
 // スタイルガイド用ビルド
-gulp.task('sass-build-styleguide', () => {
+gulp.task('sass-build-styleguide', (done) => {
   styleSources = [
     'devStuff/src/**/pc-L25.scss',
     'devStuff/src/**/pc-N00.scss',
     'devStuff/src/**/sp.scss'
   ]
-  return merge(
+  merge(
     styleSources.map(styleSource=>{
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
@@ -65,6 +65,7 @@ gulp.task('sass-build-styleguide', () => {
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   )
+  done();
 });
 
 gulp.task('create-build', (done) => {
@@ -277,17 +278,17 @@ gulp.task('make-allparts-datajson2', () => {
 
 // datajsonの100以降のフォルダは消す
 gulp.task('delete-data-json', () => {
-  const datajson = fs.readdirSync('./temp/datajson/');
-  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/));
-  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`);
+  const datajson = fs.readdirSync('./temp/datajson/')
+  const datajson_matchName = datajson.filter(jsonfolder => jsonfolder.match(/^[1-9].*/))
+  const datajson_delFolder = datajson_matchName.map(jsonfolder => `./temp/datajson/${jsonfolder}`)
   return del(datajson_delFolder)
 });
 
 // datajson2の100未満のフォルダは消す
 gulp.task('delete-data-json2', () => {
-  const datajson2 = fs.readdirSync('./temp/datajson2/');
-  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/));
-  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`);
+  const datajson2 = fs.readdirSync('./temp/datajson2/')
+  const datajson2_matchName = datajson2.filter(jsonfolder2 => jsonfolder2.match(/^[0].*/))
+  const datajson2_delFolder = datajson2_matchName.map(jsonfolder2 => `./temp/datajson2/${jsonfolder2}`)
   return del(datajson2_delFolder)
 });
 
@@ -375,8 +376,8 @@ gulp.task('update-imgs', () => {
 });
 
 // build/とACRE-theme/acre/の間で差分があるファイルを転送する
-gulp.task('output', () => {
-  return gulp.src('./build/')
+gulp.task('output', (done) => {
+  gulp.src('./build/')
   .pipe($.rsync({
     root: './build/',
     destination: '../../ACRE-theme/acre/',
@@ -385,6 +386,7 @@ gulp.task('output', () => {
     recursive: true,
     exclude: '**/.*'
   }))
+  done();
 });
 
 // sftp upload
