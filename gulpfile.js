@@ -352,7 +352,7 @@ gulp.task('del-tempfile', () => {
 });
 
 // スタイルガイド作成
-gulp.task('update-styleguide', (done) => {
+gulp.task('update-styleguide',
   gulp.series(
     // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
     gulp.parallel('del-datafile', 'update-css'),
@@ -371,12 +371,11 @@ gulp.task('update-styleguide', (done) => {
     // 作業ディレクトリを削除
     'del-tempfile'
   )
-  done();
-});
+);
 
 // build/とACRE-theme/acre/の間で差分があるファイルを転送する
-gulp.task('output', (done) => {
-  gulp.src('./build/')
+gulp.task('output', () => {
+  return gulp.src('./build/')
   .pipe($.rsync({
     root: './build/',
     destination: '../../ACRE-theme/acre/',
@@ -385,7 +384,6 @@ gulp.task('output', (done) => {
     recursive: true,
     exclude: '**/.*'
   }))
-  done();
 });
 
 const upload_themes = (variation) => {
@@ -479,10 +477,10 @@ gulp.task('server', () => {
 });
 
 // スタイルガイド起動
-gulp.task('default', gulp.parallel('update-css', 'update-imgs', (done) => {
+gulp.task('default',
   gulp.series(
+    gulp.parallel('update-css', 'update-imgs',
     'server',
     'watch'
   )
-  done();
-}));
+));
