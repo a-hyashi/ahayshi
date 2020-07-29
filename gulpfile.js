@@ -258,6 +258,17 @@ gulp.task('create-b-placer-doc', (done) => {
 // ビルド
 gulp.task('build', gulp.series('sass-build', 'create-b-placer-doc', 'create-build'));
 
+// スタイルガイド用cssを更新
+gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-doc'));
+
+// スタイルガイド用imgsを更新
+gulp.task('update-imgs', (done) => {
+  gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
+  .pipe($.changed('./devStuff/styleguide/imgs/'))
+  .pipe(gulp.dest('./devStuff/styleguide/imgs/'))
+  done();
+});
+
 // スタイルガイド作成用jsonを作成
 gulp.task('make-allparts-datajson', (done) => {
   make_allDatajson.makeAllDatajsonFull(
@@ -373,17 +384,6 @@ gulp.task('update-styleguide', (done) => {
     // 作業ディレクトリを削除
     'del-tempfile'
   )
-  done();
-});
-
-// スタイルガイド用cssを更新
-gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-doc'));
-
-// スタイルガイド用imgsを更新
-gulp.task('update-imgs', (done) => {
-  gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
-  .pipe($.changed('./devStuff/styleguide/imgs/'))
-  .pipe(gulp.dest('./devStuff/styleguide/imgs/'))
   done();
 });
 
