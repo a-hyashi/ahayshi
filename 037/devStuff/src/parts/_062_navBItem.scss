@@ -968,8 +968,10 @@
   .t0-b-navBItemDouble {
     display: flex;
     &__layout {
-      flex: 1 1 50%;
+      flex: 1 1 (100% - 4%) / 2;
       padding-left: 4%;
+      // paddingを含んだ値で計算されてしまうため
+      box-sizing: content-box;
       &:first-child {
         padding-left: 0;
       }
