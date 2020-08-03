@@ -4,6 +4,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const fs = require('fs-extra');
 const sassdoc = require('sassdoc');
+const sftp = require('gulp-sftp-up4');
 const merge = require('event-stream').merge;
 const make_html = require('./lib/make_html');
 const make_allDatajson = require('./lib/make_all-datajsons');
@@ -220,39 +221,39 @@ gulp.task('create-b-placer-doc', (done) => {
     return;
   }
 
-    // 一度出てきた情報を保持しておくために使います
-    // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
-    var b_placer_base = new BPlacerRecord();
-    var b_placers = [];
-    var is_sp = false;
-    b_placer_lines().forEach(function(line) {
-      // $device == "SP" 以降はSPの余白として設定する
-      sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
-      if (sp_match) is_sp = true;
-      // //# で始まるコメントはカテゴリー
-      var category_match = line.match(/\/\#\s+(.*)/);
-      if (category_match) b_placer_base.category = category_match[1].trim();
-      // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
-      var area_and_name_match = line.match(/\/\##\s+(.*)/);
-      if (area_and_name_match) {
-        var area_and_name = area_and_name_match[1].trim().split('|');
-        b_placer_base.area = area_and_name[0].trim();
-        b_placer_base.name = area_and_name[1].trim();
+  // 一度出てきた情報を保持しておくために使います
+  // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
+  var b_placer_base = new BPlacerRecord();
+  var b_placers = [];
+  var is_sp = false;
+  b_placer_lines().forEach(function(line) {
+    // $device == "SP" 以降はSPの余白として設定する
+    sp_match = line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
+    if (sp_match) is_sp = true;
+    // //# で始まるコメントはカテゴリー
+    var category_match = line.match(/\/\#\s+(.*)/);
+    if (category_match) b_placer_base.category = category_match[1].trim();
+    // //## で始まるコメントはエリアと名前 | でエリアと名前を区切る
+    var area_and_name_match = line.match(/\/\##\s+(.*)/);
+    if (area_and_name_match) {
+      var area_and_name = area_and_name_match[1].trim().split('|');
+      b_placer_base.area = area_and_name[0].trim();
+      b_placer_base.name = area_and_name[1].trim();
+    }
+    // .t0-b-で始まる文字はバリエーション
+    // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
+    // 正規表現がややこしくなるため、スペース等はあまり考慮していません
+    // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
+    // [0]:全体, [1]:クラス名, [2]:t0-, [3]:バリエーション名, [4]:{}の中身（使わない）, [5]:N00がある場合の余白の値, [6]:N00でない余白の値
+    var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
+    if (variation_match) {
+      if (!is_sp) {
+        b_placers.push(create_b_placer(b_placer_base, variation_match));
+      } else {
+        update_sp_value(b_placers, variation_match);
       }
-      // .t0-b-で始まる文字はバリエーション
-      // [a-zA-Z]がないと数字がバリエーション名の中に紛れてしまう
-      // 正規表現がややこしくなるため、スペース等はあまり考慮していません
-      // .t0-b-xxxxx(数字 or #{$...} or 無)-bPlacer{@if $layout == "N00" {padding-bottom:00;}@else{padding-bottom:99;}}
-      // [0]:全体, [1]:クラス名, [2]:t0-, [3]:バリエーション名, [4]:{}の中身（使わない）, [5]:N00がある場合の余白の値, [6]:N00でない余白の値
-      var variation_match = line.match(/(\.(t0-)?b-[\.\_\-a-zA-Z0-9]*[a-zA-Z])(\d*|\#\{\$[a-zA-Z0-9]+\})?-bPlacer{(.+N00.+padding-bottom:(.+?);)?.*padding-bottom:(.+?);}/);
-      if (variation_match) {
-        if (!is_sp) {
-          b_placers.push(create_b_placer(b_placer_base, variation_match));
-        } else {
-          update_sp_value(b_placers, variation_match);
-        }
-      }
-    })
+    }
+  })
     output_b_placer_doc(b_placers)
     done();
   }
