@@ -402,8 +402,10 @@ const sftp_each_themes = (folder) => {
   const ssh_config = require('../ssh/ssh_config.json');
   return gulp.src([
     'build/themes/' + folder + '/theme.css'
-  ])
-  .pipe($.sftp({
+  ], {
+    allowEmpty: true
+  })
+  .pipe(sftp({
     // 内容はssh_config.jsonに記載
     host: ssh_config.host_name,
     user: ssh_config.user_name,
@@ -420,8 +422,10 @@ const upload_img = () => {
   return gulp.src([
     // SFTP error or directory existsのエラーが出るが気にしないこと
     'build/theme_materials/**/*'
-  ])
-  .pipe($.sftp({
+  ], {
+    allowEmpty: true
+  })
+  .pipe(sftp({
     // 内容はssh_config.jsonに記載
     host: ssh_config.host_name,
     user: ssh_config.user_name,
