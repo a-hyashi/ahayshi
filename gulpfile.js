@@ -217,7 +217,9 @@ gulp.task('create-b-placer-doc', (done) => {
   // カラバリの場合は実行しない
   if (get_theme_name().match(/[ABCDEFG]/)) {
     done();
-  } else {
+    return;
+  }
+
     // 一度出てきた情報を保持しておくために使います
     // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
     var b_placer_base = new BPlacerRecord();
@@ -254,7 +256,7 @@ gulp.task('create-b-placer-doc', (done) => {
     output_b_placer_doc(b_placers)
     done();
   }
-});
+);
 
 // ビルド
 gulp.task('build', gulp.series('sass-build', 'create-b-placer-doc', 'create-build'));
