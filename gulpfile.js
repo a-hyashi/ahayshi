@@ -442,18 +442,22 @@ const upload_img = () => {
 // sftp upload
 // FTPサーバーにテーマフォルダのtheme.cssをアップロードする
 // 全部まとめてやると容量が多すぎてエラーになるのでテーマの値違いで分割してある
-gulp.task('upload-css', () => {
-  return upload_themes('');
+gulp.task('upload-css', (done) => {
+  upload_themes('');
+  done();
 });
-gulp.task('upload-css-2', () => {
-  return upload_themes('-2');
+gulp.task('upload-css-2', (done) => {
+  upload_themes('-2');
+  done();
 });
-gulp.task('upload-css-3', () => {
-  return upload_themes('-3');
+gulp.task('upload-css-3', (done) => {
+  upload_themes('-3');
+  done();
 });
 // 画像をアップロード
-gulp.task('upload-img', () => {
-  return upload_img();
+gulp.task('upload-img', (done) => {
+  upload_img();
+  done();
 });
 
 // cssを自動更新
