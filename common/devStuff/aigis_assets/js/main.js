@@ -63,7 +63,7 @@ window.onload = function () {
   }
 
   fontsizePx.onchange = function() {
-    html.classList = [];
+    html.className = "";
     var device = "pc";
     if (theme.getAttribute('href').match(/sp/)) {
       device = "sp";
