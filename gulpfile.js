@@ -254,8 +254,8 @@ gulp.task('create-b-placer-doc', (done) => {
       }
     }
   })
-    output_b_placer_doc(b_placers)
-    done();
+  output_b_placer_doc(b_placers)
+  done();
   }
 );
 
