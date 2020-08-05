@@ -401,7 +401,7 @@ const upload_themes = (variation) => {
   for (var ratio of ['L25', 'L30', 'N00', 'R25', 'R30']) {
     for (var device of ['pc', 'sp']) {
       // variationでテーマの2番と3番に対応
-      sftp_each_themes(theme + '-' + ratio + variation + '/' + device + '/');
+      sftp_each_themes(theme + '-' + ratio + variation + '/' + device);
     }
   }
 };
@@ -422,7 +422,9 @@ const sftp_each_themes = (folder) => {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
-    remotePath: ('/mnt/efs/master/acre/themes/' + folder + '/')
+    remotePath: ('/mnt/efs/master/acre/themes/' + folder + '/'),
+    readyTimeout: 99999,
+    connectTimeout: 99999
   }));
 }
 
@@ -442,7 +444,9 @@ const upload_img = () => {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
-    remotePath: ('/mnt/efs/master/acre/theme_materials/')
+    remotePath: ('/mnt/efs/master/acre/theme_materials/'),
+    readyTimeout: 99999,
+    connectTimeout: 99999
   }));
 }
 
