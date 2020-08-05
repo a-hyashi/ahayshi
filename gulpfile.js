@@ -33,6 +33,12 @@ gulp.task('stylelint-check', () => {
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
 gulp.task('stylelint', gulp.series('stylelint-fix', 'stylelint-check'));
 
+// ビルド前に一時フォルダ作成
+gulp.task('mkdir-temp', (done) => {
+  return gulp.src('*.*', {read: false})
+  .pipe(gulp.dest('devStuff/temp/css'));
+});
+
 // 通常ビルド
 gulp.task('sass-build', (done) => {
   styleSource = ['devStuff/src/**/*.scss'];
@@ -129,7 +135,7 @@ gulp.task('create-build', () => {
   var values = get_deploy_values();
   output_imgs(theme);
   output_css(theme, values);
-  return del('/devStuff/temp/css');
+  return del('devStuff/temp/css');
 })
 
 gulp.task('update-sassdoc', () => {
@@ -260,7 +266,7 @@ gulp.task('create-b-placer-doc', (done) => {
 );
 
 // ビルド
-gulp.task('build', gulp.series('sass-build', 'create-b-placer-doc', 'create-build'));
+gulp.task('build', gulp.series('mkdir-temp', 'sass-build', 'create-b-placer-doc', 'create-build'));
 
 // スタイルガイド用cssを更新
 gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-doc'));
