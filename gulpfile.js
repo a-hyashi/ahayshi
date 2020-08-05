@@ -396,21 +396,11 @@ gulp.task('output', () => {
   }));
 });
 
-const upload_themes = (variation) => {
-  var theme = get_theme_name();
-  for (var ratio of ['L25', 'L30', 'N00', 'R25', 'R30']) {
-    for (var device of ['pc', 'sp']) {
-      // variationでテーマの2番と3番に対応
-      sftp_each_themes(theme + '-' + ratio + variation + '/' + device);
-    }
-  }
-};
-
-// sftpでファイルがアップロードされる
-const sftp_each_themes = (folder) => {
+const upload_themes = () => {
   const ssh_config = require('../ssh/ssh_config.json');
+  const theme = get_theme_name();
   return gulp.src([
-    'build/themes/' + folder + '/theme.css'
+    `build/themes/${theme}-**/**/theme.css`
   ], {
     allowEmpty: true
   })
@@ -422,9 +412,7 @@ const sftp_each_themes = (folder) => {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
-    remotePath: ('/mnt/efs/master/acre/themes/' + folder + '/'),
-    readyTimeout: 99999,
-    connectTimeout: 99999
+    remotePath: ('/mnt/efs/master/acre/themes/')
   }));
 }
 
@@ -444,9 +432,7 @@ const upload_img = () => {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
-    remotePath: ('/mnt/efs/master/acre/theme_materials/'),
-    readyTimeout: 99999,
-    connectTimeout: 99999
+    remotePath: ('/mnt/efs/master/acre/theme_materials/')
   }));
 }
 
@@ -457,14 +443,7 @@ gulp.task('upload-css', (done) => {
   upload_themes('');
   done();
 });
-gulp.task('upload-css-2', (done) => {
-  upload_themes('-2');
-  done();
-});
-gulp.task('upload-css-3', (done) => {
-  upload_themes('-3');
-  done();
-});
+
 // 画像をアップロード
 gulp.task('upload-img', (done) => {
   upload_img();
