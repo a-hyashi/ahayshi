@@ -26,7 +26,8 @@
       @include g-font($_fontSize);
       padding-bottom: 3px;
       border-bottom: 2px solid $navItem2Captioned_borderColor;
-      transition: all .3s ease-in-out;
+      transition: .3s ease-in-out;
+      // backgroundをtransitionするとSafariでホバー時に画像が小さくなってしまうため
       &::before {
         content: "";
         position: absolute;
@@ -38,6 +39,21 @@
         background-image: url("../imgs/navItem2Captioned/01/01.svg");
         background-repeat: no-repeat;
         background-size: contain;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItem2Captioned/01/01_hover.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0;
+        pointer-events: none;
         transition: .5s ease-in-out;
       }
     }
@@ -53,9 +69,8 @@
         color: $navItem2Captioned_hoverTextColor;
         #{$_block}__main {
           border-bottom: 2px solid $navItem2Captioned_hoverBorderColor;
-          &::before {
-            background-image: url("../imgs/navItem2Captioned/01/01_hover.svg");
-            background-repeat: no-repeat;
+          &::after {
+            opacity: 1;
           }
         }
       }
@@ -89,7 +104,8 @@
       @include g-font($_fontSize);
       padding-bottom: 3px;
       border-bottom: 2px solid $navItem2Captioned2_borderColor;
-      transition: all .3s ease-in-out;
+      transition: .3s ease-in-out;
+      // backgroundをtransitionするとSafariでホバー時に画像が小さくなってしまうため
       &::before {
         content: "";
         position: absolute;
@@ -101,6 +117,21 @@
         background-image: url("../imgs/navItem2Captioned/02/01.svg");
         background-repeat: no-repeat;
         background-size: contain;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: $_iconSize;
+        height: $_iconSize;
+        background-image: url("../imgs/navItem2Captioned/02/01_hover.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0;
+        pointer-events: none;
         transition: .5s ease-in-out;
       }
     }
@@ -116,9 +147,8 @@
         color: $navItem2Captioned2_hoverTextColor;
         #{$_block}__main {
           border-bottom: 2px solid $navItem2Captioned2_hoverBorderColor;
-          &::before {
-            background-image: url("../imgs/navItem2Captioned/02/01_hover.svg");
-            background-repeat: no-repeat;
+          &::after {
+            opacity: 1;
           }
         }
       }
