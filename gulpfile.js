@@ -34,7 +34,7 @@ gulp.task('stylelint-check', () => {
 gulp.task('stylelint', gulp.series('stylelint-fix', 'stylelint-check'));
 
 // ビルド前に一時フォルダ作成
-gulp.task('mkdir-temp', (done) => {
+gulp.task('mkdir-temp', () => {
   return gulp.src('*.*', {read: false})
   .pipe(gulp.dest('devStuff/temp/css'));
 });
@@ -419,7 +419,7 @@ const upload_themes = () => {
 const upload_img = () => {
   const ssh_config = require('../ssh/ssh_config.json');
   return gulp.src([
-    // SFTP error or directory existsのエラーが出るが気にしないこと
+    // SFTP error or directory existsのエラーが出ても気にしないこと
     'build/theme_materials/**/*'
   ], {
     allowEmpty: true
@@ -438,9 +438,8 @@ const upload_img = () => {
 
 // sftp upload
 // FTPサーバーにテーマフォルダのtheme.cssをアップロードする
-// 全部まとめてやると容量が多すぎてエラーになるのでテーマの値違いで分割してある
 gulp.task('upload-css', (done) => {
-  upload_themes('');
+  upload_themes();
   done();
 });
 
