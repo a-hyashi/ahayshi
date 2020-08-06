@@ -40,9 +40,9 @@ gulp.task('mkdir-temp', () => {
 });
 
 // 通常ビルド
-gulp.task('sass-build', (done) => {
+gulp.task('sass-build', () => {
   styleSource = ['devStuff/src/**/*.scss'];
-  mergeStream(
+  return mergeStream(
     styleSource.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sass({outputStyle: 'compressed'}))
@@ -51,17 +51,16 @@ gulp.task('sass-build', (done) => {
       .pipe(gulp.dest('devStuff/temp/css'));
     })
   )
-  done();
 });
 
 // スタイルガイド用ビルド
-gulp.task('sass-build-styleguide', (done) => {
+gulp.task('sass-build-styleguide', () => {
   styleSources = [
     'devStuff/src/**/pc-L25.scss',
     'devStuff/src/**/pc-N00.scss',
     'devStuff/src/**/sp.scss'
   ];
-  mergeStream(
+  return mergeStream(
     styleSources.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
@@ -72,7 +71,6 @@ gulp.task('sass-build-styleguide', (done) => {
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   )
-  done();
 });
 
 const get_theme_name = () => {
