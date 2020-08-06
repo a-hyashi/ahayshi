@@ -1,15 +1,15 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const browserSync = require('browser-sync');
+const config = require('./gulp_config.json');
 const del = require('del');
 const fs = require('fs-extra');
+const make_aigis = require('./lib/make_aigis');
+const make_allDatajson = require('./lib/make_all-datajsons');
+const make_html = require('./lib/make_html');
+const mergeStream = require('merge-stream');
 const sassdoc = require('sassdoc');
 const sftp = require('gulp-sftp-up4');
-const mergeStream = require('merge-stream');
-const make_html = require('./lib/make_html');
-const make_allDatajson = require('./lib/make_all-datajsons');
-const make_aigis = require('./lib/make_aigis');
-const config = require('./gulp_config.json');
 
 // scssを自動整形
 gulp.task('stylelint-fix', () => {
