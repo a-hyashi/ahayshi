@@ -5,7 +5,7 @@ const del = require('del');
 const fs = require('fs-extra');
 const sassdoc = require('sassdoc');
 const sftp = require('gulp-sftp-up4');
-const merge = require('event-stream').merge;
+const mergeStream = require('merge-stream');
 const make_html = require('./lib/make_html');
 const make_allDatajson = require('./lib/make_all-datajsons');
 const make_aigis = require('./lib/make_aigis');
@@ -42,7 +42,7 @@ gulp.task('mkdir-temp', () => {
 // 通常ビルド
 gulp.task('sass-build', (done) => {
   styleSource = ['devStuff/src/**/*.scss'];
-  merge(
+  mergeStream(
     styleSource.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sass({outputStyle: 'compressed'}))
@@ -61,7 +61,7 @@ gulp.task('sass-build-styleguide', (done) => {
     'devStuff/src/**/pc-N00.scss',
     'devStuff/src/**/sp.scss'
   ];
-  merge(
+  mergeStream(
     styleSources.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
