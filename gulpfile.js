@@ -56,9 +56,9 @@ gulp.task('sass-build', () => {
 // スタイルガイド用ビルド
 gulp.task('sass-build-styleguide', () => {
   styleSources = [
-    'devStuff/src/**/pc-L25.scss',
-    'devStuff/src/**/pc-N00.scss',
-    'devStuff/src/**/sp.scss'
+    'devStuff/src/pc-L25.scss',
+    'devStuff/src/pc-N00.scss',
+    'devStuff/src/sp.scss'
   ];
   return mergeStream(
     styleSources.map(styleSource => {
@@ -447,17 +447,15 @@ gulp.task('upload-img', (done) => {
   done();
 });
 
-// cssを自動更新
+// browserSyncリロード
+gulp.task('reload', (done) => {
+  browserSync.reload();
+  done();
+});
+
+// 監視タスク
 gulp.task('watch', () => {
-  // ファイルが多いため部品のwatchはギブアップする
-  gulp.watch(['devStuff/src/**/*.scss'], () => {
-    gulp.series('update-css');
-  });
-  // sassでの検知だとcssが更新されないため、cssファイルを直接watchする
-  // 複数回reloadが実行されるのは直したい
-  return gulp.watch(['devStuff/styleguide/css/*.css'], () => {
-    return browserSync.reload();
-  });
+  gulp.watch('devStuff/src/**/*.scss', gulp.series('update-css', 'reload'));
 });
 
 // webserver立ち上げ
@@ -478,6 +476,6 @@ gulp.task('server', () => {
 gulp.task('default',
   gulp.series(
     gulp.parallel('update-css', 'update-imgs'),
-    'server', 'watch'
+    gulp.parallel('server', 'watch')
   )
 );
