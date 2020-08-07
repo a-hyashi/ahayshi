@@ -1,10 +1,9 @@
 @if $device == PC {
   .t0-b-headerUnit-contact-tel {
-
-    display: table;
+    $_block: &;
+    display: inline-block;
     white-space: nowrap;
 
-    $_block: &;
     &__ruby {
       text-align: right;
       color: #b38f06;
@@ -19,27 +18,29 @@
     &__bd {
       color: #b38f06;
       font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-      display: flex;
+      display: table;
       line-height: 1;
-      #{$_block}__tel + span,
-      #{$_block}__fax + span,
-      #{$_block}__free + span,
-      #{$_block}__cell + span {
-        font-size: 80%;
-      }
-
       > span {
+        display: table-cell;
         vertical-align: middle;
-        background-repeat: no-repeat;
-        background-position: center 0;
-        display: inline-block;
+      }
+    }
+
+    &__tel,
+    &__fax,
+    &__free,
+    &__cell {
+      padding: 0 10px 0 0;
+      background-repeat: no-repeat;
+      background-position: left center;
+      + span {
+        font-size: 80%;
       }
     }
 
     &--size-1 {
       #{$_block}__bd {
         @include g-font(30, 1);
-
         line-height: 1;
       }
 
@@ -86,7 +87,6 @@
     &--size-2 {
       #{$_block}__bd {
         @include g-font(42, 1);
-
         line-height: 1;
       }
 
@@ -133,7 +133,6 @@
     &--size-3 {
       #{$_block}__bd {
         @include g-font(50, 1);
-
         line-height: 1;
       }
 
@@ -180,7 +179,6 @@
     &--size-4 {
       #{$_block}__bd {
         @include g-font(58, 1);
-
         line-height: 1;
       }
 
@@ -231,6 +229,7 @@
     border-radius: 8px;
     padding: 10px 0;
     word-break: break-all;
+
     > div {
       vertical-align: top;
       text-align: center;
@@ -238,7 +237,6 @@
 
     &__ruby {
       @include g-font(12, 1);
-
       text-align: center;
       color: #555;
       a {
@@ -247,21 +245,23 @@
     }
 
     &__bd {
+      display: table;
       @include g-font(22, 1);
-
       text-align: center;
       color: #f00;
+      margin: 0 auto;
       > span {
+        display: table-cell;
         vertical-align: middle;
-        display: inline-block;
       }
     }
 
-    &__icon {
-      display: inline-block;
-      vertical-align: top;
-      text-align: center;
+    &__tel,
+    &__fax,
+    &__free,
+    &__cell {
       background-repeat: no-repeat;
+      background-position: left center;
     }
 
     &__tel {
@@ -269,8 +269,7 @@
       height: $_tel_hg / 2.5;
       background-image: url("../imgs/t0-b-iconText/tel.png");
       background-size: ($_tel_wd / 2.5) ($_tel_hg / 2.5);
-      margin-top: 0;
-      margin-right: 7px;
+      padding-right: 7px;
     }
 
     &__fax {
@@ -278,8 +277,7 @@
       height: $_fax_hg / 2.5;
       background-image: url("../imgs/t0-b-iconText/fax.png");
       background-size: ($_fax_wd / 2.5) ($_fax_hg / 2.5);
-      margin-top: -1px;
-      margin-right: 7px;
+      padding-right: 7px;
     }
 
     &__free {
@@ -287,8 +285,7 @@
       height: $_free_hg / 2.5;
       background-image: url("../imgs/t0-b-iconText/free.png");
       background-size: ($_free_wd / 2.5) ($_free_hg / 2.5);
-      margin-top: -1px;
-      margin-right: 7px;
+      padding-right: 7px;
     }
 
     &__cell {
@@ -296,7 +293,7 @@
       height: $_cell_hg / 2.5;
       background-image: url("../imgs/t0-b-iconText/cell.png");
       background-size: ($_cell_wd / 2.5) ($_cell_hg / 2.5);
-      margin-right: 7px;
+      padding-right: 7px;
     }
   }
 }
