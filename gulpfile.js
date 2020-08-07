@@ -63,8 +63,10 @@ gulp.task('sass-build-styleguide', () => {
   return mergeStream(
     styleSources.map(styleSource => {
       return gulp.src(styleSource)
+      .pipe($.sourcemaps.init())
       .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.autoprefixer())
+      .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   )
