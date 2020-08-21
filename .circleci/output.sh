@@ -9,7 +9,7 @@ themes=()
 error_themes=()
 
 count=0
-for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
+for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*" | sort` ; do
   ./copy.sh ${theme##*/}
   cd ${theme##*/}
   (gulp build && gulp output) &
