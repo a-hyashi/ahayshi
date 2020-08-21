@@ -1,0 +1,125 @@
+@if $device == PC {
+  .t0-b-sideBoxIconText-tel {
+    position: relative;
+    z-index: z(sideBoxIconText-tel, 0);
+    display: inline-block;
+    &__ruby {
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 14px;
+      line-height: 1.3;
+      text-align: right;
+    }
+
+    &__bd {
+      display: flex;
+      align-items: center;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 27px;
+      } @else {
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 23px;
+      }
+    }
+
+    &__icon {
+      background-size: contain;
+      margin-right: 8px;
+      background-repeat: no-repeat;
+    }
+
+    &__tel {
+      background-image: url("../imgs/iconText-tel/01/tel.svg");
+      width: 46px * .4;
+      height: 46px * .4;
+    }
+
+    &__fax {
+      background-image: url("../imgs/iconText-tel/01/fax.svg");
+      width: 35px;
+      height: 20px;
+    }
+
+    &__free {
+      background-image: url("../imgs/iconText-tel/01/free.svg");
+      width: 140px * .25;
+      height: 80px * .25;
+      margin-right: 5px;
+    }
+
+    &__cell {
+      background-image: url("../imgs/iconText-tel/01/cell.svg");
+      width: 15px;
+      height: 25px;
+      margin-bottom: .6%;
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-c {
+      justify-content: center;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideBoxIconText-tel {
+    width: 95%;
+    margin: 0 auto;
+    word-break: break-all;
+    padding: 8px 10px;
+    border: 2px solid $sideBoxIconText-tel_borderColor;
+    &__ruby {
+      @include g-font(12);
+      text-align: center;
+      margin: 2px 0;
+    }
+
+    &__bd {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include g-font(22);
+      color: $sideBoxIconText-tel_textColor;
+    }
+
+    &__icon {
+      background-size: contain;
+      margin-right: 8px;
+      background-repeat: no-repeat;
+    }
+
+    &__tel {
+      background-image: url("../imgs/iconText-tel/01/tel.svg");
+      width: 46px * .4;
+      height: 46px * .4;
+    }
+
+    &__fax {
+      background-image: url("../imgs/iconText-tel/01/fax.svg");
+      width: 82px * .4;
+      height: 48px * .4;
+    }
+
+    &__free {
+      background-image: url("../imgs/iconText-tel/01/free.svg");
+      width: 140px * .25;
+      height: 80px * .25;
+      margin-right: 5px;
+    }
+
+    &__cell {
+      background-image: url("../imgs/iconText-tel/01/cell.svg");
+      width: 44px * .35;
+      height: 72px * .35;
+      margin-bottom: .6%;
+    }
+  }
+}

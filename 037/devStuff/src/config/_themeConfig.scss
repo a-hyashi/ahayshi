@@ -1,0 +1,113 @@
+$g-base-fontFamiry: "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "Lato", "Meiryo", "メイリオ", "游ゴシック", "YuGothic", "ＭＳ Ｐゴシック", sans-serif;
+$g-cellIconHeight: 40px;
+$g-cellIconWidth: 23px;
+$g-faxIconHeight: 28px;
+$g-faxIconWidth: 48px;
+$g-fontSize: 15px;
+$g-freeIconHeight: 29px;
+$g-freeIconWidth: 52px;
+$g-spacingBaseLength: 5px;
+$g-spacing2x: ($g-spacingBaseLength * 2);
+$g-spacing3x: ($g-spacingBaseLength * 3);
+$g-spacing4x: ($g-spacingBaseLength * 4);
+$g-telIconHeight: 40px;
+$g-telIconWidth: 40px;
+
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+html {
+  font-size: $g-fontSize;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.mod-body {
+  font-family: $g-base-fontFamiry;
+  font-size: $g-fontSize;
+  font-weight: 400;
+  color: $g-baseFontColor;
+  background-color: $g-baseBackgroundColor;
+  position: relative;
+  z-index: 0;
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: $g-base-fontFamiry;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: $g-baseHoverColor;
+    }
+  }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin layoutWideWidth {
+  @if $layout == "L25" or $layout == "L30" {
+    padding: 40px 1000px;
+    margin: 0 -1000px 0 (-1000px - $areaSubWidth);
+  } @else if $layout == "N00" {
+    padding: 40px $areaMainWidth;
+    margin: 0 (0 - $areaMainWidth);
+  } @else if $layout == "R25" or $layout == "R30" {
+    padding: 40px 1000px;
+    margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
+  }
+}
+
+@mixin layoutWidth {
+  @if $layout == "L25" or $layout == "L30" {
+    padding: 40px 1000px;
+    margin: 0 -1000px;
+  } @else if $layout == "N00" {
+    padding: 40px (1000px + $areaSubWidth / 2);
+    margin: 0 -1000px;
+  } @else if $layout == "R25" or $layout == "R30" {
+    padding: 40px 1000px;
+    margin: 0 -1000px;
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background-image: url("../imgs/downloadIcon/01/#{$file}.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
