@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone git@github.com:wmssystem/ACRE-theme.git ../ACRE-theme &
+git clone git@github.com:wmssystem/ACRE-theme.git ../ACRE-theme
 
 # bash vertion3では連想配列が使えないため同じindexの値を取得して使う
 pips=()
