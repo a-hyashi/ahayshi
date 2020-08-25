@@ -1,0 +1,414 @@
+@if $device == PC {
+  .t0-b-footerUnit-nav {
+    $_block: &;
+    white-space: nowrap;
+    &__item {
+      display: inline-block;
+      padding: 2px 0;
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      div {
+        position: relative;
+        @include g-font(15);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          // 伸びる下線
+          background-color: $footerUnit-nav_BGColor;
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // 下線画像
+        background-image: url("../imgs/navItem/01/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $footerUnit-nav_hoverTextColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav2 {
+    $_block: &;
+    white-space: nowrap;
+    &__item {
+      display: inline-block;
+      padding: 2px 0;
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      transition: .3s;
+      div {
+        position: relative;
+        @include g-font(15);
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          // 伸びる下線
+          background-color: $footerUnit-nav2_BGColor;
+          transition: .3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // 下線画像
+        background-image: url("../imgs/navItem/02/02.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transition: all .3s .3s ease;
+        transform: translateY(-50%);
+      }
+    }
+
+    a {
+      &:hover {
+        #{$_block}__inner {
+          color: $footerUnit-nav2_hoverTextColor;
+          &::after {
+            right: -10px;
+          }
+
+          > div {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav3 {
+    $_block: &;
+    white-space: nowrap;
+    &__item {
+      display: inline-block;
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
+        min-width: 30px;
+        background-image: url("../imgs/navItem/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(15);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav3_borderColor;
+      }
+    }
+
+    //書か無いとsafariでaタグで囲まれた時に下線が黒い
+    a {
+      #{$_block}__inner div {
+        border-bottom: 2px solid $footerUnit-nav3_borderColor;
+      }
+    }
+
+    a:hover {
+      #{$_block}__inner div {
+        color: $footerUnit-nav3_hoverTextColor;
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav4 {
+    $_block: &;
+    white-space: nowrap;
+    &__item {
+      display: inline-block;
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        transition: ease-in-out .4s;
+        width: 30px;
+        height: 22px;
+        //min-widthを指定を指定しないと文字数が多い時にアイコンが消える為
+        min-width: 30px;
+        background-image: url("../imgs/navItem/04/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(15);
+        transition: ease-in-out .4s;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav4_borderColor;
+      }
+    }
+
+    //書か無いとsafariでaタグで囲まれた時に下線が黒い
+    a {
+      #{$_block}__inner div {
+        border-bottom: 2px solid $footerUnit-nav4_borderColor;
+      }
+    }
+
+    a:hover {
+      #{$_block}__inner div {
+        color: $footerUnit-nav4_hoverTextColor;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerUnit-nav {
+    margin-left: 2.5%;
+    &__item {
+      padding: 2px 0;
+      @include g-font(15);
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/01/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav2 {
+    margin-left: 2.5%;
+    &__item {
+      padding: 2px 0;
+      @include g-font(15);
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      display: inline-block;
+      padding-right: 30px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        // アイコン
+        background-image: url("../imgs/navItem/02/01.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav3 {
+    $_block: &;
+    margin-left: 2.5%;
+    &__item {
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/navItem/03/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(15);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav3_borderColor;
+      }
+    }
+
+    //書か無いとsafariでaタグで囲まれた時に下線が黒い
+    a {
+      #{$_block}__inner div {
+        border-bottom: 2px solid $footerUnit-nav3_borderColor;
+      }
+    }
+  }
+
+  .t0-b-footerUnit-nav4 {
+    $_block: &;
+    margin-left: 2.5%;
+    &__item {
+      & + & {
+        margin-top: 20px;
+      }
+    }
+
+    &__inner {
+      display: table;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        height: 22px;
+        background-image: url("../imgs/navItem/04/01.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 22px 22px;
+      }
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        @include g-font(15);
+        padding-bottom: 1px;
+        border-bottom: 2px solid $footerUnit-nav4_borderColor;
+      }
+    }
+    //書か無いとsafariでaタグで囲まれた時に下線が黒い
+    a {
+      #{$_block}__inner div {
+        border-bottom: 2px solid $footerUnit-nav4_borderColor;
+      }
+    }
+  }
+}
