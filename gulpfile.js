@@ -268,7 +268,7 @@ gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-
 // スタイルガイド用imgsを更新
 gulp.task('update-imgs', () => {
   return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
-  // .pipe($.changed('./devStuff/styleguide/imgs/'))
+  .pipe($.changed('./devStuff/styleguide/imgs/'))
   .pipe($.imagemin())
   .pipe(gulp.dest('./devStuff/styleguide/imgs/'));
 });
