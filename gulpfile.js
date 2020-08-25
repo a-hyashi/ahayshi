@@ -97,9 +97,7 @@ const create_deploy_hush = (aVlues) => {
 
 const output_imgs = (aTheme) => {
   gulp.src('devStuff/src/imgs/**/*.+(jpg|jpeg|png|gif|svg)')
-  .pipe($.size())
   .pipe($.imagemin())
-  .pipe($.size())
   .pipe(gulp.dest('build/theme_materials/' + aTheme + '/imgs/'));
 }
 
@@ -270,7 +268,8 @@ gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-
 // スタイルガイド用imgsを更新
 gulp.task('update-imgs', () => {
   return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
-  .pipe($.changed('./devStuff/styleguide/imgs/'))
+  // .pipe($.changed('./devStuff/styleguide/imgs/'))
+  .pipe($.imagemin())
   .pipe(gulp.dest('./devStuff/styleguide/imgs/'));
 });
 
