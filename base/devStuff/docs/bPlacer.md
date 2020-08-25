@@ -102,7 +102,6 @@
 |06.ナビゲーション|footer|189_フッター誘導リンク|.t0-b-footerUnit-nav||4%||15px|
 |06.ナビゲーション|footer|190_フッター誘導バナー|.t0-b-footerUnit-navB||4%||15px|
 |07.フォーム|main|120_フォーム|.t0-b-formTable||3%||30px|
-|07.フォーム|main|120_フォーム|.t0-b-buttonPlacer||6%||30px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu||8%||25px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|2|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle||8%||25px|
