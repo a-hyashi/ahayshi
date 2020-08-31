@@ -1,5 +1,6 @@
 @if $device == PC {
   .t0-b-goToTop {
+    $_block: &;
     min-height: 65px;
     text-align: right;
     position: relative;
@@ -41,7 +42,7 @@
         bottom: 5px;
         // jsで出現させるので最初は消しておく
         display: none;
-        .t0-b-goToTop__contents {
+        #{$_block}__contents {
           @include g-font(16, 0);
           transition: .2s;
           overflow: hidden;
@@ -68,7 +69,7 @@
           }
 
           &:hover {
-            .t0-b-goToTop__contents {
+            #{$_block}__contents {
               transform: translateY(-5px);
               // ホバー時にガクガクしないように
               pointer-events: none;
