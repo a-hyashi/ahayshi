@@ -215,8 +215,8 @@ const output_b_placer_doc = (b_placers) => {
 }
 
 gulp.task('create-b-placer-doc', (done) => {
-  // カラバリの場合は実行しない
-  if (get_theme_name().match(/[ABCDEFG]/)) {
+  // ファイルがない場合は実行しない
+  if (!fs.existsSync('devStuff/src/config/_bPlacer.scss')) {
     done();
     return;
   }
