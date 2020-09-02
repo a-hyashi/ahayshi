@@ -1,27 +1,26 @@
 @if $device == PC {
   .t0-b-headerUnit-siteName2 {
-    $_block: &;
     &__bd {
       img {
         display: block;
         min-width: 300px;
         max-width: 100%;
       }
-    }
 
-    a {
-      > img {
+      a {
         &:hover {
-          opacity: .8;
+          img {
+            opacity: .8;
+          }
         }
       }
     }
 
     &__ft {
-      @include g-font(16, 2);
+      @include g-font($g-fontSize);
       padding-top: 5px;
       a {
-        color: inherit;
+        text-decoration: underline;
       }
     }
 
@@ -45,12 +44,21 @@
         min-width: 100px;
       }
     }
+
+    // サイト名(中央)に入ったときは中央寄せにする
+    [class^="t0-b-headerSingle"] &__bd {
+      display: flex;
+      justify-content: center;
+    }
+
+    [class^="t0-b-headerSingle"] &__ft {
+      text-align: center;
+    }
   }
 }
 
 @if $device == SP {
   .t0-b-headerUnit-siteName2 {
-    $_block: &;
     &__bd {
       img {
         display: block;
@@ -59,10 +67,10 @@
     }
 
     &__ft {
-      @include g-font(14);
+      @include g-font($g-fontSize);
       padding-top: 5px;
       a {
-        color: inherit;
+        text-decoration: underline;
       }
     }
 
@@ -82,6 +90,11 @@
       img {
         width: 50%;
       }
+    }
+
+    // サイト名(中央)に入ったときは文字数分の幅で中央寄せにする
+    [class^="t0-b-headerSingle"] &__ft {
+      text-align: center;
     }
   }
 }
