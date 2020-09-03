@@ -1,0 +1,46 @@
+// sp用のYoutube設定用 (3種類)
+
+// block No.024, 181, 209
+@mixin freeHtmlDiv() {
+  max-height: 240px;
+  > div {
+    width: 100%;
+    // YouTubeのレスポンシブ対応
+    padding: 0 5px;
+    text-align: center;
+    margin: 0 auto;
+    overflow: auto;
+    box-sizing: border-box;
+    iframe, object, embed {
+      max-height: 240px;
+    }
+
+    > * {
+      // youtubeを見切れないようにする為
+      width: 95% !important;
+      // スライド動画のスタイルを打ち消して中央寄せにする
+      margin: 0 auto !important;
+    }
+  }
+}
+
+// block No.134, 146 (95% or 100%)
+@mixin freeHtml($width) {
+  max-height: 240px;
+  // YouTubeのレスポンシブ対応
+  overflow: auto;
+  text-align: center;
+  margin: 0 auto;
+  iframe,
+  object,
+  embed {
+    max-height: 240px;
+  }
+
+  > * {
+    // youtubeを見切れないようにする為
+    width: $width !important;
+    // スライド動画のスタイルを打ち消して中央寄せにする
+    margin: 0 auto !important;
+  }
+}
