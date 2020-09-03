@@ -362,11 +362,17 @@
     margin: 0 auto;
     &__media {
       position: relative;
+      z-index: z(media, 1);
       line-height: 0;
       text-align: center;
+      // 正方形を入れた場合に正六角形になるように高さを潰す
+      // IEで画像上文字の上下に隙間が空かないよう、clip-pathは上は0、下は100%になるようにしておく
+      transform: scaleY(calc(9 / 10));
       clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       overflow: hidden;
       img {
+        // 潰した要素を戻す
+        transform: scaleY(calc(10 / 9));
         width: 100%;
       }
 
@@ -388,6 +394,7 @@
       top: 0;
       right: 0;
       left: 0;
+      z-index: z(media, 3);
       p {
         @include g-font(18);
         @include g-textOuterGlow;
@@ -395,6 +402,8 @@
         max-height: 66px;
         padding: 10px 5px;
         background-color: rgba($media4_BGColor, .8);
+        // 潰した要素を戻す
+        transform: scaleY(calc(10 / 9));
       }
     }
 
@@ -410,6 +419,8 @@
         max-height: 66px;
         padding: 10px 5px;
         background-color: rgba($media4_BGColor, .8);
+        // 潰した要素を戻す
+        transform: scaleY(calc(10 / 9));
       }
     }
 
@@ -2097,9 +2108,14 @@
       z-index: z(media, 1);
       line-height: 0;
       text-align: center;
+      // 正方形を入れた場合に正六角形になるように高さを潰す
+      // IEで画像上文字の上下に隙間が空かないよう、clip-pathは上は0、下は100%になるようにしておく
+      transform: scaleY(calc(9 / 10));
       clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       overflow: hidden;
       img {
+        // 潰した要素を戻す
+        transform: scaleY(calc(10 / 9));
         width: 100%;
         transition: .5s;
       }
@@ -2110,7 +2126,7 @@
           opacity: .8;
           color: inherit;
           img {
-            transform: scale(1.2);
+            transform: scaleX(1.2) scaleY(calc(10 / 9 * 1.2));
           }
         }
       }
@@ -2133,6 +2149,8 @@
         max-height: 66px;
         padding: 10px 5px;
         background-color: rgba($media18_BGColor, .8);
+        // 潰した要素を戻す
+        transform: scaleY(calc(10 / 9));
       }
     }
 
@@ -2148,6 +2166,8 @@
         max-height: 66px;
         padding: 10px 5px;
         background-color: rgba($media18_BGColor, .8);
+        // 潰した要素を戻す
+        transform: scaleY(calc(10 / 9));
       }
     }
 
@@ -3875,7 +3895,7 @@
       position: relative;
       line-height: 0;
       text-align: center;
-      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
       overflow: hidden;
       img {
         width: 100%;
@@ -3892,7 +3912,7 @@
 
     &__textOnImage-upper {
       position: absolute;
-      top: 0;
+      top: 4.9%;
       right: 0;
       left: 0;
       p {
@@ -3906,7 +3926,7 @@
     &__textOnImage-lower {
       position: absolute;
       right: 0;
-      bottom: 0;
+      bottom: 4.9%;
       left: 0;
       p {
         @include g-font(17);
@@ -5448,7 +5468,7 @@
       position: relative;
       line-height: 0;
       text-align: center;
-      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
       overflow: hidden;
       img {
         width: 100%;
@@ -5465,7 +5485,7 @@
 
     &__textOnImage-upper {
       position: absolute;
-      top: 0;
+      top: 4.9%;
       right: 0;
       left: 0;
       p {
@@ -5479,7 +5499,7 @@
     &__textOnImage-lower {
       position: absolute;
       right: 0;
-      bottom: 0;
+      bottom: 4.9%;
       left: 0;
       p {
         @include g-font(17);
