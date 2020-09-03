@@ -13,7 +13,13 @@
       width: 133px;
       height: 133px;
       border-radius: 66.5px;
-      background-image: url("../imgs/t0-b-goToTop/bg.png");
+      transition: .2s;
+      &::before {
+        display: block;
+        content: url("../imgs/t0-b-goToTop/bg.png");
+        transition: .2s;
+      }
+
       &:hover {
         opacity: .8;
       }
@@ -41,44 +47,18 @@
         height: 133px;
         // サイドメニューやフッターに重なっても隠さないため
         z-index: z(goToTop-fixed, 1);
-        right: 30px;
-        bottom: 30px;
+        right: 10px;
+        bottom: 10px;
         // jsで出現させるので最初は消しておく
         display: none;
         a {
-          position: relative;
-          display: inline-block;
-          text-decoration: none;
-          color: #765227;
-          width: 133px;
-          height: 133px;
-          border-radius: 66.5px;
-          &::before {
-            display: block;
-            content: url("../imgs/t0-b-goToTop/bg.png");
-            transition: .2s;
-          }
-
-          #{$_block}__contents {
-            position: absolute;
-            display: inline;
-            text-align: center;
-            top: 70px;
-            left: 0;
-            right: 0;
-            color: #765227;
-            transition: .2s;
-            font-weight: bold;
-            text-shadow: -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, -1px -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, -2px -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
-          }
-
           &:hover {
             &::before {
               transform: translateY(-5px);
               filter: drop-shadow(2px 6px 4px rgba(#00001e, .18));
             }
 
-            #{$_block}__contents {
+            > div {
               transform: translateY(-5px);
               // ホバー時にガクガクしないように
               pointer-events: none;
@@ -88,6 +68,14 @@
             }
           }
         }
+      }
+    }
+
+    &-bPlacer {
+      &--g-fixDisplay {
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
       }
     }
   }

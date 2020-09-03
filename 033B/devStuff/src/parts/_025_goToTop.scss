@@ -1,21 +1,25 @@
 @if $device == PC {
   .t0-b-goToTop {
     $_block: &;
-    position: relative;
-    z-index: z(goToTop, 1);
     height: 70px;
     text-align: right;
+    position: relative;
+    z-index: z(goToTop, 1);
     a {
       display: inline-block;
       min-width: 57px;
       height: 75px;
-      padding: 0 7px;
+      padding: 0;
       text-decoration: none;
       white-space: nowrap;
-      background-image: url("../imgs/t0-b-goToTop/bg.png");
-      background-repeat: no-repeat;
-      background-position: center bottom;
+      text-shadow: #fff 1px 1px 0, #fff -1px -1px 0, #fff -1px 1px 0, #fff 1px -1px 0, #fff 0 1px 0, #fff 0 -1px 0, #fff -1px 0 0, #fff 1px 0 0;
       transition: .2s;
+      &::after {
+        display: block;
+        content: url("../imgs/t0-b-goToTop/bg.png");
+        transition: .2s;
+      }
+
       &:hover {
         opacity: .8;
       }
@@ -24,6 +28,7 @@
         font-size: 12px;
         color: #747474;
         text-align: center;
+        transition: .2s;
       }
     }
 
@@ -39,27 +44,10 @@
         bottom: 30px;
         // jsで出現させるので最初は消しておく
         display: none;
-        #{$_block}__contents {
-          transition: .2s;
-        }
-
-        a {
-          display: inline-block;
-          min-width: 57px;
-          height: 75px;
-          padding: 0;
-          text-decoration: none;
-          white-space: nowrap;
-          text-shadow: #fff 1px 1px 0, #fff -1px -1px 0, #fff -1px 1px 0, #fff 1px -1px 0, #fff 0 1px 0, #fff 0 -1px 0, #fff -1px 0 0, #fff 1px 0 0;
-          &::after {
-            display: block;
-            content: url("../imgs/t0-b-goToTop/bg.png");
-            transition: .2s;
-          }
-
+        a{
           &:hover {
             opacity: 1;
-            #{$_block}__contents {
+            > div {
               transform: translateY(-5px);
               // ホバー時にガクガクしないように
               pointer-events: none;
@@ -76,21 +64,20 @@
         }
       }
     }
+
+    &-bPlacer {
+      &--g-fixDisplay {
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
   }
 
   .ex-topSpacingTweak {
     &--g-fixDisplay {
       margin-top: 0;
       padding-top: 0;
-    }
-  }
-
-  // goToTopが固定表示時にbPlacerの余白を消す
-  .t0-b-goToTop-bPlacer {
-    &--g-fixDisplay {
-      margin-top: 0;
-      padding-top: 0;
-      padding-bottom: 0;
     }
   }
 }
