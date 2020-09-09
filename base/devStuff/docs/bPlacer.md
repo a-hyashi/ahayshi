@@ -155,6 +155,7 @@
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi||0||0px|
 |11.枠|header|208_ヘッダーセット（中央）|.t0-b-headerSingle||0||0px|
+|11.枠|main|1009_枠(2列分割)|.t0-b-frameOuter2col||0||0|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||25px|
