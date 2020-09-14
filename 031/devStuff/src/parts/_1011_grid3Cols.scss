@@ -15,7 +15,6 @@
 
     &--colSpacing-s {
       #{$_block}__bd {
-        grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 1%;
       }
 
@@ -26,7 +25,6 @@
 
     &--colSpacing-l {
       #{$_block}__bd {
-        grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 5.2%;
       }
 
@@ -42,23 +40,22 @@
     $_block: &;
     &__bd {
       margin-bottom: -15px;
-      #{$_block}--colSpacing-vertical & {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, auto);
+      &.ex-spColLayout-2cols {
+        #{$_block}__bd {
+          display: grid;
+          grid-column-gap: 4%;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(3, auto);
+        }
       }
 
-      #{$_block}--ex-spColLayout-2cols & {
-        display: grid;
-        grid-column-gap: 4%;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(3, auto);
-      }
-
-      #{$_block}--ex-spColLayout-3cols & {
-        display: grid;
-        grid-column-gap: 3.5%;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: repeat(3, auto);
+      &.ex-spColLayout-3cols {
+        #{$_block}__bd {
+          display: grid;
+          grid-column-gap: 3.5%;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: repeat(3, auto);
+        }
       }
     }
 
