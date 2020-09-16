@@ -1,7 +1,5 @@
 @if $device == PC {
   .t0-b-headerMenu {
-    width: $areaContainerWidth;
-    margin: 0 auto;
     position: relative;
     z-index: z(headerMenu, 1);
     .on-off {
@@ -15,6 +13,11 @@
     ul {
       display: flex;
       align-items: stretch;
+    }
+
+    &__content {
+      width: $areaContainerWidth;
+      margin: 0 auto;
     }
 
     .t0-b-headerMenu__item {
@@ -92,11 +95,22 @@
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu_BGColor2, .95);
+        box-shadow: 0 0 8px rgba($headerMenu_boxShadowColor, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu2 {
-    width: $areaContainerWidth;
-    margin: 0 auto;
     position: relative;
     z-index: z(headerMenu, 1);
     .on-off {
@@ -109,6 +123,11 @@
 
     ul {
       display: flex;
+    }
+
+    &__content {
+      width: $areaContainerWidth;
+      margin: 0 auto;
     }
 
     .t0-b-headerMenu__item {
@@ -178,6 +197,20 @@
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s, padding .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu2_BGColor2, .95);
+        padding: 5px 0;
+        box-shadow: 0 0 8px rgba($headerMenu2_boxShadowColor, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu3 {
@@ -195,6 +228,11 @@
 
     ul {
       display: flex;
+    }
+
+    &__content {
+      width: $areaContainerWidth;
+      margin: 0 auto;
     }
 
     .t0-b-headerMenu__item {
@@ -264,6 +302,33 @@
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
     }
+
+    &--fixDisplay {
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        .t0-b-headerMenu__item {
+          div {
+            background-color: rgba($headerMenu3_BGColor4, .95);
+          }
+
+          &.state-em {
+            div {
+              background-color: rgba($headerMenu3_BGColor, .95);
+            }
+          }
+
+          &.state-current {
+            div {
+              background-color: $headerMenu3_BGColor2;
+            }
+          }
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu4 {
@@ -325,6 +390,19 @@
 
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
+    }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu4_BGColor3, .95);
+        box-shadow: 0 0 8px rgba($headerMenu4_boxShadowColor, .18);
+      }
     }
   }
 
@@ -412,6 +490,18 @@
 
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
+    }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba($headerMenu5_boxShadowColor, .18);
+      }
     }
   }
 }
