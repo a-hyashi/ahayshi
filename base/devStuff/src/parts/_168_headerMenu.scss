@@ -1,7 +1,5 @@
 @if $device == PC {
   .t0-b-headerMenu {
-    width: $areaContainerWidth;
-    margin: 0 auto;
     .on-off {
       display: none;
     }
@@ -13,6 +11,11 @@
     ul {
       display: flex;
       align-items: stretch;
+    }
+
+    > div {
+      width: $areaContainerWidth;
+      margin: 0 auto;
     }
 
     .t0-b-headerMenu__item {
@@ -37,6 +40,19 @@
 
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
+    }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu_BGColor, .95);
+        box-shadow: 0 0 8px rgba($headerMenu_boxShadowColor, .18);
+      }
     }
   }
 }
