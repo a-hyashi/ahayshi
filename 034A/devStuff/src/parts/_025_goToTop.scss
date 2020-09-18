@@ -1,28 +1,82 @@
 @if $device == PC {
   .t0-b-goToTop {
+    $_block: &;
     min-height: 65px;
     text-align: right;
+    position: relative;
+    z-index: z(goToTop, 1);
     a {
       position: relative;
       display: inline-block;
+      text-align: center;
       min-width: 43px;
       min-height: 65px;
       color: $g-textColor;
       text-decoration: none;
-      background-image: url("../imgs/t0-b-goToTop/1.png");
-      background-repeat: no-repeat;
-      background-position: top center;
+      transition: .2s;
+      &::before {
+        display: block;
+        content: url("../imgs/t0-b-goToTop/1.png");
+        transition: .2s;
+      }
+
       &:hover {
         opacity: .8;
       }
 
-      div {
+      > div {
         @include g-font(16, 0);
-        margin-top: 50px;
         overflow: hidden;
         font-family: "Futura Medium", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", sans-serif;
         line-height: 1.1;
+        transition: .2s;
       }
+    }
+
+    &--fixDisplay {
+      &-scrollUp,
+      &-scrollDown,
+      &-scrollDownStopFooter {
+        position: fixed;
+        // サイドメニューやフッターに重なっても隠さないため
+        z-index: z(goToTop-fixed, 1);
+        right: 30px;
+        bottom: 5px;
+        // jsで出現させるので最初は消しておく
+        display: none;
+        a {
+          text-shadow: #fff 1px 1px 0, #fff -1px -1px 0, #fff -1px 1px 0, #fff 1px -1px 0, #fff 0 1px 0, #fff 0 -1px 0, #fff -1px 0 0, #fff 1px 0 0;
+          &:hover {
+            > div {
+              transform: translateY(-5px);
+              // ホバー時にガクガクしないように
+              pointer-events: none;
+              p {
+                pointer-events: auto;
+              }
+            }
+
+            &::before {
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+    }
+
+    &-bPlacer {
+      &--g-fixDisplay {
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .ex-topSpacingTweak {
+    &--g-fixDisplay {
+      margin-top: 0;
+      padding-top: 0;
     }
   }
 }
@@ -41,7 +95,7 @@
       background-image: url("../imgs/t0-b-goToTop/1.png");
       background-repeat: no-repeat;
       background-position: top center;
-      div {
+      > div {
         @include g-font(14, 0);
         min-height: 20px;
         margin-top: 50px;
