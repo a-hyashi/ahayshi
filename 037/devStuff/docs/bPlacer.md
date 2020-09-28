@@ -141,6 +141,8 @@
 |05.メディア|main|039_メディアブロック|.t0-b-media|26|6%||15px|
 |05.メディア|main|039_メディアブロック|.t0-b-media|27|6%||15px|
 |05.メディア|main|039_メディアブロック|.t0-b-media|28|6%||15px|
+|05.メディア|main|039_メディアブロック|.t0-b-media|29|6%||15px|
+|05.メディア|main|039_メディアブロック|.t0-b-media|30|6%||15px|
 |05.メディア|main|画像のみ（t0-b-mediaOnly|.t0-b-mediaOnly||4%||15px|
 |05.メディア|side|134_サイド自由HTML|.t0-b-sideFreeHtml||4%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia||5%||15px|
@@ -171,6 +173,8 @@
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|26|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|27|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|28|5%||15px|
+|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|29|5%|||
+|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|30|5%|||
 |05.メディア|side|145_サイドボックス片側画像ブロック|.t0-b-sideBoxMediaBox||5%||20px|
 |05.メディア|side|146_サイドボックス自由HTML|.t0-b-sideBoxFreeHtml||4%||15px|
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia||0||0px|
@@ -205,6 +209,8 @@
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|26|4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|27|4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|28|4%||15px|
+|05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|29|4%||15px|
+|05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|30|4%||15px|
 |05.メディア|footer|195_フッターメディアブロック|.t0-b-footerMedia||0||0px|
 |05.メディア|header|207_ヘッダー画像×横２|.t0-b-headerImgDouble||0||0px|
 |05.メディア|header|209_ヘッダー自由HTML|.t0-b-headerUnit-freeHtml||2%||15px|
@@ -385,6 +391,7 @@
 |11.枠|main|1000_枠|.t0-b-frameOuter|9|8%||35px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|10|8%||35px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|11|8%||35px|
+|11.枠|main|1009_枠(2列分割)|.t0-b-frameOuter2col||0||0|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||25px|

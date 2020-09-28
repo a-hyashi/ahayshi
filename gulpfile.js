@@ -97,9 +97,7 @@ const create_deploy_hush = (aVlues) => {
 
 const output_imgs = (aTheme) => {
   gulp.src('devStuff/src/imgs/**/*.+(jpg|jpeg|png|gif|svg)')
-  .pipe($.size())
   .pipe($.imagemin())
-  .pipe($.size())
   .pipe(gulp.dest('build/theme_materials/' + aTheme + '/imgs/'));
 }
 
@@ -217,8 +215,8 @@ const output_b_placer_doc = (b_placers) => {
 }
 
 gulp.task('create-b-placer-doc', (done) => {
-  // カラバリの場合は実行しない
-  if (get_theme_name().match(/[ABCDEFG]/)) {
+  // ファイルがない場合は実行しない
+  if (!fs.existsSync('devStuff/src/config/_bPlacer.scss')) {
     done();
     return;
   }
@@ -271,6 +269,7 @@ gulp.task('update-css', gulp.parallel('sass-build-styleguide', 'create-b-placer-
 gulp.task('update-imgs', () => {
   return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
   .pipe($.changed('./devStuff/styleguide/imgs/'))
+  .pipe($.imagemin())
   .pipe(gulp.dest('./devStuff/styleguide/imgs/'));
 });
 

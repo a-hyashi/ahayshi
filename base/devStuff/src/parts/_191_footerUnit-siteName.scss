@@ -1,7 +1,6 @@
 @if $device == PC {
   .t0-b-footerUnit-siteName,
   .t0-b-footerUnit-siteTitle {
-    $_block: &;
     white-space: nowrap;
     a {
       &:hover {
@@ -12,12 +11,8 @@
     }
 
     &__bd {
-      display: table;
-      > div {
-        display: table-cell;
-        text-align: left;
-        vertical-align: middle;
-      }
+      display: flex;
+      align-items: center;
     }
 
     &__bd-logo {
@@ -29,17 +24,13 @@
       }
     }
 
-    &__bd-textCol {
-      //
-    }
-
     &__bd-note {
-      @include g-font(16);
-      padding-bottom: 5px;
+      @include g-font(14);
     }
 
     &__bd-siteName {
       @include g-font(32);
+      padding-top: 3px;
     }
 
     &__bd-note + &__bd-siteName {
@@ -47,7 +38,7 @@
     }
 
     &__ft {
-      @include g-font(16);
+      @include g-font($g-fontSize);
       padding-top: 5px;
     }
   }
@@ -56,14 +47,9 @@
 @if $device == SP {
   .t0-b-footerUnit-siteName,
   .t0-b-footerUnit-siteTitle {
-    $_block: &;
     &__bd {
-      display: table;
-      > div {
-        display: table-cell;
-        text-align: left;
-        vertical-align: middle;
-      }
+      display: flex;
+      align-items: center;
     }
 
     &__bd-logo {
@@ -75,27 +61,21 @@
       }
     }
 
-    &__bd-textCol {
-      //
-    }
-
     &__bd-note {
       @include g-font(14);
-      padding-bottom: 5px;
     }
 
     &__bd-siteName {
       @include g-font(28);
-      font-weight: bold;
+      padding-top: 3px;
     }
 
     &__bd-note + &__bd-siteName {
       @include g-font(24);
-      font-weight: bold;
     }
 
     &__ft {
-      @include g-font(14);
+      @include g-font($g-fontSize);
       padding-top: 5px;
     }
   }

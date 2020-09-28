@@ -1,7 +1,5 @@
 @if $device == PC {
   .t0-b-headerMenu {
-    width: $areaContainerWidth;
-    margin: 0 auto;
     position: relative;
     z-index: z(headerMenu, 1);
     .on-off {
@@ -15,6 +13,11 @@
     ul {
       display: flex;
       align-items: stretch;
+    }
+
+    > div {
+      width: $areaContainerWidth;
+      margin: 0 auto;
     }
 
     .t0-b-headerMenu__item {
@@ -92,11 +95,22 @@
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu_BGColor2, .95);
+        box-shadow: 0 0 8px rgba($headerMenu_boxShadowColor, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu2 {
-    width: $areaContainerWidth;
-    margin: 0 auto;
     position: relative;
     z-index: z(headerMenu, 1);
     .on-off {
@@ -109,6 +123,11 @@
 
     ul {
       display: flex;
+    }
+
+    > div {
+      width: $areaContainerWidth;
+      margin: 0 auto;
     }
 
     .t0-b-headerMenu__item {
@@ -126,27 +145,24 @@
         z-index: z(headerMenu, 2);
         display: flex;
         align-items: center;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: block;
+          background-color: $headerMenu2_BGColor;
+          background-size: contain;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          z-index: z(bg, -1);
+          transition: .3s;
+        }
       }
 
       a {
-        div {
-          &::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: block;
-            background-color: $headerMenu2_BGColor;
-            background-size: contain;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            z-index: z(bg, -1);
-            transition: .3s;
-          }
-        }
-
         &:hover {
           color: inherit;
           div {
@@ -181,6 +197,20 @@
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s, padding .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu2_BGColor2, .95);
+        padding: 5px 0;
+        box-shadow: 0 0 8px rgba($headerMenu2_boxShadowColor, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu3 {
@@ -198,6 +228,11 @@
 
     ul {
       display: flex;
+    }
+
+    > div {
+      width: $areaContainerWidth;
+      margin: 0 auto;
     }
 
     .t0-b-headerMenu__item {
@@ -267,6 +302,20 @@
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s, padding .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu3_BGColor4, .95);
+        padding: 5px 0;
+        box-shadow: 0 0 8px rgba($headerMenu3_boxShadowColor, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu4 {
@@ -328,6 +377,19 @@
 
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
+    }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba($headerMenu4_BGColor3, .95);
+        box-shadow: 0 0 8px rgba($headerMenu4_boxShadowColor, .18);
+      }
     }
   }
 
@@ -415,6 +477,18 @@
 
     &--widthEqualized .t0-b-headerMenu__item {
       flex: 1 1;
+    }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba($headerMenu5_boxShadowColor, .18);
+      }
     }
   }
 }
