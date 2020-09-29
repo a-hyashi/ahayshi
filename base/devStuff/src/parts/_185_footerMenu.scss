@@ -1,131 +1,82 @@
 @if $device == PC {
-  .t0-b-footerMenu#{$variation1of2} {
+  .t0-b-footerMenu {
+    width: $areaContainerWidth;
     margin: 0 auto;
-    ul {
-      display: table;
-      width: 100%;
-      margin: 0 auto;
+    .on-off {
+      display: none;
     }
 
-    &--widthEqualized {
-      > div {
-        > ul {
-          table-layout: fixed;
-        }
-      }
+    label {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: stretch;
     }
 
     .t0-b-footerMenu__item {
-      display: table-cell;
-      vertical-align: middle;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       div {
         @include g-font(16);
-        position: relative;
-        text-align: center;
+        padding: 0 20px;
+      }
+
+      &.state-em {
+        //
+      }
+
+      &.state-current {
+        //
       }
     }
 
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .state-em {
-      //
-    }
-  }
-
-  .t0-b-footerMenu#{$variation2of2} {
-    margin: 0 auto;
-    ul {
-      display: table;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    &--widthEqualized {
-      > div {
-        > ul {
-          table-layout: fixed;
-        }
-      }
-    }
-
-    .t0-b-footerMenu__item {
-      display: table-cell;
-      vertical-align: middle;
-      div {
-        @include g-font(16);
-        position: relative;
-        text-align: center;
-      }
-    }
-
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .state-em {
-      //
+    &--widthEqualized .t0-b-footerMenu__item {
+      flex: 1 1;
     }
   }
 }
 
 @if $device == SP {
-  .t0-b-footerMenu#{$variation1of2} {
+  .t0-b-footerMenu {
     margin: 0 -15px;
     text-align: center;
     ul {
-      padding: 5px 10px;
+      padding: 5px 0;
+    }
+
+    .on-off {
+      display: none;
+    }
+
+    label {
+      display: none;
     }
 
     .t0-b-footerMenu__item {
       display: inline-block;
       margin-left: 15px;
+      @include g-font(12);
+      div {
+        padding: 5px 0;
+        text-decoration: underline;
+      }
+
       &:first-child {
         margin-left: 0;
       }
 
-      div {
-        @include g-font(12);
-        padding: 5px 0;
-        text-align: center;
-        text-decoration: underline;
-      }
-    }
-
-    .state-em {
-      //
-    }
-  }
-
-  .t0-b-footerMenu#{$variation2of2} {
-    margin: 0 -15px;
-    text-align: center;
-    ul {
-      padding: 5px 10px;
-    }
-
-    .t0-b-footerMenu__item {
-      display: inline-block;
-      margin-left: 15px;
-      &:first-child {
-        margin-left: 0;
+      &.state-em {
+        font-weight: bold;
       }
 
-      div {
-        @include g-font(12);
-        padding: 5px 0;
-        text-align: center;
-        text-decoration: underline;
+      &.state-current {
+        font-weight: normal;
       }
-    }
-
-    .state-em {
-      //
     }
   }
 }

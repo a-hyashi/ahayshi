@@ -1,0 +1,59 @@
+@if $device == PC {
+  .t0-b-frameOuter2col {
+    $_block: &;
+    &__bd {
+      display: flex;
+    }
+
+    &__col1 {
+      flex-basis: (100% - 4) / 2;
+      // paddingを含んだ値で計算されてしまうため
+      box-sizing: content-box;
+    }
+
+    &__col2 {
+      flex-basis: (100% - 4) / 2;
+      padding-left: 4%;
+      // paddingを含んだ値で計算されてしまうため
+      box-sizing: content-box;
+    }
+
+    &--colSpacing-s {
+      #{$_block}__col1 {
+        flex-basis: (100% - 1) / 2;
+      }
+
+      #{$_block}__col2 {
+        flex-basis: (100% - 1) / 2;
+        padding-left: 1%;
+      }
+    }
+
+    &--colSpacing-l {
+      #{$_block}__col1 {
+        flex-basis: (100% - 7) / 2;
+      }
+
+      #{$_block}__col2 {
+        flex-basis: (100% - 7) / 2;
+        padding-left: 7%;
+      }
+    }
+
+    &__ft {
+      margin-top: 2%;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-frameOuter2col {
+    &__col2 {
+      margin-top: 20px;
+    }
+
+    &__ft {
+      margin-top: 20px;
+    }
+  }
+}

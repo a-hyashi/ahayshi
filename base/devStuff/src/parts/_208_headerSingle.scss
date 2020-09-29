@@ -1,6 +1,6 @@
 @if $device == PC {
   .t0-b-headerSingle {
-    $_width_content: 1100px;
+    $_width_content: $areaContainerWidth;
     padding-top: 5px;
     * {
       white-space: normal;
@@ -9,27 +9,30 @@
     &__hd {
       text-align: center;
       > p {
-        @include g-font(16);
+        @include g-font($g-fontSize);
         width: $_width_content;
         margin: 0 auto;
+        a {
+          text-decoration: underline;
+        }
       }
     }
 
     &__bd {
       padding-bottom: 10px;
       > div {
-        display: block;
         width: $_width_content;
         margin: 0 auto;
-        > div {
-          display: table;
-          max-width: $_width_content;
-          padding-top: $g-spacing4x;
-          margin: 0 auto;
-          text-align: center;
-          vertical-align: top;
-        }
       }
+    }
+
+    &__col {
+      display: flex;
+      justify-content: center;
+      max-width: $_width_content;
+      padding-top: $g-spacing4x;
+      margin: 0 auto;
+      text-align: center;
     }
   }
 }
@@ -38,32 +41,19 @@
   .t0-b-headerSingle {
     padding: 20px 15px 0;
     margin: 0 -15px;
-    background-repeat: repeat-x;
-    background-position: left top;
     &__hd {
       margin-bottom: 10px;
       text-align: center;
       > p {
-        @include g-font(14);
-        width: 100%;
-        margin: 0 auto;
-      }
-    }
-
-    &__bd {
-      > div {
-        display: block;
-        width: 100%;
-        margin: 0 auto;
-        > div {
-          text-align: center;
-          vertical-align: middle;
+        @include g-font($g-fontSize);
+        a {
+          text-decoration: underline;
         }
       }
     }
 
     &__col {
-      width: 100%;
+      text-align: center;
     }
   }
 }
