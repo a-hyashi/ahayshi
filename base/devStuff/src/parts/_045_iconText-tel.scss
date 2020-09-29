@@ -1,247 +1,252 @@
 @if $device == PC {
   .t0-b-iconText-tel {
     $_block: &;
-    display: table;
+    $_bd_fontSize: 34px;
+    $_caption_fontSize: 14px;
+    $_caption_padding: 10px;
+    $_ruby_fontSize: 12px;
+    $_icon_padding: 10px;
+    display: flex;
+    align-items: center;
     p {
-      @include g-font(16, 2);
-      padding-bottom: 10px;
+      @include g-font($_caption_fontSize);
+      padding-bottom: $_caption_padding;
+      a {
+        text-decoration: underline;
+      }
     }
 
     &__ruby {
+      @include g-font($_ruby_fontSize);
       text-align: right;
       a {
-        color: inherit;
+        text-decoration: underline;
       }
     }
 
     &__bd {
-      display: table;
+      display: flex;
+      align-items: center;
       font-weight: bold;
       text-align: center;
+      @include g-font($_bd_fontSize, 0);
     }
 
     &__icon {
-      display: table-cell;
-      vertical-align: middle;
-      background-repeat: no-repeat;
-      background-position: left 0;
+      background-size: contain;
+      margin-right: $_icon_padding;
     }
 
-    &__wrap {
-      display: table-cell;
-      vertical-align: middle;
-      p {
-        > a {
-          color: inherit;
-        }
-      }
+    &__tel {
+      width: 30px;
+      height: 30px;
+      background-image: url("https://placehold.jp/39x39.png?text=tel");
+    }
+
+    &__fax {
+      width: 40px;
+      height: 20px;
+      background-image: url("https://placehold.jp/52x26.png?text=fax");
+    }
+
+    &__free {
+      width: 40px;
+      height: 20px;
+      background-image: url("https://placehold.jp/52x26.png?text=free");
+    }
+
+    &__cell {
+      width: 20px;
+      height: 40px;
+      background-image: url("https://placehold.jp/26x52.png?text=cell");
     }
 
     &__media {
-      display: table-cell;
       padding: 0 10px 0 0;
-      vertical-align: middle;
       img {
         display: block;
         width: 60px;
         height: auto;
       }
-    }
 
-    a {
-      > img {
+      a {
         &:hover {
-          opacity: .8;
+          img {
+            opacity: .8;
+          }
         }
       }
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
-      text-align: left;
+      justify-content: flex-start;
     }
 
     &--align-c {
-      margin: 0 auto;
-      text-align: center;
+      justify-content: center;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
-      text-align: right;
+      justify-content: flex-end;
     }
 
     &--size-1 {
+      $_magnification: .65;
       p {
-        @include g-font(12);
+        @include g-font($_caption_fontSize * $_magnification);
+        padding-bottom: $_caption_padding * $_magnification;
       }
 
       #{$_block}__ruby {
-        @include g-font(12);
+        @include g-font($_ruby_fontSize * $_magnification);
       }
 
       #{$_block}__bd {
-        @include g-font(22, 0);
+        @include g-font($_bd_fontSize * $_magnification, 0);
       }
 
       #{$_block}__icon {
-        //
+        margin-right: $_icon_padding * $_magnification;
       }
 
       #{$_block}__tel {
-        //
+        width: 30px * $_magnification;
+        height: 30px * $_magnification;
       }
 
       #{$_block}__fax {
-        //
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__free {
-        //
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__cell {
-        //
+        width: 20px * $_magnification;
+        height: 40px * $_magnification;
       }
     }
 
     &--size-2 {
+      $_magnification: .8;
       p {
-        @include g-font(12);
+        @include g-font($_caption_fontSize * $_magnification);
+        padding-bottom: $_caption_padding * $_magnification;
       }
 
       #{$_block}__ruby {
-        @include g-font(12);
+        @include g-font($_ruby_fontSize * $_magnification);
       }
 
       #{$_block}__bd {
-        @include g-font(24, 0);
+        @include g-font($_bd_fontSize * $_magnification, 0);
       }
 
       #{$_block}__icon {
-        //
+        margin-right: $_icon_padding * $_magnification;
       }
 
       #{$_block}__tel {
-        //
+        width: 30px * $_magnification;
+        height: 30px * $_magnification;
       }
 
       #{$_block}__fax {
-        //
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__free {
-        //
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__cell {
-        //
-      }
-    }
-
-    &--size-3 {
-      p {
-        @include g-font(14);
-      }
-
-      #{$_block}__ruby {
-        @include g-font(14);
-      }
-
-      #{$_block}__bd {
-        @include g-font(34, 0);
-      }
-
-      #{$_block}__icon {
-        //
-      }
-
-      #{$_block}__tel {
-        //
-      }
-
-      #{$_block}__fax {
-        //
-      }
-
-      #{$_block}__free {
-        //
-      }
-
-      #{$_block}__cell {
-        //
+        width: 20px * $_magnification;
+        height: 40px * $_magnification;
       }
     }
 
     &--size-4 {
+      $_magnification: 1.2;
       p {
-        @include g-font(16);
+        @include g-font($_caption_fontSize * $_magnification);
+        padding-bottom: $_caption_padding * $_magnification;
       }
 
       #{$_block}__ruby {
-        @include g-font(16);
+        @include g-font($_ruby_fontSize * $_magnification);
       }
 
       #{$_block}__bd {
-        @include g-font(40, 0);
+        @include g-font($_bd_fontSize * $_magnification, 0);
       }
 
       #{$_block}__icon {
-        //
+        margin-right: $_icon_padding * $_magnification;
       }
 
       #{$_block}__tel {
-        //
+        width: 30px * $_magnification;
+        height: 30px * $_magnification;
       }
 
       #{$_block}__fax {
-        //
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__free {
-        //
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__cell {
-        //
+        width: 20px * $_magnification;
+        height: 40px * $_magnification;
       }
     }
 
     &--size-5 {
+      $_magnification: 1.3;
       p {
-        @include g-font(16);
+        @include g-font($_caption_fontSize * $_magnification);
+        padding-bottom: $_caption_padding * $_magnification;
       }
 
       #{$_block}__ruby {
-        @include g-font(16);
+        @include g-font($_ruby_fontSize * $_magnification);
       }
 
       #{$_block}__bd {
-        @include g-font(46, 0);
+        @include g-font($_bd_fontSize * $_magnification, 0);
       }
 
       #{$_block}__icon {
-        //
+        margin-right: $_icon_padding * $_magnification;
       }
 
       #{$_block}__tel {
-        width: $g-telIconWidth;
-        height: $g-telIconHeight;
+        width: 30px * $_magnification;
+        height: 30px * $_magnification;
       }
 
       #{$_block}__fax {
-        width: $g-faxIconWidth;
-        height: $g-faxIconHeight;
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__free {
-        width: $g-freeIconWidth;
-        height: $g-freeIconHeight;
+        width: 40px * $_magnification;
+        height: 20px * $_magnification;
       }
 
       #{$_block}__cell {
-        width: $g-cellIconWidth;
-        height: $g-cellIconHeight;
+        width: 20px * $_magnification;
+        height: 40px * $_magnification;
       }
     }
   }
@@ -251,64 +256,67 @@
   .t0-b-iconText-tel {
     text-align: center;
     p {
-      @include g-font(16);
+      @include g-font(14);
       padding-bottom: 10px;
-    }
-
-    a[href^="tel"] {
-      display: block;
-      width: 95%;
-      padding: 10px;
-      margin: 0 auto;
-      word-break: break-all;
-      background: linear-gradient($iconText-tel_BGColor, $iconText-tel_BGColor2, $iconText-tel_BGColor3);
-      border: 1px solid $iconText-tel_borderColor;
-      border-radius: 8px;
+      a {
+        text-decoration: underline;
+      }
     }
 
     &__media {
-      //
-    }
-
-    img {
-      width: 25%;
+      img {
+        width: 25%;
+      }
     }
 
     &__ruby {
       @include g-font(12);
       color: $iconText-tel_textColor;
+      a {
+        text-decoration: underline;
+      }
     }
 
     &__bd {
-      @include g-font(22);
+      @include g-font(22, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: $iconText-tel_textColor2;
       > span {
-        vertical-align: middle;
-      }
-
-      > span:last-child {
-        word-wrap: break-word;
+        &:last-child {
+          word-wrap: break-word;
+        }
       }
     }
 
     &__icon {
-      //
+      background-size: contain;
+      margin-right: 10px;
     }
 
     &__tel {
-      //
+      width: 30px;
+      height: 30px;
+      background-image: url("https://placehold.jp/39x39.png?text=tel");
     }
 
     &__fax {
-      //
+      width: 40px;
+      height: 20px;
+      background-image: url("https://placehold.jp/52x26.png?text=fax");
     }
 
     &__free {
-      //
+      width: 40px;
+      height: 20px;
+      background-image: url("https://placehold.jp/52x26.png?text=free");
     }
 
     &__cell {
-      //
+      width: 20px;
+      height: 40px;
+      background-image: url("https://placehold.jp/26x52.png?text=cell");
     }
   }
 }

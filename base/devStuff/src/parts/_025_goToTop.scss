@@ -3,14 +3,47 @@
     $_fontSize: 14;
     text-align: right;
     a {
-      position: relative;
       display: inline-block;
+      min-width: 70px;
+      height: 70px;
+      background-image: url("https://placehold.jp/70x70.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transition: .5s;
       &:hover {
-        opacity: .8;
+        //
       }
 
       div {
+        padding-top: 82px;
+        text-align: center;
         @include g-font($_fontSize);
+      }
+    }
+
+    &--fixDisplay {
+      &-scrollUp,
+      &-scrollDown,
+      &-scrollDownStopFooter {
+        text-align: right;
+        position: fixed;
+        // サイドメニューやフッターに重なっても隠さないため
+        z-index: z(goToTop-fixed, 1);
+        right: 30px;
+        bottom: 30px;
+        // jsで出現させるので最初は消しておく
+        display: none;
+        a {
+          transition: .1s;
+          text-shadow: $gotoTop_textShadowColor 1px 1px 0, $gotoTop_textShadowColor -1px -1px 0, $gotoTop_textShadowColor -1px 1px 0, $gotoTop_textShadowColor 1px -1px 0, $gotoTop_textShadowColor 0 1px 0, $gotoTop_textShadowColor 0 -1px 0, $gotoTop_textShadowColor -1px 0 0, $gotoTop_textShadowColor 1px 0 0;
+        }
+      }
+    }
+
+    &-bPlacer {
+      &--g-fixDisplay {
+        padding-bottom: 0;
       }
     }
   }
@@ -21,11 +54,17 @@
     $_fontSize: 14;
     text-align: right;
     a {
-      position: relative;
       display: inline-block;
+      min-width: 50px;
+      height: 50px;
+      background-image: url("https://placehold.jp/50x50.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
       div {
+        padding-top: 60px;
+        text-align: center;
         @include g-font($_fontSize);
-        overflow: hidden;
       }
     }
   }
