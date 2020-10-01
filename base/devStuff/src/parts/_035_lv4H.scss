@@ -1,5 +1,5 @@
 @if $device == PC {
-  .t0-b-lv4H#{$variation1of2} {
+  .t0-b-lv4H {
     $_block: &;
     $_fontSize_bd: 20;
     $_fontSize_caption: 16;
@@ -12,23 +12,26 @@
       //
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 5px;
+    }
+
     &__bd {
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
       }
     }
 
-    &__caption-upper {
-      @include g-font-layout($_fontSize_caption, 1, $layout);
-    }
-
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 5px;
     }
 
     &--size-1 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-bottom: 3px;
       }
 
       #{$_block}__bd {
@@ -39,12 +42,14 @@
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-top: 3px;
       }
     }
 
     &--size-3 {
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-bottom: 7px;
       }
 
       #{$_block}__bd {
@@ -55,6 +60,7 @@
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        padding-top: 7px;
       }
     }
 
@@ -71,7 +77,7 @@
     }
   }
 
-  .t0-b-lv4H#{$variation2of2} {
+  .t0-b-lv4H2 {
     $_block: &;
     $_fontSize_bd: 20;
     $_fontSize_caption: 16;
@@ -84,14 +90,14 @@
       //
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+    }
+
     &__bd {
       h4 {
         @include g-font-layout($_fontSize_bd, 1, $layout);
       }
-    }
-
-    &__caption-upper {
-      @include g-font-layout($_fontSize_caption, 1, $layout);
     }
 
     &__caption-lower {
@@ -145,11 +151,16 @@
 }
 
 @if $device == SP {
-  .t0-b-lv4H#{$variation1of2} {
+  .t0-b-lv4H {
     $_fontSize_bd: 20;
     $_fontSize_caption: 14;
     &__box {
       //
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      padding-bottom: 5px;
     }
 
     &__bd {
@@ -158,12 +169,9 @@
       }
     }
 
-    &__caption-upper {
-      @include g-font($_fontSize_caption);
-    }
-
     &__caption-lower {
       @include g-font($_fontSize_caption);
+      padding-top: 5px;
     }
 
     &--align-l {
@@ -179,11 +187,16 @@
     }
   }
 
-  .t0-b-lv4H#{$variation2of2} {
+  .t0-b-lv4H2 {
     $_fontSize_bd: 20;
     $_fontSize_caption: 14;
     &__box {
       //
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      padding-bottom: 5px;
     }
 
     &__bd {
@@ -192,12 +205,9 @@
       }
     }
 
-    &__caption-upper {
-      @include g-font($_fontSize_caption);
-    }
-
     &__caption-lower {
       @include g-font($_fontSize_caption);
+      padding-top: 5px;
     }
 
     &--align-l {

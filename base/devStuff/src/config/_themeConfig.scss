@@ -1,3 +1,4 @@
+$g-base-fontFamiry: "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "游ゴシック", "YuGothic", "ＭＳ Ｐゴシック", sans-serif;
 $g-cellIconHeight: 40px;
 $g-cellIconWidth: 23px;
 $g-faxIconHeight: 28px;
@@ -11,39 +12,35 @@ $g-spacing3x: ($g-spacingBaseLength * 3);
 $g-spacing4x: ($g-spacingBaseLength * 4);
 $g-telIconHeight: 40px;
 $g-telIconWidth: 40px;
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 html {
   font-size: $g-fontSize;
 }
 
-body.mod-body,
-div.mod-body {
-  font-family: $font-gothic;
+.mod-body {
+  font-family: $g-base-fontFamiry;
   font-size: $g-fontSize;
-  font-weight: 500;
+  font-weight: 400;
   color: $g-baseFontColor;
   background-color: $g-baseBackgroundColor;
-}
-
-.mod-body {
   position: relative;
   z-index: z(bg, 0);
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   button,
   input,
   optgroup,
   select,
   textarea {
-    font-family: $font-gothic;
+    font-family: $g-base-fontFamiry;
   }
 }
 
 a {
-  color: $g-baseFontColor;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -56,14 +53,12 @@ a {
 
   .cms-partsConfig-width-m {
     width: 75%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
   }
 
   .cms-partsConfig-width-s {
     width: 50%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
   }
 }
 
@@ -79,21 +74,6 @@ a {
   }
 }
 
-@mixin g-rteTableReset() {
-  th,
-  td {
-    > table,
-    > ul,
-    > ol,
-    > p,
-    > hr {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
 @mixin layoutWideWidth {
   @if $layout == "L25" or $layout == "L30" {
     padding: 40px 1000px;
@@ -105,20 +85,16 @@ a {
     padding: 40px 1000px;
     margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
   }
-  width: $areaContainerWidth;
 }
 
 @mixin layoutWidth {
   @if $layout == "L25" or $layout == "L30" {
-    width: $areaMainWidth;
     padding: 40px 1000px;
     margin: 0 -1000px;
   } @else if $layout == "N00" {
-    width: $areaMainWidth - $areaSubWidth;
     padding: 40px (1000px + $areaSubWidth / 2);
     margin: 0 -1000px;
   } @else if $layout == "R25" or $layout == "R30" {
-    width: $areaMainWidth;
     padding: 40px 1000px;
     margin: 0 -1000px;
   }
@@ -128,7 +104,8 @@ a {
   &--#{$file} {
     width: 30px * $size;
     height: 30px * $size;
-    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
-    background-size: 30px * $size;
+    background-image: url("../imgs/downloadIcon/01/#{$file}.png");
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
