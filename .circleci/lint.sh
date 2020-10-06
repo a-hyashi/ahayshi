@@ -6,7 +6,7 @@ themes=()
 
 error_themes=()
 
-for theme in `find . -type d -regex "../*[0-9][0-9][0-9][A-Z]*"` ; do
+for theme in `find . -type d -regex "../*[0-9][0-9][0-9][A-Z]*" | sort` ; do
   cp ./.circleci/gulpfile.js ./${theme##*/}/gulpfile.js
   cd ${theme##*/}
   gulp stylelint-check &

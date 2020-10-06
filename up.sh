@@ -2,7 +2,7 @@
 
 #引数がある場合は指定のテーマで実行 複数指定可能
 #ない場合は現在のテーマで実行
-if [ $* ] ; then
+if [ $# != 0 ] ; then
   ./set-themes.sh $*
 fi
 
@@ -15,7 +15,7 @@ for ((i = 0; i < ${#APPS[@]}; i++)) ; do
   num=$(($i+1))
   printf "\e[36mテーマ${THEMES[i]}\e[m\n"
   printf "\e[36mlocal    URL: \e[34mhttp://localhost:300${num}\e[m\n"
-  if [[ `ifconfig | grep 192.168.0.` =~ 192.168.0.[0-9]{1,3} ]]; then
+  if [[ `ifconfig | grep 192.168.` =~ 192.168.[0-9]{1,3}.[0-9]{1,3} ]]; then
     printf "\e[36mExternal URL: \e[34mhttp://"${BASH_REMATCH[0]}":300${num}\e[m\n"
   fi
   echo "-----------------------------------------------------"

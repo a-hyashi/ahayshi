@@ -9,7 +9,7 @@ themes=()
 error_themes=()
 
 count=0
-for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
+for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*" | sort` ; do
   ./copy.sh ${theme##*/}
   cd ${theme##*/}
   (gulp build && gulp output) &
@@ -20,7 +20,7 @@ for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*"` ; do
   count=$(( count + 1 ))
   # 一括処理だとメモリが不足して以下のエラーが発生するため10件ずつ実行
   # ./.circleci/build.sh: line 9:   999 Killed
-  if [ ${count} -eq 10 ] ; then
+  if [ ${count} -eq 5 ] ; then
     for ((i = 0; i < ${#pips[@]}; i++)) ; do
       wait ${pips[$i]}
       if [ $? -ne 0 ]; then

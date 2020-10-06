@@ -9,6 +9,12 @@
     $_textStateEmColor: #a48846;
     $_textStateCurrentColor: #000;
     $_borderColor: #000;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -17,11 +23,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -53,7 +54,8 @@
                 height: 4px;
                 content: "";
                 background: $_borderColor;
-                transition: .5s;
+                // 固定表示解除時に遅延させないためbottomを指定
+                transition: .5s, bottom 0s;
               }
 
               &::before {
@@ -129,6 +131,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba(#fff, .95);
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        // ラインを下端につける
+        > div > ul li a div::before,
+        > div > ul li a div::after,
+        .state-current div::before,
+        .state-current div::after {
+          bottom: -7px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu#{$variation2of2} {
@@ -142,6 +164,13 @@
     $_textStateCurrentColor: #000;
     $_bgColor: #aaa;
     $_bgHoverColor: #ccc;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    background-color: $_bgColor;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -150,12 +179,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    background-color: $_bgColor;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -173,10 +196,10 @@
           div {
             padding: 3px 0;
             > span {
-              // アニメーションの為に文字を一番上に出す為
+              // アニメーションの為に文字を一番上に出す
               position: relative;
-              z-index: 1;
-              display: block;
+              z-index: z(headerMenu, 2);
+              display: inline-block;
               color: $_textColor;
             }
           }
@@ -258,6 +281,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      .state-current {
+        transition: background .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#aaa, .95);
+        .state-current {
+          background-color: rgba(#ccc, .95);
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu3 {
@@ -271,6 +314,13 @@
     $_textStateCurrentColor: #000;
     $_bgColor: #000;
     $_bgHoverColor: #b3b3b3;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    background-color: $_bgColor;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -279,12 +329,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    background-color: $_bgColor;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -302,10 +346,10 @@
           div {
             padding: 3px 0;
             > span {
-              // アニメーションの為に文字を一番上に出す為
+              // アニメーションの為に文字を一番上に出す
               position: relative;
-              z-index: 1;
-              display: block;
+              z-index: z(headerMenu, 2);
+              display: inline-block;
               color: $_textColor;
             }
           }
@@ -395,6 +439,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      .state-current {
+        transition: background .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#000, .95);
+        .state-current {
+          background-color: rgba(#b3b3b3, .95);
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu4 {
@@ -408,6 +472,12 @@
     $_textStateCurrentColor: #fff;
     $_bgHoverColor: #333;
     $_borderColor: #bbb;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -416,11 +486,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -547,6 +612,20 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s, padding .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba(#fff, .95);
+        padding: 12px 0;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu5 {
@@ -559,6 +638,12 @@
     $_textStateEmColor: #900;
     $_textStateCurrentColor: #aa841b;
     $_borderColor: #900;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -567,11 +652,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -607,7 +687,8 @@
                 height: 4px;
                 content: "";
                 background: $_borderColor;
-                transition: .5s;
+                // 固定表示解除時に遅延させないためbottomを指定
+                transition: .5s, bottom 0s;
               }
 
               &::before {
@@ -683,6 +764,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba(#fff, .95);
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        // ラインを下端につける
+        > div > ul li a div::before,
+        > div > ul li a div::after,
+        .state-current div::before,
+        .state-current div::after {
+          bottom: -7px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu6 {
@@ -693,10 +794,13 @@
     $_textColor: #8d7147;
     $_textStateEmColor: #8d7147;
     $_borderColor: #b6a488;
+    position: relative;
+    z-index: z(headerMenu, 0);
     width: 100%;
     margin: 0 auto;
     font-family: $font-tenorSans;
     background: #fff;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -704,7 +808,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -717,7 +821,7 @@
         border-spacing: 10px;
         border-collapse: separate;
         li {
-          z-index: 2;
+          z-index: z(headerMenu, 2);
           display: table-cell;
           min-width: 50px;
           height: 60px;
@@ -778,6 +882,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      > div > ul li {
+        transition: height .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#fff, .95);
+        > div > ul li {
+          height: 60px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu7 {
@@ -788,10 +912,13 @@
     $_textColor: #444;
     $_textStateEmColor: #444;
     $_borderColor: #aaa;
+    position: relative;
+    z-index: z(headerMenu, 0);
     width: 100%;
     margin: 0 auto;
     font-family: $font-tenorSans;
     background: #f6f5f3;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -799,7 +926,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -811,7 +938,7 @@
         min-height: inherit;
         border-spacing: 10px;
         li {
-          z-index: 2;
+          z-index: z(headerMenu, 2);
           display: table-cell;
           min-width: 50px;
           height: 60px;
@@ -874,6 +1001,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      > div > ul li {
+        transition: height .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#f6f5f3, .95);
+        > div > ul li {
+          height: 60px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu8 {
@@ -888,6 +1035,9 @@
     margin: 0 auto;
     font-family: $font-tenorSans;
     background: #f9f2f2;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -895,7 +1045,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -907,7 +1057,7 @@
         min-height: inherit;
         border-spacing: 10px;
         li {
-          z-index: 2;
+          z-index: z(headerMenu, 2);
           display: table-cell;
           min-width: 50px;
           height: 60px;
@@ -970,6 +1120,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      > div > ul li {
+        transition: height .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#f9f2f2, .95);
+        > div > ul li {
+          height: 60px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu9 {
@@ -980,10 +1150,13 @@
     $_textColor: #002d5b;
     $_textStateEmColor: #003871;
     $_borderColor: #9babbb;
+    position: relative;
+    z-index: z(headerMenu, 0);
     width: 100%;
     margin: 0 auto;
     font-family: $font-tenorSans;
     background: #edf0f3;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -991,7 +1164,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1003,7 +1176,7 @@
         min-height: inherit;
         border-spacing: 10px;
         li {
-          z-index: 2;
+          z-index: z(headerMenu, 2);
           display: table-cell;
           min-width: 50px;
           height: 60px;
@@ -1067,6 +1240,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      > div > ul li {
+        transition: height .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#eceff2, .95);
+        > div > ul li {
+          height: 60px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu10 {
@@ -1077,12 +1270,14 @@
     $_textColor: #555;
     $_textStateEmColor: #a38320;
     position: relative;
+    z-index: z(headerMenu, 0);
     width: 100%;
     padding: 4px 0;
     margin: 0 auto;
     font-family: $font-tenorSans;
     border-top: 2px solid #e6e6e6;
     border-bottom: 2px solid #e6e6e6;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -1090,7 +1285,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1125,9 +1320,9 @@
             }
 
             > span {
-              // アニメーションの為に文字を一番上に出す為
+              // アニメーションの為に文字を一番上に出す
               position: relative;
-              z-index: 1;
+              z-index: z(headerMenu, 2);
               display: inline-block;
               color: $_textColor;
             }
@@ -1222,6 +1417,18 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: #fff;
+      }
+    }
   }
 
   .t0-b-headerMenu11 {
@@ -1232,11 +1439,13 @@
     $_textColor: #000;
     $_textStateEmColor: #a00101;
     position: relative;
+    z-index: z(headerMenu, 0);
     width: 100%;
     margin: 0 auto;
     font-family: $font-tenorSans;
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -1244,7 +1453,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1264,9 +1473,9 @@
           vertical-align: middle;
           div {
             > span {
-              // アニメーションの為に文字を一番上に出す為
+              // アニメーションの為に文字を一番上に出す
               position: relative;
-              z-index: 1;
+              z-index: z(headerMenu, 2);
               display: inline-block;
               color: $_textColor;
             }
@@ -1364,6 +1573,18 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: #fff;
+      }
+    }
   }
 
   .t0-b-headerMenu12 {
@@ -1374,10 +1595,12 @@
     $_textColor: #fff;
     $_textStateEmColor: #fff;
     position: relative;
+    z-index: z(headerMenu, 0);
     width: 100%;
     margin: 0 auto;
     font-family: $font-tenorSans;
     background: #b5a17a;
+    @include g-font($_fontSize, $_lineHeight);
     // Safariでhover時にフォントが細くならないように
     _::-webkit-full-page-media, _:future, :root & {
       -webkit-font-smoothing: antialiased;
@@ -1391,7 +1614,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1408,9 +1631,9 @@
           vertical-align: middle;
           div {
             > span {
-              // アニメーションの為に文字を一番上に出す為
+              // アニメーションの為に文字を一番上に出す
               position: relative;
-              z-index: 1;
+              z-index: z(headerMenu, 2);
               display: inline-block;
               color: $_textColor;
             }
@@ -1479,6 +1702,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      .state-current {
+        transition: background .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#b5a17a, .95);
+        .state-current {
+          background-color: rgba(#a28a5a, .95);
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu13 {
@@ -1488,10 +1731,12 @@
     $_lineHeight: 1;
     $_textColor: #fff;
     position: relative;
+    z-index: z(headerMenu, 0);
     width: 100%;
     margin: 0 auto;
     font-family: $font-tenorSans;
     background: #244a70;
+    @include g-font($_fontSize, $_lineHeight);
     // Safariでhover時にフォントが細くならないように
     _::-webkit-full-page-media, _:future, :root & {
       -webkit-font-smoothing: antialiased;
@@ -1505,7 +1750,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1522,9 +1767,9 @@
           vertical-align: middle;
           div {
             > span {
-              // アニメーションの為に文字を一番上に出す為
+              // アニメーションの為に文字を一番上に出す
               position: relative;
-              z-index: 1;
+              z-index: z(headerMenu, 2);
               display: inline-block;
               color: $_textColor;
             }
@@ -1593,6 +1838,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      .state-current {
+        transition: background .5s;
+      }
+
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        background-color: rgba(#244a70, .95);
+        .state-current {
+          background-color: rgba(#183049, .95);
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu14 {
@@ -1605,6 +1870,12 @@
     $_textStateEmColor: #a48846;
     $_textStateCurrentColor: #333;
     $_borderColor: #947f4d;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
+    z-index: z(headerMenu, 0);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -1613,11 +1884,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1649,7 +1915,8 @@
                 height: 4px;
                 content: "";
                 background: $_borderColor;
-                transition: .5s;
+                // 固定表示解除時に遅延させないためbottomを指定
+                transition: .5s, bottom 0s;
               }
 
               &::before {
@@ -1725,6 +1992,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba(#fff, .95);
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        // ラインを下端につける
+        > div > ul li a div::before,
+        > div > ul li a div::after,
+        .state-current div::before,
+        .state-current div::after {
+          bottom: -7px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu15 {
@@ -1737,6 +2024,12 @@
     $_textStateEmColor: #00366d;
     $_textStateCurrentColor: #aa841b;
     $_borderColor: #00366d;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
+    z-index: z(headerMenu, 0);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -1745,11 +2038,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1785,7 +2073,8 @@
                 height: 4px;
                 content: "";
                 background: $_borderColor;
-                transition: .5s;
+                // 固定表示解除時に遅延させないためbottomを指定
+                transition: .5s, bottom 0s;
               }
 
               &::before {
@@ -1861,6 +2150,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba(#fff, .95);
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        // ラインを下端につける
+        > div > ul li a div::before,
+        > div > ul li a div::after,
+        .state-current div::before,
+        .state-current div::after {
+          bottom: -7px;
+        }
+      }
+    }
   }
 
   .t0-b-headerMenu16 {
@@ -1873,6 +2182,12 @@
     $_textStateEmColor: #a48846;
     $_textStateCurrentColor: #444;
     $_borderColor: #777;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    width: 100%;
+    margin: 0 auto;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -1881,11 +2196,6 @@
       display: none;
     }
 
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
     > div {
       width: $_widthContent;
       margin: 0 auto;
@@ -1993,6 +2303,26 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: background .5s, box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        background-color: rgba(#fff, .95);
+        box-shadow: 0 0 8px rgba(#00001e, .18);
+        // ラインを下端につける
+        > div > ul li a div::before,
+        > div > ul li a div::after,
+        .state-current div::before,
+        .state-current div::after {
+          bottom: -7px;
+        }
+      }
+    }
   }
 }
 
@@ -2004,6 +2334,11 @@
     $_textColor: #666;
     $_textStateEmColor: #a48846;
     $_textStateCurrentColor: #000;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2011,9 +2346,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2059,6 +2392,12 @@
     $_textStateCurrentColor: #000;
     $_bgColor: #aaa;
     $_bgCurrentColor: #ccc;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    background-color: $_bgColor;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2066,10 +2405,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    background-color: $_bgColor;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2116,6 +2452,12 @@
     $_textStateCurrentColor: #000;
     $_bgColor: #000;
     $_bgCurrentColor: #b3b3b3;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    background-color: $_bgColor;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2123,10 +2465,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    background-color: $_bgColor;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2173,6 +2512,11 @@
     $_textStateCurrentColor: #fff;
     $_bgCurrentColor: #333;
     $_borderColor: #988776;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2180,9 +2524,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2230,6 +2572,11 @@
     $_textHoverColor: #000;
     $_textStateEmColor: #900;
     $_textStateCurrentColor: #aa841b;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2237,9 +2584,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2284,9 +2629,12 @@
     $_textStateEmColor: #8d7147;
     $_textStateCurrentColor: #fff;
     $_borderColor: #b6a488;
+    position: relative;
+    z-index: z(headerMenu, 0);
     margin: 0 -15px;
     font-family: $font-tenorSans;
     background: #fff;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2294,7 +2642,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2352,9 +2700,12 @@
     $_textStateEmColor: #444;
     $_textStateCurrentColor: #fff;
     $_borderColor: #aaa;
+    position: relative;
+    z-index: z(headerMenu, 0);
     margin: 0 -15px;
     font-family: $font-tenorSans;
     background: #f6f5f3;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2362,7 +2713,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2420,9 +2771,12 @@
     $_textStateEmColor: #b00000;
     $_textStateCurrentColor: #fff;
     $_borderColor: #d2bdbd;
+    position: relative;
+    z-index: z(headerMenu, 0);
     margin: 0 -15px;
     font-family: $font-tenorSans;
     background: #f9f2f2;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2430,7 +2784,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2488,9 +2842,12 @@
     $_textStateEmColor: #002d5b;
     $_textStateCurrentColor: #fff;
     $_borderColor: #9babbb;
+    position: relative;
+    z-index: z(headerMenu, 0);
     margin: 0 -15px;
     font-family: $font-tenorSans;
     background: #edf0f3;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2498,7 +2855,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2555,10 +2912,13 @@
     $_textColor: #555;
     $_textStateEmColor: #a38320;
     $_bgColor: #f1f0ef;
+    position: relative;
+    z-index: z(headerMenu, 0);
     margin: 0 -15px;
     font-family: $font-tenorSans;
     border-top: 2px solid #e6e6e6;
     border-bottom: 2px solid #e6e6e6;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2566,7 +2926,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2635,6 +2995,9 @@
     font-family: $font-tenorSans;
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2642,7 +3005,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2680,9 +3043,12 @@
     $_lineHeight: 1;
     $_textColor: #fff;
     $_bgColor: #9f895b;
+    position: relative;
+    z-index: z(headerMenu, 0);
     margin: 0 -15px;
     font-family: $font-tenorSans;
     background: #b5a17a;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2690,7 +3056,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2719,9 +3085,12 @@
     $_lineHeight: 1;
     $_textColor: #fff;
     $_bgColor: #1a365a;
+    position: relative;
+    z-index: z(headerMenu, 0);
     margin: 0 -15px;
     font-family: $font-tenorSans;
     background: #2c4b6f;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2729,7 +3098,7 @@
     label {
       display: none;
     }
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2759,6 +3128,11 @@
     $_textColor: #666;
     $_textStateEmColor: #a48846;
     $_textStateCurrentColor: #bd9b4b;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2766,9 +3140,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2812,6 +3184,11 @@
     $_textColor: #8d7147;
     $_textStateEmColor: #00366d;
     $_textStateCurrentColor: #0056ac;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2819,9 +3196,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {
@@ -2865,6 +3240,11 @@
     $_textColor: #666;
     $_textStateEmColor: #a48846;
     $_textStateCurrentColor: #777;
+    position: relative;
+    z-index: z(headerMenu, 0);
+    margin: 0 -15px;
+    font-family: $font-tenorSans;
+    @include g-font($_fontSize, $_lineHeight);
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -2872,9 +3252,7 @@
     label {
       display: none;
     }
-    margin: 0 -15px;
-    font-family: $font-tenorSans;
-    @include g-font($_fontSize, $_lineHeight);
+
     div {
       text-align: center;
       ul {

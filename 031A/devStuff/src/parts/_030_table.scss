@@ -410,14 +410,6 @@
         // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
         border-bottom: 1px solid $_color_table_border;
-        &:first-child {
-          border-left: 1px solid $_color_table_border;
-        }
-
-        &:last-child {
-          border-right: 1px solid $_color_table_border;
-        }
-
         p,
         ul,
         ol {
@@ -448,6 +440,8 @@
       }
 
       tr {
+        border-right: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
         &:first-child {
           th,
           td {
@@ -849,6 +843,24 @@
       width: 100%;
       margin-top: $_blockSpacing;
       border: transparent 1px solid;
+      tr {
+        border-right: 1px solid $_color_table_border;
+        border-left: 1px solid $_color_table_border;
+        &:first-child {
+          th,
+          td {
+            border-top: 1px solid $_color_table_border;
+          }
+        }
+
+        &:last-child {
+          > th,
+          td {
+            background-image: none;
+          }
+        }
+      }
+
       th,
       td {
         @include g-font(14, 1);
@@ -858,14 +870,6 @@
         // IE,Firefoxでtableの枠線が出るので消す
         border-style: none;
         border-bottom: 1px solid $_color_table_border;
-        &:first-child {
-          border-left: 1px solid $_color_table_border;
-        }
-
-        &:last-child {
-          border-right: 1px solid $_color_table_border;
-        }
-
         p,
         ul,
         ol {
@@ -893,22 +897,6 @@
       td {
         color: $_color_table_td_text;
         background-color: $_color_table_td_bg;
-      }
-
-      tr {
-        &:first-child {
-          th,
-          td {
-            border-top: 1px solid $_color_table_border;
-          }
-        }
-
-        &:last-child {
-          > th,
-          td {
-            background-image: none;
-          }
-        }
       }
     }
 

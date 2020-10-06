@@ -406,6 +406,7 @@
 |11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation9of11}|8%||45px|
 |11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation10of11}|8%||45px|
 |11.枠|main|1001_枠|.t0-b-frameOuter|#{$variation11of11}|8%||45px|
+|11.枠|main|1009_枠(2列分割)|.t0-b-frameOuter2col||0||0|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||20px|
 |12.その他|main|023_パンくずリスト（メインエリア）|.b-breadcrumbs||0||20px|

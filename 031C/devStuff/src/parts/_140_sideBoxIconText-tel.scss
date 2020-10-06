@@ -3,12 +3,16 @@
     $_textColor: #ed7573;
     font-family: $font-tenorSans;
     color: $_textColor;
+    position: relative;
+    z-index: z(sideBoxIconText-tel, 0);
     > div {
       display: inline-block;
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: right;
       a {
         color: $_textColor;
@@ -17,17 +21,19 @@
     }
 
     &__bd {
-      @if $layout == "L30" or $layout == "R30" {
-        // L30かR30で番号が折り返さない最大サイズ
-        @include g-font(30, 1);
-      } @else {
-        // L25かR25で番号が折り返さない最大サイズ
-        @include g-font(26, 1);
-      }
       display: table;
       font-weight: bold;
       line-height: 1;
       text-align: center;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 30px;
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 26px;
+      }
       > span {
         display: table-cell;
         vertical-align: middle;
@@ -100,7 +106,9 @@
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: center;
     }
 
@@ -109,7 +117,9 @@
       margin: 0 auto;
       color: #f00;
       text-align: center;
-      @include g-font(22, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 22px;
+      line-height: 1.25;
       > span {
         display: table-cell;
         vertical-align: middle;
