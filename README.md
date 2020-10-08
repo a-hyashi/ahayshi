@@ -416,31 +416,16 @@ $ docker system prune
 
 ```
 lib
-├── aigis-markdown
-│   ├── abstract_aigis_markdown.js
-│   ├── aigis_inner_markdown.js
-│   ├── aigis_yaml.js
-│   └── unittest.js
-├── btool-settings
-│   ├── buddy-parts-testcases.json
-│   ├── function-design.json
-│   └── parts-categories.json
+├── aigis-markdown/ ･･･aigisに必要なファイル作成
+├── btool-settings/ ･･･スタイルガイドに必要な設定ファイル
+├── each_part/ ･･･各部品で必要な設定ファイル
+├── schemas/ ･･･機能と選択肢に必要な設定ファイル
+├── buddy-parts-functions.js
+├── data-json-generator.js
 ├── make_aigis.js
 ├── make_all-datajsons.js
-├── make_datajson.js
 ├── make_html.js
-├── schemas
-│   ├── dataSchema.json
-│   └── metaSchema.json
-└── utils
-    ├── breadcrumbs001.json
-    ├── buddy-parts-design.json
-    ├── buddy-parts-functions.js
-    ├── buddy-parts-functions.json
-    ├── data-json-generator.js
-    ├── formTableAll.json
-    ├── sideMenu001.json
-    └── utils.js
+└── utils.js
 ```
 
 ### btool-settings
