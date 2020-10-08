@@ -278,7 +278,6 @@ gulp.task('make-allparts-datajson', () => {
   return make_allparts_datajson('');
 });
 
-// make-htmlで詰まらないように分割している
 gulp.task('make-allparts-datajson2', () => {
   return make_allparts_datajson('2');
 });
@@ -300,7 +299,6 @@ gulp.task('make-html', () => {
   return exec_make_html('');
 });
 
-// 一度に開きすぎてエラーになるので分割している
 gulp.task('make-html2', () => {
   return exec_make_html('2');
 });
@@ -323,12 +321,10 @@ gulp.task('make-unittest', () => {
   return make_aigis.makeAigis('./temp/html/', './temp/unittest/');
 });
 
-// スタイルガイド用mdファイル作成
 gulp.task('make-unittest2', () => {
   return make_aigis.makeAigis('./temp/html2/', './temp/unittest/');
 });
 
-// スタイルガイド用mdファイル作成
 gulp.task('make-unittest3', () => {
   return make_aigis.makeAigis('./temp/html3/', './temp/unittest/');
 });
@@ -357,9 +353,9 @@ gulp.task('update-styleguide',
   gulp.series(
     // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
     gulp.parallel('del-datafile', 'update-css'),
-    // html作成用のjsonを2つのフォルダに分ける
+    // ファイルが多すぎてnode.jsがエラーになるので分割して実行
     gulp.parallel('make-allparts-datajson', 'make-allparts-datajson2', 'make-allparts-datajson3'),
-    // ファイルが多すぎてnode.jsがエラーになるので2つに分けてhtml作成
+    // 同時実行件数が多いとエラーになるので直列処理する
     'make-html', 'make-html2', 'make-html3',
     // htmlからmdファイル作成
     gulp.parallel('make-unittest', 'make-unittest2', 'make-unittest3'),
