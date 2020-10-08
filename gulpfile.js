@@ -320,17 +320,17 @@ const exec_make_html = (num) => {
 
 // スタイルガイド用mdファイル作成
 gulp.task('make-unittest', () => {
-  return make_aigis.makeAigis('./temp/html/', './temp/unittest/', './devStuff/');
+  return make_aigis.makeAigis('./temp/html/', './temp/unittest/');
 });
 
 // スタイルガイド用mdファイル作成
 gulp.task('make-unittest2', () => {
-  return make_aigis.makeAigis('./temp/html2/', './temp/unittest/', './devStuff/');
+  return make_aigis.makeAigis('./temp/html2/', './temp/unittest/');
 });
 
 // スタイルガイド用mdファイル作成
 gulp.task('make-unittest3', () => {
-  return make_aigis.makeAigis('./temp/html3/', './temp/unittest/', './devStuff/');
+  return make_aigis.makeAigis('./temp/html3/', './temp/unittest/');
 });
 
 // styleguide作成
