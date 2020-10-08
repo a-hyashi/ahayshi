@@ -46,7 +46,7 @@ gulp.task('sass-build', () => {
     styleSource.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sass({outputStyle: 'compressed'}))
-      .pipe($.autoprefixer())
+      .pipe($.autoprefixer({grid: 'autoplace'}))
       .pipe(gulp.dest('devStuff/temp/css'));
     })
   )
@@ -64,7 +64,7 @@ gulp.task('sass-build-styleguide', () => {
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
       .pipe($.sass({outputStyle: 'expanded'}))
-      .pipe($.autoprefixer())
+      .pipe($.autoprefixer({grid: 'autoplace'}))
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
