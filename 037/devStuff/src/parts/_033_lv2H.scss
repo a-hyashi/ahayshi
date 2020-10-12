@@ -315,43 +315,51 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
-    padding: 10px;
+    padding: 0;
     a {
       &:hover {
         color: $lv2H7_hoverTextColor;
       }
     }
 
-    h2 {
-      @include g-font-layout($_fontSize, 1, $layout);
+    div {
       display: flex;
-      &::before{
-        content: "";
-        border: 4px solid $lv2H7_borderColor;
-        margin-right: 12px;
+      div {
+        > span {
+          border-right: 10px solid $lv2H7_borderColor;
+          margin-right: 12px;
+        }
+      }
+
+      h2 {
+        @include g-font-layout($_fontSize, 1, $layout);
       }
     }
 
     &--size-1 {
-      h2 {
-        @include g-font-layout($_fontSize_s, 1, $layout);
+      div {
+        h2 {
+          @include g-font-layout($_fontSize_s, 1, $layout);
+        }
       }
     }
 
     &--size-3 {
-      h2 {
-        @include g-font-layout($_fontSize_l, 1, $layout);
+      div {
+        h2 {
+          @include g-font-layout($_fontSize_l, 1, $layout);
+        }
       }
     }
 
     &--align-c {
-      h2 {
+      div {
         justify-content: center;
       }
     }
 
     &--align-r {
-      h2 {
+      div {
         justify-content: flex-end;
       }
     }
@@ -573,25 +581,29 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
-    padding: 7px;
-    h2 {
-      @include g-font-layout($_fontSize, 1, $layout);
+    padding: 7px 0;
+    div {
       display: flex;
-      &::before{
-        content: "";
-        border: 3px solid $lv2H7_borderColor;
-        margin-right: 10px;
+      div {
+        > span {
+          border-right: 8px solid $lv2H7_borderColor;
+          margin-right: 10px;
+        }
+      }
+
+      h2 {
+        @include g-font-layout($_fontSize, 1, $layout);
       }
     }
 
     &--align-c {
-      h2 {
+      div {
         justify-content: center;
       }
     }
 
     &--align-r {
-      h2 {
+      div {
         justify-content: flex-end;
       }
     }
