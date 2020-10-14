@@ -416,67 +416,25 @@ $ docker system prune
 
 ```
 lib
-├── aigis-markdown
-│   ├── abstract_aigis_markdown.js
-│   ├── aigis_inner_markdown.js
-│   ├── aigis_yaml.js
-│   └── unittest.js
-├── btool-settings
-│   ├── buddy-parts-testcases.json
-│   ├── function-design.json
-│   └── parts-categories.json
+├── aigis-markdown/ ･･･aigisに必要なファイル作成
+├── btool-settings/ ･･･スタイルガイドに必要な設定ファイル
+├── each_part/ ･･･各部品で必要な設定ファイル
+├── schemas/ ･･･機能と選択肢に必要な設定ファイル
+├── buddy-parts-functions.js
+├── data-json-generator.js
 ├── make_aigis.js
 ├── make_all-datajsons.js
-├── make_datajson.js
 ├── make_html.js
-├── schemas
-│   ├── dataSchema.json
-│   └── metaSchema.json
-└── utils
-    ├── breadcrumbs001.json
-    ├── buddy-parts-design.json
-    ├── buddy-parts-functions.js
-    ├── buddy-parts-functions.json
-    ├── data-json-generator.js
-    ├── formTableAll.json
-    ├── sideMenu001.json
-    └── utils.js
+└── utils.js
 ```
 
-### btool-settings
-buddy-themeの設定情報等を格納する
+### エラーが出たときの対応
+```sh
+Error: EIO: i/o error, open '/buddy-theme/037/temp/html/062_navBItem_navBItem/062_navBItem_navBItem_f99_005_07.html'
+```
+同時実行数が多すぎなので、parts-categoriesを分割する
 
-#### buddy-parts-testcases.json
-テストケース情報を設定しているファイル
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/16pk-IFDGNxv7gjVvLemW0kNlOwpuLdcpc8zJYL81N6Y/edit#gid=318273719)
-- 単体テスト > make buddy parts testcases json
-
-#### function-design.json
-標準機能仕様、ブロック個別機能仕様を一覧で管理する情報
-- [生成用スプレッドシート](https://docs.google.com/spreadsheets/d/1hUg4X2BChH0Uke0HFLX1G4h9MBK__HNb5_TWQ4eL05Y/edit#gid=1396076322)
-- 出力 > function-design.json
-
-#### parts-categories.json
-部品とCSSブロックのマッピング情報
-- JSONを直接更新する
-
-<br>
-
-### schemas
-dataJson, metaJsonのスキーマ情報
-
-<br>
-
-### utils
-
-#### buddy-parts-functions.json
-機能初期値、テスト値とブロックの対応状況の定義情報
-- JSONを直接更新する
-
-#### buddy-parts-design.json
-デザイン仕様を確認するための機能とマッピング
-- JSONを直接更新する
-
-#### ブロック専用jsonファイル
-ブロック固有の事情で必要になるファイル
-- JSONを直接更新する
+```sh
+Maximum call stack size exceeded
+```
+多すぎるページがあるので、バリエーションかテストケースを削減する
