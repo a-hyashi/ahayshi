@@ -1,6 +1,8 @@
 @if $device == PC {
   .t0-b-headerMenu#{$variation1of2} {
     $_width_content: 1100px;
+    position: relative;
+    z-index: z(headerMenu, 1);
     background: #485906;
     border-bottom: 3px solid #374500;
     input[type="checkbox"].on-off {
@@ -68,7 +70,7 @@
     .state-em {
       div {
         position: relative;
-        z-index: 1;
+        z-index: z(headerMenu, 2);
         color: #fff;
         background-color: #667415;
         &::after {
@@ -76,7 +78,7 @@
           right: 3px;
           bottom: 0;
           left: 3px;
-          z-index: -1;
+          z-index: z(bg, -1);
           height: 4px;
           pointer-events: none;
           content: "";
@@ -102,10 +104,24 @@
         color: #fff;
       }
     }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 2px 8px rgba(#00001e, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu#{$variation2of2} {
     $_width_content: 1100px;
+    position: relative;
+    z-index: z(headerMenu, 1);
     background: #fff;
     border-top: 1px solid #dadada;
     border-bottom: 4px solid #b0bf24;
@@ -173,14 +189,14 @@
     .state-em {
       div {
         position: relative;
-        z-index: 1;
+        z-index: z(headerMenu, 2);
         &::before {
           position: absolute;
           top: 4px;
           right: 4px;
           bottom: 4px;
           left: 4px;
-          z-index: -1;
+          z-index: z(bg, -1);
           pointer-events: none;
           content: "";
           background-color: #cbd56e;
@@ -191,7 +207,7 @@
           right: 4px;
           bottom: 7px;
           left: 4px;
-          z-index: -1;
+          z-index: z(bg, -1);
           height: 2px;
           pointer-events: none;
           content: "";
@@ -228,10 +244,24 @@
         }
       }
     }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 2px 8px rgba(#00001e, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu3 {
     $_width_content: 1100px;
+    position: relative;
+    z-index: z(headerMenu, 1);
     color: #fff;
     background: #0d0d0d;
     input[type="checkbox"].on-off {
@@ -308,10 +338,24 @@
     .state-current a {
       color: #7f9500;
     }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 2px 8px rgba(#00001e, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu4 {
     $_width_content: 1100px;
+    position: relative;
+    z-index: z(headerMenu, 1);
     color: #fff;
     background: #b0bf24;
     input[type="checkbox"].on-off {
@@ -382,10 +426,24 @@
         color: #788500;
       }
     }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 2px 8px rgba(#00001e, .18);
+      }
+    }
   }
 
   .t0-b-headerMenu5 {
     $_width_content: 1100px;
+    position: relative;
+    z-index: z(headerMenu, 1);
     color: #333;
     background: #fff;
     input[type="checkbox"].on-off {
@@ -462,19 +520,33 @@
     .state-current a {
       color: #788c04;
     }
+
+    &--fixDisplay {
+      transition: box-shadow .5s;
+      &.fixed {
+        position: fixed;
+        z-index: z(headerMenu-fixed, 1);
+        top: 0;
+        width: 100%;
+        min-width: $areaContainerWidth + 36px;
+        box-shadow: 0 2px 8px rgba(#00001e, .18);
+      }
+    }
   }
 }
 
 @if $device == SP {
   .t0-b-headerMenu#{$variation1of2} {
-    ul {
-      padding: 5px 0;
-    }
-
+    position: relative;
+    z-index: z(headerMenu, 1);
     margin: 0 -15px;
     text-align: center;
     background: #485906;
     @include g-font(12, 1);
+    ul {
+      padding: 5px 0;
+    }
+
     input[type="checkbox"].on-off {
       display: none;
     }
@@ -534,6 +606,8 @@
 
   .t0-b-headerMenu#{$variation2of2},
   .t0-b-headerMenu5 {
+    position: relative;
+    z-index: z(headerMenu, 1);
     margin: 0 -15px;
     text-align: center;
     background: #fff;
@@ -601,6 +675,8 @@
   }
 
   .t0-b-headerMenu3 {
+    position: relative;
+    z-index: z(headerMenu, 1);
     @include g-font(12, 1);
     margin: 0 -15px;
     color: #fff;
@@ -649,6 +725,8 @@
   }
 
   .t0-b-headerMenu4 {
+    position: relative;
+    z-index: z(headerMenu, 1);
     @include g-font(12, 1);
     margin: 0 -15px;
     color: #fff;

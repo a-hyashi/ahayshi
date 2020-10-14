@@ -259,6 +259,7 @@
 |11.枠|main|1000_枠|.t0-b-frameOuter|#{$variation6of8}|8%||25px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|#{$variation7of8}|8%||45px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|#{$variation8of8}|8%||45px|
+|11.枠|main|1009_枠(2列分割)|.t0-b-frameOuter2col||0||0|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
 |12.その他|main|009_ファイルダウンロード|.t0-b-fileDownloads||4%||20px|

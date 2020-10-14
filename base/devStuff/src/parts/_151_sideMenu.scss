@@ -1,6 +1,7 @@
 @if $device == PC {
-  .b-sideMenu#{$variation1of2} {
-    $_block: &;
+  .b-sideMenu {
+    position: relative;
+    z-index: z(sideMenu, 0);
     label {
       display: none;
     }
@@ -15,30 +16,79 @@
 
     &__bd {
       @include g-font(16);
-      // 親要素
-      > #{$_block}__list > ul {
-        > #{$_block}__item {
-          &.state-current {
-            //
+      > .b-sideMenu__list > ul > .b-sideMenu__item {
+        // 親要素のカレント
+        &.state-current > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
+              //
+            }
           }
         }
 
-        // 子要素
-        > li > #{$_block}__list > ul {
-          > #{$_block}__item {
-            > #{$_block}__list {
+        // 親要素
+        > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
               //
             }
 
-            &.state-current {
+            > a:hover > span {
               //
             }
           }
+        }
 
-          // 孫要素
-          > #{$_block}__item > div > ul > li {
-            &.state-current {
-              //
+        > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                //
+              }
+            }
+          }
+
+          // 子要素
+          > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                //
+              }
+
+              > a:hover > span {
+                //
+              }
+            }
+          }
+
+          > .b-sideMenu__list > ul > .b-sideMenu__item {
+            // 孫要素のカレント
+            &.state-current > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
+                  //
+                }
+              }
+            }
+
+            // 孫要素
+            > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
+                  //
+                }
+
+                > a:hover > span {
+                  //
+                }
+              }
             }
           }
         }
@@ -58,8 +108,9 @@
     }
   }
 
-  .b-sideMenu#{$variation2of2} {
-    $_block: &;
+  .b-sideMenu2 {
+    position: relative;
+    z-index: z(sideMenu, 0);
     label {
       display: none;
     }
@@ -70,48 +121,82 @@
 
     &__hd {
       @include g-font(20);
-      a {
-        &:hover {
-          color: $g-baseHoverColor3;
-        }
-      }
     }
 
     &__bd {
       @include g-font(16);
-      // 親要素
-      > #{$_block}__list > ul {
-        > #{$_block}__item {
-          a {
-            &:hover {
-              color: $g-baseHoverColor3;
-            }
-          }
-
-          &.state-current {
-            a {
-              &:hover {
-                color: $g-baseHoverColor3;
-              }
+      > .b-sideMenu__list > ul > .b-sideMenu__item {
+        // 親要素のカレント
+        &.state-current > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
+              //
             }
           }
         }
 
-        // 子要素
-        > li > #{$_block}__list > ul {
-          > #{$_block}__item {
-            > #{$_block}__list {
-              &.state-current {
+        // 親要素
+        > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
+              //
+            }
+
+            > a:hover > span {
+              //
+            }
+          }
+        }
+
+        > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
                 //
               }
             }
           }
 
-          // 孫要素
-          > #{$_block}__item > div {
-            > ul > li {
-              &.state-current {
+          // 子要素
+          > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
                 //
+              }
+
+              > a:hover > span {
+                //
+              }
+            }
+          }
+
+          > .b-sideMenu__list > ul > .b-sideMenu__item {
+            // 孫要素のカレント
+            &.state-current > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
+                  //
+                }
+              }
+            }
+
+            // 孫要素
+            > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
+                  //
+                }
+
+                > a:hover > span {
+                  //
+                }
               }
             }
           }
@@ -133,13 +218,8 @@
   }
 
   .b-sideMenuHandle {
-    $_block: ".b-sideMenuHandle";
-    a {
-      &:hover {
-        color: $g-baseHoverColor3;
-      }
-    }
-
+    position: relative;
+    z-index: z(sideMenu, 0);
     label {
       display: none;
     }
@@ -152,38 +232,55 @@
       @include g-font(20);
       a {
         &:hover {
-          color: $g-baseHoverColor3;
+          //
         }
       }
     }
 
     &__bd {
       @include g-font(16);
-      // 親要素
-      > #{$_block}__list > ul {
-        > #{$_block}__item {
-          &.state-current {
-            //
+      > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+        // 親要素
+        > .b-sideMenuHandle__item2 {
+          > div {
+            > span,
+            > a > span {
+              //
+            }
+
+            > a:hover > span {
+              //
+            }
           }
         }
 
-        // 子要素
-        li > #{$_block}__list > ul {
-          > #{$_block}__item {
-            > #{$_block}__list {
-              //
-            }
+        > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+          // 子要素
+          > .b-sideMenuHandle__item2 {
+            > div {
+              > span,
+              > a > span {
+                //
+              }
 
-            &.state-current {
-              //
+              > a:hover > span {
+                //
+              }
             }
           }
 
-          // 孫要素
-          > #{$_block}__item > div {
-            > ul > li {
-              &.state-current {
-                //
+          > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+            // 孫要素
+            > .b-sideMenuHandle__item2 {
+              > div {
+                > span,
+                > a > span {
+                  //
+                }
+
+                > a:hover > span {
+                  //
+                }
               }
             }
           }
@@ -206,15 +303,13 @@
 }
 
 @if $device == SP {
-  .b-sideMenu#{$variation1of2} {
-    $_block: &;
+  .b-sideMenu {
     @include g-font(14);
-    width: 100%;
+    border: 1px solid $sideMenu_borderColor;
     label {
       display: inline-block;
       width: 98%;
-      padding: 10px 0 10px 2%;
-      cursor: pointer;
+      padding: 10px 0 10px 15px;
       &::before {
         display: inline-block;
         margin: 0 .5em 0 .2em;
@@ -223,8 +318,6 @@
 
       &.active {
         &::before {
-          display: inline-block;
-          margin: 0 .5em 0 .2em;
           content: "▼";
         }
       }
@@ -234,44 +327,89 @@
       display: none;
     }
 
-    &__hd,
-    &__bd {
+    &__hd {
       display: none;
     }
 
-    &__list {
-      > ul > #{$_block}__item {
-        > #{$_block}__item2 > div,
-        &.state-current > #{$_block}__item2 > div {
-          > a > span,
-          > span {
-            display: block;
-            padding: 10px 45px 10px 20px;
-          }
-        }
-      }
-
-      > ul > li > #{$_block}__list > ul {
-        > #{$_block}__item,
-        &.state-current {
-          > #{$_block}__item2 > div {
-            > a > span,
-            > span {
-              display: block;
-              padding: 10px 45px 10px 30px;
+    &__bd {
+      display: none;
+      > .b-sideMenu__list > ul > .b-sideMenu__item {
+        // 親要素のカレント
+        &.state-current > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
+              background-color: $sideMenu_BGColor;
             }
           }
         }
 
-        > li {
-          #{$_block}__list > ul {
-            > #{$_block}__item,
-            &.state-current {
-              > #{$_block}__item2 > div {
-                > a > span,
-                span {
+        // 親要素
+        > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
+              display: block;
+              padding: 10px 45px 10px 20px;
+              background-image: url("https://placehold.jp/18x18.png");
+              background-repeat: no-repeat;
+              background-position: 95% center;
+              background-size: 18px 18px;
+              border-top: 1px solid $sideMenu_borderColor;
+            }
+          }
+        }
+
+        > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                background-color: $sideMenu_BGColor;
+              }
+            }
+          }
+
+          // 子要素
+          > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                display: block;
+                padding: 10px 45px 10px 20px;
+                background-image: url("https://placehold.jp/18x18.png");
+                background-repeat: no-repeat;
+                background-position: 95% center;
+                background-size: 18px 18px;
+                border-top: 1px solid $sideMenu_borderColor;
+              }
+            }
+          }
+
+          > .b-sideMenu__list > ul > .b-sideMenu__item {
+            // 孫要素のカレント
+            &.state-current > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
+                  background-color: $sideMenu_BGColor;
+                }
+              }
+            }
+
+            // 孫要素
+            > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
                   display: block;
-                  padding: 10px 45px 10px 40px;
+                  padding: 10px 45px 10px 20px;
+                  background-image: url("https://placehold.jp/18x18.png");
+                  background-repeat: no-repeat;
+                  background-position: 95% center;
+                  background-size: 18px 18px;
+                  border-top: 1px solid $sideMenu_borderColor;
                 }
               }
             }
@@ -281,20 +419,13 @@
     }
   }
 
-  .b-sideMenu#{$variation2of2} {
-    $_block: &;
+  .b-sideMenu2 {
     @include g-font(14);
-    width: 100%;
-    &__hd,
-    &__bd {
-      display: none;
-    }
-
+    border: 1px solid $sideMenu_borderColor;
     label {
       display: inline-block;
       width: 98%;
-      padding: 10px 0 10px 2%;
-      cursor: pointer;
+      padding: 10px 0 10px 15px;
       &::before {
         display: inline-block;
         margin: 0 .5em 0 .2em;
@@ -303,8 +434,6 @@
 
       &.active {
         &::before {
-          display: inline-block;
-          margin: 0 .5em 0 .2em;
           content: "▼";
         }
       }
@@ -314,39 +443,89 @@
       display: none;
     }
 
-    &__list {
-      > ul > #{$_block}__item {
-        > #{$_block}__item2 > div,
-        &.state-current > #{$_block}__item2 > div {
-          > a > span,
-          > span {
-            display: block;
-            padding: 10px 45px 10px 20px;
-          }
-        }
-      }
+    &__hd {
+      display: none;
+    }
 
-      > ul > li > #{$_block}__list > ul {
-        > #{$_block}__item,
-        &.state-current {
-          > #{$_block}__item2 > div {
-            > a > span,
-            > span {
-              display: block;
-              padding: 10px 45px 10px 30px;
+    &__bd {
+      display: none;
+      > .b-sideMenu__list > ul > .b-sideMenu__item {
+        // 親要素のカレント
+        &.state-current > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
+              background-color: $sideMenu2_BGColor;
             }
           }
         }
 
-        > li {
-          #{$_block}__list > ul {
-            > #{$_block}__item,
-            &.state-current {
-              > #{$_block}__item2 > div {
-                > a > span,
-                span {
+        // 親要素
+        > .b-sideMenu__item2 {
+          > div {
+            > span,
+            > a > span {
+              display: block;
+              padding: 10px 45px 10px 20px;
+              background-image: url("https://placehold.jp/18x18.png");
+              background-repeat: no-repeat;
+              background-position: 95% center;
+              background-size: 18px 18px;
+              border-top: 1px solid $sideMenu2_borderColor;
+            }
+          }
+        }
+
+        > .b-sideMenu__list > ul > .b-sideMenu__item {
+          // 子要素のカレント
+          &.state-current > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                background-color: $sideMenu2_BGColor;
+              }
+            }
+          }
+
+          // 子要素
+          > .b-sideMenu__item2 {
+            > div {
+              > span,
+              > a > span {
+                display: block;
+                padding: 10px 45px 10px 20px;
+                background-image: url("https://placehold.jp/18x18.png");
+                background-repeat: no-repeat;
+                background-position: 95% center;
+                background-size: 18px 18px;
+                border-top: 1px solid $sideMenu2_borderColor;
+              }
+            }
+          }
+
+          > .b-sideMenu__list > ul > .b-sideMenu__item {
+            // 孫要素のカレント
+            &.state-current > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
+                  background-color: $sideMenu2_BGColor;
+                }
+              }
+            }
+
+            // 孫要素
+            > .b-sideMenu__item2 {
+              > div {
+                > span,
+                > a > span {
                   display: block;
-                  padding: 10px 45px 10px 40px;
+                  padding: 10px 45px 10px 20px;
+                  background-image: url("https://placehold.jp/18x18.png");
+                  background-repeat: no-repeat;
+                  background-position: 95% center;
+                  background-size: 18px 18px;
+                  border-top: 1px solid $sideMenu2_borderColor;
                 }
               }
             }
@@ -357,19 +536,12 @@
   }
 
   .b-sideMenuHandle {
-    $_block: &;
     @include g-font(14);
-    width: 100%;
-    &__hd,
-    &__bd {
-      display: none;
-    }
-
+    border: 1px solid $sideMenuHandle_borderColor;
     label {
       display: inline-block;
       width: 98%;
-      padding: 10px 0 10px 2%;
-      cursor: pointer;
+      padding: 10px 0 10px 15px;
       &::before {
         display: inline-block;
         margin: 0 .5em 0 .2em;
@@ -378,8 +550,6 @@
 
       &.active {
         &::before {
-          display: inline-block;
-          margin: 0 .5em 0 .2em;
           content: "▼";
         }
       }
@@ -389,39 +559,59 @@
       display: none;
     }
 
-    &__list {
-      > ul > #{$_block}__item {
-        > #{$_block}__item2 > div,
-        &.state-current > #{$_block}__item2 > div {
-          > a > span,
-          > span {
-            display: block;
-            padding: 10px 45px 10px 20px;
-          }
-        }
-      }
+    &__hd {
+      display: none;
+    }
 
-      > ul > li > #{$_block}__list > ul {
-        > #{$_block}__item,
-        &.state-current {
-          > #{$_block}__item2 > div {
-            > a > span,
-            > span {
+    &__bd {
+      display: none;
+      > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+        // 親要素
+        > .b-sideMenuHandle__item2 {
+          > div {
+            > span,
+            > a > span {
               display: block;
-              padding: 10px 45px 10px 30px;
+              padding: 10px 45px 10px 20px;
+              background-image: url("https://placehold.jp/18x18.png");
+              background-repeat: no-repeat;
+              background-position: 95% center;
+              background-size: 18px 18px;
+              border-top: 1px solid $sideMenuHandle_borderColor;
             }
           }
         }
 
-        > li {
-          #{$_block}__list > ul {
-            > #{$_block}__item,
-            &.state-current {
-              > #{$_block}__item2 > div {
-                > a > span,
-                span {
+        > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+          // 子要素
+          > .b-sideMenuHandle__item2 {
+            > div {
+              > span,
+              > a > span {
+                display: block;
+                padding: 10px 45px 10px 20px;
+                background-image: url("https://placehold.jp/18x18.png");
+                background-repeat: no-repeat;
+                background-position: 95% center;
+                background-size: 18px 18px;
+                border-top: 1px solid $sideMenuHandle_borderColor;
+              }
+            }
+          }
+
+          > .b-sideMenuHandle__list > ul > .b-sideMenuHandle__item {
+            // 孫要素
+            > .b-sideMenuHandle__item2 {
+              > div {
+                > span,
+                > a > span {
                   display: block;
-                  padding: 10px 45px 10px 40px;
+                  padding: 10px 45px 10px 20px;
+                  background-image: url("https://placehold.jp/18x18.png");
+                  background-repeat: no-repeat;
+                  background-position: 95% center;
+                  background-size: 18px 18px;
+                  border-top: 1px solid $sideMenuHandle_borderColor;
                 }
               }
             }

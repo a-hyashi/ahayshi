@@ -2,28 +2,34 @@
   .t0-b-sideBoxIconText-tel {
     font-family: "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
     color: #172188;
+    position: relative;
+    z-index: z(sideBoxIconText-tel, 0);
     > div {
       display: inline-block;
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: right;
     }
 
     &__bd {
-      @if $layout == "L30" or $layout == "R30" {
-        // L30かR30で番号が折り返さない最大サイズ
-        @include g-font(30, 1);
-      } @else {
-        // L25かR25で番号が折り返さない最大サイズ
-        @include g-font(26, 1);
-      }
       display: flex;
       align-items: center;
       font-weight: bold;
       line-height: 1;
       text-align: center;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 30px;
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 26px;
+      }
     }
 
     &__icon {
@@ -58,20 +64,25 @@
 
   .t0-b-sideBoxIconText-tel2 {
     color: #555;
+    position: relative;
+    z-index: z(sideBoxIconText-tel, 0);
     > div {
       display: inline-block;
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: right;
     }
 
     &__bd {
-      @include g-font(20, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 20px;
+      line-height: 1;
       display: flex;
       align-items: center;
-      line-height: 1;
       text-align: center;
     }
 
@@ -122,12 +133,16 @@
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: center;
     }
 
     &__bd {
-      @include g-font(22, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 22px;
+      line-height: 1.25;
       color: #f00;
       text-align: center;
     }
@@ -171,12 +186,16 @@
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: center;
     }
 
     &__bd {
-      @include g-font(22, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 22px;
+      line-height: 1.25;
       color: #f00;
       text-align: center;
     }
