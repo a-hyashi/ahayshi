@@ -30,24 +30,22 @@
 }
 
 @if $device == SP {
-  .t0-b-sideBoxFreeHtml {
-    text-align: center;
-    overflow: auto;
-    padding: 0 5px;
-    > div {
-      color: #555;
-      box-sizing: border-box;
-      > * {
-        margin: 0 auto !important;
-        max-width: 100% !important;
+  .t0-b-sideFreeHtml {
+    .t0-b-sideBox#{$variation1of2} &,
+    .t0-b-sideBox#{$variation2of2} & {
+      @include freeHtmlDiv(100%);
+      padding: 0;
+      > div {
+        color: #555;
+        padding: 0;
       }
-    }
 
-    .admin & > div {
-      background: #666;
-      color: #fff;
-      padding: 10px;
-      border-radius: 5px;
+      .admin > div {
+        background: #666;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+      }
     }
   }
 }

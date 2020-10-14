@@ -9,7 +9,8 @@
     }
 
     &__ruby {
-      @include g-font(14, 1);
+      font-size: 14px;
+      line-height: 1.25;
       text-align: right;
       a {
         color: inherit;
@@ -20,17 +21,18 @@
     }
 
     &__bd {
-      @if $layout == "L30" or $layout == "R30" {
-        // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
-        @include g-font(36, 1);
-      } @else {
-        // L25かR25で番号が折り返さない最大サイズ
-        @include g-font(32, 1);
-      }
       display: flex;
       align-items: center;
+      line-height: 1.25;
       text-align: center;
       font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+        font-size: 36px;
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        font-size: 32px;
+      }
     }
     // IEでアイコンと電話番号の縦位置がズレるため、游書体を指定しない。
     @media all and (-ms-high-contrast: none) {
@@ -109,13 +111,15 @@
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      font-size: 12px;
+      line-height: 1.25;
       text-align: center;
       color: #555;
     }
 
     &__bd {
-      @include g-font(22, 1);
+      font-size: 22px;
+      line-height: 1.25;
       text-align: center;
       color: #f00;
       > span {
