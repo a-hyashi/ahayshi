@@ -334,7 +334,7 @@ gulp.task('make-unittest', () => {
 // styleguide作成
 gulp.task('make-aigis', () => {
   if (!fs.existsSync('./devStuff/styleguide/css')){
-    fs.mkdirSync('./devStuff/styleguide/css');
+    fs.mkdirSync('./devStuff/styleguide/css', {recursive: true});
   }
   gulp.src('devStuff/aigis_config.yml')
   .pipe($.aigis());
