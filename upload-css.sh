@@ -8,11 +8,9 @@ printf "\e[36m[Info] CSSを開発環境にアップロードします\e[m\n"
 if [ $1 ] ; then
   # 引数がallの場合は全テーマ実行
   if [ $1 = "all" ] ; then
-    for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*"` ; do
+    for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*" | sort` ; do
       ./set-themes.sh ${theme#./}
       docker-compose run app1 npx gulp upload-css
-      docker-compose run app1 npx gulp upload-css-2
-      docker-compose run app1 npx gulp upload-css-3
     done
     docker-compose down
     printf "\e[32mアップロードが完了しました\e[m\n"
@@ -26,8 +24,6 @@ fi
 APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
 for ((i = 0; i < ${#APPS[@]}; i++)) ; do
   docker-compose run app$(($i+1)) npx gulp upload-css
-  docker-compose run app$(($i+1)) npx gulp upload-css-2
-  docker-compose run app$(($i+1)) npx gulp upload-css-3
 done
 
 docker-compose down

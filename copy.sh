@@ -4,7 +4,7 @@
 if [ $1 ] ; then
   # 引数がallの場合は全テーマ実行
   if [ $1 = "all" ] ; then
-    THEMES=(`find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*" | sed -e "s/\.\///"`)
+    THEMES=(`find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*" | sed -e "s/\.\///" | sort`)
   else
   # 引数がある場合は引数のテーマで実行
     THEMES=($@)

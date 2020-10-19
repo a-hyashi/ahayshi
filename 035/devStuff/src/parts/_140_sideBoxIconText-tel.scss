@@ -2,13 +2,17 @@
   .t0-b-sideBoxIconText-tel {
     color: #e07500;
     font-family: "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+    position: relative;
+    z-index: z(sideBoxIconText-tel, 0);
     > div {
       display: inline-block;
       vertical-align: top;
     }
 
     &__ruby {
-      @include g-font(14, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 14px;
+      line-height: 1.25;
       text-align: right;
       margin-top: 3px;
     }
@@ -16,16 +20,18 @@
     &__bd {
       text-align: center;
       font-weight: bold;
-      @if $layout == "L30" or $layout == "R30" {
-        // L30かR30で番号が折り返さない最大サイズ
-        @include g-font(30, 1);
-      } @else {
-        // L25かR25で番号が折り返さない最大サイズ
-        @include g-font(26, 1);
-      }
       line-height: 1;
       display: flex;
       align-items: center;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 30px;
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 26px;
+      }
     }
 
     &__icon {
@@ -73,29 +79,35 @@
   .t0-b-sideBoxIconText-tel2 {
     color: #333;
     font-family: "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+    position: relative;
+    z-index: z(sideBoxIconText-tel, 0);
     > div {
       display: inline-block;
     }
 
     &__ruby {
-      @include g-font(14, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 14px;
+      line-height: 1.25;
       text-align: right;
     }
 
     &__bd {
       text-align: center;
       font-weight: bold;
-      @if $layout == "L30" or $layout == "R30" {
-        // L30かR30で番号が折り返さない最大サイズ
-        @include g-font(30, 1);
-      } @else {
-        // L25かR25で番号が折り返さない最大サイズ
-        @include g-font(26, 1);
-      }
       margin-top: 3px;
       line-height: 1;
       display: flex;
       align-items: center;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 30px;
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        // 文字サイズ変更機能に影響されないようpx指定
+        font-size: 26px;
+      }
     }
 
     &__icon {
@@ -150,12 +162,16 @@
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: center;
     }
 
     &__bd {
-      @include g-font(22, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 22px;
+      line-height: 1.25;
       text-align: center;
       color: #f00;
       > span {
@@ -219,12 +235,16 @@
     }
 
     &__ruby {
-      @include g-font(12, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 12px;
+      line-height: 1.25;
       text-align: center;
     }
 
     &__bd {
-      @include g-font(22, 1);
+      // 文字サイズ変更機能に影響されないようpx指定
+      font-size: 22px;
+      line-height: 1.25;
       text-align: center;
       color: #f00;
     }

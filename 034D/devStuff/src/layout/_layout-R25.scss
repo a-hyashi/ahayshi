@@ -2,11 +2,13 @@ $areaContainerWidth: 1100px;
 $areaMainWidth: 780px;
 $areaSubWidth: 320px;
 .area-all {
+  position: relative;
+  z-index: z(bg, 0);
   min-width: $areaContainerWidth + 36px;
   margin: 0 auto;
   overflow: hidden;
-  word-break: break-all;
-  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
   background-color: $g-baseBackgroundColor;
 }
 
@@ -20,22 +22,29 @@ $areaSubWidth: 320px;
 }
 
 .area-main {
+  position: relative;
   box-sizing: border-box;
-  width: 780px;
+  width: $areaMainWidth;
   padding: 0 0 50px;
 }
 
 .area-sub {
   position: relative;
-  z-index: 11;
   box-sizing: border-box;
-  width: 320px;
+  width: $areaSubWidth;
   min-height: 100px;
   padding: 0 0 50px 50px;
 }
 
 .area-footer {
+  position: relative;
   // フッター最上部のフッターメニューの背景が伸びないため
   padding-top: 1px;
   background: $g-baseBackgroundColor;
+}
+
+// ログイン部品のエリア
+.mod-box22 {
+  position: relative;
+  z-index: z(mod-box22, -1);
 }

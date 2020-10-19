@@ -2,11 +2,13 @@ $areaContainerWidth: 1100px;
 $areaMainWidth: 700px;
 $areaSubWidth: 400px;
 .area-all {
+  position: relative;
+  z-index: z(bg, 0);
   min-width: $areaContainerWidth + 36px;
   margin: 0 auto;
   overflow: hidden;
-  word-break: break-all;
-  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
   background-color: #fff;
 }
 
@@ -21,16 +23,13 @@ $areaSubWidth: 400px;
 }
 
 .area-main {
-  // デフォルトの背景の上にユーザーが選択した画像を表示させるため
   position: relative;
-  z-index: 0;
   box-sizing: border-box;
   width: $areaMainWidth;
   padding: 0 0 50px;
 }
 
 .area-sub {
-  // t0-b-fullWidthFrameの背景色がサイドエリアの上に重ならないために必要
   position: relative;
   box-sizing: border-box;
   width: $areaSubWidth;
@@ -39,8 +38,12 @@ $areaSubWidth: 400px;
 }
 
 .area-footer {
-  // デフォルトの背景の上にユーザーが選択した画像を表示させるため
   position: relative;
-  z-index: 0;
   background: #fff;
+}
+
+// ログイン部品のエリア
+.mod-box22 {
+  position: relative;
+  z-index: z(mod-box22, -1);
 }
