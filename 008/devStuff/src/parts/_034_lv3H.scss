@@ -1,5 +1,12 @@
 @if $device == PC {
   .t0-b-lv3H#{$variation1of2} {
+    $_block: &;
+    $_fontSize: 24;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     color: #594c46;
     a {
       text-decoration: none;
@@ -37,7 +44,35 @@
     }
 
     h3 {
-      @include g-font(24, 1);
+      @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 46px * .8;
+        height: 35px * .8;
+        text-indent: -100px;
+        background-size: 35px * .8 35px * .8;
+      }
+
+      h3 {
+        padding-left: 12px * .8;
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 46px * 1.2;
+        height: 35px * 1.2;
+        text-indent: -100px;
+        background-size: 35px * 1.2 35px * 1.2;
+      }
+
+      h3 {
+        padding-left: 12px * 1.2;
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {
@@ -54,6 +89,13 @@
   }
 
   .t0-b-lv3H#{$variation2of2} {
+    $_block: &;
+    $_fontSize: 24;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     padding: 6px 42px 5px;
     background: url("../imgs/t0-b-lv3H/2/bg.png") no-repeat left center, url("../imgs/t0-b-lv3H/2/bg2.png") no-repeat right center;
     color: #7e5c25;
@@ -88,7 +130,43 @@
     }
 
     h3 {
-      @include g-font(24, 1);
+      @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &--size-1 {
+      padding: 6px * .8 42px * .8 5px * .8;
+      background-size: 22px * .8 40px * .8;
+      > span {
+        left: 21px * .8;
+        right: 21px * .8;
+        > span {
+          left: 2px * .8;
+          right: 2px * .8;
+          background-size: 2px * .8 5px * .8;
+        }
+      }
+
+      h3 {
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      padding: 6px * 1.2 42px * 1.2 5px * 1.2;
+      background-size: 22px * 1.2 40px * 1.2;
+      > span {
+        left: 21px * 1.2;
+        right: 21px * 1.2;
+        > span {
+          left: 2px * 1.2;
+          right: 2px * 1.2;
+          background-size: 2px * 1.2 5px * 1.2;
+        }
+      }
+
+      h3 {
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
     }
 
     &--align-l {

@@ -1,8 +1,19 @@
 @if $device == PC {
   .t0-b-lv5H#{$variation1of3} {
+    $_block: &;
+    $_fontSize_bd: 16;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #0e2753;
     &__caption-upper {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 15px 5px;
     }
 
@@ -10,13 +21,51 @@
       border-bottom: 3px double #dedbd4;
       padding: 0 15px 8px;
       > * {
-        @include g-font(16, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 15px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 15px * .8 5px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 0 15px * .8 8px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 15px * .8 0;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 15px * 1.2 5px * 1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 0 15px * 1.2 8px * 1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 15px * 1.2 0;
+      }
     }
 
     &--align-l {
@@ -37,24 +86,73 @@
   }
 
   .t0-b-lv5H#{$variation2of3} {
+    $_block: &;
+    $_fontSize_bd: 16;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     border-left: 6px solid #b7151d;
     display: table;
     color: #0e2753;
     &__caption-upper {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px 8px;
     }
 
     &__bd {
       padding: 2px 0 2px 8px;
       > * {
-        @include g-font(16, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 3px 0 0 8px;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8 8px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * .8 0 2px * .8 8px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0 8px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2 8px * 1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * 1.2 0 2px * 1.2 8px * 1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px * 1.2 0 0 8px * 1.2;
+      }
     }
 
     &--align-l {
@@ -75,24 +173,73 @@
   }
 
   .t0-b-lv5H#{$variation3of3} {
+    $_block: &;
+    $_fontSize_bd: 16;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     border-left: 6px solid #173871;
     display: table;
     color: #0e2753;
     &__caption-upper {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px 8px;
     }
 
     &__bd {
       padding: 2px 0 2px 8px;
       > * {
-        @include g-font(16, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 3px 0 0 8px;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8 8px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * .8 0 2px * .8 8px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0 8px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2 8px * 1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * 1.2 0 2px * 1.2 8px * 1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px * 1.2 0 0 8px * 1.2;
+      }
     }
 
     &--align-l {
@@ -113,6 +260,17 @@
   }
 
   .t0-b-lv5H4 {
+    $_block: &;
+    $_fontSize_bd: 16;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #0e2753;
     display: table;
     a {
@@ -122,19 +280,19 @@
     }
 
     &__caption-upper {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px 45px;
     }
 
     &__bd {
       padding: 2px 0 2px 8px;
       > * {
-        @include g-font(16, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 3px 0 0 45px;
     }
 
@@ -147,10 +305,68 @@
         left: -3px;
         content: "";
         background: url("../imgs/t0-b-lv5H/1.png") no-repeat 50%;
-        background-size: 90%;
+        // background-size: 90%;と元々あったがsizeを三種類作るのでpxに変更。
+        // 元来のサイズは34px 32px。
+        background-size: 30.6px 28.8px;
         width: 34px;
         height: 34px;
         transform: translateY(-50%);
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8 45px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * .8 0 2px * .8 8px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0 45px * .8;
+      }
+
+      h5 {
+        padding: 3px * .8 0 3px * .8 35px * .8;
+        &::before {
+          background-size: 30.6px * .8 28.8px * .8;
+          width: 34px * .8;
+          height: 34px * .8;
+        }
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2 45px * 1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * 1.2 0 2px * 1.2 8px * 1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px * 1.2 0 0 45px * 1.2;
+      }
+
+      h5 {
+        padding: 3px * 1.2 0 3px * 1.2 35px * 1.2;
+        &::before {
+          background-size: 30.6px * 1.2 28.8px * 1.2;
+          width: 34px * 1.2;
+          height: 34px * 1.2;
+        }
       }
     }
 
@@ -168,6 +384,17 @@
   }
 
   .t0-b-lv5H5 {
+    $_block: &;
+    $_fontSize_bd: 16;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #0e2753;
     text-align: center;
     overflow: hidden;
@@ -176,7 +403,7 @@
     }
 
     &__caption-upper {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px 8px;
     }
 
@@ -184,12 +411,12 @@
       display: inline-block;
       padding: 2px 0 2px 8px;
       > * {
-        @include g-font(16, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 3px 0 0 8px;
     }
 
@@ -221,6 +448,80 @@
       }
     }
 
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8 8px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * .8 0 2px * .8 8px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0 8px * .8;
+      }
+
+      h5 {
+        padding: 0 8px * .8;
+        max-width: 670px * .8;
+        &::before {
+          width: 240px * .8;
+          height: 7px * .8;
+          left: -240px * .8;
+          background-size: 240px * .8 7px * .8;
+        }
+
+        &::after {
+          width: 240px * .8;
+          height: 7px * .8;
+          right: -240px * .8;
+          background-size: 240px * .8 7px * .8;
+        }
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2 8px * 1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * 1.2 0 2px * 1.2 8px * 1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px * 1.2 0 0 8px * 1.2;
+      }
+
+      h5 {
+        padding: 0 8px * 1.2;
+        max-width: 670px * 1.2;
+        &::before {
+          width: 240px * 1.2;
+          height: 7px * 1.2;
+          left: -240px * 1.2;
+          background-size: 240px * 1.2 7px * 1.2;
+        }
+
+        &::after {
+          width: 240px * 1.2;
+          height: 7px * 1.2;
+          right: -240px * 1.2;
+          background-size: 240px * 1.2 7px * 1.2;
+        }
+      }
+    }
+
     &--align-l {
       text-align: left;
       h5 {
@@ -247,6 +548,17 @@
   }
 
   .t0-b-lv5H6 {
+    $_block: &;
+    $_fontSize_bd: 16;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     text-align: center;
     color: #0e2753;
     a {
@@ -254,7 +566,7 @@
     }
 
     &__caption-upper {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 15px 5px;
     }
 
@@ -262,13 +574,51 @@
       border-bottom: 2px solid #eae3b1;
       padding: 0 15px 6px;
       > * {
-        @include g-font(16, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 15px 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 15px * .8 5px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 0 15px * .8 6px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 15px * .8 0;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 15px * 1.2 5px * 1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 0 15px * 1.2 6px * 1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 15px * 1.2 0;
+      }
     }
 
     &--align-l {
@@ -285,6 +635,17 @@
   }
 
   .t0-b-lv5H7 {
+    $_block: &;
+    $_fontSize_bd: 16;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #0e2753;
     text-align: center;
     a {
@@ -292,20 +653,58 @@
     }
 
     &__caption-upper {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px 8px;
     }
 
     &__bd {
       padding: 2px 0 2px 8px;
       > * {
-        @include g-font(16, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-lower {
-      @include g-font(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 3px 0 0 8px;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8 8px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 2px * .8 0 2px * .8 8px * .8;
+        > * {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0 8px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px *1.2 8px *1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 2px *1.2 0 2px *1.2 8px *1.2;
+        > * {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px *1.2 0 0 8px *1.2;
+      }
     }
 
     &--align-l {

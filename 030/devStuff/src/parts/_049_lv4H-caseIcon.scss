@@ -1,57 +1,18 @@
 @if $device == PC {
-  .t0-b-lv4H-caseIcon#{$variation1of2},
-  .t0-b-lv4H-caseIcon#{$variation2of2} {
-    color: #fff;
-    font-family: $mincho;
-    &__caption-upper {
-      @include g-font(14, 1);
-      padding: 0 0 3px;
-    }
-
-    &__h {
-      @include g-font(22, 1);
-    }
-
-    &__bd {
-      text-align: left;
-    }
-
-    &__caption-lower {
-      @include g-font(14, 1);
-      padding: 3px 0 0;
-    }
-
-    &__caption-upper + &__h {
-      @include g-font(20, 1);
-    }
-
-    &__caption-upper + a > &__h {
-      @include g-font(20, 1);
-    }
-
-    a {
-      text-decoration: none;
-      color: #fff;
-      &:hover {
-        color: $g-hoverColor;
-      }
-    }
-
-    &--align-l {
-      text-align: left;
-    }
-
-    &--align-c {
-      text-align: center;
-    }
-
-    &--align-r {
-      text-align: right;
-    }
-  }
-
   .t0-b-lv4H-caseIcon#{$variation1of2} {
+    $_block: &;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
     line-height: 0;
+    color: #fff;
     font-family: $mincho;
     > div {
       display: inline-block;
@@ -84,10 +45,137 @@
       color: transparent;
       background-image: url("../imgs/t0-b-lv4H-caseIcon/1.png");
     }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 3px;
+    }
+
+    &__h {
+      @include g-font($_fontSize_h, $_lineHeight_h);
+    }
+
+    &__bd {
+      text-align: left;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 3px 0 0;
+    }
+
+    &__caption-upper + &__h {
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    &__caption-upper + a > &__h {
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 58px * .8;
+        height: 58px * .8;
+        background-size: 58px * .8 58px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 12px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 58px * 1.2;
+        height: 58px * 1.2;
+        background-size: 58px * 1.2 58px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 12px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
   }
 
   .t0-b-lv4H-caseIcon#{$variation2of2} {
+    $_block: &;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
     line-height: 0;
+    color: #fff;
+    font-family: $mincho;
     > div {
       display: inline-block;
     }
@@ -118,6 +206,130 @@
       text-indent: -100px;
       color: transparent;
       background-image: url("../imgs/t0-b-lv4H-caseIcon/2.png");
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 3px;
+    }
+
+    &__h {
+      @include g-font($_fontSize_h, $_lineHeight_h);
+    }
+
+    &__bd {
+      text-align: left;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 3px 0 0;
+    }
+
+    &__caption-upper + &__h {
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    &__caption-upper + a > &__h {
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 64px * .8;
+        height: 64px * .8;
+        background-size: 64px * .8 64px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 12px * .8 0 0;
+      }
+
+      #{$_block}__icon {
+        width: 58px * .8;
+        height: 58px * .8;
+        background-size: 58px * .8 58px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 12px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 64px * 1.2;
+        height: 64px * 1.2;
+        background-size: 64px * 1.2 64px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 12px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
     }
   }
 }

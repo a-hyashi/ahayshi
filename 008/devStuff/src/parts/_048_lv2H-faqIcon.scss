@@ -1,7 +1,13 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon {
-    color: #816350;
     $_block: &;
+    $_fontSize_h: 26;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_lineHeight_h: 2;
+
+    color: #816350;
     position: relative;
     > span {
       position: absolute;
@@ -40,13 +46,13 @@
     }
 
     &__h {
-      @include g-font-spacingKilled(26, 2);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-weight: normal;
       text-shadow: -1px -1px 2px #f7f0eb, 1px -1px 2px #f7f0eb, -1px 1px 2px #f7f0eb, 1px 1px 2px #f7f0eb, -1px -1px 2px #f7f0eb, 1px -1px 2px #f7f0eb, -1px 1px 2px #f7f0eb, 1px 1px 2px #f7f0eb, -1px -1px 2px #f7f0eb, 1px -1px 2px #f7f0eb, -1px 1px 2px #f7f0eb, 1px 1px 2px #f7f0eb, -1px -1px 2px #f7f0eb, 1px -1px 2px #f7f0eb, -1px 1px 2px #f7f0eb, 1px 1px 2px #f7f0eb;
       background-repeat: no-repeat;
       background-position: left top;
       background-size: 100% 100%;
-      padding: 10px 36px 10px 50px;
+      padding: 11px 36px 11px 50px;
       box-sizing: border-box;
       position: relative;
       z-index: 1;
@@ -54,7 +60,7 @@
         content: "";
         display: block;
         background-image: url("../imgs/main/3-2.png");
-        background-size: 6px 100%;
+        background-size: 6px 44px;
         background-repeat: repeat-x;
         background-position: left top;
         position: absolute;
@@ -75,7 +81,7 @@
         display: block;
         margin-left: -1px;
         background-image: url("../imgs/main/3-3.png");
-        background-size: 23px 100%;
+        background-size: 23px 44px;
         width: 23px;
         position: absolute;
         pointer-events: none;
@@ -85,6 +91,76 @@
         height: auto !important;
         margin-top: 0 !important;
         z-index: -1;
+      }
+    }
+
+    &--size-1 {
+      > span {
+        width: 56px * .8;
+        background-size: 56px * .8 56px * .8;
+      }
+
+      > div {
+        min-height: 56px * .8;
+      }
+
+      > div > a,
+      > div > #{$_block}__h {
+        margin-left: 16px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding: 11px * .8 36px * .8 11px * .8 50px * .8;
+        &::after {
+          background-size: 6px * .8 44px * .8;
+          top: 9px * .8;
+          bottom: 9px * .8;
+          left: 20px * .8;
+          right: 22px * .8;
+        }
+
+        &::before {
+          background-size: 23px * .8 44px * .8;
+          width: 23px * .8;
+          top: 9px * .8;
+          bottom: 9px * .8;
+        }
+      }
+    }
+
+    &--size-3 {
+      > span {
+        width: 56px * 1.2;
+        background-size: 56px * 1.2 56px * 1.2;
+      }
+
+      > div {
+        min-height: 56px * 1.2;
+      }
+
+      > div > a,
+      > div > #{$_block}__h {
+        margin-left: 16px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding: 11px * 1.2 36px * 1.2 11px * 1.2 50px * 1.2;
+        &::after {
+          background-size: 6px * 1.2 44px * 1.2;
+          top: 9px * 1.2;
+          bottom: 9px * 1.2;
+          left: 20px * 1.2;
+          right: 22px * 1.2;
+        }
+
+        &::before {
+          background-size: 23px * 1.2 44px * 1.2;
+          width: 23px * 1.2;
+          top: 9px * 1.2;
+          bottom: 9px * 1.2;
+        }
       }
     }
 

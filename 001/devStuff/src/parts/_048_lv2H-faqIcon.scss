@@ -1,8 +1,18 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon#{$variation1of2} {
+    $_block: &;
+    $_fontSize_h: 24;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+
     margin: 0 auto;
     padding-bottom: 12px;
-    background: url("../imgs/t0-b-lv2H-faqIcon/bg1.png") no-repeat left bottom;
+    background: url("../imgs/t0-b-lv2H-faqIcon/bg1-2.png"), url("../imgs/t0-b-lv2H-faqIcon/bg1-1.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left 20px bottom 10px, left bottom;
+    background-size: 100% 2px, 38px 45px;
     position: relative;
     > span {
       pointer-events: none;
@@ -53,8 +63,52 @@
     }
 
     &__h {
-      @include g-font-spacingKilled(24);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       width: 100%;
+    }
+
+    &--size-1 {
+      padding-bottom: 12px * .8;
+      background-size: 100% 2px * .8, 38px * .8 45px * .8;
+      background-position: left 20px * .8 bottom 10px * .8, left bottom;
+      > span {
+        background-size: 253px * .8 35px * .8;
+      }
+
+      #{$_block}__icon {
+        background-position: 20px * .8 5px * .8;
+        background-size: 63px * .8 25px * .8;
+        width: 100px * .8;
+        height: 30px * .8;
+        text-indent: -100px * .8;
+        margin-left: 25px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      padding-bottom: 12px * 1.2;
+      background-size: 100% 2px * 1.2, 38px * 1.2 45px * 1.2;
+      background-position: left 20px * 1.2 bottom 10px * 1.2, left bottom;
+      > span {
+        background-size: 253px * 1.2 35px * 1.2;
+      }
+
+      #{$_block}__icon {
+        background-position: 20px * 1.2 5px * 1.2;
+        background-size: 63px * 1.2 25px * 1.2;
+        width: 100px * 1.2;
+        height: 30px * 1.2;
+        text-indent: -100px * 1.2;
+        margin-left: 25px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
     }
 
     &--align-l {
@@ -71,6 +125,14 @@
   }
 
   .t0-b-lv2H-faqIcon#{$variation2of2} {
+    $_block: &;
+    $_fontSize_h: 24;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+
+    line-height: 1;
     margin: 0 auto;
     border-bottom: 2px solid #382b2b;
     a {
@@ -93,15 +155,16 @@
     }
 
     &__icon {
-      background-position: 10px 50%;
-      background-repeat: no-repeat;
       display: inline-block;
+      overflow: hidden;
       width: 90px;
       height: 30px;
-      overflow: hidden;
       text-indent: -90px;
       color: transparent;
       background-image: url("../imgs/t0-b-lv2H-faqIcon/1.png");
+      background-position: 10px 50%;
+      background-repeat: no-repeat;
+      background-size: 63px 25px;
     }
 
     &__iconPlacer {
@@ -111,8 +174,36 @@
     }
 
     &__h {
-      @include g-font-spacingKilled(24);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       width: 100%;
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 90px * .8;
+        height: 30px * .8;
+        text-indent: -90px * .8;
+        background-position: 10px * .8 50%;
+        background-size: 63px * .8 25px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 100px * 1.2;
+        height: 30px * 1.2;
+        text-indent: -90px * 1.2;
+        background-position: 10px * 1.2 50%;
+        background-size: 63px * 1.2 25px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
     }
 
     &--align-l {

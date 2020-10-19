@@ -1,9 +1,20 @@
-@if $device == PC {
+@if $device==PC {
   .t0-b-lv4HBig {
+    $_block: &;
+    $_fontSize_bd: 28;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd+$_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #594c46;
     text-align: center;
     &__caption-upper {
-      @include g-font-spacingKilled(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 10px 10px;
     }
 
@@ -29,15 +40,91 @@
       }
 
       h4 {
-        @include g-font-spacingKilled(28, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         position: relative;
         text-shadow: 1px 1px #fff, 2px 2px #ded3cb;
       }
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 10px 0 0 10px;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 10px * .8 10px * .8;
+      }
+
+      #{$_block}__bd {
+        min-height: 96px * .8;
+        box-sizing: border-box;
+        padding: 37px * .8;
+        background-size: 3px * .8 3px * .8;
+        > span {
+          left: 10px * .8;
+          right: 10px * .8;
+          top: 10px * .8;
+          bottom: 10px * .8;
+          background-size: 30px * .8 30px * .8,
+            30px * .8 30px * .8,
+            30px * .8 30px * .8,
+            30px * .8 30px * .8,
+            5px * .8 3px * .8,
+            3px * .8 6px * .8,
+            5px * .8 3px * .8,
+            3px * .8 6px * .8,
+            1px * .8 1px * .8;
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px * .8 0 0 10px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 10px * 1.2 10px * 1.2;
+      }
+
+      #{$_block}__bd {
+        min-height: 96px * 1.2;
+        box-sizing: border-box;
+        padding: 37px * 1.2;
+        background-size: 3px * 1.2 3px * 1.2;
+        > span {
+          left: 10px * 1.2;
+          right: 10px * 1.2;
+          top: 10px * 1.2;
+          bottom: 10px * 1.2;
+          background-size: 30px * 1.2 30px * 1.2,
+            30px * 1.2 30px * 1.2,
+            30px * 1.2 30px * 1.2,
+            30px * 1.2 30px * 1.2,
+            5px * 1.2 3px * 1.2,
+            3px * 1.2 6px * 1.2,
+            5px * 1.2 3px * 1.2,
+            3px * 1.2 6px * 1.2,
+            1px * 1.2 1px * 1.2;
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px * 1.2 0 0 10px * 1.2;
+      }
     }
 
     &--align-l {
@@ -62,7 +149,7 @@
   }
 }
 
-@if $device == SP {
+@if $device==SP {
   .t0-b-lv4HBig {
     color: #594c46;
     padding: 20px 0;

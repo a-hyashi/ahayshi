@@ -1,6 +1,12 @@
 @if $device == PC {
   .t0-b-fileDownloads {
     $_block: &;
+    $_fontSize: 16;
+    $_fontSize_ss: $_fontSize * .5;
+    $_fontSize_s: $_fontSize * .75;
+    $_fontSize_l: $_fontSize * 1.25;
+    $_fontSize_ll: $_fontSize * 1.5;
+    $_lineHeight_itemText: 1;
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
     padding: #{$_blockSpacing} 0 0;
@@ -40,7 +46,22 @@
     }
 
     #{$_block}__itemText {
-      @include g-font(16, 1);
+      @include g-font($_fontSize, $_lineHeight_itemText);
+      #{$_block}--size-1 & {
+        @include g-font($_fontSize_ss, $_lineHeight_itemText);
+      }
+
+      #{$_block}--size-2 & {
+        @include g-font($_fontSize_s, $_lineHeight_itemText);
+      }
+
+      #{$_block}--size-4 & {
+        @include g-font($_fontSize_l, $_lineHeight_itemText);
+      }
+
+      #{$_block}--size-5 & {
+        @include g-font($_fontSize_ll, $_lineHeight_itemText);
+      }
     }
   }
 
@@ -51,6 +72,33 @@
     @include fileIcon("doc", 1);
     @include fileIcon("xls", 1);
     @include fileIcon("img", 1);
+    .t0-b-fileDownloads--size-1 & {
+      @include fileIcon("pdf", .5);
+      @include fileIcon("doc", .5);
+      @include fileIcon("xls", .5);
+      @include fileIcon("img", .5);
+    }
+
+    .t0-b-fileDownloads--size-2 & {
+      @include fileIcon("pdf", .75);
+      @include fileIcon("doc", .75);
+      @include fileIcon("xls", .75);
+      @include fileIcon("img", .75);
+    }
+
+    .t0-b-fileDownloads--size-4 & {
+      @include fileIcon("pdf", 1.25);
+      @include fileIcon("doc", 1.25);
+      @include fileIcon("xls", 1.25);
+      @include fileIcon("img", 1.25);
+    }
+
+    .t0-b-fileDownloads--size-5 & {
+      @include fileIcon("pdf", 1.5);
+      @include fileIcon("doc", 1.5);
+      @include fileIcon("xls", 1.5);
+      @include fileIcon("img", 1.5);
+    }
   }
 }
 
