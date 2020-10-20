@@ -43,6 +43,7 @@
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     color: $lv3H2_textColor;
     text-align: center;
+    text-shadow: 1px 1px 0 $lv3H2_textShadowColor, -1px -1px 0 $lv3H2_textShadowColor, -1px 1px 0 $lv3H2_textShadowColor, 1px -1px 0 $lv3H2_textShadowColor, 0 1px 0 $lv3H2_textShadowColor, 0 -1px 0 $lv3H2_textShadowColor, -1px 0 0 $lv3H2_textShadowColor, 1px 0 0 $lv3H2_textShadowColor;
     min-height: 70px;
     display: flex;
     align-items: center;
@@ -316,7 +317,215 @@
       display: flex;
       div {
         > span {
-          border-right: 8px solid $lv3H7_borderColor;
+          border-right: 7px solid $lv3H7_borderColor;
+          margin-right: 10px;
+        }
+      }
+
+      h3 {
+        @include g-font-layout($_fontSize, 1, $layout);
+      }
+    }
+
+    &--size-1 {
+      div {
+        h3 {
+          @include g-font-layout($_fontSize_s, 1, $layout);
+        }
+      }
+    }
+
+    &--size-3 {
+      div {
+        h3 {
+          @include g-font-layout($_fontSize_l, 1, $layout);
+        }
+      }
+    }
+
+    &--align-c {
+      div {
+        justify-content: center;
+      }
+    }
+
+    &--align-r {
+      div {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .t0-b-lv3H8 {
+    $_fontSize: 26;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    color: $lv3H8_textColor;
+    text-align: center;
+    text-shadow: 1px 1px 0 $lv3H8_textShadowColor, -1px -1px 0 $lv3H8_textShadowColor, -1px 1px 0 $lv3H8_textShadowColor, 1px -1px 0 $lv3H8_textShadowColor, 0 1px 0 $lv3H8_textShadowColor, 0 -1px 0 $lv3H8_textShadowColor, -1px 0 0 $lv3H8_textShadowColor, 1px 0 0 $lv3H8_textShadowColor;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: z(lv3H, 1);
+    a {
+      &:hover {
+        color: $lv3H8_hoverTextColor2;
+      }
+    }
+
+    h3 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        background-image: url("../imgs/lv3H/08/01.png");
+        background-size: contain;
+        width: 70px;
+        height: 70px;
+        z-index: z(bg, -1);
+      }
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-lv3H9 {
+    $_fontSize: 26;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_textlinePadding: 25px;
+    text-align: center;
+    overflow: hidden;
+
+    h3 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      display: inline-block;
+      max-width: 90%;
+      padding: 0 $_textlinePadding;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 100vw;
+        border-top: 1px solid $lv3H9_borderColor;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 100vw;
+        border-top: 1px solid $lv3H9_borderColor;
+      }
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+      h3 {
+        padding-left: 0;
+      }
+    }
+
+    &--align-r {
+      text-align: right;
+      h3 {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .t0-b-lv3H10 {
+    $_fontSize: 26;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    border-bottom: 2px solid $lv3H10_borderColor;
+    padding: 0 5px 8px;
+    text-align: center;
+
+    h3 {
+      @include g-font-layout($_fontSize, 1, $layout);
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      h3 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv3H11 {
+    $_fontSize: 26;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    a {
+      &:hover {
+        color: $lv3H11_hoverTextColor;
+      }
+    }
+
+    div {
+      display: flex;
+      div {
+        > span {
+          border-right: 7px solid $lv3H11_borderColor;
           margin-right: 10px;
         }
       }
@@ -383,6 +592,7 @@
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     color: $lv3H2_textColor;
     text-align: center;
+    text-shadow: 1px 1px 0 $lv3H2_textShadowColor, -1px -1px 0 $lv3H2_textShadowColor, -1px 1px 0 $lv3H2_textShadowColor, 1px -1px 0 $lv3H2_textShadowColor, 0 1px 0 $lv3H2_textShadowColor, 0 -1px 0 $lv3H2_textShadowColor, -1px 0 0 $lv3H2_textShadowColor, 1px 0 0 $lv3H2_textShadowColor;
     min-height: 60px;
     display: flex;
     align-items: center;

@@ -368,7 +368,6 @@
     }
   }
 
-  //画像後回し
   .t0-b-lv2H8 {
     $_fontSize: 32;
     $_fontSizeDiff: 4;
@@ -399,7 +398,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         display: block;
-        background-image: url("../imgs/lv2H/02/01.png");
+        background-image: url("../imgs/lv2H/08/01.png");
         background-size: contain;
         width: 90px;
         height: 90px;
@@ -920,7 +919,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         display: block;
-        background-image: url("../imgs/lv2H/02/01.png");
+        background-image: url("../imgs/lv2H/08/01.png");
         background-size: contain;
         width: 70px;
         height: 70px;
@@ -936,4 +935,168 @@
       justify-content: flex-end;
     }
   }
+
+  .t0-b-lv2H9 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    h2 {
+      @include g-font($_fontSize);
+      position: relative;
+      display: inline-block;
+      vertical-align: bottom;
+      padding: 0 15px;
+      margin: 0 20px;
+      min-height: 20px;
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: -20px;
+        display: inline-block;
+        width: 20px;
+        height: 80%;
+        max-height: 100px;
+        min-height: 20px;
+        content: "";
+        background-image: url("../imgs/lv2H/09/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        right: -20px;
+        display: inline-block;
+        width: 20px;
+        height: 80%;
+        max-height: 100px;
+        min-height: 20px;
+        content: "";
+        background-image: url("../imgs/lv2H/09/01.svg");
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+        transform: scale(-1, 1);
+      }
+    }
+
+    &--align-l {
+      justify-content: flex-start;
+    }
+
+    &--align-r {
+      justify-content: flex-end;
+    }
+  }
+
+  .t0-b-lv2H10 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_textlinePadding: 20px;
+    text-align: center;
+    overflow: hidden;
+    h2 {
+      @include g-font($_fontSize);
+      position: relative;
+      display: inline-block;
+      max-width: 90%;
+      padding: 0 $_textlinePadding;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 100vw;
+        border-top: 2px solid $lv2H10_borderColor;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 100vw;
+        border-top: 2px solid $lv2H10_borderColor;
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+      h2 {
+        padding-left: 0;
+      }
+    }
+
+    &--align-r {
+      text-align: right;
+      h2 {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .t0-b-lv2H11 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    border-bottom: 2px solid $lv2H11_borderColor;
+    padding: 0 5px 8px;
+    text-align: center;
+    h2 {
+      @include g-font($_fontSize);
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv2H12 {
+    $_block: &;
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    > div {
+      display: flex;
+      div {
+        > #{$_block}__icon {
+          border-right: 8px solid $lv2H12_borderColor;
+          margin-right: 10px;
+          display: block;
+          height: 100%;
+        }
+      }
+
+      h2 {
+        @include g-font-layout($_fontSize, 1, $layout);
+      }
+    }
+
+    &--align-c {
+      div {
+        justify-content: center;
+      }
+    }
+
+    &--align-r {
+      div {
+        justify-content: flex-end;
+      }
+    }
+  }
+
 }
