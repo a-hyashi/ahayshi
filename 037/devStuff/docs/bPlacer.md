@@ -362,6 +362,7 @@
 |09.電話番号・メールアドレス|main|045_電話番号|.t0-b-iconText-tel|2|4%|||
 |09.電話番号・メールアドレス|main|046_メールアドレス|.t0-b-iconText-mail||4%||35px|
 |09.電話番号・メールアドレス|side|140_サイドボックス電話番号|.t0-b-sideBoxIconText-tel||5%||20px|
+|09.電話番号・メールアドレス|side|140_サイドボックス電話番号|.t0-b-sideBoxIconText-tel|2|5%|||
 |09.電話番号・メールアドレス|side|141_サイドボックスメールアドレス|.t0-b-sideBoxIconText-mail||4%||35px|
 |09.電話番号・メールアドレス|header|170_ヘッダーFAX番号|.t0-b-headerUnit-contact-fax||2%||35px|
 |09.電話番号・メールアドレス|header|174_ヘッダー電話番号|.t0-b-headerUnit-contact-tel||2%||20px|
