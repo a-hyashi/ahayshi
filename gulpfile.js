@@ -14,20 +14,14 @@ const sftp = require('gulp-sftp-up4');
 // scssを自動整形
 gulp.task('stylelint-fix', () => {
   return gulp.src('devStuff/src/parts/*.scss')
-  .pipe($.stylelint({
-    fix: true,
-    failAfterError: false
-  }))
+  .pipe($.stylelint({ fix: true, failAfterError: false }))
   .pipe(gulp.dest('devStuff/src/parts'));
 });
 
 // stylelint-fix時にチェックも入れると拾いきれない場合があるので分割している
 gulp.task('stylelint-check', () => {
   return gulp.src('devStuff/src/parts/*.scss')
-  .pipe($.stylelint({
-    failAfterError: false,
-    reporters: [{formatter: 'string', console: true}]
-  }));
+  .pipe($.stylelint({ failAfterError: false, reporters: [{formatter: 'string', console: true}] }));
 });
 
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
@@ -54,11 +48,7 @@ gulp.task('sass-build', () => {
 
 // スタイルガイド用ビルド
 gulp.task('sass-build-styleguide', () => {
-  styleSources = [
-    'devStuff/src/pc-L25.scss',
-    'devStuff/src/pc-N00.scss',
-    'devStuff/src/sp.scss'
-  ];
+  styleSources = ['devStuff/src/pc-L25.scss', 'devStuff/src/pc-N00.scss', 'devStuff/src/sp.scss'];
   return mergeStream(
     styleSources.map(styleSource => {
       return gulp.src(styleSource)
@@ -71,41 +61,37 @@ gulp.task('sass-build-styleguide', () => {
   )
 });
 
-const get_theme_name = () => {
-  return __dirname.split('/').pop();
-}
+const get_theme_name = () => __dirname.split('/').pop();
 
 const get_deploy_values = () => {
-  var filelist = fs.readdirSync('devStuff/temp/css');
-  var deployValues = [];
-  for (var file of filelist) {
-    var values = file.split('-');
+  const filelist = fs.readdirSync('devStuff/temp/css');
+  let deployValues = [];
+  for (const file of filelist) {
+    const values = file.split('-');
     if (values.length == 1 || values[0].substring(0, 2) != 'pc') continue;
-    deployValues.push(create_deploy_hush(values));
+
+    deployValues.push(create_deploy_hash(values));
   }
   return deployValues;
 }
 
-const create_deploy_hush = (aVlues) => {
-  var variation = aVlues[0].substring(2, 3);
-  var ratio = aVlues[1].split('.')[0];
-  return ({
-    'variation': variation,
-    'ratio': ratio
-  });
+const create_deploy_hash = (aVlues) => {
+  const variation = aVlues[0].substring(2, 3);
+  const ratio = aVlues[1].split('.')[0];
+  return ({ 'variation': variation, 'ratio': ratio });
 }
 
 const output_imgs = (aTheme) => {
   gulp.src('devStuff/src/imgs/**/*.+(jpg|jpeg|png|gif|svg)')
   .pipe($.imagemin())
-  .pipe(gulp.dest('build/theme_materials/' + aTheme + '/imgs/'));
+  .pipe(gulp.dest(`build/theme_materials/${aTheme}/imgs/`));
 }
 
 const output_css = (aTheme, aValues) => {
-  for (var value of aValues) {
-    var folder = aTheme + '-' + value.ratio;
+  for (const value of aValues) {
+    let folder = `${aTheme}-${value.ratio}`;
     if (value.variation) {
-      folder += '-' + value.variation;
+      folder += `-${value.variation}`;
     }
     output_rename_pc_css(value, folder);
     output_rename_sp_css(value, folder);
@@ -113,39 +99,31 @@ const output_css = (aTheme, aValues) => {
 }
 
 const output_rename_pc_css = (value, folder) => {
-  gulp.src('devStuff/temp/css/pc' + value.variation + '-' + value.ratio + '.css')
+  gulp.src(`devStuff/temp/css/pc${value.variation}-${value.ratio}.css`)
   .pipe($.rename('theme.css'))
-  .pipe(gulp.dest('build/themes/' + folder + '/pc/'));
+  .pipe(gulp.dest(`build/themes/${folder}/pc/`));
 }
 
 const output_rename_sp_css = (value, folder) => {
-  gulp.src('devStuff/temp/css/sp' + value.variation + '.css')
+  gulp.src(`devStuff/temp/css/sp${value.variation}.css`)
   .pipe($.rename('theme.css'))
-  .pipe(gulp.dest('build/themes/' + folder + '/sp/'));
+  .pipe(gulp.dest(`build/themes/${folder}/sp/`));
 }
 
 gulp.task('create-build', () => {
-  var theme = get_theme_name();
-  var values = get_deploy_values();
+  const theme = get_theme_name();
+  const values = get_deploy_values();
   output_imgs(theme);
   output_css(theme, values);
   return del('devStuff/temp/css');
 })
 
 gulp.task('update-sassdoc', () => {
-  var options = {
+  const options = {
     dest: './devStuff/sassdoc',
     verbose: true,
-    display: {
-      access: ['public', 'private'],
-      alias: true,
-      watermark: true,
-    },
-    groups: {
-      'undefined': 'Ungrouped',
-      foo: 'Foo group',
-      bar: 'Bar group',
-    },
+    display: { access: ['public', 'private'], alias: true, watermark: true },
+    groups: { 'undefined': 'Ungrouped' },
     basePath: 'https://github.com/SassDoc/sassdoc',
   };
   return gulp.src('devStuff/src/**/*.scss')
@@ -153,7 +131,7 @@ gulp.task('update-sassdoc', () => {
 });
 
 const b_placer_scss_lines = () => {
-  var b_placer_scss = fs.readFileSync('devStuff/src/config/_bPlacer.scss', 'utf8');
+  const b_placer_scss = fs.readFileSync('devStuff/src/config/_bPlacer.scss', 'utf8');
   return b_placer_scss.toString().split('\n');
 }
 
@@ -183,9 +161,7 @@ class BPlacerRecord {
   }
 }
 
-const to_td_line = (arr) => {
-  return `|${arr.join('|')}|`;
-}
+const to_td_line = (arr) => `|${arr.join('|')}|`;
 
 class BPlacerline {
   constructor(matched_line) {
@@ -219,7 +195,7 @@ class BPlacerline {
 
 const create_b_placer_record = (b_placer_base_record, b_placer_line) => {
   // カテゴリー、エリア、名前は前にコメントで出てきた値を使う
-  var b_placer_record = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base_record)), b_placer_base_record);
+  let b_placer_record = Object.assign(Object.create(Object.getPrototypeOf(b_placer_base_record)), b_placer_base_record);
   b_placer_record.class_name = b_placer_line.class_name();
   b_placer_record.variation = b_placer_line.variation();
   b_placer_record.pc_n00_value = b_placer_line.pc_n00_value();
@@ -229,7 +205,7 @@ const create_b_placer_record = (b_placer_base_record, b_placer_line) => {
 
 const set_sp_value = (b_placer_record_list, b_placer_line) => {
   // PCで作成したb_placerを探し、そのレコードにSPの値を設定する
-  var found_b_placer_record = b_placer_record_list.find((b_placer_record) => {
+  let found_b_placer_record = b_placer_record_list.find((b_placer_record) => {
     return b_placer_record.class_name === b_placer_line.class_name() && b_placer_record.variation === b_placer_line.variation();
   });
   found_b_placer_record.sp_value = b_placer_line.value();
@@ -238,7 +214,7 @@ const set_sp_value = (b_placer_record_list, b_placer_line) => {
 const to_md_text = (b_placer_record_list) => {
   const th = ['カテゴリ', 'エリア', '部品名・要素名', 'クラス名', 'バリエーション', 'PC', 'PC<br>(N00)', 'SP'];
   const th_separator_line = new Array(th.length).fill('-');
-  var md_table = [to_td_line(th), to_td_line(th_separator_line)];
+  let md_table = [to_td_line(th), to_td_line(th_separator_line)];
   b_placer_record_list.forEach((b_placer_record) => {
     md_table.push(b_placer_record.to_td_line());
   });
@@ -248,9 +224,9 @@ const to_md_text = (b_placer_record_list) => {
 const create_b_placer_record_list = () => {
   // 一度出てきた情報を保持しておくために使います
   // （例）一度01.見出しと出てくれば、次のが出てくるまでずっと01.見出し
-  var b_placer_base_record = new BPlacerRecord();
-  var b_placer_record_list = [];
-  var is_sp = false;
+  let b_placer_base_record = new BPlacerRecord();
+  let b_placer_record_list = [];
+  let is_sp = false;
   b_placer_scss_lines().forEach(function(b_placer_scss_line) {
     // $device == "SP" 以降はSPの余白として設定する
     matched_sp_line = b_placer_scss_line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
@@ -311,17 +287,9 @@ gulp.task('update-imgs', () => {
 });
 
 // スタイルガイド作成用jsonを作成
-gulp.task('make-allparts-datajson', () => {
-  return make_allparts_datajson('');
-});
-
-gulp.task('make-allparts-datajson2', () => {
-  return make_allparts_datajson('2');
-});
-
-gulp.task('make-allparts-datajson3', () => {
-  return make_allparts_datajson('3');
-});
+gulp.task('make-allparts-datajson', () => make_allparts_datajson(''));
+gulp.task('make-allparts-datajson2', () => make_allparts_datajson('2'));
+gulp.task('make-allparts-datajson3', () => make_allparts_datajson('3'));
 
 const make_allparts_datajson = (num) => {
   return make_allDatajson.makeAllDatajsonFull(
@@ -332,39 +300,18 @@ const make_allparts_datajson = (num) => {
 }
 
 // スタイルガイド作成用htmlを作成
-gulp.task('make-html', () => {
-  return exec_make_html('');
-});
-
-gulp.task('make-html2', () => {
-  return exec_make_html('2');
-});
-
-gulp.task('make-html3', () => {
-  return exec_make_html('3');
-});
+gulp.task('make-html', () => exec_make_html(''));
+gulp.task('make-html2', () => exec_make_html('2'));
+gulp.task('make-html3', () => exec_make_html('3'));
 
 const exec_make_html = (num) => {
-  return make_html.makeHtml(
-    `./temp/html${num}/`,
-    `./temp/datajson${num}/`,
-    config.html_templates_dir,
-    false
-  );
+  return make_html.makeHtml(`./temp/html${num}/`, `./temp/datajson${num}/`, config.html_templates_dir, false);
 }
 
 // スタイルガイド用mdファイル作成
-gulp.task('make-unittest', () => {
-  return make_aigis.makeAigis('./temp/html/', './temp/unittest/');
-});
-
-gulp.task('make-unittest2', () => {
-  return make_aigis.makeAigis('./temp/html2/', './temp/unittest/');
-});
-
-gulp.task('make-unittest3', () => {
-  return make_aigis.makeAigis('./temp/html3/', './temp/unittest/');
-});
+gulp.task('make-unittest', () => make_aigis.makeAigis('./temp/html/', './temp/unittest/'));
+gulp.task('make-unittest2', () => make_aigis.makeAigis('./temp/html2/', './temp/unittest/'));
+gulp.task('make-unittest3', () => make_aigis.makeAigis('./temp/html3/', './temp/unittest/'));
 
 // styleguide作成
 gulp.task('make-aigis', () => {
@@ -376,14 +323,10 @@ gulp.task('make-aigis', () => {
 });
 
 // 作業前に一時フォルダを削除
-gulp.task('del-datafile', () => {
-  return del(['./temp', './devStuff/styleguide']);
-});
+gulp.task('del-datafile', () => del(['./temp', './devStuff/styleguide']));
 
 // 作業後に一時フォルダを削除
-gulp.task('del-tempfile', () => {
-  return del('./temp');
-});
+gulp.task('del-tempfile', () => del('./temp'));
 
 // スタイルガイド作成
 gulp.task('update-styleguide',
@@ -476,9 +419,7 @@ gulp.task('reload', (done) => {
 });
 
 // 監視タスク
-gulp.task('watch', () => {
-  gulp.watch('devStuff/src/**/*.scss', gulp.series('update-css', 'reload'));
-});
+gulp.task('watch', () => gulp.watch('devStuff/src/**/*.scss', gulp.series('update-css', 'reload')));
 
 // webserver立ち上げ
 gulp.task('server', () => {
