@@ -21,7 +21,7 @@ gulp.task('stylelint-fix', () => {
 // stylelint-fix時にチェックも入れると拾いきれない場合があるので分割している
 gulp.task('stylelint-check', () => {
   return gulp.src('devStuff/src/parts/*.scss')
-  .pipe($.stylelint({ failAfterError: false, reporters: [{formatter: 'string', console: true}] }));
+  .pipe($.stylelint({ failAfterError: false, reporters: [{ formatter: 'string', console: true }] }));
 });
 
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
@@ -130,7 +130,7 @@ gulp.task('update-sassdoc', () => {
   .pipe(sassdoc(options));
 });
 
-const b_placer_scss_lines = () => {
+const read_b_placer_scss_lines = () => {
   const b_placer_scss = fs.readFileSync('devStuff/src/config/_bPlacer.scss', 'utf8');
   return b_placer_scss.toString().split('\n');
 }
@@ -231,7 +231,7 @@ const create_b_placer_record_list = () => {
   let b_placer_base_record = new BPlacerRecord();
   let b_placer_record_list = [];
   let is_sp = false;
-  b_placer_scss_lines().forEach(function(b_placer_scss_line) {
+  read_b_placer_scss_lines().forEach(function(b_placer_scss_line) {
     // $device == "SP" 以降はSPの余白として設定する
     matched_sp_line = b_placer_scss_line.match(/\$device\s*==\s*[\'\"]SP[\'\"]/);
     if (matched_sp_line) is_sp = true;
@@ -336,17 +336,14 @@ gulp.task('make-aigis', () => {
   .pipe($.aigis());
 });
 
-// 作業前に一時フォルダを削除
-gulp.task('del-datafile', () => del(['./temp', './devStuff/styleguide']));
-
-// 作業後に一時フォルダを削除
+gulp.task('del-styleguide', () => del('./devStuff/styleguide'));
 gulp.task('del-tempfile', () => del('./temp'));
 
 // スタイルガイド作成
 gulp.task('update-styleguide',
   gulp.series(
     // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
-    gulp.parallel('del-datafile', 'update-css'),
+    gulp.parallel('del-tempfile', 'del-styleguide', 'update-css'),
     // ファイルが多すぎてnode.jsがエラーになるので分割して実行
     gulp.parallel('make-allparts-datajson', 'make-allparts-datajson2', 'make-allparts-datajson3'),
     // 同時実行件数が多いとエラーになるので直列処理する
