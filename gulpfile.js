@@ -204,10 +204,14 @@ const create_b_placer_record = (b_placer_base_record, b_placer_line) => {
 }
 
 const set_sp_value = (b_placer_record_list, b_placer_line) => {
+  const target_class_name = b_placer_line.class_name();
+  const target_variation = b_placer_line.variation();
   // PCで作成したb_placerを探し、そのレコードにSPの値を設定する
   let found_b_placer_record = b_placer_record_list.find((b_placer_record) => {
-    return b_placer_record.class_name === b_placer_line.class_name() && b_placer_record.variation === b_placer_line.variation();
+    return b_placer_record.class_name === target_class_name && b_placer_record.variation === target_variation;
   });
+  if(!found_b_placer_record) throw Error(`PCにバリエーションがありません。クラス：${target_class_name}、バリエーション：${target_variation}`);
+
   found_b_placer_record.sp_value = b_placer_line.value();
 }
 
@@ -259,6 +263,15 @@ const create_b_placer_record_list = () => {
   return b_placer_record_list;
 }
 
+const throw_if_not_exist_sp_value = (b_placer_record_list) => {
+  const error_message_list = b_placer_record_list.filter((b_placer_record) => {
+    return !b_placer_record.sp_value;
+  }).map((b_placer_record) => {
+    return `クラス：${b_placer_record.class_name}、バリエーション：${b_placer_record.variation}`;
+  });
+  if(error_message_list.length) throw new Error(`SPにバリエーションがありません。\n${error_message_list.join('\n')}`);
+}
+
 gulp.task('create-b-placer-doc', (done) => {
   // ファイルがない場合は実行しない
   if (!fs.existsSync('devStuff/src/config/_bPlacer.scss')) {
@@ -267,6 +280,7 @@ gulp.task('create-b-placer-doc', (done) => {
   }
 
   const b_placer_record_list = create_b_placer_record_list();
+  throw_if_not_exist_sp_value(b_placer_record_list);
   fs.writeFileSync('devStuff/docs/bPlacer.md', to_md_text(b_placer_record_list));
   done();
   }
