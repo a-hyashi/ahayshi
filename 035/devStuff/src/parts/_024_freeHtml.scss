@@ -31,31 +31,6 @@
 
 @if $device == SP {
   .t0-b-freeHtml {
-    // YouTubeのレスポンシブ対応
-    max-height: 240px;
-    text-align: center;
-    overflow: auto;
-    div {
-      color: #555;
-      // 意図的にユニバーサルセレクタを使用
-      > * {
-        // スライド動画のスタイルを打ち消して中央寄せにする
-        margin: 0 auto !important;
-        max-width: 100% !important;
-      }
-    }
-
-    > div {
-      overflow: auto;
-      iframe, object, embed {
-        max-height: 240px;
-        max-width: 100%;
-      }
-
-      > * {
-        margin: 0 auto !important;
-        max-width: 100% !important;
-      }
-    }
+    @include freeHtmlDiv(95%);
   }
 }
