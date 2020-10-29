@@ -8,7 +8,6 @@ const make_aigis = require('./lib/make_aigis');
 const make_allDatajson = require('./lib/make_all-datajsons');
 const make_html = require('./lib/make_html');
 const mergeStream = require('merge-stream');
-const sassdoc = require('sassdoc');
 const sftp = require('gulp-sftp-up4');
 
 // scssを自動整形
@@ -116,18 +115,6 @@ gulp.task('create-build', () => {
   output_imgs(theme);
   output_css(theme, values);
   return del('devStuff/temp/css');
-})
-
-gulp.task('update-sassdoc', () => {
-  const options = {
-    dest: './devStuff/sassdoc',
-    verbose: true,
-    display: { access: ['public', 'private'], alias: true, watermark: true },
-    groups: { 'undefined': 'Ungrouped' },
-    basePath: 'https://github.com/SassDoc/sassdoc',
-  };
-  return gulp.src('devStuff/src/**/*.scss')
-  .pipe(sassdoc(options));
 });
 
 const read_b_placer_scss_lines = () => {
@@ -437,9 +424,6 @@ gulp.task('server', () => {
   return browserSync({
     server: {
       baseDir: './devStuff/styleguide',
-      routes: {
-        '/sassdoc': './devStuff/sassdoc'
-      },
       proxy: 'localhost:3000'
     },
     open: false
