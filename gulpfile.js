@@ -62,22 +62,42 @@ gulp.task('sass-build-styleguide', () => {
 
 const get_theme_name = () => __dirname.split('/').pop();
 
-const get_deploy_values = () => {
-  const filelist = fs.readdirSync('devStuff/temp/css');
-  let deployValues = [];
-  for (const file of filelist) {
-    const values = file.split('-');
-    if (values.length == 1 || values[0].substring(0, 2) != 'pc') continue;
-
-    deployValues.push(create_deploy_hash(values));
-  }
-  return deployValues;
+/**
+ * @param {*} css_file_name 'pc2-L25.css'
+ */
+const xtract_variation_and_ratio = (css_file_name) => {
+  const [pc_n, ratio_and_extension] = css_file_name.split('-');
+  const variation = pc_n.substring(2, 3);
+  const [ratio, ] = ratio_and_extension.split('.');
+  return ({ 'variation': variation, 'ratio': ratio });
 }
 
-const create_deploy_hash = (aVlues) => {
-  const variation = aVlues[0].substring(2, 3);
-  const ratio = aVlues[1].split('.')[0];
-  return ({ 'variation': variation, 'ratio': ratio });
+const xtract_variation_and_ratio_list = () => {
+  const css_file_name_list = fs.readdirSync('devStuff/temp/css');
+  let variation_and_ratio_list = [];
+  for (const css_file_name of css_file_name_list) {
+    if(css_file_name.startsWith('sp')) continue;
+
+    variation_and_ratio_list.push(xtract_variation_and_ratio(css_file_name));
+  }
+  return variation_and_ratio_list;
+}
+
+const output_rename_css = (device, variation_and_ratio, folder) => {
+  gulp.src(`devStuff/temp/css/${device}${variation_and_ratio}.css`)
+  .pipe($.rename('theme.css'))
+  .pipe(gulp.dest(`build/themes/${folder}/${device}/`));
+}
+
+const output_css = (aTheme, variation_and_ratio_list) => {
+  for (const variation_and_ratio of variation_and_ratio_list) {
+    let folder = `${aTheme}-${variation_and_ratio.ratio}`;
+    if (variation_and_ratio.variation) {
+      folder += `-${variation_and_ratio.variation}`;
+    }
+    output_rename_css('pc', `${variation_and_ratio.variation}-${vvariation_and_ratioalue.ratio}`, folder);
+    output_rename_css('sp', variation_and_ratio.variation, folder);
+  }
 }
 
 const output_imgs = (aTheme) => {
@@ -86,34 +106,11 @@ const output_imgs = (aTheme) => {
   .pipe(gulp.dest(`build/theme_materials/${aTheme}/imgs/`));
 }
 
-const output_css = (aTheme, aValues) => {
-  for (const value of aValues) {
-    let folder = `${aTheme}-${value.ratio}`;
-    if (value.variation) {
-      folder += `-${value.variation}`;
-    }
-    output_rename_pc_css(value, folder);
-    output_rename_sp_css(value, folder);
-  }
-}
-
-const output_rename_pc_css = (value, folder) => {
-  gulp.src(`devStuff/temp/css/pc${value.variation}-${value.ratio}.css`)
-  .pipe($.rename('theme.css'))
-  .pipe(gulp.dest(`build/themes/${folder}/pc/`));
-}
-
-const output_rename_sp_css = (value, folder) => {
-  gulp.src(`devStuff/temp/css/sp${value.variation}.css`)
-  .pipe($.rename('theme.css'))
-  .pipe(gulp.dest(`build/themes/${folder}/sp/`));
-}
-
 gulp.task('create-build', () => {
   const theme = get_theme_name();
-  const values = get_deploy_values();
+  const variation_and_ratio_list = xtract_variation_and_ratio_list();
   output_imgs(theme);
-  output_css(theme, values);
+  output_css(theme, variation_and_ratio_list);
   return del('devStuff/temp/css');
 });
 
