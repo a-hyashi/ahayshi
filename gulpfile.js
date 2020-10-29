@@ -95,7 +95,7 @@ const output_css = (aTheme, variation_and_ratio_list) => {
     if (variation_and_ratio.variation) {
       folder += `-${variation_and_ratio.variation}`;
     }
-    output_rename_css('pc', `${variation_and_ratio.variation}-${vvariation_and_ratioalue.ratio}`, folder);
+    output_rename_css('pc', `${variation_and_ratio.variation}-${variation_and_ratio.ratio}`, folder);
     output_rename_css('sp', variation_and_ratio.variation, folder);
   }
 }
