@@ -173,8 +173,8 @@
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|26|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|27|5%||15px|
 |05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|28|5%||15px|
-|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|29|5%|||
-|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|30|5%|||
+|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|29|5%||15px|
+|05.メディア|side|144_サイドボックス画像|.t0-b-sideBoxMedia|30|5%||15px|
 |05.メディア|side|145_サイドボックス片側画像ブロック|.t0-b-sideBoxMediaBox||5%||20px|
 |05.メディア|side|146_サイドボックス自由HTML|.t0-b-sideBoxFreeHtml||4%||15px|
 |05.メディア|header|164_ヘッダメディアブロック|.t0-b-headerMedia||0||0px|
@@ -372,7 +372,7 @@
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|2|0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|3|0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|4|0||0px|
-|11.枠|header|205_ヘッダーセット|.t0-b-headerCombi||0|||
+|11.枠|header|205_ヘッダーセット|.t0-b-headerCombi||0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|2|0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|3|0||0px|
 |11.枠|header|205_ヘッダーセット|.t0-b-headerCombi|4|0||0px|
