@@ -289,6 +289,7 @@ gulp.task('update-styleguide-imgs', () => {
 gulp.task('make-allparts-datajson', () => make_allparts_datajson(''));
 gulp.task('make-allparts-datajson2', () => make_allparts_datajson('2'));
 gulp.task('make-allparts-datajson3', () => make_allparts_datajson('3'));
+gulp.task('make-allparts-datajson4', () => make_allparts_datajson('4'));
 
 const make_allparts_datajson = (num) => {
   return make_allDatajson.makeAllDatajsonFull(
@@ -302,6 +303,7 @@ const make_allparts_datajson = (num) => {
 gulp.task('make-html', () => exec_make_html(''));
 gulp.task('make-html2', () => exec_make_html('2'));
 gulp.task('make-html3', () => exec_make_html('3'));
+gulp.task('make-html4', () => exec_make_html('4'));
 
 const exec_make_html = (num) => {
   return make_html.makeHtml(`./temp/html${num}/`, `./temp/datajson${num}/`, config.html_templates_dir, false);
@@ -311,6 +313,7 @@ const exec_make_html = (num) => {
 gulp.task('make-unittest', () => make_aigis.makeAigis('./temp/html/', './temp/unittest/'));
 gulp.task('make-unittest2', () => make_aigis.makeAigis('./temp/html2/', './temp/unittest/'));
 gulp.task('make-unittest3', () => make_aigis.makeAigis('./temp/html3/', './temp/unittest/'));
+gulp.task('make-unittest4', () => make_aigis.makeAigis('./temp/html4/', './temp/unittest/'));
 
 // スタイルガイド作成
 gulp.task('make-aigis', () => {
@@ -330,11 +333,14 @@ gulp.task('update-styleguide',
     // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
     gulp.parallel('del-tempfile', 'del-styleguide', 'update-styleguide-css'),
     // ファイルが多すぎてnode.jsがエラーになるので分割して実行
-    gulp.parallel('make-allparts-datajson', 'make-allparts-datajson2', 'make-allparts-datajson3'),
+    gulp.parallel('make-allparts-datajson', 'make-allparts-datajson2', 'make-allparts-datajson3', 'make-allparts-datajson4'),
     // 同時実行件数が多いとエラーになるので直列処理する
-    'make-html', 'make-html2', 'make-html3',
+    'make-html',
+    'make-html2',
+    'make-html3',
+    'make-html4',
     // htmlからmdファイル作成
-    gulp.parallel('make-unittest', 'make-unittest2', 'make-unittest3'),
+    gulp.parallel('make-unittest', 'make-unittest2', 'make-unittest3', 'make-unittest4'),
     // styleguide作成
     'make-aigis',
     // 作業ディレクトリを削除
