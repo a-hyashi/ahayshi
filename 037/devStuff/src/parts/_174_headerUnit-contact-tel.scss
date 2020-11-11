@@ -155,6 +155,175 @@
       margin: 0 auto;
     }
   }
+
+  .t0-b-headerUnit-contact-tel2 {
+    $_block: &;
+    display: inline-block;
+    white-space: nowrap;
+    &__wrap {
+      color: $headerUnit-contact-tel2_textColor;
+    }
+
+    a:hover {
+      #{$_block}__wrap {
+        color: $headerUnit-contact-tel2_hoverTextColor;
+      }
+    }
+
+    &__ruby {
+      @include g-font(12);
+      text-align: right;
+    }
+
+    &__bd {
+      @include g-font(36, 0);
+      display: flex;
+      align-items: center;
+      span + span {
+        font-size: 80%;
+      }
+    }
+
+    &__tel {
+      background-image: url("../imgs/iconText-tel/02/tel.svg");
+      width: 27px;
+      height: 27px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 8px;
+    }
+
+    &__fax {
+      background-image: url("../imgs/iconText-tel/02/fax.svg");
+      width: 45px;
+      height: 26px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 10px;
+    }
+
+    &__free {
+      background-image: url("../imgs/iconText-tel/02/free.svg");
+      width: 42px;
+      height: 24px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 5px;
+    }
+
+    &__cell {
+      background-image: url("../imgs/iconText-tel/02/cell.svg");
+      width: 18px;
+      height: 29px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 10px;
+    }
+
+    &--size-1 {
+      #{$_block}__ruby {
+        @include g-font(10);
+      }
+
+      #{$_block}__bd {
+        @include g-font(28, 0);
+      }
+
+      #{$_block}__tel {
+        width: 21px;
+        height: 23px;
+        margin-right: 7px;
+      }
+
+      #{$_block}__fax {
+        width: 35px;
+        height: 20px;
+        margin: 0 5px 2px 0;
+      }
+
+      #{$_block}__free {
+        width: 35px;
+        height: 20px;
+        margin: 0 5px 2px 0;
+      }
+
+      #{$_block}__cell {
+        width: 15px;
+        height: 25px;
+        margin-right: 10px;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__ruby {
+        @include g-font(14);
+      }
+
+      #{$_block}__bd {
+        @include g-font(42, 0);
+      }
+
+      #{$_block}__tel {
+        width: 33px;
+        height: 35px;
+        margin-right: 10px;
+      }
+
+      #{$_block}__fax {
+        width: 53px;
+        height: 31px;
+      }
+
+      #{$_block}__free {
+        width: 56px;
+        height: 32px;
+        margin-right: 5px;
+      }
+
+      #{$_block}__cell {
+        width: 24.2px;
+        height: 39.6px;
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__ruby {
+        @include g-font(16);
+      }
+
+      #{$_block}__bd {
+        @include g-font(50, 0);
+      }
+
+      #{$_block}__tel {
+        width: 39px;
+        height: 39px;
+        margin-right: 12px;
+      }
+
+      #{$_block}__fax {
+        width: 62px;
+        height: 36px;
+      }
+
+      #{$_block}__free {
+        width: 63px;
+        height: 36px;
+        margin-right: 5px;
+      }
+
+      #{$_block}__cell {
+        width: 29px;
+        height: 47px;
+        margin-right: 12px;
+      }
+    }
+
+    // サイト名(中央)に入ったときは文字数分の幅で中央寄せにする
+    [class^="t0-b-headerSingle"] & {
+      margin: 0 auto;
+    }
+  }
 }
 
 @if $device == SP {
@@ -189,7 +358,6 @@
       background-image: url("../imgs/iconText-tel/01/tel.svg");
       width: 19px;
       height: 19px;
-      margin-right: 10px;
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -198,7 +366,7 @@
       background-image: url("../imgs/iconText-tel/01/fax.svg");
       width: 35px;
       height: 20px;
-      margin: 0 7px 2px 0;
+      margin: 0 2px 2px 0;
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -207,7 +375,6 @@
       background-image: url("../imgs/iconText-tel/01/free.svg");
       width: 35px;
       height: 20px;
-      margin: 0 7px 2px 0;
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -216,7 +383,72 @@
       background-image: url("../imgs/iconText-tel/01/cell.svg");
       width: 15.4px;
       height: 25.2px;
-      margin: 0 10px 2px;
+      margin-right: 5px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .t0-b-headerUnit-contact-tel2 {
+    width: 95%;
+    margin: 0 auto;
+    word-break: break-all;
+    padding: 8px 10px;
+    border: 2px solid $headerUnit-contact-tel2_borderColor;
+    &__wrap {
+      color: $headerUnit-contact-tel2_textColor;
+    }
+
+    > div {
+      text-align: center;
+      vertical-align: top;
+    }
+
+    &__ruby {
+      @include g-font(12);
+      text-align: center;
+      margin: 2px 0;
+    }
+
+    &__bd {
+      @include g-font(22);
+      text-align: center;
+      > span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    &__tel {
+      background-image: url("../imgs/iconText-tel/02/tel.svg");
+      width: 23px;
+      height: 24px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &__fax {
+      background-image: url("../imgs/iconText-tel/02/fax.svg");
+      width: 35px;
+      height: 20px;
+      margin: 0 2px 2px 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &__free {
+      background-image: url("../imgs/iconText-tel/02/free.svg");
+      width: 35px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &__cell {
+      background-image: url("../imgs/iconText-tel/02/cell.svg");
+      width: 15.4px;
+      height: 25.2px;
+      margin-right: 5px;
       background-size: contain;
       background-repeat: no-repeat;
     }
