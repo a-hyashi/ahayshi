@@ -4,10 +4,10 @@ const browserSync = require('browser-sync');
 const config = require('./gulp_config.json');
 const del = require('del');
 const fs = require('fs-extra');
-const b_placer = require('./lib/b_placer');
-const make_aigis = require('./lib/make_aigis');
-const make_allDatajson = require('./lib/make_all-datajsons');
-const make_html = require('./lib/make_html');
+const b_placer = require('./lib/b-placer');
+const make_aigis = require('./lib/make-aigis');
+const make_allDatajson = require('./lib/make-all-datajsons');
+const make_html = require('./lib/make-html');
 const mergeStream = require('merge-stream');
 const sftp = require('gulp-sftp-up4');
 
