@@ -50,10 +50,7 @@ buddy-theme
 │   ├── each-part/
 │   ├── schemas/
 │   ├── utils/
-│   ├── make-aigis.js
-│   ├── make-all-datajsons.js
-│   ├── make_datajson.js
-│   └── make-html.js
+│   ├── *.js
 │
 ├── ssh/
 │   ├── devwork_rsa
@@ -420,11 +417,12 @@ lib
 ├── btool-settings/ ･･･スタイルガイドに必要な設定ファイル
 ├── each-part/ ･･･各部品で必要な設定ファイル
 ├── schemas/ ･･･機能と選択肢に必要な設定ファイル
+├── b-placer.js ･･･bPlacerの設定値をMarkdownの表に書き出す
 ├── buddy-parts-functions.js
+├── data-json-files.js
 ├── data-json-generator.js
-├── make-aigis.js
-├── make-all-datajsons.js
-├── make-html.js
+├── html-files.js
+├── template-files.js
 └── utils.js
 ```
 

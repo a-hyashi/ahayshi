@@ -5,9 +5,9 @@ const config = require('./gulp_config.json');
 const del = require('del');
 const fs = require('fs-extra');
 const b_placer = require('./lib/b-placer');
-const make_aigis = require('./lib/make-aigis');
-const make_allDatajson = require('./lib/make-all-datajsons');
-const make_html = require('./lib/make-html');
+const htmlFiles = require('./lib/html-files');
+const templateFiles = require('./lib/template-files');
+const dataJsonFiles = require('./lib/data-json-files');
 const mergeStream = require('merge-stream');
 const sftp = require('gulp-sftp-up4');
 
@@ -149,7 +149,7 @@ gulp.task('make-allparts-datajson3', () => make_allparts_datajson('3'));
 gulp.task('make-allparts-datajson4', () => make_allparts_datajson('4'));
 
 const make_allparts_datajson = (num) => {
-  return make_allDatajson.makeAllDatajsonFull(
+  return templateFiles.makeAllDatajsonFull(
     config.html_templates_dir,
     `./temp/datajson${num}/`,
     `./btool-settings/parts-categories${num}.json`
@@ -157,20 +157,20 @@ const make_allparts_datajson = (num) => {
 }
 
 // スタイルガイド作成用htmlを作成
-gulp.task('make-html', () => exec_make_html(''));
-gulp.task('make-html2', () => exec_make_html('2'));
-gulp.task('make-html3', () => exec_make_html('3'));
-gulp.task('make-html4', () => exec_make_html('4'));
+gulp.task('make-html', () => makeHtml(''));
+gulp.task('make-html2', () => makeHtml('2'));
+gulp.task('make-html3', () => makeHtml('3'));
+gulp.task('make-html4', () => makeHtml('4'));
 
-const exec_make_html = (num) => {
-  return make_html.makeHtml(`./temp/html${num}/`, `./temp/datajson${num}/`, config.html_templates_dir, false);
+const makeHtml = (num) => {
+  return dataJsonFiles.makeHtmlFiles(`./temp/html${num}/`, `./temp/datajson${num}/`, config.html_templates_dir, false);
 }
 
 // スタイルガイド作成mdファイル作成
-gulp.task('make-unittest', () => make_aigis.makeAigis('./temp/html/', './temp/unittest/'));
-gulp.task('make-unittest2', () => make_aigis.makeAigis('./temp/html2/', './temp/unittest/'));
-gulp.task('make-unittest3', () => make_aigis.makeAigis('./temp/html3/', './temp/unittest/'));
-gulp.task('make-unittest4', () => make_aigis.makeAigis('./temp/html4/', './temp/unittest/'));
+gulp.task('make-unittest', () => htmlFiles.makeUnitTestFiles('./temp/html/', './temp/unittest/'));
+gulp.task('make-unittest2', () => htmlFiles.makeUnitTestFiles('./temp/html2/', './temp/unittest/'));
+gulp.task('make-unittest3', () => htmlFiles.makeUnitTestFiles('./temp/html3/', './temp/unittest/'));
+gulp.task('make-unittest4', () => htmlFiles.makeUnitTestFiles('./temp/html4/', './temp/unittest/'));
 
 // スタイルガイド作成
 gulp.task('make-aigis', () => {
