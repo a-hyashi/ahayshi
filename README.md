@@ -47,13 +47,10 @@ buddy-theme
 ├── lib/
 │   ├── aigis-markdown/
 │   ├── btool-settings/
-│   ├── each_part/
+│   ├── each-part/
 │   ├── schemas/
 │   ├── utils/
-│   ├── make_aigis.js
-│   ├── make_all-datajsons.js
-│   ├── make_datajson.js
-│   └── make_html.js
+│   ├── *.js
 │
 ├── ssh/
 │   ├── devwork_rsa
@@ -418,13 +415,14 @@ $ docker system prune
 lib
 ├── aigis-markdown/ ･･･aigisに必要なファイル作成
 ├── btool-settings/ ･･･スタイルガイドに必要な設定ファイル
-├── each_part/ ･･･各部品で必要な設定ファイル
+├── each-part/ ･･･各部品で必要な設定ファイル
 ├── schemas/ ･･･機能と選択肢に必要な設定ファイル
+├── b-placer.js ･･･bPlacerの設定値をMarkdownの表に書き出す
 ├── buddy-parts-functions.js
+├── data-json-files.js
 ├── data-json-generator.js
-├── make_aigis.js
-├── make_all-datajsons.js
-├── make_html.js
+├── html-files.js
+├── template-files.js
 └── utils.js
 ```
 
