@@ -12,7 +12,7 @@ count=0
 for theme in `find . -type d -regex "./*[0-9][0-9][0-9][A-Z]*" | sort` ; do
   ./copy.sh ${theme##*/}
   cd ${theme##*/}
-  (gulp build && gulp output) &
+  (gulp build && gulp output_to_ACRE-theme) &
   pips+=($!)
   themes+=( ${theme##*/} )
   cd ../

@@ -6,6 +6,8 @@
     table {
       width: 100%;
       margin-bottom: 6%;
+      //IEでthの項目名が長い時、widthの値以上に伸びる問題への対応
+      table-layout: fixed;
     }
 
     tr:first-child {
@@ -58,6 +60,10 @@
         background-color: $formTable_BGColor2;
         border: 1px solid $formTable_borderColor2;
         border-radius: 5px;
+        //IEでappearance: none;が効かないため
+        &::-ms-expand {
+          display: none;
+        }
       }
 
       &::after {
@@ -89,6 +95,7 @@
         display: none;
         & + label {
           position: relative;
+          display: block;
           padding-left: 20px;
           &::before {
             content: "";
@@ -109,9 +116,9 @@
             display: block;
             opacity: 0;
             position: absolute;
-            top: 25%;
+            top: 50%;
             left: 5px;
-            transform: translateY(-50%);
+            transform: translateY(-100%);
             width: 8px;
             height: 8px;
             background-color: $formTable_BGColor7;
@@ -123,7 +130,7 @@
         &:checked + label {
           &::after {
             opacity: 1;
-            transform: rotate(45deg);
+            transform: translateY(-50%);
           }
         }
       }
@@ -155,6 +162,7 @@
         display: none;
         & + label {
           position: relative;
+          display: block;
           padding-left: 20px;
           &::before {
             content: "";
@@ -175,9 +183,9 @@
             display: block;
             opacity: 0;
             position: absolute;
-            top: -2px;
+            top: calc(50% - 1px);
             left: 5px;
-            transform: rotate(80deg);
+            transform: translateY(-50%) rotate(80deg);
             width: 7px;
             height: 14px;
             border-bottom: 3px solid $formTable_borderColor6;
@@ -188,12 +196,12 @@
 
         &:checked + label {
           &::before {
-            display: none;
+            opacity: 0;
           }
 
           &::after {
             opacity: 1;
-            transform: rotate(45deg);
+            transform: translateY(-50%) rotate(45deg);
           }
         }
       }
@@ -313,6 +321,8 @@
     table {
       width: 100%;
       margin-bottom: 6%;
+      //IEでthの項目名が長い時、widthの値以上に伸びる問題への対応
+      table-layout: fixed;
       background-color: $formTable2_BGColor2;
       border: 1px solid $formTable2_borderColor;
     }
@@ -367,6 +377,10 @@
         background-color: $formTable2_BGColor2;
         border: 1px solid $formTable2_borderColor;
         border-radius: 5px;
+        //IEでappearance: none;が効かないため
+        &::-ms-expand {
+          display: none;
+        }
       }
 
       &::after {
@@ -398,6 +412,7 @@
         display: none;
         & + label {
           position: relative;
+          display: block;
           padding-left: 20px;
           &::before {
             content: "";
@@ -431,8 +446,8 @@
 
         &:checked + label {
           &::after {
-            transform: translateY(-50%);
             opacity: 1;
+            transform: translateY(-50%);
           }
         }
       }
@@ -464,6 +479,7 @@
         display: none;
         & + label {
           position: relative;
+          display: block;
           padding-left: 20px;
           &::before {
             content: "";
@@ -484,9 +500,9 @@
             display: block;
             opacity: 0;
             position: absolute;
-            top: -2px;
+            top: calc(50% - 1px);
             left: 5px;
-            transform: rotate(80deg);
+            transform: translateY(-50%) rotate(80deg);
             width: 7px;
             height: 14px;
             border-bottom: 3px solid $formTable2_borderColor5;
@@ -497,12 +513,12 @@
 
         &:checked + label {
           &::before {
-            display: none;
+            opacity: 0;
           }
 
           &::after {
             opacity: 1;
-            transform: rotate(45deg);
+            transform: translateY(-50%) rotate(45deg);
           }
         }
       }
@@ -627,7 +643,7 @@
 
     th {
       display: block;
-      padding: 15px 10px 10px;
+      padding: 15px 10px;
       @include g-font(15);
       font-weight: bold;
       > div {
@@ -641,7 +657,7 @@
 
     td {
       display: block;
-      padding: 0 15px 20px;
+      padding: 0 12px 20px;
       @include g-font(14);
     }
 
@@ -703,16 +719,17 @@
         display: none;
         & + label {
           position: relative;
-          padding-left: 20px;
+          display: block;
+          padding-left: 27px;
           &::before {
             content: "";
             display: block;
             position: absolute;
             top: 50%;
-            left: 1px;
+            left: 0;
             transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
+            width: 24px;
+            height: 24px;
             background-color: $formTable_BGColor6;
             border: 2px solid $formTable_borderColor4;
             border-radius: 50%;
@@ -723,11 +740,11 @@
             display: block;
             opacity: 0;
             position: absolute;
-            top: 22%;
+            top: 50%;
             left: 5px;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
+            transform: translateY(-100%);
+            width: 14px;
+            height: 14px;
             background-color: $formTable_BGColor7;
             border-radius: 50%;
             transition: .3s;
@@ -737,7 +754,7 @@
         &:checked + label {
           &::after {
             opacity: 1;
-            transform: rotate(45deg);
+            transform: translateY(-50%);
           }
         }
       }
@@ -750,7 +767,7 @@
         li {
           padding: 0;
           & + li {
-            margin-top: 5px;
+            margin-top: 12px;
           }
         }
       }
@@ -762,14 +779,15 @@
       }
 
       li {
-        padding: 5px 10px 0 0;
+        padding: 7px 7px 0 0;
       }
 
       input {
         display: none;
         & + label {
           position: relative;
-          padding-left: 20px;
+          display: block;
+          padding-left: 29px;
           &::before {
             content: "";
             display: block;
@@ -777,8 +795,8 @@
             top: 50%;
             left: 1px;
             transform: translateY(-50%);
-            width: 15px;
-            height: 15px;
+            width: 24px;
+            height: 24px;
             border-radius: 2px;
             border: 2px solid $formTable_borderColor5;
             background-color: $formTable_BGColor8;
@@ -789,11 +807,11 @@
             display: block;
             opacity: 0;
             position: absolute;
-            top: -2px;
-            left: 5px;
-            transform: rotate(80deg);
-            width: 7px;
-            height: 14px;
+            top: calc(50% - 2px);
+            left: 8px;
+            transform: translateY(-50%) rotate(80deg);
+            width: 10px;
+            height: 18px;
             border-bottom: 3px solid $formTable_borderColor6;
             border-right: 3px solid $formTable_borderColor6;
             transition: .3s;
@@ -802,12 +820,12 @@
 
         &:checked + label {
           &::before {
-            display: none;
+            opacity: 0;
           }
 
           &::after {
             opacity: 1;
-            transform: rotate(45deg);
+            transform: translateY(-50%) rotate(45deg);
           }
         }
       }
@@ -818,7 +836,6 @@
         }
 
         li {
-          padding: 0;
           & + li {
             margin-top: 5px;
           }
@@ -1003,16 +1020,17 @@
         display: none;
         & + label {
           position: relative;
-          padding-left: 20px;
+          display: block;
+          padding-left: 27px;
           &::before {
             content: "";
             display: block;
             position: absolute;
             top: 50%;
-            left: 1px;
+            left: 0;
             transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
+            width: 24px;
+            height: 24px;
             background-color: $formTable2_BGColor6;
             border: 2px solid $formTable2_borderColor2;
             border-radius: 50%;
@@ -1028,16 +1046,16 @@
             border-radius: 50%;
             transition: .3s;
             left: 5px;
-            width: 8px;
-            height: 8px;
+            width: 14px;
+            height: 14px;
             transform: translateY(-50%) scale(0);
           }
         }
 
         &:checked + label {
           &::after {
-            transform: translateY(-50%);
             opacity: 1;
+            transform: translateY(-50%);
           }
         }
       }
@@ -1050,7 +1068,7 @@
         li {
           padding: 0;
           & + li {
-            margin-top: 5px;
+            margin-top: 12px;
           }
         }
       }
@@ -1062,14 +1080,15 @@
       }
 
       li {
-        padding: 5px 10px 0 0;
+        padding: 7px 7px 0 0;
       }
 
       input {
         display: none;
         & + label {
           position: relative;
-          padding-left: 20px;
+          display: block;
+          padding-left: 29px;
           &::before {
             content: "";
             display: block;
@@ -1077,8 +1096,8 @@
             top: 50%;
             left: 1px;
             transform: translateY(-50%);
-            width: 15px;
-            height: 15px;
+            width: 24px;
+            height: 24px;
             border-radius: 2px;
             border: 2px solid $formTable2_borderColor4;
             background-color: $formTable2_BGColor8;
@@ -1089,11 +1108,11 @@
             display: block;
             opacity: 0;
             position: absolute;
-            top: -2px;
-            left: 5px;
-            transform: rotate(80deg);
-            width: 7px;
-            height: 14px;
+            top: calc(50% - 2px);
+            left: 8px;
+            transform: translateY(-50%) rotate(80deg);
+            width: 10px;
+            height: 18px;
             border-bottom: 3px solid $formTable2_borderColor5;
             border-right: 3px solid $formTable2_borderColor5;
             transition: .3s;
@@ -1102,12 +1121,12 @@
 
         &:checked + label {
           &::before {
-            display: none;
+            opacity: 0;
           }
 
           &::after {
             opacity: 1;
-            transform: rotate(45deg);
+            transform: translateY(-50%) rotate(45deg);
           }
         }
       }
@@ -1118,7 +1137,6 @@
         }
 
         li {
-          padding: 0;
           & + li {
             margin-top: 5px;
           }
