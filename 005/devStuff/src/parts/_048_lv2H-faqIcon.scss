@@ -1,5 +1,12 @@
 @if $device == PC {
   .t0-b-lv2H-faqIcon#{$variation1of2} {
+    $_block: &;
+    $_fontSize_h: 20;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h+$_fontSizeDiff;
+    $_lineHeight_h: 2;
+
     border: 1px solid #d8dde9;
     border-radius: 10px;
     position: relative;
@@ -7,7 +14,6 @@
     box-sizing: border-box;
     color: #4d4d4d;
     font-family: serif;
-    $_block: &;
     > span {
       position: absolute;
       width: 100%;
@@ -48,10 +54,46 @@
 
     &__h {
       position: relative;
-      @include g-font-spacingKilled(20, 2);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       vertical-align: middle;
       display: table-cell;
       padding: 0 0 0 20px;
+    }
+
+    &--size-1 {
+      padding: 13px * .8 20px * .8 13px * .8 32px * .8;
+      > span {
+        background-size: 22px * .8 23px * .8, 22px * .8 22px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        background-size: 67px * .8 35px * .8;
+        width: 67px * .8;
+        height: 35px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding: 0 0 0 20px * .8;
+      }
+    }
+
+    &--size-3 {
+      padding: 13px * 1.2 20px * 1.2 13px * 1.2 32px * 1.2;
+      > span {
+        background-size: 22px * 1.2 23px * 1.2, 22px * 1.2 22px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        background-size: 67px * 1.2 35px * 1.2;
+        width: 67px * 1.2;
+        height: 35px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding: 0 0 0 20px * 1.2;
+      }
     }
 
     &--align-l {
@@ -68,13 +110,19 @@
   }
 
   .t0-b-lv2H-faqIcon#{$variation2of2} {
+    $_block: &;
+    $_fontSize_h: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h+$_fontSizeDiff;
+    $_lineHeight_h: 2;
+
     background: #ebeef5;
     border-radius: 5px;
     box-shadow: 0 0 5px #bac2d6;
     position: relative;
     padding: 13px 20px;
     box-sizing: border-box;
-    $_block: &;
     > span {
       position: absolute;
       width: 100%;
@@ -120,10 +168,46 @@
 
     &__h {
       position: relative;
-      @include g-font-spacingKilled(16, 2);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       vertical-align: middle;
       display: table-cell;
       padding: 0 0 0 20px;
+    }
+
+    &--size-1 {
+      padding: 13px * .8 20px * .8;
+      > span {
+        background-size: 90px * .8 88px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        background-size: 67px * .8 35px * .8;
+        width: 67px * .8;
+        height: 35px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding: 0 0 0 20px * .8;
+      }
+    }
+
+    &--size-3 {
+      padding: 13px * 1.2 20px * 1.2;
+      > span {
+        background-size: 90px * 1.2 88px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        background-size: 67px * 1.2 35px * 1.2;
+        width: 67px * 1.2;
+        height: 35px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding: 0 0 0 20px * 1.2;
+      }
     }
 
     &--align-l {
