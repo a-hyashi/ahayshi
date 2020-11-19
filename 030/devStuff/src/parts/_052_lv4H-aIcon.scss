@@ -1,18 +1,17 @@
 @if $device == PC {
-  .t0-b-lv4H-aIcon#{$variation1of2},
-  .t0-b-lv4H-aIcon#{$variation2of2} {
-    color: #fff;
-    font-family: $mincho;
-    &__bd {
-      text-align: left;
-    }
-
-    a {
-      color: #fff;
-    }
-  }
-
   .t0-b-lv4H-aIcon#{$variation1of2} {
+    $_block: &;
+    $_fontSize_h: 18;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
+    font-family: $mincho;
     line-height: 0;
     color: #fff;
     text-shadow: $g-textShadow;
@@ -25,6 +24,10 @@
       vertical-align: middle;
     }
 
+    &__bd {
+      text-align: left;
+    }
+
     &__iconPlacer {
       padding: 0 10px 0 0;
       > * {
@@ -33,22 +36,22 @@
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px;
     }
 
     &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 0 0;
     }
 
     &__caption-upper + a > &__h,
     &__caption-upper + &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
     }
 
     &__icon {
@@ -61,6 +64,76 @@
       text-indent: -100px;
       color: transparent;
       background-image: url("../imgs/t0-b-lv4H-Icona/bg.png");
+    }
+
+    &--size-1 {
+      padding: 0 0 10px * .8;
+      #{$_block}__icon {
+        width: 52px * .8;
+        height: 36px * .8;
+        background-size: 52px * .8 36px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      padding: 0 0 10px * 1.2;
+      #{$_block}__icon {
+        width: 52px * 1.2;
+        height: 36px * 1.2;
+        background-size: 52px * 1.2 36px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
     }
 
     &--align-l {
@@ -85,7 +158,20 @@
   }
 
   .t0-b-lv4H-aIcon#{$variation2of2} {
+    $_block: &;
+    $_fontSize_h: 18;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
+
+    font-family: $mincho;
     line-height: 0;
+    color: #fff;
     padding: 0 0 10px;
     > div {
       display: table;
@@ -108,12 +194,12 @@
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px;
     }
 
     &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       padding-bottom: 8px;
       position: relative;
       border-bottom: 1px solid #785643;
@@ -131,13 +217,13 @@
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 0 0;
     }
 
     &__caption-upper + a > &__h,
     &__caption-upper + &__h {
-      @include g-font(18, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
     }
 
     &__icon {
@@ -145,11 +231,81 @@
       background-repeat: no-repeat;
       display: inline-block;
       width: 30px;
-      height: 23px;
+      height: 29px;
       overflow: hidden;
       text-indent: -100px;
       color: transparent;
       background-image: url("../imgs/t0-b-lv4H-Icona/bg2.png");
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 30px * .8;
+        height: 29px * .8;
+        background-size: 30px * .8 29px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+        padding-bottom: 8px * .8;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 30px * 1.2;
+        height: 29px * 1.2;
+        background-size: 30px * 1.2 29px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 3px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+        padding-bottom: 8px * 1.2;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
     }
 
     &--align-l {
