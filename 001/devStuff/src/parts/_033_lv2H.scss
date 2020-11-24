@@ -1,9 +1,16 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of3} {
+    $_fontSize: 18;
+    $_fontSize_h: 22;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+
+    @include g-font($_fontSize, $_lineHeight);
     margin: 0 auto;
     background: url("../imgs/t0-b-lv2H/bg1.png") no-repeat 0 60%;
     padding: 0 40px;
-    @include g-font(18, 1);
     min-height: 35px;
     a {
       text-decoration: none;
@@ -14,27 +21,51 @@
     }
 
     h2 {
-      @include g-font-spacingKilled(22, 1);
+      @include g-font($_fontSize_h, $_lineHeight);
       &::before,
       &::after {
         margin-top: 0;
       }
     }
 
-    &--align-l h2 {
+    &--size-1 {
+      padding: 0 40px * .8;
+      min-height: 35px * .8;
+      background-size: 322px * .8 35px * .8;
+      h2 {
+        @include g-font($_fontSize_h_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      padding: 0 40px * 1.2;
+      min-height: 35px * 1.2;
+      background-size: 322px * 1.2 35px * 1.2;
+      h2 {
+        @include g-font($_fontSize_h_l, $_lineHeight);
+      }
+    }
+
+    &--align-l {
       text-align: left;
     }
 
-    &--align-c h2 {
+    &--align-c {
       text-align: center;
     }
 
-    &--align-r h2 {
+    &--align-r{
       text-align: right;
     }
   }
 
   .t0-b-lv2H#{$variation2of3} {
+    $_fontSize: 26;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     margin: 0 auto 10px;
     padding: 17px 0 0;
     border-bottom: 3px double #dabe4d;
@@ -65,25 +96,67 @@
     }
 
     h2 {
-      @include g-font-spacingKilled(26);
+      @include g-font($_fontSize, $_lineHeight);
       padding: 15px 15px 10px;
       text-align: center;
     }
 
-    &--align-l h2 {
+    &--size-1 {
+      margin: 0 auto 10px * .8;
+      padding: 17px * .8 0 0;
+      > span {
+        height: 30px * .8;
+        background-size: 1030px * .8 30px * .8;
+      }
+
+      > div {
+        background-size: 43px * .8 43px * .8, 43px * .8 43px * .8, 100% auto;
+        background-position: 2px * .8 3px * .8, right 2px * .8 top 3px * .8, left top;
+      }
+
+      h2 {
+        @include g-font($_fontSize_s, $_lineHeight);
+      }
+    }
+
+    &--size-3 {
+      margin: 0 auto 10px * 1.2;
+      padding: 17px * 1.2 0 0;
+      > span {
+        height: 30px * 1.2;
+        background-size: 1030px * 1.2 30px * 1.2;
+      }
+
+      > div {
+        background-size: 43px * 1.2 43px * 1.2, 43px * 1.2 43px * 1.2, 100% auto;
+        background-position: 2px * 1.2 3px * 1.2, right 2px * 1.2 top 3px * 1.2, left top;
+      }
+
+      h2 {
+        @include g-font($_fontSize_l, $_lineHeight);
+      }
+    }
+
+    &--align-l {
       text-align: left;
     }
 
-    &--align-c h2 {
+    &--align-c {
       text-align: center;
     }
 
-    &--align-r h2 {
+    &--align-r {
       text-align: right;
     }
   }
 
   .t0-b-lv2H#{$variation3of3} {
+    $_fontSize: 26;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     margin: 0 auto 10px;
     padding: 17px 0 0;
     border-bottom: 3px double #f17099;
@@ -114,20 +187,58 @@
     }
 
     h2 {
-      @include g-font-spacingKilled(26);
-      padding: 15px 15px 10px;
+      @include g-font($_fontSize, $_lineHeight);
+      padding: 15px * .8 15px * .8 10px * .8;
       text-align: center;
     }
 
-    &--align-l h2 {
+    &--size-1 {
+      margin: 0 auto 10px * .8;
+      padding: 17px * .8 0 0;
+      > span {
+        height: 30px * .8;
+        background-size: 1030px * .8 30px * .8;
+      }
+
+      > div {
+        background-size: 43px * .8 43px * .8, 43px * .8 43px * .8, 100% auto;
+        background-position: 2px * .8 3px * .8, right 2px * .8 top 3px * .8, left top;
+      }
+
+      h2 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding: 15px * 1.2 15px * 1.2 10px * 1.2;
+      }
+    }
+
+    &--size-3 {
+      margin: 0 auto 10px * 1.2;
+      padding: 17px * 1.2 0 0;
+      > span {
+        height: 30px * 1.2;
+        background-size: 1030px * 1.2 30px * 1.2;
+      }
+
+      > div {
+        background-size: 43px * 1.2 43px * 1.2, 43px * 1.2 43px * 1.2, 100% auto;
+        background-position: 2px * 1.2 3px * 1.2, right 2px * 1.2 top 3px * 1.2, left top;
+      }
+
+      h2 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding: 15px 15px 10px;
+      }
+    }
+
+    &--align-l {
       text-align: left;
     }
 
-    &--align-c h2 {
+    &--align-c {
       text-align: center;
     }
 
-    &--align-r h2 {
+    &--align-r {
       text-align: right;
     }
   }

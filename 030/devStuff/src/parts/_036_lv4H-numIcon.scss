@@ -1,7 +1,23 @@
 @if $device == PC {
   .t0-b-lv4H-numIcon#{$variation1of2} {
     $_block: &;
+    $_fontSize: 18;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_i: 0;
+    $_lineHeight_caption: 1;
+
     line-height: 0;
+    color: #fff;
+    font-family: $mincho;
     > div {
       display: inline-block;
     }
@@ -73,11 +89,178 @@
         }
       }
     }
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 3px;
+    }
+
+    &__h {
+      @include g-font($_fontSize_h, $_lineHeight_h);
+    }
+
+    &__bd {
+      text-align: left;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 3px 0 0;
+    }
+
+    &__caption-upper + &__h {
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    &__caption-upper + a > &__h {
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__icon {
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+        background-size: 68px * .8 67px * .8;
+        width: 68px * .8;
+        height: 67px * .8;
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      @each $_type in $_types {
+        @for $_i from 1 through 9 {
+          #{$_block}__icon--#{$_type}-#{$_i} {
+            &::before {
+              text-indent: 29px * .8;
+              padding-top: 45px * .8;
+              @include g-font($_fontSize_s, $_lineHeight_i);
+            }
+          }
+        }
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 25px * .8;
+            padding-top: 45px * .8;
+            @include g-font($_fontSize_s, $_lineHeight_i);
+          }
+        }
+      }
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__icon {
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+        background-size: 68px * 1.2 67px * 1.2;
+        width: 68px * 1.2;
+        height: 67px * 1.2;
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      @each $_type in $_types {
+        @for $_i from 1 through 9 {
+          #{$_block}__icon--#{$_type}-#{$_i} {
+            &::before {
+              text-indent: 29px * 1.2;
+              padding-top: 45px * 1.2;
+              @include g-font($_fontSize_l, $_lineHeight_i);
+            }
+          }
+        }
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 25px * 1.2;
+            padding-top: 45px * 1.2;
+            @include g-font($_fontSize_l, $_lineHeight_i);
+          }
+        }
+      }
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 5px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
   }
 
   .t0-b-lv4H-numIcon#{$variation2of2} {
     $_block: &;
+    $_fontSize: 18;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_i: 0;
+    $_lineHeight_caption: 1;
+
     line-height: 0;
+    color: #fff;
+    font-family: $mincho;
     > div {
       display: inline-block;
     }
@@ -149,19 +332,13 @@
         }
       }
     }
-  }
-
-  .t0-b-lv4H-numIcon#{$variation1of2},
-  .t0-b-lv4H-numIcon#{$variation2of2} {
-    color: #fff;
-    font-family: $mincho;
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 3px;
     }
 
     &__h {
-      @include g-font(22, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
     }
 
     &__bd {
@@ -169,16 +346,16 @@
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 3px 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     a {
@@ -186,6 +363,112 @@
       color: #fff;
       &:hover {
         color: $g-hoverColor;
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__icon {
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+        background-size: 74px * .8 74px * .8;
+        width: 74px * .8;
+        height: 74px * .8;
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      @each $_type in $_types {
+        @for $_i from 1 through 9 {
+          #{$_block}__icon--#{$_type}-#{$_i} {
+            &::before {
+              text-indent: 33px * .8;
+              padding-top: 48px * .8;
+              @include g-font($_fontSize_s, $_lineHeight_i);
+            }
+          }
+        }
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 28px * .8;
+            padding-top: 48px * .8;
+            @include g-font($_fontSize_s, $_lineHeight_i);
+          }
+        }
+      }
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 3px * .8;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__icon {
+        $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+        background-size: 74px * 1.2 74px * 1.2;
+        width: 74px * 1.2;
+        height: 74px * 1.2;
+      }
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      @each $_type in $_types {
+        @for $_i from 1 through 9 {
+          #{$_block}__icon--#{$_type}-#{$_i} {
+            &::before {
+              text-indent: 33px * 1.2;
+              padding-top: 48px * 1.2;
+              @include g-font($_fontSize_l, $_lineHeight_i);
+            }
+          }
+        }
+        #{$_block}__icon--#{$_type}-10 {
+          &::before {
+            text-indent: 28px * 1.2;
+            padding-top: 48px * 1.2;
+            @include g-font($_fontSize_l, $_lineHeight_i);
+          }
+        }
+      }
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 5px * 1.2;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
       }
     }
 

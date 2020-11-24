@@ -1,6 +1,17 @@
 @if $device == PC {
   .t0-b-lv4H-voiceIcon#{$variation1of2} {
+    $_block: &;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
     line-height: 0;
     > div {
       display: inline-block;
@@ -29,39 +40,98 @@
       text-indent: -100px;
       color: transparent;
       background-image: url("../imgs/t0-b-lv4H-voiceIcon/1.png");
+      background-size: 53px 48px;
     }
 
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 #{$_elementSpacing};
     }
 
     &__h {
-      @include g-font-spacingKilled(22, 1);
-      font-weight: bold;
-    }
-
-    &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
-      padding: 0 0 #{$_elementSpacing};
-    }
-
-    &__h {
-      @include g-font-spacingKilled(22, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-weight: bold;
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: #{$_elementSpacing} 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font-spacingKilled(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font-spacingKilled(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 53px * .8;
+        height: 48px * .8;
+        background-size: 53px * .8 48px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 53px * 1.2;
+        height: 48px * 1.2;
+        background-size: 53px * 1.2 48px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
     }
 
     &--align-l {
@@ -86,7 +156,18 @@
   }
 
   .t0-b-lv4H-voiceIcon#{$variation2of2} {
+    $_block: &;
+    $_fontSize_h: 22;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_h_s: $_fontSize_h - $_fontSizeDiff;
+    $_fontSize_h_l: $_fontSize_h + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_h: 1;
+    $_lineHeight_caption: 1;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
+
     line-height: 0;
     > div {
       display: inline-block;
@@ -118,36 +199,94 @@
     }
 
     &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 #{$_elementSpacing};
     }
 
     &__h {
-      @include g-font-spacingKilled(22, 1);
-      font-weight: bold;
-    }
-
-    &__caption-upper {
-      @include g-font-spacingKilled(14, 1);
-      padding: 0 0 #{$_elementSpacing};
-    }
-
-    &__h {
-      @include g-font-spacingKilled(22, 1);
+      @include g-font($_fontSize_h, $_lineHeight_h);
       font-weight: bold;
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: #{$_elementSpacing} 0 0;
     }
 
     &__caption-upper + &__h {
-      @include g-font-spacingKilled(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
     }
 
     &__caption-upper + a > &__h {
-      @include g-font-spacingKilled(20, 1);
+      @include g-font($_fontSize_h - 2, $_lineHeight_h);
+    }
+
+    &--size-1 {
+      #{$_block}__icon {
+        width: 53px * .8;
+        height: 48px * .8;
+        background-size: 53px * .8 48px * .8;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * .8 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * .8 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_s, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_s - 2, $_lineHeight_h);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__icon {
+        width: 53px * 1.2;
+        height: 48px * 1.2;
+        background-size: 53px * 1.2 48px * 1.2;
+      }
+
+      #{$_block}__iconPlacer {
+        padding: 0 10px * 1.2 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 #{$_elementSpacing} * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: #{$_elementSpacing} * 1.2 0 0;
+      }
+
+      #{$_block}__h {
+        @include g-font($_fontSize_h_l, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
+
+      #{$_block}__caption-upper + a > #{$_block}__h {
+        @include g-font($_fontSize_h_l - 2, $_lineHeight_h);
+      }
     }
 
     &--align-l {

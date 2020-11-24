@@ -1,5 +1,11 @@
 @if $device == PC {
   .t0-b-lv3H#{$variation1of2} {
+    $_fontSize: 22;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     background-image: url("../imgs/t0-b-lv3H/bg.png");
     background-repeat: no-repeat;
     background-position: 3px center;
@@ -7,9 +13,23 @@
     color: #f2ede2;
     display: table;
     h3 {
-      @include g-font(22, 1);
+      @include g-font($_fontSize, $_lineHeight);
       font-weight: bold;
       padding: 10px 10px 10px 38px;
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding: 10px * .8 10px * .8 10px * .8 38px * .8;
+      }
+    }
+
+    &--size-3 {
+      h3 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding: 10px * 1.2 10px * 1.2 10px * 1.2 38px * 1.2;
+      }
     }
 
     &--align-l {
@@ -37,6 +57,12 @@
   }
 
   .t0-b-lv3H#{$variation2of2} {
+    $_fontSize: 22;
+    $_lineHeight: 1;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+
     background-image: url("../imgs/t0-b-lv3H/bg2.png");
     background-repeat: no-repeat;
     background-position: 3px center;
@@ -48,9 +74,23 @@
     height: auto;
     color: #f2ede2;
     h3 {
-      @include g-font(22, 1);
+      @include g-font($_fontSize, $_lineHeight);
       font-weight: bold;
       padding: 10px 10px 10px 38px;
+    }
+
+    &--size-1 {
+      h3 {
+        @include g-font($_fontSize_s, $_lineHeight);
+        padding: 10px * .8 10px * .8 10px * .8 38px * .8;
+      }
+    }
+
+    &--size-3 {
+      h3 {
+        @include g-font($_fontSize_l, $_lineHeight);
+        padding: 10px * 1.2 10px * 1.2 10px * 1.2 38px * 1.2;
+      }
     }
 
     &--align-l {

@@ -1,12 +1,23 @@
 @if $device == PC {
   .t0-b-lv5H#{$variation1of2} {
+    $_block: &;
+    $_fontSize_bd: 18;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #fff;
     text-align: center;
     text-shadow: $g-textShadow;
     font-family: $mincho;
     overflow: hidden;
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 0 5px;
     }
 
@@ -34,14 +45,62 @@
       }
 
       h5 {
-        @include g-font(18, 1);
+        @include g-font($_fontSize_bd_s, $_lineHeight_bd);
         display: inline-block;
       }
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 0 0;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 5px * .8;
+      }
+
+      #{$_block}__bd {
+        margin: 0 15px * .8;
+        padding: 0 15px * .8;
+        &::before, &::after {
+          width: 1000px * .8;
+        }
+
+        h5 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 0 0;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 5px * 1.2;
+      }
+
+      #{$_block}__bd {
+        margin: 0 15px * 1.2;
+        padding: 0 15px * 1.2;
+        &::before, &::after {
+          width: 1000px * 1.2;
+        }
+
+        h5 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 0 0;
+      }
     }
 
     &--align-l {
@@ -66,6 +125,17 @@
   }
 
   .t0-b-lv5H#{$variation2of2} {
+    $_block: &;
+    $_fontSize_bd: 18;
+    $_fontSize_caption: 14;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: #fff;
     font-family: $mincho;
     &__bd {
@@ -85,18 +155,58 @@
       }
 
       h5 {
-        @include g-font(18, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
       }
     }
 
     &__caption-upper {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 10px 5px 33px;
     }
 
     &__caption-lower {
-      @include g-font(14, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 5px 10px 0 33px;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 10px * .8 5px * .8 33px * .8;
+      }
+
+      #{$_block}__bd {
+        padding: 3px * .8 10px * .8 6px * .8 33px * .8;
+        background-size: 20px * .8 22px * .8;
+        h5 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 10px * .8 0 33px * .8;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 10px *1.2 5px *1.2 33px *1.2;
+      }
+
+      #{$_block}__bd {
+        padding: 3px *1.2 10px *1.2 6px *1.2 33px *1.2;
+        background-size: 20px * 1.2 22px * 1.2;
+        h5 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px *1.2 10px *1.2 0 33px *1.2;
+      }
     }
 
     &--align-l {
