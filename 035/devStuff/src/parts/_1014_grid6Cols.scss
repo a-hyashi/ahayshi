@@ -1,0 +1,73 @@
+@if $device == PC {
+  .t0-b-grid6Cols {
+    $_block: &;
+    &__bd {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: repeat(3, auto);
+      margin-bottom: -5%;
+      grid-column-gap: 2%;
+    }
+
+    &__box > div {
+      padding-bottom: 27%;
+    }
+
+    &--colSpacing-s {
+      #{$_block}__bd {
+        grid-column-gap: .5%;
+        //IEで列の間の余白設定に必要なため
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+      }
+
+      #{$_block}__box > div {
+        padding-bottom: 26%;
+      }
+    }
+
+    &--colSpacing-l {
+      #{$_block}__bd {
+        grid-column-gap: 3%;
+        //IEで列の間の余白設定に必要なため
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+      }
+
+      #{$_block}__box > div {
+        padding-bottom: 28.5%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-grid6Cols {
+    $_block: &;
+    &__bd {
+      margin-bottom: -15px;
+    }
+
+    &.ex-spColLayout-2cols {
+      #{$_block}__bd {
+        display: grid;
+        grid-column-gap: 4%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(9, auto);
+      }
+    }
+
+    &.ex-spColLayout-3cols {
+      #{$_block}__bd {
+        display: grid;
+        grid-column-gap: 3.5%;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(6, auto);
+      }
+    }
+
+    &__box > div {
+      padding-bottom: 15px;
+    }
+  }
+}
