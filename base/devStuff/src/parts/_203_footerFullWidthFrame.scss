@@ -131,30 +131,32 @@
     background-color: $footerFullWidthFrame8_BGColor;
     background-position: center center;
     &::before {
-      @if $layout == "N00" {
-        width: $areaMainWidth - $areaSubWidth;
-      }
       position: absolute;
       top: 40px;
       right: 0;
       bottom: 40px;
       left: 0;
-      width: $areaMainWidth;
       margin: 0 auto;
       pointer-events: none;
       content: "";
-      background-color: $footerFullWidthFrame7_BGColor2;
+      background-color: $footerFullWidthFrame8_BGColor2;
       border-radius: 10px;
+      @if $layout == "N00" {
+        width: $areaMainWidth - $areaSubWidth;
+      } @else {
+        width: $areaMainWidth;
+      }
     }
 
     &__hd,
     &__bd,
     &__ft {
+      margin: 0 auto;
       @if $layout == "N00" {
         width: $areaMainWidth - (70px + $areaSubWidth);
+      } @else {
+        width: $areaMainWidth - 70px;
       }
-      width: $areaMainWidth - 70px;
-      margin: 0 auto;
     }
 
     > * {
