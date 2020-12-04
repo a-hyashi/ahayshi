@@ -1,5 +1,16 @@
 @if $device == PC {
   .t0-b-lv4HBig#{$variation1of2} {
+    $_block: &;
+    $_fontSize_bd: 28;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     border-radius: 8px;
     background: linear-gradient(#fff7de, #e5ce71);
     box-shadow: 0 0 3px #666;
@@ -47,7 +58,7 @@
 
       h4 {
         padding: 15px 40px;
-        @include g-font-spacingKilled(28);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         &::before, &::after {
           margin: 0;
         }
@@ -55,13 +66,99 @@
     }
 
     &__caption-upper {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 10px 40px 0;
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 40px 10px;
+    }
+
+    &--size-1 {
+      border-radius: 8px * .8;
+      box-shadow: 0 0 3px * .8 #666;
+      min-height: 60px * .8;
+      margin: 3px * .8;
+      padding: 3px * .8;
+      > div {
+        min-height: 60px * .8;
+        border-radius: 8px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px * .8 40px * .8 0;
+      }
+
+      #{$_block}__bd {
+        &::before {
+          width: 47px * .8;
+          height: 100%;
+          left: -4px * .8;
+          background-size: 47px * .8 61px * .8;
+        }
+
+        &::after {
+          width: 46px * .8;
+          height: 100%;
+          right: -2px * .8;
+          background-size: 46px * .8 60px * .8;
+        }
+
+        h4 {
+          padding: 15px * .8 40px * .8;
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 40px * .8 10px * .8;
+      }
+    }
+
+    &--size-3 {
+      border-radius: 8px * 1.2;
+      box-shadow: 0 0 3px * 1.2 #666;
+      min-height: 60px * 1.2;
+      margin: 3px * 1.2;
+      padding: 3px * 1.2;
+      > div {
+        min-height: 60px * 1.2;
+        border-radius: 8px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px * 1.2 40px * 1.2 0;
+      }
+
+      #{$_block}__bd {
+        &::before {
+          width: 47px * 1.2;
+          height: 100%;
+          left: -4px * 1.2;
+          background-size: 47px * 1.2 61px * 1.2;
+        }
+
+        &::after {
+          width: 46px * 1.2;
+          height: 100%;
+          right: -2px * 1.2;
+          background-size: 46px * 1.2 60px * 1.2;
+        }
+
+        h4 {
+          padding: 15px * 1.2 40px * 1.2;
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 40px * 1.2 10px * 1.2;
+      }
     }
 
     &--align-l {
@@ -86,6 +183,17 @@
   }
 
   .t0-b-lv4HBig#{$variation2of2} {
+    $_block: &;
+    $_fontSize_bd: 28;
+    $_fontSize_caption: 12;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     border-radius: 8px;
     background: linear-gradient(#fff1f3, #fba8b7);
     color: #382b2b;
@@ -118,7 +226,7 @@
       }
 
       h4 {
-        @include g-font-spacingKilled(28);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         padding: 10px 20px;
         &::before, &::after {
           margin: 0;
@@ -127,13 +235,87 @@
     }
 
     &__caption-upper {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 10px 20px 0;
     }
 
     &__caption-lower {
-      @include g-font-spacingKilled(12, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 20px 10px;
+    }
+
+    &--size-1 {
+      border-radius: 8px .8;
+      min-height: 60px .8;
+      box-shadow: 0 0 1px .8 #ccc;
+      margin: 1px .8;
+      > div {
+        background-position: 50% 100%;
+        background-size: 100% 98%;
+        min-height: 60px .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px .8 20px .8 0;
+      }
+
+      #{$_block}__bd {
+        > span {
+          width: 99%;
+          top: 2px .8;
+          left: .3%;
+          bottom: 2px .8;
+          border-radius: 8px .8;
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+          padding: 10px .8 20px;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 20px .8 10px .8;
+      }
+    }
+
+    &--size-3 {
+      border-radius: 8px * 1.2;
+      min-height: 60px * 1.2;
+      box-shadow: 0 0 1px * 1.2 #ccc;
+      margin: 1px * 1.2;
+      > div {
+        background-position: 50% 100%;
+        background-size: 100% 98%;
+        min-height: 60px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px * 1.2 20px * 1.2 0;
+      }
+
+      #{$_block}__bd {
+        > span {
+          width: 99%;
+          top: 2px * 1.2;
+          left: .3%;
+          bottom: 2px * 1.2;
+          border-radius: 8px * 1.2;
+        }
+
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+          padding: 10px * 1.2 20px * 1.2;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 20px * 1.2 10px * 1.2;
+      }
     }
 
     &--align-l {

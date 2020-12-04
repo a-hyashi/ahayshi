@@ -5,6 +5,13 @@ $g-hoverColor: #3a6120;
 $g-hoverColor2: #b18a24;
 $g-textColor: #0d0d0d;
 $fullWidthBgColor: #fffff3;
+
+body.mod-body,
+div.mod-body {
+  // 禁則処理対応
+  word-break: break-all;
+}
+
 @if $device == PC {
   body.mod-body,
   div.mod-body {
@@ -75,9 +82,9 @@ $fullWidthBgColor: #fffff3;
 
 @mixin fileIcon($file, $size) {
   &--#{$file} {
-    $_src: "../imgs/b-downloadIcon/#{$file}.png";
-    background: url($_src) 0 0 no-repeat;
-    width: 44px;
-    height: 48px;
+    width: 44px * $size;
+    height: 48px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 44px * $size 48px * $size;
   }
 }

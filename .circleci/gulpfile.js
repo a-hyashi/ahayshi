@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const $ = require("gulp-load-plugins")();
+const $ = require('gulp-load-plugins')();
 
 gulp.task('stylelint-check', () => {
   return gulp.src('devStuff/src/parts/*.scss')

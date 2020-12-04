@@ -1,5 +1,16 @@
 @if $device == PC {
   .t0-b-lv4H {
+    $_block: &;
+    $_fontSize_bd: 20;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     position: relative;
     color: #fff;
     z-index: 100;
@@ -54,7 +65,7 @@
     }
 
     &__caption-upper {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 40px 4px;
     }
 
@@ -66,7 +77,7 @@
       background-position: left top, left bottom, right bottom, right top;
       h4 {
         color: #fff;
-        @include g-font(20, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         background-repeat: no-repeat, no-repeat;
         background-position: left center, right center;
         padding: 0 40px;
@@ -74,8 +85,90 @@
     }
 
     &__caption-lower {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 4px 40px 0;
+    }
+
+    &--size-1 {
+      padding: 8px * .8 0 5px * .8;
+      min-height: 38px * .8;
+      &::after {
+        background-size: 30px * .8 28px * .8;
+        width: 30px * .8;
+        height: 28px * .8;
+        left: 5px * .8;
+      }
+
+      &::before {
+        background-size: 16px * .8 13px * .8;
+        width: 16px * .8;
+        height: 13px * .8;
+        bottom: 5px * .8;
+        right: 5px * .8;
+      }
+
+      > span {
+        background-size: 4px * .8 2px * .8, 2px * .8 58px * .8, 2px * .8 58px * .8, 146px * .8 2px * .8, 272px * .8 30px * .8;
+        top: 5px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 40px * .8 4px * .8;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+          padding: 0 40px * .8;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 4px * .8 40px * .8 0;
+      }
+    }
+
+    &--size-3 {
+      padding: 8px * 1.2 0 5px * 1.2;
+      min-height: 38px * 1.2;
+      &::after {
+        background-size: 30px * 1.2 28px * 1.2;
+        width: 30px * 1.2;
+        height: 28px * 1.2;
+        left: 5px * 1.2;
+      }
+
+      &::before {
+        background-size: 16px * 1.2 13px * 1.2;
+        width: 16px * 1.2;
+        height: 13px * 1.2;
+        bottom: 5px * 1.2;
+        right: 5px * 1.2;
+      }
+
+      > span {
+        background-size: 4px * 1.2 2px * 1.2, 2px * 1.2 58px * 1.2, 2px * 1.2 58px * 1.2, 146px * 1.2 2px * 1.2, 272px * 1.2 30px * 1.2;
+        top: 5px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 40px * 1.2 4px * 1.2;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+          padding: 0 40px * 1.2;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 4px * 1.2 40px * 1.2 0;
+      }
     }
 
     &--align-l {
@@ -106,6 +199,17 @@
   }
 
   .t0-b-lv4H2 {
+    $_block: &;
+    $_fontSize_bd: 20;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     position: relative;
     color: #fff;
     z-index: 100;
@@ -160,7 +264,7 @@
     }
 
     &__caption-upper {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 40px 4px;
     }
 
@@ -172,7 +276,7 @@
       background-position: left top, left bottom, right bottom, right top;
       h4 {
         color: #fff;
-        @include g-font(20, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         background-repeat: no-repeat, no-repeat;
         background-position: left center, right center;
         padding: 0 40px;
@@ -181,8 +285,90 @@
     }
 
     &__caption-lower {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 4px 40px 0;
+    }
+
+    &--size-1 {
+      padding: 8px * .8 0 5px * .8;
+      min-height: 38px * .8;
+      &::after {
+        background-size: 30px * .8 28px * .8;
+        width: 30px * .8;
+        height: 28px * .8;
+        left: 5px * .8;
+      }
+
+      &::before {
+        background-size: 16px * .8 13px * .8;
+        width: 16px * .8;
+        height: 13px * .8;
+        bottom: 5px * .8;
+        right: 5px * .8;
+      }
+
+      > span {
+        background-size: 4px * .8 2px * .8, 2px * .8 58px * .8, 2px * .8 58px * .8, 146px * .8 2px * .8, 272px * .8 30px * .8;
+        top: 5px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 40px * .8 4px * .8;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+          padding: 0 40px * .8;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 4px * .8 40px * .8 0;
+      }
+    }
+
+    &--size-3 {
+      padding: 8px * 1.2 0 5px * 1.2;
+      min-height: 38px * 1.2;
+      &::after {
+        background-size: 30px * 1.2 28px * 1.2;
+        width: 30px * 1.2;
+        height: 28px * 1.2;
+        left: 5px * 1.2;
+      }
+
+      &::before {
+        background-size: 16px * 1.2 13px * 1.2;
+        width: 16px * 1.2;
+        height: 13px * 1.2;
+        bottom: 5px * 1.2;
+        right: 5px * 1.2;
+      }
+
+      > span {
+        background-size: 4px * 1.2 2px * 1.2, 2px * 1.2 58px * 1.2, 2px * 1.2 58px * 1.2, 146px * 1.2 2px * 1.2, 272px * 1.2 30px * 1.2;
+        top: 5px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 40px * 1.2 4px * 1.2;
+      }
+
+      #{$_block}__bd {
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+          padding: 0 40px * 1.2;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 4px * 1.2 40px * 1.2 0;
+      }
     }
 
     &--align-l {
@@ -213,10 +399,21 @@
   }
 
   .t0-b-lv4H3 {
+    $_block: &;
+    $_fontSize_bd: 20;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
+    $_fontSize_bd_s: $_fontSize_bd - $_fontSizeDiff;
+    $_fontSize_bd_l: $_fontSize_bd + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_bd: 1;
+    $_lineHeight_caption: 1;
+
     color: $g-textColor;
     text-align: center;
     &__caption-upper {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 100px;
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
@@ -228,7 +425,7 @@
       background-position: left center;
       h4 {
         display: inline-block;
-        @include g-font(20, 1);
+        @include g-font($_fontSize_bd, $_lineHeight_bd);
         min-height: 35px !important;
         box-sizing: border-box;
         padding: 8px 100px 0;
@@ -242,10 +439,56 @@
     }
 
     &__caption-lower {
-      @include g-font(16, 1);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 8px 100px 0;
       font-family: "YuMincho", "游明朝", "メイリオ", "Meiryo", serif;
       font-weight: 400;
+    }
+
+    &--size-1 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 100px * .8;
+      }
+
+      #{$_block}__bd {
+        background-size: 10px * .8 27px * .8;
+        h4 {
+          @include g-font($_fontSize_bd_s, $_lineHeight_bd);
+          min-height: 35px * .8 !important;
+          padding: 8px * .8 100px * .8 0;
+          background-size: 91px * .8 27px * .8, 91px * .8 27px * .8, 12px * .8 40px * .8;
+          vertical-align: top;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 8px * .8 100px * .8 0;
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 100px * 1.2;
+      }
+
+      #{$_block}__bd {
+        background-size: 10px * 1.2 27px * 1.2;
+        h4 {
+          @include g-font($_fontSize_bd_l, $_lineHeight_bd);
+          min-height: 35px * 1.2 !important;
+          padding: 8px * 1.2 100px * 1.2 0;
+          background-size: 91px * 1.2 27px * 1.2, 91px * 1.2 27px * 1.2, 12px * 1.2 40px * 1.2;
+          vertical-align: top;
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 8px * 1.2 100px * 1.2 0;
+      }
     }
 
     &--align-l {
