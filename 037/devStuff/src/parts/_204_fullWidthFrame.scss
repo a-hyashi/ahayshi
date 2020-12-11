@@ -48,32 +48,63 @@
   }
 
   .t0-b-fullWidthFrame7 {
-    @include layoutWideWidth;
     position: relative;
-    background-color: $fullWidthFrame7_BGColor;
+    padding: 75px 1035px;
     background-repeat: no-repeat;
     background-position: center center;
-    padding: 75px 1035px;
+    background-color: $fullWidthFrame7_BGColor;
+
+    @if $layout == "L25" or $layout == "L30" {
+      margin: 0 -1000px 0 (-1000px - $areaSubWidth);
+    } @else if $layout == "N00" {
+      padding: 75px (1035px + $areaSubWidth / 2);
+      margin: 0 (-1000px - $areaSubWidth / 2);
+    } @else if $layout == "R25" or $layout == "R30" {
+      margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
+    }
     &::before {
       position: absolute;
       top: 40px;
-      right: 1000px;
       bottom: 40px;
-      left: 1000px;
       pointer-events: none;
       content: "";
       border-radius: 10px;
       background-color: $fullWidthFrame7_BGColor2;
+      @if $layout == "N00" {
+        right: 1000 + $areaSubWidth / 2;
+        left: 1000 + $areaSubWidth / 2;
+      } @else {
+        right: 1000px;
+        left: 1000px;
+      }
+    }
+
+    > * {
+      position: relative;
+    }
+
+    &__ft {
+      padding-top: 1%;
     }
   }
 
   .t0-b-fullWidthFrame8 {
-    @include layoutWidth;
     position: relative;
-    background-color: $fullWidthFrame8_BGColor;
+    padding: 75px 1035px;
     background-repeat: no-repeat;
     background-position: center center;
-    padding: 75px 1035px;
+    background-color: $fullWidthFrame8_BGColor;
+
+    @if $layout == "L25" or $layout == "L30" {
+      margin: 0 -1000px 0 (-1000px - $areaSubWidth);
+      margin-left: -1000px;
+    } @else if  $layout == "N00" {
+      padding: 75px (1035px + $areaSubWidth / 2);
+      margin: 0 -1000px;
+    } @else if $layout == "R25" or $layout == "R30" {
+      margin: 0 (-1000px - $areaSubWidth) 0 -1000px;
+      margin-right: -1000px;
+    }
     &::before {
       position: absolute;
       top: 40px;
@@ -84,6 +115,21 @@
       content: "";
       border-radius: 10px;
       background-color: $fullWidthFrame8_BGColor2;
+      @if $layout == "N00" {
+        right: 1000 + $areaSubWidth / 2;
+        left: 1000 + $areaSubWidth / 2;
+      } @else {
+        right: 1000px;
+        left: 1000px;
+      }
+    }
+
+    > * {
+      position: relative;
+    }
+
+    &__ft {
+      padding-top: 1%;
     }
   }
 
@@ -346,105 +392,237 @@
   .t0-b-fullWidthFrame41 {
     @include layoutWideWidth;
     position: relative;
-    background-color: $fullWidthFrame41_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame41_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame41_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame41_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame42 {
     @include layoutWidth;
     position: relative;
-    background-color: $fullWidthFrame42_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame42_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame42_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame42_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame43 {
     @include layoutWideWidth;
     position: relative;
-    background-color: $fullWidthFrame43_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame43_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame43_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame43_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame44 {
     @include layoutWidth;
     position: relative;
-    background-color: $fullWidthFrame44_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame44_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame44_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame44_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame45 {
     @include layoutWideWidth;
     position: relative;
-    background-image: linear-gradient(-45deg, $fullWidthFrame45_BGColor 25%, $fullWidthFrame45_BGColor2 25%, $fullWidthFrame45_BGColor2 50%, $fullWidthFrame45_BGColor 50%, $fullWidthFrame45_BGColor 75%, $fullWidthFrame45_BGColor2 75%, $fullWidthFrame45_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame45_BGColor 25%, $fullWidthFrame45_BGColor2 25%, $fullWidthFrame45_BGColor2 50%, $fullWidthFrame45_BGColor 50%, $fullWidthFrame45_BGColor 75%, $fullWidthFrame45_BGColor2 75%, $fullWidthFrame45_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame46 {
     @include layoutWidth;
     position: relative;
-    background-image: linear-gradient(-45deg, $fullWidthFrame46_BGColor 25%, $fullWidthFrame46_BGColor2 25%, $fullWidthFrame46_BGColor2 50%, $fullWidthFrame46_BGColor 50%, $fullWidthFrame46_BGColor 75%, $fullWidthFrame46_BGColor2 75%, $fullWidthFrame46_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame46_BGColor 25%, $fullWidthFrame46_BGColor2 25%, $fullWidthFrame46_BGColor2 50%, $fullWidthFrame46_BGColor 50%, $fullWidthFrame46_BGColor 75%, $fullWidthFrame46_BGColor2 75%, $fullWidthFrame46_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame47 {
     @include layoutWideWidth;
     position: relative;
-    background-image: linear-gradient(-45deg, $fullWidthFrame47_BGColor 25%, $fullWidthFrame47_BGColor2 25%, $fullWidthFrame47_BGColor2 50%, $fullWidthFrame47_BGColor 50%, $fullWidthFrame47_BGColor 75%, $fullWidthFrame47_BGColor2 75%, $fullWidthFrame47_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame47_BGColor 25%, $fullWidthFrame47_BGColor2 25%, $fullWidthFrame47_BGColor2 50%, $fullWidthFrame47_BGColor 50%, $fullWidthFrame47_BGColor 75%, $fullWidthFrame47_BGColor2 75%, $fullWidthFrame47_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame48 {
     @include layoutWidth;
     position: relative;
-    background-image: linear-gradient(-45deg, $fullWidthFrame48_BGColor 25%, $fullWidthFrame48_BGColor2 25%, $fullWidthFrame48_BGColor2 50%, $fullWidthFrame48_BGColor 50%, $fullWidthFrame48_BGColor 75%, $fullWidthFrame48_BGColor2 75%, $fullWidthFrame48_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame48_BGColor 25%, $fullWidthFrame48_BGColor2 25%, $fullWidthFrame48_BGColor2 50%, $fullWidthFrame48_BGColor 50%, $fullWidthFrame48_BGColor 75%, $fullWidthFrame48_BGColor2 75%, $fullWidthFrame48_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame49 {
     @include layoutWideWidth;
     position: relative;
-    background-color: $fullWidthFrame49_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame49_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame49_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame49_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame49_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame49_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .t0-b-fullWidthFrame50 {
     @include layoutWidth;
     position: relative;
-    background-color: $fullWidthFrame50_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame50_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame50_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame50_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame50_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame50_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .t0-b-fullWidthFrame51 {
     @include layoutWideWidth;
     position: relative;
-    background-color: $fullWidthFrame51_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame51_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame51_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame51_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame51_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame51_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .t0-b-fullWidthFrame52 {
     @include layoutWidth;
     position: relative;
-    background-color: $fullWidthFrame52_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame52_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame52_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame52_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame52_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame52_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .area-main {
@@ -536,6 +714,10 @@
       border-radius: 10px;
       background-color: $fullWidthFrame7_BGColor2;
     }
+
+    * {
+      position: relative;
+    }
   }
 
   .t0-b-fullWidthFrame8 {
@@ -556,6 +738,10 @@
       content: "";
       border-radius: 10px;
       background-color: $fullWidthFrame8_BGColor2;
+    }
+
+    * {
+      position: relative;
     }
   }
 
@@ -883,116 +1069,260 @@
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame41_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame41_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame41_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame41_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame42 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame42_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame42_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame42_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame42_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame43 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame43_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame43_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame43_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame43_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame44 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame44_BGColor;
-    background-image: linear-gradient(-90deg, $fullWidthFrame44_BGColor2 50%, transparent 50%);
-    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame44_BGColor;
+      background-image: linear-gradient(-90deg, $fullWidthFrame44_BGColor2 50%, transparent 50%);
+      background-size: 22px 22px;
+    }
   }
 
   .t0-b-fullWidthFrame45 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-image: linear-gradient(-45deg, $fullWidthFrame45_BGColor 25%, $fullWidthFrame45_BGColor2 25%, $fullWidthFrame45_BGColor2 50%, $fullWidthFrame45_BGColor 50%, $fullWidthFrame45_BGColor 75%, $fullWidthFrame45_BGColor2 75%, $fullWidthFrame45_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame45_BGColor 25%, $fullWidthFrame45_BGColor2 25%, $fullWidthFrame45_BGColor2 50%, $fullWidthFrame45_BGColor 50%, $fullWidthFrame45_BGColor 75%, $fullWidthFrame45_BGColor2 75%, $fullWidthFrame45_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame46 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-image: linear-gradient(-45deg, $fullWidthFrame46_BGColor 25%, $fullWidthFrame46_BGColor2 25%, $fullWidthFrame46_BGColor2 50%, $fullWidthFrame46_BGColor 50%, $fullWidthFrame46_BGColor 75%, $fullWidthFrame46_BGColor2 75%, $fullWidthFrame46_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame46_BGColor 25%, $fullWidthFrame46_BGColor2 25%, $fullWidthFrame46_BGColor2 50%, $fullWidthFrame46_BGColor 50%, $fullWidthFrame46_BGColor 75%, $fullWidthFrame46_BGColor2 75%, $fullWidthFrame46_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame47 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-image: linear-gradient(-45deg, $fullWidthFrame47_BGColor 25%, $fullWidthFrame47_BGColor2 25%, $fullWidthFrame47_BGColor2 50%, $fullWidthFrame47_BGColor 50%, $fullWidthFrame47_BGColor 75%, $fullWidthFrame47_BGColor2 75%, $fullWidthFrame47_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame47_BGColor 25%, $fullWidthFrame47_BGColor2 25%, $fullWidthFrame47_BGColor2 50%, $fullWidthFrame47_BGColor 50%, $fullWidthFrame47_BGColor 75%, $fullWidthFrame47_BGColor2 75%, $fullWidthFrame47_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame48 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-image: linear-gradient(-45deg, $fullWidthFrame48_BGColor 25%, $fullWidthFrame48_BGColor2 25%, $fullWidthFrame48_BGColor2 50%, $fullWidthFrame48_BGColor 50%, $fullWidthFrame48_BGColor 75%, $fullWidthFrame48_BGColor2 75%, $fullWidthFrame48_BGColor2);
-    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-image: linear-gradient(-45deg, $fullWidthFrame48_BGColor 25%, $fullWidthFrame48_BGColor2 25%, $fullWidthFrame48_BGColor2 50%, $fullWidthFrame48_BGColor 50%, $fullWidthFrame48_BGColor 75%, $fullWidthFrame48_BGColor2 75%, $fullWidthFrame48_BGColor2);
+      background-size: 30px 30px;
+    }
   }
 
   .t0-b-fullWidthFrame49 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame49_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame49_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame49_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame49_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame49_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame49_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .t0-b-fullWidthFrame50 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame50_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame50_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame50_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame50_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame50_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame50_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .t0-b-fullWidthFrame51 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame51_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame51_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame51_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame51_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame51_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame51_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .t0-b-fullWidthFrame52 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
-    background-color: $fullWidthFrame52_BGColor;
-    background-image:
-      radial-gradient($fullWidthFrame52_BGColor2 25%, transparent 25%),
-      radial-gradient($fullWidthFrame52_BGColor3 25%, transparent 25%);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    &::before {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: $fullWidthFrame52_BGColor;
+      background-image:
+        radial-gradient($fullWidthFrame52_BGColor2 25%, transparent 25%),
+        radial-gradient($fullWidthFrame52_BGColor3 25%, transparent 25%);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
   }
 
   .area-main {
