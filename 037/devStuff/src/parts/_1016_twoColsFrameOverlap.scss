@@ -5,19 +5,14 @@
       position: relative;
       // 管理画面で画像列をクリックできるようにz-indexをつけている
       z-index: 10;
-      box-sizing: border-box;
       width: 100%;
       // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
       padding-top: 3px;
       opacity: .5;
     }
 
-    &__col1 {
-      overflow: hidden;
-    }
 
     &__col2 {
-      overflow: hidden;
       p {
         display: block;
       }
@@ -31,18 +26,16 @@
 
     &--imgR {
       #{$_block}__img {
-        padding-right: 0;
         margin-left: -10%;
       }
     }
 
     &--imgL {
       #{$_block}__img {
-        padding-left: 0;
         margin-right: -10%;
       }
-      #{$_block}__col {
-        order: 2;
+      #{$_block}__div {
+        flex-direction: row-reverse;
       }
       #{$_block}__col2 {
         p {
@@ -107,15 +100,6 @@
         // 画像列が大きくなると文章列が崩れるのでセレクタの詳細度を高めている
         > div {
           overflow: hidden;
-        }
-
-        // 文章が回り込むために必要
-        > .t0-b-wysiwyg {
-          overflow: visible;
-          ul,
-          ol {
-            overflow: hidden;
-          }
         }
       }
     }
