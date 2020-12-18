@@ -4,42 +4,50 @@
     &__img {
       position: relative;
       // 管理画面で画像列をクリックできるようにz-indexをつけている
-      z-index: 10;
       width: 100%;
       // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
       padding-top: 3px;
-      opacity: .5;
+      z-index: z(twoColsFrameOverlap, 1);
     }
 
+    &__col1 {
+      overflow: hidden;
+    }
 
     &__col2 {
-      p {
-        display: block;
-      }
+      overflow: hidden;
     }
 
     &__div {
       // IEで高さが伸びないようにする。%指定しないと効かない
       min-height: 0%;
       display: flex;
+      z-index: z(twoColsFrameOverlap, 2);
     }
 
     &--imgR {
-      #{$_block}__img {
-        margin-left: -10%;
+      #{$_block}__col1 {
+        margin-right: -10%;
+      }
+      #{$_block}__col2 {
+        margin-right: -10%;
+        .t0-b-wysiwyg {
+          margin-right: 10%;
+        }
       }
     }
 
     &--imgL {
-      #{$_block}__img {
-        margin-right: -10%;
+      #{$_block}__col1 {
+        margin-left: -10%;
       }
       #{$_block}__div {
         flex-direction: row-reverse;
       }
       #{$_block}__col2 {
-        p {
-          margin-left: auto;
+        margin-left: -10%;
+        .t0-b-wysiwyg {
+          margin-left: 10%;
         }
       }
     }
@@ -48,45 +56,21 @@
       &-l {
         #{$_block}__img {
           width: 40%;
-        }
-        #{$_block}__col1 {
-          width: 540px;
-        }
-        #{$_block}__col2 {
-          width: 540px;
-          p {
-            width: 82%;
-          }
+          min-width: 40%;
         }
       }
 
       &-m {
         #{$_block}__img {
           width: 30%;
-        }
-        #{$_block}__col1 {
-          width: 600px;
-        }
-        #{$_block}__col2 {
-          width: 600px;
-          p {
-            width: 84%;
-          }
+          min-width: 30%;
         }
       }
 
       &-s {
         #{$_block}__img {
           width: 22%;
-        }
-        #{$_block}__col1 {
-          width: 660px;
-        }
-        #{$_block}__col2 {
-          width: 660px;
-          p {
-            width: 86%;
-          }
+          min-width: 22%;
         }
       }
     }
