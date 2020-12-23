@@ -8,12 +8,12 @@
       // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
       padding-top: 3px;
       z-index: z(twoColsFrameOverlap, 1);
-      opacity: 0.5;
     }
 
-    // &__col1 {
-    //   //overflow: hidden;
-    // }
+    &__col {
+      position: relative;
+      z-index: z(twoColsFrameOverlap, 2);
+    }
 
     &__col2 {
       overflow: hidden;
@@ -23,7 +23,6 @@
       // IEで高さが伸びないようにする。%指定しないと効かない
       min-height: 0%;
       display: flex;
-      z-index: z(twoColsFrameOverlap, 2);
     }
 
     &--imgR {
@@ -55,24 +54,84 @@
 
     &--colW {
       &-l {
-        #{$_block}__img {
-          width: 40%;
-          min-width: 40%;
+        &#{$_block}--imgR {
+          #{$_block}__col1 {
+            //.t0-b-twoColsFrameOverlap--colW-l.t0-b-twoColsFrameOverlap--imgR .t0-b-twoColsFrameOverlap__col1
+            margin-left: -15%;
+          }
+
+          #{$_block}__img {
+            width: 40%;
+            min-width: 40%;
+          }
+        }
+
+        &#{$_block}--imgL {
+          #{$_block}__col1 {
+            margin-left: -15%;
+          }
+
+          #{$_block}__img {
+            width: 40%;
+            min-width: 40%;
+          }
         }
       }
 
       &-m {
-        #{$_block}__img {
-          width: 30%;
-          min-width: 30%;
+        &#{$_block}--imgR {
+          #{$_block}__col1 {
+            margin-left: -15%;
+          }
+
+          #{$_block}__img {
+            width: 40%;
+            min-width: 40%;
+          }
         }
+
+        &#{$_block}--imgL {
+          #{$_block}__col1 {
+            margin-left: -15%;
+          }
+
+          #{$_block}__img {
+            width: 40%;
+            min-width: 40%;
+          }
+        }
+        // #{$_block}__img {
+        //   width: 30%;
+        //   min-width: 30%;
+        // }
       }
 
       &-s {
-        #{$_block}__img {
-          width: 22%;
-          min-width: 22%;
+        &#{$_block}--imgR {
+          #{$_block}__col1 {
+            margin-left: -15%;
+          }
+
+          #{$_block}__img {
+            width: 40%;
+            min-width: 40%;
+          }
         }
+
+        &#{$_block}--imgL {
+          #{$_block}__col1 {
+            margin-left: -15%;
+          }
+
+          #{$_block}__img {
+            width: 40%;
+            min-width: 40%;
+          }
+        }
+        // #{$_block}__img {
+        //   width: 22%;
+        //   min-width: 22%;
+        // }
       }
     }
   }
