@@ -3,11 +3,12 @@
     $_block: &;
     &__img {
       position: relative;
-      z-index: z(twoColsFrameOverlap, 1);
       // 管理画面で画像列をクリックできるようにz-indexをつけている
-      width: 100%;
+      z-index: z(twoColsFrameOverlap, 1);
       // 文章と画像が横並びになったときにずれて見えるので、アセンダの分すこしずらす
       padding-top: 3px;
+      width: 30%;
+      min-width: 30%;
     }
 
     &__col {
@@ -21,9 +22,24 @@
       display: flex;
     }
 
+    &--imgR {
+      #{$_block}__col1 {
+        margin-right: -10%;
+      }
+      #{$_block}__col2 {
+        margin-right: 2%;
+      }
+    }
+
     &--imgL {
       #{$_block}__div {
         flex-direction: row-reverse;
+      }
+      #{$_block}__col1 {
+        margin-left: -10%;
+      }
+      #{$_block}__col2 {
+        margin-left: 2%;
       }
     }
 
@@ -51,29 +67,6 @@
           }
           #{$_block}__col2 {
             margin-left: 3%;
-          }
-        }
-      }
-
-      &-m {
-        #{$_block}__img {
-          width: 30%;
-          min-width: 30%;
-        }
-        &#{$_block}--imgR {
-          #{$_block}__col1 {
-            margin-right: -10%;
-          }
-          #{$_block}__col2 {
-            margin-right: 2%;
-          }
-        }
-        &#{$_block}--imgL {
-          #{$_block}__col1 {
-            margin-left: -10%;
-          }
-          #{$_block}__col2 {
-            margin-left: 2%;
           }
         }
       }
