@@ -326,7 +326,7 @@
     }
 
     a:hover {
-      color: $lv4H-numIcon_hoverTextColor;
+      color: $lv4H-numIcon3_hoverTextColor;
     }
 
     &__icon {
@@ -340,12 +340,12 @@
       @each $_type in $_types {
         @for $_i from 1 through 10 {
           &--#{$_type}-#{$_i} {
-            $_src: "../imgs/lv4H-numIcon/01/#{$_type}.svg";
+            $_src: "../imgs/lv4H-numIcon/03/#{$_type}.svg";
             background-image: url($_src);
             &::before {
               display: block;
               padding-top: 28px;
-              color: $lv4H-numIcon_textColor;
+              color: $lv4H-numIcon3_textColor;
               text-align: center;
               content: "#{$_i}";
               // 文字サイズ変更機能に影響されないようpx指定
@@ -358,7 +358,7 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
-      color: $lv4H-numIcon_textColor2;
+      color: $lv4H-numIcon3_textColor2;
       padding-bottom: 4px;
     }
 
@@ -368,7 +368,7 @@
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
-      color: $lv4H-numIcon_textColor2;
+      color: $lv4H-numIcon3_textColor2;
       padding-top: 4px;
     }
 
@@ -743,6 +743,76 @@
     &__caption-lower {
       @include g-font($_fontSize_caption);
       color: $lv4H-numIcon2_textColor2;
+      padding-top: 3px;
+    }
+
+    &--align-l {
+      > div {
+        justify-content: flex-start;
+      }
+    }
+
+    &--align-c {
+      > div {
+        justify-content: center;
+      }
+    }
+
+    &--align-r {
+      > div {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .t0-b-lv4H-numIcon3 {
+    $_fontSize_h: 20;
+    $_fontSize_caption: 14;
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
+    &__icon {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-size: contain;
+      margin-right: 12px;
+      font-weight: 600;
+      $_types: anshin, concept, houshin, kodawari, merit, oyakusoku, point, riyu, tokucho, tokucho2, tsuyomi, step;
+      @each $_type in $_types {
+        @for $_i from 1 through 10 {
+          &--#{$_type}-#{$_i} {
+            $_src: "../imgs/lv4H-numIcon/03/#{$_type}.svg";
+            background-image: url($_src);
+            &::before {
+              display: block;
+              padding-top: 24px;
+              color: $lv4H-numIcon3_textColor;
+              text-align: center;
+              content: "#{$_i}";
+              // 文字サイズ変更機能に影響されないようpx指定
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      color: $lv4H-numIcon3_textColor2;
+      padding-bottom: 3px;
+    }
+
+    &__h {
+      @include g-font($_fontSize_h);
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      color: $lv4H-numIcon3_textColor2;
       padding-top: 3px;
     }
 
