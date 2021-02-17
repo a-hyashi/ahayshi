@@ -2,28 +2,37 @@
   .t0-b-catchText#{$variation1of2} {
     text-align: center;
     padding-bottom: 15px;
-    background: #fff;
-    border: 1px solid #eaebec;
-    box-shadow: 0 0 10px #ddd;
     position: relative;
-    background-image: url("../imgs/t0-b-catchText/2.png"), url("../imgs/t0-b-catchText/1.png");
-    background-repeat: no-repeat;
-    background-position: 3px 3px, right 3px bottom 3px;
-    padding: 20px 10px;
-    margin: 0 0 50px;
+    z-index: z(catchText, 1);
+    padding: 20px 10px 70px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
     min-height: 100px;
     > span {
+      display: block;
       position: absolute;
-      bottom: -55px;
-      left: 80%;
-      background: url("../imgs/t0-b-catchText/7.png") no-repeat 0 0;
-      width: 90px;
-      height: 56px;
-      pointer-events: none;
+      z-index: z(bg, -1);
+      top: 0;
+      left: 0;
+      height: calc(100% - 50px);
+      width: 100%;
+      border: 1px solid #eaebec;
+      box-shadow: 0 0 10px #ddd;
+      background-color: #fff;
+      background-image: url("../imgs/t0-b-catchText/2.png"), url("../imgs/t0-b-catchText/1.png");
+      background-repeat: no-repeat;
+      background-position: 3px 3px, right 3px bottom 3px;
+      > span {
+        position: absolute;
+        bottom: -55px;
+        left: 80%;
+        background: url("../imgs/t0-b-catchText/7.png") no-repeat 0 0;
+        width: 90px;
+        height: 56px;
+        pointer-events: none;
+      }
     }
 
     > div {
