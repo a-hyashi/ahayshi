@@ -3,9 +3,11 @@
     $_fontSize: 34;
     $_lineHeight: 1;
     $_textColor: #8e6f40;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -20,9 +22,19 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 10px 10px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       padding: 0 15px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 10px 10px 0;
     }
 
     &--size-1 {
@@ -57,9 +69,11 @@
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #8e6f40;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     position: relative;
@@ -97,6 +111,12 @@
       background-size: 53px 53px;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 10px 10px;
+      display: inline-block;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       padding: 10px 0;
@@ -116,6 +136,12 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 10px 10px 0;
+      display: inline-block;
     }
 
     &--size-3 {
