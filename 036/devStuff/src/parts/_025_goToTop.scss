@@ -34,6 +34,31 @@
         line-height: 1.1;
       }
     }
+
+    &--fixDisplay {
+      &-scrollUp,
+      &-scrollDown,
+      &-scrollDownStopFooter {
+        text-align: right;
+        position: fixed;
+        // サイドメニューやフッターに重なっても隠さないため
+        z-index: z(goToTop-fixed, 1);
+        right: 30px;
+        bottom: 45px;
+        // jsで出現させるので最初は消しておく
+        display: none;
+        a {
+          transition: .1s;
+          text-shadow: #fff 1px 1px 0, #fff -1px -1px 0, #fff -1px 1px 0, #fff 1px -1px 0, #fff 0 1px 0, #fff 0 -1px 0, #fff -1px 0 0, #fff 1px 0 0;
+        }
+      }
+    }
+
+    &-bPlacer {
+      &--g-fixDisplay {
+        padding-bottom: 0;
+      }
+    }
   }
 }
 
