@@ -48,8 +48,21 @@
         // jsで出現させるので最初は消しておく
         display: none;
         a {
-          transition: .1s;
           text-shadow: #fff 1px 1px 0, #fff -1px -1px 0, #fff -1px 1px 0, #fff 1px -1px 0, #fff 0 1px 0, #fff 0 -1px 0, #fff -1px 0 0, #fff 1px 0 0;
+          &:hover {
+            > div {
+              transform: translateY(-5px);
+              // ホバー時にガクガクしないように
+              pointer-events: none;
+              p {
+                pointer-events: auto;
+              }
+            }
+
+            &::before {
+              transform: translateY(-5px);
+            }
+          }
         }
       }
     }
