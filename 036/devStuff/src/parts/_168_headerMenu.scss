@@ -99,9 +99,7 @@
       div {
         color: #5d3e0e;
         font-weight: bold;
-
         @include g-font(14, 1);
-
         padding: 0 14px 0 10px;
         display: flex;
         justify-content: center;
@@ -290,9 +288,7 @@
       padding: 0 23px 0 0;
       div {
         padding: 0 10px;
-
         @include g-font(14, 1);
-
         font-weight: bold;
         display: flex;
         justify-content: center;
@@ -464,7 +460,6 @@
     .t0-b-headerMenu__item {
       div {
         @include g-font(16, 1);
-
         height: 34px;
         padding: 0 15px;
         position: relative;
@@ -588,6 +583,48 @@
           }
         }
       }
+    }
+  }
+
+  /* IE11 にのみ適用される */
+  //  テキストが長くなった時、折り返されないというbugが発生するため下記を使用
+  @media all and (-ms-high-contrast: none) {
+    *::-ms-backdrop,
+    .t0-b-headerMenu__item {
+      text-align: center;
+    }
+
+    *::-ms-backdrop,
+    .t0-b-headerMenu .t0-b-headerMenu__item div,
+    *::-ms-backdrop,
+    .t0-b-headerMenu2 .t0-b-headerMenu__item div,
+    *::-ms-backdrop,
+    .t0-b-headerMenu3 .t0-b-headerMenu__item div {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+      text-align: center;
+    }
+
+    // テキスト強調時
+    *::-ms-backdrop,
+    .t0-b-headerMenu--widthEqualized .t0-b-headerMenu__item div,
+    *::-ms-backdrop,
+    .t0-b-headerMenu2--widthEqualized .t0-b-headerMenu__item div,
+    *::-ms-backdrop,
+    .t0-b-headerMenu3--widthEqualized .t0-b-headerMenu__item div {
+      width: 90%;
+    }
+
+    *::-ms-backdrop,
+    .t0-b-headerMenu3 .t0-b-headerMenu__item div > span {
+      position: relative;
+    }
+
+    *::-ms-backdrop,
+    .t0-b-headerMenu__item div > span {
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 }
