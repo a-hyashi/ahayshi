@@ -75,7 +75,7 @@
   .t0-b-lv2H#{$variation2of3} {
     $_fontSize_caption: 16;
     $_lineHeight_caption: 1;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     margin: 0 auto;
     color: #555;
     position: relative;
@@ -117,33 +117,31 @@
     }
     $_block: &;
     &--size-1 {
-      #{$_block}__icon {
-        width: 32px * .8;
-        height: 23px * .8;
-        background-size: 32px * .8 23px * .8;
-      }
-
       h2 {
         @if $layout == "N00" {
           @include g-font(24, 1);
         } @else {
           @include g-font(20, 1);
         }
+        &::before {
+          width: 32px * .8;
+          height: 23px * .8;
+          background-size: 32px * .8 23px * .8;
+        }
       }
     }
 
     &--size-3 {
-      #{$_block}__icon {
-        width: 32px * 1.2;
-        height: 23px * 1.2;
-        background-size: 32px * 1.2 23px * 1.2;
-      }
-
       h2 {
         @if $layout == "N00" {
           @include g-font(32, 1);
         } @else {
           @include g-font(28, 1);
+        }
+        &::before {
+          width: 32px * 1.2;
+          height: 23px * 1.2;
+          background-size: 32px * 1.2 23px * 1.2;
         }
       }
     }
@@ -438,7 +436,7 @@
         content: "";
         position: absolute;
         left: 0;
-        bottom: -15px;
+        bottom: -12px;
         width: 100%;
         height: 7px;
         background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/6/bg.png") right bottom no-repeat;
@@ -501,6 +499,8 @@
 
 @if $device == SP {
   .t0-b-lv2H#{$variation1of3} {
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     margin: 0 auto;
     h2 {
       @include g-font(20, 1);
@@ -509,6 +509,16 @@
       background-image: url("../imgs/t0-b-lv2H/1/bg.png");
       background-repeat: no-repeat;
       background-position: left center;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 3px 30px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 3px 0 0 30px;
     }
 
     &--align-l {
@@ -530,39 +540,41 @@
   }
 
   .t0-b-lv2H#{$variation2of3} {
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     max-width: 740px;
     padding-bottom: 10px;
     margin: 0 auto;
     color: #555;
     background: url("../imgs/t0-b-lv2H/2/bg.png") left bottom no-repeat;
-    > div {
-      display: inline-block;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 8px 43px;
     }
 
-    > div > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    &__icon {
-      position: relative;
-      width: 32px;
-      height: 23px;
-      background-image: url("../imgs/t0-b-lv2H/2/bg2.png");
-      background-repeat: no-repeat;
-      background-position: left center;
-    }
-
-    &__iconPlacer {
-      > * {
-        display: block;
-      }
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 8px 0 0 43px;
     }
 
     h2 {
       @include g-font(20, 1);
       box-sizing: border-box;
-      padding: 0 0 0 5px;
+      padding-left: 42px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 23px;
+        background-image: url("../imgs/t0-b-lv2H/2/bg2.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 32px 23px;
+      }
     }
 
     &--align-l {
@@ -587,6 +599,8 @@
   }
 
   .t0-b-lv2H#{$variation3of3} {
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     margin: 0 auto;
     color: #fff;
     text-align: center;
@@ -607,6 +621,16 @@
       padding: 10px 7px 12px;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 17px 10px 0;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 10px 17px;
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -621,6 +645,8 @@
   }
 
   .t0-b-lv2H4 {
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     margin: 0 auto;
     color: #555;
     text-align: center;
@@ -632,6 +658,16 @@
     h2 {
       @include g-font(20, 1);
       padding: 0 7px;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 7px 10px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 10px 7px 0;
     }
 
     &--align-l {
@@ -648,6 +684,8 @@
   }
 
   .t0-b-lv2H5 {
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     overflow: hidden;
     color: #555;
     text-align: center;
@@ -683,6 +721,16 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 10px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 10px;
+    }
+
     &--align-l {
       text-align: left;
       h2 {
@@ -705,19 +753,38 @@
   }
 
   .t0-b-lv2H6 {
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     max-width: 740px;
     padding-bottom: 10px;
     margin: 0 auto;
     color: #555;
     text-align: center;
-    background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat;
-    > div {
-      display: inline-block;
-    }
-
     h2 {
       @include g-font(20, 1);
       box-sizing: border-box;
+      width: 100%;
+      margin-bottom: 10px;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        width: 100%;
+        height: 7px;
+        background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/6/bg.png") right bottom no-repeat;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 6px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 10px;
     }
 
     &--align-l {
