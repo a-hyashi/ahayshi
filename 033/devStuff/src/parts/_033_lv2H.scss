@@ -1,7 +1,5 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of3} {
-    $_fontSize_caption: 16;
-    $_lineHeight_caption: 1;
     position: relative;
     display: table;
     color: #555;
@@ -20,15 +18,24 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
       padding: 0 0 10px 32px;
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
       padding: 10px 0 0 32px;
     }
 
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
@@ -37,6 +44,22 @@
           @include g-font(20, 1);
         }
         background-size: 21px * .8 40px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
       }
     }
 
@@ -48,6 +71,22 @@
           @include g-font(28, 1);
         }
         background-size: 21px * 1.2 40px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
       }
     }
 
@@ -73,24 +112,12 @@
   }
 
   .t0-b-lv2H#{$variation2of3} {
-    $_fontSize_caption: 16;
-    $_lineHeight_caption: 1;
     padding-bottom: 15px;
     margin: 0 auto;
     color: #555;
     position: relative;
     z-index: z(lv2H, 1);
     background: url("../imgs/t0-b-lv2H/2/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/2/bg.png") right bottom no-repeat;
-    &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 0 0 10px 43px;
-    }
-
-    &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 10px 0 0 43px;
-    }
-
     h2 {
       @if $layout == "N00" {
         @include g-font(28, 1);
@@ -100,7 +127,7 @@
       box-sizing: border-box;
       padding-left: 42px;
       position: relative;
-      display: inline;
+      display: inline-block;
       &::before {
         content: "";
         position: absolute;
@@ -114,6 +141,24 @@
         background-position: left center;
         background-size: 32px 23px;
       }
+    }
+
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      padding: 0 0 10px 43px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      padding: 10px 0 0 43px;
     }
     $_block: &;
     &--size-1 {
@@ -129,6 +174,22 @@
           background-size: 32px * .8 23px * .8;
         }
       }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
     }
 
     &--size-3 {
@@ -142,6 +203,22 @@
           width: 32px * 1.2;
           height: 23px * 1.2;
           background-size: 32px * 1.2 23px * 1.2;
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
         }
       }
     }
@@ -169,8 +246,6 @@
   }
 
   .t0-b-lv2H#{$variation3of3} {
-    $_fontSize_caption: 16;
-    $_lineHeight_caption: 1;
     padding-bottom: 4px;
     text-align: center;
     background-image: url("../imgs/t0-b-lv2H/3/bg2.png");
@@ -207,21 +282,46 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
       padding: 17px 10px 0;
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
       padding: 0 10px 17px;
     }
 
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
           @include g-font(24, 1);
         } @else {
           @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
         }
       }
     }
@@ -232,6 +332,22 @@
           @include g-font(32, 1);
         } @else {
           @include g-font(28, 1);
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
         }
       }
     }
@@ -250,8 +366,6 @@
   }
 
   .t0-b-lv2H4 {
-    $_fontSize_caption: 16;
-    $_lineHeight_caption: 1;
     color: #555;
     text-align: center;
     position: relative;
@@ -274,21 +388,46 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 0 20px 10px;
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      padding: 0 15px 10px;
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 10px 20px 0;
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      padding: 10px 15px 0;
     }
 
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
           @include g-font(24, 1);
         } @else {
           @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
         }
       }
     }
@@ -299,6 +438,22 @@
           @include g-font(32, 1);
         } @else {
           @include g-font(28, 1);
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
         }
       }
     }
@@ -317,8 +472,6 @@
   }
 
   .t0-b-lv2H5 {
-    $_fontSize_caption: 16;
-    $_lineHeight_caption: 1;
     overflow: hidden;
     color: #555;
     text-align: center;
@@ -363,21 +516,46 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
       padding-bottom: 10px;
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
       padding-top: 10px;
     }
 
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
           @include g-font(24, 1);
         } @else {
           @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
         }
       }
     }
@@ -388,6 +566,22 @@
           @include g-font(32, 1);
         } @else {
           @include g-font(28, 1);
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
         }
       }
     }
@@ -414,8 +608,6 @@
   }
 
   .t0-b-lv2H6 {
-    $_fontSize_caption: 16;
-    $_lineHeight_caption: 1;
     padding-bottom: 10px;
     margin: 0 auto;
     color: #555;
@@ -442,6 +634,25 @@
         background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/6/bg.png") right bottom no-repeat;
       }
     }
+
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      padding-bottom: 10px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(20, 1);
+      } @else {
+        @include g-font(16, 1);
+      }
+      padding-top: 10px;
+    }
+
     $_block: &;
     &--size-1 {
       h2 {
@@ -451,16 +662,22 @@
           @include g-font(20, 1);
         }
       }
-    }
 
-    &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding-bottom: 10px;
-    }
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
 
-    &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding-top: 10px;
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(16, 1);
+        } @else {
+          @include g-font(12, 1);
+        }
+      }
     }
 
     &--size-3 {
@@ -469,6 +686,22 @@
           @include g-font(32, 1);
         } @else {
           @include g-font(28, 1);
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
+        }
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(24, 1);
+        } @else {
+          @include g-font(20, 1);
         }
       }
     }
@@ -562,6 +795,7 @@
       box-sizing: border-box;
       padding-left: 42px;
       position: relative;
+      display: inline-block;
       &::before {
         content: "";
         position: absolute;
