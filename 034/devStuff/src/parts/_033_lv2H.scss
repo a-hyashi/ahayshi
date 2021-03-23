@@ -2,12 +2,16 @@
   .t0-b-lv2H#{$variation1of2} {
     $_block: &;
     $_fontSize: 28;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_lineHeight: 1;
     $_iconWidth: 8px;
     $_iconHeight: 40px;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     position: relative;
     z-index: z(lv2H, 1);
     h2 {
@@ -15,6 +19,16 @@
       display: table-cell;
       padding: 0;
       vertical-align: middle;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 0 10px 23px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 10px 0 0 23px;
     }
 
     a {
@@ -47,6 +61,16 @@
       #{$_block}__iconPlacer {
         height: $_iconHeight * .8;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 8px 23px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 8px 0 0 23px;
+      }
     }
 
     &--size-3 {
@@ -56,6 +80,16 @@
 
       #{$_block}__iconPlacer {
         height: $_iconHeight * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 12px 23px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 12px 0 0 23px;
       }
     }
 
@@ -73,15 +107,32 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_block: &;
     $_fontSize: 28;
+    $_fontSizeDiff: 4;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_lineHeight: 1;
-    padding-bottom: 2px;
-    border-bottom: 2px solid #ccc;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     position: relative;
     z-index: z(lv2H, 1);
+    padding: 10px 24px;
+    background-color: #8fd0dd;
+    border-bottom: 2px solid #45b1c7;
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      width: 100%;
+      content: "";
+      border-bottom: 2px solid #ccc;
+    }
+
     a {
       color: $g-textColor;
       text-decoration: none;
@@ -93,20 +144,47 @@
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 32px;
-      padding: 10px 24px;
-      background-color: #8fd0dd;
-      border-bottom: 2px solid #45b1c7;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 6px 0 10px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 10px 0 6px;
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 4px 0 8px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 8px 0 4px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 8px 0 12px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 12px 0 8px;
       }
     }
 
@@ -127,15 +205,30 @@
     $_block: &;
     $_fontSize: 28;
     $_fontSizeDiff: 4;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_lineHeight: 1;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     text-align: center;
     position: relative;
     z-index: z(lv2H, 1);
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       padding: 0;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 10px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 10px;
     }
 
     a {
@@ -150,11 +243,31 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 8px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 8px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 12px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 12px;
       }
     }
 
@@ -175,30 +288,68 @@
     $_block: &;
     $_fontSize: 28;
     $_fontSizeDiff: 4;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     $_lineHeight: 1;
     padding-bottom: 10px;
     margin: 0 auto;
     color: $g-textColor;
     text-align: center;
-    background: url("../imgs/t0-b-lv2H/4.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/4.png") right bottom no-repeat;
+    // background: url("../imgs/t0-b-lv2H/4.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/4.png") right bottom no-repeat;
     position: relative;
     z-index: z(lv2H, 1);
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       box-sizing: border-box;
+      padding-bottom: 10px;
+      background: url("../imgs/t0-b-lv2H/4.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/4.png") right bottom no-repeat;
     }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 10px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 10px;
+    }
+
     $_block: &;
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 8px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 8px;
       }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 12px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 12px;
       }
     }
 
@@ -230,9 +381,14 @@
     $_block: &;
     $_fontSize: 28;
     $_fontSizeDiff: 4;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
     $_lineHeight: 1;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     position: relative;
     z-index: z(lv2H, 1);
     a {
@@ -269,9 +425,29 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 35px 10px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 10px 35px 0;
+    }
+
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 35px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px 35px 0;
       }
     }
 
@@ -279,12 +455,30 @@
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 35px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px 35px 0;
+      }
     }
 
     &--align-l {
       text-align: left;
       h2 {
         max-width: calc(100% - (50px + 35px));
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-left: 0;
       }
     }
@@ -297,6 +491,14 @@
       text-align: right;
       h2 {
         max-width: calc(100% - (50px + 35px));
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-right: 0;
       }
     }
