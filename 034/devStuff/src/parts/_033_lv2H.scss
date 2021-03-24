@@ -296,11 +296,9 @@
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     $_lineHeight: 1;
-    padding-bottom: 10px;
     margin: 0 auto;
     color: $g-textColor;
     text-align: center;
-    // background: url("../imgs/t0-b-lv2H/4.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/4.png") right bottom no-repeat;
     position: relative;
     z-index: z(lv2H, 1);
     h2 {
@@ -511,6 +509,8 @@
     $_lineHeight: 1;
     $_iconWidth: 8px;
     $_iconHeight: 30px;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     a {
       display: table-cell;
       color: $g-textColor;
@@ -537,6 +537,16 @@
       vertical-align: middle;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 5px 20px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 0 0 20px;
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -553,8 +563,23 @@
   .t0-b-lv2H#{$variation2of2} {
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     padding-bottom: 2px;
-    border-bottom: 2px solid #ccc;
+    padding: 8px 15px 6px;
+    background-color: #8fd0dd;
+    border-bottom: 2px solid #45b1c7;
+    position: relative;
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      width: 100%;
+      content: "";
+      border-bottom: 2px solid #ccc;
+    }
+
     a {
       color: $g-textColor;
       text-decoration: none;
@@ -563,9 +588,16 @@
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 22px;
-      padding: 8px 15px 6px;
-      background-color: #8fd0dd;
-      border-bottom: 2px solid #45b1c7;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 3px 0 8px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 8px 0 3px;
     }
 
     &--align-l {
@@ -584,6 +616,8 @@
   .t0-b-lv2H3 {
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     text-align: center;
     a {
       color: $g-textColor;
@@ -592,6 +626,16 @@
 
     h2 {
       @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 8px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 8px;
     }
 
     &--align-l {
@@ -608,14 +652,27 @@
   }
 
   .t0-b-lv2H4 {
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     padding-bottom: 10px;
     margin: 0 auto;
     color: $g-textColor;
     text-align: center;
-    background: url("../imgs/t0-b-lv2H/4.png") left bottom no-repeat;
     h2 {
       @include g-font(20, 1);
       box-sizing: border-box;
+      padding-bottom: 10px;
+      background: url("../imgs/t0-b-lv2H/4.png") left bottom no-repeat;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 10px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 10px;
     }
 
     &--align-l {
@@ -637,6 +694,9 @@
   }
 
   .t0-b-lv2H5 {
+    $_block: &;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     overflow: hidden;
     color: $g-textColor;
     text-align: center;
@@ -672,10 +732,28 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 15px 8px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 8px 15px 0;
+    }
+
     &--align-l {
       text-align: left;
       h2 {
         max-width: calc(100% - (20px + 15px));
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-left: 0;
       }
     }
@@ -688,6 +766,14 @@
       text-align: right;
       h2 {
         max-width: calc(100% - (20px + 15px));
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-right: 0;
       }
     }
