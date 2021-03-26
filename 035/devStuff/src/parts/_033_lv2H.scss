@@ -35,7 +35,8 @@
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 0 50px 20px 65px;
+      padding: 8px 50px 20px 65px;
+      position: absolute;
     }
 
     a {
@@ -53,6 +54,16 @@
         padding: 10px 0 10px 4px;
       }
 
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 50px 0 65px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 50px 20px 65px;
+      }
+
       background-size: 60px*.8 39px*.8, 60px*.8 41px*.8, 740px*.8 11px*.8;
       min-height: 49px;
     }
@@ -62,6 +73,16 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         margin-left: 80px;
         padding: 16px 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 50px 0 65px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 50px 20px 65px;
       }
 
       background-size: 60px*1.2 39px*1.2, 60px*1.2 41px*1.2, 740px*1.2 11px*1.2;
@@ -164,12 +185,32 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 110px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px 110px 0;
+      }
       min-height: 60px;
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 110px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px 110px 0;
       }
     }
 
@@ -268,12 +309,32 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 58px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 10px 58px 0;
+      }
       min-height: 60px;
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 58px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px 58px 0;
       }
     }
 
@@ -341,11 +402,17 @@
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
       text-align: center;
+      padding-top: 8px;
+      position: relative;
+      top: 10px;
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
       text-align: center;
+      padding-bottom: 8px;
+      position: relative;
+      bottom: 10px;
     }
 
     a {
@@ -360,11 +427,31 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 8px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 8px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 8px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 8px;
       }
     }
 
@@ -372,6 +459,14 @@
       margin-left: 0;
       h2 {
         padding: 18px 10px 18px 0;
+      }
+
+      #{$_block}__caption-upper {
+        text-align: left;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: left;
       }
     }
 
@@ -383,6 +478,14 @@
       margin-right: 0;
       h2 {
         padding: 18px 0 18px 10px;
+      }
+
+      #{$_block}__caption-upper {
+        text-align: right;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: right;
       }
     }
   }
@@ -443,12 +546,14 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 0 0 10px 23px;
+      padding-left: 52px;
+      position: relative;
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 10px 0 0 23px;
+      padding: 3px 0 0 52px;
+      position: absolute;
     }
 
     a {
@@ -463,11 +568,31 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-left: 52px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 3px 0 0 52px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-left: 52px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 3px 0 0 52px;
       }
     }
 
@@ -506,12 +631,14 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 0 0 10px 23px;
+      padding: 0 15px;
+      text-align: center;
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
-      padding: 10px 0 0 23px;
+      padding: 0 15px;
+      text-align: center;
     }
 
     a {
@@ -526,6 +653,16 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 15px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 15px;
+      }
       min-height: 60px;
     }
 
@@ -533,10 +670,27 @@
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 15px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 15px;
+      }
     }
 
     &--align-l {
       margin-left: 0;
+      #{$_block}__caption-upper {
+        text-align: left;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: left;
+      }
     }
 
     &--align-c {
