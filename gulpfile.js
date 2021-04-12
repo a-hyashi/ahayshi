@@ -1,6 +1,6 @@
 const gulp = require('gulp');
+const sass = require('gulp-dart-sass');
 const $ = require('gulp-load-plugins')();
-const sass = require('gulp-sass');
 const browserSync = require('browser-sync');
 const config = require('./gulp_config.json');
 const del = require('del');
