@@ -7,4 +7,12 @@ RUN yum install nodejs -y
 RUN npm install -g npm@7.9.0
 RUN npm install -g gulp@4.0.2
 RUN yum clean all
-RUN yum install -y automake autoconf libtool git make gcc* zlib1g-dev
+RUN yum install -y automake autoconf libtool git make gcc*
+RUN cd /usr/local/src && \
+  wget http://zlib.net/zlib-1.2.11.tar.gz && \
+  tar xvzf zlib-1.2.11.tar.gz && \
+  cd zlib-1.2.11 && \
+  ./configure && \
+  make && \
+  make install
+
