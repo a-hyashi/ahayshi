@@ -1,11 +1,16 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of2} {
+    $_block: &;
     $_fontSize: 34;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -20,9 +25,19 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 15px 8px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       padding: 0 15px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 8px 15px 0;
     }
 
     &--size-1 {
@@ -30,12 +45,32 @@
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         padding: 0 10px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 10px 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 6px 10px 0;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         padding: 0 20px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 20px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px 20px 0;
       }
     }
 
@@ -57,9 +92,13 @@
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     position: relative;
@@ -97,9 +136,19 @@
       background-size: 53px 53px;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-left: 58px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       padding: 10px 0;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-left: 58px;
     }
 
     &--size-1 {
@@ -115,6 +164,16 @@
 
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-left: 58px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-left: 58px * .8;
       }
     }
 
@@ -132,6 +191,16 @@
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-left: 58px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-left: 58px * 1.2;
+      }
     }
 
     &--align-l {
@@ -144,6 +213,16 @@
       > div {
         margin-right: auto;
         margin-left: auto;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+        padding: 0 0 2px 30px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+        padding: 2px 0 0 30px;
       }
     }
 
@@ -159,9 +238,13 @@
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     position: relative;
@@ -199,9 +282,19 @@
       background-size: 8px 27px;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 0 8px 16px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       padding: 0;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 8px 0 0 16px;
     }
 
     &--size-1 {
@@ -217,6 +310,16 @@
 
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 6px 16px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 6px 0 0 16px * .8;
       }
     }
 
@@ -234,6 +337,16 @@
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 10px 16px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px 0 0 16px * 1.2;
+      }
     }
 
     &--align-l {
@@ -246,6 +359,16 @@
       > div {
         margin-right: auto;
         margin-left: auto;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+        padding-left: 0;
       }
     }
 
@@ -261,9 +384,13 @@
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     position: relative;
@@ -301,9 +428,19 @@
       background-size: 14px 29px;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 0 8px 22px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       padding: 0;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 8px 0 0 22px;
     }
 
     &--size-1 {
@@ -319,6 +456,16 @@
 
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 0 6px 22px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 6px 0 0 22px * .8;
       }
     }
 
@@ -336,6 +483,16 @@
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 0 10px 22px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px 0 0 22px * 1.2;
+      }
     }
 
     &--align-l {
@@ -349,6 +506,16 @@
         margin-right: auto;
         margin-left: auto;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+        padding: 0 0 8px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+        padding: 8px 0 0;
+      }
     }
 
     &--align-r {
@@ -359,12 +526,17 @@
   }
 
   .t0-b-lv2H5 {
+    $_block: &;
     $_fontSize: 34;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     // 文字と横線との間のpaddingの値
     $_textlinePadding: 35px;
     // 文字量が多い場合に横線が持つ最低幅
@@ -384,6 +556,11 @@
       &:hover {
         color: $g-hoverColor;
       }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 35px 8px;
     }
 
     h2 {
@@ -414,10 +591,25 @@
       }
     }
 
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 8px 35px 0;
+    }
+
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 37px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 35px 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 6px 35px 0;
       }
     }
 
@@ -426,12 +618,30 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 47px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 35px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 10px 35px 0;
+      }
     }
 
     &--align-l {
       text-align: left;
       h2 {
         max-width: calc(100% - (#{$_lineMinWidth} + #{$_textlinePadding}));
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-left: 0;
       }
     }
@@ -446,17 +656,30 @@
         max-width: calc(100% - (#{$_lineMinWidth} + #{$_textlinePadding}));
         padding-right: 0;
       }
+
+      #{$_block}__caption-upper {
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-right: 0;
+      }
     }
   }
 
   .t0-b-lv2H6 {
+    $_block: &;
     $_fontSize: 34;
     $_lineHeight: 1;
     $_textColor: #675f4f;
     $_borderColor: #fed326;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -471,11 +694,21 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 15px 3px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 42px;
       padding: 5px 15px;
       border-bottom: 2px solid $_borderColor;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 10px 15px 0;
     }
 
     &--size-1 {
@@ -484,6 +717,16 @@
         min-height: 42px;
         padding: 0 10px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 10px 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 8px 10px 0;
+      }
     }
 
     &--size-3 {
@@ -491,6 +734,16 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 47px;
         padding: 0 20px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 20px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 12px 20px 0;
       }
     }
 
@@ -508,14 +761,19 @@
   }
 
   .t0-b-lv2H7 {
+    $_block: &;
     $_fontSize: 38;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 10px;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -530,36 +788,52 @@
       }
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      // 文字数をゼロにした時アイコンだけ残すため
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v7.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 54px 4px;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 7px;
     }
 
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 47px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v7.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 54px 4px;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 22px;
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 42px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 5px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 20px;
       }
     }
 
@@ -568,10 +842,21 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 52px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 9px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 24px;
+      }
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -579,19 +864,25 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
   .t0-b-lv2H8 {
+    $_block: &;
     $_fontSize: 38;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 10px;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -606,36 +897,52 @@
       }
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      // 文字数をゼロにした時アイコンだけ残すため
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v8.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 54px 4px;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 7px;
     }
 
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 47px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v8.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 54px 4px;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 22px;
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 42px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 5px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 20px;
       }
     }
 
@@ -644,10 +951,21 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 52px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 9px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 24px;
+      }
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -655,19 +973,25 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
   .t0-b-lv2H9 {
+    $_block: &;
     $_fontSize: 38;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 10px;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -682,36 +1006,52 @@
       }
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      // 文字数をゼロにした時アイコンだけ残すため
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v9.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 54px 4px;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 7px;
     }
 
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 47px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v9.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 54px 4px;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 22px;
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 42px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 5px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 20px;
       }
     }
 
@@ -720,10 +1060,21 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 52px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 9px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 24px;
+      }
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -731,19 +1082,25 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
   .t0-b-lv2H10 {
+    $_block: &;
     $_fontSize: 38;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 10px;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -758,36 +1115,52 @@
       }
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      // 文字数をゼロにした時アイコンだけ残すため
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v10.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 54px 4px;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 7px;
     }
 
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 47px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v10.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 54px 4px;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 22px;
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 42px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 5px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 20px;
       }
     }
 
@@ -796,10 +1169,21 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 52px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 9px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 24px;
+      }
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -807,22 +1191,30 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
   .t0-b-lv2H11 {
+    $_block: &;
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
     position: relative;
     z-index: z(lv2H, 1);
+    padding: 20px 15px;
+    border: 1px solid #fed326;
     a {
       display: block;
       color: $_textColor;
@@ -830,13 +1222,21 @@
       &:hover {
         color: $g-hoverColor;
       }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 8px;
     }
 
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 35px;
-      padding: 20px 15px;
-      border: 1px solid #fed326;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 8px;
     }
 
     &--size-1 {
@@ -844,12 +1244,32 @@
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 27px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 6px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 40px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 10px;
       }
     }
 
@@ -867,17 +1287,24 @@
   }
 
   .t0-b-lv2H12 {
+    $_block: &;
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
     position: relative;
     z-index: z(lv2H, 1);
+    padding: 20px 15px;
+    background-color: rgba(#ffe98f, .4);
     a {
       display: block;
       color: $_textColor;
@@ -887,11 +1314,19 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 8px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 35px;
-      padding: 20px 15px;
-      background-color: rgba(#ffe98f, .4);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 8px;
     }
 
     &--size-1 {
@@ -899,12 +1334,32 @@
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 29px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 6px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 40px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 10px;
       }
     }
 
@@ -922,17 +1377,24 @@
   }
 
   .t0-b-lv2H13 {
+    $_block: &;
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
     position: relative;
     z-index: z(lv2H, 1);
+    padding: 20px 15px;
+    background-color: rgba(#c1effa, .4);
     a {
       display: block;
       color: $_textColor;
@@ -942,11 +1404,19 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 8px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 35px;
-      padding: 20px 15px;
-      background-color: rgba(#c1effa, .4);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 8px;
     }
 
     &--size-1 {
@@ -954,12 +1424,32 @@
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 29px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 6px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 40px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 10px;
       }
     }
 
@@ -977,17 +1467,24 @@
   }
 
   .t0-b-lv2H14 {
+    $_block: &;
     $_fontSize: 28;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
     position: relative;
     z-index: z(lv2H, 1);
+    padding: 20px 15px;
+    background-color: rgba(#ffdaeb, .4);
     a {
       display: block;
       color: $_textColor;
@@ -997,11 +1494,19 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 8px;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 35px;
-      padding: 20px 15px;
-      background-color: rgba(#ffdaeb, .4);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 8px;
     }
 
     &--size-1 {
@@ -1009,12 +1514,32 @@
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 29px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 6px;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 40px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 10px;
       }
     }
 
@@ -1032,14 +1557,20 @@
   }
 
   .t0-b-lv2H15 {
+    $_block: &;
     $_fontSize: 38;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 16;
+    $_fontSizeDiff: 4;
     $_fontSizeDifference: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDifference;
     $_fontSize_l: $_fontSize + $_fontSizeDifference;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 10px;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -1054,36 +1585,52 @@
       }
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      // 文字数をゼロにした時アイコンだけ残すため
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v11.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 54px 4px;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-bottom: 7px;
     }
 
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       min-height: 47px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v11.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 54px 4px;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding-top: 22px;
     }
 
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         min-height: 42px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 5px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 20px;
       }
     }
 
@@ -1092,10 +1639,21 @@
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         min-height: 52px;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 9px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 24px;
+      }
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -1103,7 +1661,8 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 }
