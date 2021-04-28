@@ -1672,6 +1672,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -1681,9 +1683,19 @@
       text-decoration: none;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 7px 5px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       padding: 0 7px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 7px 0;
     }
 
     &--align-l {
@@ -1703,6 +1715,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     a {
@@ -1737,10 +1751,20 @@
       background-size: 74px * .5 74px * .5;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-left: 42px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       // 文字が若干上に寄って見えるのを防ぐため上下のpaddingに異なる値を指定
       padding: 6px 0 4px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-left: 42px;
     }
 
     &--align-l {
@@ -1767,6 +1791,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     a {
@@ -1799,9 +1825,19 @@
       background-size: 16px * .5 43px * .5;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 5px 18px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       padding: 0;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 0 0 18px;
     }
 
     &--align-l {
@@ -1828,6 +1864,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     a {
@@ -1860,9 +1898,19 @@
       background-size: 22px * .5 46px * .5;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 5px 20px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       padding: 0;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 0 0 20px;
     }
 
     &--align-l {
@@ -1886,6 +1934,7 @@
   }
 
   .t0-b-lv2H5 {
+    $_block: &;
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
@@ -1894,6 +1943,8 @@
     // 文字量が多い場合に横線が持つ最低幅
     $_lineMinWidth: 20px;
     $_lineColor: #fed326;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     // ルート要素からはみ出た横線を隠す
     overflow: hidden;
     font-family: $font-tenorSans;
@@ -1903,6 +1954,11 @@
       display: block;
       color: $_textColor;
       text-decoration: none;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 15px 5px;
     }
 
     h2 {
@@ -1934,10 +1990,23 @@
       }
     }
 
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 15px 0;
+    }
+
     &--align-l {
       text-align: left;
       h2 {
         max-width: calc(100% - (#{$_lineMinWidth} + #{$_textlinePadding}));
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-left: 0;
       }
     }
@@ -1952,6 +2021,14 @@
         max-width: calc(100% - (#{$_lineMinWidth} + #{$_textlinePadding}));
         padding-right: 0;
       }
+
+      #{$_block}__caption-upper {
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-right: 0;
+      }
     }
   }
 
@@ -1960,6 +2037,8 @@
     $_lineHeight: 1;
     $_textColor: #675f4f;
     $_borderColor: #fed326;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
@@ -1969,11 +2048,21 @@
       text-decoration: none;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 7px 2px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
       padding: 3px 7px;
       border-bottom: 2px solid $_borderColor;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 7px 0;
     }
 
     &--align-l {
@@ -1993,6 +2082,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 13px;
     font-family: $font-tenorSans;
@@ -2004,33 +2095,41 @@
       text-decoration: none;
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -13px;
-      left: 0;
-      width: 100%;
-      height: 8px * .5;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v7.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 100px * .5 8px * .5;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
     }
 
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -13px;
+        left: 0;
+        width: 100%;
+        height: 8px * .5;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v7.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 100px * .5 8px * .5;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 20px;
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -2038,7 +2137,8 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
@@ -2046,6 +2146,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 13px;
     font-family: $font-tenorSans;
@@ -2057,33 +2159,41 @@
       text-decoration: none;
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -13px;
-      left: 0;
-      width: 100%;
-      height: 8px * .5;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v8.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 100px * .5 8px * .5;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
     }
 
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -13px;
+        left: 0;
+        width: 100%;
+        height: 8px * .5;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v8.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 100px * .5 8px * .5;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 20px;
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -2091,7 +2201,8 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
@@ -2099,6 +2210,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 13px;
     font-family: $font-tenorSans;
@@ -2110,33 +2223,41 @@
       text-decoration: none;
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -13px;
-      left: 0;
-      width: 100%;
-      height: 8px * .5;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v9.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 100px * .5 8px * .5;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
     }
 
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -13px;
+        left: 0;
+        width: 100%;
+        height: 8px * .5;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v9.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 100px * .5 8px * .5;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 20px;
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -2144,7 +2265,8 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
@@ -2152,6 +2274,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 13px;
     font-family: $font-tenorSans;
@@ -2163,33 +2287,41 @@
       text-decoration: none;
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -13px;
-      left: 0;
-      width: 100%;
-      height: 8px * .5;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v10.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 100px * .5 8px * .5;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
     }
 
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -13px;
+        left: 0;
+        width: 100%;
+        height: 8px * .5;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v10.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 100px * .5 8px * .5;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 20px;
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -2197,7 +2329,8 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 
@@ -2205,20 +2338,32 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
+    padding: 10px;
+    border: 1px solid #fed326;
     a {
       display: block;
       color: $_textColor;
       text-decoration: none;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
-      padding: 10px;
-      border: 1px solid #fed326;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
     }
 
     &--align-l {
@@ -2238,20 +2383,32 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
+    padding: 10px;
+    background-color: rgba(#ffe98f, .4);
     a {
       display: block;
       color: $_textColor;
       text-decoration: none;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
-      padding: 10px;
-      background-color: rgba(#ffe98f, .4);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
     }
 
     &--align-l {
@@ -2271,20 +2428,32 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
+    padding: 10px;
+    background-color: rgba(#c1effa, .4);
     a {
       display: block;
       color: $_textColor;
       text-decoration: none;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
-      padding: 10px;
-      background-color: rgba(#c1effa, .4);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
     }
 
     &--align-l {
@@ -2304,20 +2473,32 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     font-family: $font-tenorSans;
     color: $_textColor;
     text-align: center;
+    padding: 10px;
+    background-color: rgba(#ffdaeb, .4);
     a {
       display: block;
       color: $_textColor;
       text-decoration: none;
     }
 
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
-      padding: 10px;
-      background-color: rgba(#ffdaeb, .4);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
     }
 
     &--align-l {
@@ -2337,6 +2518,8 @@
     $_fontSize: 20;
     $_lineHeight: 1;
     $_textColor: #675f4f;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     // 下線がbPlacerの余白に入らないようにするための余白
     padding-bottom: 13px;
     font-family: $font-tenorSans;
@@ -2348,33 +2531,41 @@
       text-decoration: none;
     }
 
-    > div {
-      position: relative;
-      display: inline-block;
-      min-width: 54px;
-      vertical-align: middle;
-    }
-
-    > div::before {
-      position: absolute;
-      bottom: -13px;
-      left: 0;
-      width: 100%;
-      height: 8px *.5;
-      content: "";
-      background-image: url("../imgs/heading/heading030/heading030_line01_v11.svg");
-      background-repeat: no-repeat;
-      background-position: 50% center;
-      background-size: 100px *.5 8px *.5;
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
     }
 
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       min-height: 25px;
+      position: relative;
+      display: inline-block;
+      // 文字数をゼロにした時アイコンだけ残すため
+      min-width: 54px;
+      vertical-align: middle;
+      &::before {
+        position: absolute;
+        bottom: -13px;
+        left: 0;
+        width: 100%;
+        height: 8px *.5;
+        content: "";
+        background-image: url("../imgs/heading/heading030/heading030_line01_v11.svg");
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: 100px *.5 8px *.5;
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 20px;
     }
 
     &--align-l {
-      text-align: left;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-c {
@@ -2382,7 +2573,8 @@
     }
 
     &--align-r {
-      text-align: right;
+      display: table;
+      margin-left: auto;
     }
   }
 }
