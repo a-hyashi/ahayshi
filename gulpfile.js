@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const sass = require('gulp-dart-sass');
 const $ = require('gulp-load-plugins')();
 const browserSync = require('browser-sync');
 const config = require('./gulp_config.json');
@@ -37,7 +38,7 @@ gulp.task('compile_to_temp', () => {
   return mergeStream(
     styleSource.map(styleSource => {
       return gulp.src(styleSource)
-      .pipe($.sass({outputStyle: 'compressed'}))
+      .pipe(sass({outputStyle: 'compressed'}))
       .pipe($.autoprefixer({grid: 'autoplace'}))
       .pipe(gulp.dest('devStuff/temp/css'));
     })
@@ -50,7 +51,7 @@ gulp.task('compile_to_styleguide', () => {
     styleSources.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
-      .pipe($.sass({outputStyle: 'expanded'}))
+      .pipe(sass({outputStyle: 'expanded'}))
       .pipe($.autoprefixer({grid: 'autoplace'}))
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/styleguide/css'))
