@@ -3,9 +3,13 @@
     $_block: &;
     $_fontSize: 28;
     $_lineHeight: 1;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     margin: 0 auto;
     background-image: url("../imgs/t0-b-lv2H/1/bg.png"), url("../imgs/t0-b-lv2H/1/bg2.png"), url("../imgs/t0-b-lv2H/1/bg3.png");
     background-repeat: no-repeat, no-repeat, repeat-x;
@@ -19,9 +23,21 @@
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
       margin-left: 65px;
       margin-right: 50px;
-      padding: 14px;
-      padding-left: 0;
-      padding-right: 0;
+      padding: 6px 0;
+    }
+
+    > div {
+      padding: 8px 0;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 6px 50px 2px 65px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 2px 50px 6px 65px;
     }
 
     a {
@@ -36,7 +52,17 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
         margin-left: 50px;
-        padding: 10px 0 10px 4px;
+        padding: 4px 0 4px 4px;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 10px 50px 0 54px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 0 50px 10px 54px;
       }
 
       background-size: 60px*.8 39px*.8, 60px*.8 41px*.8, 740px*.8 11px*.8;
@@ -47,7 +73,17 @@
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
         margin-left: 80px;
-        padding: 16px 0;
+        padding: 8px 0;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 14px 50px 0 80px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 0 50px 14px 80px;
       }
 
       background-size: 60px*1.2 39px*1.2, 60px*1.2 41px*1.2, 740px*1.2 11px*1.2;
@@ -71,9 +107,13 @@
     $_block: &;
     $_fontSize: 24;
     $_lineHeight: 1;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left top, left bottom, right bottom, right top;
     background-image: url("../imgs/t0-b-lv2H/2/bg.png"), url("../imgs/t0-b-lv2H/2/bg2.png"), url("../imgs/t0-b-lv2H/2/bg3.png"), url("../imgs/t0-b-lv2H/2/bg4.png");
@@ -113,11 +153,30 @@
       }
     }
 
+    > div {
+      padding: 24px 0;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
-      padding: 24px 110px;
+      padding: 0 110px;
       position: relative;
+      z-index: z(lv2H, 2);
       text-shadow: -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      position: relative;
+      z-index: z(lv2H, 3);
+      padding: 0 110px 5px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      position: relative;
+      z-index: z(lv2H, 3);
+      padding: 5px 110px 0;
     }
 
     a {
@@ -132,12 +191,32 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 0 110px 3px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 3px 110px 0;
+      }
       min-height: 60px;
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 0 110px 7px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 7px 110px 0;
       }
     }
 
@@ -158,9 +237,13 @@
     $_block: &;
     $_fontSize: 24;
     $_lineHeight: 1;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left top, left bottom, right bottom, right top;
     background-image: url("../imgs/t0-b-lv2H/3/bg.png"), url("../imgs/t0-b-lv2H/3/bg2.png"), url("../imgs/t0-b-lv2H/3/bg3.png"), url("../imgs/t0-b-lv2H/3/bg4.png");
@@ -200,10 +283,29 @@
       }
     }
 
+    > div {
+      padding: 24px 0;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
-      padding: 24px 58px;
+      padding: 0 58px;
       position: relative;
+      z-index: z(lv2H, 2);
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 58px 5px;
+      position: relative;
+      z-index: z(lv2H, 3);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 5px 58px 0;
+      position: relative;
+      z-index: z(lv2H, 3);
     }
 
     a {
@@ -218,12 +320,32 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 0 58px 3px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 3px 58px 0;
+      }
       min-height: 60px;
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 0 58px 7px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 7px 58px 0;
       }
     }
 
@@ -244,14 +366,19 @@
     $_block: &;
     $_fontSize: 24;
     $_lineHeight: 1;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     display: table;
     position: relative;
     margin: 0 auto;
     box-sizing: border-box;
     z-index: z(lv2H, 1);
+    text-align: center;
     &::before {
       content: "";
       position: absolute;
@@ -278,10 +405,30 @@
       background-position: bottom;
     }
 
+    > div {
+      padding: 18px 0;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
-      padding: 18px 52px;
+      padding: 0 52px;
       min-height: 10px;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      text-align: center;
+      padding: 0 52px 5px;
+      position: relative;
+      z-index: z(lv2H, 2);
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      text-align: center;
+      padding: 5px 52px 0;
+      position: relative;
+      z-index: z(lv2H, 2);
     }
 
     a {
@@ -296,18 +443,49 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 0 52px 3px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+        padding: 3px 52px 0;
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 0 52px 7px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+        padding: 7px 52px 0;
+      }
     }
 
     &--align-l {
       margin-left: 0;
+      text-align: left;
       h2 {
-        padding: 18px 10px 18px 0;
+        padding: 0 10px 0 0;
+      }
+
+      #{$_block}__caption-upper {
+        text-align: left;
+        padding: 0 10px 5px 0;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: left;
+        padding: 5px 10px 0 0;
       }
     }
 
@@ -317,8 +495,19 @@
 
     &--align-r {
       margin-right: 0;
+      text-align: right;
       h2 {
-        padding: 18px 0 18px 10px;
+        padding: 0 0 0 10px;
+      }
+
+      #{$_block}__caption-upper {
+        text-align: right;
+        padding: 0 0 5px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: right;
+        padding: 5px 0 0 10px;
       }
     }
   }
@@ -327,9 +516,13 @@
     $_block: &;
     $_fontSize: 24;
     $_lineHeight: 1;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     display: table;
     position: relative;
     margin: 0 auto;
@@ -366,11 +559,26 @@
       }
     }
 
+    > div {
+      padding: 6px 0;
+    }
+
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
-      padding: 12px 52px;
+      padding: 6px 52px;
       min-height: 30px;
       position: relative;
+      z-index: z(lv2H, 2);
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 52px 2px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 2px 52px 10px;
     }
 
     a {
@@ -385,11 +593,27 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+      }
     }
 
     &--size-3 {
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
       }
     }
 
@@ -410,16 +634,32 @@
     $_block: &;
     $_fontSize: 24;
     $_lineHeight: 1;
+    $_fontSize_caption: 16;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     display: table;
     position: relative;
     margin: 0 auto;
     z-index: z(lv2H, 1);
+    padding: 18px 0;
+    text-align: center;
     h2 {
       @include g-font-layout($_fontSize, $_lineHeight, $layout);
-      padding: 24px 15px;
+      padding: 6px 15px;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 0 15px 2px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, $_lineHeight_caption, $layout);
+      padding: 2px 15px 0;
     }
 
     a {
@@ -434,6 +674,14 @@
       h2 {
         @include g-font-layout($_fontSize_s, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, $_lineHeight_caption, $layout);
+      }
       min-height: 60px;
     }
 
@@ -441,10 +689,19 @@
       h2 {
         @include g-font-layout($_fontSize_l, $_lineHeight, $layout);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, $_lineHeight_caption, $layout);
+      }
     }
 
     &--align-l {
       margin-left: 0;
+      text-align: left;
     }
 
     &--align-c {
@@ -453,6 +710,7 @@
 
     &--align-r {
       margin-right: 0;
+      text-align: right;
     }
   }
 }
@@ -462,6 +720,8 @@
     $_block: &;
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     margin: 0 auto;
     background-image: url("../imgs/t0-b-lv2H/1/bg.png"), url("../imgs/t0-b-lv2H/1/bg3.png");
     background-repeat: no-repeat, no-repeat;
@@ -471,7 +731,21 @@
     h2 {
       @include g-font($_fontSize, $_lineHeight);
       margin-left: 50px;
-      padding: 23px 0 15px 10px;
+      padding-left: 10px;
+    }
+
+    > div {
+      padding: 23px 0 15px;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 6px 0 5px 60px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 0 6px 60px;
     }
 
     a {
@@ -497,6 +771,8 @@
     $_block: &;
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     margin: 0 auto;
     color: #333;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -541,9 +817,26 @@
       min-height: 10px;
       text-shadow: -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, -1px -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, -2px -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
       position: relative;
+      z-index: z(lv2H, 2);
       background-image: url("../imgs/t0-b-lv2H/2/bg12.png"), url("../imgs/t0-b-lv2H/2/bg13.png");
       background-position: 15px center, right 15px center;
       background-repeat: no-repeat, no-repeat;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      position: relative;
+      z-index: z(lv2H, 2);
+      padding: 0 60px 5px;
+      top: 20px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      position: relative;
+      z-index: z(lv2H, 2);
+      padding: 5px 60px 0;
+      bottom: 20px;
     }
 
     a {
@@ -568,6 +861,8 @@
     $_block: &;
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     margin: 0 auto;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left top, left bottom, right bottom, right top;
@@ -610,6 +905,23 @@
       @include g-font($_fontSize, $_lineHeight);
       padding: 24px 55px;
       position: relative;
+      z-index: z(lv2H, 2);
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 55px 5px;
+      position: relative;
+      z-index: z(lv2H, 2);
+      top: 20px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 55px 0;
+      position: relative;
+      z-index: z(lv2H, 2);
+      bottom: 20px;
     }
 
     a {
@@ -634,6 +946,8 @@
     $_block: &;
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     display: table;
     margin: 0 auto;
     position: relative;
@@ -667,7 +981,26 @@
       @include g-font($_fontSize, $_lineHeight);
       padding: 20px 55px;
       position: relative;
+      z-index: z(lv2H, 2);
       min-height: 18px;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      text-align: center;
+      padding: 5px 55px 0;
+      position: relative;
+      z-index: z(lv2H, 2);
+      top: 12px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      text-align: center;
+      padding: 0 55px 5px;
+      position: relative;
+      z-index: z(lv2H, 2);
+      bottom: 12px;
     }
 
     a {
@@ -680,6 +1013,16 @@
       h2 {
         padding: 18px 10px 18px 0;
       }
+
+      #{$_block}__caption-upper {
+        text-align: left;
+        padding: 5px 10px 0 0;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: left;
+        padding: 0 10px 5px 0;
+      }
     }
 
     &--align-c {
@@ -691,6 +1034,16 @@
       h2 {
         padding: 18px 0 18px 10px;
       }
+
+      #{$_block}__caption-upper {
+        text-align: right;
+        padding: 5px 0 0 10px;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: right;
+        padding: 0 0 5px 10px;
+      }
     }
   }
 
@@ -698,13 +1051,14 @@
     $_block: &;
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     display: table;
     position: relative;
     margin: 0 auto;
     color: #333;
     min-height: 48px;
     &__icon {
-      content: "";
       position: absolute;
       background-image: url("../imgs/t0-b-lv2H/5/bg.png");
       background-repeat: no-repeat;
@@ -733,10 +1087,25 @@
       }
     }
 
+    > div {
+      padding: 20px 0;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
-      padding: 20px 55px;
+      padding: 0 55px;
       position: relative;
+      z-index: z(lv2H, 2);
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 55px 5px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 5px 55px 0;
     }
 
     a {
@@ -761,14 +1130,31 @@
     $_block: &;
     $_fontSize: 20;
     $_lineHeight: 1;
+    $_fontSize_caption: 12;
+    $_lineHeight_caption: 1;
     text-align: center;
     position: relative;
     color: #333;
     min-height: 65px;
     h2 {
       @include g-font($_fontSize, $_lineHeight);
-      padding: 20px 10px;
       position: relative;
+    }
+
+    > div {
+      padding: 20px 10px;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+      text-align: center;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
+      text-align: center;
     }
 
     a {
@@ -778,6 +1164,13 @@
 
     &--align-l {
       text-align: left;
+      #{$_block}__caption-upper {
+        text-align: left;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: left;
+      }
     }
 
     &--align-c {
@@ -786,6 +1179,13 @@
 
     &--align-r {
       text-align: right;
+      #{$_block}__caption-upper {
+        text-align: right;
+      }
+
+      #{$_block}__caption-lower {
+        text-align: right;
+      }
     }
   }
 }
