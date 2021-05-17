@@ -5,6 +5,7 @@
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|3|2%||10px|
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|4|2%||10px|
 |01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|5|2%||10px|
+|01.見出し|main|032_ページ見出し - メインエリア用|.t0-b-lv1H-mainH|6|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H||2%||15px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|2|2%||10px|
 |01.見出し|main|033_大見出し|.t0-b-lv2H|3|2%||15px|
@@ -109,6 +110,7 @@
 |03.リスト|main|027_ナビリスト|.t0-b-navList||4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|2|4%||20px|
 |03.リスト|main|027_ナビリスト|.t0-b-navList|3|4%||20px|
+|03.リスト|main|027_ナビリスト|.t0-b-navList|4|4%||20px|
 |03.リスト|main|028_装飾された番号リスト|.t0-b-orderedList||1%||10px|
 |03.リスト|main|028_装飾された番号リスト|.t0-b-orderedList|2|1%||10px|
 |03.リスト|main|029_ラベル付きリスト|.t0-b-labeledList||2%||15px|
@@ -133,6 +135,7 @@
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList||4%||20px|
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList|2|4%||20px|
 |03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList|3|4%||20px|
+|03.リスト|footer|183_フッターナビリスト|.t0-b-footerUnit-navList|4|4%||20px|
 |04.表|main|030_表|.t0-b-table||2%||15px|
 |04.表|main|030_表|.t0-b-table|2|2%||15px|
 |04.表|main|030_表|.t0-b-table|3|2%||15px|
@@ -364,9 +367,13 @@
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu||8%||25px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|2|8%||25px|
 |08.メニュー|side|151_サイドメニュー|.b-sideMenu|3|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|4|8%||25px|
+|08.メニュー|side|151_サイドメニュー|.b-sideMenu|5|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle||8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|2|8%||25px|
 |08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|3|8%||25px|
+|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|4|8%||25px|
+|08.メニュー|side|151_サイドメニュー(手入力)|.b-sideMenuHandle|5|8%||25px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu||.5%||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|2|.5%||0px|
 |08.メニュー|header|168_ヘッダーメニュー|.t0-b-headerMenu|3|.5%||0px|

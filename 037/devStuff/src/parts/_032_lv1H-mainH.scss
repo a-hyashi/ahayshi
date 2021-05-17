@@ -104,6 +104,12 @@
     text-align: center;
     position: relative;
     z-index: z(lv1H-mainH, 1);
+    a {
+      &:hover {
+        color: $lv1H-mainH3_hoverTextColor;
+      }
+    }
+
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
       padding-bottom: 10px;
@@ -263,6 +269,72 @@
 
     &--align-r {
       text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH6 {
+    $_block: &;
+    $_fontSize_bd: 38;
+    $_fontSize_caption: 20;
+    color: $lv1H-mainH6_textColor;
+    text-shadow: 1px 1px 0 $lv1H-mainH6_textShadowColor, -1px -1px 0 $lv1H-mainH6_textShadowColor, 0 1px 0 $lv1H-mainH6_textShadowColor, 0 -1px 0 $lv1H-mainH6_textShadowColor, -1px 0 0 $lv1H-mainH6_textShadowColor, 1px 0 0 $lv1H-mainH6_textShadowColor;
+    text-align: center;
+    position: relative;
+    z-index: z(lv1H-mainH, 1);
+    a {
+      &:hover {
+        color: $lv1H-mainH6_hoverTextColor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      // 背景の円との余白を詰めるため
+      margin-bottom: -20px;
+    }
+
+    &__bd {
+      min-height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      @include g-font-layout($_fontSize_bd, 1, $layout);
+      padding: 20px 0;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-image: url("../imgs/lv1H-mainH/06/01.png");
+        background-size: contain;
+        width: 110px;
+        height: 110px;
+        z-index: z(bg, -1);
+      }
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      margin-top: -20px;
+    }
+
+    &--align-l {
+      text-align: left;
+      #{$_block}__bd {
+        justify-content: flex-start;
+      }
+    }
+
+    &--align-r {
+      text-align: right;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
   }
 }
@@ -512,6 +584,66 @@
 
     &--align-r {
       text-align: right;
+    }
+  }
+
+  .t0-b-lv1H-mainH6 {
+    $_block: &;
+    $_fontSize_bd: 24;
+    $_fontSize_caption: 14;
+    color: $lv1H-mainH6_textColor;
+    text-shadow: 1px 1px 0 $lv1H-mainH6_textShadowColor, -1px -1px 0 $lv1H-mainH6_textShadowColor, 0 1px 0 $lv1H-mainH6_textShadowColor, 0 -1px 0 $lv1H-mainH6_textShadowColor, -1px 0 0 $lv1H-mainH6_textShadowColor, 1px 0 0 $lv1H-mainH6_textShadowColor;
+    text-align: center;
+    position: relative;
+    z-index: z(lv1H-mainH, 1);
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      margin-bottom: -25px;
+    }
+
+    &__bd {
+      min-height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      @include g-font-layout($_fontSize_bd, 1, $layout);
+      padding: 25px 0;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        background-image: url("../imgs/lv1H-mainH/06/01.png");
+        background-size: contain;
+        width: 90px;
+        height: 90px;
+        z-index: z(bg, -1);
+      }
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      margin-top: -25px;
+    }
+
+    &--align-l {
+      text-align: left;
+      #{$_block}__bd {
+        justify-content: flex-start;
+      }
+    }
+
+    &--align-r {
+      text-align: right;
+      #{$_block}__bd {
+        justify-content: flex-end;
+      }
     }
   }
 }
