@@ -140,6 +140,7 @@
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList||4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList|2|4%||20px|
 |03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList|3|4%||20px|
+|03.リスト|side|139_サイドボックスリスト|.t0-b-sideBoxList|4|4%||20px|
 |03.リスト|side|142_サイドボックスラベル付きリスト|.t0-b-sideBoxLabeledList||4%||20px|
 |03.リスト|side|142_サイドボックスラベル付きリスト|.t0-b-sideBoxLabeledList|2|4%||20px|
 |03.リスト|side|142_サイドボックスラベル付きリスト|.t0-b-sideBoxLabeledList|3|4%||20px|
@@ -463,6 +464,7 @@
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|2|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|3|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|4|8%||25px|
+|11.枠|side|155_サイドボックス|.t0-b-sideBox|5|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|2|0||0px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|3|0||0px|
