@@ -41,7 +41,7 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding-bottom: 7px;
     }
 
@@ -51,7 +51,7 @@
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding-top: 7px;
     }
 
@@ -143,7 +143,7 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding-bottom: 5px;
     }
 
@@ -152,7 +152,7 @@
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding-top: 5px;
     }
 
@@ -229,7 +229,7 @@
     }
 
     &__caption-upper {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 10px 5px;
     }
 
@@ -254,7 +254,7 @@
     }
 
     &__caption-lower {
-      @include g-font-layout($_fontSize_caption, $_lineHeight_caption);
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
       padding: 0 10px;
     }
 
@@ -330,23 +330,17 @@
 
 @if $device == SP {
   .t0-b-lv2H#{$variation1of3} {
-    margin: 0 auto;
     color: #594c46;
-    a {
-      text-decoration: none;
-      color: #594c46;
-    }
-
-    > div {
-      display: inline-block;
-    }
-
-    > div > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    &__icon {
+    position: relative;
+    padding: 15px 0 15px 63px;
+    display: table;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-size: contain;
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
@@ -358,6 +352,15 @@
       background-image: url("../imgs/t0-b-lv2H/bg.png");
     }
 
+    a {
+      text-decoration: none;
+      color: #594c46;
+    }
+
+    > div {
+      display: inline-block;
+    }
+
     &__iconPlacer {
       > * {
         display: block;
@@ -366,6 +369,7 @@
 
     &__caption-upper {
       @include g-font(14, 1);
+      padding-bottom: 3px;
     }
 
     h2 {
@@ -374,17 +378,20 @@
 
     &__caption-lower {
       @include g-font(14, 1);
+      padding-top: 3px;
     }
 
     &--align-l {
+      margin: 0 auto 0 0;
       text-align: left;
     }
 
     &--align-c {
-      text-align: center;
+      margin: 0 auto;
     }
 
     &--align-r {
+      margin: 0 0 0 auto;
       text-align: right;
     }
   }
@@ -401,17 +408,22 @@
       color: #594c46;
     }
 
+    > div {
+      padding: 32px 20px 10px;
+    }
+
     &__caption-upper {
       @include g-font(14, 1);
+      padding-bottom: 5px;
     }
 
     h2 {
-      padding: 32px 20px 10px;
       @include g-font-spacingKilled(18, 2);
     }
 
     &__caption-lower {
       @include g-font(14, 1);
+      padding-top: 7px;
     }
 
     &--align-l {
@@ -431,10 +443,6 @@
     margin: 0 auto;
     color: #594c46;
     text-align: center;
-    background-repeat: no-repeat, no-repeat;
-    background-position: left bottom, right bottom;
-    background-image: url("../imgs/main/4-1.png"), url("../imgs/main/4-2.png");
-    background-size: 50% 27px, 50% 27px;
     a {
       text-decoration: none;
       color: #594c46;
@@ -446,11 +454,16 @@
 
     &__caption-upper {
       @include g-font(14, 1);
+      padding-bottom: 5px;
     }
 
     h2 {
       padding: 0 0 22px;
       @include g-font-spacingKilled(18, 2);
+      background-repeat: no-repeat, no-repeat;
+      background-position: left bottom, right bottom;
+      background-image: url("../imgs/main/4-1.png"), url("../imgs/main/4-2.png");
+      background-size: 50% 27px, 50% 27px;
     }
 
     &__caption-lower {
