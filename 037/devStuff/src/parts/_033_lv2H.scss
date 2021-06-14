@@ -2108,17 +2108,48 @@
     $_lineHeight_caption: 1;
     $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
     $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
-    text-align: center;
-    position: relative;
     z-index: z(lv2H, 1);
+    position: relative;
+    margin: 40px auto;
+    display: table;
+    text-align: center;
     a {
       &:hover {
-        color: $lv2H_hoverTextColor;
+        color: $lv2H22_hoverTextColor;
       }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 100%;
+      width: 2px;
+      height: 35px;
+      left: 50%;
+      background-color: $lv2H22_BGColor;
+      transform: rotate(40deg);
+      transform-origin: 50% 100%;
+      margin-bottom: 5px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 2px;
+      height: 35px;
+      left: 50%;
+      background-color: $lv2H22_BGColor;
+      transform: rotate(40deg);
+      transform-origin: 50% 0;
+      margin-top: 5px;
     }
 
     h2 {
       @include g-font-layout($_fontSize, 1, $layout);
+      display: inline-block;
+      position: relative;
     }
 
     &__caption-upper {
@@ -2134,16 +2165,20 @@
     &--size-1 {
       h2 {
         @include g-font-layout($_fontSize_s, 1, $layout);
+        padding-bottom: 13px;
+        &::after {
+          width: 50px;
+        }
       }
 
       #{$_block}__caption-upper {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
-        padding-bottom: 4px;
+        padding-bottom: 8px;
       }
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
-        padding-top: 4px;
+        padding-top: 13px;
       }
     }
 
@@ -2159,16 +2194,20 @@
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_l, 1, $layout);
-        padding-top: 8px;
+        padding-top: 15px;
       }
     }
 
     &--align-l {
-      text-align: left;
+      justify-content: start;
+      display: table;
+      margin-right: auto;
     }
 
     &--align-r {
-      text-align: right;
+      justify-content: flex-end;
+      display: table;
+      margin-left: auto;
     }
   }
 }
