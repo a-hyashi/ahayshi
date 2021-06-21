@@ -1596,11 +1596,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin-left: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin-right: 0;
     }
   }
 
@@ -1692,11 +1692,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin-left: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin-right: 0;
     }
   }
 
@@ -1788,11 +1788,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin-left: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin-right: 0;
     }
   }
 
@@ -1884,11 +1884,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin-left: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin-right: 0;
     }
   }
 
@@ -2102,40 +2102,43 @@
     $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     z-index: z(lv2H, 1);
     position: relative;
-    margin: 40px auto;
     display: table;
+    margin: 0 auto;
+    padding: 45px 0;
     text-align: center;
     a {
       &:hover {
-        color: $lv2H22_hoverTextColor;
+        color: $lv2H23_hoverTextColor;
       }
     }
 
-    &::before {
-      content: "";
-      display: block;
+    > span {
       position: absolute;
-      bottom: 100%;
-      width: 2px;
-      height: 35px;
+      z-index: z(bg, -1);
+      top: 50%;
       left: 50%;
-      background-color: $lv2H22_BGColor;
-      transform: rotate(40deg);
-      transform-origin: 50% 100%;
-      margin-bottom: 5px;
-    }
+      width: 2px;
+      // 補足のオンオフ、複数行表示を見て値を調整する
+      height: calc(120% - 10px);
+      transform: translate(-50%, -50%) rotate(40deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        display: block;
+        height: 35px;
+        width: 100%;
+        background-color: $lv2H23_BGColor;
+      }
 
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 2px;
-      height: 35px;
-      left: 50%;
-      background-color: $lv2H22_BGColor;
-      transform: rotate(40deg);
-      transform-origin: 50% 0;
-      margin-top: 5px;
+      &::after {
+        content: "";
+        display: block;
+        height: 35px;
+        width: 100%;
+        background-color: $lv2H23_BGColor;
+      }
     }
 
     h2 {
@@ -2146,20 +2149,28 @@
 
     &__caption-upper {
       @include g-font-layout($_fontSize_caption, 1, $layout);
-      padding-bottom: 8px;
+      padding-bottom: 6px;
     }
 
     &__caption-lower {
       @include g-font-layout($_fontSize_caption, 1, $layout);
-      padding-top: 8px;
+      padding-top: 6px;
     }
 
     &--size-1 {
+      padding: 40px 0;
+      > span {
+        &::before {
+          height: 30px;
+        }
+
+        &::after {
+          height: 30px;
+        }
+      }
+
       h2 {
         @include g-font-layout($_fontSize_s, 1, $layout);
-        &::after {
-          width: 50px;
-        }
       }
 
       #{$_block}__caption-upper {
@@ -2168,6 +2179,354 @@
 
       #{$_block}__caption-lower {
         @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      padding: 50px 0;
+      > span {
+        &::before {
+          height: 40px;
+        }
+
+        &::after {
+          height: 40px;
+        }
+      }
+
+      h2 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      margin-left: 0;
+    }
+
+    &--align-r {
+      margin-right: 0;
+    }
+  }
+
+  .t0-b-lv2H24 {
+    $_block: &;
+    $_fontSize: 32;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 16;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    z-index: z(lv2H, 1);
+    position: relative;
+    display: table;
+    margin: 0 auto;
+    padding: 45px 0;
+    text-align: center;
+    a {
+      &:hover {
+        color: $lv2H24_hoverTextColor;
+      }
+    }
+
+    > span {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      // 補足のオンオフ、複数行表示を見て値を調整する
+      height: calc(120% - 10px);
+      transform: translate(-50%, -50%) rotate(40deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        display: block;
+        height: 35px;
+        width: 100%;
+        background-color: $lv2H24_BGColor;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 35px;
+        width: 100%;
+        background-color: $lv2H24_BGColor;
+      }
+    }
+
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      display: inline-block;
+      position: relative;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 6px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 6px;
+    }
+
+    &--size-1 {
+      padding: 40px 0;
+      > span {
+        &::before {
+          height: 30px;
+        }
+
+        &::after {
+          height: 30px;
+        }
+      }
+
+      h2 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      padding: 50px 0;
+      > span {
+        &::before {
+          height: 40px;
+        }
+
+        &::after {
+          height: 40px;
+        }
+
+        h2 {
+          @include g-font-layout($_fontSize_l, 1, $layout);
+        }
+
+        #{$_block}__caption-upper {
+          @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        }
+
+        #{$_block}__caption-lower {
+          @include g-font-layout($_fontSize_caption_l, 1, $layout);
+        }
+      }
+
+      &--align-l {
+        margin-left: 0;
+      }
+
+      &--align-r {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .t0-b-lv2H25 {
+    $_block: &;
+    $_fontSize: 32;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 16;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    z-index: z(lv2H, 1);
+    position: relative;
+    display: table;
+    margin: 0 auto;
+    padding: 45px 0;
+    text-align: center;
+    a {
+      &:hover {
+        color: $lv2H25_hoverTextColor;
+      }
+    }
+
+    > span {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      // 補足のオンオフ、複数行表示を見て値を調整する
+      height: calc(120% - 10px);
+      transform: translate(-50%, -50%) rotate(40deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        display: block;
+        height: 35px;
+        width: 100%;
+        background-color: $lv2H25_BGColor;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 35px;
+        width: 100%;
+        background-color: $lv2H25_BGColor;
+      }
+    }
+
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      display: inline-block;
+      position: relative;
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 6px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 6px;
+    }
+
+    &--size-1 {
+      padding: 40px 0;
+      > span {
+        &::before {
+          height: 30px;
+        }
+
+        &::after {
+          height: 30px;
+        }
+      }
+
+      h2 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+      }
+    }
+
+    &--size-3 {
+      padding: 50px 0;
+      > span {
+        &::before {
+          height: 40px;
+        }
+
+        &::after {
+          height: 40px;
+        }
+      }
+
+      h2 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      margin-left: 0;
+    }
+
+    &--align-r {
+      margin-right: 0;
+    }
+  }
+
+  .t0-b-lv2H26 {
+    $_block: &;
+    $_fontSize: 32;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 16;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    text-align: center;
+    position: relative;
+    z-index: z(lv2H, 1);
+    color: $lv2H26_textColor;
+    a {
+      &:hover {
+        color: $lv2H26_hoverTextColor;
+      }
+    }
+
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      padding: .8rem calc(.8rem + 10px) calc(.8rem + 10px) .8rem;
+      background: $lv2H26_BGColor;
+      &::before {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        width: 100%;
+        height: 100%;
+        content: "";
+        border: 3px solid $lv2H26_borderColor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 20px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 10px;
+    }
+
+    &--size-1 {
+      h2 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-bottom: 15px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-top: 10px;
       }
     }
 
@@ -2186,15 +2545,96 @@
     }
 
     &--align-l {
-      justify-content: start;
-      display: table;
-      margin-right: auto;
+      text-align: left;
     }
 
     &--align-r {
-      justify-content: flex-end;
-      display: table;
-      margin-left: auto;
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv2H27 {
+    $_block: &;
+    $_fontSize: 32;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 16;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
+    text-align: center;
+    position: relative;
+    z-index: z(lv2H, 1);
+    color: $lv2H27_textColor;
+    a {
+      &:hover {
+        color: $lv2H27_hoverTextColor;
+      }
+    }
+
+    h2 {
+      @include g-font-layout($_fontSize, 1, $layout);
+      position: relative;
+      padding: .8rem calc(.8rem + 10px) calc(.8rem + 10px) .8rem;
+      background: $lv2H27_BGColor;
+      &::before {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        width: 100%;
+        height: 100%;
+        content: "";
+        border: 3px solid $lv2H27_borderColor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-bottom: 20px;
+    }
+
+    &__caption-lower {
+      @include g-font-layout($_fontSize_caption, 1, $layout);
+      padding-top: 10px;
+    }
+
+    &--size-1 {
+      h2 {
+        @include g-font-layout($_fontSize_s, 1, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-bottom: 15px;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_s, 1, $layout);
+        padding-top: 10px;
+      }
+    }
+
+    &--size-3 {
+      h2 {
+        @include g-font-layout($_fontSize_l, 1, $layout);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font-layout($_fontSize_caption_l, 1, $layout);
+      }
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-r {
+      text-align: right;
     }
   }
 }
@@ -2906,7 +3346,6 @@
     $_lineHeight_caption: 1;
     position: relative;
     display: table;
-
     &__icon {
       position: absolute;
       top: 50%;
@@ -3050,11 +3489,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin: 0;
     }
   }
 
@@ -3095,11 +3534,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin: 0;
     }
   }
 
@@ -3140,11 +3579,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin: 0;
     }
   }
 
@@ -3185,11 +3624,11 @@
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      margin: 0;
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      margin: 0;
     }
   }
 
@@ -3296,6 +3735,299 @@
       justify-content: flex-end;
       display: table;
       margin-left: auto;
+    }
+  }
+
+  .t0-b-lv2H23 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 14;
+    $_lineHeight_caption: 1;
+    text-align: center;
+    position: relative;
+    z-index: z(lv2H, 1);
+    display: table;
+    margin: 0 auto;
+    padding: 35px 0;
+    > span {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      // 補足のオンオフ、複数行表示を見て値を調整する
+      height: calc(120% - 10px);
+      transform: translate(-50%, -50%) rotate(40deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        display: block;
+        height: 25px;
+        width: 100%;
+        background-color: $lv2H23_BGColor;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 25px;
+        width: 100%;
+        background-color: $lv2H23_BGColor;
+      }
+    }
+
+    h2 {
+      @include g-font($_fontSize);
+      display: inline-block;
+      position: relative;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      padding-bottom: 5px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      padding-top: 5px;
+    }
+
+    &--align-l {
+      margin-left: 0;
+    }
+
+    &--align-r {
+      margin-right: 0;
+    }
+  }
+
+  .t0-b-lv2H24 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 14;
+    $_lineHeight_caption: 1;
+    text-align: center;
+    position: relative;
+    z-index: z(lv2H, 1);
+    display: table;
+    margin: 0 auto;
+    padding: 35px 0;
+    > span {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      // 補足のオンオフ、複数行表示を見て値を調整する
+      height: calc(120% - 10px);
+      transform: translate(-50%, -50%) rotate(40deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        display: block;
+        height: 25px;
+        width: 100%;
+        background-color: $lv2H24_BGColor;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 25px;
+        width: 100%;
+        background-color: $lv2H24_BGColor;
+      }
+    }
+
+    h2 {
+      @include g-font($_fontSize);
+      display: inline-block;
+      position: relative;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      padding-bottom: 5px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      padding-top: 5px;
+    }
+
+    &--align-l {
+      margin-left: 0;
+    }
+
+    &--align-r {
+      margin-right: 0;
+    }
+  }
+
+  .t0-b-lv2H25 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 14;
+    $_lineHeight_caption: 1;
+    text-align: center;
+    position: relative;
+    z-index: z(lv2H, 1);
+    display: table;
+    margin: 0 auto;
+    padding: 35px 0;
+    > span {
+      position: absolute;
+      z-index: z(bg, -1);
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      // 補足のオンオフ、複数行表示を見て値を調整する
+      height: calc(120% - 10px);
+      transform: translate(-50%, -50%) rotate(40deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        display: block;
+        height: 25px;
+        width: 100%;
+        background-color: $lv2H25_BGColor;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 25px;
+        width: 100%;
+        background-color: $lv2H25_BGColor;
+      }
+    }
+
+    h2 {
+      @include g-font($_fontSize);
+      display: inline-block;
+      position: relative;
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      padding-bottom: 5px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      padding-top: 5px;
+    }
+
+    &--align-l {
+      margin-left: 0;
+    }
+
+    &--align-r {
+      margin-right: 0;
+    }
+  }
+
+  .t0-b-lv2H26 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 14;
+    $_lineHeight_caption: 1;
+    text-align: center;
+    position: relative;
+    z-index: z(lv2H, 1);
+    color: $lv2H26_textColor;
+    h2 {
+      @include g-font($_fontSize);
+      position: relative;
+      padding: .8rem calc(.8rem + 10px) calc(.8rem + 10px) .8rem;
+      background: $lv2H26_BGColor;
+      &::before {
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        width: 100%;
+        height: 100%;
+        content: "";
+        border: 2px solid $lv2H26_borderColor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      padding-bottom: 10px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      padding-top: 5px;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+
+  .t0-b-lv2H27 {
+    $_fontSize: 22;
+    $_fontSizeDiff: 4;
+    $_fontSize_s: $_fontSize - $_fontSizeDiff;
+    $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 14;
+    $_lineHeight_caption: 1;
+    text-align: center;
+    position: relative;
+    z-index: z(lv2H, 1);
+    color: $lv2H27_textColor;
+    h2 {
+      @include g-font($_fontSize);
+      position: relative;
+      padding: .8rem calc(.8rem + 10px) calc(.8rem + 10px) .8rem;
+      background: $lv2H27_BGColor;
+      &::before {
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        width: 100%;
+        height: 100%;
+        content: "";
+        border: 2px solid $lv2H27_borderColor;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font($_fontSize_caption);
+      padding-bottom: 10px;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption);
+      padding-top: 5px;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-r {
+      text-align: right;
     }
   }
 }
