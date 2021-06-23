@@ -1,0 +1,34 @@
+@if $device == PC {
+  .b-sliderImage {
+    $_block: &;
+    &__inner {
+      //暗い背景色のテーマでホバー時の半透過で暗くならないように
+      background-color: #fff;
+    }
+
+    &__media {
+      display: block;
+      width: 100%;
+      transition: .3s ease;
+    }
+
+    a:hover {
+      #{$_block}__media {
+        opacity: .8;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .b-sliderImage {
+    &__inner {
+      background-color: #fff;
+    }
+
+    &__media {
+      display: block;
+      width: 100%;
+    }
+  }
+}
