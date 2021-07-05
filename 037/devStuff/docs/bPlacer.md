@@ -291,15 +291,10 @@
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|28|4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|29|4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|30|4%||15px|
-<<<<<<< HEAD
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|31|4%||15px|
 |05.メディア|footer|184_フッターボックス画像|.t0-b-footerUnit-media|32|4%||15px|
 |05.メディア|footer|195_フッターメディアブロック|.t0-b-footerMedia||0||0|
 |05.メディア|header|207_ヘッダー画像×横２|.t0-b-headerImgDouble||0||0|
-=======
-|05.メディア|footer|195_フッターメディアブロック|.t0-b-footerMedia||0||0px|
-|05.メディア|header|207_ヘッダー画像×横２|.t0-b-headerImgDouble||0||0px|
->>>>>>> master
 |05.メディア|header|209_ヘッダー自由HTML|.t0-b-headerUnit-freeHtml||2%||15px|
 |05.メディア|main|213_画像×横２〜５|.t0-b-mediaDouble||4%||15px|
 |05.メディア|main|213_画像×横２〜５|.t0-b-media3col||4%||15px|
