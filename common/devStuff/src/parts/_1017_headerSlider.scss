@@ -2,10 +2,12 @@
   .b-headerSlider {
     $_block: &;
     position: relative;
-    width: $areaContainerWidth;
     margin-right: auto;
     margin-left: auto;
     &__container {
+      width: $areaContainerWidth;
+      margin-left: auto;
+      margin-right: auto;
       // スライド表示の時に次の表示待ちの画像を隠すため
       position: relative;
       overflow: hidden;
@@ -141,7 +143,9 @@
     }
 
     &--widthMax {
-      width: 100%;
+      #{$_block}__container {
+        width: 100%;
+      }
     }
   }
 }
