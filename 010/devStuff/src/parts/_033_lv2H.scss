@@ -6,6 +6,10 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 16;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
     a {
       text-decoration: none;
       color: #2f1818;
@@ -32,12 +36,22 @@
       height: 50px;
     }
 
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-left: 26px;
+    }
+
     h2 {
       display: table-cell;
       padding: 0 0 0 12px;
       @include g-font($_fontSize, $_lineHeight);
       text-align: left;
       vertical-align: middle;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-left: 26px;
     }
 
     &--size-1 {
@@ -50,6 +64,16 @@
       h2 {
         @include g-font($_fontSize_s, $_lineHeight);
         padding-left: 12px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-left: 26px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-left: 26px * .8;
       }
     }
 
@@ -64,6 +88,16 @@
         @include g-font($_fontSize_l, $_lineHeight);
         padding-left: 12px * 1.2;
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-left: 26px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-left: 26px * 1.2;
+      }
     }
 
     &--align-l {
@@ -72,6 +106,13 @@
 
     &--align-c {
       text-align: center;
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     &--align-r {
@@ -86,6 +127,10 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 16;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
 
     padding: 1px;
     border: 1px solid #2f1818;
@@ -95,6 +140,7 @@
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(58, 58, 58, .3)), url("../imgs/t0-b-lv2H/bg6.png");
     background-repeat: repeat;
     background-position: left top;
+    z-index: z(lv2H, 1);
     > span {
       position: absolute;
       top: 1px;
@@ -125,6 +171,12 @@
       }
     }
 
+    > div {
+      padding: 15px 30px;
+      position: relative;
+      z-index: z(lv2H, 2);
+    }
+
     a {
       text-decoration: none;
       color: #2f1818;
@@ -134,11 +186,18 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+    }
+
     h2 {
-      padding: 15px 30px;
       @include g-font($_fontSize, $_lineHeight);
       position: relative;
       z-index: 10;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
     }
 
     &--size-1 {
@@ -168,9 +227,20 @@
         }
       }
 
+      > div {
+        padding: 15px * .8 30px * .8;
+      }
+
       h2 {
         @include g-font($_fontSize_s, $_lineHeight);
-        padding: 15px * .8 30px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
       }
     }
 
@@ -201,9 +271,20 @@
         }
       }
 
+      > div {
+        padding: 15px * 1.2 30px * 1.2;
+      }
+
       h2 {
         @include g-font($_fontSize_l, $_lineHeight);
-        padding: 15px * 1.2 30px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
       }
     }
 
@@ -227,6 +308,10 @@
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 16;
+    $_lineHeight_caption: 1;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption+$_fontSizeDiff;
 
     padding: 10px 10px 10px 30px;
     position: relative;
@@ -244,8 +329,18 @@
       background-color: #581e12;
     }
 
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+    }
+
     h2 {
       @include g-font($_fontSize, $_lineHeight);
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
     }
 
     a {
@@ -270,6 +365,14 @@
       h2 {
         @include g-font($_fontSize_s, $_lineHeight);
       }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+      }
     }
 
     &--size-3 {
@@ -284,6 +387,14 @@
 
       h2 {
         @include g-font($_fontSize_l, $_lineHeight);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
       }
     }
 
@@ -326,12 +437,22 @@
       background-size: 100%;
     }
 
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding-left: 25px;
+    }
+
     h2 {
       display: table-cell;
       padding: 0 0 0 12px;
       @include g-font-spacingKilled(18, 2);
       text-align: left;
       vertical-align: middle;
+    }
+
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding-left: 25px;
     }
 
     &--align-l {
@@ -356,6 +477,7 @@
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(58, 58, 58, .3)), url("../imgs/t0-b-lv2H/bg6.png");
     background-repeat: repeat;
     background-position: left top;
+    z-index: z(lv2H, 1);
     > span {
       position: absolute;
       top: 1px;
@@ -385,17 +507,32 @@
       }
     }
 
+    > div {
+      padding: 10px;
+      position: relative;
+      z-index: z(lv2H, 2);
+    }
+
     a {
       text-decoration: none;
       color: #2f1818;
       position: relative;
     }
 
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding-bottom: 8px;
+    }
+
     h2 {
-      padding: 10px;
       @include g-font-spacingKilled(18, 2);
       position: relative;
       z-index: 10;
+    }
+
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding-top: 8px;
     }
 
     &--align-l {
@@ -428,8 +565,18 @@
       background-color: #581e12;
     }
 
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding-bottom: 5px;
+    }
+
     h2 {
       @include g-font(18, 1);
+    }
+
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding-top: 5px;
     }
 
     a {
