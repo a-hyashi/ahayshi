@@ -147,6 +147,8 @@ gulp.task('make-allparts-datajson', () => make_allparts_datajson(''));
 gulp.task('make-allparts-datajson2', () => make_allparts_datajson('2'));
 gulp.task('make-allparts-datajson3', () => make_allparts_datajson('3'));
 gulp.task('make-allparts-datajson4', () => make_allparts_datajson('4'));
+gulp.task('make-allparts-datajson5', () => make_allparts_datajson('5'));
+gulp.task('make-allparts-datajson6', () => make_allparts_datajson('6'));
 
 const make_allparts_datajson = (num) => {
   return templateFiles.makeAllDatajsonFull(
@@ -161,6 +163,8 @@ gulp.task('make-html', () => makeHtml(''));
 gulp.task('make-html2', () => makeHtml('2'));
 gulp.task('make-html3', () => makeHtml('3'));
 gulp.task('make-html4', () => makeHtml('4'));
+gulp.task('make-html5', () => makeHtml('5'));
+gulp.task('make-html6', () => makeHtml('6'));
 
 const makeHtml = (num) => {
   return dataJsonFiles.makeHtmlFiles(`./temp/html${num}/`, `./temp/datajson${num}/`, config.html_templates_dir, false);
@@ -171,6 +175,8 @@ gulp.task('make-unittest', () => htmlFiles.makeUnitTestFiles('./temp/html/', './
 gulp.task('make-unittest2', () => htmlFiles.makeUnitTestFiles('./temp/html2/', './temp/unittest/'));
 gulp.task('make-unittest3', () => htmlFiles.makeUnitTestFiles('./temp/html3/', './temp/unittest/'));
 gulp.task('make-unittest4', () => htmlFiles.makeUnitTestFiles('./temp/html4/', './temp/unittest/'));
+gulp.task('make-unittest5', () => htmlFiles.makeUnitTestFiles('./temp/html5/', './temp/unittest/'));
+gulp.task('make-unittest6', () => htmlFiles.makeUnitTestFiles('./temp/html6/', './temp/unittest/'));
 
 // スタイルガイド作成
 gulp.task('make-aigis', () => {
@@ -190,14 +196,30 @@ gulp.task('update-styleguide',
     // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
     gulp.parallel('del-tempfile', 'del-styleguide', 'update-styleguide-css'),
     // ファイルが多すぎてnode.jsがエラーになるので分割して実行
-    gulp.parallel('make-allparts-datajson', 'make-allparts-datajson2', 'make-allparts-datajson3', 'make-allparts-datajson4'),
+    gulp.parallel(
+      'make-allparts-datajson',
+      'make-allparts-datajson2',
+      'make-allparts-datajson3',
+      'make-allparts-datajson4',
+      'make-allparts-datajson5',
+      'make-allparts-datajson6'
+    ),
     // 同時実行件数が多いとエラーになるので直列処理する
     'make-html',
     'make-html2',
     'make-html3',
     'make-html4',
+    'make-html5',
+    'make-html6',
     // htmlからmdファイル作成
-    gulp.parallel('make-unittest', 'make-unittest2', 'make-unittest3', 'make-unittest4'),
+    gulp.parallel(
+      'make-unittest',
+      'make-unittest2',
+      'make-unittest3',
+      'make-unittest4',
+      'make-unittest5',
+      'make-unittest6'
+    ),
     // styleguide作成
     'make-aigis',
     // 作業ディレクトリを削除
