@@ -154,7 +154,7 @@ const make_allparts_datajson = (num) => {
   return templateFiles.makeAllDatajsonFull(
     config.html_templates_dir,
     `./temp/datajson${num}/`,
-    `./btool-settings/parts-categories${num}.json`
+    `./btool-settings/blocks${num}.json`
   );
 }
 
