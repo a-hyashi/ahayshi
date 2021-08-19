@@ -192,38 +192,42 @@ gulp.task('del-tempfile', () => del('./temp'));
 
 // スタイルガイド作成
 gulp.task('update-styleguide',
-  gulp.series(
-    // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
-    gulp.parallel('del-tempfile', 'del-styleguide', 'update-styleguide-css'),
-    // ファイルが多すぎてnode.jsがエラーになるので分割して実行
-    gulp.parallel(
-      'make-allparts-datajson',
-      'make-allparts-datajson2',
-      'make-allparts-datajson3',
-      'make-allparts-datajson4',
-      'make-allparts-datajson5',
-      'make-allparts-datajson6'
-    ),
-    // 同時実行件数が多いとエラーになるので直列処理する
-    'make-html',
-    'make-html2',
-    'make-html3',
-    'make-html4',
-    'make-html5',
-    'make-html6',
-    // htmlからmdファイル作成
-    gulp.parallel(
-      'make-unittest',
-      'make-unittest2',
-      'make-unittest3',
-      'make-unittest4',
-      'make-unittest5',
-      'make-unittest6'
-    ),
-    // styleguide作成
-    'make-aigis',
-    // 作業ディレクトリを削除
-    'del-tempfile'
+  gulp.parallel(
+    gulp.series('del-styleguide', 'update-styleguide-css'),
+    gulp.series(
+      // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
+      'del-tempfile',
+      // ファイルが多すぎてnode.jsがエラーになるので分割して実行
+      gulp.parallel(
+        'make-allparts-datajson',
+        'make-allparts-datajson2',
+        'make-allparts-datajson3',
+        'make-allparts-datajson4',
+        'make-allparts-datajson5',
+        'make-allparts-datajson6'
+      ),
+      // 同時実行件数が多いとエラーになるので直列処理する
+      'make-html',
+      'make-html2',
+      'make-html3',
+      'make-html4',
+      'make-html5',
+      'make-html6',
+      // htmlからmdファイル作成
+      gulp.parallel(
+        'make-unittest',
+        'make-unittest2',
+        'make-unittest3',
+        'make-unittest4',
+        'make-unittest5',
+        'make-unittest6'
+      ),
+      // styleguide作成
+      'make-aigis',
+      // 作業ディレクトリを削除
+      'del-tempfile'
+
+    )
   )
 );
 
