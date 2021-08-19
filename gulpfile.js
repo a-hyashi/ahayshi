@@ -171,12 +171,12 @@ const makeHtml = (num) => {
 }
 
 // スタイルガイド作成mdファイル作成
-gulp.task('make-unittest', () => htmlFiles.makeUnitTestFiles('./temp/html/', './temp/unittest/'));
-gulp.task('make-unittest2', () => htmlFiles.makeUnitTestFiles('./temp/html2/', './temp/unittest/'));
-gulp.task('make-unittest3', () => htmlFiles.makeUnitTestFiles('./temp/html3/', './temp/unittest/'));
-gulp.task('make-unittest4', () => htmlFiles.makeUnitTestFiles('./temp/html4/', './temp/unittest/'));
-gulp.task('make-unittest5', () => htmlFiles.makeUnitTestFiles('./temp/html5/', './temp/unittest/'));
-gulp.task('make-unittest6', () => htmlFiles.makeUnitTestFiles('./temp/html6/', './temp/unittest/'));
+gulp.task('make-unittest', () => htmlFiles.makeUnitTestFiles('./temp/datajson/', './temp/html/', './temp/unittest/'));
+gulp.task('make-unittest2', () => htmlFiles.makeUnitTestFiles('./temp/datajson2/', './temp/html2/', './temp/unittest/'));
+gulp.task('make-unittest3', () => htmlFiles.makeUnitTestFiles('./temp/datajson3/', './temp/html3/', './temp/unittest/'));
+gulp.task('make-unittest4', () => htmlFiles.makeUnitTestFiles('./temp/datajson4/', './temp/html4/', './temp/unittest/'));
+gulp.task('make-unittest5', () => htmlFiles.makeUnitTestFiles('./temp/datajson5/', './temp/html5/', './temp/unittest/'));
+gulp.task('make-unittest6', () => htmlFiles.makeUnitTestFiles('./temp/datajson6/', './temp/html6/', './temp/unittest/'));
 
 // スタイルガイド作成
 gulp.task('make-aigis', () => {
