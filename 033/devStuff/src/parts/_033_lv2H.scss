@@ -1,7 +1,6 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of3} {
     position: relative;
-    display: table;
     color: #555;
     z-index: z(lv2H, 1);
     h2 {
@@ -10,6 +9,7 @@
       } @else {
         @include g-font(24, 1);
       }
+      display: inline-block;
       padding-left: 31px;
       background-image: url("../imgs/t0-b-lv2H/1/bg.png");
       background-repeat: no-repeat;
@@ -17,6 +17,25 @@
       background-size: 21px 40px;
     }
 
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 0 0 5px 31px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 5px 0 0 31px;
+    }
+
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
@@ -25,6 +44,24 @@
           @include g-font(20, 1);
         }
         background-size: 21px * .8 40px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 0 0 3px 31px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 3px 0 0 31px;
       }
     }
 
@@ -37,18 +74,43 @@
         }
         background-size: 21px * 1.2 40px * 1.2;
       }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 0 0 7px 31px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 7px 0 0 31px;
+      }
     }
 
     &--align-l {
-      margin: 0 auto 0 0;
+      text-align: left;
     }
 
     &--align-c {
-      margin: 0 auto;
+      text-align: center;
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     &--align-r {
-      margin: 0 0 0 auto;
+      text-align: right;
     }
 
     a {
@@ -61,37 +123,12 @@
   }
 
   .t0-b-lv2H#{$variation2of3} {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     margin: 0 auto;
     color: #555;
-    background: url("../imgs/t0-b-lv2H/2/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/2/bg.png") right bottom no-repeat;
     position: relative;
     z-index: z(lv2H, 1);
-    > div {
-      display: inline-block;
-    }
-
-    > div > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    &__icon {
-      position: relative;
-      width: 32px;
-      height: 23px;
-      background-image: url("../imgs/t0-b-lv2H/2/bg2.png");
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 32px 23px;
-    }
-
-    &__iconPlacer {
-      > * {
-        display: block;
-      }
-    }
-
+    background: url("../imgs/t0-b-lv2H/2/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/2/bg.png") right bottom no-repeat;
     h2 {
       @if $layout == "N00" {
         @include g-font(28, 1);
@@ -99,39 +136,105 @@
         @include g-font(24, 1);
       }
       box-sizing: border-box;
-      width: 100%;
-      padding: 0 0 0 10px;
+      padding-left: 42px;
+      position: relative;
+      display: inline-block;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 23px;
+        background-image: url("../imgs/t0-b-lv2H/2/bg2.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 32px 23px;
+      }
+    }
+
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 0 0 8px 42px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 8px 0 0 42px;
     }
     $_block: &;
     &--size-1 {
-      #{$_block}__icon {
-        width: 32px * .8;
-        height: 23px * .8;
-        background-size: 32px * .8 23px * .8;
-      }
-
       h2 {
         @if $layout == "N00" {
           @include g-font(24, 1);
         } @else {
           @include g-font(20, 1);
         }
+        &::before {
+          width: 32px * .8;
+          height: 23px * .8;
+          background-size: 32px * .8 23px * .8;
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 0 0 6px 42px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 6px 0 0 42px;
       }
     }
 
     &--size-3 {
-      #{$_block}__icon {
-        width: 32px * 1.2;
-        height: 23px * 1.2;
-        background-size: 32px * 1.2 23px * 1.2;
-      }
-
       h2 {
         @if $layout == "N00" {
           @include g-font(32, 1);
         } @else {
           @include g-font(28, 1);
         }
+        &::before {
+          width: 32px * 1.2;
+          height: 23px * 1.2;
+          background-size: 32px * 1.2 23px * 1.2;
+        }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 0 0 10px 42px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 10px 0 0 42px;
       }
     }
 
@@ -141,6 +244,13 @@
 
     &--align-c {
       text-align: center;
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     &--align-r {
@@ -184,15 +294,38 @@
       }
     }
 
+    > div {
+      padding: 4px 0;
+    }
+
     h2 {
       @if $layout == "N00" {
         @include g-font(28, 1);
       } @else {
         @include g-font(24, 1);
       }
-      padding: 10px 10px 12px;
+      padding: 6px 10px 8px;
     }
 
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 6px 10px 2px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 2px 10px 8px;
+    }
+
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
@@ -200,6 +333,24 @@
         } @else {
           @include g-font(20, 1);
         }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 6px 10px 0;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 0 10px 8px;
       }
     }
 
@@ -210,6 +361,24 @@
         } @else {
           @include g-font(28, 1);
         }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 6px 10px 4px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 4px 10px 8px;
       }
     }
 
@@ -248,6 +417,25 @@
       padding: 0 15px;
     }
 
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 0 15px 8px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 8px 15px 0;
+    }
+
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
@@ -255,6 +443,24 @@
         } @else {
           @include g-font(20, 1);
         }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 0 15px 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 6px 15px 0;
       }
     }
 
@@ -265,6 +471,24 @@
         } @else {
           @include g-font(28, 1);
         }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 0 15px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 10px 15px 0;
       }
     }
 
@@ -325,6 +549,25 @@
       }
     }
 
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 0 35px 8px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding: 8px 35px 0;
+    }
+
+    $_block: &;
     &--size-1 {
       h2 {
         @if $layout == "N00" {
@@ -332,6 +575,24 @@
         } @else {
           @include g-font(20, 1);
         }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 0 35px 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding: 6px 35px 0;
       }
     }
 
@@ -343,12 +604,38 @@
           @include g-font(28, 1);
         }
       }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 0 35px 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding: 10px 35px 0;
+      }
     }
 
     &--align-l {
       text-align: left;
       h2 {
         max-width: calc(100% - (50px + 35px));
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-left: 0;
       }
     }
@@ -363,21 +650,23 @@
         max-width: calc(100% - (50px + 35px));
         padding-right: 0;
       }
+
+      #{$_block}__caption-upper {
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-right: 0;
+      }
     }
   }
 
   .t0-b-lv2H6 {
-    padding-bottom: 10px;
     margin: 0 auto;
     color: #555;
     text-align: center;
-    background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/6/bg.png") right bottom no-repeat;
     position: relative;
     z-index: z(lv2H, 1);
-    > div {
-      display: inline-block;
-    }
-
     h2 {
       @if $layout == "N00" {
         @include g-font(28, 1);
@@ -385,8 +674,37 @@
         @include g-font(24, 1);
       }
       box-sizing: border-box;
-      width: 100%;
+      margin-bottom: 11px;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -11px;
+        width: 100%;
+        height: 7px;
+        background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/6/bg.png") right bottom no-repeat;
+      }
     }
+
+    &__caption-upper {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding-bottom: 8px;
+    }
+
+    &__caption-lower {
+      @if $layout == "N00" {
+        @include g-font(18, 1);
+      } @else {
+        @include g-font(14, 1);
+      }
+      padding-top: 10px;
+    }
+
     $_block: &;
     &--size-1 {
       h2 {
@@ -395,6 +713,24 @@
         } @else {
           @include g-font(20, 1);
         }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding-bottom: 6px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(14, 1);
+        } @else {
+          @include g-font(10, 1);
+        }
+        padding-top: 8px;
       }
     }
 
@@ -405,6 +741,24 @@
         } @else {
           @include g-font(28, 1);
         }
+      }
+
+      #{$_block}__caption-upper {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding-bottom: 10px;
+      }
+
+      #{$_block}__caption-lower {
+        @if $layout == "N00" {
+          @include g-font(22, 1);
+        } @else {
+          @include g-font(18, 1);
+        }
+        padding-top: 12px;
       }
     }
 
@@ -434,6 +788,7 @@
 
 @if $device == SP {
   .t0-b-lv2H#{$variation1of3} {
+    $_block: &;
     margin: 0 auto;
     h2 {
       @include g-font(20, 1);
@@ -444,12 +799,29 @@
       background-position: left center;
     }
 
+    &__caption-upper {
+      @include g-font(12, 1);
+      padding-left: 30px;
+    }
+
+    &__caption-lower {
+      @include g-font(12, 1);
+      padding-left: 30px;
+    }
+
     &--align-l {
       text-align: left;
     }
 
     &--align-c {
       text-align: center;
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     &--align-r {
@@ -463,39 +835,41 @@
   }
 
   .t0-b-lv2H#{$variation2of3} {
+    $_block: &;
     max-width: 740px;
     padding-bottom: 10px;
     margin: 0 auto;
     color: #555;
     background: url("../imgs/t0-b-lv2H/2/bg.png") left bottom no-repeat;
-    > div {
-      display: inline-block;
+    &__caption-upper {
+      @include g-font(12, 1);
+      padding: 0 0 5px 42px;
     }
 
-    > div > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    &__icon {
-      position: relative;
-      width: 32px;
-      height: 23px;
-      background-image: url("../imgs/t0-b-lv2H/2/bg2.png");
-      background-repeat: no-repeat;
-      background-position: left center;
-    }
-
-    &__iconPlacer {
-      > * {
-        display: block;
-      }
+    &__caption-lower {
+      @include g-font(12, 1);
+      padding: 5px 0 0 42px;
     }
 
     h2 {
       @include g-font(20, 1);
       box-sizing: border-box;
-      padding: 0 0 0 5px;
+      padding-left: 42px;
+      position: relative;
+      display: inline-block;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 23px;
+        background-image: url("../imgs/t0-b-lv2H/2/bg2.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 32px 23px;
+      }
     }
 
     &--align-l {
@@ -504,6 +878,13 @@
 
     &--align-c {
       text-align: center;
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-left: 0;
+      }
     }
 
     &--align-r {
@@ -535,9 +916,23 @@
       text-decoration: none;
     }
 
+    > div {
+      padding: 5px 0;
+    }
+
     h2 {
       @include g-font(20, 1);
-      padding: 10px 7px 12px;
+      padding: 5px 7px 7px;
+    }
+
+    &__caption-upper {
+      @include g-font(12, 1);
+      padding: 5px 7px 0;
+    }
+
+    &__caption-lower {
+      @include g-font(12, 1);
+      padding: 0 7px 7px;
     }
 
     &--align-l {
@@ -567,6 +962,16 @@
       padding: 0 7px;
     }
 
+    &__caption-upper {
+      @include g-font(12, 1);
+      padding: 0 7px 5px;
+    }
+
+    &__caption-lower {
+      @include g-font(12, 1);
+      padding: 5px 7px 0;
+    }
+
     &--align-l {
       text-align: left;
     }
@@ -581,6 +986,7 @@
   }
 
   .t0-b-lv2H5 {
+    $_block: &;
     overflow: hidden;
     color: #555;
     text-align: center;
@@ -616,10 +1022,28 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font(12, 1);
+      padding: 0 15px 5px;
+    }
+
+    &__caption-lower {
+      @include g-font(12, 1);
+      padding: 5px 15px 0;
+    }
+
     &--align-l {
       text-align: left;
       h2 {
         max-width: calc(100% - (20px + 15px));
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 0;
+      }
+
+      #{$_block}__caption-lower {
         padding-left: 0;
       }
     }
@@ -634,23 +1058,46 @@
         max-width: calc(100% - (20px + 15px));
         padding-right: 0;
       }
+
+      #{$_block}__caption-upper {
+        padding-right: 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding-right: 0;
+      }
     }
   }
 
   .t0-b-lv2H6 {
     max-width: 740px;
-    padding-bottom: 10px;
     margin: 0 auto;
     color: #555;
     text-align: center;
-    background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat;
-    > div {
-      display: inline-block;
-    }
-
     h2 {
       @include g-font(20, 1);
       box-sizing: border-box;
+      margin-bottom: 11px;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -11px;
+        width: 100%;
+        height: 7px;
+        background: url("../imgs/t0-b-lv2H/6/bg.png") left bottom no-repeat, url("../imgs/t0-b-lv2H/6/bg.png") right bottom no-repeat;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font(12, 1);
+      padding-bottom: 5px;
+    }
+
+    &__caption-lower {
+      @include g-font(12, 1);
+      padding-top: 10px;
     }
 
     &--align-l {

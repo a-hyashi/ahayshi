@@ -1,0 +1,293 @@
+@if $device == PC {
+  .b-headerSlider {
+    $_block: &;
+    position: relative;
+    z-index: z(headerSlider, 1);
+    // 部品で設定される背景画像用
+    background-repeat: no-repeat;
+    background-position: center top;
+    &__container {
+      width: $areaContainerWidth;
+      margin-left: auto;
+      margin-right: auto;
+      // スライド表示の時に次の表示待ちの画像を隠すため
+      position: relative;
+      overflow: hidden;
+    }
+
+    // スライダー機能の初期配置
+    &__images .ui-slider-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      &:not(:nth-child(1)) {
+        display: none;
+      }
+
+      &:nth-child(2) {
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    &__prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      cursor: pointer;
+      border-radius: 0 3px 3px 0;
+      transition: .3s ease;
+      &:hover {
+        background-color: rgba(#333, .6);
+      }
+    }
+
+    &__next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      padding: 16px;
+      cursor: pointer;
+      border-radius: 3px 0 0 3px;
+      transition: .3s ease;
+      &:hover {
+        background-color: rgba(#333, .6);
+      }
+    }
+
+    &__icon {
+      &-1 {
+        display: block;
+        width: 25px;
+        height: 25px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M15.999%200c-8.836%200-15.999%207.163-15.999%2016s7.163%2016%2015.999%2016c8.837%200%2016.001-7.163%2016.001-16s-7.163-16-16-16zM14.513%2024.348l-2.756-2.757%205.591-5.591-5.591-5.591%202.756-2.756%208.348%208.348-8.348%208.348z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E%0A");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+
+      &-2 {
+        display: block;
+        width: 25px;
+        height: 25px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M16%200c-8.837%200-16%207.163-16%2016s7.163%2016%2016%2016c8.837%200%2016-7.163%2016-16s-7.163-16-16-16zM24.018%2016.212l-7.625%207.254c-0.737%200.702-1.902%200.673-2.603-0.064s-0.672-1.903%200.065-2.603l3.108-2.957h-7.362c-1.018%200-1.842-0.824-1.842-1.842s0.824-1.841%201.842-1.841h7.362l-3.108-2.957c-0.736-0.7-0.766-1.866-0.065-2.603%200.701-0.737%201.866-0.767%202.603-0.065l7.624%207.253c0.058%200.055%200.091%200.132%200.091%200.212s-0.033%200.157-0.091%200.212z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+
+      &-3 {
+        display: block;
+        width: 25px;
+        height: 25px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M10.245%200l-4.489%204.489%2011.511%2011.511-11.511%2011.511%204.489%204.489%2016-16z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+
+      &-4 {
+        display: block;
+        width: 25px;
+        height: 25px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M8.301%200l21.648%2015.966-21.648%2016.034z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+    }
+
+    &__controller {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+    }
+
+    &__dot {
+      &-1 {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 6px 8px;
+        cursor: pointer;
+        background-color: #999;
+        transition: .3s ease;
+        border-radius: 50%;
+        opacity: .8;
+        &.active,
+        &:hover {
+          background-color: #333;
+        }
+      }
+
+      &-2 {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 6px 8px;
+        cursor: pointer;
+        background-color: #999;
+        transition: .3s ease;
+        opacity: .8;
+        &.active,
+        &:hover {
+          background-color: #333;
+        }
+      }
+    }
+
+    &--widthMax {
+      #{$_block}__container {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .b-headerSlider {
+    $_block: &;
+    position: relative;
+    z-index: z(headerSlider, 1);
+    margin: 0 -15px;
+    // 部品で設定される背景画像用
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: auto 100%;
+    &__container {
+      // スライド表示の時に次の表示待ちの画像を隠すため
+      position: relative;
+      overflow: hidden;
+      // 静止画で表示する際、下に隙間ができないように
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    // スライダー機能の初期配置
+    &__images .ui-slider-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      &:not(:nth-child(1)) {
+        display: none;
+      }
+
+      &:nth-child(2) {
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    &__prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 14px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    &__next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      padding: 14px;
+      border-radius: 3px 0 0 3px;
+    }
+
+    &__icon {
+      &-1 {
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M15.999%200c-8.836%200-15.999%207.163-15.999%2016s7.163%2016%2015.999%2016c8.837%200%2016.001-7.163%2016.001-16s-7.163-16-16-16zM14.513%2024.348l-2.756-2.757%205.591-5.591-5.591-5.591%202.756-2.756%208.348%208.348-8.348%208.348z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E%0A");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+
+      &-2 {
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M16%200c-8.837%200-16%207.163-16%2016s7.163%2016%2016%2016c8.837%200%2016-7.163%2016-16s-7.163-16-16-16zM24.018%2016.212l-7.625%207.254c-0.737%200.702-1.902%200.673-2.603-0.064s-0.672-1.903%200.065-2.603l3.108-2.957h-7.362c-1.018%200-1.842-0.824-1.842-1.842s0.824-1.841%201.842-1.841h7.362l-3.108-2.957c-0.736-0.7-0.766-1.866-0.065-2.603%200.701-0.737%201.866-0.767%202.603-0.065l7.624%207.253c0.058%200.055%200.091%200.132%200.091%200.212s-0.033%200.157-0.091%200.212z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+
+      &-3 {
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M10.245%200l-4.489%204.489%2011.511%2011.511-11.511%2011.511%204.489%204.489%2016-16z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+
+      &-4 {
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M8.301%200l21.648%2015.966-21.648%2016.034z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        #{$_block}__prev > & {
+          transform: scale(-1, 1);
+        }
+      }
+    }
+
+    &__controller {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+    }
+
+    &__dot {
+      &-1 {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 4px 4px;
+        cursor: pointer;
+        background-color: #999;
+        transition: .3s ease;
+        border-radius: 50%;
+        opacity: .7;
+        &.active {
+          background-color: #333;
+        }
+      }
+
+      &-2 {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 4px 4px;
+        cursor: pointer;
+        background-color: #999;
+        transition: .3s ease;
+        opacity: .7;
+        &.active {
+          background-color: #333;
+        }
+      }
+    }
+  }
+}
