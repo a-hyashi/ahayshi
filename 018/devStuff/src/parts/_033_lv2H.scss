@@ -1,17 +1,18 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of2} {
+    $_block: &;
     $_fontSize: 24;
     $_lineHeight: 2;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 12;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
 
     margin: 0 auto;
     max-width: 100%;
-    background-image: url("../imgs/t0-b-lv2H/bg2.png"), url("../imgs/t0-b-lv2H/bg.png");
-    background-repeat: repeat-x, no-repeat;
-    background-position: bottom, left center;
-    background-size: auto 3px, 48px 53px;
     color: #fff;
     a {
       text-decoration: none;
@@ -21,26 +22,60 @@
       }
     }
 
+    &__caption-upper {
+      padding-left: 60px;
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+    }
+
     h2 {
       padding: 7px 0 7px 60px;
       @include g-font($_fontSize, $_lineHeight);
       font-weight: bold;
       text-decoration: none;
+      background-image: url("../imgs/t0-b-lv2H/bg2.png"), url("../imgs/t0-b-lv2H/bg.png");
+      background-repeat: repeat-x, no-repeat;
+      background-position: bottom, left center;
+      background-size: auto 3px, 48px 53px;
+    }
+
+    &__caption-lower {
+      padding: 6px 0 0 60px;
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
     }
 
     &--size-1 {
-      background-size: auto 3px * .8, 48px * .8 53px;
       h2 {
         padding: 7px * .8 0 7px 60px * .8;
         @include g-font($_fontSize_s, $_lineHeight);
+        background-size: auto 3px * .8, 48px * .8 53px;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 60px * .8;
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        padding: 6px * .8 0 0 60px * .8;
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
       }
     }
 
     &--size-3 {
-      background-size: auto 3px * 1.2, 48px * 1.2 53px * 1.2;
       h2 {
         padding: 7px * 1.2 0 7px 60px * 1.2;
         @include g-font($_fontSize_l, $_lineHeight);
+        background-size: auto 3px * 1.2, 48px * 1.2 53px * 1.2;
+      }
+
+      #{$_block}__caption-upper {
+        padding-left: 60px * 1.2;
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        padding: 6px * 1.2 0 0 60px * 1.2;
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
       }
     }
 
@@ -51,7 +86,15 @@
     &--align-c {
       text-align: center;
       h2 {
-        padding: 15px 60px;
+        padding: 7px 60px;
+      }
+
+      #{$_block}__caption-upper {
+        padding: 0 60px;
+      }
+
+      #{$_block}__caption-lower {
+        padding: 6px 60px 0;
       }
     }
 
@@ -61,11 +104,16 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_block: &;
     $_fontSize: 24;
     $_lineHeight: 2;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 12;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
 
     background-image: url("../imgs/t0-b-lv2H/bg3.png");
     background-repeat: no-repeat;
@@ -85,10 +133,20 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 10px 0 0 60px;
+    }
+
     h2 {
       padding: 7px 0 7px 60px;
       @include g-font($_fontSize, $_lineHeight);
       font-weight: bold;
+    }
+
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding: 0 0 10px 60px;
     }
 
     &--size-1 {
@@ -97,6 +155,16 @@
         padding: 7px * .8 0 7px 60px * .8;
         @include g-font($_fontSize_s, $_lineHeight);
       }
+
+      #{$_block}__caption-upper {
+        padding: 10px * .8 0 0 60px * .8;
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        padding: 0 0 10px * .8 60px * .8;
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+      }
     }
 
     &--size-3 {
@@ -104,6 +172,16 @@
       h2 {
         padding: 7px * 1.2 0 7px 60px * 1.2;
         @include g-font($_fontSize_l, $_lineHeight);
+      }
+
+      #{$_block}__caption-upper {
+        padding: 10px * 1.2 0 0 60px * 1.2;
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+      }
+
+      #{$_block}__caption-lower {
+        padding: 0 0 10px * 1.2 60px * 1.2;
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
       }
     }
 
@@ -114,7 +192,15 @@
     &--align-c {
       text-align: center;
       h2 {
-        padding: 15px 60px;
+        padding: 7px 60px;
+      }
+
+      #{$_block}__caption-upper {
+        padding: 10px 60px 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding: 0 60px 10px;
       }
     }
 
@@ -126,16 +212,27 @@
 
 @if $device == SP {
   .t0-b-lv2H#{$variation1of2} {
+    $_block: &;
     margin: 0 auto;
-    background-image: url("../imgs/t0-b-lv2H/bg2.png"), url("../imgs/t0-b-lv2H/bg.png");
-    background-repeat: repeat-x, no-repeat;
-    background-position: bottom, left center;
-    background-size: auto, 38px 53px;
     color: #fff;
     h2 {
       padding: 11px 10px 13px 52px;
       @include g-font-spacingKilled(18, 2);
       font-weight: bold;
+      background-image: url("../imgs/t0-b-lv2H/bg2.png"), url("../imgs/t0-b-lv2H/bg.png");
+      background-repeat: repeat-x, no-repeat;
+      background-position: bottom, left center;
+      background-size: auto, 38px 53px;
+    }
+
+    &__caption-upper {
+      padding: 0 10px 0 52px;
+      @include g-font-spacingKilled(14, 1);
+    }
+
+    &__caption-lower {
+      padding: 8px 10px 0 52px;
+      @include g-font-spacingKilled(14, 1);
     }
 
     &--align-l {
@@ -146,6 +243,14 @@
       text-align: center;
       h2 {
         padding: 11px 52px 13px;
+      }
+
+      #{$_block}__caption-upper {
+        padding: 0 52px;
+      }
+
+      #{$_block}__caption-lower {
+        padding: 8px 52px 0;
       }
     }
 
@@ -160,12 +265,9 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
-    background-image: url("../imgs/t0-b-lv2H/bg3.png");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-color: rgba(0, 0, 0, .5);
-    background-size: 40px 53px;
+    $_block: &;
     margin: 0 auto;
+    background-color: rgba(0, 0, 0, .5);
     position: relative;
     height: auto;
     color: #fff;
@@ -173,6 +275,20 @@
       padding: 12px 10px 12px 52px;
       @include g-font-spacingKilled(18, 2);
       font-weight: bold;
+      background-image: url("../imgs/t0-b-lv2H/bg3.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 40px 53px;
+    }
+
+    &__caption-upper {
+      padding: 10px 10px 0 52px;
+      @include g-font-spacingKilled(14, 1);
+    }
+
+    &__caption-lower {
+      padding: 0 10px 10px 52px;
+      @include g-font-spacingKilled(14, 1);
     }
 
     &--align-l {
@@ -183,6 +299,14 @@
       text-align: center;
       h2 {
         padding: 12px 52px;
+      }
+
+      #{$_block}__caption-upper {
+        padding: 10px 52px 0;
+      }
+
+      #{$_block}__caption-lower {
+        padding: 0 52px 10px;
       }
     }
 
