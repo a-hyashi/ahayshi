@@ -1,24 +1,41 @@
 @if $device == PC {
   .t0-b-lv2H#{$variation1of2} {
+    $_block: &;
     $_fontSize: 28;
     $_lineHeight: 2;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 14;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
 
-    margin: 0 auto;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
     color: #594e4a;
     background-repeat: repeat;
     background: url("../imgs/t0-b-lv2H/1/bg.png");
-    padding: 10px 0;
+    padding: 10px 20px;
     text-align: center;
-    > div {
-      background-repeat: repeat;
-      background: url("../imgs/t0-b-lv2H/1/bg.png");
-      padding: 0 10px;
+    position: relative;
+    z-index: z(lv2H, 1);
+    > span {
+      position: absolute;
+      z-index: z(lv2H, 2);
+      top: 10px;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
       border-left: 10px solid #ffe100;
       border-right: 10px solid #ffe100;
+    }
+
+    > div {
+      background-color: #fff;
+      padding: 30px 10px;
+      position: relative;
+      z-index: z(lv2H, 2);
     }
 
     a {
@@ -29,23 +46,57 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+    }
+
     h2 {
-      background: #fff;
-      padding: 30px 10px;
       @include g-font($_fontSize, $_lineHeight);
     }
 
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
+    }
+
     &--size-1 {
-      h2 {
+      > div {
         padding: 30px * .8 10px * .8;
+      }
+
+      h2 {
         @include g-font($_fontSize_s, $_lineHeight);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-bottom: 5px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding-top: 5px * .8;
       }
     }
 
     &--size-3 {
-      h2 {
+      > div {
         padding: 30px * 1.2 10px * 1.2;
+      }
+
+      h2 {
         @include g-font($_fontSize_l, $_lineHeight);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-bottom: 5px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding-top: 5px * 1.2;
       }
     }
 
@@ -63,23 +114,41 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
+    $_block: &;
     $_fontSize: 24;
     $_lineHeight: 2;
     $_fontSizeDiff: 4;
     $_fontSize_s: $_fontSize - $_fontSizeDiff;
     $_fontSize_l: $_fontSize + $_fontSizeDiff;
+    $_fontSize_caption: 14;
+    $_fontSize_caption_s: $_fontSize_caption - $_fontSizeDiff;
+    $_fontSize_caption_l: $_fontSize_caption + $_fontSizeDiff;
+    $_lineHeight_caption: 1;
 
-    margin: 0 auto;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
     color: #594c43;
     background-color: #f4dadd;
-    padding: 10px 0;
+    padding: 10px 20px;
     text-align: center;
-    > div {
-      background-color: #f4dadd;
-      padding: 0 10px;
+    position: relative;
+    z-index: z(lv2H, 1);
+    > span {
+      position: absolute;
+      z-index: z(lv2H, 2);
+      top: 10px;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
       border-left: 10px solid #fcee50;
       border-right: 10px solid #fcee50;
+    }
+
+    > div {
+      background-color: #fff;
+      padding: 30px 10px;
+      position: relative;
+      z-index: z(lv2H, 2);
     }
 
     a {
@@ -90,23 +159,58 @@
       }
     }
 
+    &__caption-upper {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-bottom: 5px;
+    }
+
     h2 {
-      background: #fff;
-      padding: 30px 10px;
       @include g-font($_fontSize, $_lineHeight);
     }
 
+    &__caption-lower {
+      @include g-font($_fontSize_caption, $_lineHeight_caption);
+      padding-top: 5px;
+    }
+
     &--size-1 {
-      h2 {
+      > div {
         padding: 30px * .8 10px * .8;
+      }
+
+      h2 {
         @include g-font($_fontSize_s, $_lineHeight);
+        padding: 0 20px * .8;
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 0 20px * .8 5px * .8;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_s, $_lineHeight_caption);
+        padding: 5px * .8 20px * .8 0;
       }
     }
 
     &--size-3 {
-      h2 {
+      > div {
         padding: 30px * 1.2 10px * 1.2;
+      }
+
+      h2 {
         @include g-font($_fontSize_l, $_lineHeight);
+      }
+
+      #{$_block}__caption-upper {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 0 20px * 1.2 5px * 1.2;
+      }
+
+      #{$_block}__caption-lower {
+        @include g-font($_fontSize_caption_l, $_lineHeight_caption);
+        padding: 5px * 1.2 20px * 1.2 0;
       }
     }
 
@@ -126,25 +230,45 @@
 
 @if $device == SP {
   .t0-b-lv2H#{$variation1of2} {
-    margin: 0 auto;
+    margin: 0 auto 10px;
     color: #594e4a;
     background-repeat: repeat;
     background: url("../imgs/t0-b-lv2H/1/bg.png");
-    padding: 10px 0;
+    padding: 10px 20px;
     text-align: center;
+    position: relative;
+    > span {
+      position: absolute;
+      z-index: z(lv2H, 2);
+      top: 10px;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      border-left: 10px solid #ffe100;
+      border-right: 10px solid #ffe100;
+    }
+
     > div {
-      background-repeat: repeat;
-      background: url("../imgs/t0-b-lv2H/1/bg.png");
-      padding: 0 10px;
-      border-left: 10px solid #fee100;
-      border-right: 10px solid #fee100;
+      background-color: #fff;
+      padding: 28px 10px 30px;
+      position: relative;
+      z-index: z(lv2H, 2);
+    }
+
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding-bottom: 10px;
     }
 
     h2 {
-      background: #fff;
-      padding: 28px 10px 30px;
       @include g-font-spacingKilled(18, 2);
       font-weight: bold;
+    }
+
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding-top: 10px;
     }
 
     &--align-l {
@@ -165,22 +289,45 @@
   }
 
   .t0-b-lv2H#{$variation2of2} {
-    margin: 0 auto;
+    margin: 0 auto 10px;
     color: #594c43;
     background-color: #f4dadd;
-    padding: 10px 0;
+    padding: 10px 20px;
     text-align: center;
-    > div {
-      background-color: #f4dadd;
-      padding: 0 10px;
+    position: relative;
+    z-index: z(lv2H, 1);
+    > span {
+      position: absolute;
+      z-index: z(lv2H, 2);
+      top: 10px;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
       border-left: 10px solid #f3d922;
       border-right: 10px solid #f3d922;
     }
 
+    > div {
+      background-color: #fff;
+      padding: 28px 10px 30px;
+      position: relative;
+      z-index: z(lv2H, 2);
+    }
+
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding-bottom: 10px;
+    }
+
     h2 {
       background: #fff;
-      padding: 28px 10px 30px;
       @include g-font-spacingKilled(18, 2);
+    }
+
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding-top: 10px;
     }
 
     &--align-l {
