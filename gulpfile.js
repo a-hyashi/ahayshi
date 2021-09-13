@@ -51,7 +51,7 @@ gulp.task('compile_to_styleguide', () => {
     styleSources.map(styleSource => {
       return gulp.src(styleSource)
       .pipe($.sourcemaps.init())
-      .pipe(sass({outputStyle: 'expanded'}))
+      .pipe(sass({outputStyle: 'compressed'}))
       .pipe($.autoprefixer({grid: 'autoplace'}))
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('devStuff/styleguide/css'))
