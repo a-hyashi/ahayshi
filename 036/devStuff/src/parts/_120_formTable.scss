@@ -1,0 +1,1126 @@
+@if $device == PC {
+  .t0-b-formTable#{$variation1of2} {
+    $_block: &;
+    $_color_th_bg: #bfe4de;
+    $_color_td_bg: #fff;
+    $_color_table_border: #8e6e3b;
+    $_color_error_typo: #da0000;
+    table {
+      width: 100%;
+      margin-bottom: 3%;
+      // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
+      table-layout: fixed;
+    }
+
+    th, td {
+      border-bottom: 1px dotted #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
+    }
+
+    th {
+      width: 35%;
+      background: $_color_th_bg;
+      @include g-font(16, 1);
+      border-right: 1px dotted #{$_color_table_border};
+      > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        label {
+          // 項目名に大量の文字を入れた場合、「必須」の装飾が潰れるため、全体から「必須」の項目の幅40pxを引いた値を、labelに設定する。
+          width: calc(100% - 42px);
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+    }
+
+    tr {
+      &:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font(18, 1);
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font(16, 1);
+      padding: 10px 0 0;
+    }
+
+    &__singleInput {
+      position: relative;
+      input, select, textarea {
+        background-color: #fff;
+        width: 100%;
+        display: block;
+      }
+
+      select {
+        padding: .3em 25px .3em 6px;
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
+        /* stylelint-disable */
+        // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスを明示しないと効かない
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        /* stylelint-enable */
+        appearance: none;
+        // IE
+        &::-ms-expand {
+          display: none;
+        }
+      }
+
+      &::after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        border-color: $_color_table_border transparent transparent transparent;
+      }
+    }
+
+    &__radioList,
+    &__checkboxList {
+      ul {
+        padding-top: 5px;
+        margin: (-5px) -10px 0 0;
+        display: flex;
+        align-items: inherit;
+      }
+
+      li {
+        padding: 5px 10px 0 0;
+        @include g-font(16, 1);
+        display: flex;
+        align-items: center;
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+
+          textarea {
+            border: 1px solid #cbcbcb;
+          }
+        }
+
+        > label {
+          display: inline;
+          position: relative;
+          margin-left: 5px;
+        }
+      }
+
+      &--align-vertical {
+        ul {
+          padding: 0;
+          display: block;
+        }
+      }
+    }
+
+    &__requiredLabel {
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
+      width: 42px;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font(12, 1);
+        padding: 3px 5px;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    &__textInput,
+    &__email {
+      width: 100%;
+      box-sizing: border-box;
+      padding: .3em 6px;
+      @include g-font(12, 1);
+      border: 1px solid #ccc;
+    }
+
+    &__textarea {
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      padding: .3em 6px;
+      display: block;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+    }
+
+    &__buttons {
+      text-align: center;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        padding: 15px 0 0;
+
+        text-align: center;
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        > a {
+          color: inherit;
+          &:hover {
+            color: $g-hoverColor;
+          }
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        &:hover {
+          opacity: .8;
+        }
+        $_color_typo: #fff;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        display: inline-block;
+        padding: 10px 18px;
+        background: #f0a09f;
+        border-radius: 5px;
+        border: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        &:hover {
+          opacity: .8;
+        }
+
+        $_color_typo: #fff;
+
+        margin-right: 20px;
+        max-width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        display: inline-block;
+        padding: 10px 18px;
+        background: #89c6bc;
+        border-radius: 5px;
+        border: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        &:hover {
+          opacity: .8;
+        }
+        $_color_typo: #fff;
+        width: 266px;
+        min-width: 90px;
+        color: $_color_typo;
+        display: inline-block;
+        padding: 10px 18px;
+        background: #f0a09f;
+        border-radius: 5px;
+        border: none;
+        @include g-font(16, 1);
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation2of2} {
+    $_block: &;
+    $_color_th_bg: #fcf6d9;
+    $_color_td_bg: #fff;
+    $_color_table_border: #b9a077;
+    $_color_error_typo: #da0000;
+
+    border-radius: 10px;
+    overflow: hidden;
+    table {
+      width: 100%;
+      margin-bottom: 3%;
+      // IEでフォームの項目名に大量の文字を入れた場合、tableの幅が広がり、崩れるのを防ぐため。
+      table-layout: fixed;
+    }
+
+    th, td {
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+      padding: 10px 15px;
+    }
+
+    th {
+      width: 35%;
+      background: $_color_th_bg;
+      @include g-font(16, 1);
+      border-right: 1px solid #{$_color_table_border};
+      > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        label {
+          // 項目名に大量の文字を入れた場合、「必須」の装飾が潰れるため、全体から「必須」の項目の幅40pxを引いた値を、labelに設定する。
+          width: calc(100% - 42px);
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+    }
+
+    tr {
+      &:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font(18, 1);
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font(16, 1);
+      padding: 10px 0 0;
+    }
+
+    &__singleInput {
+      position: relative;
+      input, select, textarea {
+        background-color: #fff;
+        width: 100%;
+        display: block;
+      }
+
+      select {
+        padding: .3em 25px .3em 6px;
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
+        /* stylelint-disable */
+        // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスを明示しないと効かない
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        /* stylelint-enable */
+        appearance: none;
+        // IE
+        &::-ms-expand {
+          display: none;
+        }
+      }
+
+      &::after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        border-color: $_color_table_border transparent transparent transparent;
+      }
+    }
+
+    &__radioList,
+    &__checkboxList {
+      ul {
+        padding-top: 5px;
+        margin: (-5px) -10px 0 0;
+        display: flex;
+        align-items: inherit;
+      }
+
+      li {
+        padding: 5px 10px 0 0;
+        @include g-font(16, 1);
+        display: flex;
+        align-items: center;
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+
+          textarea {
+            border: 1px solid #cbcbcb;
+          }
+        }
+
+        > label {
+          display: inline;
+          position: relative;
+          margin-left: 5px;
+        }
+      }
+
+      &--align-vertical {
+        ul {
+          padding: 0;
+          display: block;
+        }
+      }
+    }
+
+    &__requiredLabel {
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
+
+      width: 42px;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+
+        @include g-font(12, 1);
+
+        padding: 3px 5px;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        margin-left: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    &__textInput,
+    &__email {
+      width: 100%;
+      box-sizing: border-box;
+      padding: .3em 6px;
+      @include g-font(12, 1);
+      border: 1px solid #ccc;
+    }
+
+    &__textarea {
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      padding: .3em 6px;
+      display: block;
+      width: 100%;
+      height: 100px;
+      resize: vertical;
+      @include g-font(12, 2);
+    }
+
+    &__buttons {
+      text-align: center;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+          white-space: normal;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        padding: 15px 0 0;
+
+        text-align: center;
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        > a {
+          color: inherit;
+          &:hover {
+            color: $g-hoverColor;
+          }
+        }
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        &:hover {
+          opacity: .8;
+        }
+        color: $g-textColor;
+        max-width: 266px;
+        min-width: 90px;
+        display: inline-block;
+        padding: 10px 18px;
+        background: #f0d85e;
+        border-radius: 10px;
+        border: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        &:hover {
+          opacity: .8;
+        }
+
+        color: $g-textColor;
+        margin-right: 20px;
+        max-width: 266px;
+        min-width: 90px;
+        display: inline-block;
+        padding: 10px 18px;
+        background: #f2e5a8;
+        border-radius: 10px;
+        border: none;
+        @include g-font(16, 1);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      input {
+        &:hover {
+          opacity: .8;
+        }
+
+        color: $g-textColor;
+        width: 266px;
+        min-width: 90px;
+        display: inline-block;
+        padding: 10px 18px;
+        background: #f0d85e;
+        border-radius: 10px;
+        border: none;
+        @include g-font(16, 1);
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-formTable#{$variation1of2} {
+    $_block: &;
+    $_color_th_bg: #bfe4de;
+    $_color_td_bg: #fff;
+    $_color_table_border: #8e6e3b;
+    $_color_error_typo: #da0000;
+
+    // frameWithHCaptionに入った時、左右を見切れないようにする為
+    width: 100%;
+    margin: 0 auto;
+    table, tbody, tr, th, td {
+      display: block;
+    }
+
+    table {
+      border-top: 1px solid #{$_color_table_border};
+      border-left: 1px solid #{$_color_table_border};
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      border-right: 1px solid #{$_color_table_border};
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    th {
+      background: $_color_th_bg;
+      @include g-font(16, 1);
+      min-height: 17px;
+      padding: 15px 15px 15px 10px;
+      > div {
+        display: table;
+        direction: rtl;
+        > * {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+      padding: 15px;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+    }
+
+    input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font(16, 1);
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font(16, 1);
+      padding: 15px 0 10px;
+    }
+
+    &__singleInput {
+      position: relative;
+      input,
+      select,
+      textarea {
+        display: block;
+        width: 100%;
+      }
+
+      &::after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        border-color: $_color_table_border transparent transparent transparent;
+      }
+
+      select {
+        width: 100%;
+        height: 44px;
+        padding: .3em 25px .3em 6px;
+        @include g-font(16, 1);
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
+        /* stylelint-disable */
+        // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスは明示しないと効かないようなので、意図的に記述
+        -webkit-appearance: none;
+        /* stylelint-enable */
+        appearance: none;
+      }
+    }
+
+    &__radioList,
+    &__checkboxList {
+      ul {
+        margin: 0 -10px 0 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      li {
+        padding: 5px 10px 0 0;
+        display: flex;
+        align-items: center;
+        @include g-font(16, 1);
+        > span {
+          display: inline-block;
+          width: 18px;
+          height: 1px;
+          vertical-align: middle;
+          input {
+            position: relative;
+            top: -.6em;
+            display: block;
+          }
+        }
+
+        > label {
+          display: inline;
+          position: relative;
+          margin-left: 5px;
+        }
+      }
+
+      &--align-vertical {
+        padding: 0;
+        ul {
+          display: block;
+        }
+      }
+    }
+
+    &__requiredLabel {
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
+      width: 50px;
+      padding: 0 10px 0 0;
+      vertical-align: middle;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font(12, 1);
+        padding: 4px 0;
+        text-align: center;
+        margin-left: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    &__textInput,
+    &__email,
+    &__textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: .3em 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    &__textInput,
+    &__email {
+      @include g-font(16, 1);
+    }
+
+    &__textarea {
+      @include g-font(16, 2);
+      display: block;
+      height: 100px;
+      resize: vertical;
+    }
+
+    &__buttons {
+      div + div {
+        .t0-b-formTable#{$variation1of2}__button3,
+        .t0-b-formTable#{$variation2of2}__button3 {
+          max-width: 229px;
+        }
+      }
+
+      text-align: center;
+      margin: 0 -5px;
+      // display: inline-blockで生じる改行の隙間をなくす
+      font-size: 0;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        > a {
+          color: inherit;
+        }
+      }
+
+      input {
+        white-space: inherit;
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        color: #fff;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: none;
+        display: inline-block;
+        padding: 12px;
+        background: #ff9495;
+        border-radius: 5px;
+        @include g-font(17, 2);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        color: #fff;
+        width: 110px;
+        word-break: break-word;
+        margin-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: none;
+        display: inline-block;
+        padding: 12px;
+        background: #89c6bc;
+        border-radius: 5px;
+        @include g-font(17, 2);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      // 「送信するボタン」の横幅は、ボタンセットを内包するdivの横幅100% から「編集するボタン」の横幅（110px）とmargin-right(10px)を引いた値。
+      width: calc(100% - 120px);
+      input {
+        color: #fff;
+        width: 100%;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: none;
+        display: inline-block;
+        padding: 12px;
+        background: #ff9495;
+        border-radius: 5px;
+        @include g-font(17, 2);
+      }
+    }
+  }
+
+  .t0-b-formTable#{$variation2of2} {
+    $_block: &;
+    $_color_th_bg: #fcf6d9;
+    $_color_td_bg: #fff;
+    $_color_table_border: #b9a077;
+    $_color_error_typo: #da0000;
+
+    // frameWithHCaptionに入った時、左右を見切れないようにする為
+    width: 100%;
+    margin: 0 auto;
+    table, tbody, tr, th, td {
+      display: block;
+    }
+
+    table {
+      border-top: 1px solid #{$_color_table_border};
+      border-left: 1px solid #{$_color_table_border};
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      border-right: 1px solid #{$_color_table_border};
+      border-bottom: 1px solid #{$_color_table_border};
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    th {
+      background: $_color_th_bg;
+      @include g-font(16, 1);
+      min-height: 17px;
+      padding: 15px 15px 15px 10px;
+      > div {
+        display: table;
+        direction: rtl;
+        > * {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    td {
+      background: $_color_td_bg;
+      padding: 15px;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+    }
+
+    input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    .mod-formError {
+      display: block;
+      color: $_color_error_typo;
+      @include g-font(16, 1);
+      padding: 10px 0 0;
+    }
+
+    &__td-caption {
+      @include g-font(16, 1);
+      padding: 15px 0 10px;
+    }
+
+    &__singleInput {
+      position: relative;
+      input, select, textarea {
+        display: block;
+        width: 100%;
+      }
+
+      &::after {
+        pointer-events: none;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 6px 0;
+        border-color: $_color_table_border transparent transparent transparent;
+      }
+
+      select {
+        width: 100%;
+        height: 44px;
+        padding: .3em 25px .3em 6px;
+        @include g-font(16, 1);
+        border: 1px solid #ccc;
+        background: none transparent;
+        color: inherit;
+        /* stylelint-disable */
+        // selectbox初期化(高さを指定するための指定)。ベンダープレフィックスは明示しないと効かないようなので、意図的に記述
+        -webkit-appearance: none;
+        /* stylelint-enable */
+        appearance: none;
+      }
+    }
+
+    &__radioList,
+    &__checkboxList {
+      ul {
+        margin: 0 -10px 0 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px 0 0;
+        @include g-font(16, 1);
+        > span {
+          width: 18px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          input {
+            display: block;
+            position: relative;
+            top: -.6em;
+          }
+        }
+
+        > label {
+          display: inline;
+          position: relative;
+          margin-left: 5px;
+        }
+      }
+
+      &--align-vertical {
+        padding: 0;
+        ul {
+          display: block;
+        }
+      }
+    }
+
+    &__requiredLabel {
+      $_color_typo: #fff;
+      $_color_bg: #eb8382;
+
+      width: 50px;
+      padding: 0 10px 0 0;
+      > span {
+        display: block;
+        color: $_color_typo;
+        background: $_color_bg;
+        @include g-font(12, 1);
+        padding: 4px 0;
+        text-align: center;
+        margin-left: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    &__textInput,
+    &__email,
+    &__textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: .3em 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    &__textInput,
+    &__email {
+      @include g-font(16, 1);
+    }
+
+    &__textarea {
+      @include g-font(16, 2);
+      display: block;
+      height: 100px;
+      resize: vertical;
+    }
+
+    &__buttons {
+      div + div {
+        .t0-b-formTable#{$variation1of2}__button3,
+        .t0-b-formTable#{$variation2of2}__button3 {
+          max-width: 229px;
+        }
+      }
+
+      text-align: center;
+      margin: 0 -5px;
+      // display: inline-blockで生じる改行の隙間をなくす
+      font-size: 0;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        > * {
+          display: block;
+        }
+      }
+
+      p {
+        @include g-font(12, 1);
+        text-align: center;
+        padding: 15px 0 0;
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        > a {
+          color: inherit;
+        }
+      }
+
+      input {
+        white-space: inherit;
+      }
+    }
+
+    // 送信内容を確認するボタン
+    &__button-confirm {
+      input {
+        color: $g-textColor;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: none;
+        display: inline-block;
+        padding: 12px;
+        background: #f0d85e;
+        border-radius: 10px;
+        @include g-font(17, 2);
+      }
+    }
+
+    // 編集するボタン
+    &__button-edit {
+      input {
+        color: $g-textColor;
+        width: 110px;
+        word-break: break-word;
+        margin-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: none;
+        display: inline-block;
+        padding: 12px;
+        background: #f2e5a8;
+        border-radius: 10px;
+        @include g-font(17, 2);
+      }
+    }
+
+    // 送信するボタン
+    &__button-send {
+      // 「送信するボタン」の横幅は、ボタンセットを内包するdivの横幅100% から「編集するボタン」の横幅（110px）とmargin-right(10px)を引いた値。
+      width: calc(100% - 120px);
+      input {
+        color: $g-textColor;
+        width: 100%;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: none;
+        display: inline-block;
+        padding: 12px;
+        background: #f0d85e;
+        border-radius: 10px;
+        @include g-font(17, 2);
+      }
+    }
+  }
+}

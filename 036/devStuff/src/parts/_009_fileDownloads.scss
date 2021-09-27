@@ -1,0 +1,182 @@
+@if $device == PC {
+  .t0-b-fileDownloads {
+
+    $_block: &;
+    $_fontSizePx: 16;
+    $_lineHeightType: 1;
+    $_lineHeightType_itemText: 1;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+    padding: #{$_blockSpacing} 0 0;
+    color: $g-textColor;
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &__item {
+      padding: #{$_itemSpacing} 0 0;
+      @include cf;
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      // text-decorationの指定が2重であるとWindowsのFirefoxで下線が太くなるので一度指定をリセットする。
+      text-decoration: none;
+      color: $g-textColor;
+      &:hover {
+        color: $g-hoverColor;
+      }
+    }
+
+    &__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    &__itemIcon {
+      padding: 0 10px 0 0;
+    }
+
+    &__itemText {
+      @include g-font($_fontSizePx, $_lineHeightType_itemText);
+      padding-top: 3px;
+      text-decoration: underline;
+      #{$_block}--size-2 & {
+        @include g-font($_fontSizePx + 4, $_lineHeightType_itemText);
+      }
+
+      #{$_block}--size-3 & {
+        @include g-font($_fontSizePx + 8, $_lineHeightType_itemText);
+      }
+
+      #{$_block}--size-4 & {
+        @include g-font($_fontSizePx + 12, $_lineHeightType_itemText);
+      }
+
+      #{$_block}--size-5 & {
+        @include g-font($_fontSizePx + 16, $_lineHeightType_itemText);
+      }
+    }
+  }
+
+  // safariで下線が付かない不具合のハック
+  _::-webkit-full-page-media, _:future, :root .t0-b-fileDownloads__itemText {
+    text-decoration: underline;
+  }
+
+  .b-downloadIcon {
+    $_block: &;
+    $_color_border: #aaa;
+
+    @include fileIcon("pdf",1);
+    @include fileIcon("doc",1);
+    @include fileIcon("xls",1);
+    @include fileIcon("img",1);
+    .t0-b-fileDownloads--size-2 & {
+      @include fileIcon("pdf",1.25);
+      @include fileIcon("doc",1.25);
+      @include fileIcon("xls",1.25);
+      @include fileIcon("img",1.25);
+    }
+
+    .t0-b-fileDownloads--size-3 & {
+      @include fileIcon("pdf",1.5);
+      @include fileIcon("doc",1.5);
+      @include fileIcon("xls",1.5);
+      @include fileIcon("img",1.5);
+    }
+
+    .t0-b-fileDownloads--size-4 & {
+      @include fileIcon("pdf",1.75);
+      @include fileIcon("doc",1.75);
+      @include fileIcon("xls",1.75);
+      @include fileIcon("img",1.75);
+    }
+
+    .t0-b-fileDownloads--size-5 & {
+      @include fileIcon("pdf",2);
+      @include fileIcon("doc",2);
+      @include fileIcon("xls",2);
+      @include fileIcon("img",2);
+    }
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@if $device == SP {
+  .t0-b-fileDownloads {
+    $_fontSizePx: 16;
+    $_lineHeightType: 2;
+    $_itemSpacing: #{$g-spacingBaseLength * 2}px;
+    $_blockSpacing: #{$g-spacingBaseLength * 4}px;
+
+    padding: #{$_blockSpacing} 0 0;
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &__item {
+      padding: #{$_itemSpacing} 0 0;
+
+      @include cf;
+
+      // clearfix
+      &::before,
+      &::after {
+        display: table;
+        content: "";
+      }
+
+      &::after {
+        clear: both;
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $g-textColor;
+    }
+
+    &__itemSplit {
+      display: table;
+      > span {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    &__itemIcon {
+      padding: 0 8px 0 0;
+    }
+
+    &__itemText {
+      @include g-font($_fontSizePx, $_lineHeightType);
+      text-decoration: underline;
+      padding-top: 3px;
+    }
+  }
+
+  .b-downloadIcon {
+    $_color_border: #aaa;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    @include fileIcon("pdf", 1.2);
+    @include fileIcon("doc", 1);
+    @include fileIcon("xls", 1);
+    @include fileIcon("img", 1);
+  }
+}
