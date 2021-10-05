@@ -422,7 +422,7 @@ lib
 ```sh
 Error: EIO: i/o error, open '/buddy-theme/037/temp/html/062_navBItem_navBItem/062_navBItem_navBItem_f99_005_07.html'
 ```
-同時実行数が多すぎなので、parts-categoriesを分割する
+同時実行数が多すぎなので、blocks[数字].jsonを分割する
 
 ```sh
 Maximum call stack size exceeded
