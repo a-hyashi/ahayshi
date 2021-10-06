@@ -27,9 +27,7 @@ buddy-theme
 ├── 031/ (各テーマフォルダ)
 │   ├── build/
 │   ├── devStuff/
-│   │   ├── css/
 │   │   ├── docs/
-│   │   ├── sassdoc/
 │   │   ├── src/
 │   │   ├── styleguide/
 │   │   └── aigis_config.yml
@@ -49,7 +47,6 @@ buddy-theme
 │   ├── btool-settings/
 │   ├── each-part/
 │   ├── schemas/
-│   ├── utils/
 │   ├── *.js
 │
 ├── ssh/
@@ -327,11 +324,6 @@ SASSの構文エラーです。
 $ ./init.sh
 ```
 
-### sassdocが更新された
-```sh
-$ docker-compose run app1 npx gulp update-sassdoc
-```
-
 ### 動作が遅くなってきた
 いずれか、または全てを実行してください
 
@@ -376,7 +368,7 @@ $ docker system prune
 ### カラバリテーマ(A~E)を作る場合の作成手順
 1. **フォルダの作成**  
 **baseA**フォルダを複製し、新しいテーマ名に変更してください。  
-**例:** `base`Aを複製して`036A`に名前変更
+**例:** `baseA`を複製して`036A`に名前変更
 
 2. **devStuff/aigis_config.yml の設定**  
 `name:`を新しいテーマ名に設定してください。  
@@ -418,11 +410,11 @@ lib
 ├── each-part/ ･･･各部品で必要な設定ファイル
 ├── schemas/ ･･･機能と選択肢に必要な設定ファイル
 ├── b-placer.js ･･･bPlacerの設定値をMarkdownの表に書き出す
-├── buddy-parts-functions.js
 ├── data-json-files.js
 ├── data-json-generator.js
 ├── html-files.js
 ├── template-files.js
+├── unit-test-settings.js
 └── utils.js
 ```
 
@@ -430,7 +422,7 @@ lib
 ```sh
 Error: EIO: i/o error, open '/buddy-theme/037/temp/html/062_navBItem_navBItem/062_navBItem_navBItem_f99_005_07.html'
 ```
-同時実行数が多すぎなので、parts-categoriesを分割する
+同時実行数が多すぎなので、blocks[数字].jsonを分割する
 
 ```sh
 Maximum call stack size exceeded

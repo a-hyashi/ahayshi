@@ -1,0 +1,111 @@
+@if $device == PC {
+  .t0-b-navBItem2Captioned {
+    $_block: &;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    text-shadow: $g-textShadow3;
+    > a {
+      text-decoration: none;
+      display: block;
+      &:hover {
+        opacity: .8;
+        color: $g-textColor;
+      }
+    }
+
+    &__inner {
+      padding: 16px 50px;
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+      color: $g-textColor;
+      box-shadow: 1px 1px 2px #c4e6e0, -1px -1px 2px #c4e6e0;
+      background-image: url("../imgs/t0-b-navItem/7.png");
+      background-position: right 12px top 50%;
+      background-repeat: no-repeat;
+      background-color: #ffd6d4;
+      border-radius: 10px;
+      position: relative;
+      text-align: center;
+      width: 100%;
+      border: 2px solid #e4d56d;
+      #{$_block}__icon {
+        display: none;
+      }
+    }
+
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding: 0 0 9px;
+      text-shadow: none;
+    }
+
+    &__main {
+      @include g-font(26, 1);
+    }
+
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding: 9px 0 0;
+      text-shadow: none;
+    }
+
+    _:-ms-lang(x)::-ms-backdrop, #{$_block}__inner > div {
+      /* IE11 で以下の表記がないと hover時に透過しないため */
+      display: inline-block;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-navBItem2Captioned {
+    width: 95%;
+    margin: 0 auto;
+    > a {
+      text-decoration: none;
+      color: $g-textColor;
+    }
+
+    background-image: url("../imgs/t0-b-navList/bg.png");
+    background-color: #ffe1e1;
+    background-repeat: no-repeat;
+    background-size: 20px 20px, 100%;
+    background-position: 95% 50%;
+    border: 1px solid #e4d56d;
+    border-radius: 5px;
+    > div {
+      margin: 0 auto;
+    }
+
+    &__text {
+      text-align: center;
+      margin-right: 10%;
+      padding: 12px 10px;
+    }
+
+    &__caption-upper {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+      a {
+        color: $g-textColor;
+        text-decoration: none;
+      }
+    }
+
+    &__main {
+      @include g-font(16, 1);
+      font-weight: bold;
+    }
+
+    &__caption-lower {
+      @include g-font(14, 1);
+      padding: 5px 0 0;
+      a {
+        color: $g-textColor;
+        text-decoration: none;
+      }
+    }
+  }
+}
