@@ -1,5 +1,4 @@
 @if $device == PC {
-
   $fullWidthBgColor: #ffffdf;
   $fullWidthBgColor2: #fff;
   $fullWidthBgColor3: #ffe0df;
@@ -14,9 +13,7 @@
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame9,
-  .t0-b-fullWidthFrame10,
-  .t0-b-fullWidthFrame11,
-  .t0-b-fullWidthFrame12  {
+  .t0-b-fullWidthFrame10 {
     position: relative;
     padding: 40px 1000px;
     background-repeat: no-repeat;
@@ -39,8 +36,7 @@
   .t0-b-fullWidthFrame4,
   .t0-b-fullWidthFrame6,
   .t0-b-fullWidthFrame8,
-  .t0-b-fullWidthFrame10,
-  .t0-b-fullWidthFrame12 {
+  .t0-b-fullWidthFrame10 {
     @if $layout == "L25" {
       margin-left: -1000px;
     } @else if $layout == "L30" {
@@ -78,8 +74,29 @@
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
     background-color: $fullWidthBgColor4;
+    padding: 75px 1035px;
     &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 40px;
+      bottom: 40px;
+      left: 1000px;
+      right: 1000px;
+      border-radius: 10px;
       background-color: $fullWidthBgColor5;
+    }
+
+    > * {
+      position: relative;
+    }
+
+    @if $layout == "N00" {
+      padding: 75px (1035px + $areaSubWidth / 2);
+      &::before {
+        left: 1000 + $areaSubWidth / 2;
+        right: 1000 + $areaSubWidth / 2;
+      }
     }
   }
 
@@ -87,15 +104,9 @@
   .t0-b-fullWidthFrame10 {
     background-color: $fullWidthBgColor5;
   }
-
-  .t0-b-fullWidthFrame11,
-  .t0-b-fullWidthFrame12 {
-    background-color: transparent;
-  }
 }
 
 @if $device == SP {
-
   $fullWidthBgColor: #ffffdf;
   $fullWidthBgColor2: #fff;
   $fullWidthBgColor3: #ffe0df;
@@ -110,9 +121,7 @@
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8,
   .t0-b-fullWidthFrame9,
-  .t0-b-fullWidthFrame10,
-  .t0-b-fullWidthFrame11,
-  .t0-b-fullWidthFrame12  {
+  .t0-b-fullWidthFrame10 {
     position: relative;
     padding: 40px 15px 20px;
     margin: 0 -15px;
@@ -144,19 +153,27 @@
 
   .t0-b-fullWidthFrame7,
   .t0-b-fullWidthFrame8 {
+    padding: 40px 35px;
     background-color: $fullWidthBgColor4;
     &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 20px;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      border-radius: 10px;
       background-color: $fullWidthBgColor5;
+    }
+
+    > * {
+      position: relative;
     }
   }
 
   .t0-b-fullWidthFrame9,
   .t0-b-fullWidthFrame10 {
     background-color: $fullWidthBgColor5;
-  }
-
-  .t0-b-fullWidthFrame11,
-  .t0-b-fullWidthFrame12 {
-    background-color: transparent;
   }
 }
