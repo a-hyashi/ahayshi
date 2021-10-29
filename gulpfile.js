@@ -260,7 +260,7 @@ const upload_themes = () => {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
-    remotePath: ('/mnt/efs/master/acre/themes/')
+    remotePath: ('/mnt/master/acre/themes/')
   }));
 }
 
@@ -279,7 +279,7 @@ const upload_img = () => {
       location: ssh_config.key_location,
       passphrase: ssh_config.password
     },
-    remotePath: ('/mnt/efs/master/acre/theme_materials/')
+    remotePath: ('/mnt/master/acre/theme_materials/')
   }));
 }
 
