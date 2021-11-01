@@ -1,17 +1,25 @@
 $g-fontSize: 14px;
+$g-spacingBaseLength: 5;
 
-$g-baseFontColor: #8e6e3b;
-$g-baseBackgroundColor: #e1f3f0;
-$g-baseLinkColor: #555;
-$g-baseHoverColor: #6fc6b7;
+// tel
+$_tel_wd: 51px;
+$_tel_hg: 45px;
+// fax
+$_fax_wd: 47px;
+$_fax_hg: 30px;
+// free
+$_free_wd: 52px;
+$_free_hg: 30px;
+// cell
+$_cell_wd: 26px;
+$_cell_hg: 45px;
 
-$g-textColor: $g-baseFontColor;
-$g-hoverColor: $g-baseHoverColor;
-$g-hoverColor2: #e36f94;
-$g-textShadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -3px #fff, 1px -3px #fff, -1px 3px #fff, 1px 3px #fff, (-3px) -1px #fff, 3px -1px #fff, -3px 1px #fff, 3px 1px #fff, (-3px) -3px 1px #fff, 3px -3px 1px #fff, -3px 3px 1px #fff, 3px 3px 1px #fff;
-$g-textShadow2: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
-$g-textShadow3: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-$themeFont: "ヒラギノ丸ゴ Pro W4", "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック体", "Yu Gothic", yugothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
 
 html {
   font-size: $g-fontSize;
@@ -40,21 +48,23 @@ a {
   text-decoration: underline;
 }
 
-@mixin fileIcon($file, $size) {
-  &--#{$file} {
-    width: 30px * $size;
-    height: 30px * $size;
-    background-image: url("../imgs/b-downloadIcon/#{$file}.png");
-    background-repeat: no-repeat;
-    background-size: 30px * $size 30px * $size;
-  }
-}
-
 @if $device == PC {
   a {
     &:hover {
       color: $g-hoverColor;
     }
+  }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 .cms-admin-anchorFlag {
@@ -62,23 +72,34 @@ a {
   z-index: 10 !important;
 }
 
-// tel
-$_tel_wd: 51px;
-$_tel_hg: 45px;
+@if $device == SP {
+  $g-fontSize: 14px;
+  $g-baseFontColor: #5d3e0e;
+  $g-textColor: $g-baseFontColor;
+  $g-textShadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -3px #fff, 1px -3px #fff, -1px 3px #fff, 1px 3px #fff, (-3px) -1px #fff, 3px -1px #fff, -3px 1px #fff, 3px 1px #fff, (-3px) -3px 1px #fff, 3px -3px 1px #fff, -3px 3px 1px #fff, 3px 3px 1px #fff;
+  $g-textShadow2: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
+  $g-textShadow3: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
 
-// fax
-$_fax_wd: 47px;
-$_fax_hg: 30px;
+  body.mod-body,
+  div.mod-body {
+    font-size: $g-fontSize;
+    font-family: "ヒラギノ丸ゴ Pro W4", "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    color: #5d3e0e;
+  }
 
-// free
-$_free_wd: 52px;
-$_free_hg: 30px;
-
-// cell
-$_cell_wd: 26px;
-$_cell_hg: 45px;
-
-$g-spacingBaseLength: 5;
+  // tel
+  //$_tel_wd: 51px;
+  //$_tel_hg: 45px;
+  // fax
+  //$_fax_wd: 47px;
+  //$_fax_hg: 30px;
+  // free
+  //$_free_wd: 52px;
+  //$_free_hg: 30px;
+  // cell
+  //$_cell_wd: 26px;
+  //$_cell_hg: 45px;
+}
 
 @mixin cf {
   &::before,
@@ -116,60 +137,12 @@ $g-spacingBaseLength: 5;
   }
 }
 
-$fullWidthBgColor: #b4dde5;
-$fullWidthBgColor2: #fff8dd;
-$fullWidthBgColor3: #fee;
-$fullWidthBgColor4: #37a1b7;
-$fullWidthBgColor5: #fff;
-
-$frameSpacingPC-l: 50px;
-$frameSpacingPC-m: 25px;
-$frameSpacingPC-s: 10px;
-$frameSpacingSP-l: 50px;
-$frameSpacingSP-m: 25px;
-$frameSpacingSP-s: 10px;
-@if $device == PC {
-  .cms-partsConfig-width-m {
-    width: 75%;
-    margin-right: auto;
-    margin-left: auto;
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background-image: url("../imgs/b-downloadIcon/#{$file}.png");
+    background-repeat: no-repeat;
+    background-size: 30px * $size 30px * $size;
   }
-
-  .cms-partsConfig-width-s {
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-@if $device == SP {
-  $g-fontSize: 14px;
-  $g-baseFontColor: #5d3e0e;
-  $g-textColor: $g-baseFontColor;
-  $g-textShadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -3px #fff, 1px -3px #fff, -1px 3px #fff, 1px 3px #fff, (-3px) -1px #fff, 3px -1px #fff, -3px 1px #fff, 3px 1px #fff, (-3px) -3px 1px #fff, 3px -3px 1px #fff, -3px 3px 1px #fff, 3px 3px 1px #fff;
-  $g-textShadow2: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
-  $g-textShadow3: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
-
-  body.mod-body,
-  div.mod-body {
-    font-size: $g-fontSize;
-    font-family: "ヒラギノ丸ゴ Pro W4", "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-    color: #5d3e0e;
-  }
-
-  // tel
-  $_tel_wd: 51px;
-  $_tel_hg: 45px;
-
-  // fax
-  $_fax_wd: 47px;
-  $_fax_hg: 30px;
-
-  // free
-  $_free_wd: 52px;
-  $_free_hg: 30px;
-
-  // cell
-  $_cell_wd: 26px;
-  $_cell_hg: 45px;
 }
