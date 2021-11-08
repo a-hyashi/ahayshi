@@ -11,6 +11,7 @@ const templateFiles = require('./lib/template-files');
 const dataJsonFiles = require('./lib/data-json-files');
 const mergeStream = require('merge-stream');
 const sftp = require('gulp-sftp-up4');
+const blocks = require('./lib/btool-settings/blocks.json');
 
 gulp.task('stylelint-fix', () => {
   return gulp.src('devStuff/src/parts/*.scss')
@@ -144,40 +145,44 @@ gulp.task('update-styleguide-imgs', () => {
 });
 
 // スタイルガイド作成用jsonを作成
-gulp.task('make-allparts-datajson', () => make_allparts_datajson(''));
-gulp.task('make-allparts-datajson2', () => make_allparts_datajson('2'));
-gulp.task('make-allparts-datajson3', () => make_allparts_datajson('3'));
-gulp.task('make-allparts-datajson4', () => make_allparts_datajson('4'));
-gulp.task('make-allparts-datajson5', () => make_allparts_datajson('5'));
-gulp.task('make-allparts-datajson6', () => make_allparts_datajson('6'));
+gulp.task('make-allparts-datajson1', () => make_allparts_datajson(1));
+gulp.task('make-allparts-datajson2', () => make_allparts_datajson(2));
+gulp.task('make-allparts-datajson3', () => make_allparts_datajson(3));
+gulp.task('make-allparts-datajson4', () => make_allparts_datajson(4));
+gulp.task('make-allparts-datajson5', () => make_allparts_datajson(5));
+gulp.task('make-allparts-datajson6', () => make_allparts_datajson(6));
 
 const make_allparts_datajson = (num) => {
   return templateFiles.makeAllDatajsonFull(
     config.html_templates_dir,
     `./temp/datajson${num}/`,
-    `./btool-settings/blocks${num}.json`
+    blocks["base"][num - 1]
   );
 }
 
 // スタイルガイド作成用htmlを作成
-gulp.task('make-html', () => makeHtml(''));
-gulp.task('make-html2', () => makeHtml('2'));
-gulp.task('make-html3', () => makeHtml('3'));
-gulp.task('make-html4', () => makeHtml('4'));
-gulp.task('make-html5', () => makeHtml('5'));
-gulp.task('make-html6', () => makeHtml('6'));
+gulp.task('make-html1', () => make_html(1));
+gulp.task('make-html2', () => make_html(2));
+gulp.task('make-html3', () => make_html(3));
+gulp.task('make-html4', () => make_html(4));
+gulp.task('make-html5', () => make_html(5));
+gulp.task('make-html6', () => make_html(6));
 
-const makeHtml = (num) => {
+const make_html = (num) => {
   return dataJsonFiles.makeHtmlFiles(`./temp/html${num}/`, `./temp/datajson${num}/`, config.html_templates_dir, false);
 }
 
 // スタイルガイド作成mdファイル作成
-gulp.task('make-unittest', () => htmlFiles.makeUnitTestFiles('./temp/datajson/', './temp/html/', './temp/unittest/'));
-gulp.task('make-unittest2', () => htmlFiles.makeUnitTestFiles('./temp/datajson2/', './temp/html2/', './temp/unittest/'));
-gulp.task('make-unittest3', () => htmlFiles.makeUnitTestFiles('./temp/datajson3/', './temp/html3/', './temp/unittest/'));
-gulp.task('make-unittest4', () => htmlFiles.makeUnitTestFiles('./temp/datajson4/', './temp/html4/', './temp/unittest/'));
-gulp.task('make-unittest5', () => htmlFiles.makeUnitTestFiles('./temp/datajson5/', './temp/html5/', './temp/unittest/'));
-gulp.task('make-unittest6', () => htmlFiles.makeUnitTestFiles('./temp/datajson6/', './temp/html6/', './temp/unittest/'));
+gulp.task('make-unittest1', () => make_unittest(1));
+gulp.task('make-unittest2', () => make_unittest(2));
+gulp.task('make-unittest3', () => make_unittest(3));
+gulp.task('make-unittest4', () => make_unittest(4));
+gulp.task('make-unittest5', () => make_unittest(5));
+gulp.task('make-unittest6', () => make_unittest(6));
+
+const make_unittest = (num) => {
+  return htmlFiles.makeUnitTestFiles(`./temp/datajson${num}/`, `./temp/html${num}/`, './temp/unittest/');
+}
 
 // スタイルガイド作成
 gulp.task('make-aigis', () => {
@@ -200,7 +205,7 @@ gulp.task('update-styleguide',
       'del-tempfile',
       // ファイルが多すぎてnode.jsがエラーになるので分割して実行
       gulp.parallel(
-        'make-allparts-datajson',
+        'make-allparts-datajson1',
         'make-allparts-datajson2',
         'make-allparts-datajson3',
         'make-allparts-datajson4',
@@ -208,7 +213,7 @@ gulp.task('update-styleguide',
         'make-allparts-datajson6'
       ),
       // 同時実行件数が多いとエラーになるので直列処理する
-      'make-html',
+      'make-html1',
       'make-html2',
       'make-html3',
       'make-html4',
@@ -216,7 +221,7 @@ gulp.task('update-styleguide',
       'make-html6',
       // htmlからmdファイル作成
       gulp.parallel(
-        'make-unittest',
+        'make-unittest1',
         'make-unittest2',
         'make-unittest3',
         'make-unittest4',
