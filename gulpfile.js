@@ -145,43 +145,52 @@ gulp.task('update-styleguide-imgs', () => {
 });
 
 // スタイルガイド作成用jsonを作成
-gulp.task('make-allparts-datajson1', () => make_allparts_datajson(1));
-gulp.task('make-allparts-datajson2', () => make_allparts_datajson(2));
-gulp.task('make-allparts-datajson3', () => make_allparts_datajson(3));
-gulp.task('make-allparts-datajson4', () => make_allparts_datajson(4));
-gulp.task('make-allparts-datajson5', () => make_allparts_datajson(5));
-gulp.task('make-allparts-datajson6', () => make_allparts_datajson(6));
+gulp.task('make-base-parts-datajson1', () => make_parts_datajson('base', 1));
+gulp.task('make-base-parts-datajson2', () => make_parts_datajson('base', 2));
+gulp.task('make-base-parts-datajson3', () => make_parts_datajson('base', 3));
+gulp.task('make-base-parts-datajson4', () => make_parts_datajson('base', 4));
+gulp.task('make-base-parts-datajson5', () => make_parts_datajson('base', 5));
+gulp.task('make-base-parts-datajson6', () => make_parts_datajson('base', 6));
+gulp.task('make-addition-parts-datajson1', () => make_parts_datajson('addition', 1));
+gulp.task('make-addition-parts-datajson2', () => make_parts_datajson('addition', 2));
+gulp.task('make-addition-parts-datajson3', () => make_parts_datajson('addition', 3));
 
-const make_allparts_datajson = (num) => {
+const make_parts_datajson = (type, num) => {
   return templateFiles.makeAllDatajsonFull(
     config.html_templates_dir,
-    `./temp/datajson${num}/`,
-    blocks["base"][num - 1]
+    `./temp/${type}/datajson${num}/`,
+    blocks[type][num - 1]
   );
 }
 
 // スタイルガイド作成用htmlを作成
-gulp.task('make-html1', () => make_html(1));
-gulp.task('make-html2', () => make_html(2));
-gulp.task('make-html3', () => make_html(3));
-gulp.task('make-html4', () => make_html(4));
-gulp.task('make-html5', () => make_html(5));
-gulp.task('make-html6', () => make_html(6));
+gulp.task('make-base-html1', () => make_html('base', 1));
+gulp.task('make-base-html2', () => make_html('base', 2));
+gulp.task('make-base-html3', () => make_html('base', 3));
+gulp.task('make-base-html4', () => make_html('base', 4));
+gulp.task('make-base-html5', () => make_html('base', 5));
+gulp.task('make-base-html6', () => make_html('base', 6));
+gulp.task('make-addition-html1', () => make_html('addition', 1));
+gulp.task('make-addition-html2', () => make_html('addition', 2));
+gulp.task('make-addition-html3', () => make_html('addition', 3));
 
-const make_html = (num) => {
-  return dataJsonFiles.makeHtmlFiles(`./temp/html${num}/`, `./temp/datajson${num}/`, config.html_templates_dir, false);
+const make_html = (type, num) => {
+  return dataJsonFiles.makeHtmlFiles(`./temp/${type}/html${num}/`, `./temp/${type}/datajson${num}/`, config.html_templates_dir, false);
 }
 
 // スタイルガイド作成mdファイル作成
-gulp.task('make-unittest1', () => make_unittest(1));
-gulp.task('make-unittest2', () => make_unittest(2));
-gulp.task('make-unittest3', () => make_unittest(3));
-gulp.task('make-unittest4', () => make_unittest(4));
-gulp.task('make-unittest5', () => make_unittest(5));
-gulp.task('make-unittest6', () => make_unittest(6));
+gulp.task('make-base-unittest1', () => make_unittest('base', 1));
+gulp.task('make-base-unittest2', () => make_unittest('base', 2));
+gulp.task('make-base-unittest3', () => make_unittest('base', 3));
+gulp.task('make-base-unittest4', () => make_unittest('base', 4));
+gulp.task('make-base-unittest5', () => make_unittest('base', 5));
+gulp.task('make-base-unittest6', () => make_unittest('base', 6));
+gulp.task('make-addition-unittest1', () => make_unittest('addition', 1));
+gulp.task('make-addition-unittest2', () => make_unittest('addition', 2));
+gulp.task('make-addition-unittest3', () => make_unittest('addition', 3));
 
-const make_unittest = (num) => {
-  return htmlFiles.makeUnitTestFiles(`./temp/datajson${num}/`, `./temp/html${num}/`, './temp/unittest/');
+const make_unittest = (type, num) => {
+  return htmlFiles.makeUnitTestFiles(`./temp/${type}/datajson${num}/`, `./temp/${type}/html${num}/`, './temp/unittest/');
 }
 
 // スタイルガイド作成
@@ -205,28 +214,28 @@ gulp.task('update-styleguide',
       'del-tempfile',
       // ファイルが多すぎてnode.jsがエラーになるので分割して実行
       gulp.parallel(
-        'make-allparts-datajson1',
-        'make-allparts-datajson2',
-        'make-allparts-datajson3',
-        'make-allparts-datajson4',
-        'make-allparts-datajson5',
-        'make-allparts-datajson6'
+        'make-base-parts-datajson1',
+        'make-base-parts-datajson2',
+        'make-base-parts-datajson3',
+        'make-base-parts-datajson4',
+        'make-base-parts-datajson5',
+        'make-base-parts-datajson6'
       ),
       // 同時実行件数が多いとエラーになるので直列処理する
-      'make-html1',
-      'make-html2',
-      'make-html3',
-      'make-html4',
-      'make-html5',
-      'make-html6',
+      'make-base-html1',
+      'make-base-html2',
+      'make-base-html3',
+      'make-base-html4',
+      'make-base-html5',
+      'make-base-html6',
       // htmlからmdファイル作成
       gulp.parallel(
-        'make-unittest1',
-        'make-unittest2',
-        'make-unittest3',
-        'make-unittest4',
-        'make-unittest5',
-        'make-unittest6'
+        'make-base-unittest1',
+        'make-base-unittest2',
+        'make-base-unittest3',
+        'make-base-unittest4',
+        'make-base-unittest5',
+        'make-base-unittest6'
       ),
       // styleguide作成
       'make-aigis',
