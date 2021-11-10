@@ -13,28 +13,28 @@ const mergeStream = require('merge-stream');
 const sftp = require('gulp-sftp-up4');
 const blocks = require('./lib/btool-settings/blocks.json');
 
-gulp.task('stylelint-fix', () => {
+const stylelint_fix = () => {
   return gulp.src('devStuff/src/parts/*.scss')
   .pipe($.stylelint({ fix: true, failAfterError: false }))
   .pipe(gulp.dest('devStuff/src/parts'));
-});
+};
 
 // stylelint-fix時にチェックも入れると拾いきれない場合があるので分割している
-gulp.task('stylelint-check', () => {
+const stylelint_check = () => {
   return gulp.src('devStuff/src/parts/*.scss')
   .pipe($.stylelint({ failAfterError: false, reporters: [{ formatter: 'string', console: true }] }));
-});
+};
 
 // Stylelintで自動整形と構文チェック .stylelintrc.ymlのルール参照
-gulp.task('stylelint', gulp.series('stylelint-fix', 'stylelint-check'));
+exports.stylelint = gulp.series(stylelint_fix, stylelint_check);
 
 // ファイルが存在しないエラーになるため作成する
-gulp.task('mkdir-temp', () => {
+const mkdir_temp = () => {
   return gulp.src('*.*', {read: false})
   .pipe(gulp.dest('devStuff/temp/css'));
-});
+};
 
-gulp.task('compile_to_temp', () => {
+const compile_to_temp = () => {
   styleSource = ['devStuff/src/**/*.scss'];
   return mergeStream(
     styleSource.map(styleSource => {
@@ -44,9 +44,9 @@ gulp.task('compile_to_temp', () => {
       .pipe(gulp.dest('devStuff/temp/css'));
     })
   )
-});
+};
 
-gulp.task('compile_to_styleguide', () => {
+const compile_to_styleguide = () => {
   styleSources = ['devStuff/src/pc-L25.scss', 'devStuff/src/pc-N00.scss', 'devStuff/src/sp.scss'];
   return mergeStream(
     styleSources.map(styleSource => {
@@ -58,7 +58,7 @@ gulp.task('compile_to_styleguide', () => {
       .pipe(gulp.dest('devStuff/styleguide/css'))
     })
   )
-});
+};
 
 const get_theme_name = () => __dirname.split('/').pop();
 
@@ -106,15 +106,15 @@ const output_imgs_to_build_folder = (aTheme) => {
   .pipe(gulp.dest(`build/theme_materials/${aTheme}/imgs/`));
 }
 
-gulp.task('output_to_build_folder', () => {
+const output_to_build_folder = () => {
   const theme = get_theme_name();
   const variation_and_ratio_list = xtract_variation_and_ratio_list();
   output_imgs_to_build_folder(theme);
   output_css_to_build_folder(theme, variation_and_ratio_list);
   return del('devStuff/temp/css');
-});
+};
 
-gulp.task('create-b-placer-doc', (done) => {
+const create_b_placer_doc = (done) => {
   if (!fs.existsSync('devStuff/src/config/_bPlacer.scss')) {
     done();
     return;
@@ -122,38 +122,35 @@ gulp.task('create-b-placer-doc', (done) => {
 
   b_placer.update_md();
   done();
-  }
-);
+};
 
-gulp.task('build',
-  gulp.series(
-    'mkdir-temp',
-    gulp.parallel(
-      gulp.series('compile_to_temp', 'output_to_build_folder'),
-      'create-b-placer-doc'
-    )
+exports.build = gulp.series(
+  mkdir_temp,
+  gulp.parallel(
+    gulp.series(compile_to_temp, output_to_build_folder),
+    create_b_placer_doc
   )
 );
 
-gulp.task('update-styleguide-css', gulp.parallel('compile_to_styleguide', 'create-b-placer-doc'));
+const update_styleguide_css = gulp.parallel(compile_to_styleguide, create_b_placer_doc);
 
-gulp.task('update-styleguide-imgs', () => {
+const update_styleguide_imgs = () => {
   return gulp.src('./devStuff/src/imgs/**/*', { base: './devStuff/src/imgs/' })
   .pipe($.changed('./devStuff/styleguide/imgs/'))
   .pipe($.imagemin())
   .pipe(gulp.dest('./devStuff/styleguide/imgs/'));
-});
+};
 
 // スタイルガイド作成用jsonを作成
-gulp.task('make-base-parts-datajson1', () => make_parts_datajson('base', 1));
-gulp.task('make-base-parts-datajson2', () => make_parts_datajson('base', 2));
-gulp.task('make-base-parts-datajson3', () => make_parts_datajson('base', 3));
-gulp.task('make-base-parts-datajson4', () => make_parts_datajson('base', 4));
-gulp.task('make-base-parts-datajson5', () => make_parts_datajson('base', 5));
-gulp.task('make-base-parts-datajson6', () => make_parts_datajson('base', 6));
-gulp.task('make-addition-parts-datajson1', () => make_parts_datajson('addition', 1));
-gulp.task('make-addition-parts-datajson2', () => make_parts_datajson('addition', 2));
-gulp.task('make-addition-parts-datajson3', () => make_parts_datajson('addition', 3));
+const make_base_parts_datajson1 = () => make_parts_datajson('base', 1);
+const make_base_parts_datajson2 = () => make_parts_datajson('base', 2);
+const make_base_parts_datajson3 = () => make_parts_datajson('base', 3);
+const make_base_parts_datajson4 = () => make_parts_datajson('base', 4);
+const make_base_parts_datajson5 = () => make_parts_datajson('base', 5);
+const make_base_parts_datajson6 = () => make_parts_datajson('base', 6);
+const make_addition_parts_datajson1 = () => make_parts_datajson('addition', 1);
+const make_addition_parts_datajson2 = () => make_parts_datajson('addition', 2);
+const make_addition_parts_datajson3 = () => make_parts_datajson('addition', 3);
 
 const make_parts_datajson = (type, num) => {
   return templateFiles.makeAllDatajsonFull(
@@ -164,90 +161,87 @@ const make_parts_datajson = (type, num) => {
 }
 
 // スタイルガイド作成用htmlを作成
-gulp.task('make-base-html1', () => make_html('base', 1));
-gulp.task('make-base-html2', () => make_html('base', 2));
-gulp.task('make-base-html3', () => make_html('base', 3));
-gulp.task('make-base-html4', () => make_html('base', 4));
-gulp.task('make-base-html5', () => make_html('base', 5));
-gulp.task('make-base-html6', () => make_html('base', 6));
-gulp.task('make-addition-html1', () => make_html('addition', 1));
-gulp.task('make-addition-html2', () => make_html('addition', 2));
-gulp.task('make-addition-html3', () => make_html('addition', 3));
+const make_base_html1 = () => make_html('base', 1);
+const make_base_html2 = () => make_html('base', 2);
+const make_base_html3 = () => make_html('base', 3);
+const make_base_html4 = () => make_html('base', 4);
+const make_base_html5 = () => make_html('base', 5);
+const make_base_html6 = () => make_html('base', 6);
+const make_addition_html1 = () => make_html('addition', 1);
+const make_addition_html2 = () => make_html('addition', 2);
+const make_addition_html3 = () => make_html('addition', 3);
 
 const make_html = (type, num) => {
   return dataJsonFiles.makeHtmlFiles(`./temp/${type}/html${num}/`, `./temp/${type}/datajson${num}/`, config.html_templates_dir, false);
 }
 
 // スタイルガイド作成mdファイル作成
-gulp.task('make-base-unittest1', () => make_unittest('base', 1));
-gulp.task('make-base-unittest2', () => make_unittest('base', 2));
-gulp.task('make-base-unittest3', () => make_unittest('base', 3));
-gulp.task('make-base-unittest4', () => make_unittest('base', 4));
-gulp.task('make-base-unittest5', () => make_unittest('base', 5));
-gulp.task('make-base-unittest6', () => make_unittest('base', 6));
-gulp.task('make-addition-unittest1', () => make_unittest('addition', 1));
-gulp.task('make-addition-unittest2', () => make_unittest('addition', 2));
-gulp.task('make-addition-unittest3', () => make_unittest('addition', 3));
+const make_base_unittest1 = () => make_unittest('base', 1);
+const make_base_unittest2 = () => make_unittest('base', 2);
+const make_base_unittest3 = () => make_unittest('base', 3);
+const make_base_unittest4 = () => make_unittest('base', 4);
+const make_base_unittest5 = () => make_unittest('base', 5);
+const make_base_unittest6 = () => make_unittest('base', 6);
+const make_addition_unittest1 = () => make_unittest('addition', 1);
+const make_addition_unittest2 = () => make_unittest('addition', 2);
+const make_addition_unittest3 = () => make_unittest('addition', 3);
 
 const make_unittest = (type, num) => {
   return htmlFiles.makeUnitTestFiles(`./temp/${type}/datajson${num}/`, `./temp/${type}/html${num}/`, './temp/unittest/');
 }
 
 // スタイルガイド作成
-gulp.task('make-aigis', () => {
+const make_aigis = () => {
   if (!fs.existsSync('./devStuff/styleguide/css')) {
     fs.mkdirSync('./devStuff/styleguide/css', {recursive: true});
   }
   return gulp.src('devStuff/aigis_config.yml')
   .pipe($.aigis());
-});
+};
 
-gulp.task('del-styleguide', () => del('./devStuff/styleguide'));
-gulp.task('del-tempfile', () => del('./temp'));
+const del_styleguide = () => del('./devStuff/styleguide');
+const del_tempfile = () => del('./temp');
 
 // スタイルガイド作成
-gulp.task('update-styleguide',
-  gulp.parallel(
-    gulp.series('del-styleguide', 'update-styleguide-css'),
-    gulp.series(
-      // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
-      'del-tempfile',
-      // ファイルが多すぎてnode.jsがエラーになるので分割して実行
-      gulp.parallel(
-        'make-base-parts-datajson1',
-        'make-base-parts-datajson2',
-        'make-base-parts-datajson3',
-        'make-base-parts-datajson4',
-        'make-base-parts-datajson5',
-        'make-base-parts-datajson6'
-      ),
-      // 同時実行件数が多いとエラーになるので直列処理する
-      'make-base-html1',
-      'make-base-html2',
-      'make-base-html3',
-      'make-base-html4',
-      'make-base-html5',
-      'make-base-html6',
-      // htmlからmdファイル作成
-      gulp.parallel(
-        'make-base-unittest1',
-        'make-base-unittest2',
-        'make-base-unittest3',
-        'make-base-unittest4',
-        'make-base-unittest5',
-        'make-base-unittest6'
-      ),
-      // styleguide作成
-      'make-aigis',
-      // 作業ディレクトリを削除
-      'del-tempfile'
-
-    )
+exports.update_styleguide = gulp.parallel(
+  gulp.series(del_styleguide, update_styleguide_css),
+  gulp.series(
+    // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
+    del_tempfile,
+    // ファイルが多すぎてnode.jsがエラーになるので分割して実行
+    gulp.parallel(
+      make_base_parts_datajson1,
+      make_base_parts_datajson2,
+      make_base_parts_datajson3,
+      make_base_parts_datajson4,
+      make_base_parts_datajson5,
+      make_base_parts_datajson6
+    ),
+    // 同時実行件数が多いとエラーになるので直列処理する
+    make_base_html1,
+    make_base_html2,
+    make_base_html3,
+    make_base_html4,
+    make_base_html5,
+    make_base_html6,
+    // htmlからmdファイル作成
+    gulp.parallel(
+      make_base_unittest1,
+      make_base_unittest2,
+      make_base_unittest3,
+      make_base_unittest4,
+      make_base_unittest5,
+      make_base_unittest6
+    ),
+    // styleguide作成
+    make_aigis,
+    // 作業ディレクトリを削除
+    del_tempfile
   )
-);
+  );
 
 // build/とACRE-theme/acre/の間で差分があるファイルを転送する
-gulp.task('output_to_ACRE-theme', () => {
+exports.output_to_ACRE_theme = () => {
   return gulp.src('./build/')
   .pipe($.rsync({
     root: './build/',
@@ -257,9 +251,9 @@ gulp.task('output_to_ACRE-theme', () => {
     recursive: true,
     exclude: '**/.*'
   }));
-});
+};
 
-const upload_themes = () => {
+exports.upload_css = () => {
   const ssh_config = require('../ssh/ssh_config.json');
   const theme = get_theme_name();
   return gulp.src([
@@ -279,7 +273,7 @@ const upload_themes = () => {
 }
 
 // SFTP error or directory existsのエラーが出ても気にしないこと
-const upload_img = () => {
+exports.upload_img = () => {
   const ssh_config = require('../ssh/ssh_config.json');
   return gulp.src([
     'build/theme_materials/**/*'
@@ -297,24 +291,14 @@ const upload_img = () => {
   }));
 }
 
-gulp.task('upload-css', (done) => {
-  upload_themes();
-  done();
-});
-
-gulp.task('upload-img', (done) => {
-  upload_img();
-  done();
-});
-
-gulp.task('reload', (done) => {
+const reload = (done) => {
   browserSync.reload();
   done();
-});
+};
 
-gulp.task('watch', () => gulp.watch('devStuff/src/**/*.scss', gulp.series('update-styleguide-css', 'reload')));
+const watch = () => gulp.watch('devStuff/src/**/*.scss', gulp.series(update_styleguide_css, reload));
 
-gulp.task('server', () => {
+const server = () => {
   return browserSync({
     server: {
       baseDir: './devStuff/styleguide',
@@ -322,11 +306,9 @@ gulp.task('server', () => {
     },
     open: false
   });
-});
+};
 
-gulp.task('default',
-  gulp.series(
-    gulp.parallel('update-styleguide-css', 'update-styleguide-imgs'),
-    gulp.parallel('server', 'watch')
-  )
+exports.default = gulp.series(
+  gulp.parallel(update_styleguide_css, update_styleguide_imgs),
+  gulp.parallel(server, watch)
 );

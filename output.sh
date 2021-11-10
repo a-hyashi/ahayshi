@@ -10,7 +10,7 @@ if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*" | sort` ; do
       ./set-themes.sh ${theme#./}
-      docker-compose run app1 npx gulp output_to_ACRE-theme
+      docker-compose run app1 npx gulp output_to_ACRE_theme
     done
     docker-compose down
     printf "\e[32mACRE-Themeへ差分コピーが完了しました\e[m\n"
@@ -23,7 +23,7 @@ fi
 
 APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
 for ((i = 0; i < ${#APPS[@]}; i++)) ; do
-  docker-compose run app$(($i+1)) npx gulp output_to_ACRE-theme
+  docker-compose run app$(($i+1)) npx gulp output_to_ACRE_theme
 done
 
 docker-compose down
