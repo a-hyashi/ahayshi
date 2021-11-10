@@ -203,42 +203,42 @@ const del_styleguide = () => del('./devStuff/styleguide');
 const del_tempfile = () => del('./temp');
 
 // スタイルガイド作成
-exports.update_styleguide = gulp.parallel(
-  gulp.series(del_styleguide, update_styleguide_css),
-  gulp.series(
-    // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
-    del_tempfile,
-    // ファイルが多すぎてnode.jsがエラーになるので分割して実行
-    gulp.parallel(
-      make_base_parts_datajson1,
-      make_base_parts_datajson2,
-      make_base_parts_datajson3,
-      make_base_parts_datajson4,
-      make_base_parts_datajson5,
-      make_base_parts_datajson6
-    ),
-    // 同時実行件数が多いとエラーになるので直列処理する
-    make_base_html1,
-    make_base_html2,
-    make_base_html3,
-    make_base_html4,
-    make_base_html5,
-    make_base_html6,
-    // htmlからmdファイル作成
-    gulp.parallel(
-      make_base_unittest1,
-      make_base_unittest2,
-      make_base_unittest3,
-      make_base_unittest4,
-      make_base_unittest5,
-      make_base_unittest6
-    ),
-    // styleguide作成
-    make_aigis,
-    // 作業ディレクトリを削除
-    del_tempfile
-  )
-  );
+exports.update_styleguide = gulp.series(
+  gulp.parallel(
+    del_styleguide,
+    gulp.series(
+      // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
+      del_tempfile,
+      // ファイルが多すぎてnode.jsがエラーになるので分割して実行
+      gulp.parallel(
+        make_base_parts_datajson1,
+        make_base_parts_datajson2,
+        make_base_parts_datajson3,
+        make_base_parts_datajson4,
+        make_base_parts_datajson5,
+        make_base_parts_datajson6
+      ),
+      // 同時実行件数が多いとエラーになるので直列処理する
+      make_base_html1,
+      make_base_html2,
+      make_base_html3,
+      make_base_html4,
+      make_base_html5,
+      make_base_html6,
+      // htmlからmdファイル作成
+      gulp.parallel(
+        make_base_unittest1,
+        make_base_unittest2,
+        make_base_unittest3,
+        make_base_unittest4,
+        make_base_unittest5,
+        make_base_unittest6
+      )
+    )
+  ),
+  // styleguide作成
+  make_aigis
+);
 
 // build/とACRE-theme/acre/の間で差分があるファイルを転送する
 exports.output_to_ACRE_theme = () => {
