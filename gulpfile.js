@@ -202,6 +202,55 @@ const make_aigis = () => {
 const del_styleguide = () => del('./devStuff/styleguide');
 const del_tempfile = () => del('./temp');
 
+const make_base_unittest_all_process = (done) => {
+  return gulp.series(
+    gulp.parallel(
+      make_base_parts_datajson1,
+      make_base_parts_datajson2,
+      make_base_parts_datajson3,
+      make_base_parts_datajson4,
+      make_base_parts_datajson5,
+      make_base_parts_datajson6
+    ),
+    // 同時実行件数が多いとエラーになるので直列処理する
+    make_base_html1,
+    make_base_html2,
+    make_base_html3,
+    make_base_html4,
+    make_base_html5,
+    make_base_html6,
+    // htmlからmdファイル作成
+    gulp.parallel(
+      make_base_unittest1,
+      make_base_unittest2,
+      make_base_unittest3,
+      make_base_unittest4,
+      make_base_unittest5,
+      make_base_unittest6
+    )
+  )(done);
+}
+
+const make_addition_unittest_all_process = (done) => {
+  return gulp.series(
+    gulp.parallel(
+      make_addition_parts_datajson1,
+      make_addition_parts_datajson2,
+      make_addition_parts_datajson3
+    ),
+    // 同時実行件数が多いとエラーになるので直列処理する
+    make_addition_html1,
+    make_addition_html2,
+    make_addition_html3,
+    // htmlからmdファイル作成
+    gulp.parallel(
+      make_addition_unittest1,
+      make_addition_unittest2,
+      make_addition_unittest3
+    )
+  )(done);
+}
+
 // スタイルガイド作成
 exports.update_styleguide = gulp.series(
   gulp.parallel(
@@ -209,31 +258,23 @@ exports.update_styleguide = gulp.series(
     gulp.series(
       // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
       del_tempfile,
-      // ファイルが多すぎてnode.jsがエラーになるので分割して実行
-      gulp.parallel(
-        make_base_parts_datajson1,
-        make_base_parts_datajson2,
-        make_base_parts_datajson3,
-        make_base_parts_datajson4,
-        make_base_parts_datajson5,
-        make_base_parts_datajson6
-      ),
-      // 同時実行件数が多いとエラーになるので直列処理する
-      make_base_html1,
-      make_base_html2,
-      make_base_html3,
-      make_base_html4,
-      make_base_html5,
-      make_base_html6,
-      // htmlからmdファイル作成
-      gulp.parallel(
-        make_base_unittest1,
-        make_base_unittest2,
-        make_base_unittest3,
-        make_base_unittest4,
-        make_base_unittest5,
-        make_base_unittest6
-      )
+      make_base_unittest_all_process
+    )
+  ),
+  // styleguide作成
+  make_aigis
+);
+
+
+// スタイルガイド作成
+exports.update_styleguide_all_parts = gulp.series(
+  gulp.parallel(
+    del_styleguide,
+    gulp.series(
+      // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
+      del_tempfile,
+      make_base_unittest_all_process,
+      make_addition_unittest_all_process
     )
   ),
   // styleguide作成
