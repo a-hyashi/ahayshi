@@ -12,6 +12,7 @@ const dataJsonFiles = require('./lib/data-json-files');
 const mergeStream = require('merge-stream');
 const sftp = require('gulp-sftp-up4');
 const blocks = require('./lib/btool-settings/blocks.json');
+const selected_blocks_path = '../config/selected_blocks.txt';
 
 const stylelint_fix = () => {
   return gulp.src('devStuff/src/parts/*.scss')
@@ -141,6 +142,25 @@ const update_styleguide_imgs = () => {
   .pipe(gulp.dest('./devStuff/styleguide/imgs/'));
 };
 
+/**
+ * selected_blocksに記載されたblockを追加する.
+ */
+const read_selected_blocks = () => {
+  selected_block_names = fs.readFileSync(selected_blocks_path, 'utf8').split('\n');
+  let selected_blocks = {};
+  for (const optional_blocks_list of blocks['option']) {
+    for (const num in optional_blocks_list) {
+      for (const block of (optional_blocks_list[num])) {
+        if (selected_block_names.includes(block['name'].split('-')[0])) {
+          selected_blocks[num] = optional_blocks_list[num];
+          continue;
+        }
+      }
+    }
+  }
+  return selected_blocks;
+}
+
 // スタイルガイド作成用jsonを作成
 const make_base_parts_datajson1 = () => make_parts_datajson('base', 1);
 const make_base_parts_datajson2 = () => make_parts_datajson('base', 2);
@@ -148,15 +168,28 @@ const make_base_parts_datajson3 = () => make_parts_datajson('base', 3);
 const make_base_parts_datajson4 = () => make_parts_datajson('base', 4);
 const make_base_parts_datajson5 = () => make_parts_datajson('base', 5);
 const make_base_parts_datajson6 = () => make_parts_datajson('base', 6);
-const make_addition_parts_datajson1 = () => make_parts_datajson('addition', 1);
-const make_addition_parts_datajson2 = () => make_parts_datajson('addition', 2);
-const make_addition_parts_datajson3 = () => make_parts_datajson('addition', 3);
+const make_option_parts_datajson1 = () => make_parts_datajson('option', 1);
+const make_option_parts_datajson2 = () => make_parts_datajson('option', 2);
+const make_option_parts_datajson3 = () => make_parts_datajson('option', 3);
 
 const make_parts_datajson = (type, num) => {
   return templateFiles.makeAllDatajsonFull(
     config.html_templates_dir,
-    `./temp/${type}/datajson${num}/`,
+    `./temp/datajson/${type}${num}/`,
     blocks[type][num - 1]
+  );
+}
+
+const make_selected_datajson1 = (done) => {
+  if (!fs.existsSync(selected_blocks_path)) {
+    done();
+    return;
+  }
+
+  return templateFiles.makeAllDatajsonFull(
+    config.html_templates_dir,
+    `./temp/datajson/selected1/`,
+    read_selected_blocks()
   );
 }
 
@@ -167,12 +200,19 @@ const make_base_html3 = () => make_html('base', 3);
 const make_base_html4 = () => make_html('base', 4);
 const make_base_html5 = () => make_html('base', 5);
 const make_base_html6 = () => make_html('base', 6);
-const make_addition_html1 = () => make_html('addition', 1);
-const make_addition_html2 = () => make_html('addition', 2);
-const make_addition_html3 = () => make_html('addition', 3);
+const make_selected_html1 = (done) => make_html('selected', 1, done);
+const make_option_html1 = () => make_html('option', 1);
+const make_option_html2 = () => make_html('option', 2);
+const make_option_html3 = () => make_html('option', 3);
 
-const make_html = (type, num) => {
-  return dataJsonFiles.makeHtmlFiles(`./temp/${type}/html${num}/`, `./temp/${type}/datajson${num}/`, config.html_templates_dir, false);
+const make_html = (type, num, done) => {
+  const src = `./temp/datajson/${type}${num}/`;
+  if (!fs.existsSync(src)) {
+    done();
+    return;
+  }
+
+  return dataJsonFiles.makeHtmlFiles(`./temp/html/${type}${num}/`, src, config.html_templates_dir, false);
 }
 
 // スタイルガイド作成mdファイル作成
@@ -182,12 +222,19 @@ const make_base_unittest3 = () => make_unittest('base', 3);
 const make_base_unittest4 = () => make_unittest('base', 4);
 const make_base_unittest5 = () => make_unittest('base', 5);
 const make_base_unittest6 = () => make_unittest('base', 6);
-const make_addition_unittest1 = () => make_unittest('addition', 1);
-const make_addition_unittest2 = () => make_unittest('addition', 2);
-const make_addition_unittest3 = () => make_unittest('addition', 3);
+const make_selected_unittest1 = (done) => make_unittest('selected', 1, done);
+const make_option_unittest1 = () => make_unittest('option', 1);
+const make_option_unittest2 = () => make_unittest('option', 2);
+const make_option_unittest3 = () => make_unittest('option', 3);
 
-const make_unittest = (type, num) => {
-  return htmlFiles.makeUnitTestFiles(`./temp/${type}/datajson${num}/`, `./temp/${type}/html${num}/`, './temp/unittest/');
+const make_unittest = (type, num, done) => {
+  const src = `./temp/html/${type}${num}/`;
+  if (!fs.existsSync(src)) {
+    done();
+    return;
+  }
+
+  return htmlFiles.makeUnitTestFiles(`./temp/datajson/${type}${num}/`, src, './temp/unittest/');
 }
 
 // スタイルガイド作成
@@ -202,79 +249,90 @@ const make_aigis = () => {
 const del_styleguide = () => del('./devStuff/styleguide');
 const del_tempfile = () => del('./temp');
 
-const make_base_unittest_all_process = (done) => {
-  return gulp.series(
-    gulp.parallel(
-      make_base_parts_datajson1,
-      make_base_parts_datajson2,
-      make_base_parts_datajson3,
-      make_base_parts_datajson4,
-      make_base_parts_datajson5,
-      make_base_parts_datajson6
-    ),
-    // 同時実行件数が多いとエラーになるので直列処理する
-    make_base_html1,
-    make_base_html2,
-    make_base_html3,
-    make_base_html4,
-    make_base_html5,
-    make_base_html6,
-    // htmlからmdファイル作成
-    gulp.parallel(
-      make_base_unittest1,
-      make_base_unittest2,
-      make_base_unittest3,
-      make_base_unittest4,
-      make_base_unittest5,
-      make_base_unittest6
-    )
-  )(done);
-}
-
-const make_addition_unittest_all_process = (done) => {
-  return gulp.series(
-    gulp.parallel(
-      make_addition_parts_datajson1,
-      make_addition_parts_datajson2,
-      make_addition_parts_datajson3
-    ),
-    // 同時実行件数が多いとエラーになるので直列処理する
-    make_addition_html1,
-    make_addition_html2,
-    make_addition_html3,
-    // htmlからmdファイル作成
-    gulp.parallel(
-      make_addition_unittest1,
-      make_addition_unittest2,
-      make_addition_unittest3
-    )
-  )(done);
-}
-
-// スタイルガイド作成
+// 基本部品 + 選択部品でスタイルガイドを作成
 exports.update_styleguide = gulp.series(
   gulp.parallel(
     del_styleguide,
     gulp.series(
       // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
       del_tempfile,
-      make_base_unittest_all_process
+      gulp.series(
+        gulp.parallel(
+          make_base_parts_datajson1,
+          make_base_parts_datajson2,
+          make_base_parts_datajson3,
+          make_base_parts_datajson4,
+          make_base_parts_datajson5,
+          make_base_parts_datajson6,
+          make_selected_datajson1
+        ),
+        // 同時実行件数が多いとエラーになるので直列処理する
+        make_base_html1,
+        make_base_html2,
+        make_base_html3,
+        make_base_html4,
+        make_base_html5,
+        make_base_html6,
+        make_selected_html1,
+        // htmlからmdファイル作成
+        gulp.parallel(
+          make_base_unittest1,
+          make_base_unittest2,
+          make_base_unittest3,
+          make_base_unittest4,
+          make_base_unittest5,
+          make_base_unittest6,
+          make_selected_unittest1
+        )
+      )
     )
   ),
   // styleguide作成
   make_aigis
 );
 
-
-// スタイルガイド作成
+// 全部品でスタイルガイドを作成
 exports.update_styleguide_all_parts = gulp.series(
   gulp.parallel(
     del_styleguide,
     gulp.series(
       // 余計なファイルが残っていると動かない場合があるので最初に作業ディレクトリを削除する
       del_tempfile,
-      make_base_unittest_all_process,
-      make_addition_unittest_all_process
+      gulp.series(
+        gulp.parallel(
+          make_base_parts_datajson1,
+          make_base_parts_datajson2,
+          make_base_parts_datajson3,
+          make_base_parts_datajson4,
+          make_base_parts_datajson5,
+          make_base_parts_datajson6,
+          make_option_parts_datajson1,
+          make_option_parts_datajson2,
+          make_option_parts_datajson3
+        ),
+        // 同時実行件数が多いとエラーになるので直列処理する
+        make_base_html1,
+        make_base_html2,
+        make_base_html3,
+        make_base_html4,
+        make_base_html5,
+        make_base_html6,
+        make_option_html1,
+        make_option_html2,
+        make_option_html3,
+        // htmlからmdファイル作成
+        gulp.parallel(
+          make_base_unittest1,
+          make_base_unittest2,
+          make_base_unittest3,
+          make_base_unittest4,
+          make_base_unittest5,
+          make_base_unittest6,
+          make_option_unittest1,
+          make_option_unittest2,
+          make_option_unittest3
+        )
+      )
     )
   ),
   // styleguide作成
