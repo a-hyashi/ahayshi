@@ -157,7 +157,7 @@ $ ./init.sh
 <br>
 
 #### 基本形に部品を追加したい場合
-config内に`selected_blocks.txt`を作成し、ブロック名を記載してください。  
+`lib/user_config`内に`selected_blocks.txt`を作成し、ブロック名を記載してください。  
 複数記載する場合はブロック名の間に改行を入れてください。  
 **例:**
 ```txt
