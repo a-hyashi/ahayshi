@@ -237,6 +237,8 @@ const make_unittest = (type, num, done) => {
   return htmlFiles.makeUnitTestFiles(`./temp/datajson/${type}${num}/`, src, './temp/unittest/');
 }
 
+const make_extra_unittest = () => { return htmlFiles.makeExtraTestFiles('./temp/unittest/') }
+
 // スタイルガイド作成
 const make_aigis = () => {
   if (!fs.existsSync('./devStuff/styleguide/css')) {
@@ -282,7 +284,8 @@ exports.update_styleguide = gulp.series(
           make_base_unittest4,
           make_base_unittest5,
           make_base_unittest6,
-          make_selected_unittest1
+          make_selected_unittest1,
+          make_extra_unittest
         )
       )
     )
@@ -330,7 +333,8 @@ exports.update_styleguide_all_parts = gulp.series(
           make_base_unittest6,
           make_option_unittest1,
           make_option_unittest2,
-          make_option_unittest3
+          make_option_unittest3,
+          make_extra_unittest
         )
       )
     )
