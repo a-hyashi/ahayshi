@@ -49,6 +49,9 @@ buddy-theme
 │   ├── schemas/
 │   ├── *.js
 │
+├── config/
+│   └── **
+│
 ├── ssh/
 │   ├── devwork_rsa
 │   └── ssh_config.json
@@ -65,6 +68,7 @@ buddy-theme
 ├── docker-compose.yml
 ├── Dockerfile
 ├── gulpfile.js
+├── all_parts.sh
 ├── init.sh
 ├── lint.sh
 ├── output.sh
@@ -96,6 +100,8 @@ $ ./set-themes.sh 031
 $ docker-compose run app1 npm ci
 ```
 buddy-themeフォルダ内にdocker-compose.ymlファイルとnode_modulesフォルダがあればOKです。
+
+<br>
 
 #### 2. 関連ファイルの配置
 以下のリポジトリをローカルにクローンし、buddy-themeと同じディレクトリに配置してください。
@@ -135,8 +141,9 @@ app3を031Bに設定しました
 <br>
 ---
 
-### テスト用ファイルの作成
+### スタイルガイド用ファイルの作成
 
+#### 基本的な部品のみの場合
 以下のコマンドを実行  
 ```sh
 $ ./init.sh
@@ -147,6 +154,28 @@ $ ./init.sh
 - lib/
 - devStuff/styleguide/
 
+<br>
+
+#### 基本形に部品を追加したい場合
+`lib/user_config`内に`selected_blocks.txt`を作成し、ブロック名を記載してください。  
+複数記載する場合はブロック名の間に改行を入れてください。  
+**例:**
+```txt
+mediaXCol
+frameWithHCaptionNumIcon
+```
+
+その後initを実行
+```sh
+$ ./init.sh
+```
+
+<br>
+
+#### 全部品を作成したい場合
+```sh
+$ ./all_parts.sh
+```
 <br>
 ---
 
@@ -422,7 +451,7 @@ lib
 ```sh
 Error: EIO: i/o error, open '/buddy-theme/037/temp/html/062_navBItem_navBItem/062_navBItem_navBItem_f99_005_07.html'
 ```
-同時実行数が多すぎなので、blocks[数字].jsonを分割する
+同時実行数が多すぎなので、blocks.jsonを分割する
 
 ```sh
 Maximum call stack size exceeded

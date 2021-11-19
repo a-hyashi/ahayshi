@@ -530,6 +530,7 @@
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|3|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|4|8%||25px|
 |11.枠|side|155_サイドボックス|.t0-b-sideBox|5|8%||25px|
+|11.枠|side|155_サイドボックス|.t0-b-sideBox|6|8%||25px|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi||0||0|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|2|0||0|
 |11.枠|footer|202_フッターセット|.t0-b-footerCombi|3|0||0|
@@ -554,6 +555,7 @@
 |11.枠|main|1000_枠|.t0-b-frameOuter|10|8%||35px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|11|8%||35px|
 |11.枠|main|1000_枠|.t0-b-frameOuter|12|8%||35px|
+|11.枠|main|1000_枠|.t0-b-frameOuter|13|8%||35px|
 |11.枠|main|1009_枠(2列分割)|.t0-b-frameOuter2col||0||0|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard||8%||25px|
 |12.その他|main|008_クレジットカード|.t0-b-creditCard|2|8%||25px|
