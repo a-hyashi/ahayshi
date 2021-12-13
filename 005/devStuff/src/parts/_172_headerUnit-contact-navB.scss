@@ -249,6 +249,58 @@
       white-space: normal;
     }
   }
+
+  .t0-b-headerUnit-contact-navB6 {
+    white-space: nowrap;
+    margin: 0 2px;
+    a {
+      text-decoration: none;
+      width: 100%;
+      &:hover {
+        p {
+          opacity: .8;
+          &::before {
+            transform: translateX(4px) translateY(-50%);
+          }
+        }
+      }
+    }
+
+    a > p,
+    > p {
+      min-height: 14px;
+      padding: 6px 20px 5px 26px;
+      background-color: $headerUnit-contact-navB6_BGColor;
+      box-shadow: 0 0 2px $headerUnit-contact-navB6_boxShadowColor;
+      border: 2px solid $headerUnit-contact-navB6_borderColor;
+      transition: .4s;
+      @include g-font(12, 1);
+      color: $headerUnit-contact-navB6_textColor;
+      position: relative;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-image: url("../imgs/t0-b-navItem/29.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: .4s;
+        padding-left: 10px;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    // サイト名(中央)に入ったときは文字数分の幅で中央寄せにする
+    .t0-b-headerSingle &,
+    .t0-b-headerSingle1 & {
+      width: auto;
+      margin: 0 auto;
+      white-space: normal;
+    }
+  }
 }
 
 @if $device == SP {
@@ -373,6 +425,29 @@
     border: 1px solid $headerUnit-contact-navB5_borderColor;
     border-radius: 5px;
     color: $headerUnit-contact-navB5_textColor;
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      text-align: center;
+      margin-right: 10%;
+      padding: 12px 10px;
+      @include g-font(16, 1);
+    }
+  }
+
+  .t0-b-headerUnit-contact-navB6 {
+    width: 95%;
+    margin: 0 auto;
+    background-image: url("../imgs/t0-b-navItem/29.svg");
+    background-color: $headerUnit-contact-navB6_BGColor;
+    background-repeat: no-repeat;
+    background-size: 10px 12px;
+    background-position: 95% 50%;
+    border: 1px solid $headerUnit-contact-navB6_borderColor;
+    border-radius: 5px;
+    color: $headerUnit-contact-navB6_textColor;
     a {
       text-decoration: none;
     }
