@@ -1,23 +1,21 @@
 @if $device == PC {
   .t0-b-headerUnit-text {
-
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #8e6e3b;
-    $_color_table_th_bg: #f9f4df;
+    $_color_table_border: $headerUnit-text_borderColor;
+    $_color_table_th_bg: $headerUnit-text_BGColor;
     white-space: nowrap;
 
     @include g-rteTableReset;
     a {
-      color: $g-textColor;
+      color: $g-baseFontColor;
       &:hover {
-        color: $g-hoverColor;
+        color: $g-baseHoverColor;
       }
     }
 
     p {
       @include g-font(16, 2);
-
       margin-top: 1em;
     }
 
@@ -35,7 +33,6 @@
 
       li {
         @include g-font(16, 1);
-
         list-style-type: decimal;
         margin-top: $_elementSpacing;
         &:first-child {
@@ -67,13 +64,12 @@
 
       th, td {
         @include g-font(14, 1);
-
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 10px;
         text-align: left;
         vertical-align: middle;
-        background: #fff;
+        background-color: $headerUnit-text_BGColor2;
       }
 
       ul, ol {
@@ -89,7 +85,7 @@
 
       th {
         border-bottom: 1px solid $_color_table_border;
-        background: $_color_table_th_bg;
+        background-color: $_color_table_th_bg;
       }
     }
 
@@ -101,19 +97,17 @@
 
 @if $device == SP {
   .t0-b-headerUnit-text {
-
     $_blockSpacing: #{$g-spacingBaseLength * 3}px;
     $_elementSpacing: #{$g-spacingBaseLength * 2}px;
-    $_color_table_border: #5d3e0e;
-    $_color_table_th_bg: #f9f4df;
+    $_color_table_border: $headerUnit-text_borderColor2;
+    $_color_table_th_bg: $headerUnit-text_BGColor;
     @include g-rteTableReset;
     a {
-      color: $g-textColor;
+      color: $g-baseFontColor;
     }
 
     p {
       @include g-font(16, 2);
-
       margin-top: 1em;
     }
 
@@ -131,7 +125,6 @@
 
       li {
         @include g-font(16, 1);
-
         list-style-type: decimal;
         margin-top: $_elementSpacing;
         &:first-child {
@@ -163,13 +156,12 @@
 
       th, td {
         @include g-font(14, 1);
-
         border-top: 1px solid $_color_table_border;
         border-left: 1px solid $_color_table_border;
         padding: 3% 1%;
         text-align: left;
         vertical-align: middle;
-        background: #fff;
+        background-color: $headerUnit-text_BGColor2;
       }
 
       ul, ol {
@@ -185,7 +177,7 @@
 
       th {
         border-bottom: 1px solid $_color_table_border;
-        background: $_color_table_th_bg;
+        background-color: $_color_table_th_bg;
       }
     }
 
@@ -203,9 +195,7 @@
 
       li {
         margin-top: $_elementSpacing;
-
         @include g-font(16, 1);
-
         list-style-type: disc;
         &:first-child {
           margin-top: 0;

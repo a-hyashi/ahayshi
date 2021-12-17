@@ -8,7 +8,7 @@
     $_itemSpacing: #{$g-spacingBaseLength * 2}px;
     $_blockSpacing: #{$g-spacingBaseLength * 4}px;
     padding: #{$_blockSpacing} 0 0;
-    color: $g-textColor;
+    color: $g-baseFontColor;
     &:first-child {
       padding-top: 0;
     }
@@ -24,9 +24,9 @@
     a {
       // text-decorationの指定が2重であるとWindowsのFirefoxで下線が太くなるので一度指定をリセットする。
       text-decoration: none;
-      color: $g-textColor;
+      color: $g-baseFontColor;
       &:hover {
-        color: $g-hoverColor;
+        color: $g-baseHoverColor;
       }
     }
 
@@ -72,7 +72,7 @@
 
   .b-downloadIcon {
     $_block: &;
-    $_color_border: #aaa;
+    $_color_border: $downloadIcon_borderColor;
 
     @include fileIcon("pdf",1);
     @include fileIcon("doc",1);
@@ -124,9 +124,7 @@
 
     &__item {
       padding: #{$_itemSpacing} 0 0;
-
       @include cf;
-
       // clearfix
       &::before,
       &::after {
@@ -145,7 +143,7 @@
 
     a {
       text-decoration: none;
-      color: $g-textColor;
+      color: $g-baseFontColor;
     }
 
     &__itemSplit {
@@ -169,11 +167,10 @@
   }
 
   .b-downloadIcon {
-    $_color_border: #aaa;
+    $_color_border: $downloadIcon_borderColor;
 
     display: inline-block;
     vertical-align: middle;
-
     @include fileIcon("pdf", 1.2);
     @include fileIcon("doc", 1);
     @include fileIcon("xls", 1);
