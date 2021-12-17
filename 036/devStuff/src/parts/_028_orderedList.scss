@@ -1,0 +1,73 @@
+@if $device == PC {
+  .t0-b-orderedList {
+    $_block: &;
+    li {
+      background-image: url("../imgs/t0-b-orderedList/1.png");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      padding: 0;
+      display: table;
+      > #{$_block}__num {
+        display: table-cell;
+        vertical-align: top;
+        width: 53px;
+        font-size: 24px;
+        height: 53px;
+        line-height: 43px;
+        padding: 5px 0 0;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      #{$_block}__text {
+        @include g-font(16, 1);
+        padding: 3px 0 0 10px;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    a {
+      color: $g-baseFontColor;
+      &:hover {
+        color: $g-baseHoverColor;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-orderedList {
+    $_block: &;
+    li {
+      padding: 0;
+      display: table;
+      > #{$_block}__num {
+        display: table-cell;
+        vertical-align: top;
+        width: 35px;
+        font-size: 16px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        box-sizing: border-box;
+        background-image: url("../imgs/t0-b-orderedList/1.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: 35px 35px;
+        text-indent: 2px;
+      }
+
+      #{$_block}__text {
+        @include g-font(16, 1);
+        padding: 7px 0 0 10px;
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+}

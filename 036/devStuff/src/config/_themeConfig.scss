@@ -1,0 +1,135 @@
+$g-fontSize: 14px;
+$g-spacingBaseLength: 5;
+
+// tel
+$_tel_wd: 51px;
+$_tel_hg: 45px;
+// fax
+$_fax_wd: 47px;
+$_fax_hg: 30px;
+// free
+$_free_wd: 52px;
+$_free_hg: 30px;
+// cell
+$_cell_wd: 26px;
+$_cell_hg: 45px;
+
+$frameSpacingPC-l: 50px;
+$frameSpacingPC-m: 25px;
+$frameSpacingPC-s: 10px;
+$frameSpacingSP-l: 50px;
+$frameSpacingSP-m: 25px;
+$frameSpacingSP-s: 10px;
+
+html {
+  font-size: $g-fontSize;
+}
+
+body.mod-body,
+div.mod-body {
+  // 禁則処理対応
+  word-break: break-all;
+  font-weight: 500;
+  font-size: $g-fontSize;
+  font-family: $themeFont;
+  color: $g-baseFontColor;
+  background-color: $mod-body_BGColor;
+}
+
+.mod-body {
+  button, input, optgroup, select, textarea {
+    // normalize.cssによるフォントファミリーの指定を上書き
+    font-family: $themeFont;
+  }
+}
+
+a {
+  color: $g-baseFontColor;
+  text-decoration: underline;
+}
+
+@if $device == PC {
+  a {
+    &:hover {
+      color: $g-baseHoverColor;
+    }
+  }
+
+  .cms-partsConfig-width-m {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cms-partsConfig-width-s {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.cms-admin-anchorFlag {
+  position: relative;
+  z-index: 10 !important;
+}
+
+@if $device == SP {
+  $g-fontSize: 14px;
+  $g-baseFontColor: $mod-body_textColor;
+  $g-textColor: $g-baseFontColor;
+  $g-textShadow: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -3px #fff, 1px -3px #fff, -1px 3px #fff, 1px 3px #fff, (-3px) -1px #fff, 3px -1px #fff, -3px 1px #fff, 3px 1px #fff, (-3px) -3px 1px #fff, 3px -3px 1px #fff, -3px 3px 1px #fff, 3px 3px 1px #fff;
+  $g-textShadow2: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -2px #fff, 1px -2px #fff, -1px 2px #fff, 1px 2px #fff, (-2px) -1px #fff, 2px -1px #fff, -2px 1px #fff, 2px 1px #fff, (-2px) -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
+  $g-textShadow3: (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px #fff, 1px -1px #fff, -1px 1px #fff, 1px 1px #fff, (-1px) -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, 1px 1px 1px #fff;
+
+  body.mod-body,
+  div.mod-body {
+    font-size: $g-fontSize;
+    font-family: "ヒラギノ丸ゴ Pro W4", "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    color: $g-textColor;
+  }
+}
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 30px * $size;
+    height: 30px * $size;
+    background-image: url("../imgs/b-downloadIcon/#{$file}.png");
+    background-repeat: no-repeat;
+    background-size: 30px * $size 30px * $size;
+  }
+}

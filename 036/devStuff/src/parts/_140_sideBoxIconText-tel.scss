@@ -1,0 +1,168 @@
+@if $device == PC {
+  .t0-b-sideBoxIconText-tel {
+    $_block: &;
+    color: $sideBoxIconText-tel_textColor;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__ruby {
+      font-size: 14px;
+      line-height: 1.25;
+      text-align: right;
+      a {
+        color: inherit;
+        &:hover {
+          color: $g-baseHoverColor;
+        }
+      }
+    }
+
+    &__bd {
+      display: flex;
+      align-items: center;
+      line-height: 1.25;
+      text-align: center;
+      font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+      @if $layout == "L30" or $layout == "R30" {
+        // L30かR30で番号が折り返さない最大サイズ https://goo.gl/Ex1coV
+        font-size: 36px;
+      } @else {
+        // L25かR25で番号が折り返さない最大サイズ
+        font-size: 32px;
+      }
+    }
+    // IEでアイコンと電話番号の縦位置がズレるため、游書体を指定しない。
+    @media all and (-ms-high-contrast: none) {
+      &__bd {
+        font-family: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", serif;
+        font-weight: bold;
+      }
+    }
+    &__icon {
+      background-repeat: no-repeat;
+      background-position: 0 50%;
+      width: 34px;
+      & + span {
+        font-size: 80%;
+      }
+    }
+
+    #{$_block}__tel {
+      height: $_tel_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/tel.png");
+      background-size: ($_tel_wd / 1.81) ($_tel_hg / 1.81);
+    }
+
+    #{$_block}__fax {
+      height: $_fax_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/fax.png");
+      background-size: ($_fax_wd / 1.81) ($_fax_hg / 1.81);
+    }
+
+    #{$_block}__free {
+      height: $_free_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/free.png");
+      background-size: ($_free_wd / 1.81) ($_free_hg / 1.81);
+    }
+
+    #{$_block}__cell {
+      height: $_cell_hg / 1.81;
+      background-image: url("../imgs/t0-b-iconText/cell.png");
+      background-size: ($_cell_wd / 1.81) ($_cell_hg / 1.81);
+      background-position: 6px 0;
+    }
+
+    &--align-l {
+      text-align: left;
+    }
+
+    &--align-c {
+      text-align: center;
+    }
+
+    &--align-r {
+      text-align: right;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-sideBoxIconText-tel {
+    $_block: &;
+
+    width: 95%;
+    margin: 0 auto;
+    background: linear-gradient($sideBoxIconText-tel_BGColor, $sideBoxIconText-tel_BGColor2, $sideBoxIconText-tel_BGColor3);
+    border: 1px solid $sideBoxIconText-tel_borderColor;
+    border-radius: 8px;
+    padding: 10px 0;
+    word-break: break-all;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    > div {
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__ruby {
+      font-size: 12px;
+      line-height: 1.25;
+      text-align: center;
+      color: $sideBoxIconText-tel_textColor2;
+    }
+
+    &__bd {
+      font-size: 22px;
+      line-height: 1.25;
+      text-align: center;
+      color: $sideBoxIconText-tel_textColor3;
+      > span {
+        vertical-align: middle;
+      }
+    }
+
+    &__icon {
+      padding: 0 7px 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    &__tel {
+      width: $_tel_wd / 2.5;
+      height: $_tel_hg / 2.5;
+      background-image: url("../imgs/t0-b-iconText/tel.png");
+      background-size: ($_tel_wd / 2.5) ($_tel_hg / 2.5);
+    }
+
+    &__fax {
+      width: $_fax_wd / 2.5;
+      height: $_fax_hg / 2.5;
+      background-image: url("../imgs/t0-b-iconText/fax.png");
+      background-size: ($_fax_wd / 2.5) ($_fax_hg / 2.5);
+      margin-top: -1px;
+    }
+
+    &__free {
+      width: $_free_wd / 2.5;
+      height: $_free_hg / 2.5;
+      background-image: url("../imgs/t0-b-iconText/free.png");
+      background-size: ($_free_wd / 2.5) ($_free_hg / 2.5);
+      margin-top: -1px;
+    }
+
+    &__cell {
+      width: $_cell_wd / 2.5;
+      height: $_cell_hg / 2.5;
+      background-image: url("../imgs/t0-b-iconText/cell.png");
+      background-size: ($_cell_wd / 2.5) ($_cell_hg / 2.5);
+    }
+  }
+}

@@ -1,0 +1,111 @@
+@if $device == PC {
+  .t0-b-footerMenu {
+    margin: 0 auto;
+    ul {
+      width: 1060px;
+      display: table;
+      margin: 0 auto;
+      background-image: url("../imgs/t0-b-footerMenu/1.png"), url("../imgs/t0-b-footerMenu/2.png");
+      background-repeat: repeat-x, repeat-x;
+      background-position: left top, left bottom;
+      background-color: $footerMenu_BGColor;
+    }
+
+    &--widthEqualized {
+      > div {
+        > ul {
+          table-layout: fixed;
+        }
+      }
+    }
+
+    .t0-b-footerMenu__item {
+      display: table-cell;
+      vertical-align: middle;
+      div {
+        text-align: center;
+        padding: 0 20px;
+        @include g-font(16, 1);
+        font-weight: bold;
+        position: relative;
+        height: 72px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        &::before {
+          content: "";
+          position: absolute;
+          pointer-events: none;
+          left: 0;
+          right: 0;
+          top: 28px;
+          bottom: 28px;
+          border-left: 2px solid $g-baseFontColor;
+        }
+      }
+
+      &:first-child {
+        div {
+          &::before {
+            border-left: 0;
+          }
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $g-baseFontColor;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .state-em {
+      color: $g-baseHoverColor;
+      a {
+        color: $g-baseHoverColor;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-footerMenu {
+    ul {
+      padding: 5px 10px;
+    }
+
+    background: $footerMenu_BGColor;
+    box-sizing: border-box;
+    margin: 0 -15px;
+    text-align: center;
+    border: 1px solid $footerMenu_borderColor;
+    .t0-b-footerMenu__item {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      margin-left: 15px;
+      display: inline-block;
+      div {
+        text-align: center;
+        padding: 5px 0;
+        @include g-font(12, 1);
+        text-decoration: underline;
+      }
+    }
+
+    a {
+      color: $g-baseFontColor;
+    }
+
+    .state-em {
+      color: $g-baseHoverColor;
+      > a {
+        color: $g-baseHoverColor;
+      }
+    }
+  }
+}

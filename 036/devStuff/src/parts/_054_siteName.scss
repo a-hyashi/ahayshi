@@ -1,0 +1,122 @@
+@if $device == PC {
+  .t0-b-siteName,
+  .t0-b-siteTitle {
+    $_block: &;
+    white-space: nowrap;
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 45px;
+        max-width: 160px;
+      }
+    }
+
+    a {
+      color: $g-baseFontColor;
+      text-decoration: none;
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $g-baseHoverColor;
+        }
+
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+    }
+
+    &__bd-siteName {
+      @include g-font(36, 1);
+      font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      // siteNameにfont-familyが指定してあるため、g-fontFamilyが効かない。書体変更機能を有効にするために、下記でg-fontFamilyを設定し直す
+      .g-fontFamily-gothic & {
+        font-family: $font-gothic;
+      }
+
+      .g-fontFamily-mincho & {
+        font-family: $font-mincho;
+      }
+
+      .g-fontFamily-marugo & {
+        font-family: $font-marugo;
+      }
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(32, 1);
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 5px 0 0;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-siteName,
+  .t0-b-siteTitle {
+    a {
+      color: $g-baseFontColor;
+      text-decoration: none;
+    }
+
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+
+    &__bd-logo {
+      padding: 0 10px 0 0;
+      img {
+        display: block;
+        height: 45px;
+        max-width: 160px;
+      }
+    }
+
+    &__bd-textCol {
+      @include g-font(14, 1);
+    }
+
+    &__bd-note {
+      @include g-font(14, 1);
+      padding: 0 0 5px;
+    }
+
+    &__bd-siteName {
+      @include g-font(28, 1);
+      font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      font-weight: bold;
+    }
+
+    &__bd-note + &__bd-siteName {
+      @include g-font(24, 1);
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 5px 0 0;
+    }
+  }
+}

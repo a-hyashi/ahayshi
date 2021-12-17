@@ -1,0 +1,281 @@
+@if $device == PC {
+  .t0-b-navItemCaptioned {
+    $_block: &;
+    $_fontSizeDifference: 2;
+    $_fontSizePx_main: 20;
+    $_fontSizePx_main_ss: $_fontSizePx_main - $_fontSizeDifference - 2;
+    $_fontSizePx_main_s: $_fontSizePx_main - $_fontSizeDifference;
+    $_fontSizePx_main_m: $_fontSizePx_main;
+    $_fontSizePx_main_l: $_fontSizePx_main + $_fontSizeDifference;
+    $_fontSizePx_main_ll: $_fontSizePx_main + $_fontSizeDifference + 2;
+    $_fontSizePx_caption: 16;
+    $_fontSizePx_caption_ss: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_s: $_fontSizePx_caption - $_fontSizeDifference;
+    $_fontSizePx_caption_m: $_fontSizePx_caption;
+    $_fontSizePx_caption_l: $_fontSizePx_caption + $_fontSizeDifference;
+    $_fontSizePx_caption_ll: $_fontSizePx_caption + $_fontSizeDifference +2;
+    $_lineHeightType: 1;
+
+    display: table;
+    > a {
+      text-decoration: none;
+      color: $g-baseFontColor;
+      &:hover {
+        color: $g-baseHoverColor;
+      }
+    }
+
+    &__inner {
+      display: table;
+      box-sizing: border-box;
+      > * {
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      > span {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    &--align-l {
+      margin: 0 auto 0 0;
+    }
+
+    &--align-c {
+      margin: 0 auto;
+    }
+
+    &--align-r {
+      margin: 0 0 0 auto;
+    }
+
+    &__main {
+      border-bottom: 1px solid $navItemCaptioned_borderColor;
+      @include g-font($_fontSizePx_main, $_lineHeightType);
+      position: relative;
+      box-sizing: border-box;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 100%;
+        background-image: url("../imgs/t0-b-navItem/4.png");
+        background-position: 0 50%;
+        background-repeat: no-repeat;
+      }
+      @include g-font($_fontSizePx_main, $_lineHeightType);
+      a:hover & {
+        color: $g-baseHoverColor;
+      }
+    }
+
+    &__caption {
+      padding: 5px 0 0;
+      > a {
+        color: inherit;
+        &:hover {
+          color: $g-baseHoverColor;
+        }
+      }
+    }
+
+    &--size-1 {
+      #{$_block}__inner {
+        > span {
+          width: 18px;
+          height: 18px;
+          padding-right: 5px;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_ss, $_lineHeightType);
+        min-height: 18px;
+        &::before {
+          background-size: 18px 18px;
+          left: -23px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_ss - 2, $_lineHeightType);
+      }
+    }
+
+    &--size-2 {
+      #{$_block}__inner {
+        > span {
+          width: 20px;
+          height: 20px;
+          padding-right: 6px;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_s, $_lineHeightType);
+        min-height: 20px;
+        &::before {
+          background-size: 20px 20px;
+          left: -26px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_s, $_lineHeightType);
+      }
+    }
+
+    &--size-3 {
+      #{$_block}__inner {
+        > span {
+          width: 22px;
+          height: 22px;
+          padding-right: 7px;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_m, $_lineHeightType);
+        min-height: 22px;
+        &::before {
+          background-size: 22px 22px;
+          left: -29px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_m, $_lineHeightType);
+      }
+    }
+
+    &--size-4 {
+      #{$_block}__inner {
+        > span {
+          width: 26px;
+          height: 26px;
+          padding-right: 8px;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_l, $_lineHeightType);
+        min-height: 26px;
+        &::before {
+          background-size: 26px 26px;
+          left: -34px;
+          bottom: -2px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_l, $_lineHeightType);
+      }
+    }
+
+    &--size-5 {
+      #{$_block}__inner {
+        > span {
+          width: 32px;
+          height: 32px;
+          padding-right: 9px;
+        }
+      }
+
+      #{$_block}__main {
+        @include g-font($_fontSizePx_main_ll, $_lineHeightType);
+        min-height: 32px;
+        &::before {
+          background-size: 32px 32px;
+          left: -41px;
+          bottom: -1px;
+        }
+      }
+
+      #{$_block}__caption {
+        @include g-font($_fontSizePx_caption_ll, $_lineHeightType);
+      }
+    }
+  }
+
+  .t0-b-navItemCaptionedDouble {
+    display: flex;
+    &__layout {
+      flex: 1 1 (100% / 2);
+      padding-left: 4%;
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-navItemCaptioned {
+    $_fontSizePx_main: 16;
+    $_fontSizePx_caption: 14;
+    $_lineHeightType: 1;
+    > a {
+      display: table;
+      text-decoration: none;
+      color: $g-baseFontColor;
+    }
+
+    &__inner {
+      display: table;
+      margin: 0 auto;
+      box-sizing: border-box;
+      > * {
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      > span {
+        width: 18px;
+        height: 18px;
+        padding-right: 5px;
+      }
+    }
+
+    &__main {
+      border-bottom: 1px solid $navItemCaptioned_borderColor;
+      @include g-font($_fontSizePx_main, $_lineHeightType);
+      position: relative;
+      box-sizing: border-box;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 100%;
+        left: -23px;
+        bottom: -2px;
+        background-image: url("../imgs/t0-b-navItem/4.png");
+        background-position: 0 50%;
+        background-repeat: no-repeat;
+        background-size: 18px 18px;
+        min-height: 18px;
+      }
+    }
+
+    &__caption {
+      @include g-font($_fontSizePx_caption, $_lineHeightType);
+      padding: 5px 0 0;
+      a {
+        color: $g-baseFontColor;
+      }
+    }
+  }
+
+  .t0-b-navItemCaptionedDouble {
+    &__layout {
+      padding-bottom: 20px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

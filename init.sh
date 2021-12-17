@@ -12,7 +12,7 @@ if [ $1 ] ; then
   if [ $1 = "all" ] ; then
     for theme in `find . -type d -maxdepth 1 -regex "./[0-9][0-9][0-9][A-Z]*" | sort` ; do
       ./set-themes.sh ${theme#./}
-      docker-compose run app1 npx gulp update-styleguide
+      docker-compose run app1 npx gulp update_styleguide
       # 重くなるのでループの中でコンテナを落とす
       docker-compose down
     done
@@ -26,7 +26,7 @@ fi
 
 APPS=($(grep 'app[0-9]*' docker-compose.yml --only-matching))
 for ((i = 0; i < ${#APPS[@]}; i++)) ; do
-  docker-compose run app$(($i+1)) npx gulp update-styleguide
+  docker-compose run app$(($i+1)) npx gulp update_styleguide
 done
 
 docker-compose down

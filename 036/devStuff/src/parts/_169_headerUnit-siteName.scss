@@ -1,0 +1,261 @@
+@if $device == PC {
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle {
+
+    $_block: &;
+
+    white-space: nowrap;
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      &-logo {
+        padding: 0 10px 0 0;
+        img {
+          display: block;
+          max-width: 160px;
+          height: 45px;
+        }
+      }
+
+      &-note {
+        @include g-font(16, 1);
+        margin: 0 0 5px;
+        font-weight: normal;
+      }
+
+      &-siteName {
+        @include g-font(36, 1);
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+        // siteNameにfont-familyが指定してあるため、g-fontFamilyが効かない。書体変更機能を有効にするために、下記でg-fontFamilyを設定し直す
+        .g-fontFamily-gothic & {
+          font-family: $font-gothic;
+        }
+
+        .g-fontFamily-mincho & {
+          font-family: $font-mincho;
+        }
+
+        .g-fontFamily-marugo & {
+          font-family: $font-marugo;
+        }
+      }
+
+      &-note + &-siteName {
+        @include g-font(32, 1);
+      }
+    }
+
+    a {
+      color: $g-baseFontColor;
+      text-decoration: none;
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $g-baseHoverColor;
+        }
+
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__ft {
+      @include g-font(16, 1);
+      padding: 5px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+
+    $_block: &;
+
+    white-space: nowrap;
+    margin: 0 auto;
+    display: table;
+    &__bd {
+      display: table;
+      margin: 0 auto;
+      > div {
+        display: table;
+        text-align: center;
+      }
+
+      &-logo {
+        margin: 0 auto;
+        img {
+          display: block;
+          max-width: 160px;
+          height: 45px;
+        }
+      }
+
+      &-textCol {
+        padding-top: 10px;
+      }
+
+      &-note {
+        @include g-font(16, 1);
+
+        margin: 0 0 5px;
+        font-weight: normal;
+      }
+
+      &-siteName {
+        @include g-font(36, 1);
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+        // siteNameにfont-familyが指定してあるため、g-fontFamilyが効かない。書体変更機能を有効にするために、下記でg-fontFamilyを設定し直す
+        .g-fontFamily-gothic & {
+          font-family: $font-gothic;
+        }
+
+        .g-fontFamily-mincho & {
+          font-family: $font-mincho;
+        }
+
+        .g-fontFamily-marugo & {
+          font-family: $font-marugo;
+        }
+      }
+
+      &-note + &-siteName {
+        @include g-font(32, 1);
+      }
+    }
+
+    a {
+      color: $g-baseFontColor;
+      text-decoration: none;
+      &:hover {
+        #{$_block}__bd-siteName,
+        #{$_block}__bd-note {
+          color: $g-baseHoverColor;
+        }
+
+        img {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__ft {
+      @include g-font(16, 1);
+      padding: 5px 0 0;
+    }
+  }
+}
+
+@if $device == SP {
+  .t0-b-headerUnit-siteName,
+  .t0-b-headerUnit-siteTitle {
+    &__bd {
+      display: table;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      &-logo {
+        padding: 0 10px 0 0;
+        img {
+          display: block;
+          max-width: 160px;
+          height: 45px;
+        }
+      }
+
+      &-textCol {
+        @include g-font(14, 1);
+      }
+
+      &-note {
+        @include g-font(14, 1);
+
+        padding: 0 0 5px;
+      }
+
+      &-siteName {
+        @include g-font(28, 1);
+        font-weight: bold;
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      }
+
+      &-note + &-siteName {
+        @include g-font(24, 1);
+      }
+    }
+
+    a {
+      color: $g-baseFontColor;
+      text-decoration: none;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 5px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle2 {
+    margin: 0 auto;
+    display: table;
+    &__bd {
+      display: table;
+      margin: 0 auto;
+      > div {
+        display: table;
+        text-align: center;
+      }
+
+      &-logo {
+        margin: 0 auto;
+        img {
+          display: block;
+          height: 45px;
+          max-width: 160px;
+        }
+      }
+
+      &-textCol {
+        @include g-font(14, 1);
+
+        padding-top: 10px;
+      }
+
+      &-note {
+        @include g-font(14, 1);
+
+        padding: 0 0 5px;
+      }
+
+      &-siteName {
+        @include g-font(28, 1);
+
+        font-weight: bold;
+        font-family: "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      }
+    }
+
+    a {
+      color: $g-baseFontColor;
+      text-decoration: none;
+    }
+
+    &__ft {
+      @include g-font(14, 1);
+      padding: 5px 0 0;
+    }
+  }
+
+  .t0-b-headerUnit-siteTitle {
+    &__ft {
+      text-align: left;
+    }
+  }
+}
