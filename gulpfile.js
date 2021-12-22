@@ -12,7 +12,7 @@ const dataJsonFiles = require('./lib/data-json-files');
 const mergeStream = require('merge-stream');
 const sftp = require('gulp-sftp-up4');
 const blocks = require('./lib/btool-settings/blocks.json');
-const selected_blocks_path = './user_config/selected_blocks.txt';
+const selected_blocks_path = './lib/user_config/selected_blocks.txt';
 
 const stylelint_fix = () => {
   return gulp.src('devStuff/src/parts/*.scss')
