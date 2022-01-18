@@ -1,5 +1,6 @@
 @if $device == PC {
   .t0-b-article2Image {
+    $_block: &;
     &__hd {
       padding-bottom: 15px;
     }
@@ -8,8 +9,38 @@
       margin-bottom: 15px;
     }
 
+    &__row {
+      display: flex;
+      margin-bottom: 15px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
     &__bd {
       padding: 0 #{3 * $g-leftSpacingBaseLength}px;
+    }
+
+    &__col {
+      flex-basis: calc((100% - 20px) / 2);
+      #{$_block}--colSpacing-l & {
+        flex-basis: (100% - 7) / 2;
+      }
+
+      #{$_block}--colSpacing-s & {
+        flex-basis: (100% - 1) / 2;
+      }
+    }
+
+    &__spacing {
+      flex-basis: 20px;
+      #{$_block}--colSpacing-l & {
+        flex-basis: 7%;
+      }
+
+      #{$_block}--colSpacing-s & {
+        flex-basis: 1%;
+      }
     }
   }
 }
