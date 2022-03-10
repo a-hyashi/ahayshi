@@ -1,0 +1,113 @@
+$g-fontSize: 14px;
+$g-spacingBaseLength: 5;
+$g-leftSpacingBaseLength: 6;
+$mincho: "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+body.mod-body,
+div.mod-body {
+  // 禁則処理対応
+  word-break: break-all;
+  font-weight: 500;
+  font-size: $g-fontSize;
+  font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+  color: $g-textColor;
+  background-color: $g-baseBackgroundColor;
+}
+
+.cms-admin-anchorFlag {
+  position: relative;
+  z-index: 10 !important;
+}
+
+// tel
+$_tel_wd: 56px;
+$_tel_hg: 43px;
+// fax
+$_fax_wd: 58px;
+$_fax_hg: 38px;
+// free
+$_free_wd: 67px;
+$_free_hg: 39px;
+// free (sp用) (freeだけspとpcのサイズが違う為sp用の変数を用意)
+$_free_wd_sp: 58px;
+$_free_hg_sp: 38px;
+// cell
+$_cell_wd: 29px;
+$_cell_hg: 46px;
+@if $device == PC {
+  a {
+    color: inherit;
+    &:hover {
+      color: $g-hoverColor;
+    }
+  }
+}
+@if $device == SP {
+  a {
+    color: inherit;
+  }
+}
+
+@mixin cf {
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-rteTableReset() {
+  th, td {
+    > table:first-child {
+      margin-top: 0;
+    }
+
+    > ul:first-child {
+      margin-top: 0;
+    }
+
+    > ol:first-child {
+      margin-top: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > hr:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin fileIcon-pc($file, $size) {
+  &--#{$file} {
+    width: 44px * $size;
+    height: 48px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 44px * $size 48px * $size;
+  }
+}
+
+@mixin fileIcon-sp($file, $size) {
+  &--#{$file} {
+    $_src: "../imgs/b-downloadIcon/#{$file}.png";
+    background: url($_src);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 27px 28px;
+    width: 27px * $size;
+    height: 28px * $size;
+  }
+}
+
+@mixin fileIcon($file, $size) {
+  &--#{$file} {
+    width: 44px * $size;
+    height: 48px * $size;
+    background: url("../imgs/b-downloadIcon/#{$file}.png") 0 0 no-repeat;
+    background-size: 44px * $size 48px * $size;
+  }
+}
