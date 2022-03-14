@@ -6,19 +6,10 @@
     padding: 60px 50px 50px;
     text-align: center;
     font-family: $mincho;
-    background: radial-gradient($goToTop_BGColor 0%, $goToTop_BGColor2 60%);
+    background: url("../imgs/t0-b-goToTop/bg.png") no-repeat center top,
+      radial-gradient($goToTop_BGColor 0%, $goToTop_BGColor2 60%);
     display: table;
     position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: url("../imgs/t0-b-goToTop/bg.png") no-repeat center top;
-    }
-
     a {
       text-decoration: none;
       color: $goToTop_textColor;
@@ -28,6 +19,7 @@
       &-scrollUp,
       &-scrollDown,
       &-scrollDownStopFooter {
+        text-align: right;
         position: fixed;
         // サイドメニューやフッターに重なっても隠さないため
         z-index: z(goToTop-fixed, 1);
@@ -35,7 +27,6 @@
         bottom: 40px;
         // jsで出現させるので最初は消しておく
         display: none;
-        background: none;
         a {
           text-shadow: $goToTop_textShadowColor 1px 1px 0, $goToTop_textShadowColor -1px -1px 0, $goToTop_textShadowColor -1px 1px 0, $goToTop_textShadowColor 1px -1px 0, $goToTop_textShadowColor 0 1px 0, $goToTop_textShadowColor 0 -1px 0, $goToTop_textShadowColor -1px 0 0, $goToTop_textShadowColor 1px 0 0;
         }
