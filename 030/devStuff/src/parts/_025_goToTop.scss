@@ -14,6 +14,24 @@
       text-decoration: none;
       color: $goToTop_textColor;
     }
+
+    &--fixDisplay {
+      &-scrollUp,
+      &-scrollDown,
+      &-scrollDownStopFooter {
+        position: fixed;
+        // サイドメニューやフッターに重なっても隠さないため
+        z-index: z(goToTop-fixed, 1);
+        right: 45px;
+        bottom: 40px;
+        // jsで出現させるので最初は消しておく
+        display: none;
+        background: none;
+        a {
+          text-shadow: $goToTop_textShadowColor 1px 1px 0, $goToTop_textShadowColor -1px -1px 0, $goToTop_textShadowColor -1px 1px 0, $goToTop_textShadowColor 1px -1px 0, $goToTop_textShadowColor 0 1px 0, $goToTop_textShadowColor 0 -1px 0, $goToTop_textShadowColor -1px 0 0, $goToTop_textShadowColor 1px 0 0;
+        }
+      }
+    }
   }
 
   .t0-b-goToTop2 {
