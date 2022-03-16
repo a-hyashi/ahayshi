@@ -3,16 +3,21 @@
   .t0-b-goToTop2 {
     @include g-font(12, 1);
     margin: 0 auto;
-    padding: 60px 50px 50px;
     text-align: center;
     font-family: $mincho;
-    background: url("../imgs/t0-b-goToTop/bg.png") no-repeat center top,
-      radial-gradient($goToTop_BGColor 0%, $goToTop_BGColor2 60%);
-    display: table;
+    display: block;
     position: relative;
     a {
       text-decoration: none;
       color: $goToTop_textColor;
+      display: inline-block;
+      background: url("../imgs/t0-b-goToTop/bg.png") no-repeat center top,
+        radial-gradient($goToTop_BGColor 0%, $goToTop_BGColor2 60%);
+    }
+
+    div {
+      padding: 60px 50px;
+      text-align: center;
     }
 
     &--fixDisplay {
@@ -28,6 +33,13 @@
         // jsで出現させるので最初は消しておく
         display: none;
       }
+    }
+  }
+
+  .ex-topSpacingTweak {
+    &--g-fixDisplay {
+      margin-top: 0;
+      padding-top: 0;
     }
   }
 
