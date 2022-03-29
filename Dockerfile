@@ -14,9 +14,9 @@ RUN yum clean all
 RUN yum install -y automake autoconf libtool git make gcc*
 #zlibのinstall
 RUN cd /usr/local/src && \
-  wget http://zlib.net/zlib-1.2.11.tar.gz && \
-  tar xvzf zlib-1.2.11.tar.gz && \
-  cd zlib-1.2.11 && \
+  wget http://zlib.net/zlib-1.2.12.tar.gz && \
+  tar xvzf zlib-1.2.12.tar.gz && \
+  cd zlib-1.2.12 && \
   ./configure && \
   make && \
   make install
